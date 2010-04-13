@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ql-regular>
+	<default-handler>chance.base.dao.handler.DefaultQLHandler</default-handler>
+	
+	<regular-item>
+		<key>_ql</key>
+		<handler>chance.base.dao.handler.QLQLHandler</handler>
+	</regular-item>
+	
+	<regular-item>
+		<key>_snull</key>
+		<handler>chance.base.dao.handler.NullQLHandler</handler>
+	</regular-item>
+	<regular-item>
+		<key>_nnull</key>
+		<handler>chance.base.dao.handler.NullQLHandler</handler>
+	</regular-item>
+	<regular-item>
+		<key>_dnull</key>
+		<handler>chance.base.dao.handler.NullQLHandler</handler>
+	</regular-item>
+
+	<regular-item>
+		<key>_se</key>
+		<condition>=</condition>
+	</regular-item>
+	<regular-item>
+		<key>_ne</key>
+		<condition>=</condition>
+	</regular-item>
+	<regular-item>
+		<key>_de</key>
+		<condition>=</condition>
+	</regular-item>
+	
+	<regular-item>
+		<key>_sne</key>
+		<condition>&lt;&gt;</condition>
+	</regular-item>
+	<regular-item>
+		<key>_nne</key>
+		<condition>&lt;&gt;</condition>
+	</regular-item>
+	<regular-item>
+		<key>_dne</key>
+		<condition>&lt;&gt;</condition>
+	</regular-item>
+	
+	<regular-item>
+		<key>_slt</key>
+		<condition>&lt;</condition>
+	</regular-item>
+	<regular-item>
+		<key>_nlt</key>
+		<condition>&lt;</condition>
+	</regular-item>
+	<regular-item>
+		<key>_dlt</key>
+		<condition>&lt;</condition>
+		<handler>chance.base.dao.handler.DateltQLHandler</handler>
+	</regular-item>
+	
+	<regular-item>
+		<key>_sgt</key>
+		<condition>&gt;</condition>
+	</regular-item>
+	<regular-item>
+		<key>_ngt</key>
+		<condition>&gt;</condition>
+	</regular-item>
+	<regular-item>
+		<key>_dgt</key>
+		<condition>&gt;</condition>
+		<handler>chance.base.dao.handler.DategtQLHandler</handler>
+	</regular-item>
+	
+	<regular-item>
+		<key>_sle</key>
+		<condition>&lt;=</condition>
+	</regular-item>
+	<regular-item>
+		<key>_nle</key>
+		<condition>&lt;=</condition>
+	</regular-item>
+	<regular-item>
+		<key>_dle</key>
+		<condition>&lt;=</condition>
+		<handler>chance.base.dao.handler.DateleQLHandler</handler>
+	</regular-item>
+	
+	<regular-item>
+		<key>_sge</key>
+		<condition>&gt;=</condition>
+	</regular-item>
+	<regular-item>
+		<key>_nge</key>
+		<condition>&gt;=</condition>
+	</regular-item>
+	<regular-item>
+		<key>_dge</key>
+		<condition>&gt;=</condition>
+	</regular-item>
+	
+	<regular-item>
+		<key>_sge</key>
+		<condition>&gt;=</condition>
+	</regular-item>
+	<regular-item>
+		<key>_nge</key>
+		<condition>&gt;=</condition>
+	</regular-item>
+	<regular-item>
+		<key>_dge</key>
+		<condition>&gt;=</condition>
+	</regular-item>
+	
+	<regular-item>
+		<key>_slike</key>
+		<condition>like</condition>
+		<handler>chance.base.dao.handler.LikeQLhHandler</handler>
+	</regular-item>
+	<regular-item>
+		<key>_snlike</key>
+		<condition>not like</condition>
+		<handler>chance.base.dao.handler.LikeQLhHandler</handler>
+	</regular-item>
+	<regular-item>
+		<key>_sswlike</key>
+		<condition>like</condition>
+		<handler>chance.base.dao.handler.StartWithLikeQLHandler</handler>
+	</regular-item>
+	<regular-item>
+		<key>_sewlike</key>
+		<condition>like</condition>
+		<handler>chance.base.dao.handler.EndWithLikeQLHandler</handler>
+	</regular-item>
+	
+</ql-regular>
