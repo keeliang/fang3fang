@@ -1,4 +1,4 @@
-package fsf.beans.system.user;
+package fsf.beans.example;
 
 import java.io.Serializable;
 

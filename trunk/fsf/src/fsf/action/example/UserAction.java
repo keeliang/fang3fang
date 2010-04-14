@@ -1,4 +1,4 @@
-package fsf.action.system.user;
+package fsf.action.example;
 
 import javax.annotation.Resource;
 
@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import chance.base.action.BaseAction;
-import fsf.beans.system.user.SystemUser;
-import fsf.service.system.user.UserService;
+import fsf.beans.example.SystemUser;
+import fsf.service.example.UserService;
 
 @Scope("prototype")
 @Controller
