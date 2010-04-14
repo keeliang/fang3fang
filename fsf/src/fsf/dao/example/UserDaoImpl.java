@@ -1,8 +1,9 @@
-package fsf.dao.system.user;
+package fsf.dao.example;
+
+import org.springframework.stereotype.Repository;
 
 import chance.base.dao.BaseDao;
-import fsf.beans.system.user.SystemUser;
-import org.springframework.stereotype.Repository;
+import fsf.beans.example.SystemUser;
 @Repository
 public class UserDaoImpl extends BaseDao<SystemUser> implements UserDao {
 	

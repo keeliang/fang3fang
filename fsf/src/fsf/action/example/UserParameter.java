@@ -1,4 +1,4 @@
-package fsf.action.system.user;
+package fsf.action.example;
 
 import chance.base.BaseParameter;
 

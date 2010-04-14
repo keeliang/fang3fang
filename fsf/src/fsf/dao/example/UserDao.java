@@ -1,7 +1,7 @@
-package fsf.dao.system.user;
+package fsf.dao.example;
 
 import chance.base.dao.Dao;
-import fsf.beans.system.user.SystemUser;
+import fsf.beans.example.SystemUser;
 
 public interface UserDao extends Dao<SystemUser> {
 }

@@ -1,7 +1,7 @@
-package fsf.service.system.user;
+package fsf.service.example;
 
 import chance.base.service.Service;
-import fsf.beans.system.user.SystemUser;
+import fsf.beans.example.SystemUser;
 
 
 public interface UserService extends Service<SystemUser> {

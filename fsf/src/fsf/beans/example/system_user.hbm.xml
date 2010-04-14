@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="fsf.beans.system.user.SystemUser" table="system_user">
+	<class name="fsf.beans.example.SystemUser" table="system_user">
 		<id name="id" type="java.lang.Integer"  access="field">
 			<column name="id" length="20" />
 			<generator class="native" />
