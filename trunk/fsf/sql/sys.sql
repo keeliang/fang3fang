@@ -1,8 +1,8 @@
 drop table if exists sys_user;
 /*
-	user_code µÇÂ½Ãû
-	user_name ÄØ³Æ
-	user_type 0 ³¬¼¶¹ÜÀíÔ± 1 ¹ÜÀíÔ± 2 ¹ËÎÊ 3 ÆÕÍ¨»áÔ±
+	user_code ç™»é™†å
+	user_name å‘¢ç§°
+	user_type 0 è¶…çº§ç®¡ç†å‘˜ 1 ç®¡ç†å‘˜ 2 é¡¾é—® 3 æ™®é€šä¼šå‘˜
 	status -0 enabled 1 disabled
 */
 CREATE TABLE if not exists sys_user(
