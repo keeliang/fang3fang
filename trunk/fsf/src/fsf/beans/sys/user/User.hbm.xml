@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2010-4-15 14:29:11 by Hibernate Tools 3.2.4.GA -->
 <hibernate-mapping>
-    <class name="SysUser" table="sys_user" catalog="fsf">
+    <class name="fsf.beans.sys.user.User" table="sys_user" catalog="fsf">
         <id name="userId" type="java.lang.Integer">
             <column name="user_id" />
             <generator class="identity" />
