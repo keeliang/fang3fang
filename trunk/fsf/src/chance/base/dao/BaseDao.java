@@ -245,20 +245,20 @@ public class BaseDao<E> extends HibernateDaoSupport implements Dao<E> {
 	}
 	
 	/**
-	 *¸ù¾İÍøÒ³µÄÇëÇó£¬Éú³ÉÏàÓ¦²éÑ¯µÄÌõ¼ş£¨where£©×Ó¾ä¡£ÀıÈçÍøÒ³ÉÏ×Ö¶Î_se_nameµÄÖµÎª"abc"£¬ÔòÉú³ÉµÄÌõ¼ş×Ó¾äÎª£ºname =	'abc'¡£
-	 *ÓĞ¶à¸ö×Ö¶ÎµÄ£¬ÔòËüÃÇÉú³ÉµÄÌõ¼şÊÇand¹ØÏµ£¬ÍøÒ³ÉÏµÄ×Ö¶ÎÒªÇóÒ»¶¨µÄÃüÃû¹æÔò£¬×Ö¶ÎÃû£º'_'+ÀàĞÍ+Ìõ¼ş+'_'×Ö¶ÎÃû¡£
+	 *æ ¹æ®ç½‘é¡µçš„è¯·æ±‚ï¼Œç”Ÿæˆç›¸åº”æŸ¥è¯¢çš„æ¡ä»¶ï¼ˆwhereï¼‰å­å¥ã€‚ä¾‹å¦‚ç½‘é¡µä¸Šå­—æ®µ_se_nameçš„å€¼ä¸º"abc"ï¼Œåˆ™ç”Ÿæˆçš„æ¡ä»¶å­å¥ä¸ºï¼šname =	'abc'ã€‚
+	 *æœ‰å¤šä¸ªå­—æ®µçš„ï¼Œåˆ™å®ƒä»¬ç”Ÿæˆçš„æ¡ä»¶æ˜¯andå…³ç³»ï¼Œç½‘é¡µä¸Šçš„å­—æ®µè¦æ±‚ä¸€å®šçš„å‘½åè§„åˆ™ï¼Œå­—æ®µåï¼š'_'+ç±»å‹+æ¡ä»¶+'_'å­—æ®µåã€‚
 	 * <pre>
-	 *   Ç°×ºÁĞ±í£º
-	 *   ÀàĞÍ   ¿Õ   ·Ç¿Õ    >      >=    =    <     <=    <>   is null or not null
-	 *   ×Ö´®  _sn  _snn  _sgt   _sge  _se  _slt  _sle  _sne        _snull  
-	 *   Êı×Ö  _nn  _nnn  _ngt   _nge  _ne  _nlt  _nle  _nne        _nnull
-	 *   ÈÕÆÚ  _dn  _dnn  _dgt   _dge  _de  _dlt  _dle  _dne        _dnull
-	 *   ×Ö·û´®µÄÌØÊâÔËËã£º
+	 *   å‰ç¼€åˆ—è¡¨ï¼š
+	 *   ç±»å‹   ç©º   éç©º    >      >=    =    <     <=    <>   is null or not null
+	 *   å­—ä¸²  _sn  _snn  _sgt   _sge  _se  _slt  _sle  _sne        _snull  
+	 *   æ•°å­—  _nn  _nnn  _ngt   _nge  _ne  _nlt  _nle  _nne        _nnull
+	 *   æ—¥æœŸ  _dn  _dnn  _dgt   _dge  _de  _dlt  _dle  _dne        _dnull
+	 *   å­—ç¬¦ä¸²çš„ç‰¹æ®Šè¿ç®—ï¼š
 	 *   	like  not like   like 'a%'   like '%a'
 	 *    _slike   _snlike    _sswlike    _sewlike
-	 *   Ö±½ÓµÄhqlÌõ¼ş£º
+	 *   ç›´æ¥çš„hqlæ¡ä»¶ï¼š
 	 *   _ql_
-	 *   ×¢Òâ ¹ØÓÚ_dne¼´"ÈÕÆÚ²»µÈÓÚ"Ìõ¼şÉ÷ÓÃ£¬ÓĞ´ı¸Ã½ø 
+	 *   æ³¨æ„ å…³äº_dneå³"æ—¥æœŸä¸ç­‰äº"æ¡ä»¶æ…ç”¨ï¼Œæœ‰å¾…è¯¥è¿› 
 	 * </pre>
 	 * @param hql  hql String
 	 * @param param  query parameter
