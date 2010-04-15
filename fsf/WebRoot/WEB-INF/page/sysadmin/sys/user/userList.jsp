@@ -181,7 +181,7 @@
 				</thead>
 				<tbody id="listBody">
 					<s:iterator value="pageView.records" id="item">
-						<s:url action="userEdit" namespace="/sys/user" id="url">
+						<s:url action="userEdit" namespace="/sysadmin/sys/user" id="url">
 							<s:param name="userId" value="#item.userId"></s:param>
 						</s:url>
 						<tr>
