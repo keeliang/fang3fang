@@ -12,8 +12,11 @@ function g_new(url){
 	document.forms["formList"].submit();
 }
 function g_save(){
-	if(!document.getElementById("formItem").onsubmit || document.getElementById("formItem").onsubmit())
+	if(!document.getElementById("formItem").onsubmit || document.getElementById("formItem").onsubmit()){
 		document.getElementById("formItem").submit();
+	}
+	
+		
 }
 function g_edit(url){
 	document.getElementById("formList").action = url;
@@ -41,7 +44,6 @@ function g_back(url){
 }
 function g_gotoPage(pageNum,totalPage){
 	if(totalPage && pageNum>totalPage){
-		alert(123);
 		return;
 	}
 	document.getElementById("currentPage").value = pageNum;
@@ -57,4 +59,26 @@ function g_select(o){
 	for(var i=0;i<b.childNodes.length;i++){
 		b.childNodes[i].firstChild.firstChild.checked = o.checked;
 	}
+}
+
+//*******************************StringBuffer*******************************//
+var StringBuffer = function (){
+	this.a = [];
+}
+StringBuffer.prototype.append = function(str){
+	this.a.push(str);
+	return this;
+}
+StringBuffer.prototype.toString = function(){
+	return this.a.join("");
+}
+
+function trim(str){    
+ return str.replace(/(^\s*)|(\s*$)/g, "");    
+}
+function ltrim(str){  
+ return str.replace(/(^\s*)/g,"");    
+}    
+function rtrim(str){    
+ return str.replace(/(\s*$)/g,"");    
 }
