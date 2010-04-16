@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DictConfig>
+	<!-- 
+	<DynamicConfig name="city">
+		<Entity>sys_city</Entity>
+		<ItemKeyProperty>city_id</ItemKeyProperty>
+		<ItemNameProperty>name</ItemNameProperty>
+	</DynamicConfig>
+	
+	<DictGroup name="sex">
+		<Dictitem itemKey="1">
+			<itemName>男</itemName>
+			<itemDesc>男</itemDesc>
+		</Dictitem>
+		<Dictitem itemKey="2">
+			<itemName>女</itemName>
+			<itemDesc>女</itemDesc>
+		</Dictitem>
+	</DictGroup>
+	 -->
+	
+	<!--*************************user***************************  -->
+	<!-- ********************************************************* -->
+</DictConfig>
