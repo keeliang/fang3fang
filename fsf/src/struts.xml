@@ -7,9 +7,16 @@
 
 	<include file="struts-default.xml" />
 	<constant name="struts.custom.i18n.resources" value="global_message"/>
+	<!-- develop mode -->
 	<constant name="struts.devMode" value="true" />
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<constant name="struts.i18n.reload" value="true" />
 	
-	
+	<!-- produce mode 
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.serve.static.browserCache" value="true" />
+	<constant name="struts.i18n.reload" value="false" />
+	-->
 	
 	<package name="baseDefault" extends="struts-default" >
 		<interceptors>

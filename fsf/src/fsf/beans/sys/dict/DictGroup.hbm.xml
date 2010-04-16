@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="fsf.beans.sys.dict.DictGroup" table="sys_dictgroup">
+		<id name="groupName" type="java.lang.String">
+			<column name="group_name" length="30" />
+			<generator class="assigned"/>
+		</id>
+		<property name="groupDesc" type="java.lang.String">
+			<column name="group_desc" length="50" />
+		</property>
+		<property name="remark" type="java.util.Date">
+			<column name="remark" length="200" />
+		</property>
+	</class>
+</hibernate-mapping>
