@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fsf.beans.sys.user.User;
 import fsf.web.common.ThreadUser;
+import fsf.web.common.URLAuthority;
 import fsf.web.common.WebConstant;
 import fsf.web.listener.FSFParameterInitListener;
 
@@ -37,58 +38,48 @@ public class UserLoginFilter implements Filter {
 		HttpServletResponse response = (HttpServletResponse) res;
 		String contextPath = request.getContextPath();
 		String uri = request.getRequestURI();
-		if (isProtectedResource(uri,contextPath)) {
-			User user = (User) request.getSession().getAttribute(
-					WebConstant.SESSION_USER);
+		String redirect = isProtectedResource(uri,contextPath);
+		if (!"".equals(redirect)) {
+			User user = (User) request.getSession().getAttribute(WebConstant.SESSION_USER);
 			if (user != null) {
 				ThreadUser.set(user);
 			} else {
-				if (uri.startsWith(contextPath + sysadminURL)) {
-//					response.sendRedirect("");
-					System.out.println("后台登陆");
-				}else{
-					System.out.println("前台登陆");
-				}
+				response.sendRedirect(contextPath+redirect);
 				return ;
 			}
 		}
 		chain.doFilter(req, res);
 	}
 
-	private boolean isProtectedResource(String uri,String contextPath) {
-		boolean result = false;
-		List<String> protectedResource = FSFParameterInitListener.getProtectedResource();
+	private String isProtectedResource(String uri,String contextPath) {
+		List<URLAuthority> protectedResource = FSFParameterInitListener.getProtectedResource();
 		List<String> unProtectedResource = FSFParameterInitListener.getUnProtectedResource();
-		for(Iterator<String> it = protectedResource.iterator();it.hasNext();){
-			String s = it.next();
-			if(s.indexOf("*")>0){
-				if(uri.startsWith(s.substring(0, s.indexOf("*")))){
-					result = true;
+		String redirect = "";
+		for(Iterator<URLAuthority> it = protectedResource.iterator();it.hasNext();){
+			URLAuthority urlAuthority = it.next();
+			if(urlAuthority.getResource().indexOf("*")>0){
+				if(uri.startsWith(urlAuthority.getResource().substring(0, urlAuthority.getResource().indexOf("*")))){
+					redirect = urlAuthority.getRedirect();
 					break;
 				}
-			}else{
-				if(uri.equals(contextPath+s)){
-					result = true;
-					break;
-				}
+			}else if(uri.equals(contextPath+urlAuthority.getResource())){
+				redirect = urlAuthority.getRedirect();
+				break;
 			}
 		}
-		
 		for(Iterator<String> it = unProtectedResource.iterator();it.hasNext();){
 			String s = it.next();
 			if(s.indexOf("*")>0){
 				if(uri.startsWith(s.substring(0, s.indexOf("*")))){
-					result = false;
+					redirect = "";
 					break;
 				}
-			}else{
-				if(uri.equals(contextPath+s)){
-					result = false;
-					break;
-				}
+			}else if(uri.equals(contextPath+s)){
+				redirect = "";
+				break;
 			}
 		}
-		return result;
+		return redirect;
 	}
 
 }

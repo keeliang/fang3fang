@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-4-22 21:05:14 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="fsf.beans.est.bussinessarea.Businessarea" table="est_businessarea" >
+        <id name="areaId" type="java.lang.Integer">
+            <column name="area_id" />
+            <generator class="identity" />
+        </id>
+        <property name="areaName" type="string">
+            <column name="area_name" length="50" not-null="true" />
+        </property>
+        <property name="districtId" type="int">
+            <column name="district_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

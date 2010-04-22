@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2010-4-15 14:29:11 by Hibernate Tools 3.2.4.GA -->
+<!-- Generated 2010-4-21 10:18:18 by Hibernate Tools 3.2.4.GA -->
 <hibernate-mapping>
     <class name="fsf.beans.sys.user.User" table="sys_user" catalog="fsf">
         <id name="userId" type="java.lang.Integer">
@@ -14,13 +14,22 @@
         <property name="password" type="string">
             <column name="password" length="50" not-null="true" />
         </property>
+        <property name="question" type="string">
+            <column name="question" length="30" />
+        </property>
+        <property name="answer" type="string">
+            <column name="answer" length="30" />
+        </property>
         <property name="userName" type="string">
             <column name="user_name" length="50" />
         </property>
-        <property name="status" type="byte">
+        <property name="sex" type="java.lang.Short">
+            <column name="sex" />
+        </property>
+        <property name="status" type="short">
             <column name="status" not-null="true" />
         </property>
-        <property name="userType" type="byte">
+        <property name="userType" type="short">
             <column name="user_type" not-null="true" />
         </property>
         <property name="provinceId" type="java.lang.Integer">
@@ -29,8 +38,8 @@
         <property name="cityId" type="java.lang.Integer">
             <column name="city_id" />
         </property>
-        <property name="regionId" type="java.lang.Integer">
-            <column name="region_id" />
+        <property name="districtId" type="java.lang.Integer">
+            <column name="district_id" />
         </property>
         <property name="address" type="string">
             <column name="address" length="200" />
@@ -38,8 +47,20 @@
         <property name="tel" type="string">
             <column name="tel" length="20" />
         </property>
+        <property name="phone" type="string">
+            <column name="phone" length="32" />
+        </property>
+        <property name="qq" type="string">
+            <column name="qq" length="20" />
+        </property>
+        <property name="msn" type="string">
+            <column name="msn" length="20" />
+        </property>
         <property name="email" type="string">
             <column name="email" length="80" />
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="65535" />
         </property>
         <property name="createDate" type="timestamp">
             <column name="create_date" length="19" not-null="true" />
