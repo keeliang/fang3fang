@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!--******************* comment *************** -->
+	<package name="/sysadmin/info/comment" extends="baseDefault" namespace="/sysadmin/info/comment" >
+		<action name="commentList" class="commentAction" method="doList">
+			<result>/AdminPage/info/comment/commentList.jsp</result>
+			<result name="input">/AdminPage/info/comment/commentList.jsp</result>
+		</action>
+		<action name="commentSave" class="commentAction" method="doSave">
+			<result>/AdminPage/info/comment/commentContent.jsp</result>
+			<result name="input">/AdminPage/info/comment/commentContent.jsp</result>
+		</action>
+		<action name="commentEdit" class="commentAction" method="doEdit">
+			<result>/AdminPage/info/comment/commentContent.jsp</result>
+			<result name="input">/AdminPage/info/comment/commentContent.jsp</result>
+		</action>
+		<action name="commentNew" class="commentAction" method="doNew">
+			<result>/AdminPage/info/comment/commentContent.jsp</result>
+			<result name="input">/AdminPage/info/comment/commentContent.jsp</result>
+		</action>
+		<action name="commentDelete" class="commentAction" method="doDelete">
+			<result>/AdminPage/info/comment/commentList.jsp</result>
+			<result name="input">/AdminPage/info/comment/commentList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	
+	<!--******************* information *************** -->
+	<package name="/sysadmin/info/information" extends="baseDefault" namespace="/sysadmin/info/information" >
+		<action name="informationList" class="informationAction" method="doList">
+			<result>/AdminPage/info/information/informationList.jsp</result>
+			<result name="input">/AdminPage/info/information/informationList.jsp</result>
+		</action>
+		<action name="informationSave" class="informationAction" method="doSave">
+			<result>/AdminPage/info/information/informationContent.jsp</result>
+			<result name="input">/AdminPage/info/information/informationContent.jsp</result>
+		</action>
+		<action name="informationEdit" class="informationAction" method="doEdit">
+			<result>/AdminPage/info/information/informationContent.jsp</result>
+			<result name="input">/AdminPage/info/information/informationContent.jsp</result>
+		</action>
+		<action name="informationNew" class="informationAction" method="doNew">
+			<result>/AdminPage/info/information/informationContent.jsp</result>
+			<result name="input">/AdminPage/info/information/informationContent.jsp</result>
+		</action>
+		<action name="informationDelete" class="informationAction" method="doDelete">
+			<result>/AdminPage/info/information/informationList.jsp</result>
+			<result name="input">/AdminPage/info/information/informationList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	
+	<!--******************* newType *************** -->
+	<package name="/sysadmin/info/newtype" extends="baseDefault" namespace="/sysadmin/info/newtype" >
+		<action name="newTypeList" class="newTypeAction" method="doList">
+			<result>/AdminPage/info/newtype/newTypeList.jsp</result>
+			<result name="input">/AdminPage/info/newtype/newTypeList.jsp</result>
+		</action>
+		<action name="newTypeSave" class="newTypeAction" method="doSave">
+			<result>/AdminPage/info/newtype/newTypeContent.jsp</result>
+			<result name="input">/AdminPage/info/newtype/newTypeContent.jsp</result>
+		</action>
+		<action name="newTypeEdit" class="newTypeAction" method="doEdit">
+			<result>/AdminPage/info/newtype/newTypeContent.jsp</result>
+			<result name="input">/AdminPage/info/newtype/newTypeContent.jsp</result>
+		</action>
+		<action name="newTypeNew" class="newTypeAction" method="doNew">
+			<result>/AdminPage/info/newtype/newTypeContent.jsp</result>
+			<result name="input">/AdminPage/info/newtype/newTypeContent.jsp</result>
+		</action>
+		<action name="newTypeDelete" class="newTypeAction" method="doDelete">
+			<result>/AdminPage/info/newtype/newTypeList.jsp</result>
+			<result name="input">/AdminPage/info/newtype/newTypeList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	
+</struts>

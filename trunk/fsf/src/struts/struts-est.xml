@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!--******************* commerce *************** -->
+	<package name="/sysadmin/est/commerce" extends="baseDefault" namespace="/sysadmin/est/commerce" >
+		<action name="commerceList" class="commerceAction" method="doList">
+			<result>/AdminPage/est/commerce/commerceList.jsp</result>
+			<result name="input">/AdminPage/est/commerce/commerceList.jsp</result>
+		</action>
+		<action name="commerceSave" class="commerceAction" method="doSave">
+			<result>/AdminPage/est/commerce/commerceContent.jsp</result>
+			<result name="input">/AdminPage/est/commerce/commerceContent.jsp</result>
+		</action>
+		<action name="commerceEdit" class="commerceAction" method="doEdit">
+			<result>/AdminPage/est/commerce/commerceContent.jsp</result>
+			<result name="input">/AdminPage/est/commerce/commerceContent.jsp</result>
+		</action>
+		<action name="commerceNew" class="commerceAction" method="doNew">
+			<result>/AdminPage/est/commerce/commerceContent.jsp</result>
+			<result name="input">/AdminPage/est/commerce/commerceContent.jsp</result>
+		</action>
+		<action name="commerceDelete" class="commerceAction" method="doDelete">
+			<result>/AdminPage/est/commerce/commerceList.jsp</result>
+			<result name="input">/AdminPage/est/commerce/commerceList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	
+</struts>
