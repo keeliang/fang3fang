@@ -6,26 +6,27 @@
 	<!--******************* user *************** -->
 	<package name="/sysadmin/sys/user" extends="baseDefault" namespace="/sysadmin/sys/user" >
 		<action name="userList" class="userAction" method="doList">
-			<result>/WEB-INF/page/sysadmin/sys/user/userList.jsp</result>
-			<result name="input">/WEB-INF/page/sysadmin/sys/user/userList.jsp</result>
+			<result>/AdminPage/sys/user/userList.jsp</result>
+			<result name="input">/AdminPage/sys/user/userList.jsp</result>
 		</action>
 		<action name="userSave" class="userAction" method="doSave">
-			<result>/WEB-INF/page/sysadmin/sys/user/userContent.jsp</result>
-			<result name="input">/WEB-INF/page/sysadmin/sys/user/userContent.jsp</result>
+			<result>/AdminPage/sys/user/userContent.jsp</result>
+			<result name="input">/AdminPage/sys/user/userContent.jsp</result>
 		</action>
 		<action name="userEdit" class="userAction" method="doEdit">
-			<result>/WEB-INF/page/sysadmin/sys/user/userContent.jsp</result>
-			<result name="input">/WEB-INF/page/sysadmin/sys/user/userContent.jsp</result>
+			<result>/AdminPage/sys/user/userContent.jsp</result>
+			<result name="input">/AdminPage/sys/user/userContent.jsp</result>
 		</action>
 		<action name="userNew" class="userAction" method="doNew">
-			<result>/WEB-INF/page/sysadmin/sys/user/userContent.jsp</result>
-			<result name="input">/WEB-INF/page/sysadmin/sys/user/userContent.jsp</result>
+			<result>/AdminPage/sys/user/userContent.jsp</result>
+			<result name="input">/AdminPage/sys/user/userContent.jsp</result>
 		</action>
 		<action name="userDelete" class="userAction" method="doDelete">
-			<result>/WEB-INF/page/sysadmin/sys/user/userList.jsp</result>
-			<result name="input">/WEB-INF/page/sysadmin/sys/user/userList.jsp</result>
+			<result>/AdminPage/sys/user/userList.jsp</result>
+			<result name="input">/AdminPage/sys/user/userList.jsp</result>
 		</action>
 	</package>
 	<!-- ********************************************** -->
+	
 	
 </struts>

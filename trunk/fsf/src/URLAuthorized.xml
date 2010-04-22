@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <authorized>
 	<protected>
-		<url>/sysadmin/*</url>
+		<url value="/sysadmin/*" redirect="/sysadmin/tologin.action"/>
 	</protected>
 	<unProtected>
-		<url>/sysadmin/index.jsp</url>
-		<url>/sysadmin/login.action</url>
+		<url value="/sysadmin/login.action"/>
+		<url value="/sysadmin/tologin.action"/>
 	</unProtected>
-	
 </authorized>
