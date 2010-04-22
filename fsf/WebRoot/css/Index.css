@@ -1,0 +1,134 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/*自主交易区 与 委托代理区*/
+.List {
+	clear: both;
+	border: 1px solid #f8bb18;
+}
+	.ListTitle {
+		height: 19px;
+		font-size: 14px;
+		font-weight: bold;
+		padding: 6px 0 0 15px;
+		border-bottom: 1px solid #f8bb18;
+		background: url(../images/ListHeadSub.gif) repeat-x left top;
+	}
+	.ListTab {
+		padding: 2px 2px 0 2px;
+		border-bottom: 1px solid #f8bb18;
+	}
+		.ListTabSub {
+			height: 28px;
+			padding-top: 2px;
+			background-color: #fdfade;
+		}
+			.ListTabSub ul {
+				list-style-type: none;
+			}
+				.ListTabSub ul li {
+					float: left;
+				}
+					.ListTabSub ul li a {
+						width: 80px;
+						height: 20px;
+						color: #000000;
+						font-size: 13px;
+						font-weight: bold;
+						text-align: center;
+						padding: 7px 0 0 0;
+						margin: 0 0 0 10px;
+						display: inline-block;
+					}
+					.ListTabSub ul li a.Current {
+						background-color: #fffdef;
+						border-top: 1px solid #f8bb18;
+						border-left: 1px solid #f8bb18;
+						border-right: 1px solid #f8bb18;
+						border-bottom: 1px solid #FFFFFF;
+					}
+	.ListContent {
+	}
+		.ListContentTitle {
+			height: 17px;
+			padding: 4px 0 4px 0;
+		}
+		.ListContent span {
+			overflow: hidden;
+			WHITE-SPACE: nowrap;
+			display: inline-block;
+			TEXT-OVERFLOW: ellipsis;
+		}
+			.Center {
+				text-align: center;
+			}
+			.Span1 {
+				width: 20em;
+				padding: 0 0 0 10px;
+			}
+			.Span2 {
+				width: 4em;
+				padding: 0 0 0 10px;
+				text-align: center;
+			}
+			.Span3 {
+				width: 5em;
+				text-align: center;
+			}
+			.Span4 {
+				width: 5em;
+				text-align: center;
+			}
+			.Span5 {
+				width: 8em;
+				text-align: center;
+			}
+			.Span6 {
+				width: 4em;
+				text-align: center;
+			}
+			.Span7 {
+				width: 7em;
+				text-align: center;
+			}
+			.Span8 {
+				width: 12em;
+				text-align: center;
+			}
+			.Span9 {
+				width: 4em;
+				text-align: center;
+			}
+			.Span10 { /*专门给“售价范围”和“面积范围”用的*/
+				width: 13em;
+				text-align: center;
+			}
+				.Span5 a {
+					color: #FF0000;
+				}
+		.ListContent ul {
+			list-style-type: none;
+		}
+			.ListContent ul li {
+				height: 12px;
+				padding: 4px 0;
+				border-bottom: 1px dashed #565656;
+			}
+				.ListContent ul li .Span1 {
+					color: #0b4721;
+				}
+				.ListContent ul li a {
+					cursor: pointer;
+					text-decoration: none;
+				}
+				.ListContent ul li a.HasColor {
+					color: #0b4721;
+				}
+				.ListContent ul li a:hover span {
+					color: #ff0000;
+					text-decoration: none;
+				}
+		.More {
+			text-align: right;			
+			padding: 5px;
+		}

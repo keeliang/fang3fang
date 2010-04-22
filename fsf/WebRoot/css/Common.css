@@ -1,0 +1,287 @@
+@charset "utf-8";
+/* CSS Document */
+.Main {
+	padding: 2px 0;
+	border-top: 1px solid #eeeeee;
+	border-bottom: 1px solid #eeeeee;
+}
+.Sub {
+	background: url(../images/Sub.gif) repeat left center;
+}
+.SubSub {
+	background: none;
+	background-color: #fffefc;
+}
+/**/
+sup {
+	font-size: 0.6em !important;
+	font-size: 1em;
+}
+/*全局*/
+* {
+	margin: 0 auto;
+	padding: 0;
+	font-size: 12px;
+	font-family: Verdana, "宋体";
+}
+body {
+	width: 100%;
+	height: 100%;
+}
+/*链接*/
+a {
+	color: #FF6600;
+	cursor: pointer;
+	font-size: 12px;
+	text-decoration: none;
+}
+a.NavLink {
+	color: #000000;
+}
+a.noUnderLine:hover {
+	text-decoration: none;
+}
+a:hover {
+	color: #FF6600;
+	text-decoration: underline;
+}
+a img {
+	border: 0;
+}
+/*宽900像素，居中*/
+.Width822Center {
+	width: 822px;
+}
+.Width900Center {
+	width: 980px;
+}
+.Width100Center {
+	width: 100%;
+}
+.WidthFullScreenCenter {
+	width: 100%;
+}
+/*文本框*/
+input {
+	padding: 1px 2px;
+	border: 1px solid #CCCCCC;
+}
+/*灰色字*/
+.GrayFont {
+	color: #CCCCCC;
+}
+.BlackFont {
+	color: #000000;
+}
+/*Loading*/
+#Loading {
+	display: none;
+}
+#LoadingMes {
+	top: 42%;
+	left: 40%;
+	margin: 0 auto;
+	position: fixed;
+	text-align: center;
+	padding: 15px 50px;
+	border: 1px solid #b1b1b1;
+	background-color: #FFFFFF;
+	/*针对IE6不支持position: fixed的解决方法*/
+	/*<![CDATA[*/
+	_position: absolute;   
+    _bottom: auto;   
+    _clear: both;   
+    _top:expression(eval(document.compatMode &&   
+        document.compatMode=='CSS1Compat') ?   
+        documentElement.scrollTop   
+        +(documentElement.clientHeight-this.clientHeight) /2  
+        : document.body.scrollTop   
+        +(document.body.clientHeight-this.clientHeight) /2 );
+	/*]]>*/
+}
+#Loading h2 {
+	font-weight: normal;
+}
+/*头*/
+#Nav {
+	margin: 5px auto;
+}
+.RoundCorner div {
+	height: 1px;
+	overflow: hidden;
+}
+/*圆角开始*/
+	.Nav1 {
+		margin: 0 5px;
+		background-color: #d1d1d1;
+	}
+	.Nav2 {
+		margin: 0 3px;
+		background-color: #ffbf30;
+		border-left: 2px solid #d1d1d1;
+		border-right: 2px solid #d1d1d1;
+	}
+	.Nav3 {
+		margin: 0 2px;
+		background-color: #ffbf30;
+		border-left: 1px solid #d1d1d1;
+		border-right: 1px solid #d1d1d1;
+	}
+	.Nav4 {
+		height: 2px;
+		margin: 0 1px;
+		background-color: #ffc230;
+		border-left: 1px solid #d1d1d1;
+		border-right: 1px solid #d1d1d1;
+	}
+	/*反向*/
+	.Nav5 {
+		height: 2px;
+		margin: 0 1px;
+		background-color: #ffeb2a;
+		border-left: 1px solid #d1d1d1;
+		border-right: 1px solid #d1d1d1;
+	}
+	.Nav6 {
+		margin: 0 2px;
+		background-color: #ffeb2a;
+		border-left: 1px solid #d1d1d1;
+		border-right: 1px solid #d1d1d1;
+	}
+	.Nav7 {
+		margin: 0 3px;
+		background-color: #ffeb2a;
+		border-left: 2px solid #d1d1d1;
+		border-right: 2px solid #d1d1d1;
+	}
+	.Nav8 {
+		margin: 0 5px;
+		background-color: #d1d1d1;
+	}
+#NavContent {
+	height: 65px;
+	padding: 0 15px;
+	border-left: 1px solid #d1d1d1;
+	border-right: 1px solid #d1d1d1;
+	background: url(../images/NavBG.gif) repeat-x left top;
+}
+	#NavTextContent {
+		float: right;
+		padding: 10px 10px 10px 0;
+	}
+	
+/*登录框*/
+#Login {
+	margin: 5px auto 10px auto;
+}
+#Notification {
+	color: #F89029;
+	font-weight: bold;
+	height: 16px;
+	padding: 5px 5px 5px 10px;
+	border-left: 1px solid #d1d1d1;
+	border-right: 1px solid #d1d1d1;
+	border-bottom: 1px solid #9d6200;
+	background: url(../images/LoginBG.gif) repeat-x left top;
+}
+	#Notification div {
+		float: left;
+	}
+	#SomeThing {
+	}
+		#SomeThing a {
+			color: #F89029;
+		}
+#Flash {
+	height: 90px;
+	border: 1px solid #a46700;
+	border-top: 1px solid #a46700;
+}
+
+/*帮助信息*/
+#Help {
+	margin: 25px auto;
+	text-align: center;
+}
+#Help div {
+	width: 70%;
+	padding: 5px 0;
+	border-top: 1px dashed #f8bb18;
+	border-bottom: 1px dashed #f8bb18;
+}
+/*Footer*/
+#Footer {
+	color: #FFF;
+	padding: 10px 0;
+	text-align: center;
+	line-height: 1.8em;
+	background-color: #AA7D39;
+}
+#Footer a {
+	color: #FFF;
+}
+#Footer a:hover {
+	color: #CCC;
+}
+
+/*快速查询*/
+#QuickSearch {
+	width: 80%;
+	float: left;
+	border: 1px solid #f8bb18;
+}
+	#QuickSearchTitle {
+		float: left;
+		width: 25px;
+		color: #CC0000;
+		font-size: 13px;
+		font-weight: bold;
+		text-align: center;
+		padding: 0.75em 0;
+		border-right: 1px solid #f8bb18;
+		background: url(../images/QuickSearchSub.gif) repeat-y left top;
+	}
+	#QuickSearchContent {
+		float: left;
+		width: 682px;
+		color: #f6f6f6;
+		padding: 5px 5px 5px 0.5em;
+	}
+		#QuickSearchContent a {
+			color: #000;
+			font-size: 12px;
+		}
+		#QuickSearchContent a:hover {
+			color: #f00;
+			text-decoration: none;
+		}
+		#QuickSearchContent a.Title {
+			color: #f00;
+			font-weight: bold;
+		}
+		#QuickSearchContent a.Title:hover {
+			color: #000;
+		}
+	#OtherSearch {
+		clear: both;
+		padding: 2px 0;
+		background-color: #ffffef;
+		border-top: 1px solid #f8bb18;
+	}
+#Bill {		/*广告栏*/
+	width: 170px;
+	float: right;
+	text-align: center;
+	border: 1px solid #f8bb18;
+	background: url(../images/Sub.gif) repeat-x left center;
+}
+
+/*ToDo页面*/
+#LoginPageBackground {
+	height: 158px;
+	padding: 27px 0 0 50px;
+	background: url(../images/LoginPage_Background.gif) repeat-x left top;
+}
+	#QuickBack {
+		padding: 0 30px 0 0;
+	}
