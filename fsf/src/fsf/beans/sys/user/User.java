@@ -1,7 +1,7 @@
 package fsf.beans.sys.user;
 
 // default package
-// Generated 2010-4-15 14:29:12 by Hibernate Tools 3.2.4.GA
+// Generated 2010-4-21 10:18:20 by Hibernate Tools 3.2.4.GA
 
 import java.util.Date;
 
@@ -13,26 +13,33 @@ public class User implements java.io.Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 3280045638851221542L;
 	private Integer userId;
 	private String userCode;
 	private String password;
+	private String question;
+	private String answer;
 	private String userName;
-	private Byte status;
-	private Byte userType;
+	private Short sex;
+	private Short status;
+	private Short userType;
 	private Integer provinceId;
 	private Integer cityId;
-	private Integer regionId;
+	private Integer districtId;
 	private String address;
 	private String tel;
+	private String phone;
+	private String qq;
+	private String msn;
 	private String email;
+	private String remark;
 	private Date createDate;
 	private String imagePath;
 
 	public User() {
 	}
 
-	public User(String userCode, String password, byte status, Byte userType,
+	public User(String userCode, String password, Short status, Short userType,
 			Date createDate) {
 		this.userCode = userCode;
 		this.password = password;
@@ -41,21 +48,30 @@ public class User implements java.io.Serializable {
 		this.createDate = createDate;
 	}
 
-	public User(String userCode, String password, String userName, Byte status,
-			Byte userType, Integer provinceId, Integer cityId,
-			Integer regionId, String address, String tel, String email,
+	public User(String userCode, String password, String question,
+			String answer, String userName, Short sex, Short status,
+			Short userType, Integer provinceId, Integer cityId,
+			Integer districtId, String address, String tel, String phone,
+			String qq, String msn, String email, String remark,
 			Date createDate, String imagePath) {
 		this.userCode = userCode;
 		this.password = password;
+		this.question = question;
+		this.answer = answer;
 		this.userName = userName;
+		this.sex = sex;
 		this.status = status;
 		this.userType = userType;
 		this.provinceId = provinceId;
 		this.cityId = cityId;
-		this.regionId = regionId;
+		this.districtId = districtId;
 		this.address = address;
 		this.tel = tel;
+		this.phone = phone;
+		this.qq = qq;
+		this.msn = msn;
 		this.email = email;
+		this.remark = remark;
 		this.createDate = createDate;
 		this.imagePath = imagePath;
 	}
@@ -84,6 +100,22 @@ public class User implements java.io.Serializable {
 		this.password = password;
 	}
 
+	public String getQuestion() {
+		return this.question;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+	public String getAnswer() {
+		return this.answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
+
 	public String getUserName() {
 		return this.userName;
 	}
@@ -92,19 +124,27 @@ public class User implements java.io.Serializable {
 		this.userName = userName;
 	}
 
-	public Byte getStatus() {
+	public Short getSex() {
+		return this.sex;
+	}
+
+	public void setSex(Short sex) {
+		this.sex = sex;
+	}
+
+	public Short getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(Byte status) {
+	public void setStatus(Short status) {
 		this.status = status;
 	}
 
-	public Byte getUserType() {
+	public Short getUserType() {
 		return this.userType;
 	}
 
-	public void setUserType(Byte userType) {
+	public void setUserType(Short userType) {
 		this.userType = userType;
 	}
 
@@ -124,12 +164,12 @@ public class User implements java.io.Serializable {
 		this.cityId = cityId;
 	}
 
-	public Integer getRegionId() {
-		return this.regionId;
+	public Integer getDistrictId() {
+		return this.districtId;
 	}
 
-	public void setRegionId(Integer regionId) {
-		this.regionId = regionId;
+	public void setDistrictId(Integer districtId) {
+		this.districtId = districtId;
 	}
 
 	public String getAddress() {
@@ -148,12 +188,44 @@ public class User implements java.io.Serializable {
 		this.tel = tel;
 	}
 
+	public String getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getQq() {
+		return this.qq;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+
+	public String getMsn() {
+		return this.msn;
+	}
+
+	public void setMsn(String msn) {
+		this.msn = msn;
+	}
+
 	public String getEmail() {
 		return this.email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getRemark() {
+		return this.remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 
 	public Date getCreateDate() {
@@ -170,31 +242,6 @@ public class User implements java.io.Serializable {
 
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((userId == null) ? 0 : userId.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		final User other = (User) obj;
-		if (userId == null) {
-			if (other.userId != null)
-				return false;
-		} else if (!userId.equals(other.userId))
-			return false;
-		return true;
 	}
 
 }

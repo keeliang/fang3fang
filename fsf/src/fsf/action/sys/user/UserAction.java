@@ -35,15 +35,22 @@ public class UserAction extends BaseAction<User> {
 	private Integer userId;
 	private String userCode;
 	private String password;
+	private String question;
+	private String answer;
 	private String userName;
+	private Short sex;
 	private Short status;
 	private Short userType;
 	private Integer provinceId;
 	private Integer cityId;
-	private Integer regionId;
+	private Integer districtId;
 	private String address;
 	private String tel;
+	private String phone;
+	private String qq;
+	private String msn;
 	private String email;
+	private String remark;
 	private Date createDate;
 	private String imagePath;
 
@@ -65,11 +72,29 @@ public class UserAction extends BaseAction<User> {
 	public String getPassword(){
 		return this.password;
 	}
+	public void setQuestion(String question){
+		this.question = question;
+	}
+	public String getQuestion(){
+		return this.question;
+	}
+	public void setAnswer(String answer){
+		this.answer = answer;
+	}
+	public String getAnswer(){
+		return this.answer;
+	}
 	public void setUserName(String userName){
 		this.userName = userName;
 	}
 	public String getUserName(){
 		return this.userName;
+	}
+	public void setSex(Short sex){
+		this.sex = sex;
+	}
+	public Short getSex(){
+		return this.sex;
 	}
 	public void setStatus(Short status){
 		this.status = status;
@@ -95,11 +120,11 @@ public class UserAction extends BaseAction<User> {
 	public Integer getCityId(){
 		return this.cityId;
 	}
-	public void setRegionId(Integer regionId){
-		this.regionId = regionId;
+	public void setDistrictId(Integer districtId){
+		this.districtId = districtId;
 	}
-	public Integer getRegionId(){
-		return this.regionId;
+	public Integer getDistrictId(){
+		return this.districtId;
 	}
 	public void setAddress(String address){
 		this.address = address;
@@ -113,11 +138,35 @@ public class UserAction extends BaseAction<User> {
 	public String getTel(){
 		return this.tel;
 	}
+	public void setPhone(String phone){
+		this.phone = phone;
+	}
+	public String getPhone(){
+		return this.phone;
+	}
+	public void setQq(String qq){
+		this.qq = qq;
+	}
+	public String getQq(){
+		return this.qq;
+	}
+	public void setMsn(String msn){
+		this.msn = msn;
+	}
+	public String getMsn(){
+		return this.msn;
+	}
 	public void setEmail(String email){
 		this.email = email;
 	}
 	public String getEmail(){
 		return this.email;
+	}
+	public void setRemark(String remark){
+		this.remark = remark;
+	}
+	public String getRemark(){
+		return this.remark;
 	}
 	public void setCreateDate(Date createDate){
 		this.createDate = createDate;

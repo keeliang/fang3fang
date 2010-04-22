@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-4-22 21:00:03 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="fsf.beans.est.palace.Palace" table="est_palace" catalog="fsf">
+        <id name="palaceId" type="java.lang.Integer">
+            <column name="palace_id" />
+            <generator class="identity" />
+        </id>
+        <property name="palaceName" type="string">
+            <column name="palace_name" length="80" not-null="true" />
+        </property>
+        <property name="palaceAddress" type="string">
+            <column name="palace_address" length="128" />
+        </property>
+        <property name="palaceDesc" type="string">
+            <column name="palace_desc" length="65535" />
+        </property>
+        <property name="status" type="byte">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19" not-null="true" />
+        </property>
+        <property name="createUserId" type="int">
+            <column name="create_user_id" not-null="true" />
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19" not-null="true" />
+        </property>
+        <property name="updateUserId" type="int">
+            <column name="update_user_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

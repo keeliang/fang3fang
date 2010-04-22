@@ -9,15 +9,22 @@ public class UserParameter extends BaseParameter{
 	private Integer _ne_userId;
 	private String _se_userCode;
 	private String _se_password;
+	private String _se_question;
+	private String _se_answer;
 	private String _se_userName;
+	private Short _ne_sex;
 	private Short _ne_status;
 	private Short _ne_userType;
 	private Integer _ne_provinceId;
 	private Integer _ne_cityId;
-	private Integer _ne_regionId;
+	private Integer _ne_districtId;
 	private String _se_address;
 	private String _se_tel;
+	private String _se_phone;
+	private String _se_qq;
+	private String _se_msn;
 	private String _se_email;
+	private String _se_remark;
 	private Date _de_createDate;
 	private String _se_imagePath;
 
@@ -39,11 +46,29 @@ public class UserParameter extends BaseParameter{
 	public String get_se_password(){
 		return this._se_password;
 	}
+	public void set_se_question(String _se_question){
+		this._se_question = _se_question;
+	}
+	public String get_se_question(){
+		return this._se_question;
+	}
+	public void set_se_answer(String _se_answer){
+		this._se_answer = _se_answer;
+	}
+	public String get_se_answer(){
+		return this._se_answer;
+	}
 	public void set_se_userName(String _se_userName){
 		this._se_userName = _se_userName;
 	}
 	public String get_se_userName(){
 		return this._se_userName;
+	}
+	public void set_ne_sex(Short _ne_sex){
+		this._ne_sex = _ne_sex;
+	}
+	public Short get_ne_sex(){
+		return this._ne_sex;
 	}
 	public void set_ne_status(Short _ne_status){
 		this._ne_status = _ne_status;
@@ -69,11 +94,11 @@ public class UserParameter extends BaseParameter{
 	public Integer get_ne_cityId(){
 		return this._ne_cityId;
 	}
-	public void set_ne_regionId(Integer _ne_regionId){
-		this._ne_regionId = _ne_regionId;
+	public void set_ne_districtId(Integer _ne_districtId){
+		this._ne_districtId = _ne_districtId;
 	}
-	public Integer get_ne_regionId(){
-		return this._ne_regionId;
+	public Integer get_ne_districtId(){
+		return this._ne_districtId;
 	}
 	public void set_se_address(String _se_address){
 		this._se_address = _se_address;
@@ -87,11 +112,35 @@ public class UserParameter extends BaseParameter{
 	public String get_se_tel(){
 		return this._se_tel;
 	}
+	public void set_se_phone(String _se_phone){
+		this._se_phone = _se_phone;
+	}
+	public String get_se_phone(){
+		return this._se_phone;
+	}
+	public void set_se_qq(String _se_qq){
+		this._se_qq = _se_qq;
+	}
+	public String get_se_qq(){
+		return this._se_qq;
+	}
+	public void set_se_msn(String _se_msn){
+		this._se_msn = _se_msn;
+	}
+	public String get_se_msn(){
+		return this._se_msn;
+	}
 	public void set_se_email(String _se_email){
 		this._se_email = _se_email;
 	}
 	public String get_se_email(){
 		return this._se_email;
+	}
+	public void set_se_remark(String _se_remark){
+		this._se_remark = _se_remark;
+	}
+	public String get_se_remark(){
+		return this._se_remark;
 	}
 	public void set_de_createDate(Date _de_createDate){
 		this._de_createDate = _de_createDate;

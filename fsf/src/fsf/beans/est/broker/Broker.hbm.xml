@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-4-22 21:05:14 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="fsf.beans.est.broker.Broker" table="est_broker" >
+        <id name="userId" type="int">
+            <column name="user_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="realName" type="string">
+            <column name="real_name" length="20" not-null="true" />
+        </property>
+        <property name="status" type="short">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="provinceId" type="java.lang.Integer">
+            <column name="province_id" />
+        </property>
+        <property name="cityId" type="java.lang.Integer">
+            <column name="city_id" />
+        </property>
+        <property name="districtId" type="java.lang.Integer">
+            <column name="district_id" />
+        </property>
+        <property name="level" type="string">
+            <column name="level" length="20" />
+        </property>
+        <property name="company" type="string">
+            <column name="company" length="50" />
+        </property>
+        <property name="license" type="string">
+            <column name="license" length="30" />
+        </property>
+        <property name="imagePath" type="string">
+            <column name="image_path" length="120" />
+        </property>
+        <property name="remark" type="string">
+            <column name="remark" length="65535" />
+        </property>
+        <property name="hobby" type="string">
+            <column name="hobby" length="300" />
+        </property>
+        <property name="glory" type="string">
+            <column name="glory" length="300" />
+        </property>
+    </class>
+</hibernate-mapping>
