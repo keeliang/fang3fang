@@ -1,0 +1,52 @@
+@charset "utf-8";
+/*搜索栏*/
+#SearchBarHead {
+	height: 30px;
+	padding: 1px 1px 0 1px;
+	border-top: 1px solid #dedede;
+	border-left: 1px solid #dedede;
+	border-right: 1px solid #dedede;
+	border-bottom: 1px solid #f8bb18;
+}
+#SearchBarHeadSub {
+	height: 27px;
+	padding-top: 3px;
+	background: url(../images/SearchBarHeadSub.gif) repeat-x left top;
+}
+	#SearchBarHeadSub ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+		#SearchBarHeadSub ul li {
+			margin: 0;
+			padding: 0;
+			display: inline;
+		}
+			#SearchBarHeadSub ul li a {
+				display: inline-block;
+				width: 80px;
+				height: 20px;
+				color: #000000;
+				font-size: 14px;
+				font-weight: bold;
+				margin-left: 10px;
+				padding: 6px 0 0 0;
+				text-align: center;
+			}
+			#SearchBarHeadSub ul li a.Current {
+				background-color: #f8f8c8;
+				border-top: 1px solid #f8bb18;
+				border-left: 1px solid #f8bb18;
+				border-right: 1px solid #f8bb18;
+				border-bottom: 1px solid #f8f8c7;
+			}
+.SearchBarContent {
+	z-index: 10;
+	height: 35px;
+	padding: 15px 0 0 15px;
+	border-left: 1px solid #f8bb18;
+	border-right: 1px solid #f8bb18;
+	border-bottom: 1px solid #f8bb18;
+	background: url(../images/SearchBarContentSub.gif) repeat-x left top;
+}

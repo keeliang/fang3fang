@@ -1,0 +1,506 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/*步骤*/
+#Step {
+	padding: 5px 0;
+}
+	#Step div{
+		float: left;
+		width: 16.6666666%;
+	}
+		#Step a {
+			height: 55px;
+			display: block;
+			color: #888;
+			padding: 8px 11px;
+			background: url(../images/navBtn.gif) no-repeat right top;
+			background-color: #ebebeb;
+		}
+			#Step a:hover {
+				text-decoration: none;
+			}
+		#Step a.PastNextNoCurrent {
+			color: #FFFFFF;
+			background: url(../images/navDoneBtn.gif) no-repeat right top;
+			background-color: #7c8437;
+		}
+		#Step a.PastNextCurrent {
+			color: #FFFFFF;
+			background: url(../images/navLastDoneBtn.gif) no-repeat right top;
+			background-color: #7c8437;
+		}
+		#Step a.Current {
+			cursor: default;
+			color: #FFFFFF;
+			background: url(../images/navCurrentBtn.gif) no-repeat right top;
+			background-color: #c36615;
+		}
+		#Step a.Last {
+			background-image: none;
+		}
+			#Step h1 {
+				font-size: 15px;
+			}
+			#Step h2 {
+				font-size: 11px;
+				padding: 7px 0 0 0;
+				font-weight: normal;
+			}
+
+#Left {
+	width: 23%;
+	padding: 5px;
+	float: left;
+}
+	#Left img {
+		display: block;
+	}
+	#LeftMain {
+		width: 198px;
+		padding: 10px 0 0 0;
+		background-color: #cde2ec;
+		border-left: 1px solid #0075a9;
+		border-right: 1px solid #0075a9;
+	}
+		.InputArea {
+			width: 175px;
+			height: 51px;
+			color: #3783cf;
+			padding: 10px 0 0 5px;
+			text-align: center;
+			background: url(../images/SubPage_RXFWContent.gif) no-repeat left top;
+		}
+
+#Right {
+	width: 75%;
+	float: right;
+	margin-top: 5px;
+	padding: 5px 0 0 0;
+	background-color: #ededed;
+}
+	#Title {
+		color: #0000CC;
+		font-size: 15px;
+		font-weight: bold;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+	.BackgroundPlusBorder {
+		padding: 10px;
+		margin: 10px 0;
+		background-color: #f2f2f2;
+		border-top: 1px dashed #000;
+		border-bottom: 1px dashed #000;
+	}
+		.BackgroundPlusBorderTitle {
+			color: #666666;
+		}
+		.BackgroundPlusBorderContent {
+			color: #777485;
+			text-indent: 2em;
+			padding: 1em 0 0 0;
+		}
+	.ButtonStyle {
+		width: 118px;
+		height: 12px;
+		display: block;
+		color: #FFFFFF;
+		padding: 12px 0;
+		font-weight: bold;
+		text-align: center;
+		background: url(../images/ButtonStyle.gif) no-repeat left top;
+	}
+		a.ButtonStyle:hover {
+			color: #999999;
+		}
+	/* “特别提醒”样式 */
+	.OutFrame {
+		padding: 4px;
+		margin: 10px auto;
+		border: 1px solid #bcbcbc;
+		background-color: #f2f2f2;
+	}
+		.InnerFrame {
+			padding: 10px;
+			background-color: #FFFFFF;
+		}
+			.InnerFrameTitle {
+				font-weight: bold;
+			}
+			.InnerFrameContent {
+				padding: 5px;
+				color: #666666;
+				background-color: #FFFFCC;
+			}
+	/* 子页Li样式 */
+	ul.LiJianTou {
+		list-style: none;
+		padding: 0 0 0 15px;
+	}
+		ul.LiJianTou li {
+			text-indent: 3em;
+			line-height: 2em;
+			border-bottom: 1px dashed #666666;
+			background: url(../images/LiJianTou.gif) no-repeat 4px 4px;
+		}
+	/* 子页搜索栏样式 */
+	#Search {
+		width: 482px;
+		height: 66px;
+		line-height: 2.5em;
+		padding: 20px 0 0 90px;
+		background: url(../images/SearchBackground.gif) no-repeat left top;
+	}
+		#SearchTitle {
+			font-size: 14px;
+			font-weight: bold;
+		}
+	/* GuestPage\CommonPage\HelpLeft.html样式 */
+	.HelpButton {
+		width: 100px;
+		height: 30px;
+		font-size: 14px;
+		font-weight: bold;
+		padding: 17px 0 0 80px;
+		background: url(../images/SubPage_ManButton.gif) no-repeat left top;
+	}
+		.WomanHelpButton {
+			background: url(../images/SubPage_WomanButton.gif) no-repeat left top;
+		}
+		.HelpButton a {
+			color: #666666;
+			font-size: 14px;
+			font-weight: bold;
+		}
+/*解释框*/
+	#Explain #ExplainArea {
+		float: left;
+		width: 295px;
+		height: 68px;
+		padding: 8px 10px;
+		margin-right: 10px;
+		border: 1px solid #dddddd;
+		background: url(../images/Sub.gif) repeat left top;
+	}
+		#ExplainArea div {
+			display: block;
+		}
+		#ExplainArea #ExplainAreaTitle {
+			color: #666666;
+			font-size: 14px;
+			font-weight: bold;
+			text-align: center;
+		}
+		#ExplainArea #ExplainAreaContent {
+			color: #006600;
+			padding: 5px 0 0 0;
+		}
+	/*表格*/
+	.TableHasBorderStyle {
+		border-collapse: collapse;
+		border: 1px solid #000;
+	}
+		.TableHasBorderStyle th {
+			background-color: #CCCCCC;
+			border: 1px solid #000000;
+		}
+		.TableHasBorderStyle td {
+			height: 30px;
+			padding: 5px;
+			text-align: center;
+			border: 1px solid #000000;
+		}
+/*子框*/
+.ListFrame {
+	float: left;
+	width: 49.4%;
+	margin: 10px 0px;
+	border: 1px solid #f8bb18;
+}
+.FloatRight {
+	float: right;
+}
+	.ListFrameTitle {
+		height: 11px;
+		color: #003300;
+		font-weight: bold;
+		padding: 7px 0 7px 5px;
+		border-bottom: 1px solid #f8bb18;
+		background: url(../images/SearchBarContentSub.gif) repeat-x left top;
+	}
+		.ListFrameTitle span {
+			width: 25em;
+			text-align: right;
+			display: inline-block;
+		}
+	.ListFrameSubTitle {
+		height: 14px;
+		padding: 3px 0 3px 10px;
+		background-color: #FFFFCC;
+		border-bottom: 1px solid #f8bb18;
+	}
+		.DisplayInlineBlock {
+			overflow: hidden;
+			WHITE-SPACE: nowrap;
+			display: block;
+			float: left;
+			TEXT-OVERFLOW: ellipsis;
+		}
+			.Span1 {
+				width: 11em;
+				text-align: left;
+			}
+				a .Span1 {
+					color: #003333;
+				}
+				a:hover .Span1 {
+					color: #FF6600;
+				}
+			.Span2 {
+				width: 6em;
+				text-align: center;
+			}
+			.Span3 {
+				width: 5.5em;
+				text-align: center;
+			}
+			.Span4 {
+				width: 5em;
+				text-align: center;
+			}
+			.Span5 {
+				width: 7em;
+				text-align: center;
+			}
+			.Span6 {
+				width: 9em;
+			}
+				a .Span6 {
+					color: #003333;
+				}
+				a:hover .Span6 {
+					color: #FF6600;
+				}
+			.Span7 {
+				width: 10em;
+			}
+			.Span8 {
+				width: 11em;
+			}
+	.ListFrameContent {
+	}
+		.ListFrameContent ul {
+			list-style: none;
+		}
+			.ListFrameContent ul li {
+				/*height: 1.5em !important;
+				padding: 2px 0px 0px 8px !important;
+				height: 10px;
+				padding: 0 0 1px 8px;*/
+				height: 16px;
+				padding: 2px 0.6em;
+				border-bottom: 1px dashed #f8bb18;
+			}
+				.ListFrameContent ul li a:hover {
+					text-decoration: none;
+				}
+	.More {
+		float: right;
+		padding: 2px 5px 0 0;
+	}
+/*显示详细*/
+.Details {
+	width: 75%;
+	float: left;
+	border: 1px solid #f8bb18;
+}
+	.DetailsTitle {
+		height: 19px;
+		font-size: 14px;
+		font-weight: bold;
+		padding: 6px 0 0 15px;
+		border-bottom: 1px solid #f8bb18;
+		background: url(../images/ListHeadSub_2.gif) repeat-x left top;
+	}
+	.DetailsTableStyle {
+		width: 98%;
+		margin: 10px auto;
+		border-collapse: collapse;
+	}
+		.DetailsTableStyle td {
+			padding: 3px 0;
+			font-size: 12px;
+			border: 1px solid #f8bb18;
+		}
+		.DetailsTableStyle .DetailsTableLeft {
+			width: 15%;
+			text-align: center;
+			background-color: #FFFEF9;
+
+		}
+		.DetailsTableStyle .DetailsTableRight {
+			width: 35%;
+			padding: 5px 0 4px 1.2em;
+		}
+.DetailsRight {
+	float: right;
+	width: 213px;
+}
+	.DetailsRight img {
+		border: 1px solid #f8bb18;
+	}
+/*快速搜索 结果显示*/
+.LeftFrame {
+	float: left;
+	width: 650px;
+}
+.AreaDiv {
+	margin-bottom: 10px;
+	border: 1px solid #FFFEF9;
+}
+.Group {
+	float: left;
+	width: 650px;
+}
+	.QuickSearchButtonGroup {
+		clear: both;
+	}
+	.QuickSearchButtonGroup a{
+		float: left;
+		width: 136px;
+		height: 13px;
+		display: block;
+		font-size: 13px;
+		margin-right: 5px;
+		text-align: center;
+		padding: 8px 0 8px 0;
+		background: url(../images/Button.jpg) no-repeat left top;
+	}
+		.QuickSearchButtonGroup a:hover{
+			color: #999;
+			text-decoration: none;
+		}
+	.QuickSearchResult {
+		width: 650px;
+		margin-top: 5px;
+	}
+		.QuickSearchResult .Title{
+			color: #f60;
+			font-size: 13px;
+			margin-left: 3px;
+			font-weight: bold;
+			padding: 5px 0 0 25px;
+			background: url(../images/JianTou_2.gif) no-repeat left center;
+		}
+	.Strong {
+		color: #f60;
+		font-weight: bold;
+	}
+	.ListTitle {
+		height: 1.5em;
+		margin-top: 5px;
+		padding: 0.5em 1em;
+	}
+		.ListTitle span {
+			font-size: 13px;
+			overflow: hidden;
+			WHITE-SPACE: nowrap;
+			display: inline-block;
+			TEXT-OVERFLOW: ellipsis;
+		}
+			.Center {
+				text-align: center;
+			}
+			.ListTitle .Span1 {
+				width: 14em;
+			}
+			.ListTitle .Span2 {
+				width: 3.5em;
+				text-align: center;
+			}
+			.ListTitle .Span3 {
+				width: 3.5em;
+				text-align: center;
+			}
+			.ListTitle .Span4 {
+				width: 3.5em;
+				text-align: center;
+			}
+			.ListTitle .Span5 {
+				width: 10em;
+				text-align: center;
+			}
+			.ListTitle .Span6 {
+				width: 10em;
+				text-align: center;
+			}
+				.ListTitle .Span5 a {
+					color: #FF0000;
+				}
+			.ListTitle .Span7 {
+				width: 11em;
+			}
+			.ListTitle .Span8 {
+				width: 11.5em;
+				text-align: center;
+			}
+			.ListTitle .Span9 {
+				width: 12em;
+				text-align: center;
+			}
+		.ListContent ul {
+			list-style: none;
+		}
+			.ListContent ul li {
+				padding: 3px 0;
+				border-bottom: 1px dashed #ccc;
+			}
+				.ListContent ul li span {
+					overflow: hidden;
+					WHITE-SPACE: nowrap;
+					display: inline-block;
+					TEXT-OVERFLOW: ellipsis;
+				}
+				.ListContent ul li .Span1 {
+					width: 14.55em;
+					padding: 0 1em;
+				}
+					.ListContent ul li .Span1 a {
+						color: #000;
+					}
+				.ListContent ul li .Span2 {
+					width: 3.8em;
+					text-align: center;
+				}
+				.ListContent ul li .Span3 {
+					width: 3.5em;
+					text-align: center;
+				}
+				.ListContent ul li .Span4 {
+					width: 4.2em;
+					text-align: center;
+				}
+				.ListContent ul li .Span5 {
+					width: 11em;
+					text-align: center;
+				}
+				.ListContent ul li .Span6 {
+					width: 10em;
+					text-align: center;
+				}
+				.ListContent ul li .Span7 {
+					width: 10em;
+					padding: 0 1em;
+				}
+				.ListContent ul li .Span8 {
+					width: 13em;
+					text-align: center;
+				}
+				.ListContent ul li .Span9 {
+					width: 11em;
+					text-align: center;
+				}
+				.ListContent ul li .Span10 {
+					width: 12.5em;
+					text-align: center;
+				}
