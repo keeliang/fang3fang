@@ -18,9 +18,6 @@
 <s:hidden name="userParameter.maxResults" />
 <s:hidden name="userParameter._ne_userId" />
 <s:hidden name="userParameter._se_userCode" />
-<s:hidden name="userParameter._se_password" />
-<s:hidden name="userParameter._se_question" />
-<s:hidden name="userParameter._se_answer" />
 <s:hidden name="userParameter._se_userName" />
 <s:hidden name="userParameter._ne_sex" />
 <s:hidden name="userParameter._ne_status" />
@@ -28,15 +25,13 @@
 <s:hidden name="userParameter._ne_provinceId" />
 <s:hidden name="userParameter._ne_cityId" />
 <s:hidden name="userParameter._ne_districtId" />
-<s:hidden name="userParameter._se_address" />
 <s:hidden name="userParameter._se_tel" />
 <s:hidden name="userParameter._se_phone" />
 <s:hidden name="userParameter._se_qq" />
 <s:hidden name="userParameter._se_msn" />
 <s:hidden name="userParameter._se_email" />
-<s:hidden name="userParameter._se_remark" />
-<s:hidden name="userParameter._de_createDate" />
-<s:hidden name="userParameter._se_imagePath" />
+<s:hidden name="userParameter._dle_createDate" />
+<s:hidden name="userParameter._dge_createDate" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -214,7 +209,7 @@
 <script type="text/javascript">
 function f_validate(){
 	fromName = "formItem";
-	addfield("userId","<s:text name="userId"/>","Integer",false,10);
+	//addfield("userId","<s:text name="userId"/>","Integer",false,10);
 	addfield("userCode","<s:text name="userCode"/>","String",false,50);
 	addfield("password","<s:text name="password"/>","String",false,50);
 	addfield("question","<s:text name="question"/>","String",true,30);
@@ -231,7 +226,7 @@ function f_validate(){
 	addfield("phone","<s:text name="phone"/>","String",true,32);
 	addfield("qq","<s:text name="qq"/>","String",true,20);
 	addfield("msn","<s:text name="msn"/>","String",true,20);
-	addfield("email","<s:text name="email"/>","String",true,80);
+	addfield("email","<s:text name="email"/>","Email",true,80);
 	addfield("remark","<s:text name="remark"/>","String",true,65535);
 	addfield("createDate","<s:text name="createDate"/>","Date",false,19);
 	addfield("imagePath","<s:text name="imagePath"/>","String",true,100);
