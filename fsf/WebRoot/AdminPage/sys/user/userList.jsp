@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<s:form action="userList" namespace="/sys/user" name="formList" id="formList" theme="simple" method="post">
+<s:form action="userList" namespace="/sysadmin/sys/user" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="userParameter.currentPage" id="currentPage"  />
 <s:hidden name="userParameter.maxResults" id="maxResults" />
 <table>
@@ -20,156 +20,123 @@
 	</tr>
 </table>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="filter_tbl" id="filter_tbl" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
 	<tr>
 		<td>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" >
 				<tr>
-					<td width="15%" class="input_name">
+					<td width="15%" >
 						<s:text name="_ne_userId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._ne_userId" cssClass="input_text" />
+						<s:textfield name="userParameter._ne_userId"  />
 					</td>
-					<td width="15%" class="input_name">
+					<td width="15%" >
 						<s:text name="_se_userCode" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._se_userCode" cssClass="input_text" />
+						<s:textfield name="userParameter._se_userCode"  />
 					</td>
 				</tr>
 				<tr>
-					<td width="15%" class="input_name">
-						<s:text name="_se_password" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="userParameter._se_password" cssClass="input_text" />
-					</td>
-					<td width="15%" class="input_name">
-						<s:text name="_se_question" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="userParameter._se_question" cssClass="input_text" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" class="input_name">
-						<s:text name="_se_answer" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="userParameter._se_answer" cssClass="input_text" />
-					</td>
-					<td width="15%" class="input_name">
+					<td width="15%" >
 						<s:text name="_se_userName" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._se_userName" cssClass="input_text" />
+						<s:textfield name="userParameter._se_userName"  />
 					</td>
-				</tr>
-				<tr>
-					<td width="15%" class="input_name">
-						<s:text name="_ne_sex" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="userParameter._ne_sex" cssClass="input_text" />
-					</td>
-					<td width="15%" class="input_name">
+					<td width="15%" >
 						<s:text name="_ne_status" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._ne_status" cssClass="input_text" />
+						<s:textfield name="userParameter._ne_status"  />
 					</td>
 				</tr>
 				<tr>
-					<td width="15%" class="input_name">
+					<td width="15%" >
 						<s:text name="_ne_userType" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._ne_userType" cssClass="input_text" />
+						<s:textfield name="userParameter._ne_userType"  />
 					</td>
-					<td width="15%" class="input_name">
+					<td width="15%" >
+						<s:text name="_ne_sex" />:
+					</td>
+					<td width="35%">
+						<s:radio list="@fsf.web.common.SelectTagStaticUtil@getConfig('$sex')" name="userParameter._ne_sex" 
+						listValue="itemName" listKey="itemKey"/>
+					</td>
+				</tr>
+				<tr>
+					<td width="15%" >
 						<s:text name="_ne_provinceId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._ne_provinceId" cssClass="input_text" />
+						<s:textfield name="userParameter._ne_provinceId"  />
 					</td>
-				</tr>
-				<tr>
-					<td width="15%" class="input_name">
+					<td width="15%" >
 						<s:text name="_ne_cityId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._ne_cityId" cssClass="input_text" />
+						<s:textfield name="userParameter._ne_cityId"  />
 					</td>
-					<td width="15%" class="input_name">
+				</tr>
+				<tr>
+					<td width="15%" >
 						<s:text name="_ne_districtId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._ne_districtId" cssClass="input_text" />
+						<s:textfield name="userParameter._ne_districtId"  />
 					</td>
 				</tr>
 				<tr>
-					<td width="15%" class="input_name">
-						<s:text name="_se_address" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="userParameter._se_address" cssClass="input_text" />
-					</td>
-					<td width="15%" class="input_name">
+					<td width="15%" >
 						<s:text name="_se_tel" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._se_tel" cssClass="input_text" />
+						<s:textfield name="userParameter._se_tel"  />
 					</td>
-				</tr>
-				<tr>
-					<td width="15%" class="input_name">
+					<td width="15%" >
 						<s:text name="_se_phone" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._se_phone" cssClass="input_text" />
+						<s:textfield name="userParameter._se_phone"  />
 					</td>
-					<td width="15%" class="input_name">
+				</tr>
+				<tr>
+					<td width="15%" >
 						<s:text name="_se_qq" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._se_qq" cssClass="input_text" />
+						<s:textfield name="userParameter._se_qq"  />
 					</td>
-				</tr>
-				<tr>
-					<td width="15%" class="input_name">
+					<td width="15%" >
 						<s:text name="_se_msn" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._se_msn" cssClass="input_text" />
+						<s:textfield name="userParameter._se_msn"  />
 					</td>
-					<td width="15%" class="input_name">
+				</tr>
+				<tr>
+					<td width="15%" >
 						<s:text name="_se_email" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._se_email" cssClass="input_text" />
+						<s:textfield name="userParameter._se_email"  />
 					</td>
 				</tr>
 				<tr>
-					<td width="15%" class="input_name">
-						<s:text name="_se_remark" />:
+					<td width="15%" >
+						<s:text name="_dge_createDate" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._se_remark" cssClass="input_text" />
+						<s:textfield name="userParameter._dge_createDate"  />
 					</td>
-					<td width="15%" class="input_name">
-						<s:text name="_de_createDate" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="userParameter._de_createDate" cssClass="input_text" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" class="input_name">
-						<s:text name="_se_imagePath" />:
+					<td width="15%" >
+						<s:text name="_dle_createDate" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._se_imagePath" cssClass="input_text" />
+						<s:textfield name="userParameter._dle_createDate"  />
 					</td>
 				</tr>
 			</table>

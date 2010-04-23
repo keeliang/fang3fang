@@ -209,6 +209,7 @@ public class BaseDao<E> extends HibernateDaoSupport implements Dao<E> {
 		countHql.append(whereClause);
 		Query query = getSession().createQuery(countHql.toString());
 		setParameter(mapParameter, query);
+		Object o = query.uniqueResult();
 		qr.setTotalCount((Long)query.uniqueResult());
 		
 		StringBuffer queryHql = new StringBuffer("select o from "+ entityClass.getName() + " o where 1=1 ");
@@ -382,7 +383,7 @@ public class BaseDao<E> extends HibernateDaoSupport implements Dao<E> {
 	 * @throws Exception
 	 */
 	protected Map handlerConditions(BaseParameter param) throws Exception {
-		Map staticConditions = BeanUtils.describe(param);
+		Map staticConditions = chance.util.BeanUtils.describe(param);
 		Map<String, Object> dynamicConditions = param
 				.getQueryDynamicConditions();
 		if (dynamicConditions.size() > 0) {

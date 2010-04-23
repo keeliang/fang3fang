@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="fsf" uri="/common.tld"%>
 <%
 String contextPath = request.getContextPath();
 %>

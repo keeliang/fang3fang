@@ -4,7 +4,7 @@
   <head>
     <title></title>
   </head>
-  <frameset rows="50,*" >
+  <frameset rows="55,*" >
   	<frame src="top.jsp" noresize="noresize" frameborder="0" />
   	<frameset cols="220,*" id="main" style="margin: 0;padding: 0;" >
   		<frame src="menu.jsp" name="menu" scrolling="auto" frameborder="0"  />
