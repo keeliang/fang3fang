@@ -68,16 +68,16 @@
 				</tr>
 				<tr>
 					<td width="15%" class="input_name">
-						<s:text name="_de_modifyTime" />:
+						<s:text name="_de_updateTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newTypeParameter._de_modifyTime" cssClass="input_text" />
+						<s:textfield name="newTypeParameter._de_updateTime" cssClass="input_text" />
 					</td>
 					<td width="15%" class="input_name">
-						<s:text name="_ne_modifyUserId" />:
+						<s:text name="_ne_updateUserId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newTypeParameter._ne_modifyUserId" cssClass="input_text" />
+						<s:textfield name="newTypeParameter._ne_updateUserId" cssClass="input_text" />
 					</td>
 				</tr>
 			</table>
@@ -106,8 +106,8 @@
 	<td class="table_hdr"><s:text name="status"/></td>
 	<td class="table_hdr"><s:text name="createTime"/></td>
 	<td class="table_hdr"><s:text name="createUserId"/></td>
-	<td class="table_hdr"><s:text name="modifyTime"/></td>
-	<td class="table_hdr"><s:text name="modifyUserId"/></td>
+	<td class="table_hdr"><s:text name="updateTime"/></td>
+	<td class="table_hdr"><s:text name="updateUserId"/></td>
 </tr>
 
 <s:iterator value="pageView.records" id="item">
@@ -124,8 +124,8 @@
 		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="status"/></a></td>
 		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="createTime"/></a></td>
 		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="createUserId"/></a></td>
-		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="modifyTime"/></a></td>
-		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="modifyUserId"/></a></td>
+		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="updateTime"/></a></td>
+		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="updateUserId"/></a></td>
 	</tr>
 </s:iterator>
 </table>

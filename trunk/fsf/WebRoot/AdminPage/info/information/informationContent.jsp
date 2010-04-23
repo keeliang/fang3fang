@@ -24,8 +24,8 @@
 <s:hidden name="informationParameter._ne_status" />
 <s:hidden name="informationParameter._de_createTime" />
 <s:hidden name="informationParameter._ne_createUserId" />
-<s:hidden name="informationParameter._de_modifyTime" />
-<s:hidden name="informationParameter._ne_modifyUserId" />
+<s:hidden name="informationParameter._de_updateTime" />
+<s:hidden name="informationParameter._ne_updateUserId" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -106,18 +106,18 @@
 				</tr>
 				<tr>
 					<td>
-						<s:text name="modifyTime"/>:
+						<s:text name="updateTime"/>:
 					</td>
 					<td>
-						<s:textfield name="modifyTime" /><font color="red">*</font>
+						<s:textfield name="updateTime" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<s:text name="modifyUserId"/>:
+						<s:text name="updateUserId"/>:
 					</td>
 					<td>
-						<s:textfield name="modifyUserId" /><font color="red">*</font>
+						<s:textfield name="updateUserId" /><font color="red">*</font>
 					</td>
 				</tr>
 			</table>
@@ -138,8 +138,8 @@ function f_validate(){
 	addfield("status","<s:text name="status"/>","Integer",false,3);
 	addfield("createTime","<s:text name="createTime"/>","Date",false,19);
 	addfield("createUserId","<s:text name="createUserId"/>","Integer",false,10);
-	addfield("modifyTime","<s:text name="modifyTime"/>","Date",false,19);
-	addfield("modifyUserId","<s:text name="modifyUserId"/>","Integer",false,10);
+	addfield("updateTime","<s:text name="updateTime"/>","Date",false,19);
+	addfield("updateUserId","<s:text name="updateUserId"/>","Integer",false,10);
 	return validate();
 }
 </script>
