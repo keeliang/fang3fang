@@ -137,8 +137,8 @@ create table if not exists est_estate_in(
 	
 	create_time datetime not null ,	/* 记录创建日期 */
 	create_user_id int not null ,	/* 记录创建人*/
-	modify_time datetime not null ,	/* 最后记录修改日期 */
-	modify_user_id int not null ,	/* 最后记录修改人 */ 
+	update_time datetime not null,
+	update_user_id int not null,
 	
 	constraint PK_est_estate_in primary key(estate_id)
 );

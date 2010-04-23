@@ -22,16 +22,16 @@ public class Information implements java.io.Serializable {
 	private Short status;
 	private Date createTime;
 	private Integer createUserId;
-	private Date modifyTime;
-	private Integer modifyUserId;
+	private Date updateTime;
+	private Integer updateUserId;
 
 	public Information() {
 	}
 
 	public Information(String informationTitle, String informationContent,
 			Short isNew, Integer informationType, Short status,
-			Date createTime, Integer createUserId, Date modifyTime,
-			Integer modifyUserId) {
+			Date createTime, Integer createUserId, Date updateTime,
+			Integer updateUserId) {
 		this.informationTitle = informationTitle;
 		this.informationContent = informationContent;
 		this.isNew = isNew;
@@ -39,8 +39,8 @@ public class Information implements java.io.Serializable {
 		this.status = status;
 		this.createTime = createTime;
 		this.createUserId = createUserId;
-		this.modifyTime = modifyTime;
-		this.modifyUserId = modifyUserId;
+		this.updateTime = updateTime;
+		this.updateUserId = updateUserId;
 	}
 
 	public Integer getInformationId() {
@@ -107,20 +107,20 @@ public class Information implements java.io.Serializable {
 		this.createUserId = createUserId;
 	}
 
-	public Date getModifyTime() {
-		return this.modifyTime;
+	public Date getUpdateTime() {
+		return this.updateTime;
 	}
 
-	public void setModifyTime(Date modifyTime) {
-		this.modifyTime = modifyTime;
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
-	public Integer getModifyUserId() {
-		return this.modifyUserId;
+	public Integer getUpdateUserId() {
+		return this.updateUserId;
 	}
 
-	public void setModifyUserId(Integer modifyUserId) {
-		this.modifyUserId = modifyUserId;
+	public void setUpdateUserId(Integer updateUserId) {
+		this.updateUserId = updateUserId;
 	}
 
 }

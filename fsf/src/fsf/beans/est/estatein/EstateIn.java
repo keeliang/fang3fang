@@ -40,8 +40,8 @@ public class EstateIn implements java.io.Serializable {
 	private String remark;
 	private Date createTime;
 	private Integer createUserId;
-	private Date modifyTime;
-	private Integer modifyUserId;
+	private Date updateTime;
+	private Integer updateUserId;
 
 	public EstateIn() {
 	}
@@ -49,7 +49,7 @@ public class EstateIn implements java.io.Serializable {
 	public EstateIn(String title, Short tradeMode, Short estateType, Integer hall,
 			Integer bedroom, Integer toilet, Integer porch, Double areaFrom, Double areaTo,
 			Short isLift, Short fitment, Short device, Date createTime,
-			Integer createUserId, Date modifyTime, Integer modifyUserId) {
+			Integer createUserId, Date updateTime, Integer updateUserId) {
 		this.title = title;
 		this.tradeMode = tradeMode;
 		this.estateType = estateType;
@@ -64,8 +64,8 @@ public class EstateIn implements java.io.Serializable {
 		this.device = device;
 		this.createTime = createTime;
 		this.createUserId = createUserId;
-		this.modifyTime = modifyTime;
-		this.modifyUserId = modifyUserId;
+		this.updateTime = updateTime;
+		this.updateUserId = updateUserId;
 	}
 
 	public EstateIn(String title, Integer provinceId, Integer cityId,
@@ -75,7 +75,7 @@ public class EstateIn implements java.io.Serializable {
 			Double buyPriceTo, Double rentPriceFrom, Double rentPriceTo,
 			Double areaFrom, Double areaTo, Short isLift, Short fitment,
 			Short device, String remark, Date createTime, Integer createUserId,
-			Date modifyTime, Integer modifyUserId) {
+			Date updateTime, Integer updateUserId) {
 		this.title = title;
 		this.provinceId = provinceId;
 		this.cityId = cityId;
@@ -101,8 +101,8 @@ public class EstateIn implements java.io.Serializable {
 		this.remark = remark;
 		this.createTime = createTime;
 		this.createUserId = createUserId;
-		this.modifyTime = modifyTime;
-		this.modifyUserId = modifyUserId;
+		this.updateTime = updateTime;
+		this.updateUserId = updateUserId;
 	}
 
 	public Integer getEstateId() {
@@ -313,20 +313,19 @@ public class EstateIn implements java.io.Serializable {
 		this.createUserId = createUserId;
 	}
 
-	public Date getModifyTime() {
-		return this.modifyTime;
+	public Date getUpdateTime() {
+		return updateTime;
 	}
 
-	public void setModifyTime(Date modifyTime) {
-		this.modifyTime = modifyTime;
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
-	public Integer getModifyUserId() {
-		return this.modifyUserId;
+	public Integer getUpdateUserId() {
+		return updateUserId;
 	}
 
-	public void setModifyUserId(Integer modifyUserId) {
-		this.modifyUserId = modifyUserId;
+	public void setUpdateUserId(Integer updateUserId) {
+		this.updateUserId = updateUserId;
 	}
-
 }

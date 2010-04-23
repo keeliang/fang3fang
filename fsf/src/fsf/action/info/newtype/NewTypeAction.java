@@ -42,8 +42,8 @@ public class NewTypeAction extends BaseAction<NewType> {
 	private Short status;
 	private Date createTime;
 	private Integer createUserId;
-	private Date modifyTime;
-	private Integer modifyUserId;
+	private Date updateTime;
+	private Integer updateUserId;
 
 	public void setNewTypeId(Integer newTypeId){
 		this.newTypeId = newTypeId;
@@ -81,17 +81,17 @@ public class NewTypeAction extends BaseAction<NewType> {
 	public Integer getCreateUserId(){
 		return this.createUserId;
 	}
-	public void setModifyTime(Date modifyTime){
-		this.modifyTime = modifyTime;
+	public void setupdateTime(Date updateTime){
+		this.updateTime = updateTime;
 	}
-	public Date getModifyTime(){
-		return this.modifyTime;
+	public Date getupdateTime(){
+		return this.updateTime;
 	}
-	public void setModifyUserId(Integer modifyUserId){
-		this.modifyUserId = modifyUserId;
+	public void setupdateUserId(Integer updateUserId){
+		this.updateUserId = updateUserId;
 	}
-	public Integer getModifyUserId(){
-		return this.modifyUserId;
+	public Integer getupdateUserId(){
+		return this.updateUserId;
 	}
 
 }
