@@ -37,11 +37,11 @@ drop table if exists est_estate_out;
 create table if not exists est_estate_out(
 	estate_id int not null auto_increment,
 	estate_card_no varchar(50),/*房产证编号*/
-	card_5year tinyint,/*房产证是否满5年 1 是 0 否 */
+	card_5year tinyint,/*房产证是否满5年 1 是 0 否 固定参数yes_no*/
 	estate_name varchar(80),/*房产名称*/
 	develop varchar(50),
 	
-	trade_type tinyint not null,/* 1 自主交易 2 委托交易 */
+	trade_type tinyint not null,/* 1 自主交易 2 委托交易 固定参数trade_type*/
 	contact_user_id int not null, /*联系人 自主交易时此值和create_user_id一样，委托交易时是委托人*/
 	
 	/*这里把省，市，区，商圈都记了，并且可null，方便扩展和将来可能的按市、区查询时减少table的链接*/
@@ -50,17 +50,17 @@ create table if not exists est_estate_out(
 	district_id int,
 	area_id int,
 	
-	trade_mode tinyint not null,/*交易模式 0 disabled(前台不显示) 1 出租 2 出售 3 租售均可 4 已租 5 已售 */
-	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 旺铺 5 厂房 6 仓库 7 写字楼 8 酒楼 9 餐厅 10 地皮 11 其他*/
+	trade_mode tinyint not null,/*交易模式 0 disabled(前台不显示) 1 出租 2 出售 3 租售均可 4 已租 5 已售 固定参数out_trade_mode*/
+	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 旺铺 5 厂房 6 仓库 7 写字楼 8 酒楼 9 餐厅 10 地皮 11 其他 固定参数estate_type*/
 	
 	area decimal(6,2) not null,/* 建筑面积 */
-	is_lift tinyint not null, /* 1 电梯 0 非电梯 */
+	is_lift tinyint not null, /* 1 电梯 0 非电梯 固定参数is_lift*/
 	practical_area decimal(6,2) not null,	/* 实用面积 */
 	
-	effective int not null,/* 有效天数 -1 长期有效*/
+	effective int not null,/* 有效天数 -1 长期有效 */
 
 	estate_address varchar(128) not null,
-	toward int,	/* 房子的朝向 1 东 2 南 3 西 4 北 5 东南 6 西南 7 东北 8 西北 */
+	toward int,	/* 房子的朝向 1 东 2 南 3 西 4 北 5 东南 6 西南 7 东北 8 西北 固定参数toward*/
 	
 	floor int not null, /* 楼层 */
 	total_floor int not null, /* 总楼层 */
@@ -83,8 +83,8 @@ create table if not exists est_estate_out(
 	min_month int,	/* 最短租期 出租必填 */
 	deposit decimal(12,2), /*押金 出租必填 */	
 	
-	fitment tinyint not null,/* 装修程度 1 豪华装修 2 新装修 3 普通装修 4 简单装修 5 毛坯 6 其他*/
-	device tinyint not null,/* 室内配套 1 吉屋 2 部分家电 3 家电齐 4 面议 */
+	fitment tinyint not null,/* 装修程度 1 豪华装修 2 新装修 3 普通装修 4 简单装修 5 毛坯 6 其他 固定参数fitment*/
+	device tinyint not null,/* 室内配套 1 吉屋 2 部分家电 3 家电齐 4 面议 固定参数device*/
 	remark text,
 	image_path varchar(80),
 
@@ -108,8 +108,8 @@ create table if not exists est_estate_in(
 	district_id int,
 	area_id int,	
 
-	trade_mode tinyint not null,/*交易模式 0 disabled(前台不显示) 1 求租 2 求售 3 租售均可 4 已租 5 已购 */
-	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 旺铺 5 厂房 6 仓库 7 写字楼 8 酒楼 9 餐厅 10 地皮 11 其他*/
+	trade_mode tinyint not null,/*交易模式 0 disabled(前台不显示) 1 求租 2 求售 3 租售均可 4 已租 5 已购 固定参数in_trade_mode*/
+	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 旺铺 5 厂房 6 仓库 7 写字楼 8 酒楼 9 餐厅 10 地皮 11 其他 固定参数estate_type*/
 	
 	build_year int,	/* 物业建筑年份 出售必填 程序控制 */
 	
@@ -118,7 +118,7 @@ create table if not exists est_estate_in(
 	toilet int not null,/*卫*/
 	porch int not null,/*阳*/
 								
-	toward int,	/* 房子的朝向 1 东 2 南 3 西 4 北 5 东南 6 西南 7 东北 8 西北 */
+	toward int,	/* 房子的朝向 1 东 2 南 3 西 4 北 5 东南 6 西南 7 东北 8 西北 固定参数toward*/
 	
 	buy_price_from decimal(14,2) null,/* 求售必填*/
 	buy_price_to decimal(14,2) null,/* 求售必填*/
@@ -130,8 +130,8 @@ create table if not exists est_estate_in(
 	area_to decimal(12,2) not null,	
 	is_lift tinyint not null, /* 1 电梯 0 非电梯 */
 
-	fitment tinyint not null,/* 装修程度 0 均可 1 豪华装修 2 新装修 3 普通装修 4 简单装修 5 毛坯 */
-	device tinyint not null,/* 室内配套 0 均可 1 吉屋 2 部分家电 3 家电齐 */
+	fitment tinyint not null,/* 装修程度 0 均可 1 豪华装修 2 新装修 3 普通装修 4 简单装修 5 毛坯 固定参数fitment*/
+	device tinyint not null,/* 室内配套 0 均可 1 吉屋 2 部分家电 3 家电齐 固定参数 固定参数device*/
 	
 	remark text ,
 	
@@ -159,18 +159,18 @@ create table if not exists est_new_estate(
 	area_id int,
 
 		
-	status tinyint not null,/* 1 enabled 0 disabled*/
-	is_hot tinyint not null,/* 1 是 0 否*/
-	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 旺铺 5 厂房 6 仓库 7 写字楼 8 酒楼 9 餐厅 10 地皮 11 其他*/
+	status tinyint not null,/* 1 enabled 0 disabled 固定参数front_visible*/
+	is_hot tinyint not null,/* 1 是 0 否 固定参数is_hot*/
+	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 旺铺 5 厂房 6 仓库 7 写字楼 8 酒楼 9 餐厅 10 地皮 11 其他 固定参数estate_type*/
 	
 	area decimal(6,2) not null,/* 建筑面积 */
-	is_lift tinyint not null, /* 1 电梯 0 非电梯 */
+	is_lift tinyint not null, /* 1 电梯 0 非电梯 固定参数is_lift*/
 	practical_area decimal(6,2) not null,	/* 实用面积 */
 	
 	effective int not null,/* 有效天数 -1 长期有效*/
 
 	estate_address varchar(128) not null,
-	toward int,	/* 房子的朝向 1 东 2 南 3 西 4 北 5 东南 6 西南 7 东北 8 西北 */
+	toward int,	/* 房子的朝向 1 东 2 南 3 西 4 北 5 东南 6 西南 7 东北 8 西北 固定参数toward*/
 	
 	total_floor int not null, /* 总楼层 */
 	
@@ -184,7 +184,7 @@ create table if not exists est_new_estate(
 	manage_cost decimal(14,2) not null,/*管理费*/
 	other_cost decimal(12,3),	/* 其他费用  按月计算 */
 
-	fitment tinyint not null,/* 装修程度 1 豪华装修 2 新装修 3 普通装修 4 简单装修 5 毛坯 6 其他*/
+	fitment tinyint not null,/* 装修程度 1 豪华装修 2 新装修 3 普通装修 4 简单装修 5 毛坯 6 其他 固定参数fitment*/
 	remark text,
 	image_path varchar(80),
 
@@ -200,7 +200,7 @@ create table if not exists est_new_estate(
 */
 drop table if exists est_estate_image;
 create table if not exists est_estate_image(
-	type tinyint not null,/* 1 二手房 2 新房*/
+	type tinyint not null,/* 1 二手房 2 新房 固定参数est_image_type*/
 	estate_id int not null,
 	image_path varchar(100) not null,
 	constraint PK_est_estate_image primary key(type,estate_id)
@@ -218,8 +218,8 @@ create table if not exists est_commerce(
 	city_id int,
 	district_id int,
 	area_id int,
-	commerce_type int not null,	/* 旺铺类型  1 - 厂房仓库 2 - 酒楼转让   3 - 写字楼4 - 餐厅转让 5 - 商铺6  - 工厂转让 7 - 美容发廊 8 - 房租转让*/
-	status tinyint not null,/* 1 enabled 0 disabled */
+	commerce_type int not null,	/* 旺铺类型 固定参数commerce_type  1 - 厂房仓库 2 - 酒楼转让   3 - 写字楼4 - 餐厅转让 5 - 商铺6  - 工厂转让 7 - 美容发廊 8 - 房租转让 */
+	status tinyint not null,/* 1 enabled 0 disabled 固定参数front_visible*/
 	ip varchar(30) not null,
 	create_time datetime not null,
 	create_user_id int not null,
@@ -234,7 +234,7 @@ create table if not exists est_commerce(
 drop table if exists est_comment;
 create table if not exists est_comment(
 	comment_id int not null,
-	type int not null, /* 1 出售出租 2 求售求租 3 新房 4 商业旺铺*/
+	type int not null, /* 用固定参数 est_comment_type 1 出售出租 2 求售求租 3 新房 4 商业旺铺*/
 	content text not null,
 	ip varchar(30) not null,
 	status tinyint not null, /* 1 前台可见 0 前台不可见 */
@@ -252,7 +252,7 @@ drop table if exists est_broker;
 create table if not exists est_broker(
 	user_id int not null,
 	real_name varchar(20) not null,
-	status tinyint not null ,	/* 状态 1 enabled 0 disabled */
+	status tinyint not null ,	/* 状态 1 enabled 0 disabled 固定参数status*/
 	
 	province_id int,
 	city_id int,

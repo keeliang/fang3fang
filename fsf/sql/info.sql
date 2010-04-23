@@ -7,8 +7,8 @@ create table if not exists info_information(
 	information_id int not null auto_increment,
 	information_title varchar(80) not null,
 	information_content text not null,
-	is_new tinyint not null,
-	/* 1 是,information_type由info_new_type取值  0 否,information_type由固定参数 1 焦点 2 深度报道 3 房价新闻 4 区域报道 5 房产政策 6 国际家居 7 社区推荐*/
+	is_new tinyint not null,/*用固定参数*/
+	/* 1 是,information_type由info_new_type取值  0 否,information_type由固定参数information_type取值 1 焦点 2 深度报道 3 房价新闻 4 区域报道 5 房产政策 6 国际家居 7 社区推荐*/
 	information_type int not null,
 	status tinyint not null ,	/* 状态 1 enabled 0 disabled */
 	create_time datetime not null ,
@@ -43,7 +43,7 @@ create table if not exists info_comment(
 	content text not null,
 	information_id int not null,
 	ip varchar(30) not null,
-	status tinyint not null, /* 1 前台可见 0 前台不可见 */
+	status tinyint not null, /* 1 前台可见 0 前台不可见 用固定参数front_visible*/
 	create_time datetime not null,
 	create_user_id int not null,
   update_time datetime not null,
