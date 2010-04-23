@@ -11,7 +11,7 @@ CREATE TABLE if not exists sys_user(
 
 	user_name varchar(50),
 	sex tinyint,/* 1 男 2 女 */
-	status tinyint not null,/*status -0 enabled 1 disabled*/
+	status tinyint not null,/*status -1 enabled 0 disabled*/
 	user_type tinyint not null,/*0 超级管理员 1 管理员 2 顾问 3 普通会员*/
 	
 	province_id int,
