@@ -51,7 +51,7 @@ create table if not exists est_estate_out(
 	area_id int,
 	
 	trade_mode tinyint not null,/*交易模式 0 disabled(前台不显示) 1 出租 2 出售 3 租售均可 4 已租 5 已售 固定参数out_trade_mode*/
-	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 旺铺 5 厂房 6 仓库 7 写字楼 8 酒楼 9 餐厅 10 地皮 11 其他 固定参数estate_type*/
+	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 餐厅 5 商铺 6 写字楼 7 厂房 8 其他 固定参数estate_type*/
 	
 	area decimal(6,2) not null,/* 建筑面积 */
 	is_lift tinyint not null, /* 1 电梯 0 非电梯 固定参数is_lift*/
@@ -109,7 +109,7 @@ create table if not exists est_estate_in(
 	area_id int,	
 
 	trade_mode tinyint not null,/*交易模式 0 disabled(前台不显示) 1 求租 2 求售 3 租售均可 4 已租 5 已购 固定参数in_trade_mode*/
-	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 旺铺 5 厂房 6 仓库 7 写字楼 8 酒楼 9 餐厅 10 地皮 11 其他 固定参数estate_type*/
+	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 餐厅 5 商铺 6 写字楼 7 厂房 8 其他 固定参数estate_type*/
 	
 	build_year int,	/* 物业建筑年份 出售必填 程序控制 */
 	
@@ -161,7 +161,7 @@ create table if not exists est_new_estate(
 		
 	status tinyint not null,/* 1 enabled 0 disabled 固定参数front_visible*/
 	is_hot tinyint not null,/* 1 是 0 否 固定参数is_hot*/
-	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 旺铺 5 厂房 6 仓库 7 写字楼 8 酒楼 9 餐厅 10 地皮 11 其他 固定参数estate_type*/
+	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 餐厅 5 商铺 6 写字楼 7 厂房 8 其他 固定参数estate_type*/
 	
 	area decimal(6,2) not null,/* 建筑面积 */
 	is_lift tinyint not null, /* 1 电梯 0 非电梯 固定参数is_lift*/
