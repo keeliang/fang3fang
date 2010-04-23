@@ -29,11 +29,11 @@
         <property name="createUserId" type="int">
             <column name="create_user_id" not-null="true" />
         </property>
-        <property name="modifyTime" type="timestamp">
-            <column name="modify_time" length="19" not-null="true" />
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19" not-null="true" />
         </property>
-        <property name="modifyUserId" type="int">
-            <column name="modify_user_id" not-null="true" />
+        <property name="updateUserId" type="int">
+            <column name="update_user_id" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

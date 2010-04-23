@@ -13,8 +13,8 @@ create table if not exists info_information(
 	status tinyint not null ,	/* 状态 1 enabled 0 disabled */
 	create_time datetime not null ,
 	create_user_id int not null ,
-	modify_time datetime not null ,
-	modify_user_id int not null ,
+	update_time datetime not null ,
+	update_user_id int not null ,
 	constraint PK_info_information primary key(information_id)
 );
 
@@ -29,8 +29,8 @@ create table if not exists info_new_type(
 	status tinyint not null ,	/* 1 enabled 0 disabled */
 	create_time datetime not null ,
 	create_user_id int not null ,
-	modify_time datetime not null ,
-	modify_user_id int not null ,
+	update_time datetime not null ,
+	update_user_id int not null ,
 	constraint PK_info_new_type primary key(new_type_id)
 );
 

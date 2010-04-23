@@ -14,8 +14,8 @@ public class InformationParameter extends BaseParameter{
 	private Short _ne_status;
 	private Date _de_createTime;
 	private Integer _ne_createUserId;
-	private Date _de_modifyTime;
-	private Integer _ne_modifyUserId;
+	private Date _de_updateTime;
+	private Integer _ne_updateUserId;
 
 	public void set_ne_informationId(Integer _ne_informationId){
 		this._ne_informationId = _ne_informationId;
@@ -65,16 +65,16 @@ public class InformationParameter extends BaseParameter{
 	public Integer get_ne_createUserId(){
 		return this._ne_createUserId;
 	}
-	public void set_de_modifyTime(Date _de_modifyTime){
-		this._de_modifyTime = _de_modifyTime;
+	public void set_de_updateTime(Date _de_updateTime){
+		this._de_updateTime = _de_updateTime;
 	}
-	public Date get_de_modifyTime(){
-		return this._de_modifyTime;
+	public Date get_de_updateTime(){
+		return this._de_updateTime;
 	}
-	public void set_ne_modifyUserId(Integer _ne_modifyUserId){
-		this._ne_modifyUserId = _ne_modifyUserId;
+	public void set_ne_updateUserId(Integer _ne_updateUserId){
+		this._ne_updateUserId = _ne_updateUserId;
 	}
-	public Integer get_ne_modifyUserId(){
-		return this._ne_modifyUserId;
+	public Integer get_ne_updateUserId(){
+		return this._ne_updateUserId;
 	}
 }
