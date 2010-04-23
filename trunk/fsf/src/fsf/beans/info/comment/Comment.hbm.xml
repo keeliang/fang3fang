@@ -20,10 +20,10 @@
         <property name="status" type="short">
             <column name="status" not-null="true" />
         </property>
-        <property name="createTime" type="timestamp">
+        <property name="createTime" type="timestamp" update="false">
             <column name="create_time" length="19" not-null="true" />
         </property>
-        <property name="createUserId" type="int">
+        <property name="createUserId" type="int" update="false">
             <column name="create_user_id" not-null="true" />
         </property>
         <property name="updateTime" type="timestamp">
