@@ -1,9 +1,11 @@
-drop table if exists sys_district;
-CREATE TABLE if not exists sys_district(
-	district_id int NOT NULL auto_increment,
-	district_name varchar(50) not null,
+drop table if exists est_businessarea;
+create table if not exists est_businessarea (
+	area_id int not null auto_increment,
+	area_name varchar(50) not null,
+	province_id int not null,
 	city_id int not null,
- constraint PK_sys_city primary key (district_id)
+	district_id int not null,
+	constraint PK_est_businessarea primary key(area_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT sys_district (district_id, district_name, city_id) VALUES (1, '东城区', 1);
@@ -2896,3 +2898,6 @@ INSERT sys_district (district_id, district_name, city_id) VALUES (2859, '福海�
 INSERT sys_district (district_id, district_name, city_id) VALUES (2860, '哈巴河县', 338);
 INSERT sys_district (district_id, district_name, city_id) VALUES (2861, '青河县', 338);
 INSERT sys_district (district_id, district_name, city_id) VALUES (2862, '吉木乃县', 338);
+
+alter table sys_district add province_id int not null default 1;
+update sys_district d,sys_city c set d.province_id = c.province_id where c.city_id = d.city_id;
