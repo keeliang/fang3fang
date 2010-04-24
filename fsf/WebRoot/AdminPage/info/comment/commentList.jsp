@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<s:form action="commentList" namespace="/info/comment" name="formList" id="formList" theme="simple" method="post">
+<s:form action="commentList" namespace="/sysadmin/info/comment" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="commentParameter.currentPage" id="currentPage"  />
 <s:hidden name="commentParameter.maxResults" id="maxResults" />
 <table>

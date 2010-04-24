@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<s:form action="informationList" namespace="/info/information" name="formList" id="formList" theme="simple" method="post">
+<s:form action="informationList" namespace="/sysadmin/info/information" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="informationParameter.currentPage" id="currentPage"  />
 <s:hidden name="informationParameter.maxResults" id="maxResults" />
 <table>
