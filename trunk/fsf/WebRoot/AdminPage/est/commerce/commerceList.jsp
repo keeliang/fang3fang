@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<s:form action="commerceList" namespace="/est/commerce" name="formList" id="formList" theme="simple" method="post">
+<s:form action="commerceList" namespace="/sysadmin/est/commerce" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="commerceParameter.currentPage" id="currentPage"  />
 <s:hidden name="commerceParameter.maxResults" id="maxResults" />
 <table>

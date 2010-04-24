@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<s:form action="newTypeList" namespace="/info/newtype" name="formList" id="formList" theme="simple" method="post">
+<s:form action="newTypeList" namespace="/sysadmin/info/newtype" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="newTypeParameter.currentPage" id="currentPage"  />
 <s:hidden name="newTypeParameter.maxResults" id="maxResults" />
 <table>
