@@ -5,6 +5,7 @@
 <struts>
 	<include file="struts/struts-sys.xml"/>
 	<include file="struts/struts-info.xml"/>
+	<include file="struts/struts-est.xml"/>
 	
 	<constant name="struts.custom.i18n.resources" value="global_message"/>
 	<!-- develop mode -->
