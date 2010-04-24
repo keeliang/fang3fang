@@ -20,7 +20,7 @@
 	</tr>
 </table>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="filter_tbl" id="filter_tbl" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
 	<tr>
 		<td>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" >
@@ -97,35 +97,35 @@
 
 <table width="100%" border="0" class="AdminTableStyle TableContent" id="tblList">
 <tr class="TH">
-	<td width="4%" height="28" class="table_hdr">
+	<td width="4%" height="28" >
 		<input type="checkbox" onclick="g_select(this)" >
 	</td>
-	<td class="table_hdr"><s:text name="newTypeId"/></td>
-	<td class="table_hdr"><s:text name="title"/></td>
-	<td class="table_hdr"><s:text name="seq"/></td>
-	<td class="table_hdr"><s:text name="status"/></td>
-	<td class="table_hdr"><s:text name="createTime"/></td>
-	<td class="table_hdr"><s:text name="createUserId"/></td>
-	<td class="table_hdr"><s:text name="updateTime"/></td>
-	<td class="table_hdr"><s:text name="updateUserId"/></td>
+	<td><s:text name="newTypeId"/></td>
+	<td><s:text name="title"/></td>
+	<td><s:text name="seq"/></td>
+	<td><s:text name="status"/></td>
+	<td><s:text name="createTime"/></td>
+	<td><s:text name="createUserId"/></td>
+	<td><s:text name="updateTime"/></td>
+	<td><s:text name="updateUserId"/></td>
 </tr>
 
 <s:iterator value="pageView.records" id="item">
-	<s:url action="newTypeEdit" namespace="/info/newtype" id="url">
+	<s:url action="newTypeEdit" namespace="/sysadmin/info/newtype" id="url">
 		<s:param name="newTypeId" value="#item.newTypeId"></s:param>
 	</s:url>
 	<tr>
-		<td class="table_dtl">
+		<td>
 			<input type="checkbox" name="selectedPK" value="<s:property value="#item.newTypeId"/>">
 		</td>
-		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="newTypeId"/></a></td>
-		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="title"/></a></td>
-		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="seq"/></a></td>
-		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="status"/></a></td>
-		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="createTime"/></a></td>
-		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="createUserId"/></a></td>
-		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="updateTime"/></a></td>
-		<td class="table_dtl"><a href="javascript:g_edit('${url}')" ><s:property value="updateUserId"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="newTypeId"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="title"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="seq"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="status"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="createTime"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="createUserId"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="updateTime"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="updateUserId"/></a></td>
 	</tr>
 </s:iterator>
 </table>
