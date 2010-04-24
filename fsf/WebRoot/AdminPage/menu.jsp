@@ -49,9 +49,10 @@ $(document).ready(function() {
 	<tr class="menuItemTr">
 		<td>
 			<table>
-				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>城市管理</span></a></td></tr>
-				<tr><td><a href="AdminPage_DistrictType.jsp" target="content"><span>地区管理</span></a></td></tr>
-				<tr><td><a href="AdminPage_TownType.jsp" target="content"><span>商圈管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/sys/province/provinceList.action" target="content"><span>省份管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/sys/city/cityList.action" target="content"><span>城市管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/sys/district/districtList.action" target="content"><span>地区管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/est/businessarea/businessareaList.action" target="content"><span>商圈管理</span></a></td></tr>
 			</table>
 		</td>
 	</tr>

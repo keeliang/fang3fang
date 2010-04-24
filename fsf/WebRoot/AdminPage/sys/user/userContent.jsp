@@ -33,6 +33,8 @@
 <s:hidden name="userParameter._dle_createDate" />
 <s:hidden name="userParameter._dge_createDate" />
 
+<s:hidden name="userId" />
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">
@@ -48,14 +50,6 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td>
-						<s:text name="userId"/>:
-					</td>
-					<td>
-						<s:textfield name="userId" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
 						<s:text name="userCode"/>:
 					</td>
 					<td>
@@ -67,7 +61,7 @@
 						<s:text name="password"/>:
 					</td>
 					<td>
-						<s:textfield name="password" /><font color="red">*</font>
+						<s:password name="password" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -75,28 +69,32 @@
 						<s:text name="question"/>:
 					</td>
 					<td>
-						<s:textfield name="question" />					</td>
+						<s:textfield name="question" cssStyle="width:300px;" /><font color="red">*</font></td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="answer"/>:
 					</td>
 					<td>
-						<s:textfield name="answer" />					</td>
+						<s:textfield name="answer" /><font color="red">*</font>
+					</td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="userName"/>:
 					</td>
 					<td>
-						<s:textfield name="userName" />					</td>
+						<s:textfield name="userName" />
+					</td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="sex"/>:
 					</td>
 					<td>
-						<s:textfield name="sex" />					</td>
+						<s:radio list="@fsf.web.common.SelectTagStaticUtil@getConfig('$sex')" name="userParameter._ne_sex" 
+						listValue="itemName" listKey="itemKey"/><font color="red">*</font>
+					</td>
 				</tr>
 				<tr>
 					<td>
@@ -119,21 +117,27 @@
 						<s:text name="provinceId"/>:
 					</td>
 					<td>
-						<s:textfield name="provinceId" />					</td>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="provinceId" 
+						listValue="itemName" listKey="itemKey" emptyOption="true"/>
+					</td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="cityId"/>:
 					</td>
 					<td>
-						<s:textfield name="cityId" />					</td>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#city')" name="cityId" 
+						listValue="itemName" listKey="itemKey" emptyOption="true"/>	
+					</td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="districtId"/>:
 					</td>
 					<td>
-						<s:textfield name="districtId" />					</td>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#district')" name="districtId" 
+						listValue="itemName" listKey="itemKey" emptyOption="true"/>
+					</td>
 				</tr>
 				<tr>
 					<td>
@@ -212,10 +216,10 @@ function f_validate(){
 	//addfield("userId","<s:text name="userId"/>","Integer",false,10);
 	addfield("userCode","<s:text name="userCode"/>","String",false,50);
 	addfield("password","<s:text name="password"/>","String",false,50);
-	addfield("question","<s:text name="question"/>","String",true,30);
-	addfield("answer","<s:text name="answer"/>","String",true,30);
+	addfield("question","<s:text name="question"/>","String",false,30);
+	addfield("answer","<s:text name="answer"/>","String",false,30);
 	addfield("userName","<s:text name="userName"/>","String",true,50);
-	addfield("sex","<s:text name="sex"/>","Integer",true,3);
+	addfield("sex","<s:text name="sex"/>","Integer",false,3);
 	addfield("status","<s:text name="status"/>","Integer",false,3);
 	addfield("userType","<s:text name="userType"/>","Integer",false,3);
 	addfield("provinceId","<s:text name="provinceId"/>","Integer",true,10);
