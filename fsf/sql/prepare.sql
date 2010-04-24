@@ -4,7 +4,7 @@ create table if not exists sys_dictgroup(
 	group_desc varchar(50),
   remark varchar(200),
 	constraint PK_sys_dictgroup primary key (group_name)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 drop table if exists sys_dictitem;
 create table if not exists sys_dictitem(
 	group_name varchar(30) not null,
@@ -13,7 +13,7 @@ create table if not exists sys_dictitem(
 	item_desc varchar(50),
 	seq int,
 	constraint PK_sys_dictitem primary key (group_name,item_key)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 /*************************固定参数****************************/

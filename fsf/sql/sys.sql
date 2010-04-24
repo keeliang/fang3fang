@@ -30,7 +30,7 @@ CREATE TABLE if not exists sys_user(
 	
 	image_path varchar(100),
 	constraint PK_sys_user primary key(user_id)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*
 系统参数
@@ -41,4 +41,4 @@ CREATE TABLE if not exists sys_param(
 	param_value varchar(200),
 	param_desc varchar(200),
 	constraint PK_sys_param primary key(param_name)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
