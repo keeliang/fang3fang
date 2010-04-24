@@ -28,4 +28,29 @@
 	</package>
 	<!-- ********************************************** -->
 	
+	<!--******************* businessarea *************** -->
+	<package name="/sysadmin/est/businessarea" extends="baseDefault" namespace="/sysadmin/est/businessarea" >
+		<action name="businessareaList" class="businessareaAction" method="doList">
+			<result>/AdminPage/est/businessarea/businessareaList.jsp</result>
+			<result name="input">/AdminPage/est/businessarea/businessareaList.jsp</result>
+		</action>
+		<action name="businessareaSave" class="businessareaAction" method="doSave">
+			<result>/AdminPage/est/businessarea/businessareaContent.jsp</result>
+			<result name="input">/AdminPage/est/businessarea/businessareaContent.jsp</result>
+		</action>
+		<action name="businessareaEdit" class="businessareaAction" method="doEdit">
+			<result>/AdminPage/est/businessarea/businessareaContent.jsp</result>
+			<result name="input">/AdminPage/est/businessarea/businessareaContent.jsp</result>
+		</action>
+		<action name="businessareaNew" class="businessareaAction" method="doNew">
+			<result>/AdminPage/est/businessarea/businessareaContent.jsp</result>
+			<result name="input">/AdminPage/est/businessarea/businessareaContent.jsp</result>
+		</action>
+		<action name="businessareaDelete" class="businessareaAction" method="doDelete">
+			<result>/AdminPage/est/businessarea/businessareaList.jsp</result>
+			<result name="input">/AdminPage/est/businessarea/businessareaList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	
 </struts>

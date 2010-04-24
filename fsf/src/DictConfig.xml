@@ -19,6 +19,21 @@
 	</DictGroup>
 	 -->
 	
-	<!--*************************user***************************  -->
-	<!-- ********************************************************* -->
+	<DynamicConfig name="province">
+		<Entity>sys_province</Entity>
+		<ItemKeyProperty>province_id</ItemKeyProperty>
+		<ItemNameProperty>province_name</ItemNameProperty>
+	</DynamicConfig>
+	
+	<DynamicConfig name="city">
+		<Entity>sys_city</Entity>
+		<ItemKeyProperty>city_id</ItemKeyProperty>
+		<ItemNameProperty>city_name</ItemNameProperty>
+	</DynamicConfig>
+	
+	<DynamicConfig name="district">
+		<Entity>sys_district</Entity>
+		<ItemKeyProperty>district_id</ItemKeyProperty>
+		<ItemNameProperty>district_name</ItemNameProperty>
+	</DynamicConfig>
 </DictConfig>

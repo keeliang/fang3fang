@@ -28,5 +28,80 @@
 	</package>
 	<!-- ********************************************** -->
 	
+	<!--******************* province *************** -->
+	<package name="/sysadmin/sys/province" extends="baseDefault" namespace="/sysadmin/sys/province" >
+		<action name="provinceList" class="provinceAction" method="doList">
+			<result>/AdminPage/sys/province/provinceList.jsp</result>
+			<result name="input">/AdminPage/sys/province/provinceList.jsp</result>
+		</action>
+		<action name="provinceSave" class="provinceAction" method="doSave">
+			<result>/AdminPage/sys/province/provinceContent.jsp</result>
+			<result name="input">/AdminPage/sys/province/provinceContent.jsp</result>
+		</action>
+		<action name="provinceEdit" class="provinceAction" method="doEdit">
+			<result>/AdminPage/sys/province/provinceContent.jsp</result>
+			<result name="input">/AdminPage/sys/province/provinceContent.jsp</result>
+		</action>
+		<action name="provinceNew" class="provinceAction" method="doNew">
+			<result>/AdminPage/sys/province/provinceContent.jsp</result>
+			<result name="input">/AdminPage/sys/province/provinceContent.jsp</result>
+		</action>
+		<action name="provinceDelete" class="provinceAction" method="doDelete">
+			<result>/AdminPage/sys/province/provinceList.jsp</result>
+			<result name="input">/AdminPage/sys/province/provinceList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	
+	<!--******************* city *************** -->
+	<package name="/sysadmin/sys/city" extends="baseDefault" namespace="/sysadmin/sys/city" >
+		<action name="cityList" class="cityAction" method="doList">
+			<result>/AdminPage/sys/city/cityList.jsp</result>
+			<result name="input">/AdminPage/sys/city/cityList.jsp</result>
+		</action>
+		<action name="citySave" class="cityAction" method="doSave">
+			<result>/AdminPage/sys/city/cityContent.jsp</result>
+			<result name="input">/AdminPage/sys/city/cityContent.jsp</result>
+		</action>
+		<action name="cityEdit" class="cityAction" method="doEdit">
+			<result>/AdminPage/sys/city/cityContent.jsp</result>
+			<result name="input">/AdminPage/sys/city/cityContent.jsp</result>
+		</action>
+		<action name="cityNew" class="cityAction" method="doNew">
+			<result>/AdminPage/sys/city/cityContent.jsp</result>
+			<result name="input">/AdminPage/sys/city/cityContent.jsp</result>
+		</action>
+		<action name="cityDelete" class="cityAction" method="doDelete">
+			<result>/AdminPage/sys/city/cityList.jsp</result>
+			<result name="input">/AdminPage/sys/city/cityList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	
+	<!--******************* city *************** -->
+	<package name="/sysadmin/sys/district" extends="baseDefault" namespace="/sysadmin/sys/district" >
+		<action name="districtList" class="districtAction" method="doList">
+			<result>/AdminPage/sys/district/districtList.jsp</result>
+			<result name="input">/AdminPage/sys/district/districtList.jsp</result>
+		</action>
+		<action name="districtSave" class="districtAction" method="doSave">
+			<result>/AdminPage/sys/district/districtContent.jsp</result>
+			<result name="input">/AdminPage/sys/district/districtContent.jsp</result>
+		</action>
+		<action name="districtEdit" class="districtAction" method="doEdit">
+			<result>/AdminPage/sys/district/districtContent.jsp</result>
+			<result name="input">/AdminPage/sys/district/districtContent.jsp</result>
+		</action>
+		<action name="districtNew" class="districtAction" method="doNew">
+			<result>/AdminPage/sys/district/districtContent.jsp</result>
+			<result name="input">/AdminPage/sys/district/districtContent.jsp</result>
+		</action>
+		<action name="districtDelete" class="districtAction" method="doDelete">
+			<result>/AdminPage/sys/district/districtList.jsp</result>
+			<result name="input">/AdminPage/sys/district/districtList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	
 	
 </struts>
