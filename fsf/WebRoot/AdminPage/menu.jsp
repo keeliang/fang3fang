@@ -33,10 +33,7 @@ $(document).ready(function() {
 	<tr class="menuItemTr">
 		<td>
 			<table>
-				<tr><td><a href="/sysadmin/sys/user/userList.action" target="content"><span>普通用户信息</span></a></td></tr>
-				<tr><td><a href="AdminPage_expert.jsp" target="content"><span>专家信息</span></a></td></tr>
-				<tr><td><a href="AdminPage_RoleType.jsp" target="content"><span>权限管理</span></a></td></tr>
-				<tr><td><a href="AdminPage_Users_Center.jsp" target="content"><span>会员中心管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/sys/user/userList.action" target="content"><span>用户管理</span></a></td></tr>
 			</table>
 		</td>
 	</tr>
@@ -65,7 +62,8 @@ $(document).ready(function() {
 	<tr class="menuItemTr">
 		<td>
 			<table>
-				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>二手房管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/est/estateout/estateOutList.action" target="content"><span>二手房出租出售管理</span></a></td></tr>
+				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>二手房求租求售管理</span></a></td></tr>
 				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>新房管理</span></a></td></tr>
 				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>留言管理</span></a></td></tr>
 			</table>
