@@ -286,49 +286,49 @@ where not exists (select * from sys_dictitem where group_name = 'toward' and ite
 
 /*************************装修****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'toward','朝向',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'toward');
+select 'fitment','装修',null from dual
+where not exists (select * from sys_dictgroup where group_name = 'fitment');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','0',' 均可','均可',0 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '0');
+select 'fitment','0',' 均可','均可',0 from dual
+where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '0');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','1',' 豪华装修','豪华装修',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '1');
+select 'fitment','1',' 豪华装修','豪华装修',1 from dual
+where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '1');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','2','新装修','新装修',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '2');
+select 'fitment','2','新装修','新装修',2 from dual
+where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '2');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','3','普通装修','普通装修',3 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '3');
+select 'fitment','3','普通装修','普通装修',3 from dual
+where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '3');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','4','简单装修','简单装修',4 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '4');
+select 'fitment','4','简单装修','简单装修',4 from dual
+where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '4');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','5','毛坯','毛坯',5 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '5');
+select 'fitment','5','毛坯','毛坯',5 from dual
+where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '5');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','6','其他','其他',6 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '6');
+select 'fitment','6','其他','其他',6 from dual
+where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '6');
 
 /*************************家电****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'toward','家电',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'toward');
+select 'device','家电',null from dual
+where not exists (select * from sys_dictgroup where group_name = 'device');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','0',' 均可','均可',0 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '0');
+select 'device','0',' 均可','均可',0 from dual
+where not exists (select * from sys_dictitem where group_name = 'device' and item_key = '0');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','1',' 吉屋','吉屋',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '1');
+select 'device','1',' 吉屋','吉屋',1 from dual
+where not exists (select * from sys_dictitem where group_name = 'device' and item_key = '1');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','2','部分家电','部分家电',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '2');
+select 'device','2','部分家电','部分家电',2 from dual
+where not exists (select * from sys_dictitem where group_name = 'device' and item_key = '2');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','3','家电齐','家电齐',3 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '3');
+select 'device','3','家电齐','家电齐',3 from dual
+where not exists (select * from sys_dictitem where group_name = 'device' and item_key = '3');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','4','面议','面议',4 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '4');
+select 'device','4','面议','面议',4 from dual
+where not exists (select * from sys_dictitem where group_name = 'device' and item_key = '4');
 
 /*************************房产出租出售标识****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
