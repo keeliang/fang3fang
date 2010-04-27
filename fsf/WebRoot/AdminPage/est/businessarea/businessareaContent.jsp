@@ -7,6 +7,7 @@
 <%@include file="/share/validate.jsp" %>
 <link type="text/css" rel="stylesheet" href="/css/Common.css" />
 <link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
 </head>
 
 <body>
@@ -40,7 +41,7 @@
 						<s:text name="areaId"/>:
 					</td>
 					<td>
-						<s:textfield name="areaId" /><font color="red">*</font>
+						<s:textfield name="areaId" readonly="only" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -56,23 +57,25 @@
 						<s:text name="provinceId"/>:
 					</td>
 					<td>
-						<s:textfield name="provinceId" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="provinceId" cssClass="dropdown"
+						listValue="itemName" listKey="itemKey" emptyOption="true" id="provinceId" onchange="f_changeProvince()"/>
+						<font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="cityId"/>:
 					</td>
-					<td>
-						<s:textfield name="cityId" /><font color="red">*</font>
+					<td id="cityTd">
+						
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="districtId"/>:
 					</td>
-					<td>
-						<s:textfield name="districtId" /><font color="red">*</font>
+					<td id="districtTd">
+						
 					</td>
 				</tr>
 			</table>
@@ -83,13 +86,36 @@
 </body>
 </html>
 <script type="text/javascript">
+$(function() {
+	f_changeProvince(true);
+});
 function f_validate(){
 	fromName = "formItem";
-	addfield("areaId","<s:text name="areaId"/>","Integer",false,10);
+	//addfield("areaId","<s:text name="areaId"/>","Integer",false,10);
 	addfield("areaName","<s:text name="areaName"/>","String",false,50);
 	addfield("provinceId","<s:text name="provinceId"/>","Integer",false,10);
 	addfield("cityId","<s:text name="cityId"/>","Integer",false,10);
 	addfield("districtId","<s:text name="districtId"/>","Integer",false,10);
 	return validate();
+}
+function f_changeProvince(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	$.post("getCityList.action",{provinceId:$("#provinceId").val()},function(json){
+		var selectTag = new SelectTag("cityId","cityId",json.data,"itemKey","itemName","${cityId}","f_changeCity()");
+		$("#cityTd").html(selectTag.toString()+"<font color='red'>*</font>");
+		if(isIndex)
+			f_chageCity();
+	},"json");
+}
+function f_changeCity(){
+	if($("#provinceId").val()=="")
+		return;
+	if($("#cityId").val()=="")
+		return;
+	$.post("getDistrictList.action",{provinceId:$("#provinceId").val(),cityId:$("#cityId").val()},function(json){
+		var selectTag = new SelectTag("districtId","districtId",json.data,"itemKey","itemName","${districtId}");
+		$("#districtTd").html(selectTag.toString()+"<font color='red'>*</font>");
+	},"json");
 }
 </script>
