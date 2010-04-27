@@ -1,7 +1,6 @@
 package fsf.beans.sys.user;
-
 // default package
-// Generated 2010-4-21 10:18:20 by Hibernate Tools 3.2.4.GA
+// Generated 2010-4-24 17:00:14 by Hibernate Tools 3.2.4.GA
 
 import java.util.Date;
 
@@ -10,9 +9,6 @@ import java.util.Date;
  */
 public class User implements java.io.Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3280045638851221542L;
 	private Integer userId;
 	private String userCode;
@@ -35,49 +31,21 @@ public class User implements java.io.Serializable {
 	private String remark;
 	private Date createDate;
 	private String imagePath;
+	private String realName;
+	private Integer workProvinceId;
+	private Integer workCityId;
+	private Integer workDistrictId;
+	private String company;
+	private String level;
+	private String license;
+	private String hobby;
+	private String glory;
 
 	public User() {
 	}
 
-	public User(String userCode, String password, Short status, Short userType,
-			Date createDate) {
-		this.userCode = userCode;
-		this.password = password;
-		this.status = status;
-		this.userType = userType;
-		this.createDate = createDate;
-	}
-
-	public User(String userCode, String password, String question,
-			String answer, String userName, Short sex, Short status,
-			Short userType, Integer provinceId, Integer cityId,
-			Integer districtId, String address, String tel, String phone,
-			String qq, String msn, String email, String remark,
-			Date createDate, String imagePath) {
-		this.userCode = userCode;
-		this.password = password;
-		this.question = question;
-		this.answer = answer;
-		this.userName = userName;
-		this.sex = sex;
-		this.status = status;
-		this.userType = userType;
-		this.provinceId = provinceId;
-		this.cityId = cityId;
-		this.districtId = districtId;
-		this.address = address;
-		this.tel = tel;
-		this.phone = phone;
-		this.qq = qq;
-		this.msn = msn;
-		this.email = email;
-		this.remark = remark;
-		this.createDate = createDate;
-		this.imagePath = imagePath;
-	}
-
 	public Integer getUserId() {
-		return this.userId;
+		return userId;
 	}
 
 	public void setUserId(Integer userId) {
@@ -85,7 +53,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public String getUserCode() {
-		return this.userCode;
+		return userCode;
 	}
 
 	public void setUserCode(String userCode) {
@@ -93,7 +61,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public String getPassword() {
-		return this.password;
+		return password;
 	}
 
 	public void setPassword(String password) {
@@ -101,7 +69,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public String getQuestion() {
-		return this.question;
+		return question;
 	}
 
 	public void setQuestion(String question) {
@@ -109,7 +77,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public String getAnswer() {
-		return this.answer;
+		return answer;
 	}
 
 	public void setAnswer(String answer) {
@@ -117,7 +85,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public String getUserName() {
-		return this.userName;
+		return userName;
 	}
 
 	public void setUserName(String userName) {
@@ -125,7 +93,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public Short getSex() {
-		return this.sex;
+		return sex;
 	}
 
 	public void setSex(Short sex) {
@@ -133,7 +101,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public Short getStatus() {
-		return this.status;
+		return status;
 	}
 
 	public void setStatus(Short status) {
@@ -141,7 +109,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public Short getUserType() {
-		return this.userType;
+		return userType;
 	}
 
 	public void setUserType(Short userType) {
@@ -149,7 +117,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public Integer getProvinceId() {
-		return this.provinceId;
+		return provinceId;
 	}
 
 	public void setProvinceId(Integer provinceId) {
@@ -157,7 +125,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public Integer getCityId() {
-		return this.cityId;
+		return cityId;
 	}
 
 	public void setCityId(Integer cityId) {
@@ -165,7 +133,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public Integer getDistrictId() {
-		return this.districtId;
+		return districtId;
 	}
 
 	public void setDistrictId(Integer districtId) {
@@ -173,7 +141,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public String getAddress() {
-		return this.address;
+		return address;
 	}
 
 	public void setAddress(String address) {
@@ -181,7 +149,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public String getTel() {
-		return this.tel;
+		return tel;
 	}
 
 	public void setTel(String tel) {
@@ -189,7 +157,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public String getPhone() {
-		return this.phone;
+		return phone;
 	}
 
 	public void setPhone(String phone) {
@@ -197,7 +165,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public String getQq() {
-		return this.qq;
+		return qq;
 	}
 
 	public void setQq(String qq) {
@@ -205,7 +173,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public String getMsn() {
-		return this.msn;
+		return msn;
 	}
 
 	public void setMsn(String msn) {
@@ -213,7 +181,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public String getEmail() {
-		return this.email;
+		return email;
 	}
 
 	public void setEmail(String email) {
@@ -221,7 +189,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public String getRemark() {
-		return this.remark;
+		return remark;
 	}
 
 	public void setRemark(String remark) {
@@ -229,7 +197,7 @@ public class User implements java.io.Serializable {
 	}
 
 	public Date getCreateDate() {
-		return this.createDate;
+		return createDate;
 	}
 
 	public void setCreateDate(Date createDate) {
@@ -237,11 +205,85 @@ public class User implements java.io.Serializable {
 	}
 
 	public String getImagePath() {
-		return this.imagePath;
+		return imagePath;
 	}
 
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
+
+	public String getRealName() {
+		return realName;
+	}
+
+	public void setRealName(String realName) {
+		this.realName = realName;
+	}
+
+	public Integer getWorkProvinceId() {
+		return workProvinceId;
+	}
+
+	public void setWorkProvinceId(Integer workProvinceId) {
+		this.workProvinceId = workProvinceId;
+	}
+
+	public Integer getWorkCityId() {
+		return workCityId;
+	}
+
+	public void setWorkCityId(Integer workCityId) {
+		this.workCityId = workCityId;
+	}
+
+	public Integer getWorkDistrictId() {
+		return workDistrictId;
+	}
+
+	public void setWorkDistrictId(Integer workDistrictId) {
+		this.workDistrictId = workDistrictId;
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+	public String getLicense() {
+		return license;
+	}
+
+	public void setLicense(String license) {
+		this.license = license;
+	}
+
+	public String getHobby() {
+		return hobby;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
+
+	public String getGlory() {
+		return glory;
+	}
+
+	public void setGlory(String glory) {
+		this.glory = glory;
+	}
+
+	
 
 }

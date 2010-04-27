@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2010-4-21 10:18:18 by Hibernate Tools 3.2.4.GA -->
+<!-- Generated 2010-4-24 17:00:12 by Hibernate Tools 3.2.4.GA -->
 <hibernate-mapping>
     <class name="fsf.beans.sys.user.User" table="sys_user" catalog="fsf">
         <id name="userId" type="java.lang.Integer">
@@ -23,7 +23,7 @@
         <property name="userName" type="string">
             <column name="user_name" length="50" />
         </property>
-        <property name="sex" type="java.lang.Short">
+        <property name="sex" type="short">
             <column name="sex" />
         </property>
         <property name="status" type="short">
@@ -62,11 +62,38 @@
         <property name="remark" type="string">
             <column name="remark" length="65535" />
         </property>
-        <property name="createDate" type="timestamp" update="false">
+        <property name="createDate" type="timestamp">
             <column name="create_date" length="19" not-null="true" />
         </property>
         <property name="imagePath" type="string">
             <column name="image_path" length="100" />
+        </property>
+        <property name="realName" type="string">
+            <column name="real_name" length="20" />
+        </property>
+        <property name="workProvinceId" type="java.lang.Integer">
+            <column name="work_province_id" />
+        </property>
+        <property name="workCityId" type="java.lang.Integer">
+            <column name="work_city_id" />
+        </property>
+        <property name="workDistrictId" type="java.lang.Integer">
+            <column name="work_district_id" />
+        </property>
+        <property name="company" type="string">
+            <column name="company" length="50" />
+        </property>
+        <property name="level" type="string">
+            <column name="level" length="20" />
+        </property>
+        <property name="license" type="string">
+            <column name="license" length="30" />
+        </property>
+        <property name="hobby" type="string">
+            <column name="hobby" length="300" />
+        </property>
+        <property name="glory" type="string">
+            <column name="glory" length="300" />
         </property>
     </class>
 </hibernate-mapping>
