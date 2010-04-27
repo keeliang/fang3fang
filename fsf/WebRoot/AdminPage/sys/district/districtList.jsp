@@ -44,14 +44,13 @@
 					</td>
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="districtParameter._ne_provinceId" 
-						listValue="itemName" listKey="itemKey" emptyOption="true"/>
+						listValue="itemName" listKey="itemKey" emptyOption="true" id="provinceId" onchange="f_chageProvince()" cssClass="dropdown"/>
 					</td>
 					<td width="15%" >
 						<s:text name="_ne_cityId" />:
 					</td>
-					<td width="35%">
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#city')" name="districtParameter._ne_cityId" 
-						listValue="itemName" listKey="itemKey" emptyOption="true"/>
+					<td width="35%" id="cityTd">
+						
 					</td>
 				</tr>
 			</table>
@@ -98,3 +97,16 @@
 </s:form>
 </body>
 </html>
+<script type="text/javascript">
+$(function() {
+	f_chageProvince();
+});
+function f_chageProvince(){
+	if($("#provinceId").val()=="")
+		return;
+	$.post("getCityList.action",{provinceId:$("#provinceId").val()},function(json){
+		var selectTag = new SelectTag("city","districtParameter._ne_cityId",json.data,"itemKey","itemName","${districtParameter._ne_cityId}");
+		$("#cityTd").html(selectTag.toString());
+	},"json");
+}
+</script>
