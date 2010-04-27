@@ -49,6 +49,7 @@ create table if not exists est_estate_out(
 	city_id int,
 	district_id int,
 	area_id int,
+	address varchar(80),
 	
 	trade_mode tinyint not null,/*交易模式 0 disabled(前台不显示) 1 出租 2 出售 3 租售均可 4 已租 5 已售 固定参数out_trade_mode*/
 	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 餐厅 5 商铺 6 写字楼 7 厂房 8 其他 固定参数estate_type*/
@@ -106,7 +107,8 @@ create table if not exists est_estate_in(
 	province_id int,
 	city_id int,
 	district_id int,
-	area_id int,	
+	area_id int,
+	address varchar(80),
 
 	trade_mode tinyint not null,/*交易模式 0 disabled(前台不显示) 1 求租 2 求售 3 租售均可 4 已租 5 已购 固定参数in_trade_mode*/
 	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 餐厅 5 商铺 6 写字楼 7 厂房 8 其他 固定参数estate_type*/
@@ -157,7 +159,7 @@ create table if not exists est_new_estate(
 	city_id int,
 	district_id int,
 	area_id int,
-
+	address varchar(80),
 		
 	status tinyint not null,/* 1 enabled 0 disabled 固定参数front_visible*/
 	is_hot tinyint not null,/* 1 是 0 否 固定参数is_hot*/
@@ -245,14 +247,15 @@ create table if not exists est_comment(
 	constraint PK_est_comment primary key(comment_id,type)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 /*
 经纪人信息
-*/
+
 drop table if exists est_broker;
 create table if not exists est_broker(
 	user_id int not null,
 	real_name varchar(20) not null,
-	status tinyint not null ,	/* 状态 1 enabled 0 disabled 固定参数status*/
+	status tinyint not null ,	/* 状态 1 enabled 0 disabled 固定参数status
 	
 	province_id int,
 	city_id int,
@@ -265,8 +268,9 @@ create table if not exists est_broker(
 	image_path varchar(120) null,
 	
 	remark text ,
-	hobby varchar(300),/* 爱好 */ 
-	glory varchar(300),/* 个人荣誉 */
+	hobby varchar(300), 爱好 
+	glory varchar(300),个人荣誉
 	
 	constraint PK_est_broker primary key(user_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+*/
