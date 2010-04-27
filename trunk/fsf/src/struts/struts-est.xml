@@ -50,6 +50,33 @@
 			<result>/AdminPage/est/businessarea/businessareaList.jsp</result>
 			<result name="input">/AdminPage/est/businessarea/businessareaList.jsp</result>
 		</action>
+		<action name="getCityList" class="businessareaAction" method="getCityList"></action>
+		<action name="getDistrictList" class="businessareaAction" method="getDistrictList"></action>
+	</package>
+	<!-- ********************************************** -->
+	
+	<!--******************* estateOut *************** -->
+	<package name="/sysadmin/est/estateout" extends="baseDefault" namespace="/sysadmin/est/estateout" >
+		<action name="estateOutList" class="estateOutAction" method="doList">
+			<result>/AdminPage/est/estateout/estateOutList.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOutList.jsp</result>
+		</action>
+		<action name="estateOutSave" class="estateOutAction" method="doSave">
+			<result>/AdminPage/est/estateout/estateOutContent.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOutContent.jsp</result>
+		</action>
+		<action name="estateOutEdit" class="estateOutAction" method="doEdit">
+			<result>/AdminPage/est/estateout/estateOutContent.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOutContent.jsp</result>
+		</action>
+		<action name="estateOutNew" class="estateOutAction" method="doNew">
+			<result>/AdminPage/est/estateout/estateOutContent.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOutContent.jsp</result>
+		</action>
+		<action name="estateOutDelete" class="estateOutAction" method="doDelete">
+			<result>/AdminPage/est/estateout/estateOutList.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOutList.jsp</result>
+		</action>
 	</package>
 	<!-- ********************************************** -->
 	

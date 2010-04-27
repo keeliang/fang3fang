@@ -1,15 +1,12 @@
 package fsf.action.sys.city;
 
-import java.util.Date;
-
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import fsf.beans.sys.city.City;
 import chance.base.action.BaseAction;
-import chance.base.BaseParameter;
+import fsf.beans.sys.city.City;
 import fsf.service.sys.city.CityService;
 
 @Controller
