@@ -50,7 +50,7 @@
 					</td>
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="cityParameter._ne_provinceId" 
-						listValue="itemName" listKey="itemKey" emptyOption="true"/>
+						listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/>
 					</td>
 				</tr>
 			</table>
