@@ -11,7 +11,7 @@ CREATE TABLE if not exists sys_user(
 
 	user_name varchar(50),
 	sex tinyint,/* 1 男 2 女 */
-	status tinyint not null,/*status -1 enabled 0 disabled*/
+	status tinyint not null,/*status 1 enabled 0 disabled*/
 	user_type tinyint not null,/*0 超级管理员 1 管理员 2 顾问 3 普通会员*/
 	
 	province_id int,
@@ -29,6 +29,24 @@ CREATE TABLE if not exists sys_user(
 	create_date datetime not null,
 	
 	image_path varchar(100),
+
+
+	/* 一下是顾问属性 */
+	real_name varchar(20) null,
+	
+	work_province_id int,
+	work_city_id int,
+	work_district_id int,
+	
+	company varchar(50),
+
+	level varchar(20),
+	
+	license varchar(30),
+
+	hobby varchar(300),/* 爱好 */ 
+	glory varchar(300),/* 个人荣誉 */
+	
 	constraint PK_sys_user primary key(user_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
