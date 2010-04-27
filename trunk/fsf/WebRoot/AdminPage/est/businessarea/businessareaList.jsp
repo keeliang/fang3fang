@@ -7,11 +7,11 @@
 <%@include file="/share/validate.jsp" %>
 <link type="text/css" rel="stylesheet" href="/css/Common.css" />
 <link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
-<script type="text/javascript" src="/js/jquery.js"></script> 
+<script type="text/javascript" src="/js/jquery.js"></script>
 </head>
 
 <body>
-<s:form action="businessareaList" namespace="/sysadmin/est/bussinessarea" name="formList" id="formList" theme="simple" method="post">
+<s:form action="businessareaList" namespace="/sysadmin/est/businessarea" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="businessareaParameter.currentPage" id="currentPage"  />
 <s:hidden name="businessareaParameter.maxResults" id="maxResults" />
 <table>
@@ -44,21 +44,21 @@
 					</td>
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="businessareaParameter._ne_provinceId" 
-						listValue="itemName" listKey="itemKey" emptyOption="true"/>
+						listValue="itemName" listKey="itemKey" emptyOption="true" id="provinceId" onchange="f_changeProvince()" cssClass="dropdown"/>
 					</td>
 					<td width="15%" >
 						<s:text name="_ne_cityId" />:
 					</td>
-					<td width="35%">
-						<s:textfield name="businessareaParameter._ne_cityId" />
+					<td width="35%" id="cityTd">
+					
 					</td>
 				</tr>
 				<tr>
 					<td width="15%" >
 						<s:text name="_ne_districtId" />:
 					</td>
-					<td width="35%">
-						<s:textfield name="businessareaParameter._ne_districtId" />
+					<td width="35%" id="districtTd">
+						
 					</td>
 				</tr>
 			</table>
@@ -121,3 +121,28 @@
 </s:form>
 </body>
 </html>
+<script type="text/javascript">
+$(function() {
+	f_changeProvince(true);
+});
+function f_changeProvince(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	$.post("getCityList.action",{provinceId:$("#provinceId").val()},function(json){
+		var selectTag = new SelectTag("cityId","businessareaParameter._ne_cityId",json.data,"itemKey","itemName","${businessareaParameter._ne_cityId}","f_changeCity()");
+		$("#cityTd").html(selectTag.toString());
+		if(isIndex)
+			f_changeCity();
+	},"json");
+}
+function f_changeCity(){
+	if($("#provinceId").val()=="")
+		return;
+	if($("#cityId").val()=="")
+		return;
+	$.post("getDistrictList.action",{provinceId:$("#provinceId").val(),cityId:$("#cityId").val()},function(json){
+		var selectTag = new SelectTag("districtId","businessareaParameter._ne_districtId",json.data,"itemKey","itemName","${businessareaParameter._ne_districtId}");
+		$("#districtTd").html(selectTag.toString());
+	},"json");
+}
+</script>
