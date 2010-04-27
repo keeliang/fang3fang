@@ -25,6 +25,8 @@
 			<result>/AdminPage/sys/user/userList.jsp</result>
 			<result name="input">/AdminPage/sys/user/userList.jsp</result>
 		</action>
+		<action name="getCityList" class="userAction" method="getCityList"></action>
+		<action name="getDistrictList" class="userAction" method="getDistrictList"></action>
 	</package>
 	<!-- ********************************************** -->
 	
@@ -78,7 +80,7 @@
 	</package>
 	<!-- ********************************************** -->
 	
-	<!--******************* city *************** -->
+	<!--******************* district *************** -->
 	<package name="/sysadmin/sys/district" extends="baseDefault" namespace="/sysadmin/sys/district" >
 		<action name="districtList" class="districtAction" method="doList">
 			<result>/AdminPage/sys/district/districtList.jsp</result>
@@ -100,6 +102,7 @@
 			<result>/AdminPage/sys/district/districtList.jsp</result>
 			<result name="input">/AdminPage/sys/district/districtList.jsp</result>
 		</action>
+		<action name="getCityList" class="districtAction" method="getCityList"></action>
 	</package>
 	<!-- ********************************************** -->
 	
