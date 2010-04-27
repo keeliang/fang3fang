@@ -1,13 +1,18 @@
 package fsf.action.est.businessarea;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import fsf.beans.est.businessarea.Businessarea;
+import fsf.beans.sys.dict.DictItem;
 import chance.base.action.BaseAction;
 import chance.base.BaseParameter;
 import fsf.service.est.businessarea.BusinessareaService;
@@ -18,6 +23,29 @@ public class BusinessareaAction extends BaseAction<Businessarea> {
 	
 	public BusinessareaAction() {
 		super(Businessarea.class, new String[] { "areaId" });
+	}
+	
+	public String getCityList() throws Exception {
+		BaseParameter param = new BaseParameter();
+		param.getQueryDynamicConditions().put("_ne_province_id", provinceId);
+		List<DictItem> list = dictItemService.getDaynamicConfig("sys_city","city_id","city_name",param);
+		JSONObject json = new JSONObject();
+		json.put("data", JSONArray.fromObject(list));
+		getHttpServletResponse().setCharacterEncoding("UTF-8");
+		getHttpServletResponse().getWriter().write(json.toString());
+		return null;
+	}
+	
+	public String getDistrictList() throws Exception {
+		BaseParameter param = new BaseParameter();
+		param.getQueryDynamicConditions().put("_ne_province_id", provinceId);
+		param.getQueryDynamicConditions().put("_ne_city_id", cityId);
+		List<DictItem> list = dictItemService.getDaynamicConfig("sys_district","district_id","district_name",param);
+		JSONObject json = new JSONObject();
+		json.put("data", JSONArray.fromObject(list));
+		getHttpServletResponse().setCharacterEncoding("UTF-8");
+		getHttpServletResponse().getWriter().write(json.toString());
+		return null;
 	}
 	
 	@Resource
