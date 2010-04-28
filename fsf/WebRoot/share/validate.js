@@ -26,34 +26,40 @@ function validate(){
 		if(fields[i]==null)	continue;
 		var fieldValue = null;
 		//alert(fields[i].inputName);
-		if(eval('document.forms["'+fromName+'"].'+fields[i].inputName+".value")){
-			fieldValue = trim(eval('document.forms["'+fromName+'"].'+fields[i].inputName+".value"));
-		}else	if(eval('document.forms["'+fromName+'"].'+fields[i].inputName+".length")){
-			var a = document.getElementsByName(fields[i].inputName);
-			for(var j = 0;j<a.length;j++){
-				if(a[j].checked){
-					fieldValue = a[j].value;
-					break;
+		if(!eval('document.forms["'+fromName+'"].'+fields[i].inputName)){
+			//alert(fields[i].inputName+" is not exists");
+			if(!fields[i].isNull)
+				errorCode = 0;
+		}else {
+			if(eval('document.forms["'+fromName+'"].'+fields[i].inputName+".value")){
+				fieldValue = trim(eval('document.forms["'+fromName+'"].'+fields[i].inputName+".value"));
+			}else	if(eval('document.forms["'+fromName+'"].'+fields[i].inputName+".length")){
+				var a = document.getElementsByName(fields[i].inputName);
+				for(var j = 0;j<a.length;j++){
+					if(a[j].checked){
+						fieldValue = a[j].value;
+						break;
+					}
 				}
 			}
-		}
-		if(fieldValue==null || fieldValue==""){
-			if(fields[i].defaultValue!=null && fields[i].defaultValue != ""){
-				fieldValue = fields[i].defaultValue;
-				eval('document.forms["'+fromName+'"].'+fields[i].inputName+".value='"+fields[i].defaultValue+"'");
-			}
-			if(!fields[i].isNull){
-				errorCode = 0;
-			}
-		}else{
-			switch(fields[i].type){
-				case "String":errorCode = isString(fieldValue,fields[i]);break;
-				case "Integer":errorCode = isInteger(fieldValue,fields[i]);	break;
-				case "Number":errorCode = isNumber(fieldValue,fields[i]);	break;
-				case "Date":errorCode = isDate(fieldValue,fields[i]);	break;
-				case "DateTime":errorCode = isDateTime(fieldValue,fields[i]);	break;
-				case "Time":errorCode = isTime(fieldValue,fields[i]);	break;
-				case "Email":errorCode = isEmail(fieldValue,fields[i]);	break;
+			if(fieldValue==null || fieldValue==""){
+				if(fields[i].defaultValue!=null && fields[i].defaultValue != ""){
+					fieldValue = fields[i].defaultValue;
+					eval('document.forms["'+fromName+'"].'+fields[i].inputName+".value='"+fields[i].defaultValue+"'");
+				}
+				if(!fields[i].isNull){
+					errorCode = 0;
+				}
+			}else{
+				switch(fields[i].type){
+					case "String":errorCode = isString(fieldValue,fields[i]);break;
+					case "Integer":errorCode = isInteger(fieldValue,fields[i]);	break;
+					case "Number":errorCode = isNumber(fieldValue,fields[i]);	break;
+					case "Date":errorCode = isDate(fieldValue,fields[i]);	break;
+					case "DateTime":errorCode = isDateTime(fieldValue,fields[i]);	break;
+					case "Time":errorCode = isTime(fieldValue,fields[i]);	break;
+					case "Email":errorCode = isEmail(fieldValue,fields[i]);	break;
+				}
 			}
 		}
 
