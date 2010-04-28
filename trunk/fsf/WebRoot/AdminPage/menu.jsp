@@ -62,8 +62,10 @@ $(document).ready(function() {
 	<tr class="menuItemTr">
 		<td>
 			<table>
-				<tr><td><a href="/sysadmin/est/estateout/estateOutList.action" target="content"><span>二手房出租出售管理</span></a></td></tr>
-				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>二手房求租求售管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/est/estateout/estateOutList.action" target="content"><span>二手房委托交易出租出售管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/est/estateout/estateOutList.action" target="content"><span>二手房自主交易出租出售管理</span></a></td></tr>
+				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>二手房委托求租求售管理</span></a></td></tr>
+				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>二手房自主求租求售管理</span></a></td></tr>
 				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>新房管理</span></a></td></tr>
 				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>留言管理</span></a></td></tr>
 			</table>
