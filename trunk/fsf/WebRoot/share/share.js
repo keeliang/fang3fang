@@ -78,3 +78,22 @@ function ltrim(str){
 function rtrim(str){    
  return str.replace(/(\s*$)/g,"");    
 }
+
+var SelectTag = function(id,name,json,itemKey,itemName,value,onchange){
+	var sb = new StringBuffer();
+	sb.append("<select id='"+id+"' name='"+name+"' class='dropdown' ");
+	if(onchange)
+		sb.append("onchange='"+onchange+"'")
+	sb.append("><option value=''></option>");
+	$(json).each(function(i){
+		if(eval("this."+itemKey) == value)
+			sb.append("<option value='"+eval("this."+itemKey)+"' selected>"+eval("this."+itemName)+"</option>");
+		else
+			sb.append("<option value='"+eval("this."+itemKey)+"'>"+eval("this."+itemName)+"</option>");
+	});
+	sb.append("</select>");
+	this.html = sb.toString();
+}
+SelectTag.prototype.toString = function(){
+	return this.html;
+}

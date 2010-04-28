@@ -1,6 +1,6 @@
 body{
 	font-size:12px;
-	font-family:"ËÎÌå"£¬Arial, Helvetica, sans-serif;
+	font-family:"å®‹ä½“"ï¼ŒArial, Helvetica, sans-serif;
 	text-align:center;
 	margin:0 auto;
 	color:#666;
@@ -98,7 +98,7 @@ a.cWhite:hover{color:white; text-decoration:underline;}
 .nav02_content .active,.nav02_content li.active{
 background:url(../images/nav02_on.jpg) no-repeat;}
 .tap{height:28px; width:405px;float:left;margin-left:75px; display:inline;margin-top:8px;}
-.tap a{ background:url(../images/nav02_out.jpg); width:55px; height:28px; display:block;color: #343434; font: bold 12px/24px "ËÎÌå" ; text-decoration:none; float:left; text-align:center; margin-right:2px;}
+.tap a{ background:url(../images/nav02_out.jpg); width:55px; height:28px; display:block;color: #343434; font: bold 12px/24px "å®‹ä½“" ; text-decoration:none; float:left; text-align:center; margin-right:2px;}
 .tap a:hover{color:#FFFFFF}
 .active{position:relative;float:left; z-index:2;margin-bottom:-1px;}
 .active a {
@@ -124,7 +124,7 @@ background:url(../images/nav02_on.jpg)!important;height:28px; color:white;
 .nav03_content .active02,.nav03_content li.active03{
 background:url(../images/trade_navOn.jpg) no-repeat;}
 .tap02{ height:28px; width:455px; float:left;margin-left:275px; display:inline;margin-top:4px;}
-.tap02 a{ background:url(../images/trade_navOut.jpg); width:72px; height:32px; display:inline-block;color: #6e6e6e; font: bold 14px/24px "ËÎÌå" ; text-decoration:none; float:left; text-align:center; margin-right:8px;}
+.tap02 a{ background:url(../images/trade_navOut.jpg); width:72px; height:32px; display:inline-block;color: #6e6e6e; font: bold 14px/24px "å®‹ä½“" ; text-decoration:none; float:left; text-align:center; margin-right:8px;}
 .tap02 a:hover{color:#830505}
 .active02{position:relative;float:left; z-index:2;margin-bottom:-1px;}
 .active02 a {
@@ -278,7 +278,7 @@ DIV.quotes SPAN.disabled {
 .freeTrade_compare .active,.freeTrade_compare li.active{
 background:url(../images/freeTrade_navOn.gif) no-repeat; font-weight:bold;}
 .tap_com{height:31px; width:280px;float:left;display:inline;margin-bottom:-8px;margin-top:10px;overflow:hidden;}
-.tap_com a{ background:url(../images/freeTrade_navOut.gif); width:136px; height:31px; display:inline-block;color: #343434; font: normal 14px/24px "ËÎÌå" ; text-decoration:none; float:left; text-align:center; }
+.tap_com a{ background:url(../images/freeTrade_navOut.gif); width:136px; height:31px; display:inline-block;color: #343434; font: normal 14px/24px "å®‹ä½“" ; text-decoration:none; float:left; text-align:center; }
 .tap_com a:hover{color:#FFFFFF; text-decoration:none;}
 .active_com{position:relative;float:left; z-index:2;margin-bottom:-1px;}
 .active_com a {background:url(../images/freeTrade_navOn.gif)!important;height:31px; color:white;font-weight:bold;}
