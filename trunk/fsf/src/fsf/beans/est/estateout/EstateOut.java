@@ -16,7 +16,7 @@ public class EstateOut implements java.io.Serializable {
 	private static final long serialVersionUID = 483593618875371929L;
 	private Integer estateId;
 	private String estateCardNo;
-	private Byte card5year;
+	private Short card5year;
 	private String estateName;
 	private String develop;
 	private Short tradeType;
@@ -31,7 +31,7 @@ public class EstateOut implements java.io.Serializable {
 	private Short isLift;
 	private Double practicalArea;
 	private Integer effective;
-	private String estateAddress;
+	private String address;
 	private Integer toward;
 	private Integer floor;
 	private Integer totalFloor;
@@ -76,11 +76,11 @@ public class EstateOut implements java.io.Serializable {
 		this.estateCardNo = estateCardNo;
 	}
 
-	public Byte getCard5year() {
+	public Short getCard5year() {
 		return this.card5year;
 	}
 
-	public void setCard5year(Byte card5year) {
+	public void setCard5year(Short card5year) {
 		this.card5year = card5year;
 	}
 
@@ -196,12 +196,12 @@ public class EstateOut implements java.io.Serializable {
 		this.effective = effective;
 	}
 
-	public String getEstateAddress() {
-		return this.estateAddress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setEstateAddress(String estateAddress) {
-		this.estateAddress = estateAddress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public Integer getToward() {

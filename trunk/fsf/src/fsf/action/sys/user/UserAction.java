@@ -11,11 +11,12 @@ import net.sf.json.JSONObject;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import chance.base.BaseParameter;
+import chance.base.action.BaseAction;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
-import chance.base.action.BaseAction;
-import chance.base.BaseParameter;
 import fsf.service.sys.user.UserService;
+import fsf.web.common.WebConstant;
 
 @Controller
 @Scope("prototype")
@@ -23,6 +24,22 @@ public class UserAction extends BaseAction<User> {
 
 	public UserAction() {
 		super(User.class, new String[] { "userId" });
+	}
+	
+	public String doLogin() throws Exception {
+		try{
+			User user = getUserService().login(userCode, password);
+			getHttpSession().setAttribute(WebConstant.SESSION_USER, user);
+		}catch(Exception e){
+			handleDefaultException(e);
+			return INPUT;
+		}
+		return SUCCESS;
+	}
+	
+	public String doLogout() throws Exception{ 
+		getHttpSession().invalidate();
+		return SUCCESS;
 	}
 	
 	public String getCityList() throws Exception {
@@ -47,10 +64,22 @@ public class UserAction extends BaseAction<User> {
 		getHttpServletResponse().getWriter().write(json.toString());
 		return null;
 	}
+	
+	@Override
+	protected void initData() {	}
+	@Override
+	protected void beforePersist() {
+		
+		createDate = new Date();
+	}
 
 	@Resource
 	public void setUserService(UserService userService) {
 		this.service = userService;
+	}
+	
+	public UserService getUserService(){
+		return (UserService)service;
 	}
 
 	public void setUserParameter(UserParameter param) {

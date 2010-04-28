@@ -60,7 +60,6 @@ create table if not exists est_estate_out(
 	
 	effective int not null,/* 有效天数 -1 长期有效 */
 
-	estate_address varchar(128) not null,
 	toward int,	/* 房子的朝向 1 东 2 南 3 西 4 北 5 东南 6 西南 7 东北 8 西北 固定参数toward*/
 	
 	floor int not null, /* 楼层 */
@@ -75,7 +74,7 @@ create table if not exists est_estate_out(
 	porch int not null,/*阳*/
 	
 	manage_cost decimal(14,2) not null,/*管理费*/
-	water_cost decimal(6,3) not null,/* 房子水费 按度计算 -1 为按地方政府规定 */
+	water_cost decimal(6,3),/* 房子水费 按度计算 -1 为按地方政府规定 */
 	electric_cost decimal(6,3),/* 房子电费 按度计算 -1 为按地方政府规定 */
 	other_cost decimal(12,3),	/* 其他费用  按月计算 */
 

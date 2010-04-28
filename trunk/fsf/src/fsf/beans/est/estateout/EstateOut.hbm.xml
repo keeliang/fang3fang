@@ -20,7 +20,7 @@
         <property name="develop" type="string">
             <column name="develop" length="50" />
         </property>
-        <property name="tradeType" type="byte">
+        <property name="tradeType" type="short" update="false">
             <column name="trade_type" not-null="true" />
         </property>
         <property name="contactUserId" type="int">
@@ -38,16 +38,16 @@
         <property name="areaId" type="java.lang.Integer">
             <column name="area_id" />
         </property>
-        <property name="tradeMode" type="byte">
+        <property name="tradeMode" type="short">
             <column name="trade_mode" not-null="true" />
         </property>
-        <property name="estateType" type="byte">
+        <property name="estateType" type="short">
             <column name="estate_type" not-null="true" />
         </property>
         <property name="area" type="double">
             <column name="area" precision="6" not-null="true" />
         </property>
-        <property name="isLift" type="byte">
+        <property name="isLift" type="short">
             <column name="is_lift" not-null="true" />
         </property>
         <property name="practicalArea" type="double">
@@ -56,8 +56,8 @@
         <property name="effective" type="int">
             <column name="effective" not-null="true" />
         </property>
-        <property name="estateAddress" type="string">
-            <column name="estate_address" length="128" not-null="true" />
+        <property name="address" type="string">
+            <column name="address" length="128" not-null="true" />
         </property>
         <property name="toward" type="java.lang.Integer">
             <column name="toward" />
@@ -90,7 +90,7 @@
             <column name="manage_cost" precision="14" not-null="true" />
         </property>
         <property name="waterCost" type="double">
-            <column name="water_cost" precision="6" scale="3" not-null="true" />
+            <column name="water_cost" precision="6" scale="3" />
         </property>
         <property name="electricCost" type="double">
             <column name="electric_cost" precision="6" scale="3" />
@@ -107,10 +107,10 @@
         <property name="deposit" type="double">
             <column name="deposit" precision="12" />
         </property>
-        <property name="fitment" type="byte">
+        <property name="fitment" type="short">
             <column name="fitment" not-null="true" />
         </property>
-        <property name="device" type="byte">
+        <property name="device" type="short">
             <column name="device" not-null="true" />
         </property>
         <property name="remark" type="string">
