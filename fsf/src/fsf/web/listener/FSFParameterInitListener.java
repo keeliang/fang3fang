@@ -16,13 +16,9 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import fsf.beans.sys.dict.DictItem;
-import fsf.web.common.URLAuthority;
 import fsf.web.common.WebConstant;
 
 public class FSFParameterInitListener implements ServletContextListener{
-	
-	public static List<URLAuthority> protectedResource = new ArrayList<URLAuthority>();
-	public static List<String> unProtectedResource = new ArrayList<String>();
 
 	public void contextDestroyed(ServletContextEvent arg0) {
 		
@@ -30,7 +26,6 @@ public class FSFParameterInitListener implements ServletContextListener{
 
 	public void contextInitialized(ServletContextEvent event) {
 		loadSystemParameter(event.getServletContext());
-//		initURLAuthorized();
 	}
 	
 	private void loadSystemParameter(ServletContext servletContext){
@@ -79,41 +74,5 @@ public class FSFParameterInitListener implements ServletContextListener{
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		} 
-	}
-	
-	private void initURLAuthorized(){
-		String URLAuthorized = "URLAuthorized.xml";
-		String url = "url";
-		String strProtected = "protected";
-		String strUnProtected = "unProtected";
-		String strValue = "value";
-		String strRedirect = "redirect";
-		SAXReader reader = new SAXReader();
-		try {
-			Document doc = reader.read(getClass().getClassLoader().getResource(URLAuthorized));
-			Element root = doc.getRootElement();
-			Element protectedElement = root.element(strProtected);
-			Iterator<Element> it = protectedElement.elementIterator(url);
-			for(;it.hasNext();){
-				Element o = it.next();
-				protectedResource.add(new URLAuthority(o.attributeValue(strValue),o.attributeValue(strRedirect)));
-			}
-			Element unProtectedElement  = root.element(strUnProtected);
-			it = unProtectedElement.elementIterator(url);
-			for(;it.hasNext();){
-				Element o = it.next();
-				unProtectedResource.add(o.attributeValue(strValue));
-			}
-		} catch (DocumentException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public static List<URLAuthority> getProtectedResource(){
-		return protectedResource;
-	}
-	
-	public static List<String> getUnProtectedResource(){
-		return unProtectedResource;
 	}
 }

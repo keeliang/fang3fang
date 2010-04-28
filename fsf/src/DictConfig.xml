@@ -36,4 +36,11 @@
 		<ItemKeyProperty>district_id</ItemKeyProperty>
 		<ItemNameProperty>district_name</ItemNameProperty>
 	</DynamicConfig>
+	
+	<DynamicConfig name="sys_user">
+		<Entity>sys_user</Entity>
+		<ItemKeyProperty>user_id</ItemKeyProperty>
+		<ItemNameProperty>user_code</ItemNameProperty>
+	</DynamicConfig>
+	
 </DictConfig>

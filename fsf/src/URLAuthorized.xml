@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <authorized>
-	<protected>
-		<url value="/sysadmin/*" redirect="/sysadmin/tologin.action"/>
-	</protected>
-	<unProtected>
-		<url value="/sysadmin/login.action"/>
-		<url value="/sysadmin/tologin.action"/>
-	</unProtected>
+	<!-- 后台不用登录即可访问的路径 -->
+	<BackManagerNotProtected>
+		<resource url="/AdminPage/login.action" />
+		<resource url="/AdminPage/login.jsp" />
+		<resource url="/AdminPage/tologin.jsp" />
+	</BackManagerNotProtected>
+	
+	<!-- 前台需要登录的才能访问的路径 -->
+	<FrontProtected>
+		<resource url="/AdminPage/login.action" />
+		<resource url="/AdminPage/login.jsp" />
+	</FrontProtected>
 </authorized>
