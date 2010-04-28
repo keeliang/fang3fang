@@ -2,8 +2,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title><s:text name="listPageTitle"/></title>
 <%@include file="/share/share.jsp" %>
+<title><s:text name="listPageTitle"/></title>
 <%@include file="/share/validate.jsp" %>
 <link type="text/css" rel="stylesheet" href="/css/Common.css" />
 <link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
@@ -50,7 +50,7 @@
 					</td>
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="userParameter._ne_status" 
-						listValue="itemName" listKey="itemKey" emptyOption="true"/>
+						listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/>
 					</td>
 				</tr>
 				<tr>
@@ -59,14 +59,14 @@
 					</td>
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$user_type')" name="userParameter._ne_userType" 
-						listValue="itemName" listKey="itemKey" emptyOption="true"/>
+						listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/>
 					</td>
 					<td width="15%" >
 						<s:text name="_ne_sex" />:
 					</td>
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$sex')" name="userParameter._ne_sex" 
-						listValue="itemName" listKey="itemKey" emptyOption="true"/>
+						listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/>
 					</td>
 				</tr>
 				<tr>
@@ -74,24 +74,22 @@
 						<s:text name="_ne_provinceId" />:
 					</td>
 					<td width="35%">
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="userParameter._ne_provinceId" onchange="f_chageProvince()" id="province"
-						listValue="itemName" listKey="itemKey" emptyOption="true"/>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="userParameter._ne_provinceId" 
+						onchange="f_changeProvince()" id="provinceId" listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown" />
 					</td>
 					<td width="15%" >
 						<s:text name="_ne_cityId" />:
 					</td>
-					<td width="35%">
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="userParameter._ne_cityId" 
-						listValue="itemName" listKey="itemKey" emptyOption="true"/>
+					<td width="35%" id="cityTd">
+						
 					</td>
 				</tr>
 				<tr>
 					<td width="15%" >
 						<s:text name="_ne_districtId" />:
 					</td>
-					<td width="35%">
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="userParameter._ne_districtId" 
-						listValue="itemName" listKey="itemKey" emptyOption="true"/>
+					<td width="35%" id="districtTd">
+						
 					</td>
 				</tr>
 				<tr>
@@ -164,7 +162,6 @@
 	<td width="4%" height="28" class="table_hdr">
 		<input type="checkbox" onclick="g_select(this)" >
 	</td>
-	<td class="table_hdr"><s:text name="userId"/></td>
 	<td class="table_hdr"><s:text name="userCode"/></td>
 	<td class="table_hdr"><s:text name="userName"/></td>
 	<td class="table_hdr"><s:text name="sex"/></td>
@@ -173,47 +170,46 @@
 	<td class="table_hdr"><s:text name="provinceId"/></td>
 	<td class="table_hdr"><s:text name="cityId"/></td>
 	<td class="table_hdr"><s:text name="districtId"/></td>
-	<td class="table_hdr"><s:text name="address"/></td>
-	<td class="table_hdr"><s:text name="tel"/></td>
 	<td class="table_hdr"><s:text name="phone"/></td>
 	<td class="table_hdr"><s:text name="qq"/></td>
 	<td class="table_hdr"><s:text name="msn"/></td>
 	<td class="table_hdr"><s:text name="email"/></td>
-	<td class="table_hdr"><s:text name="remark"/></td>
 	<td class="table_hdr"><s:text name="createDate"/></td>
-	<td class="table_hdr"><s:text name="imagePath"/></td>
 </tr>
 
 <s:iterator value="pageView.records" id="item">
-	<s:url action="userEdit" namespace="/sys/user" id="url">
+	<s:url action="userEdit" namespace="/sysadmin/sys/user" id="url">
 		<s:param name="userId" value="#item.userId"></s:param>
 	</s:url>
 	<tr>
 		<td class="table_dtl">
 			<input type="checkbox" name="selectedPK" value="<s:property value="#item.userId"/>">
 		</td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="userId"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="userCode"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="userName"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="sex"/></a></td>
+		<td><s:property value="userName"/></td>
+		<td><s:property value="sex"/></td>
 		<td>
 			<fsf:dictTranslate groupName="$status" value="status"/>
 		</td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="userType"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="provinceId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="cityId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="districtId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="address"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="tel"/></a></td>
+		<td>
+			<fsf:dictTranslate groupName="$userType" value="userType"/>
+		</td>
+		<td>
+			<fsf:dictTranslate groupName="#province" value="provinceId"/>
+		</td>
+		<td>
+			<fsf:dictTranslate groupName="#city" value="cityId"/>
+		</td>
+		<td>
+			<fsf:dictTranslate groupName="#district" value="districtId"/>
+		</td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="phone"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="qq"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="msn"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="email"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="remark"/></a></td>
 		<td>
 			<s:date name="createDate" format="yyyy-MM-dd"/>
 		</td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="imagePath"/></a></td>
 	</tr>
 </s:iterator>
 </table>
@@ -229,12 +225,27 @@
 </body>
 </html>
 <script type="text/javascript">
-function f_chageProvince(){
-	if($("#province").val()=="")
+$(function(){
+	f_changeProvince(true);
+})
+function f_changeProvince(isIndex){
+	if($("#provinceId").val()=="")
 		return;
-	$.post("getProvince.action",{province:$("#province").val()},function(json){
-		var selectTag = new SelectTag("city","city",json.data,"itemKey","itemName","${city}");
-		$("#cityTd").html(selectTag.toString());
+	$.post("getCityList.action",{provinceId:$("#provinceId").val()},function(json){
+		var selectTag = new SelectTag("cityId","userParameter._ne_cityId",json.data,"itemKey","itemName","${userParameter._ne_cityId}","f_changeCity()");
+		$("#cityTd").html(selectTag.toString()+"<font color='red'>*</font>");
+		if(isIndex)
+			f_changeCity();
+	},"json");
+}
+function f_changeCity(){
+	if($("#provinceId").val()=="")
+		return;
+	if($("#cityId").val()=="")
+		return;
+	$.post("getDistrictList.action",{provinceId:$("#provinceId").val(),cityId:$("#cityId").val()},function(json){
+		var selectTag = new SelectTag("districtId","userParameter._ne_districtId",json.data,"itemKey","itemName","${userParameter._ne_districtId}");
+		$("#districtTd").html(selectTag.toString()+"<font color='red'>*</font>");
 	},"json");
 }
 </script>

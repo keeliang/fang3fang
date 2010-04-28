@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<body style="margin: 0px;padding: 0px;">
+		<table border="0" style="height: 100%">
+			<tr>
+				<td>
+					<img src="/images/wangpuN_left.jpg" onclick="f_toggle()" id="bar" style="cursor: pointer;">
+				</td>
+			</tr>
+		</table>
+	</body>
+	<script type="text/javascript">
+		var a = true;
+		function f_toggle(){
+			if(a){
+				window.parent.document.getElementById("main").cols = "0,25,*"
+				document.getElementById("bar").src = "/images/wangpuN_right.jpg";
+				a = false;
+			}else{
+				window.parent.document.getElementById("main").cols = "220,25,*"
+				document.getElementById("bar").src = "/images/wangpuN_left.jpg";
+				a = true;
+			}
+		}
+	</script>
+</html>
