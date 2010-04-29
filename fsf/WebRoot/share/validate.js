@@ -26,14 +26,14 @@ function validate(){
 		if(fields[i]==null)	continue;
 		var fieldValue = null;
 		//alert(fields[i].inputName);
-		if(!eval('document.forms["'+fromName+'"].'+fields[i].inputName)){
+		if(!eval('document.forms["'+fromName+'"]["'+fields[i].inputName+'"]')){
 			//alert(fields[i].inputName+" is not exists");
 			if(!fields[i].isNull)
 				errorCode = 0;
 		}else {
-			if(eval('document.forms["'+fromName+'"].'+fields[i].inputName+".value")){
-				fieldValue = trim(eval('document.forms["'+fromName+'"].'+fields[i].inputName+".value"));
-			}else	if(eval('document.forms["'+fromName+'"].'+fields[i].inputName+".length")){
+			if(eval('document.forms["'+fromName+'"]["'+fields[i].inputName+'"].value')){
+				fieldValue = trim(eval('document.forms["'+fromName+'"]["'+fields[i].inputName+'"].value'));
+			}else	if(eval('document.forms["'+fromName+'"]["'+fields[i].inputName+'"].length')){
 				var a = document.getElementsByName(fields[i].inputName);
 				for(var j = 0;j<a.length;j++){
 					if(a[j].checked){
@@ -42,10 +42,11 @@ function validate(){
 					}
 				}
 			}
+			
 			if(fieldValue==null || fieldValue==""){
 				if(fields[i].defaultValue!=null && fields[i].defaultValue != ""){
 					fieldValue = fields[i].defaultValue;
-					eval('document.forms["'+fromName+'"].'+fields[i].inputName+".value='"+fields[i].defaultValue+"'");
+					eval('document.forms["'+fromName+'"]["'+fields[i].inputName+'"].value="'+fields[i].defaultValue+'"');
 				}
 				if(!fields[i].isNull){
 					errorCode = 0;
@@ -74,7 +75,7 @@ function validate(){
 				case 3:errorSb.append(spanStart+fields[i].desc+spanEnd+errorMsg[errorCode]+fields[i].len+".\n");break;
 				case 4:errorSb.append(spanStart+fields[i].desc+spanEnd+errorMsg[errorCode]+fields[i].maxval+".\n");break;
 				case 5:errorSb.append(spanStart+fields[i].desc+spanEnd+errorMsg[errorCode]+fields[i].minval+".\n");break;
-				case 6:errorSb.append(spanStart+fields[i].desc+spanEnd+errorMsg[errorCode]+fields[i].len+".\n");break;
+				case 6:errorSb.append(spanStart+fields[i].desc+spanEnd+errorMsg[errorCode]+(fields[i].len-fields[i].decimalLen)+".\n");break;
 				case 7:errorSb.append(spanStart+fields[i].desc+spanEnd+errorMsg[errorCode]+fields[i].decimalLen+".\n");break;
 				case 8:errorSb.append(spanStart+fields[i].desc+spanEnd+errorMsg[errorCode]+"\n");break;
 				case 9:errorSb.append(spanStart+fields[i].desc+spanEnd+errorMsg[errorCode]+"\n");break;
@@ -110,10 +111,10 @@ function isNumber(fieldValue,objField){
 	if(isNaN(fieldValue))return 1;
 	if(objField.len&&objField.decimalLen){
 		if(fieldValue.indexOf(".")>-1){
-			if(fieldValue.substring(0,fieldValue.indexOf(".")).length>objField.len)return 6;
+			if(fieldValue.substring(0,fieldValue.indexOf(".")).length>(objField.len-objField.decimalLen))return 6;
 			if(fieldValue.substring(fieldValue.indexOf(".")+1).length>objField.decimalLen)return 7;
 		}else{
-			if(fieldValue.length>objField.len)return 3;
+			if(fieldValue.length>(objField.len-objField.decimalLen))return 6;
 		}
 	}
 	if(objField.maxval && parseFloat(fieldValue)>objField.maxval)return 4;
