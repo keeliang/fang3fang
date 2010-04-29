@@ -43,7 +43,7 @@
 						<s:text name="_ne_informationId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newsCommentParameter._ne_informationId" />
+						<s:textfield name="newsCommentParameter._ne_newsId" />
 					</td>
 					<td width="15%" >
 						<s:text name="_se_ip" />:
@@ -110,7 +110,7 @@
 	</td>
 	<td><s:text name="commentId"/></td>
 	<td><s:text name="content"/></td>
-	<td><s:text name="informationId"/></td>
+	<td><s:text name="newsId"/></td>
 	<td><s:text name="ip"/></td>
 	<td><s:text name="status"/></td>
 	<td><s:text name="createTime"/></td>
@@ -129,7 +129,7 @@
 		</td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="commentId"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="content"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="informationId"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="newsId"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="ip"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="status"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="createTime"/></a></td>

@@ -7,97 +7,114 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import fsf.beans.info.news.News;
 import chance.base.action.BaseAction;
-import chance.base.BaseParameter;
+import fsf.beans.info.news.News;
 import fsf.service.info.news.NewsService;
 
 @Controller
 @Scope("prototype")
 public class NewsAction extends BaseAction<News> {
-	
+
 	public NewsAction() {
 		super(News.class, new String[] { "newsId" });
 	}
-	
+
 	@Resource
-	public void setNewsService(NewsService newsService){
+	public void setNewsService(NewsService newsService) {
 		this.service = newsService;
 	}
-	
-	public NewsService getNewsService(){
-		return (NewsService)this.service;
+
+	public NewsService getNewsService() {
+		return (NewsService) this.service;
 	}
 
-	public void setNewsParameter(NewsParameter param){
+	public void setNewsParameter(NewsParameter param) {
 		this.baseParameter = param;
 	}
-	public NewsParameter getNewsParameter(){
-		return (NewsParameter)baseParameter;
+
+	public NewsParameter getNewsParameter() {
+		return (NewsParameter) baseParameter;
 	}
-	
+
 	private Integer newsId;
-	private String informationTitle;
-	private String informationContent;
-	private Integer informationType;
+	private String newsTitle;
+	private String newsContent;
+	private Integer newsTypeId;
 	private Short status;
 	private Date createTime;
 	private Integer createUserId;
 	private Date updateTime;
 	private Integer updateUserId;
 
-	public void setNewsId(Integer newsId){
+	public void setNewsId(Integer newsId) {
 		this.newsId = newsId;
 	}
-	public Integer getNewsId(){
+
+	public Integer getNewsId() {
 		return this.newsId;
 	}
-	public void setInformationTitle(String informationTitle){
-		this.informationTitle = informationTitle;
+
+	public String getNewsTitle() {
+		return newsTitle;
 	}
-	public String getInformationTitle(){
-		return this.informationTitle;
+
+	public void setNewsTitle(String newsTitle) {
+		this.newsTitle = newsTitle;
 	}
-	public void setInformationContent(String informationContent){
-		this.informationContent = informationContent;
+
+	public String getNewsContent() {
+		return newsContent;
 	}
-	public String getInformationContent(){
-		return this.informationContent;
+
+	public void setNewsContent(String newsContent) {
+		this.newsContent = newsContent;
 	}
-	public void setInformationType(Integer informationType){
-		this.informationType = informationType;
+
+	public Integer getNewsTypeId() {
+		return newsTypeId;
 	}
-	public Integer getInformationType(){
-		return this.informationType;
+
+	public void setNewsTypeId(Integer newsTypeId) {
+		this.newsTypeId = newsTypeId;
 	}
-	public void setStatus(Short status){
+
+	public void setStatus(Short status) {
 		this.status = status;
 	}
-	public Short getStatus(){
+
+	public Short getStatus() {
 		return this.status;
 	}
-	public void setCreateTime(Date createTime){
+
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
-	public Date getCreateTime(){
+
+	public Date getCreateTime() {
 		return this.createTime;
 	}
-	public void setCreateUserId(Integer createUserId){
+
+	public void setCreateUserId(Integer createUserId) {
 		this.createUserId = createUserId;
 	}
-	public Integer getCreateUserId(){
+
+	public Integer getCreateUserId() {
 		return this.createUserId;
 	}
-	public void setUpdateTime(Date updateTime){
+
+	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
-	public Date getUpdateTime(){
+
+	public Date getUpdateTime() {
 		return this.updateTime;
 	}
-	public void setUpdateUserId(Integer updateUserId){
+
+	public void setUpdateUserId(Integer updateUserId) {
 		this.updateUserId = updateUserId;
 	}
-	public Integer getUpdateUserId(){
+
+	public Integer getUpdateUserId() {
 		return this.updateUserId;
 	}
 

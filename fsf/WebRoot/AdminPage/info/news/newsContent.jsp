@@ -17,14 +17,11 @@
 <s:hidden name="newsParameter.currentPage" />
 <s:hidden name="newsParameter.maxResults" />
 <s:hidden name="newsParameter._ne_newsId" />
-<s:hidden name="newsParameter._se_informationTitle" />
-<s:hidden name="newsParameter._se_informationContent" />
-<s:hidden name="newsParameter._ne_informationType" />
+<s:hidden name="newsParameter._se_newsTitle" />
+<s:hidden name="newsParameter._ne_newsTypeId" />
 <s:hidden name="newsParameter._ne_status" />
-<s:hidden name="newsParameter._de_createTime" />
-<s:hidden name="newsParameter._ne_createUserId" />
-<s:hidden name="newsParameter._de_updateTime" />
-<s:hidden name="newsParameter._ne_updateUserId" />
+
+<s:hidden name="newsId"/>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -41,34 +38,27 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td>
-						<s:text name="newsId"/>:
+						<s:text name="newsTitle"/>:
 					</td>
 					<td>
-						<s:textfield name="newsId" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="informationTitle"/>:
-					</td>
-					<td>
-						<s:textfield name="informationTitle" /><font color="red">*</font>
+						<s:textfield name="newsTitle" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<s:text name="informationContent"/>:
+						<s:text name="newsContent"/>:
 					</td>
 					<td>
-						<s:textfield name="informationContent" /><font color="red">*</font>
+						<s:textarea name="newsContent" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<s:text name="informationType"/>:
+						<s:text name="newsTypeId"/>:
 					</td>
 					<td>
-						<s:textfield name="informationType" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$news_type')" name="newsTypeId" cssClass="dropdown" 
+						id="newsTypeId" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -76,7 +66,8 @@
 						<s:text name="status"/>:
 					</td>
 					<td>
-						<s:textfield name="status" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="status" cssClass="dropdown" 
+						id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -84,7 +75,11 @@
 						<s:text name="createTime"/>:
 					</td>
 					<td>
-						<s:textfield name="createTime" /><font color="red">*</font>
+						<s:textfield name="createTime"  cssClass="memberC_input01_readonly" readonly="true">
+							<s:param name="value">
+								<s:date name="createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 				<tr>
@@ -92,7 +87,9 @@
 						<s:text name="createUserId"/>:
 					</td>
 					<td>
-						<s:textfield name="createUserId" /><font color="red">*</font>
+						<s:hidden name="createUserId"/>
+						<input class="memberC_input01_readonly" readonly="true" 
+						value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
 					</td>
 				</tr>
 				<tr>
@@ -100,7 +97,11 @@
 						<s:text name="updateTime"/>:
 					</td>
 					<td>
-						<s:textfield name="updateTime" /><font color="red">*</font>
+						<s:textfield name="updateTime"  cssClass="memberC_input01_readonly" readonly="true">
+							<s:param name="value">
+								<s:date name="updateTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 				<tr>
@@ -108,7 +109,9 @@
 						<s:text name="updateUserId"/>:
 					</td>
 					<td>
-						<s:textfield name="updateUserId" /><font color="red">*</font>
+						<s:hidden name="updateUserId"/>
+						<input class="memberC_input01_readonly" readonly="true" 
+						value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
 					</td>
 				</tr>
 			</table>
@@ -122,9 +125,9 @@
 function f_validate(){
 	fromName = "formItem";
 	addfield("newsId","<s:text name="newsId"/>","Integer",false,10);
-	addfield("informationTitle","<s:text name="informationTitle"/>","String",false,80);
-	addfield("informationContent","<s:text name="informationContent"/>","String",false,65535);
-	addfield("informationType","<s:text name="informationType"/>","Integer",false,10);
+	addfield("newsTitle","<s:text name="newsTitle"/>","String",false,80);
+	addfield("newsContent","<s:text name="newsContent"/>","String",false,65535);
+	addfield("newsTypeId","<s:text name="newsTypeId"/>","Integer",false,10);
 	addfield("status","<s:text name="status"/>","Integer",false,3);
 	addfield("createTime","<s:text name="createTime"/>","Date",false,19);
 	addfield("createUserId","<s:text name="createUserId"/>","Integer",false,10);

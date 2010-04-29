@@ -26,66 +26,26 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" >
 				<tr>
 					<td width="15%" >
-						<s:text name="_ne_newsId" />:
+						<s:text name="_se_newsTitle" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newsParameter._ne_newsId" />
-					</td>
-					<td width="15%" >
-						<s:text name="_se_informationTitle" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newsParameter._se_informationTitle" />
+						<s:textfield name="newsParameter._se_newsTitle" />
 					</td>
 				</tr>
 				<tr>
 					<td width="15%" >
-						<s:text name="_se_informationContent" />:
+						<s:text name="_ne_newsTypeId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newsParameter._se_informationContent" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#news_type','_ne_status:1')" name="newsParameter._ne_newsTypeId" cssClass="dropdown" 
+						id="newsTypeId" listValue="itemName" listKey="itemKey" emptyOption="true" />
 					</td>
-					<td width="15%" >
-						<s:text name="_ne_informationType" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newsParameter._ne_informationType" />
-					</td>
-				</tr>
-				<tr>
 					<td width="15%" >
 						<s:text name="_ne_status" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newsParameter._ne_status" />
-					</td>
-					<td width="15%" >
-						<s:text name="_de_createTime" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newsParameter._de_createTime" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_ne_createUserId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newsParameter._ne_createUserId" />
-					</td>
-					<td width="15%" >
-						<s:text name="_de_updateTime" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newsParameter._de_updateTime" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_ne_updateUserId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newsParameter._ne_updateUserId" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="newsParameter._ne_status" cssClass="dropdown" 
+						id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/>
 					</td>
 				</tr>
 			</table>
@@ -108,15 +68,9 @@
 	<td width="4%" height="28" class="table_hdr">
 		<input type="checkbox" onclick="g_select(this)" >
 	</td>
-	<td><s:text name="newsId"/></td>
-	<td><s:text name="informationTitle"/></td>
-	<td><s:text name="informationContent"/></td>
-	<td><s:text name="informationType"/></td>
+	<td><s:text name="newsTitle"/></td>
+	<td><s:text name="newsTypeId"/></td>
 	<td><s:text name="status"/></td>
-	<td><s:text name="createTime"/></td>
-	<td><s:text name="createUserId"/></td>
-	<td><s:text name="updateTime"/></td>
-	<td><s:text name="updateUserId"/></td>
 </tr>
 
 <s:iterator value="pageView.records" id="item">
@@ -127,15 +81,9 @@
 		<td>
 			<input type="checkbox" name="selectedPK" value="<s:property value="#item.newsId"/>">
 		</td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="newsId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="informationTitle"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="informationContent"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="informationType"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="status"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="createTime"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="createUserId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="updateTime"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="updateUserId"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="newsTitle"/></a></td>
+		<td><fsf:dictTranslate value="newsTypeId" groupName="#news_type"/></td>
+		<td><fsf:dictTranslate value="status" groupName="$status"/></td>
 	</tr>
 </s:iterator>
 </table>

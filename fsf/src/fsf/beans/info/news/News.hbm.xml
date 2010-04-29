@@ -8,14 +8,14 @@
             <column name="news_id" />
             <generator class="identity" />
         </id>
-        <property name="informationTitle" type="string">
-            <column name="information_title" length="80" not-null="true" />
+        <property name="newsTitle" type="string">
+            <column name="news_title" length="80" not-null="true" />
         </property>
-        <property name="informationContent" type="string">
-            <column name="information_content" length="65535" not-null="true" />
+        <property name="newsContent" type="string">
+            <column name="news_content" length="65535" not-null="true" />
         </property>
-        <property name="informationType" type="int">
-            <column name="information_type" not-null="true" />
+        <property name="newsTypeId" type="int">
+            <column name="news_type_id" not-null="true" />
         </property>
         <property name="status" type="short">
             <column name="status" not-null="true" />

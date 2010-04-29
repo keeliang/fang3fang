@@ -18,7 +18,7 @@
 <s:hidden name="newsCommentParameter.maxResults" />
 <s:hidden name="newsCommentParameter._ne_commentId" />
 <s:hidden name="newsCommentParameter._se_content" />
-<s:hidden name="newsCommentParameter._ne_informationId" />
+<s:hidden name="newsCommentParameter._ne_newsId" />
 <s:hidden name="newsCommentParameter._se_ip" />
 <s:hidden name="newsCommentParameter._ne_status" />
 <s:hidden name="newsCommentParameter._de_createTime" />
@@ -57,10 +57,10 @@
 				</tr>
 				<tr>
 					<td>
-						<s:text name="informationId"/>:
+						<s:text name="newsId"/>:
 					</td>
 					<td>
-						<s:textfield name="informationId" /><font color="red">*</font>
+						<s:textfield name="newsId" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -123,7 +123,7 @@ function f_validate(){
 	fromName = "formItem";
 	addfield("commentId","<s:text name="commentId"/>","Integer",false,10);
 	addfield("content","<s:text name="content"/>","String",false,65535);
-	addfield("informationId","<s:text name="informationId"/>","Integer",false,10);
+	addfield("newsId","<s:text name="newsId"/>","Integer",false,10);
 	addfield("ip","<s:text name="ip"/>","String",false,30);
 	addfield("status","<s:text name="status"/>","Integer",false,3);
 	addfield("createTime","<s:text name="createTime"/>","Date",false,19);
