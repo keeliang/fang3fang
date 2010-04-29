@@ -1,6 +1,7 @@
 package fsf.web.common;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +27,11 @@ import fsf.service.sys.dict.DictItemService;
 public class SelectTagStaticUtil {
 	
 	public static List<DictItem> getConfig(String groupName)throws Exception{
-		return getConfig(groupName,null);
+		return getConfig(groupName,null,null);
+	}
+	
+	public static List<DictItem> getConfig(String groupName,String condition)throws Exception{
+		return getConfig(groupName,condition,null);
 	}
 	
 	/**
@@ -35,7 +40,7 @@ public class SelectTagStaticUtil {
 	 * @return
 	 * @throws Exception
 	 */
-	public static List<DictItem> getConfig(String groupName,String condition) throws Exception{
+	public static List<DictItem> getConfig(String groupName,String condition,String exclude) throws Exception{
 		List<DictItem> list = null;
 		//config from sys_dictitem
     	if(groupName.startsWith(WebConstant.DATA_DICT)){
@@ -52,6 +57,22 @@ public class SelectTagStaticUtil {
                 param.getSortedConditions().put("seq", BaseParameter.SORTED_ASC);
                 list = dictItemService.doQuery(param);
                 cache.put(new Element(groupName.substring(1),list));
+    		}
+    		if(exclude!=null && !"".equals(exclude)){
+    			String[] array = exclude.split(";");
+				StringBuffer sb = new StringBuffer();
+				for(String ex :array){
+					sb.append(transfer(ex));
+				}
+				List<DictItem> resultList = new ArrayList<DictItem>();
+				for(Iterator<DictItem> it = list.iterator();it.hasNext();){
+					DictItem d = it.next();
+					String k = d.getItemKey();
+					if(transfer(k).indexOf(sb.toString())==-1){
+						resultList.add(d);
+					}
+				}
+				list = resultList;
     		}
     	}
     	//config from DictConfig.xml and dynamic table
@@ -79,10 +100,28 @@ public class SelectTagStaticUtil {
         				}
     				}
     				list = dictItemService.getDaynamicConfig(aryCache[0], aryCache[1], aryCache[2], param);
+    				if(exclude!=null && !"".equals(exclude)){
+    					String[] array = exclude.split(";");
+    					StringBuffer sb = new StringBuffer();
+    					for(String ex :array){
+        					sb.append(transfer(ex));
+        				}
+    					for(Iterator<DictItem> it = list.iterator();it.hasNext();){
+    						DictItem d = it.next();
+    						String k = d.getItemKey();
+    						if(transfer(k).indexOf(sb.toString())!=-1){
+    							list.remove(d);
+    						}
+    					}
+    				}
     			}
     		}
     	}
     	return list==null?new ArrayList():list;
+	}
+	
+	private static String transfer(String str){
+		return "##"+str+"||";
 	}
 	
 	/**

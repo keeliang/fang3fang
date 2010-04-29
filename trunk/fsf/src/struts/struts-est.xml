@@ -77,9 +77,28 @@
 			<result>/AdminPage/est/estateout/estateOutList.jsp</result>
 			<result name="input">/AdminPage/est/estateout/estateOutList.jsp</result>
 		</action>
+		
 		<action name="getCityList" class="estateOutAction" method="getCityList"></action>
 		<action name="getDistrictList" class="estateOutAction" method="getDistrictList"></action>
 		<action name="getBusinessareaList" class="estateOutAction" method="getBusinessareaList"></action>
+		
+		<action name="estateOwnOutList" class="estateOutAction" method="doList">
+			<result>/AdminPage/est/estateout/estateOwnOutList.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOwnOutList.jsp</result>
+		</action>
+		<action name="estateOwnOutEdit" class="estateOutAction" method="doEdit">
+			<result>/AdminPage/est/estateout/estateOutContent.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOutContent.jsp</result>
+		</action>
+		<action name="estateOwnOutDelete" class="estateOutAction" method="doDelete">
+			<result>/AdminPage/est/estateout/estateOwnOutList.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOwnOutList.jsp</result>
+		</action>
+		<action name="estateOutExamine" class="estateOutAction" method="doExamine">
+			<result>/AdminPage/est/estateout/estateOwnOutExamine.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOwnOutExamine.jsp</result>
+		</action>
+		
 	</package>
 	<!-- ********************************************** -->
 	

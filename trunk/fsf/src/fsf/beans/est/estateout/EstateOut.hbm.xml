@@ -38,6 +38,9 @@
         <property name="areaId" type="java.lang.Integer">
             <column name="area_id" />
         </property>
+        <property name="examine" type="short">
+            <column name="examine" />
+        </property>
         <property name="tradeMode" type="short">
             <column name="trade_mode" not-null="true" />
         </property>

@@ -17,29 +17,36 @@ public class EstateOutParameter extends BaseParameter{
 	private Integer _ne_cityId;
 	private Integer _ne_districtId;
 	private Integer _ne_areaId;
+	private Short _ne_examine;
 	private Short _ne_tradeMode;
 	private Short _ne_estateType;
-	private Float _ne_area;
+	private Double _nge_area;
+	private Double _nle_area;
 	private Short _ne_isLift;
-	private Float _ne_practicalArea;
+	private Double _nge_practicalArea;
+	private Double _nle_practicalArea;
 	private Integer _ne_effective;
-	private String _se_estateAddress;
+	private String _se_address;
 	private Integer _ne_toward;
-	private Integer _ne_floor;
-	private Integer _ne_totalFloor;
-	private Float _ne_salePrice;
-	private Float _ne_rentPrice;
+	private Integer _nge_floor;
+	private Integer _nle_floor;
+	private Integer _nge_totalFloor;
+	private Integer _nle_totalFloor;
+	private Double _nge_salePrice;
+	private Double _nle_salePrice;
+	private Double _nge_rentPrice;
+	private Double _nle_rentPrice;
 	private Integer _ne_hall;
 	private Integer _ne_bedroom;
 	private Integer _ne_toilet;
 	private Integer _ne_porch;
-	private Float _ne_manageCost;
-	private Float _ne_waterCost;
-	private Float _ne_electricCost;
-	private Float _ne_otherCost;
+	private Double _ne_manageCost;
+	private Double _ne_waterCost;
+	private Double _ne_electricCost;
+	private Double _ne_otherCost;
 	private Integer _ne_buildYear;
 	private Integer _ne_minMonth;
-	private Float _ne_deposit;
+	private Double _ne_deposit;
 	private Short _ne_fitment;
 	private Short _ne_device;
 	private String _se_remark;
@@ -127,11 +134,12 @@ public class EstateOutParameter extends BaseParameter{
 	public Short get_ne_estateType(){
 		return this._ne_estateType;
 	}
-	public void set_ne_area(Float _ne_area){
-		this._ne_area = _ne_area;
+	
+	public Double get_nle_area() {
+		return _nle_area;
 	}
-	public Float get_ne_area(){
-		return this._ne_area;
+	public void set_nle_area(Double _nle_area) {
+		this._nle_area = _nle_area;
 	}
 	public void set_ne_isLift(Short _ne_isLift){
 		this._ne_isLift = _ne_isLift;
@@ -139,11 +147,24 @@ public class EstateOutParameter extends BaseParameter{
 	public Short get_ne_isLift(){
 		return this._ne_isLift;
 	}
-	public void set_ne_practicalArea(Float _ne_practicalArea){
-		this._ne_practicalArea = _ne_practicalArea;
+	
+	public Double get_nge_area() {
+		return _nge_area;
 	}
-	public Float get_ne_practicalArea(){
-		return this._ne_practicalArea;
+	public void set_nge_area(Double _nge_area) {
+		this._nge_area = _nge_area;
+	}
+	public Double get_nge_practicalArea() {
+		return _nge_practicalArea;
+	}
+	public void set_nge_practicalArea(Double area) {
+		_nge_practicalArea = area;
+	}
+	public Double get_nle_practicalArea() {
+		return _nle_practicalArea;
+	}
+	public void set_nle_practicalArea(Double area) {
+		_nle_practicalArea = area;
 	}
 	public void set_ne_effective(Integer _ne_effective){
 		this._ne_effective = _ne_effective;
@@ -151,11 +172,12 @@ public class EstateOutParameter extends BaseParameter{
 	public Integer get_ne_effective(){
 		return this._ne_effective;
 	}
-	public void set_se_estateAddress(String _se_estateAddress){
-		this._se_estateAddress = _se_estateAddress;
+
+	public String get_se_address() {
+		return _se_address;
 	}
-	public String get_se_estateAddress(){
-		return this._se_estateAddress;
+	public void set_se_address(String _se_address) {
+		this._se_address = _se_address;
 	}
 	public void set_ne_toward(Integer _ne_toward){
 		this._ne_toward = _ne_toward;
@@ -163,29 +185,54 @@ public class EstateOutParameter extends BaseParameter{
 	public Integer get_ne_toward(){
 		return this._ne_toward;
 	}
-	public void set_ne_floor(Integer _ne_floor){
-		this._ne_floor = _ne_floor;
+	public Integer get_nge_floor() {
+		return _nge_floor;
 	}
-	public Integer get_ne_floor(){
-		return this._ne_floor;
+	public void set_nge_floor(Integer _nge_floor) {
+		this._nge_floor = _nge_floor;
 	}
-	public void set_ne_totalFloor(Integer _ne_totalFloor){
-		this._ne_totalFloor = _ne_totalFloor;
+	public Integer get_nle_floor() {
+		return _nle_floor;
 	}
-	public Integer get_ne_totalFloor(){
-		return this._ne_totalFloor;
+	public void set_nle_floor(Integer _nle_floor) {
+		this._nle_floor = _nle_floor;
 	}
-	public void set_ne_salePrice(Float _ne_salePrice){
-		this._ne_salePrice = _ne_salePrice;
+	public Integer get_nge_totalFloor() {
+		return _nge_totalFloor;
 	}
-	public Float get_ne_salePrice(){
-		return this._ne_salePrice;
+	public void set_nge_totalFloor(Integer floor) {
+		_nge_totalFloor = floor;
 	}
-	public void set_ne_rentPrice(Float _ne_rentPrice){
-		this._ne_rentPrice = _ne_rentPrice;
+	public Integer get_nle_totalFloor() {
+		return _nle_totalFloor;
 	}
-	public Float get_ne_rentPrice(){
-		return this._ne_rentPrice;
+	public void set_nle_totalFloor(Integer floor) {
+		_nle_totalFloor = floor;
+	}
+	
+	public Double get_nge_salePrice() {
+		return _nge_salePrice;
+	}
+	public void set_nge_salePrice(Double price) {
+		_nge_salePrice = price;
+	}
+	public Double get_nle_salePrice() {
+		return _nle_salePrice;
+	}
+	public void set_nle_salePrice(Double price) {
+		_nle_salePrice = price;
+	}
+	public Double get_nge_rentPrice() {
+		return _nge_rentPrice;
+	}
+	public void set_nge_rentPrice(Double price) {
+		_nge_rentPrice = price;
+	}
+	public Double get_nle_rentPrice() {
+		return _nle_rentPrice;
+	}
+	public void set_nle_rentPrice(Double price) {
+		_nle_rentPrice = price;
 	}
 	public void set_ne_hall(Integer _ne_hall){
 		this._ne_hall = _ne_hall;
@@ -211,28 +258,28 @@ public class EstateOutParameter extends BaseParameter{
 	public Integer get_ne_porch(){
 		return this._ne_porch;
 	}
-	public void set_ne_manageCost(Float _ne_manageCost){
+	public void set_ne_manageCost(Double _ne_manageCost){
 		this._ne_manageCost = _ne_manageCost;
 	}
-	public Float get_ne_manageCost(){
+	public Double get_ne_manageCost(){
 		return this._ne_manageCost;
 	}
-	public void set_ne_waterCost(Float _ne_waterCost){
+	public void set_ne_waterCost(Double _ne_waterCost){
 		this._ne_waterCost = _ne_waterCost;
 	}
-	public Float get_ne_waterCost(){
+	public Double get_ne_waterCost(){
 		return this._ne_waterCost;
 	}
-	public void set_ne_electricCost(Float _ne_electricCost){
+	public void set_ne_electricCost(Double _ne_electricCost){
 		this._ne_electricCost = _ne_electricCost;
 	}
-	public Float get_ne_electricCost(){
+	public Double get_ne_electricCost(){
 		return this._ne_electricCost;
 	}
-	public void set_ne_otherCost(Float _ne_otherCost){
+	public void set_ne_otherCost(Double _ne_otherCost){
 		this._ne_otherCost = _ne_otherCost;
 	}
-	public Float get_ne_otherCost(){
+	public Double get_ne_otherCost(){
 		return this._ne_otherCost;
 	}
 	public void set_ne_buildYear(Integer _ne_buildYear){
@@ -247,10 +294,10 @@ public class EstateOutParameter extends BaseParameter{
 	public Integer get_ne_minMonth(){
 		return this._ne_minMonth;
 	}
-	public void set_ne_deposit(Float _ne_deposit){
+	public void set_ne_deposit(Double _ne_deposit){
 		this._ne_deposit = _ne_deposit;
 	}
-	public Float get_ne_deposit(){
+	public Double get_ne_deposit(){
 		return this._ne_deposit;
 	}
 	public void set_ne_fitment(Short _ne_fitment){
@@ -300,5 +347,11 @@ public class EstateOutParameter extends BaseParameter{
 	}
 	public Integer get_ne_updateUserId(){
 		return this._ne_updateUserId;
+	}
+	public Short get_ne_examine() {
+		return _ne_examine;
+	}
+	public void set_ne_examine(Short _ne_examine) {
+		this._ne_examine = _ne_examine;
 	}
 }
