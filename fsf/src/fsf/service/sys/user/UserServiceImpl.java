@@ -12,7 +12,7 @@ import fsf.dao.sys.user.UserDao;
 public class UserServiceImpl extends BaseService<User> implements UserService {
 	
 	public User login(String userCode,String password){
-		User user = dao.getByProerty("userCode", userCode);
+		User user = dao.getByProerties(new String[]{"userCode","status"}, new Object[]{userCode,1});
 		if(user==null){
 			ServiceException se = new ServiceException();
 			se.setExceptionCode(UserExceptionCode.USER_NOT_EXISTS);

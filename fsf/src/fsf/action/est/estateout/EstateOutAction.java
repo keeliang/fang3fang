@@ -113,29 +113,30 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	private Integer cityId;
 	private Integer districtId;
 	private Integer areaId;
+	private Short examine;
 	private Short tradeMode;
 	private Short estateType;
-	private Float area;
+	private Double area;
 	private Short isLift;
-	private Float practicalArea;
+	private Double practicalArea;
 	private Integer effective;
 	private String address;
 	private Integer toward;
 	private Integer floor;
 	private Integer totalFloor;
-	private Float salePrice;
-	private Float rentPrice;
+	private Double salePrice;
+	private Double rentPrice;
 	private Integer hall;
 	private Integer bedroom;
 	private Integer toilet;
 	private Integer porch;
-	private Float manageCost;
-	private Float waterCost;
-	private Float electricCost;
-	private Float otherCost;
+	private Double manageCost;
+	private Double waterCost;
+	private Double electricCost;
+	private Double otherCost;
 	private Integer buildYear;
 	private Integer minMonth;
-	private Float deposit;
+	private Double deposit;
 	private Short fitment;
 	private Short device;
 	private String remark;
@@ -223,10 +224,10 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	public Short getEstateType(){
 		return this.estateType;
 	}
-	public void setArea(Float area){
+	public void setArea(Double area){
 		this.area = area;
 	}
-	public Float getArea(){
+	public Double getArea(){
 		return this.area;
 	}
 	public void setIsLift(Short isLift){
@@ -235,10 +236,10 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	public Short getIsLift(){
 		return this.isLift;
 	}
-	public void setPracticalArea(Float practicalArea){
+	public void setPracticalArea(Double practicalArea){
 		this.practicalArea = practicalArea;
 	}
-	public Float getPracticalArea(){
+	public Double getPracticalArea(){
 		return this.practicalArea;
 	}
 	public void setEffective(Integer effective){
@@ -274,16 +275,16 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	public Integer getTotalFloor(){
 		return this.totalFloor;
 	}
-	public void setSalePrice(Float salePrice){
+	public void setSalePrice(Double salePrice){
 		this.salePrice = salePrice;
 	}
-	public Float getSalePrice(){
+	public Double getSalePrice(){
 		return this.salePrice;
 	}
-	public void setRentPrice(Float rentPrice){
+	public void setRentPrice(Double rentPrice){
 		this.rentPrice = rentPrice;
 	}
-	public Float getRentPrice(){
+	public Double getRentPrice(){
 		return this.rentPrice;
 	}
 	public void setHall(Integer hall){
@@ -310,28 +311,28 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	public Integer getPorch(){
 		return this.porch;
 	}
-	public void setManageCost(Float manageCost){
+	public void setManageCost(Double manageCost){
 		this.manageCost = manageCost;
 	}
-	public Float getManageCost(){
+	public Double getManageCost(){
 		return this.manageCost;
 	}
-	public void setWaterCost(Float waterCost){
+	public void setWaterCost(Double waterCost){
 		this.waterCost = waterCost;
 	}
-	public Float getWaterCost(){
+	public Double getWaterCost(){
 		return this.waterCost;
 	}
-	public void setElectricCost(Float electricCost){
+	public void setElectricCost(Double electricCost){
 		this.electricCost = electricCost;
 	}
-	public Float getElectricCost(){
+	public Double getElectricCost(){
 		return this.electricCost;
 	}
-	public void setOtherCost(Float otherCost){
+	public void setOtherCost(Double otherCost){
 		this.otherCost = otherCost;
 	}
-	public Float getOtherCost(){
+	public Double getOtherCost(){
 		return this.otherCost;
 	}
 	public void setBuildYear(Integer buildYear){
@@ -346,10 +347,10 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	public Integer getMinMonth(){
 		return this.minMonth;
 	}
-	public void setDeposit(Float deposit){
+	public void setDeposit(Double deposit){
 		this.deposit = deposit;
 	}
-	public Float getDeposit(){
+	public Double getDeposit(){
 		return this.deposit;
 	}
 	public void setFitment(Short fitment){
@@ -399,6 +400,14 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	}
 	public Integer getUpdateUserId(){
 		return this.updateUserId;
+	}
+
+	public Short getExamine() {
+		return examine;
+	}
+
+	public void setExamine(Short examine) {
+		this.examine = examine;
 	}
 
 }
