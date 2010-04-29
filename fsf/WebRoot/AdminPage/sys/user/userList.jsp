@@ -192,7 +192,7 @@
 			<fsf:dictTranslate groupName="$status" value="status"/>
 		</td>
 		<td>
-			<fsf:dictTranslate groupName="$userType" value="userType"/>
+			<fsf:dictTranslate groupName="$user_type" value="userType"/>
 		</td>
 		<td>
 			<fsf:dictTranslate groupName="#province" value="provinceId"/>
@@ -203,10 +203,10 @@
 		<td>
 			<fsf:dictTranslate groupName="#district" value="districtId"/>
 		</td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="phone"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="qq"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="msn"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="email"/></a></td>
+		<td><s:property value="phone"/></td>
+		<td><s:property value="qq"/></td>
+		<td><s:property value="msn"/></td>
+		<td><s:property value="email"/></td>
 		<td>
 			<s:date name="createDate" format="yyyy-MM-dd"/>
 		</td>

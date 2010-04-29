@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<s:form action="estateOutList" namespace="/sysadmin/est/estateout" name="formList" id="formList" theme="simple" method="post" onsubmit="return f_validate()" >
+<s:form action="estateOwnOutList" namespace="/sysadmin/est/estateout" name="formList" id="formList" theme="simple" method="post" onsubmit="return f_validate()" >
 <s:hidden name="estateOutParameter.currentPage" id="currentPage"  />
 <s:hidden name="estateOutParameter.maxResults" id="maxResults" />
 
@@ -238,14 +238,22 @@
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
 				</tr>
+				<tr>
+					<td width="15%" >
+						<s:text name="_ne_examine" />:
+					</td>
+					<td width="35%">
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$examine',null,'0')" name="estateOutParameter._ne_examine" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
+					</td>
+				</tr>
 			</table>
 		</td>
 	</tr>
 </table>
 
 <div style="text-align: right;">
-	<input type="button" onclick="g_new('/sysadmin/est/estateout/estateOutNew.action')" value="<s:text name="g_new"/>"/>
-	<input type="button" onclick="g_delete('/sysadmin/est/estateout/estateOutDelete.action');" value="<s:text name="g_delete"/>">
+	<input type="button" onclick="g_delete('/sysadmin/est/estateout/estateOwnOutDelete.action');" value="<s:text name="g_delete"/>">
 	<input type="button" onclick="g_list()" value="<s:text name="g_search"/>">
 	<input type="button" onclick="g_reset()" value="<s:text name="g_reset"/>">
 </div>
@@ -260,26 +268,34 @@
 		<td><s:text name="salePrice"/></td>
 		<td><s:text name="contactUserId"/></td>
 		<td><s:text name="createTime"/></td>
+		<td><s:text name="examine"/></td>
+		<td>操作</td>
 	</tr>
 	<s:iterator value="pageView.records" id="item">
 		<s:url action="estateOutEdit" namespace="/sysadmin/est/estateout" id="url">
+			<s:param name="estateId" value="#item.estateId"></s:param>
+		</s:url>
+		<s:url action="estateOutExamine" namespace="/sysadmin/est/estateout" id="examineUrl">
 			<s:param name="estateId" value="#item.estateId"></s:param>
 		</s:url>
 		<tr>
 			<td>
 				<input type="checkbox" name="selectedPK" value="<s:property value="#item.estateId"/>">
 			</td>
-			
 			<td><a href="javascript:g_edit('${url}')" ><s:property value="estateName"/></a></td>
-			
 			<td><s:property value="address"/></td>
-			
 			<td><s:property value="salePrice"/></td>
-			
 			<td><s:property value="contactUserId"/></td>
-			
 			<td>
 				<s:date name="createTime" format="yyyy-MM-dd"/>
+			</td>
+			<td>
+				<fsf:dictTranslate groupName="$examine" value="examine"/>
+			</td>
+			<td>
+				<s:if test="examine =='0' ">
+					<a href="${examineUrl }">审核</a>
+				</s:if>
 			</td>
 		</tr>
 	</s:iterator>
