@@ -3,27 +3,27 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<!--******************* comment *************** -->
-	<package name="/sysadmin/info/comment" extends="baseDefault" namespace="/sysadmin/info/comment" >
-		<action name="commentList" class="commentAction" method="doList">
-			<result>/AdminPage/info/comment/commentList.jsp</result>
-			<result name="input">/AdminPage/info/comment/commentList.jsp</result>
+	<!--******************* infoComment *************** -->
+	<package name="/sysadmin/info/infocomment" extends="baseDefault" namespace="/sysadmin/info/infocomment" >
+		<action name="infoCommentList" class="infoCommentAction" method="doList">
+			<result>/AdminPage/info/infocomment/infoCommentList.jsp</result>
+			<result name="input">/AdminPage/info/infocomment/infoCommentList.jsp</result>
 		</action>
-		<action name="commentSave" class="commentAction" method="doSave">
-			<result>/AdminPage/info/comment/commentContent.jsp</result>
-			<result name="input">/AdminPage/info/comment/commentContent.jsp</result>
+		<action name="infoCommentSave" class="infoCommentAction" method="doSave">
+			<result>/AdminPage/info/infocomment/infoCommentContent.jsp</result>
+			<result name="input">/AdminPage/info/infocomment/infoCommentContent.jsp</result>
 		</action>
-		<action name="commentEdit" class="commentAction" method="doEdit">
-			<result>/AdminPage/info/comment/commentContent.jsp</result>
-			<result name="input">/AdminPage/info/comment/commentContent.jsp</result>
+		<action name="infoCommentEdit" class="infoCommentAction" method="doEdit">
+			<result>/AdminPage/info/infocomment/infoCommentContent.jsp</result>
+			<result name="input">/AdminPage/info/infocomment/infoCommentContent.jsp</result>
 		</action>
-		<action name="commentNew" class="commentAction" method="doNew">
-			<result>/AdminPage/info/comment/commentContent.jsp</result>
-			<result name="input">/AdminPage/info/comment/commentContent.jsp</result>
+		<action name="infoCommentNew" class="infoCommentAction" method="doNew">
+			<result>/AdminPage/info/infocomment/infoCommentContent.jsp</result>
+			<result name="input">/AdminPage/info/infocomment/infoCommentContent.jsp</result>
 		</action>
-		<action name="commentDelete" class="commentAction" method="doDelete">
-			<result>/AdminPage/info/comment/commentList.jsp</result>
-			<result name="input">/AdminPage/info/comment/commentList.jsp</result>
+		<action name="infoCommentDelete" class="infoCommentAction" method="doDelete">
+			<result>/AdminPage/info/infocomment/infoCommentList.jsp</result>
+			<result name="input">/AdminPage/info/infocomment/infoCommentList.jsp</result>
 		</action>
 	</package>
 	<!-- ********************************************** -->
@@ -53,27 +53,76 @@
 	</package>
 	<!-- ********************************************** -->
 	
-	<!--******************* newType *************** -->
-	<package name="/sysadmin/info/newtype" extends="baseDefault" namespace="/sysadmin/info/newtype" >
-		<action name="newTypeList" class="newTypeAction" method="doList">
-			<result>/AdminPage/info/newtype/newTypeList.jsp</result>
-			<result name="input">/AdminPage/info/newtype/newTypeList.jsp</result>
+	<!--******************* news *************** -->
+	<package name="/sysadmin/info/news" extends="baseDefault" namespace="/sysadmin/info/news" >
+		<action name="newsList" class="newsAction" method="doList">
+			<result>/AdminPage/info/news/newsList.jsp</result>
+			<result name="input">/AdminPage/info/news/newsList.jsp</result>
 		</action>
-		<action name="newTypeSave" class="newTypeAction" method="doSave">
-			<result>/AdminPage/info/newtype/newTypeContent.jsp</result>
-			<result name="input">/AdminPage/info/newtype/newTypeContent.jsp</result>
+		<action name="newsSave" class="newsAction" method="doSave">
+			<result>/AdminPage/info/news/newsContent.jsp</result>
+			<result name="input">/AdminPage/info/news/newsContent.jsp</result>
 		</action>
-		<action name="newTypeEdit" class="newTypeAction" method="doEdit">
-			<result>/AdminPage/info/newtype/newTypeContent.jsp</result>
-			<result name="input">/AdminPage/info/newtype/newTypeContent.jsp</result>
+		<action name="newsEdit" class="newsAction" method="doEdit">
+			<result>/AdminPage/info/news/newsContent.jsp</result>
+			<result name="input">/AdminPage/info/news/newsContent.jsp</result>
 		</action>
-		<action name="newTypeNew" class="newTypeAction" method="doNew">
-			<result>/AdminPage/info/newtype/newTypeContent.jsp</result>
-			<result name="input">/AdminPage/info/newtype/newTypeContent.jsp</result>
+		<action name="newsNew" class="newsAction" method="doNew">
+			<result>/AdminPage/info/news/newsContent.jsp</result>
+			<result name="input">/AdminPage/info/news/newsContent.jsp</result>
 		</action>
-		<action name="newTypeDelete" class="newTypeAction" method="doDelete">
-			<result>/AdminPage/info/newtype/newTypeList.jsp</result>
-			<result name="input">/AdminPage/info/newtype/newTypeList.jsp</result>
+		<action name="newsDelete" class="newsAction" method="doDelete">
+			<result>/AdminPage/info/news/newsList.jsp</result>
+			<result name="input">/AdminPage/info/news/newsList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	
+	<!--******************* newsComment *************** -->
+	<package name="/sysadmin/info/newscomment" extends="baseDefault" namespace="/sysadmin/info/newscomment" >
+		<action name="newsCommentList" class="newsCommentAction" method="doList">
+			<result>/AdminPage/info/newscomment/newsCommentList.jsp</result>
+			<result name="input">/AdminPage/info/newscomment/newsCommentList.jsp</result>
+		</action>
+		<action name="newsCommentSave" class="newsCommentAction" method="doSave">
+			<result>/AdminPage/info/newscomment/newsCommentContent.jsp</result>
+			<result name="input">/AdminPage/info/newscomment/newsCommentContent.jsp</result>
+		</action>
+		<action name="newsCommentEdit" class="newsCommentAction" method="doEdit">
+			<result>/AdminPage/info/newscomment/newsCommentContent.jsp</result>
+			<result name="input">/AdminPage/info/newscomment/newsCommentContent.jsp</result>
+		</action>
+		<action name="newsCommentNew" class="newsCommentAction" method="doNew">
+			<result>/AdminPage/info/newscomment/newsCommentContent.jsp</result>
+			<result name="input">/AdminPage/info/newscomment/newsCommentContent.jsp</result>
+		</action>
+		<action name="newsCommentDelete" class="newsCommentAction" method="doDelete">
+			<result>/AdminPage/info/newscomment/newsCommentList.jsp</result>
+			<result name="input">/AdminPage/info/newscomment/newsCommentList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	<!--******************* newsType *************** -->
+	<package name="/sysadmin/info/newstype" extends="baseDefault" namespace="/sysadmin/info/newstype" >
+		<action name="newsTypeList" class="newsTypeAction" method="doList">
+			<result>/AdminPage/info/newstype/newsTypeList.jsp</result>
+			<result name="input">/AdminPage/info/newstype/newsTypeList.jsp</result>
+		</action>
+		<action name="newsTypeSave" class="newsTypeAction" method="doSave">
+			<result>/AdminPage/info/newstype/newsTypeContent.jsp</result>
+			<result name="input">/AdminPage/info/newstype/newsTypeContent.jsp</result>
+		</action>
+		<action name="newsTypeEdit" class="newsTypeAction" method="doEdit">
+			<result>/AdminPage/info/newstype/newsTypeContent.jsp</result>
+			<result name="input">/AdminPage/info/newstype/newsTypeContent.jsp</result>
+		</action>
+		<action name="newsTypeNew" class="newsTypeAction" method="doNew">
+			<result>/AdminPage/info/newstype/newsTypeContent.jsp</result>
+			<result name="input">/AdminPage/info/newstype/newsTypeContent.jsp</result>
+		</action>
+		<action name="newsTypeDelete" class="newsTypeAction" method="doDelete">
+			<result>/AdminPage/info/newstype/newsTypeList.jsp</result>
+			<result name="input">/AdminPage/info/newstype/newsTypeList.jsp</result>
 		</action>
 	</package>
 	<!-- ********************************************** -->

@@ -10,27 +10,27 @@
 </head>
 
 <body>
-<s:form action="informationSave" namespace="/sysadmin/info/information" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
+<s:form action="newsCommentSave" namespace="/sysadmin/info/newscomment" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
 <div class="contentTitle"><s:text name="contentTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <s:hidden name="cmd" />
-<s:hidden name="informationParameter.currentPage" />
-<s:hidden name="informationParameter.maxResults" />
-<s:hidden name="informationParameter._ne_informationId" />
-<s:hidden name="informationParameter._se_informationTitle" />
-<s:hidden name="informationParameter._se_informationContent" />
-<s:hidden name="informationParameter._ne_informationType" />
-<s:hidden name="informationParameter._ne_status" />
-<s:hidden name="informationParameter._de_createTime" />
-<s:hidden name="informationParameter._ne_createUserId" />
-<s:hidden name="informationParameter._de_updateTime" />
-<s:hidden name="informationParameter._ne_updateUserId" />
+<s:hidden name="newsCommentParameter.currentPage" />
+<s:hidden name="newsCommentParameter.maxResults" />
+<s:hidden name="newsCommentParameter._ne_commentId" />
+<s:hidden name="newsCommentParameter._se_content" />
+<s:hidden name="newsCommentParameter._ne_informationId" />
+<s:hidden name="newsCommentParameter._se_ip" />
+<s:hidden name="newsCommentParameter._ne_status" />
+<s:hidden name="newsCommentParameter._de_createTime" />
+<s:hidden name="newsCommentParameter._ne_createUserId" />
+<s:hidden name="newsCommentParameter._de_updateTime" />
+<s:hidden name="newsCommentParameter._ne_updateUserId" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">
 			<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
-			<input type="button" onclick="g_back('/sysadmin/info/information/informationList.action')" value="<s:text name="g_back"/>" >
+			<input type="button" onclick="g_back('/sysadmin/info/newscomment/newsCommentList.action')" value="<s:text name="g_back"/>" >
 		</td>
 	</tr>
 </table>
@@ -41,6 +41,22 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td>
+						<s:text name="commentId"/>:
+					</td>
+					<td>
+						<s:textfield name="commentId" /><font color="red">*</font>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<s:text name="content"/>:
+					</td>
+					<td>
+						<s:textfield name="content" /><font color="red">*</font>
+					</td>
+				</tr>
+				<tr>
+					<td>
 						<s:text name="informationId"/>:
 					</td>
 					<td>
@@ -49,26 +65,10 @@
 				</tr>
 				<tr>
 					<td>
-						<s:text name="informationTitle"/>:
+						<s:text name="ip"/>:
 					</td>
 					<td>
-						<s:textfield name="informationTitle" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="informationContent"/>:
-					</td>
-					<td>
-						<s:textfield name="informationContent" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="informationType"/>:
-					</td>
-					<td>
-						<s:textfield name="informationType" /><font color="red">*</font>
+						<s:textfield name="ip" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -121,10 +121,10 @@
 <script type="text/javascript">
 function f_validate(){
 	fromName = "formItem";
+	addfield("commentId","<s:text name="commentId"/>","Integer",false,10);
+	addfield("content","<s:text name="content"/>","String",false,65535);
 	addfield("informationId","<s:text name="informationId"/>","Integer",false,10);
-	addfield("informationTitle","<s:text name="informationTitle"/>","String",false,80);
-	addfield("informationContent","<s:text name="informationContent"/>","String",false,65535);
-	addfield("informationType","<s:text name="informationType"/>","Integer",false,10);
+	addfield("ip","<s:text name="ip"/>","String",false,30);
 	addfield("status","<s:text name="status"/>","Integer",false,3);
 	addfield("createTime","<s:text name="createTime"/>","Date",false,19);
 	addfield("createUserId","<s:text name="createUserId"/>","Integer",false,10);
