@@ -40,9 +40,9 @@ create table if not exists info_info_comment(
 drop table if exists  info_news;
 create table if not exists info_news(
 	news_id int not null auto_increment,
-	information_title varchar(80) not null,
-	information_content text not null,
-	information_type int not null,
+	news_title varchar(80) not null,
+	news_content text not null,
+	news_type_id int not null,
 	status tinyint not null ,	/* 状态 1 enabled 0 disabled */
 	create_time datetime not null ,
 	create_user_id int not null ,
@@ -74,7 +74,7 @@ drop table if exists info_news_comment;
 create table if not exists info_news_comment(
 	comment_id int not null,
 	content text not null,
-	information_id int not null,
+	news_id int not null,
 	ip varchar(30) not null,
 	status tinyint not null, /* 1 前台可见 0 前台不可见 用固定参数front_visible*/
 	create_time datetime not null,
