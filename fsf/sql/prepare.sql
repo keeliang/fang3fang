@@ -363,3 +363,17 @@ where not exists (select * from sys_dictitem where group_name = 'is_hot' and ite
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
 select 'is_hot','0','非热门','非热门',2 from dual
 where not exists (select * from sys_dictitem where group_name = 'is_hot' and item_key = '0');
+
+/*************************审核状态****************************/
+insert into sys_dictgroup (group_name,group_desc,remark)
+select 'examine','审核状态',null from dual
+where not exists (select * from sys_dictgroup where group_name = 'examine');
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'examine','1','审核通过','审核通过',1 from dual
+where not exists (select * from sys_dictitem where group_name = 'examine' and item_key = '1');
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'examine','0','审核中','审核中',2 from dual
+where not exists (select * from sys_dictitem where group_name = 'examine' and item_key = '0');
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'examine','-1','审核未通过','审核未通过',3 from dual
+where not exists (select * from sys_dictitem where group_name = 'examine' and item_key = '-1');

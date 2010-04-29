@@ -5,6 +5,8 @@ drop table if exists est_businessarea;
 create table if not exists est_businessarea (
 	area_id int not null auto_increment,
 	area_name varchar(50) not null,
+	province_id int not null,
+	city_id int not null,
 	district_id int not null,
 	constraint PK_est_businessarea primary key(area_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -51,7 +53,10 @@ create table if not exists est_estate_out(
 	area_id int,
 	address varchar(80),
 	
+	examine tinyint,/*自主交易时必填审核状态 1 已审核通过 0 审核中 -1 审核未通过 固定参数用examine*/
+	
 	trade_mode tinyint not null,/*交易模式 0 disabled(前台不显示) 1 出租 2 出售 3 租售均可 4 已租 5 已售 固定参数out_trade_mode*/
+	
 	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 餐厅 5 商铺 6 写字楼 7 厂房 8 其他 固定参数estate_type*/
 	
 	area decimal(6,2) not null,/* 建筑面积 */
@@ -74,9 +79,9 @@ create table if not exists est_estate_out(
 	porch int not null,/*阳*/
 	
 	manage_cost decimal(14,2) not null,/*管理费*/
-	water_cost decimal(6,3),/* 房子水费 按度计算 -1 为按地方政府规定 */
-	electric_cost decimal(6,3),/* 房子电费 按度计算 -1 为按地方政府规定 */
-	other_cost decimal(12,3),	/* 其他费用  按月计算 */
+	water_cost decimal(6,2),/* 房子水费 按度计算 -1 为按地方政府规定 */
+	electric_cost decimal(6,2),/* 房子电费 按度计算 -1 为按地方政府规定 */
+	other_cost decimal(12,2),	/* 其他费用  按月计算 */
 
 	build_year int,	/* 物业建筑年份 出售必填 程序控制 */
 	
