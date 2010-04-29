@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-4-29 21:07:08 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="fsf.beans.info.newscomment.NewsComment" table="info_news_comment" >
+        <id name="commentId" type="int">
+            <column name="comment_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="content" type="string">
+            <column name="content" length="65535" not-null="true" />
+        </property>
+        <property name="informationId" type="int">
+            <column name="information_id" not-null="true" />
+        </property>
+        <property name="ip" type="string">
+            <column name="ip" length="30" not-null="true" />
+        </property>
+        <property name="status" type="short">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="createTime" type="timestamp">
+            <column name="create_time" length="19" not-null="true" />
+        </property>
+        <property name="createUserId" type="int">
+            <column name="create_user_id" not-null="true" />
+        </property>
+        <property name="updateTime" type="timestamp">
+            <column name="update_time" length="19" not-null="true" />
+        </property>
+        <property name="updateUserId" type="int">
+            <column name="update_user_id" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
