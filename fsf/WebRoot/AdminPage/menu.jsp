@@ -62,8 +62,8 @@ $(document).ready(function() {
 	<tr class="menuItemTr">
 		<td>
 			<table>
-				<tr><td><a href="/sysadmin/est/estateout/estateOutList.action" target="content"><span>二手房委托交易出租出售管理</span></a></td></tr>
-				<tr><td><a href="/sysadmin/est/estateout/estateOutList.action" target="content"><span>二手房自主交易出租出售管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/est/estateout/estateOutList.action?estateOutParameter._ne_tradeType=2" target="content"><span>二手房委托交易出租出售管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/est/estateout/estateOwnOutList.action?estateOutParameter._ne_tradeType=1" target="content"><span>二手房自主交易出租出售管理</span></a></td></tr>
 				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>二手房委托求租求售管理</span></a></td></tr>
 				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>二手房自主求租求售管理</span></a></td></tr>
 				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>新房管理</span></a></td></tr>
@@ -94,10 +94,11 @@ $(document).ready(function() {
 	<tr class="menuItemTr">
 		<td>
 			<table>
-				<tr><td><a href="AdminPage_News.jsp" target="content"><span>新闻管理</span></a></td></tr>
-				<tr><td><a href="AdminPage_News_Type.jsp" target="content"><span>资讯类型管理</span></a></td></tr>
-				<tr><td><a href="AdminPage_News.jsp" target="content"><span>资讯管理</span></a></td></tr>
-				<tr><td><a href="/sysadmin/info/comment/commentList.action" target="content"><span>留言管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/info/newstype/newsTypeList.action" target="content"><span>新闻类型管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/info/news/newsList.action" target="content"><span>新闻管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/info/newscomment/newsCommentList.action" target="content"><span>新闻留言管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/info/information/informationList.action" target="content"><span>资讯管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/info/infocomment/infoCommentList.action" target="content"><span>资讯留言管理</span></a></td></tr>
 			</table>
 		</td>
 	</tr>
