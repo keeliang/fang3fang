@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2010-4-29 21:13:27 by Hibernate Tools 3.2.4.GA -->
+<!-- Generated 2010-4-22 21:14:25 by Hibernate Tools 3.2.4.GA -->
 <hibernate-mapping>
-    <class name="InfoNewsType" table="info_news_type" catalog="fsf">
+    <class name="fsf.beans.info.newstype.NewsType" table="info_news_type" >
         <id name="newsTypeId" type="java.lang.Integer">
             <column name="news_type_id" />
             <generator class="identity" />
@@ -14,13 +14,13 @@
         <property name="seq" type="int">
             <column name="seq" not-null="true" />
         </property>
-        <property name="status" type="byte">
+        <property name="status" type="short">
             <column name="status" not-null="true" />
         </property>
-        <property name="createTime" type="timestamp">
+        <property name="createTime" type="timestamp" update="false">
             <column name="create_time" length="19" not-null="true" />
         </property>
-        <property name="createUserId" type="int">
+        <property name="createUserId" type="int" update="false">
             <column name="create_user_id" not-null="true" />
         </property>
         <property name="updateTime" type="timestamp">

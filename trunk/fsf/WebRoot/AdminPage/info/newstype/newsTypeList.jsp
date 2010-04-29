@@ -11,9 +11,9 @@
 </head>
 
 <body>
-<s:form action="informationList" namespace="/sysadmin/info/information" name="formList" id="formList" theme="simple" method="post">
-<s:hidden name="informationParameter.currentPage" id="currentPage"  />
-<s:hidden name="informationParameter.maxResults" id="maxResults" />
+<s:form action="newsTypeList" namespace="/sysadmin/info/newstype" name="formList" id="formList" theme="simple" method="post">
+<s:hidden name="newsTypeParameter.currentPage" id="currentPage"  />
+<s:hidden name="newsTypeParameter.maxResults" id="maxResults" />
 <table>
 	<tr>
 		<td align="left" width="722">picture</td>
@@ -26,66 +26,58 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" >
 				<tr>
 					<td width="15%" >
-						<s:text name="_ne_informationId" />:
+						<s:text name="_ne_newsTypeId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="informationParameter._ne_informationId" />
+						<s:textfield name="newsTypeParameter._ne_newsTypeId" />
 					</td>
 					<td width="15%" >
-						<s:text name="_se_informationTitle" />:
+						<s:text name="_se_title" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="informationParameter._se_informationTitle" />
+						<s:textfield name="newsTypeParameter._se_title" />
 					</td>
 				</tr>
 				<tr>
 					<td width="15%" >
-						<s:text name="_se_informationContent" />:
+						<s:text name="_ne_seq" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="informationParameter._se_informationContent" />
+						<s:textfield name="newsTypeParameter._ne_seq" />
 					</td>
-					<td width="15%" >
-						<s:text name="_ne_informationType" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="informationParameter._ne_informationType" />
-					</td>
-				</tr>
-				<tr>
 					<td width="15%" >
 						<s:text name="_ne_status" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="informationParameter._ne_status" />
+						<s:textfield name="newsTypeParameter._ne_status" />
 					</td>
+				</tr>
+				<tr>
 					<td width="15%" >
 						<s:text name="_de_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="informationParameter._de_createTime" />
+						<s:textfield name="newsTypeParameter._de_createTime" />
 					</td>
-				</tr>
-				<tr>
 					<td width="15%" >
 						<s:text name="_ne_createUserId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="informationParameter._ne_createUserId" />
-					</td>
-					<td width="15%" >
-						<s:text name="_de_updateTime" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="informationParameter._de_updateTime" />
+						<s:textfield name="newsTypeParameter._ne_createUserId" />
 					</td>
 				</tr>
 				<tr>
 					<td width="15%" >
+						<s:text name="_de_updateTime" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="newsTypeParameter._de_updateTime" />
+					</td>
+					<td width="15%" >
 						<s:text name="_ne_updateUserId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="informationParameter._ne_updateUserId" />
+						<s:textfield name="newsTypeParameter._ne_updateUserId" />
 					</td>
 				</tr>
 			</table>
@@ -94,8 +86,8 @@
 </table>
 
 <div style="text-align: right;">
-	<input type="button" onclick="g_new('/sysadmin/info/information/informationNew.action')" value="<s:text name="g_new"/>"/>
-	<input type="button" onclick="g_delete('/sysadmin/info/information/informationDelete.action');" value="<s:text name="g_delete"/>">
+	<input type="button" onclick="g_new('/sysadmin/info/newstype/newsTypeNew.action')" value="<s:text name="g_new"/>"/>
+	<input type="button" onclick="g_delete('/sysadmin/info/newstype/newsTypeDelete.action');" value="<s:text name="g_delete"/>">
 	<input type="button" onclick="g_list()" value="<s:text name="g_search"/>">
 	<input type="button" onclick="g_reset()" value="<s:text name="g_reset"/>">
 </div>
@@ -108,10 +100,9 @@
 	<td width="4%" height="28" class="table_hdr">
 		<input type="checkbox" onclick="g_select(this)" >
 	</td>
-	<td><s:text name="informationId"/></td>
-	<td><s:text name="informationTitle"/></td>
-	<td><s:text name="informationContent"/></td>
-	<td><s:text name="informationType"/></td>
+	<td><s:text name="newsTypeId"/></td>
+	<td><s:text name="title"/></td>
+	<td><s:text name="seq"/></td>
 	<td><s:text name="status"/></td>
 	<td><s:text name="createTime"/></td>
 	<td><s:text name="createUserId"/></td>
@@ -120,17 +111,16 @@
 </tr>
 
 <s:iterator value="pageView.records" id="item">
-	<s:url action="informationEdit" namespace="/sysadmin/info/information" id="url">
-		<s:param name="informationId" value="#item.informationId"></s:param>
+	<s:url action="newsTypeEdit" namespace="/sysadmin/info/newstype" id="url">
+		<s:param name="newsTypeId" value="#item.newsTypeId"></s:param>
 	</s:url>
 	<tr>
 		<td>
-			<input type="checkbox" name="selectedPK" value="<s:property value="#item.informationId"/>">
+			<input type="checkbox" name="selectedPK" value="<s:property value="#item.newsTypeId"/>">
 		</td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="informationId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="informationTitle"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="informationContent"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="informationType"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="newsTypeId"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="title"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="seq"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="status"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="createTime"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="createUserId"/></a></td>
