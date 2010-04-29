@@ -43,4 +43,11 @@
 		<ItemNameProperty>user_code</ItemNameProperty>
 	</DynamicConfig>
 	
+	<DynamicConfig name="news_type">
+		<Entity>info_news_type</Entity>
+		<ItemKeyProperty>news_type_id</ItemKeyProperty>
+		<ItemNameProperty>title</ItemNameProperty>
+	</DynamicConfig>
+	
+	
 </DictConfig>

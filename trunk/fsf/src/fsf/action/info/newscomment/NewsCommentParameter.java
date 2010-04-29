@@ -8,7 +8,7 @@ public class NewsCommentParameter extends BaseParameter{
 
 	private Integer _ne_commentId;
 	private String _se_content;
-	private Integer _ne_informationId;
+	private Integer _ne_newsId;
 	private String _se_ip;
 	private Short _ne_status;
 	private Date _de_createTime;
@@ -28,11 +28,12 @@ public class NewsCommentParameter extends BaseParameter{
 	public String get_se_content(){
 		return this._se_content;
 	}
-	public void set_ne_informationId(Integer _ne_informationId){
-		this._ne_informationId = _ne_informationId;
+
+	public Integer get_ne_newsId() {
+		return _ne_newsId;
 	}
-	public Integer get_ne_informationId(){
-		return this._ne_informationId;
+	public void set_ne_newsId(Integer id) {
+		_ne_newsId = id;
 	}
 	public void set_se_ip(String _se_ip){
 		this._se_ip = _se_ip;

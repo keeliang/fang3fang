@@ -8,9 +8,11 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import fsf.beans.info.newstype.NewsType;
+import fsf.beans.sys.user.User;
 import chance.base.action.BaseAction;
 import chance.base.BaseParameter;
 import fsf.service.info.newstype.NewsTypeService;
+import fsf.web.common.ThreadUser;
 
 @Controller
 @Scope("prototype")
@@ -18,6 +20,30 @@ public class NewsTypeAction extends BaseAction<NewsType> {
 	
 	public NewsTypeAction() {
 		super(NewsType.class, new String[] { "newsTypeId" });
+	}
+	
+	@Override
+	protected void initData() {
+		User u = ThreadUser.get();
+		createUserId = u.getUserId();
+		createTime = new Date();
+		updateUserId = u.getUserId();
+		updateTime = createTime;
+	}
+	
+	@Override
+	protected void beforePersist() {
+		User u = ThreadUser.get();
+		createUserId = u.getUserId();
+		createTime = new Date();
+		updateUserId = u.getUserId();
+		updateTime = createTime;
+	}
+	@Override
+	protected void beforeUpdate() {
+		User u = ThreadUser.get();
+		updateUserId = u.getUserId();
+		updateTime = createTime;
 	}
 	
 	@Resource

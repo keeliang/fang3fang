@@ -38,7 +38,7 @@ public class NewsCommentAction extends BaseAction<NewsComment> {
 	
 	private Integer commentId;
 	private String content;
-	private Integer informationId;
+	private Integer newsId;
 	private String ip;
 	private Short status;
 	private Date createTime;
@@ -58,12 +58,15 @@ public class NewsCommentAction extends BaseAction<NewsComment> {
 	public String getContent(){
 		return this.content;
 	}
-	public void setInformationId(Integer informationId){
-		this.informationId = informationId;
+
+	public Integer getNewsId() {
+		return newsId;
 	}
-	public Integer getInformationId(){
-		return this.informationId;
+
+	public void setNewsId(Integer newsId) {
+		this.newsId = newsId;
 	}
+
 	public void setIp(String ip){
 		this.ip = ip;
 	}

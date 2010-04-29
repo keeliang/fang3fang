@@ -16,7 +16,7 @@ public class NewsComment implements java.io.Serializable {
 	private static final long serialVersionUID = 7048144434393959732L;
 	private Integer commentId;
 	private String content;
-	private Integer informationId;
+	private Integer newsId;
 	private String ip;
 	private Short status;
 	private Date createTime;
@@ -27,19 +27,6 @@ public class NewsComment implements java.io.Serializable {
 	public NewsComment() {
 	}
 
-	public NewsComment(Integer commentId, String content,
-			Integer informationId, String ip, Short status, Date createTime,
-			Integer createUserId, Date updateTime, Integer updateUserId) {
-		this.commentId = commentId;
-		this.content = content;
-		this.informationId = informationId;
-		this.ip = ip;
-		this.status = status;
-		this.createTime = createTime;
-		this.createUserId = createUserId;
-		this.updateTime = updateTime;
-		this.updateUserId = updateUserId;
-	}
 
 	public Integer getCommentId() {
 		return this.commentId;
@@ -57,13 +44,17 @@ public class NewsComment implements java.io.Serializable {
 		this.content = content;
 	}
 
-	public Integer getInformationId() {
-		return this.informationId;
+
+
+	public Integer getNewsId() {
+		return newsId;
 	}
 
-	public void setInformationId(Integer informationId) {
-		this.informationId = informationId;
+
+	public void setNewsId(Integer newsId) {
+		this.newsId = newsId;
 	}
+
 
 	public String getIp() {
 		return this.ip;

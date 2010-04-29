@@ -15,9 +15,9 @@ public class News implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1352120499737729784L;
 	private Integer newsId;
-	private String informationTitle;
-	private String informationContent;
-	private Integer informationType;
+	private String newsTitle;
+	private String newsContent;
+	private Integer newsTypeId;
 	private Short status;
 	private Date createTime;
 	private Integer createUserId;
@@ -35,28 +35,28 @@ public class News implements java.io.Serializable {
 		this.newsId = newsId;
 	}
 
-	public String getInformationTitle() {
-		return this.informationTitle;
+	public String getNewsTitle() {
+		return newsTitle;
 	}
 
-	public void setInformationTitle(String informationTitle) {
-		this.informationTitle = informationTitle;
+	public void setNewsTitle(String newsTitle) {
+		this.newsTitle = newsTitle;
 	}
 
-	public String getInformationContent() {
-		return this.informationContent;
+	public String getNewsContent() {
+		return newsContent;
 	}
 
-	public void setInformationContent(String informationContent) {
-		this.informationContent = informationContent;
+	public void setNewsContent(String newsContent) {
+		this.newsContent = newsContent;
 	}
 
-	public Integer getInformationType() {
-		return this.informationType;
+	public Integer getNewsTypeId() {
+		return newsTypeId;
 	}
 
-	public void setInformationType(Integer informationType) {
-		this.informationType = informationType;
+	public void setNewsTypeId(Integer newsTypeId) {
+		this.newsTypeId = newsTypeId;
 	}
 
 	public Short getStatus() {
