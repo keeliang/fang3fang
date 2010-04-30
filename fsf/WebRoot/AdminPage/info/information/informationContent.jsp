@@ -7,6 +7,7 @@
 <%@include file="/share/validate.jsp" %>
 <link type="text/css" rel="stylesheet" href="/css/Common.css" />
 <link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
+<script type="text/javascript" src="/cuseditor/fckeditor.js"></script>
 </head>
 
 <body>
@@ -16,15 +17,12 @@
 <s:hidden name="cmd" />
 <s:hidden name="informationParameter.currentPage" />
 <s:hidden name="informationParameter.maxResults" />
-<s:hidden name="informationParameter._ne_informationId" />
+
 <s:hidden name="informationParameter._se_informationTitle" />
-<s:hidden name="informationParameter._se_informationContent" />
 <s:hidden name="informationParameter._ne_informationType" />
 <s:hidden name="informationParameter._ne_status" />
-<s:hidden name="informationParameter._de_createTime" />
-<s:hidden name="informationParameter._ne_createUserId" />
-<s:hidden name="informationParameter._de_updateTime" />
-<s:hidden name="informationParameter._ne_updateUserId" />
+
+<s:hidden name="informationId"/>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -41,14 +39,6 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td>
-						<s:text name="informationId"/>:
-					</td>
-					<td>
-						<s:textfield name="informationId" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
 						<s:text name="informationTitle"/>:
 					</td>
 					<td>
@@ -60,7 +50,7 @@
 						<s:text name="informationContent"/>:
 					</td>
 					<td>
-						<s:textfield name="informationContent" /><font color="red">*</font>
+						<s:textarea name="informationContent" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -68,7 +58,8 @@
 						<s:text name="informationType"/>:
 					</td>
 					<td>
-						<s:textfield name="informationType" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$information_type')" name="informationType" cssClass="dropdown" 
+						id="informationType" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -76,7 +67,8 @@
 						<s:text name="status"/>:
 					</td>
 					<td>
-						<s:textfield name="status" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="status" cssClass="dropdown" 
+						id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -84,7 +76,11 @@
 						<s:text name="createTime"/>:
 					</td>
 					<td>
-						<s:textfield name="createTime" /><font color="red">*</font>
+						<s:textfield name="createTime"  cssClass="memberC_input01_readonly" readonly="true">
+							<s:param name="value">
+								<s:date name="createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 				<tr>
@@ -92,7 +88,9 @@
 						<s:text name="createUserId"/>:
 					</td>
 					<td>
-						<s:textfield name="createUserId" /><font color="red">*</font>
+						<s:hidden name="createUserId"/>
+						<input class="memberC_input01_readonly" readonly="true" 
+						value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
 					</td>
 				</tr>
 				<tr>
@@ -100,7 +98,11 @@
 						<s:text name="updateTime"/>:
 					</td>
 					<td>
-						<s:textfield name="updateTime" /><font color="red">*</font>
+						<s:textfield name="updateTime"  cssClass="memberC_input01_readonly" readonly="true">
+							<s:param name="value">
+								<s:date name="updateTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 				<tr>
@@ -108,7 +110,9 @@
 						<s:text name="updateUserId"/>:
 					</td>
 					<td>
-						<s:textfield name="updateUserId" /><font color="red">*</font>
+						<s:hidden name="updateUserId"/>
+						<input class="memberC_input01_readonly" readonly="true" 
+						value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
 					</td>
 				</tr>
 			</table>
@@ -119,17 +123,24 @@
 </body>
 </html>
 <script type="text/javascript">
+window.onload = function(){
+	var oFCKeditor = new FCKeditor( 'informationContent' ) ;
+	oFCKeditor.BasePath	= "/cuseditor/" ;
+	oFCKeditor.Height = "300";
+	oFCKeditor.Width = "800";
+	oFCKeditor.ReplaceTextarea() ;
+}
 function f_validate(){
 	fromName = "formItem";
-	addfield("informationId","<s:text name="informationId"/>","Integer",false,10);
+	//addfield("informationId","<s:text name="informationId"/>","Integer",false,10);
 	addfield("informationTitle","<s:text name="informationTitle"/>","String",false,80);
 	addfield("informationContent","<s:text name="informationContent"/>","String",false,65535);
 	addfield("informationType","<s:text name="informationType"/>","Integer",false,10);
 	addfield("status","<s:text name="status"/>","Integer",false,3);
-	addfield("createTime","<s:text name="createTime"/>","Date",false,19);
-	addfield("createUserId","<s:text name="createUserId"/>","Integer",false,10);
-	addfield("updateTime","<s:text name="updateTime"/>","Date",false,19);
-	addfield("updateUserId","<s:text name="updateUserId"/>","Integer",false,10);
+	//addfield("createTime","<s:text name="createTime"/>","Date",false,19);
+	//addfield("createUserId","<s:text name="createUserId"/>","Integer",false,10);
+	//addfield("updateTime","<s:text name="updateTime"/>","Date",false,19);
+	//addfield("updateUserId","<s:text name="updateUserId"/>","Integer",false,10);
 	return validate();
 }
 </script>

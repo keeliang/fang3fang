@@ -26,30 +26,17 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" >
 				<tr>
 					<td width="15%" >
-						<s:text name="_ne_informationId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="informationParameter._ne_informationId" />
-					</td>
-					<td width="15%" >
 						<s:text name="_se_informationTitle" />:
 					</td>
 					<td width="35%">
 						<s:textfield name="informationParameter._se_informationTitle" />
 					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_se_informationContent" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="informationParameter._se_informationContent" />
-					</td>
 					<td width="15%" >
 						<s:text name="_ne_informationType" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="informationParameter._ne_informationType" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$information_type')" name="informationParameter._ne_informationType" cssClass="dropdown" 
+						id="informationType" listValue="itemName" listKey="itemKey" emptyOption="true"/>
 					</td>
 				</tr>
 				<tr>
@@ -57,35 +44,8 @@
 						<s:text name="_ne_status" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="informationParameter._ne_status" />
-					</td>
-					<td width="15%" >
-						<s:text name="_de_createTime" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="informationParameter._de_createTime" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_ne_createUserId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="informationParameter._ne_createUserId" />
-					</td>
-					<td width="15%" >
-						<s:text name="_de_updateTime" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="informationParameter._de_updateTime" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_ne_updateUserId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="informationParameter._ne_updateUserId" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="informationParameter._ne_status" cssClass="dropdown" 
+						id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/>
 					</td>
 				</tr>
 			</table>

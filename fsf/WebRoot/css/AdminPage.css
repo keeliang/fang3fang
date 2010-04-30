@@ -165,8 +165,8 @@ li ul li a {
 .memberC_allRight02 input{line-height:14px;}
 .memberC_allRight02 label{/*float:left;*/width:110px; text-align:right; work-break:keep-all; padding-top:3px;}/*此处注释取消了浮动*/
 .memberC_allRight02 td{padding:5px 0px;}
-.memberC_input01{width:150px;border:1px solid #ccc; }
-.memberC_input01_readonly{width:150px;border:1px solid #ccc;background-color: #D4D4D4; color: #585858; }
+.memberC_input01{width:140px;border:1px solid #ccc; }
+.memberC_input01_readonly{width:140px;border:1px solid #ccc;background-color: #D4D4D4; color: #585858; }
 .memberC_input02{width:80px;border:1px solid #ccc; }
 .memberC_input02_readonly{width:80px;border:1px solid #ccc; background-color: #D4D4D4; color: #585858;}
 .memberC_input03{width:30px;border:1px solid #ccc; }

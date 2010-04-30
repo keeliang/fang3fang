@@ -26,20 +26,6 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" >
 				<tr>
 					<td width="15%" >
-						<s:text name="_ne_commentId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="infoCommentParameter._ne_commentId" />
-					</td>
-					<td width="15%" >
-						<s:text name="_se_content" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="infoCommentParameter._se_content" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
 						<s:text name="_ne_informationId" />:
 					</td>
 					<td width="35%">
@@ -57,35 +43,8 @@
 						<s:text name="_ne_status" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="infoCommentParameter._ne_status" />
-					</td>
-					<td width="15%" >
-						<s:text name="_de_createTime" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="infoCommentParameter._de_createTime" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_ne_createUserId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="infoCommentParameter._ne_createUserId" />
-					</td>
-					<td width="15%" >
-						<s:text name="_de_updateTime" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="infoCommentParameter._de_updateTime" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_ne_updateUserId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="infoCommentParameter._ne_updateUserId" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="infoCommentParameter._ne_status" cssClass="dropdown" 
+						id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
 					</td>
 				</tr>
 			</table>
@@ -130,12 +89,10 @@
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="commentId"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="content"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="informationId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="ip"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="status"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="createTime"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="createUserId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="updateTime"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="updateUserId"/></a></td>
+		<td><s:property value="ip"/></td>
+		<td>
+			<fsf:dictTranslate value="status" groupName="$status"/>
+		</td>
 	</tr>
 </s:iterator>
 </table>
