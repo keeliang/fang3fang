@@ -121,15 +121,15 @@
 <script type="text/javascript">
 function f_validate(){
 	fromName = "formItem";
-	addfield("commentId","<s:text name="commentId"/>","Integer",false,10);
+	//addfield("commentId","<s:text name="commentId"/>","Integer",false,10);
 	addfield("content","<s:text name="content"/>","String",false,65535);
 	addfield("newsId","<s:text name="newsId"/>","Integer",false,10);
 	addfield("ip","<s:text name="ip"/>","String",false,30);
 	addfield("status","<s:text name="status"/>","Integer",false,3);
-	addfield("createTime","<s:text name="createTime"/>","Date",false,19);
-	addfield("createUserId","<s:text name="createUserId"/>","Integer",false,10);
-	addfield("updateTime","<s:text name="updateTime"/>","Date",false,19);
-	addfield("updateUserId","<s:text name="updateUserId"/>","Integer",false,10);
+	//addfield("createTime","<s:text name="createTime"/>","Date",false,19);
+	//addfield("createUserId","<s:text name="createUserId"/>","Integer",false,10);
+	//addfield("updateTime","<s:text name="updateTime"/>","Date",false,19);
+	//addfield("updateUserId","<s:text name="updateUserId"/>","Integer",false,10);
 	return validate();
 }
 </script>

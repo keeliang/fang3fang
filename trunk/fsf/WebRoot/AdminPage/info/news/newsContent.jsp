@@ -7,6 +7,7 @@
 <%@include file="/share/validate.jsp" %>
 <link type="text/css" rel="stylesheet" href="/css/Common.css" />
 <link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
+<script type="text/javascript" src="/cuseditor/fckeditor.js"></script>
 </head>
 
 <body>
@@ -122,17 +123,24 @@
 </body>
 </html>
 <script type="text/javascript">
+window.onload = function(){
+	var oFCKeditor = new FCKeditor( 'newsContent' ) ;
+	oFCKeditor.BasePath	= "/cuseditor/" ;
+	oFCKeditor.Height = "300";
+	oFCKeditor.Width = "800";
+	oFCKeditor.ReplaceTextarea() ;
+}
 function f_validate(){
 	fromName = "formItem";
-	addfield("newsId","<s:text name="newsId"/>","Integer",false,10);
+	//addfield("newsId","<s:text name="newsId"/>","Integer",false,10);
 	addfield("newsTitle","<s:text name="newsTitle"/>","String",false,80);
 	addfield("newsContent","<s:text name="newsContent"/>","String",false,65535);
 	addfield("newsTypeId","<s:text name="newsTypeId"/>","Integer",false,10);
 	addfield("status","<s:text name="status"/>","Integer",false,3);
-	addfield("createTime","<s:text name="createTime"/>","Date",false,19);
-	addfield("createUserId","<s:text name="createUserId"/>","Integer",false,10);
-	addfield("updateTime","<s:text name="updateTime"/>","Date",false,19);
-	addfield("updateUserId","<s:text name="updateUserId"/>","Integer",false,10);
+	//addfield("createTime","<s:text name="createTime"/>","Date",false,19);
+	//addfield("createUserId","<s:text name="createUserId"/>","Integer",false,10);
+	//addfield("updateTime","<s:text name="updateTime"/>","Date",false,19);
+	//addfield("updateUserId","<s:text name="updateUserId"/>","Integer",false,10);
 	return validate();
 }
 </script>
