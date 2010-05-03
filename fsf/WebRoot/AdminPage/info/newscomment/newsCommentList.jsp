@@ -50,7 +50,7 @@
 					</td>
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="newsCommentParameter._ne_status" cssClass="dropdown" 
-						id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
+						id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/>
 					</td>
 				</tr>
 				<tr>
@@ -58,13 +58,21 @@
 						<s:text name="_dge_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newsCommentParameter._dge_createTime" />
+						<s:textfield name="newsCommentParameter._dge_createTime">
+							<s:param name="value">
+								<s:date name="newsCommentParameter._dge_createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 					<td width="15%" >
 						<s:text name="_dle_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newsCommentParameter._dle_createTime" />
+						<s:textfield name="newsCommentParameter._dle_createTime">
+							<s:param name="value">
+								<s:date name="newsCommentParameter._dle_createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 			</table>

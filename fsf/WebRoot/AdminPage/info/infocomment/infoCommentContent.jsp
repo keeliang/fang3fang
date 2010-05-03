@@ -19,6 +19,8 @@
 <s:hidden name="infoCommentParameter._ne_informationId" />
 <s:hidden name="infoCommentParameter._se_ip" />
 <s:hidden name="infoCommentParameter._ne_status" />
+<s:hidden name="infoCommentParameter._dge_createTime" />
+<s:hidden name="infoCommentParameter._dle_createTime" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
