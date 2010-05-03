@@ -7,10 +7,11 @@ import chance.base.BaseParameter;
 public class NewsTypeParameter extends BaseParameter{
 
 	private Integer _ne_newsTypeId;
-	private String _se_title;
+	private String _slike_title;
 	private Integer _ne_seq;
 	private Short _ne_status;
-	private Date _de_createTime;
+	private Date _dge_createTime;
+	private Date _dle_createTime;
 	private Integer _ne_createUserId;
 	private Date _de_updateTime;
 	private Integer _ne_updateUserId;
@@ -21,11 +22,11 @@ public class NewsTypeParameter extends BaseParameter{
 	public Integer get_ne_newsTypeId(){
 		return this._ne_newsTypeId;
 	}
-	public void set_se_title(String _se_title){
-		this._se_title = _se_title;
+	public String get_slike_title() {
+		return _slike_title;
 	}
-	public String get_se_title(){
-		return this._se_title;
+	public void set_slike_title(String _slike_title) {
+		this._slike_title = _slike_title;
 	}
 	public void set_ne_seq(Integer _ne_seq){
 		this._ne_seq = _ne_seq;
@@ -39,11 +40,18 @@ public class NewsTypeParameter extends BaseParameter{
 	public Short get_ne_status(){
 		return this._ne_status;
 	}
-	public void set_de_createTime(Date _de_createTime){
-		this._de_createTime = _de_createTime;
+
+	public Date get_dge_createTime() {
+		return _dge_createTime;
 	}
-	public Date get_de_createTime(){
-		return this._de_createTime;
+	public void set_dge_createTime(Date time) {
+		_dge_createTime = time;
+	}
+	public Date get_dle_createTime() {
+		return _dle_createTime;
+	}
+	public void set_dle_createTime(Date time) {
+		_dle_createTime = time;
 	}
 	public void set_ne_createUserId(Integer _ne_createUserId){
 		this._ne_createUserId = _ne_createUserId;

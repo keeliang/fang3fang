@@ -7,10 +7,11 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import fsf.beans.info.newscomment.NewsComment;
 import chance.base.action.BaseAction;
-import chance.base.BaseParameter;
+import fsf.beans.info.newscomment.NewsComment;
+import fsf.beans.sys.user.User;
 import fsf.service.info.newscomment.NewsCommentService;
+import fsf.web.common.ThreadUser;
 
 @Controller
 @Scope("prototype")
@@ -18,6 +19,32 @@ public class NewsCommentAction extends BaseAction<NewsComment> {
 	
 	public NewsCommentAction() {
 		super(NewsComment.class, new String[] { "commentId" });
+	}
+	
+	@Override
+	protected void initData() {
+		User u = ThreadUser.get();
+		createUserId = u.getUserId();
+		createTime = new Date();
+		updateUserId = u.getUserId();
+		updateTime = createTime;
+		ip = getHttpServletRequest().getRemoteAddr();
+	}
+	
+	@Override
+	protected void beforePersist() {
+		User u = ThreadUser.get();
+		createUserId = u.getUserId();
+		createTime = new Date();
+		updateUserId = u.getUserId();
+		updateTime = createTime;
+		ip = getHttpServletRequest().getRemoteAddr();
+	}
+	@Override
+	protected void beforeUpdate() {
+		User u = ThreadUser.get();
+		updateUserId = u.getUserId();
+		updateTime = new Date();
 	}
 	
 	@Resource

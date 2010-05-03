@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 
 import chance.base.action.BaseAction;
 import fsf.beans.info.news.News;
+import fsf.beans.sys.user.User;
 import fsf.service.info.news.NewsService;
+import fsf.web.common.ThreadUser;
 
 @Controller
 @Scope("prototype")
@@ -17,6 +19,30 @@ public class NewsAction extends BaseAction<News> {
 
 	public NewsAction() {
 		super(News.class, new String[] { "newsId" });
+	}
+	
+	@Override
+	protected void initData() {
+		User u = ThreadUser.get();
+		createUserId = u.getUserId();
+		createTime = new Date();
+		updateUserId = u.getUserId();
+		updateTime = createTime;
+	}
+	
+	@Override
+	protected void beforePersist() {
+		User u = ThreadUser.get();
+		createUserId = u.getUserId();
+		createTime = new Date();
+		updateUserId = u.getUserId();
+		updateTime = createTime;
+	}
+	@Override
+	protected void beforeUpdate() {
+		User u = ThreadUser.get();
+		updateUserId = u.getUserId();
+		updateTime = new Date();
 	}
 
 	@Resource
