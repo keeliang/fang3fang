@@ -29,20 +29,42 @@
 						<input value="<fsf:dictTranslate groupName="$information_type" value="infoCommentParameter._ne_informationId"/>" name="informationTitle" readonly="true" >
 						<img src="/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectInfo()">
 					</td>
+				</tr>
+				<tr>
 					<td width="15%" >
 						<s:text name="_se_ip" />:
 					</td>
 					<td width="35%">
 						<s:textfield name="infoCommentParameter._se_ip" />
 					</td>
-				</tr>
-				<tr>
 					<td width="15%" >
 						<s:text name="_ne_status" />:
 					</td>
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="infoCommentParameter._ne_status" cssClass="dropdown" 
 						id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
+					</td>
+				</tr>
+				<tr>
+					<td width="15%" >
+						<s:text name="_dge_createTime" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="infoCommentParameter._dge_createTime">
+							<s:param name="value">
+								<s:date name="infoCommentParameter._dge_createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
+					</td>
+					<td width="15%" >
+						<s:text name="_dle_createTime" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="infoCommentParameter._dle_createTime">
+							<s:param name="value">
+								<s:date name="infoCommentParameter._dle_createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 			</table>
