@@ -1,15 +1,15 @@
-package fsf.action.info.newscomment;
+package fsf.action.info.information;
 
 import java.util.Date;
 
 import chance.base.BaseParameter;
 
-public class NewsCommentParameter extends BaseParameter{
+public class InformationParameter extends BaseParameter{
 
-	private Integer _ne_commentId;
-	private String _se_content;
-	private Integer _ne_newsId;
-	private String _se_ip;
+	private Integer _ne_informationId;
+	private String _slike_informationTitle;
+	private String _se_informationContent;
+	private Integer _ne_informationType;
 	private Short _ne_status;
 	private Date _dge_createTime;
 	private Date _dle_createTime;
@@ -17,30 +17,29 @@ public class NewsCommentParameter extends BaseParameter{
 	private Date _de_updateTime;
 	private Integer _ne_updateUserId;
 
-	public void set_ne_commentId(Integer _ne_commentId){
-		this._ne_commentId = _ne_commentId;
+	public void set_ne_informationId(Integer _ne_informationId){
+		this._ne_informationId = _ne_informationId;
 	}
-	public Integer get_ne_commentId(){
-		return this._ne_commentId;
+	public Integer get_ne_informationId(){
+		return this._ne_informationId;
 	}
-	public void set_se_content(String _se_content){
-		this._se_content = _se_content;
+	public String get_slike_informationTitle() {
+		return _slike_informationTitle;
 	}
-	public String get_se_content(){
-		return this._se_content;
+	public void set_slike_informationTitle(String title) {
+		_slike_informationTitle = title;
 	}
-
-	public Integer get_ne_newsId() {
-		return _ne_newsId;
+	public void set_se_informationContent(String _se_informationContent){
+		this._se_informationContent = _se_informationContent;
 	}
-	public void set_ne_newsId(Integer id) {
-		_ne_newsId = id;
+	public String get_se_informationContent(){
+		return this._se_informationContent;
 	}
-	public void set_se_ip(String _se_ip){
-		this._se_ip = _se_ip;
+	public void set_ne_informationType(Integer _ne_informationType){
+		this._ne_informationType = _ne_informationType;
 	}
-	public String get_se_ip(){
-		return this._se_ip;
+	public Integer get_ne_informationType(){
+		return this._ne_informationType;
 	}
 	public void set_ne_status(Short _ne_status){
 		this._ne_status = _ne_status;

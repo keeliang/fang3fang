@@ -1,4 +1,4 @@
-package fsf.action.info.newstype;
+package fsf.action.info.information;
 
 import java.util.Date;
 
@@ -8,17 +8,17 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import chance.base.action.BaseAction;
-import fsf.beans.info.newstype.NewsType;
+import fsf.beans.info.information.Information;
 import fsf.beans.sys.user.User;
-import fsf.service.info.newstype.NewsTypeService;
+import fsf.service.info.information.InformationService;
 import fsf.web.common.ThreadUser;
 
 @Controller
 @Scope("prototype")
-public class NewsTypeAction extends BaseAction<NewsType> {
+public class InformationAction extends BaseAction<Information> {
 	
-	public NewsTypeAction() {
-		super(NewsType.class, new String[] { "newsTypeId" });
+	public InformationAction() {
+		super(Information.class, new String[] { "informationId" });
 	}
 	
 	@Override
@@ -46,47 +46,54 @@ public class NewsTypeAction extends BaseAction<NewsType> {
 	}
 	
 	@Resource
-	public void setNewsTypeService(NewsTypeService newsTypeService){
-		this.service = newsTypeService;
+	public void setInformationService(InformationService informationService){
+		this.service = informationService;
 	}
 	
-	public NewsTypeService getNewsTypeService(){
-		return (NewsTypeService)this.service;
+	public InformationService getInformationService(){
+		return (InformationService)this.service;
 	}
 
-	public void setNewsTypeParameter(NewsTypeParameter param){
+	public void setInformationParameter(InformationParameter param){
 		this.baseParameter = param;
 	}
-	public NewsTypeParameter getNewsTypeParameter(){
-		return (NewsTypeParameter)baseParameter;
+	public InformationParameter getInformationParameter(){
+		return (InformationParameter)baseParameter;
 	}
 	
-	private Integer newsTypeId;
-	private String title;
-	private Integer seq;
+	private Integer informationId;
+	private String informationTitle;
+	private String informationContent;
+	private Integer informationType;
 	private Short status;
 	private Date createTime;
 	private Integer createUserId;
 	private Date updateTime;
 	private Integer updateUserId;
 
-	public void setNewsTypeId(Integer newsTypeId){
-		this.newsTypeId = newsTypeId;
+	public void setInformationId(Integer informationId){
+		this.informationId = informationId;
 	}
-	public Integer getNewsTypeId(){
-		return this.newsTypeId;
+	public Integer getInformationId(){
+		return this.informationId;
 	}
-	public void setTitle(String title){
-		this.title = title;
+	public void setInformationTitle(String informationTitle){
+		this.informationTitle = informationTitle;
 	}
-	public String getTitle(){
-		return this.title;
+	public String getInformationTitle(){
+		return this.informationTitle;
 	}
-	public void setSeq(Integer seq){
-		this.seq = seq;
+	public void setInformationContent(String informationContent){
+		this.informationContent = informationContent;
 	}
-	public Integer getSeq(){
-		return this.seq;
+	public String getInformationContent(){
+		return this.informationContent;
+	}
+	public void setInformationType(Integer informationType){
+		this.informationType = informationType;
+	}
+	public Integer getInformationType(){
+		return this.informationType;
 	}
 	public void setStatus(Short status){
 		this.status = status;
