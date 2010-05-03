@@ -238,6 +238,15 @@
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
 				</tr>
+				<tr>
+					<td width="15%" >
+						<s:text name="_ne_examine" />:
+					</td>
+					<td width="35%">
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$examine',null,'0')" name="estateOutParameter._ne_examine" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
+					</td>
+				</tr>
 			</table>
 		</td>
 	</tr>

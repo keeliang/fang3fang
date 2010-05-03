@@ -95,10 +95,9 @@
 			<result name="input">/AdminPage/est/estateout/estateOwnOutList.jsp</result>
 		</action>
 		<action name="estateOutExamine" class="estateOutAction" method="doExamine">
-			<result>/AdminPage/est/estateout/estateOwnOutExamine.jsp</result>
+			<result>/AdminPage/est/estateout/estateOutExamine.jsp</result>
 			<result name="input">/AdminPage/est/estateout/estateOwnOutExamine.jsp</result>
 		</action>
-		
 	</package>
 	<!-- ********************************************** -->
 	
