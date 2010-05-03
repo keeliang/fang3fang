@@ -23,10 +23,10 @@
         <property name="areaId" type="java.lang.Integer">
             <column name="area_id" />
         </property>
-        <property name="tradeMode" type="byte">
+        <property name="tradeMode" type="short">
             <column name="trade_mode" not-null="true" />
         </property>
-        <property name="estateType" type="byte">
+        <property name="estateType" type="short">
             <column name="estate_type" not-null="true" />
         </property>
         <property name="buildYear" type="java.lang.Integer">
@@ -65,13 +65,13 @@
         <property name="areaTo" type="double">
             <column name="area_to" precision="12" not-null="true" />
         </property>
-        <property name="isLift" type="byte">
+        <property name="isLift" type="short">
             <column name="is_lift" not-null="true" />
         </property>
-        <property name="fitment" type="byte">
+        <property name="fitment" type="short">
             <column name="fitment" not-null="true" />
         </property>
-        <property name="device" type="byte">
+        <property name="device" type="short">
             <column name="device" not-null="true" />
         </property>
         <property name="remark" type="string">

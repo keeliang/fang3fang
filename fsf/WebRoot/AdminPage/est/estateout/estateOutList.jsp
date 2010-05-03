@@ -269,26 +269,33 @@
 		<td><s:text name="salePrice"/></td>
 		<td><s:text name="contactUserId"/></td>
 		<td><s:text name="createTime"/></td>
+		<td>操作</td>
 	</tr>
 	<s:iterator value="pageView.records" id="item">
 		<s:url action="estateOutEdit" namespace="/sysadmin/est/estateout" id="url">
+			<s:param name="estateId" value="#item.estateId"></s:param>
+		</s:url>
+		<s:url action="estateOutExamine" namespace="/sysadmin/est/estateout" id="examineUrl">
 			<s:param name="estateId" value="#item.estateId"></s:param>
 		</s:url>
 		<tr>
 			<td>
 				<input type="checkbox" name="selectedPK" value="<s:property value="#item.estateId"/>">
 			</td>
-			
 			<td><a href="javascript:g_edit('${url}')" ><s:property value="estateName"/></a></td>
-			
 			<td><s:property value="address"/></td>
-			
 			<td><s:property value="salePrice"/></td>
-			
-			<td><s:property value="contactUserId"/></td>
-			
+			<td><fsf:dictTranslate groupName="#sys_user" value="contactUserId" /></td>
 			<td>
 				<s:date name="createTime" format="yyyy-MM-dd"/>
+			</td>
+			<td>
+				<s:if test="examine =='0' ">
+					<a href="${examineUrl }">审核</a>
+				</s:if>
+				<s:if test="examine =='1'">
+					已审核
+				</s:if>
 			</td>
 		</tr>
 	</s:iterator>
