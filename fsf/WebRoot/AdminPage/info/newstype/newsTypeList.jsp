@@ -14,11 +14,7 @@
 <s:form action="newsTypeList" namespace="/sysadmin/info/newstype" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="newsTypeParameter.currentPage" id="currentPage"  />
 <s:hidden name="newsTypeParameter.maxResults" id="maxResults" />
-<table>
-	<tr>
-		<td align="left" width="722">picture</td>
-	</tr>
-</table>
+<div class="contentTitle"><s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
 	<tr>
@@ -26,10 +22,10 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" >
 				<tr>
 					<td width="15%" >
-						<s:text name="_se_title" />:
+						<s:text name="_slike_title" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newsTypeParameter._se_title" />
+						<s:textfield name="newsTypeParameter._slike_title" />
 					</td>
 					<td width="15%" >
 						<s:text name="_ne_status" />:
@@ -37,6 +33,29 @@
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="newsTypeParameter._ne_status" cssClass="dropdown" 
 						id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/>
+					</td>
+				</tr>
+				<tr>
+					<td width="15%" >
+						<s:text name="_dge_createTime" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="newsTypeParameter._dge_createTime" >
+							<s:param name="value">
+								<s:date name="newsTypeParameter._dge_createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
+					</td>
+					<td width="15%" >
+						<s:text name="_dle_createTime" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="newsTypeParameter._dle_createTime" >
+							<s:param name="value">
+								<s:date name="newsTypeParameter._dle_createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
+					</td>
 				</tr>
 			</table>
 		</td>
@@ -61,6 +80,7 @@
 	<td><s:text name="title"/></td>
 	<td><s:text name="seq"/></td>
 	<td><s:text name="status"/></td>
+	<td><s:text name="createTime"/></td>
 </tr>
 
 <s:iterator value="pageView.records" id="item">
@@ -74,6 +94,7 @@
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="title"/></a></td>
 		<td><s:property value="seq"/></td>
 		<td><fsf:dictTranslate groupName="$status" value="status"/></td>
+		<td><s:date name="createTime" format="yyyy-MM-dd" /></td>
 	</tr>
 </s:iterator>
 </table>

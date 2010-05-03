@@ -14,11 +14,7 @@
 <s:form action="newsCommentList" namespace="/sysadmin/info/newscomment" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="newsCommentParameter.currentPage" id="currentPage"  />
 <s:hidden name="newsCommentParameter.maxResults" id="maxResults" />
-<table>
-	<tr>
-		<td align="left" width="722">picture</td>
-	</tr>
-</table>
+<div class="contentTitle"><s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
 	<tr>
@@ -26,66 +22,49 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" >
 				<tr>
 					<td width="15%" >
-						<s:text name="_ne_commentId" />:
+						<s:text name="_ne_newsId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newsCommentParameter._ne_commentId" />
+						<s:hidden name="newsCommentParameter._ne_newsId"/>
+						<input value="<fsf:dictTranslate groupName="#news_type" value="newsCommentParameter._ne_newsId"/>" name="newsTitle" readonly="true" >
+						<img src="/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectNews()">
 					</td>
 					<td width="15%" >
-						<s:text name="_se_content" />:
+						<s:text name="_ne_createUserId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newsCommentParameter._se_content" />
+						<s:hidden name="newsCommentParameter._ne_createUserId"/>
+						<input value="<fsf:dictTranslate groupName="#sys_user" value="newsCommentParameter._ne_createUserId"/>" name="userCode" readonly="true" >
+						<img src="/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectUser()">
 					</td>
 				</tr>
 				<tr>
-					<td width="15%" >
-						<s:text name="_ne_informationId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newsCommentParameter._ne_newsId" />
-					</td>
 					<td width="15%" >
 						<s:text name="_se_ip" />:
 					</td>
 					<td width="35%">
 						<s:textfield name="newsCommentParameter._se_ip" />
 					</td>
-				</tr>
-				<tr>
 					<td width="15%" >
 						<s:text name="_ne_status" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newsCommentParameter._ne_status" />
-					</td>
-					<td width="15%" >
-						<s:text name="_de_createTime" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newsCommentParameter._de_createTime" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="newsCommentParameter._ne_status" cssClass="dropdown" 
+						id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
 					<td width="15%" >
-						<s:text name="_ne_createUserId" />:
+						<s:text name="_dge_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newsCommentParameter._ne_createUserId" />
+						<s:textfield name="newsCommentParameter._dge_createTime" />
 					</td>
 					<td width="15%" >
-						<s:text name="_de_updateTime" />:
+						<s:text name="_dle_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newsCommentParameter._de_updateTime" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_ne_updateUserId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newsCommentParameter._ne_updateUserId" />
+						<s:textfield name="newsCommentParameter._dle_createTime" />
 					</td>
 				</tr>
 			</table>
@@ -108,15 +87,12 @@
 	<td width="4%" height="28" class="table_hdr">
 		<input type="checkbox" onclick="g_select(this)" >
 	</td>
-	<td><s:text name="commentId"/></td>
 	<td><s:text name="content"/></td>
 	<td><s:text name="newsId"/></td>
 	<td><s:text name="ip"/></td>
 	<td><s:text name="status"/></td>
 	<td><s:text name="createTime"/></td>
 	<td><s:text name="createUserId"/></td>
-	<td><s:text name="updateTime"/></td>
-	<td><s:text name="updateUserId"/></td>
 </tr>
 
 <s:iterator value="pageView.records" id="item">
@@ -127,15 +103,12 @@
 		<td>
 			<input type="checkbox" name="selectedPK" value="<s:property value="#item.commentId"/>">
 		</td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="commentId"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="content"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="newsId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="ip"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="status"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="createTime"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="createUserId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="updateTime"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="updateUserId"/></a></td>
+		<td><fsf:dictTranslate groupName="#info_news" value="newsId"/></td>
+		<td><s:property value="ip"/></td>
+		<td><fsf:dictTranslate groupName="$status" value="status" /></td>
+		<td><s:date name="createTime" format="yyyy-MM-dd" /></td>
+		<td><fsf:dictTranslate groupName="#sys_user" value="createUserId"/></td>
 	</tr>
 </s:iterator>
 </table>
@@ -150,3 +123,11 @@
 </s:form>
 </body>
 </html>
+<script type="text/javascript">
+function f_selectNews(){
+	showModalDialog("selectNews.action",document,"dialogWidth:800px;dialogHeight:600px;");
+}
+function f_selectUser(){
+	showModalDialog("selectUser.action",document,"dialogWidth:800px;dialogHeight:600px;");
+}
+</script>
