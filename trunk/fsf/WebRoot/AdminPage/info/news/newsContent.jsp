@@ -7,7 +7,7 @@
 <%@include file="/share/validate.jsp" %>
 <link type="text/css" rel="stylesheet" href="/css/Common.css" />
 <link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
-<script type="text/javascript" src="/cuseditor/fckeditor.js"></script>
+<script type="text/javascript" src="/fckeditor/fckeditor.js"></script>
 </head>
 
 <body>
@@ -18,9 +18,11 @@
 <s:hidden name="newsParameter.currentPage" />
 <s:hidden name="newsParameter.maxResults" />
 <s:hidden name="newsParameter._ne_newsId" />
-<s:hidden name="newsParameter._se_newsTitle" />
+<s:hidden name="newsParameter._slike_newsTitle" />
 <s:hidden name="newsParameter._ne_newsTypeId" />
 <s:hidden name="newsParameter._ne_status" />
+<s:hidden name="newsParameter._dge_createTime"/>
+<s:hidden name="newsParameter._dle_createTime"/>
 
 <s:hidden name="newsId"/>
 
@@ -37,6 +39,14 @@
 	<tr>
 		<td>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+						<s:text name="newsId"/>:
+					</td>
+					<td>
+						<s:textfield name="newsId" readonly="true" cssClass="memberC_input01_readonly" />
+					</td>
+				</tr>
 				<tr>
 					<td>
 						<s:text name="newsTitle"/>:
@@ -58,8 +68,8 @@
 						<s:text name="newsTypeId"/>:
 					</td>
 					<td>
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$news_type')" name="newsTypeId" cssClass="dropdown" 
-						id="newsTypeId" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#news_type')" name="newsTypeId" cssClass="dropdown" 
+						id="newsTypeId" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -125,7 +135,7 @@
 <script type="text/javascript">
 window.onload = function(){
 	var oFCKeditor = new FCKeditor( 'newsContent' ) ;
-	oFCKeditor.BasePath	= "/cuseditor/" ;
+	oFCKeditor.BasePath	= "/fckeditor/" ;
 	oFCKeditor.Height = "300";
 	oFCKeditor.Width = "800";
 	oFCKeditor.ReplaceTextarea() ;
@@ -134,7 +144,7 @@ function f_validate(){
 	fromName = "formItem";
 	//addfield("newsId","<s:text name="newsId"/>","Integer",false,10);
 	addfield("newsTitle","<s:text name="newsTitle"/>","String",false,80);
-	addfield("newsContent","<s:text name="newsContent"/>","String",false,65535);
+	addfield("newsContent","<s:text name="newsContent"/>","String",false,65535,null,null,null,null,FCKeditorAPI.GetInstance("newsContent").GetXHTML(true));
 	addfield("newsTypeId","<s:text name="newsTypeId"/>","Integer",false,10);
 	addfield("status","<s:text name="status"/>","Integer",false,3);
 	//addfield("createTime","<s:text name="createTime"/>","Date",false,19);

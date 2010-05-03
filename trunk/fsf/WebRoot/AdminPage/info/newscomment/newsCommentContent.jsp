@@ -16,15 +16,13 @@
 <s:hidden name="cmd" />
 <s:hidden name="newsCommentParameter.currentPage" />
 <s:hidden name="newsCommentParameter.maxResults" />
-<s:hidden name="newsCommentParameter._ne_commentId" />
-<s:hidden name="newsCommentParameter._se_content" />
+
 <s:hidden name="newsCommentParameter._ne_newsId" />
 <s:hidden name="newsCommentParameter._se_ip" />
 <s:hidden name="newsCommentParameter._ne_status" />
-<s:hidden name="newsCommentParameter._de_createTime" />
+<s:hidden name="newsCommentParameter._dge_createTime" />
+<s:hidden name="newsCommentParameter._dle_createTime" />
 <s:hidden name="newsCommentParameter._ne_createUserId" />
-<s:hidden name="newsCommentParameter._de_updateTime" />
-<s:hidden name="newsCommentParameter._ne_updateUserId" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -44,7 +42,7 @@
 						<s:text name="commentId"/>:
 					</td>
 					<td>
-						<s:textfield name="commentId" /><font color="red">*</font>
+						<s:textfield name="commentId" readonly="true" cssClass="memberC_input01_readonly" />
 					</td>
 				</tr>
 				<tr>
@@ -52,7 +50,7 @@
 						<s:text name="content"/>:
 					</td>
 					<td>
-						<s:textfield name="content" /><font color="red">*</font>
+						<s:textarea name="content" cols="120" rows="20" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -60,7 +58,9 @@
 						<s:text name="newsId"/>:
 					</td>
 					<td>
-						<s:textfield name="newsId" /><font color="red">*</font>
+						<s:hidden name="newsId"/>
+						<input value="<fsf:dictTranslate groupName="#info_news" value="newsId"/>" name="newsTitle" readonly="true" >
+						<img src="/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectNews()"><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -68,7 +68,7 @@
 						<s:text name="ip"/>:
 					</td>
 					<td>
-						<s:textfield name="ip" /><font color="red">*</font>
+						<s:textfield name="ip" cssClass="memberC_input01_readonly" readonly="true" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -76,7 +76,8 @@
 						<s:text name="status"/>:
 					</td>
 					<td>
-						<s:textfield name="status" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="status" cssClass="dropdown" 
+						id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -84,7 +85,11 @@
 						<s:text name="createTime"/>:
 					</td>
 					<td>
-						<s:textfield name="createTime" /><font color="red">*</font>
+						<s:textfield name="createTime"  cssClass="memberC_input01_readonly" readonly="true">
+							<s:param name="value">
+								<s:date name="createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 				<tr>
@@ -92,7 +97,9 @@
 						<s:text name="createUserId"/>:
 					</td>
 					<td>
-						<s:textfield name="createUserId" /><font color="red">*</font>
+						<s:hidden name="createUserId"/>
+						<input class="memberC_input01_readonly" readonly="true" 
+						value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
 					</td>
 				</tr>
 				<tr>
@@ -100,7 +107,11 @@
 						<s:text name="updateTime"/>:
 					</td>
 					<td>
-						<s:textfield name="updateTime" /><font color="red">*</font>
+						<s:textfield name="updateTime"  cssClass="memberC_input01_readonly" readonly="true">
+							<s:param name="value">
+								<s:date name="updateTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 				<tr>
@@ -108,7 +119,9 @@
 						<s:text name="updateUserId"/>:
 					</td>
 					<td>
-						<s:textfield name="updateUserId" /><font color="red">*</font>
+						<s:hidden name="updateUserId"/>
+						<input class="memberC_input01_readonly" readonly="true" 
+						value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
 					</td>
 				</tr>
 			</table>
@@ -119,6 +132,9 @@
 </body>
 </html>
 <script type="text/javascript">
+function f_selectNews(){
+	showModalDialog("selectNews.action",document,"dialogWidth:800px;dialogHeight:600px;");
+}
 function f_validate(){
 	fromName = "formItem";
 	//addfield("commentId","<s:text name="commentId"/>","Integer",false,10);

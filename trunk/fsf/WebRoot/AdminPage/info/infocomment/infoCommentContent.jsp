@@ -16,13 +16,9 @@
 <s:hidden name="cmd" />
 <s:hidden name="infoCommentParameter.currentPage" />
 <s:hidden name="infoCommentParameter.maxResults" />
-
-
 <s:hidden name="infoCommentParameter._ne_informationId" />
 <s:hidden name="infoCommentParameter._se_ip" />
 <s:hidden name="infoCommentParameter._ne_status" />
-
-<s:hidden name="commentId"/>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -39,10 +35,18 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td>
+						<s:text name="commentId"/>:
+					</td>
+					<td>
+						<s:textfield name="commentId" readonly="true" cssClass="memberC_input01_readonly" />
+					</td>
+				</tr>
+				<tr>
+					<td>
 						<s:text name="content"/>:
 					</td>
 					<td>
-						<s:textfield name="content" /><font color="red">*</font>
+						<s:textarea name="content" cols="120" rows="20" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -50,7 +54,9 @@
 						<s:text name="informationId"/>:
 					</td>
 					<td>
-						<s:textfield name="informationId" /><font color="red">*</font>
+						<s:hidden name="informationId"/>
+						<input value="<fsf:dictTranslate groupName="#info_information" value="informationId"/>" name="informationTitle" readonly="true" >
+						<img src="/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectInformation()"><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -58,7 +64,7 @@
 						<s:text name="ip"/>:
 					</td>
 					<td>
-						<s:textfield name="ip" /><font color="red">*</font>
+						<s:textfield name="ip" readonly="true" cssClass="memberC_input01_readonly" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -122,6 +128,9 @@
 </body>
 </html>
 <script type="text/javascript">
+function f_selectInformation(){
+	showModalDialog("selectInfo.action",document,"dialogWidth:800px;dialogHeight:600px;");
+}
 function f_validate(){
 	fromName = "formItem";
 	//addfield("commentId","<s:text name="commentId"/>","Integer",false,10);

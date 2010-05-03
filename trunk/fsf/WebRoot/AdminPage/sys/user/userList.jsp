@@ -14,6 +14,7 @@
 <s:form action="userList" namespace="/sysadmin/sys/user" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="userParameter.currentPage" id="currentPage"  />
 <s:hidden name="userParameter.maxResults" id="maxResults" />
+<s:hidden name="cmd"/>
 <table>
 	<tr>
 		<td align="left" width="722"><img src="/AdminPage/images/userinfo.jpg" /></td>
@@ -148,8 +149,13 @@
 </table>
 
 <div style="text-align: right;">
-	<input type="button" onclick="g_new('/sysadmin/sys/user/userNew.action')" value="<s:text name="g_new"/>"/>
-	<input type="button" onclick="g_delete('/sysadmin/sys/user/userDelete.action');" value="<s:text name="g_delete"/>">
+	<s:if test="cmd!='select'">
+		<input type="button" onclick="g_new('/sysadmin/sys/user/userNew.action')" value="<s:text name="g_new"/>"/>
+		<input type="button" onclick="g_delete('/sysadmin/sys/user/userDelete.action');" value="<s:text name="g_delete"/>">
+	</s:if>
+	<s:if test="cmd=='select'">
+		<input type="button" onclick="f_selectUser()" value="<s:text name="g_select"/>">
+	</s:if>
 	<input type="button" onclick="g_list()" value="<s:text name="g_search"/>">
 	<input type="button" onclick="g_reset()" value="<s:text name="g_reset"/>">
 </div>
@@ -247,5 +253,35 @@ function f_changeCity(){
 		var selectTag = new SelectTag("districtId","userParameter._ne_districtId",json.data,"itemKey","itemName","${userParameter._ne_districtId}");
 		$("#districtTd").html(selectTag.toString()+"<font color='red'>*</font>");
 	},"json");
+}
+
+function f_selectUser(){
+	var bln = false;
+	var id,code ;
+	var arySelectedPK = document.getElementsByName("selectedPK");
+	for(var i=0;i<arySelectedPK.length;i++){
+		if(arySelectedPK[i].checked ){
+			if(bln){
+				alert("只能选择一个用户");
+			}else{
+				id = arySelectedPK[i].value;
+				code = $(arySelectedPK[i].parentNode.parentNode).find("td:eq(1)>a").text();
+				bln = true;			
+			}
+		}
+	}
+	if(bln){
+		var obj =  {"userId":id,"userCode":code};
+		if(document.all){
+			window.dialogArguments.forms["formList"]["newsCommentParameter._ne_createUserId"].value = obj.userId;
+			window.dialogArguments.forms["formList"]["userCode"].value = obj.userCode;
+		}else{
+			window.parent.opener.document.forms["formList"]["newsCommentParameter._ne_createUserId"].value = obj.userId;
+			window.parent.opener.document.forms["formList"]["userCode"].value = obj.userCode;
+		}
+		window.parent.close();
+	}else{
+		alert("请选择一条新闻");
+	}
 }
 </script>

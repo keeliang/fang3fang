@@ -22,7 +22,7 @@ create table if not exists info_information(
 */
 drop table if exists info_info_comment;
 create table if not exists info_info_comment(
-	comment_id int not null,
+	comment_id int not null auto_increment,
 	content text not null,
 	information_id int not null,
 	ip varchar(30) not null,
@@ -72,7 +72,7 @@ create table if not exists info_news_type(
 */
 drop table if exists info_news_comment;
 create table if not exists info_news_comment(
-	comment_id int not null,
+	comment_id int not null auto_increment,
 	content text not null,
 	news_id int not null,
 	ip varchar(30) not null,

@@ -17,10 +17,10 @@
 <s:hidden name="newsTypeParameter.currentPage" />
 <s:hidden name="newsTypeParameter.maxResults" />
 <s:hidden name="newsTypeParameter._ne_newsTypeId" />
-<s:hidden name="newsTypeParameter._se_title" />
+<s:hidden name="newsTypeParameter._slike_title" />
 <s:hidden name="newsTypeParameter._ne_status" />
-
-<s:hidden name="newsTypeId"/>
+<s:hidden name="newsTypeParameter._dge_createTime" />
+<s:hidden name="newsTypeParameter._dle_createTime" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -35,6 +35,14 @@
 	<tr>
 		<td>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+						<s:text name="newsTypeId"/>:
+					</td>
+					<td>
+						<s:textfield name="newsTypeId" readonly="true" cssClass="memberC_input01_readonly" />
+					</td>
+				</tr>
 				<tr>
 					<td>
 						<s:text name="title"/>:

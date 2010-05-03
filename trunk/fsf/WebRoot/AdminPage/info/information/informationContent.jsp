@@ -7,7 +7,7 @@
 <%@include file="/share/validate.jsp" %>
 <link type="text/css" rel="stylesheet" href="/css/Common.css" />
 <link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
-<script type="text/javascript" src="/cuseditor/fckeditor.js"></script>
+<script type="text/javascript" src="/fckeditor/fckeditor.js"></script>
 </head>
 
 <body>
@@ -18,11 +18,12 @@
 <s:hidden name="informationParameter.currentPage" />
 <s:hidden name="informationParameter.maxResults" />
 
-<s:hidden name="informationParameter._se_informationTitle" />
+<s:hidden name="informationParameter._slikee_informationTitle" />
 <s:hidden name="informationParameter._ne_informationType" />
-<s:hidden name="informationParameter._ne_status" />
+<s:hidden name="informationParameter._dge_createTime" />
+<s:hidden name="informationParameter._dle_createTime" />
 
-<s:hidden name="informationId"/>
+<s:hidden name="informationParameter._ne_status" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -37,6 +38,14 @@
 	<tr>
 		<td>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+						<s:text name="informationId"/>:
+					</td>
+					<td>
+						<s:textfield name="informationId" readonly="true" cssClass="memberC_input01_readonly" />
+					</td>
+				</tr>
 				<tr>
 					<td>
 						<s:text name="informationTitle"/>:
@@ -125,7 +134,7 @@
 <script type="text/javascript">
 window.onload = function(){
 	var oFCKeditor = new FCKeditor( 'informationContent' ) ;
-	oFCKeditor.BasePath	= "/cuseditor/" ;
+	oFCKeditor.BasePath	= "/fckeditor/" ;
 	oFCKeditor.Height = "300";
 	oFCKeditor.Width = "800";
 	oFCKeditor.ReplaceTextarea() ;
@@ -134,7 +143,7 @@ function f_validate(){
 	fromName = "formItem";
 	//addfield("informationId","<s:text name="informationId"/>","Integer",false,10);
 	addfield("informationTitle","<s:text name="informationTitle"/>","String",false,80);
-	addfield("informationContent","<s:text name="informationContent"/>","String",false,65535);
+	addfield("informationContent","<s:text name="informationContent"/>","String",false,65535,null,null,null,null,FCKeditorAPI.GetInstance("informationContent").GetXHTML(true));
 	addfield("informationType","<s:text name="informationType"/>","Integer",false,10);
 	addfield("status","<s:text name="status"/>","Integer",false,3);
 	//addfield("createTime","<s:text name="createTime"/>","Date",false,19);

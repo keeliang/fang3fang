@@ -14,11 +14,7 @@
 <s:form action="infoCommentList" namespace="/sysadmin/info/infocomment" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="infoCommentParameter.currentPage" id="currentPage"  />
 <s:hidden name="infoCommentParameter.maxResults" id="maxResults" />
-<table>
-	<tr>
-		<td align="left" width="722">picture</td>
-	</tr>
-</table>
+<div class="contentTitle"><s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
 	<tr>
@@ -29,7 +25,9 @@
 						<s:text name="_ne_informationId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="infoCommentParameter._ne_informationId" />
+						<s:hidden name="infoCommentParameter._ne_informationId" />
+						<input value="<fsf:dictTranslate groupName="$information_type" value="infoCommentParameter._ne_informationId"/>" name="informationTitle" readonly="true" >
+						<img src="/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectInfo()">
 					</td>
 					<td width="15%" >
 						<s:text name="_se_ip" />:
@@ -67,15 +65,12 @@
 	<td width="4%" height="28" class="table_hdr">
 		<input type="checkbox" onclick="g_select(this)" >
 	</td>
-	<td><s:text name="commentId"/></td>
 	<td><s:text name="content"/></td>
 	<td><s:text name="informationId"/></td>
 	<td><s:text name="ip"/></td>
 	<td><s:text name="status"/></td>
 	<td><s:text name="createTime"/></td>
 	<td><s:text name="createUserId"/></td>
-	<td><s:text name="updateTime"/></td>
-	<td><s:text name="updateUserId"/></td>
 </tr>
 
 <s:iterator value="pageView.records" id="item">
@@ -86,13 +81,14 @@
 		<td>
 			<input type="checkbox" name="selectedPK" value="<s:property value="#item.commentId"/>">
 		</td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="commentId"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="content"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="informationId"/></a></td>
+		<td><fsf:dictTranslate groupName="#info_information" value="informationId"/></td>
 		<td><s:property value="ip"/></td>
 		<td>
 			<fsf:dictTranslate value="status" groupName="$status"/>
 		</td>
+		<td><s:date name="createTime" format="yyyy-MM-dd" /></td>
+		<td><fsf:dictTranslate groupName="#sys_user" value="createUserId" /></td>
 	</tr>
 </s:iterator>
 </table>
@@ -107,3 +103,8 @@
 </s:form>
 </body>
 </html>
+<script type="text/javascript">
+function f_selectInfo(){
+	showModalDialog("selectInfo.action",document,"dialogWidth:800px;dialogHeight:600px;");
+}
+</script>
