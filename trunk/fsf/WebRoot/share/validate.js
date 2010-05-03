@@ -1,7 +1,7 @@
 var fromName;
 var fields = [];
 
-var Field = function (inputName,desc,type,isNull,len,decimalLen,defaultValue,minval,maxval){
+var Field = function (inputName,desc,type,isNull,len,decimalLen,defaultValue,minval,maxval,cusValue){
 	this.inputName = inputName;
 	this.desc = desc;
 	this.type = type;
@@ -11,10 +11,11 @@ var Field = function (inputName,desc,type,isNull,len,decimalLen,defaultValue,min
 	this.defaultValue = defaultValue;
 	this.minval = minval;
 	this.maxval = maxval;
+	this.cusValue = cusValue;
 }
-function addfield(inputName,desc,type,isNull,len,decimalLen,defaultValue,minval,maxval){
+function addfield(inputName,desc,type,isNull,len,decimalLen,defaultValue,minval,maxval,cusValue){
 	var i = fields.length;
-	fields[i] = new Field(inputName,desc,type,isNull,len,decimalLen,defaultValue,minval,maxval);
+	fields[i] = new Field(inputName,desc,type,isNull,len,decimalLen,defaultValue,minval,maxval,cusValue);
 }
 function validate(){
 	var isCorrect = true;
@@ -31,7 +32,8 @@ function validate(){
 			if(!fields[i].isNull)
 				errorCode = 0;
 		}else {
-			if(eval('document.forms["'+fromName+'"]["'+fields[i].inputName+'"].value')){
+			if(fields[i].cusValue) fieldValue=fields[i].cusValue;
+			else if(eval('document.forms["'+fromName+'"]["'+fields[i].inputName+'"].value')){
 				fieldValue = trim(eval('document.forms["'+fromName+'"]["'+fields[i].inputName+'"].value'));
 			}else	if(eval('document.forms["'+fromName+'"]["'+fields[i].inputName+'"].length')){
 				var a = document.getElementsByName(fields[i].inputName);
