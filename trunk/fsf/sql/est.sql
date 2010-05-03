@@ -113,6 +113,8 @@ create table if not exists est_estate_in(
 	district_id int,
 	area_id int,
 	address varchar(80),
+	
+	examine tinyint,
 
 	trade_mode tinyint not null,/*交易模式 0 disabled(前台不显示) 1 求租 2 求售 3 租售均可 4 已租 5 已购 固定参数in_trade_mode*/
 	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 餐厅 5 商铺 6 写字楼 7 厂房 8 其他 固定参数estate_type*/

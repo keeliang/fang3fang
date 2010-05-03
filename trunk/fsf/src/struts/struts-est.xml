@@ -100,5 +100,30 @@
 		</action>
 	</package>
 	<!-- ********************************************** -->
+
+	<!--******************* estateIn *************** -->
+	<package name="/sysadmin/est/estatein" extends="baseDefault" namespace="/sysadmin/est/estatein" >
+		<action name="estateInList" class="estateInAction" method="doList">
+			<result>/AdminPage/est/estatein/estateInList.jsp</result>
+			<result name="input">/AdminPage/est/estatein/estateInList.jsp</result>
+		</action>
+		<action name="estateInSave" class="estateInAction" method="doSave">
+			<result>/AdminPage/est/estatein/estateInContent.jsp</result>
+			<result name="input">/AdminPage/est/estatein/estateInContent.jsp</result>
+		</action>
+		<action name="estateInEdit" class="estateInAction" method="doEdit">
+			<result>/AdminPage/est/estatein/estateInContent.jsp</result>
+			<result name="input">/AdminPage/est/estatein/estateInContent.jsp</result>
+		</action>
+		<action name="estateInNew" class="estateInAction" method="doNew">
+			<result>/AdminPage/est/estatein/estateInContent.jsp</result>
+			<result name="input">/AdminPage/est/estatein/estateInContent.jsp</result>
+		</action>
+		<action name="estateInDelete" class="estateInAction" method="doDelete">
+			<result>/AdminPage/est/estatein/estateInList.jsp</result>
+			<result name="input">/AdminPage/est/estatein/estateInList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
 	
 </struts>
