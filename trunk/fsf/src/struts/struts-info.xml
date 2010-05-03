@@ -25,9 +25,12 @@
 			<result>/AdminPage/info/infocomment/infoCommentList.jsp</result>
 			<result name="input">/AdminPage/info/infocomment/infoCommentList.jsp</result>
 		</action>
+		<action name="selectInfo" >
+			<result>/AdminPage/info/infocomment/selectInfoFrm.jsp</result>
+		</action>
 	</package>
 	<!-- ********************************************** -->
-	
+
 	<!--******************* information *************** -->
 	<package name="/sysadmin/info/information" extends="baseDefault" namespace="/sysadmin/info/information" >
 		<action name="informationList" class="informationAction" method="doList">
@@ -99,6 +102,12 @@
 		<action name="newsCommentDelete" class="newsCommentAction" method="doDelete">
 			<result>/AdminPage/info/newscomment/newsCommentList.jsp</result>
 			<result name="input">/AdminPage/info/newscomment/newsCommentList.jsp</result>
+		</action>
+		<action name="selectNews" >
+			<result>/AdminPage/info/newscomment/selectNewsFrm.jsp</result>
+		</action>
+		<action name="selectUser" >
+			<result>/AdminPage/info/newscomment/selectUserFrm.jsp</result>
 		</action>
 	</package>
 	<!-- ********************************************** -->

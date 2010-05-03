@@ -49,5 +49,17 @@
 		<ItemNameProperty>title</ItemNameProperty>
 	</DynamicConfig>
 	
+	<DynamicConfig name="info_news">
+		<Entity>info_news</Entity>
+		<ItemKeyProperty>news_id</ItemKeyProperty>
+		<ItemNameProperty>news_title</ItemNameProperty>
+	</DynamicConfig>
+	
+	<DynamicConfig name="info_information">
+		<Entity>info_information</Entity>
+		<ItemKeyProperty>information_id</ItemKeyProperty>
+		<ItemNameProperty>information_title</ItemNameProperty>
+	</DynamicConfig>
+	
 	
 </DictConfig>
