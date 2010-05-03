@@ -76,6 +76,10 @@ public abstract class BaseAction<E> extends ActionSupport {
 		this.isBusinessPK = isBusinessPK;
 	}
 	
+	public String doSuccess(){
+		return SUCCESS;
+	}
+	
 	public String doList() throws Exception {
 		try {
 			if(baseParameter==null){

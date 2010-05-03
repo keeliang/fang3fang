@@ -1,6 +1,6 @@
 package chance.base.dao.handler;
 
-import java.sql.Date;
+import java.util.Date;
 
 import org.apache.commons.lang.time.DateFormatUtils;
 import org.apache.commons.lang.time.DateUtils;
