@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.trustel.gd12580.">
+	<class name="com.trustel.gd12580..ForumUser" table="forum_users" schema="GMCCADMIN">
+		<id name="userId" type="java.lang.Integer" column="user_id">
+			<generator class="identity" />
+		</id>
+		
+		<property name="sysUserCode" column="sys_user_code" type="java.lang.String" length="10" />
+		<property name="userActive" column="user_active" type="java.lang.String" length="0" />
+		<property name="username" column="username" type="java.lang.String" length="50" />
+		<property name="userPassword" column="user_password" type="java.lang.String" length="32" />
+		<property name="userSessionTime" column="user_session_time" type="java.lang.String" length="19" />
+		<property name="userSessionPage" column="user_session_page" type="java.lang.String" length="10" />
+		<property name="userLastvisit" column="user_lastvisit" type="java.lang.String" length="19" />
+		<property name="userRegdate" column="user_regdate" type="java.lang.String" length="19" />
+		<property name="userLevel" column="user_level" type="java.lang.String" length="3" />
+		<property name="userPosts" column="user_posts" type="java.lang.String" length="10" />
+		<property name="userTimezone" column="user_timezone" type="java.lang.String" length="5" />
+		<property name="userStyle" column="user_style" type="java.lang.String" length="3" />
+		<property name="userLang" column="user_lang" type="java.lang.String" length="255" />
+		<property name="userDateformat" column="user_dateformat" type="java.lang.String" length="20" />
+		<property name="userNewPrivmsg" column="user_new_privmsg" type="java.lang.String" length="10" />
+		<property name="userUnreadPrivmsg" column="user_unread_privmsg" type="java.lang.String" length="10" />
+		<property name="userLastPrivmsg" column="user_last_privmsg" type="java.lang.String" length="19" />
+		<property name="userEmailtime" column="user_emailtime" type="java.lang.String" length="19" />
+		<property name="userViewemail" column="user_viewemail" type="java.lang.String" length="0" />
+		<property name="userAttachsig" column="user_attachsig" type="java.lang.String" length="0" />
+		<property name="userAllowhtml" column="user_allowhtml" type="java.lang.String" length="0" />
+		<property name="userAllowbbcode" column="user_allowbbcode" type="java.lang.String" length="0" />
+		<property name="userAllowsmilies" column="user_allowsmilies" type="java.lang.String" length="0" />
+		<property name="userAllowavatar" column="user_allowavatar" type="java.lang.String" length="0" />
+		<property name="userAllowPm" column="user_allow_pm" type="java.lang.String" length="0" />
+		<property name="userAllowViewonline" column="user_allow_viewonline" type="java.lang.String" length="0" />
+		<property name="userNotify" column="user_notify" type="java.lang.String" length="0" />
+		<property name="userNotifyAlways" column="user_notify_always" type="java.lang.String" length="0" />
+		<property name="userNotifyText" column="user_notify_text" type="java.lang.String" length="0" />
+		<property name="userNotifyPm" column="user_notify_pm" type="java.lang.String" length="0" />
+		<property name="userPopupPm" column="user_popup_pm" type="java.lang.String" length="0" />
+		<property name="rankId" column="rank_id" type="java.lang.String" length="10" />
+		<property name="userAvatar" column="user_avatar" type="java.lang.String" length="100" />
+		<property name="userAvatarType" column="user_avatar_type" type="java.lang.String" length="3" />
+		<property name="userEmail" column="user_email" type="java.lang.String" length="255" />
+		<property name="userIcq" column="user_icq" type="java.lang.String" length="15" />
+		<property name="userWebsite" column="user_website" type="java.lang.String" length="255" />
+		<property name="userFrom" column="user_from" type="java.lang.String" length="100" />
+		<property name="userSig" column="user_sig" type="java.lang.String" length="65535" />
+		<property name="userSigBbcodeUid" column="user_sig_bbcode_uid" type="java.lang.String" length="10" />
+		<property name="userAim" column="user_aim" type="java.lang.String" length="255" />
+		<property name="userYim" column="user_yim" type="java.lang.String" length="255" />
+		<property name="userMsnm" column="user_msnm" type="java.lang.String" length="255" />
+		<property name="userOcc" column="user_occ" type="java.lang.String" length="100" />
+		<property name="userInterests" column="user_interests" type="java.lang.String" length="255" />
+		<property name="userBiography" column="user_biography" type="java.lang.String" length="65535" />
+		<property name="userActkey" column="user_actkey" type="java.lang.String" length="32" />
+		<property name="gender" column="gender" type="java.lang.String" length="1" />
+		<property name="themesId" column="themes_id" type="java.lang.String" length="10" />
+		<property name="deleted" column="deleted" type="java.lang.String" length="0" />
+		<property name="userViewonline" column="user_viewonline" type="java.lang.String" length="0" />
+		<property name="securityHash" column="security_hash" type="java.lang.String" length="32" />
+		<property name="userKarma" column="user_karma" type="java.lang.String" length="22" />
+		<property name="userAuthhash" column="user_authhash" type="java.lang.String" length="32" />
+	</class>
+</hibernate-mapping>

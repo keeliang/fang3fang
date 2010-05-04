@@ -69,4 +69,34 @@
 		<url-pattern>/fckeditor/editor/filemanager/connectors/*</url-pattern>
 	</servlet-mapping>
 	
+	<!-- Forum -->
+	<filter>
+		<filter-name>clickStream</filter-name>
+		<filter-class>net.jforum.util.legacy.clickstream.ClickstreamFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>clickStream</filter-name>
+		<url-pattern>*.page</url-pattern>
+	</filter-mapping>
+    
+    <listener>
+    	<listener-class>net.jforum.ForumSessionListener</listener-class>
+    </listener>
+	
+    <servlet>
+		<servlet-name>forum</servlet-name>
+		<servlet-class>net.jforum.JForum</servlet-class>
+		
+		<init-param>
+			<param-name>development</param-name>
+			<param-value>true</param-value>
+		</init-param>
+    </servlet>
+
+	<servlet-mapping>
+    	<servlet-name>forum</servlet-name>
+    	<url-pattern>*.page</url-pattern>
+    </servlet-mapping>
+	
 </web-app>
