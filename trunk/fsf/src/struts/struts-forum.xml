@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!--******************* user *************** -->
+	<package name="forum" extends="baseDefault" namespace="/forum" >
+		<action name="goToForum" class="fsf.action.forum.ForumAction" method="goToForum">
+			<result name="forumLogin">/forum/goToForum.jsp</result>
+			<result name="fsfLogin">/index.jsp.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	
+</struts>

@@ -11,7 +11,7 @@ CREATE TABLE forum_banlist (
   INDEX idx_user (user_id),
   INDEX (banlist_ip),
   INDEX (banlist_email)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_categories'
@@ -23,7 +23,7 @@ CREATE TABLE forum_categories (
   display_order INT NOT NULL default '0',
   moderated TINYINT(1) DEFAULT '0',
   PRIMARY KEY  (categories_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_config'
@@ -34,7 +34,7 @@ CREATE TABLE forum_config (
   config_value varchar(255) NOT NULL default '',
   config_id int not null auto_increment,
   PRIMARY KEY(config_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_forums'
@@ -52,7 +52,7 @@ CREATE TABLE forum_forums (
   PRIMARY KEY  (forum_id),
   KEY (categories_id),
   INDEX idx_forums_cats (categories_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_forums_watch'
@@ -63,7 +63,7 @@ CREATE TABLE forum_forums_watch (
   user_id INT NOT NULL,
   INDEX idx_fw_forum (forum_id),
   INDEX idx_fw_user (user_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_groups'
@@ -75,7 +75,7 @@ CREATE TABLE forum_groups (
   group_description varchar(255) default NULL,
   parent_id INT default '0',
   PRIMARY KEY  (group_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 
 DROP TABLE IF EXISTS forum_user_groups;
@@ -84,7 +84,7 @@ CREATE TABLE forum_user_groups (
 	user_id INT NOT NULL,
 	INDEX idx_group (group_id),
 	INDEX idx_user (user_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_roles'
@@ -96,7 +96,7 @@ CREATE TABLE forum_roles (
   name varchar(255) NOT NULL,
   INDEX idx_group (group_id),
   INDEX idx_name (name)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_role_values'
@@ -106,7 +106,7 @@ CREATE TABLE forum_role_values (
   role_id INT NOT NULL,
   role_value VARCHAR(255),
   INDEX idx_role(role_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_posts'
@@ -134,7 +134,7 @@ CREATE TABLE forum_posts (
   KEY (forum_id),
   KEY(post_time),
   INDEX (need_moderate)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_posts_text'
@@ -144,7 +144,7 @@ CREATE TABLE forum_posts_text (
 	post_id INT NOT NULL PRIMARY KEY,
 	post_text TEXT,
 	post_subject VARCHAR(100)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_privmsgs'
@@ -163,14 +163,14 @@ CREATE TABLE forum_privmsgs (
   privmsgs_enable_smilies tinyint(1) NOT NULL default '1',
   privmsgs_attach_sig tinyint(1) NOT NULL default '1',
   PRIMARY KEY  (privmsgs_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS forum_privmsgs_text;
 CREATE TABLE forum_privmsgs_text (
 	privmsgs_id INT NOT NULL,
 	privmsgs_text TEXT,
 	PRIMARY KEY ( privmsgs_id )
-) Type=InnoDB;
+) Type=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_ranks'
@@ -183,7 +183,7 @@ CREATE TABLE forum_ranks (
   rank_special tinyint(1) default NULL,
   rank_image varchar(255) default NULL,
   PRIMARY KEY  (rank_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_sessions'
@@ -198,7 +198,7 @@ CREATE TABLE forum_sessions (
   session_page int(11) NOT NULL default '0',
   session_logged_int tinyint(1) default NULL,
   INDEX idx_sessions_users (session_user_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_smilies'
@@ -210,7 +210,7 @@ CREATE TABLE forum_smilies (
   url varchar(100) default NULL,
   disk_name varchar(255),
   PRIMARY KEY  (smilie_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_themes'
@@ -221,7 +221,7 @@ CREATE TABLE forum_themes (
   template_name varchar(30) NOT NULL default '',
   style_name varchar(30) NOT NULL default '',
   PRIMARY KEY  (themes_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_topics'
@@ -248,7 +248,7 @@ CREATE TABLE forum_topics (
   KEY(topic_first_post_id),
   KEY(topic_last_post_id),
   KEY(topic_moved_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_topics_watch'
@@ -260,7 +260,7 @@ CREATE TABLE forum_topics_watch (
   is_read tinyint(1) DEFAULT 1,
   INDEX idx_topic (topic_id),
   INDEX idx_user (user_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_users'
@@ -322,7 +322,7 @@ CREATE TABLE forum_users (
   user_karma DOUBLE,
   user_authhash VARCHAR(32),
   PRIMARY KEY  (user_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_vote_desc'
@@ -336,7 +336,7 @@ CREATE TABLE forum_vote_desc (
   vote_length int(11) NOT NULL default '0',
   PRIMARY KEY  (vote_id),
   INDEX(topic_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_vote_results'
@@ -348,7 +348,7 @@ CREATE TABLE forum_vote_results (
   vote_option_text varchar(255) NOT NULL default '',
   vote_result int(11) NOT NULL default '0',
   INDEX(vote_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_vote_voters'
@@ -360,7 +360,7 @@ CREATE TABLE forum_vote_voters (
   vote_user_ip varchar(15) NOT NULL default '',
   INDEX(vote_id),
   INDEX(vote_user_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_words'
@@ -371,7 +371,7 @@ CREATE TABLE forum_words (
   word varchar(100) NOT NULL default '',
   replacement varchar(100) NOT NULL default '',
   PRIMARY KEY  (word_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_karma'
@@ -389,7 +389,7 @@ CREATE TABLE forum_karma (
 	KEY(topic_id),
 	KEY(post_user_id),
 	KEY(from_user_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_bookmark'
@@ -405,7 +405,7 @@ CREATE TABLE forum_bookmarks (
 	description varchar(255),
 	INDEX book_idx_relation (relation_id),
 	KEY(user_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 -- 
 -- Table structure for table 'forum_quota_limit'
 --
@@ -415,7 +415,7 @@ CREATE TABLE forum_quota_limit (
 	quota_desc VARCHAR(50) NOT NULL,
 	quota_limit INT NOT NULL,
 	quota_type TINYINT(1) DEFAULT '1'
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_extension_groups'
@@ -427,7 +427,7 @@ CREATE TABLE forum_extension_groups (
 	allow TINYINT(1) DEFAULT '1', 
 	upload_icon VARCHAR(100),
 	download_mode TINYINT(1) DEFAULT '1'
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 
 -- Table structure for table 'forum_extensions'
@@ -442,7 +442,7 @@ CREATE TABLE forum_extensions (
 	allow TINYINT(1) DEFAULT '1',
 	KEY(extension_group_id),
 	INDEX(extension)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_attach'
@@ -456,7 +456,7 @@ CREATE TABLE forum_attach (
 	INDEX idx_att_post(post_id),
 	INDEX idx_att_priv(privmsgs_id),
 	INDEX idx_att_user(user_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 
 -- Table structure for table 'forum_attach_desc'
@@ -476,7 +476,7 @@ CREATE TABLE forum_attach_desc (
 	extension_id INT,
 	INDEX idx_att_d_att(attach_id),
 	INDEX idx_att_d_ext(extension_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_attach_quota'
@@ -487,7 +487,7 @@ CREATE TABLE forum_attach_quota (
 	group_id INT NOT NULL,
 	quota_limit_id INT NOT NULL,
 	KEY(group_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_banner'
@@ -508,7 +508,7 @@ CREATE TABLE forum_banner (
 	banner_width INT NOT NULL DEFAULT '0',
 	banner_height INT NOT NULL DEFAULT '0',
 	KEY(banner_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_mail_integration'
@@ -523,7 +523,7 @@ CREATE TABLE forum_mail_integration (
 	pop_port INT DEFAULT 110,
 	pop_ssl TINYINT DEFAULT '0',
 	KEY(forum_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 
 --
@@ -534,7 +534,7 @@ CREATE TABLE forum_api (
 	api_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	api_key VARCHAR(32) NOT NULL,
 	api_validity DATETIME NOT NULL
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Table structure for table 'forum_moderation_log'
@@ -552,10 +552,10 @@ CREATE TABLE forum_moderation_log (
 	post_user_id INT DEFAULT 0,
 	KEY(user_id),
 	KEY(post_user_id)
-) TYPE=InnoDB;
+) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 --修改表结构
 --
 alter table forum_users drop sys_user_code,
-	add sys_user_code int not null default 0 comment '系统用户表编码' after user_id;
+	add sys_user_code varchar(50) not null default 0 comment '系统用户表编码' after user_id;
