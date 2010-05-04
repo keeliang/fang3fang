@@ -51,7 +51,8 @@ public class EstateOutParameter extends BaseParameter{
 	private Short _ne_device;
 	private String _se_remark;
 	private String _se_imagePath;
-	private Date _de_createTime;
+	private Date _dge_createTime;
+	private Date _dle_createTime;
 	private Integer _ne_createUserId;
 	private Date _de_updateTime;
 	private Integer _ne_updateUserId;
@@ -324,11 +325,17 @@ public class EstateOutParameter extends BaseParameter{
 	public String get_se_imagePath(){
 		return this._se_imagePath;
 	}
-	public void set_de_createTime(Date _de_createTime){
-		this._de_createTime = _de_createTime;
+	public Date get_dge_createTime() {
+		return _dge_createTime;
 	}
-	public Date get_de_createTime(){
-		return this._de_createTime;
+	public void set_dge_createTime(Date time) {
+		_dge_createTime = time;
+	}
+	public Date get_dle_createTime() {
+		return _dle_createTime;
+	}
+	public void set_dle_createTime(Date time) {
+		_dle_createTime = time;
 	}
 	public void set_ne_createUserId(Integer _ne_createUserId){
 		this._ne_createUserId = _ne_createUserId;

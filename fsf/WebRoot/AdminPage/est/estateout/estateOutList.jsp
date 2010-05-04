@@ -164,13 +164,15 @@
 						<s:text name="_ne_isLift" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="estateOutParameter._ne_isLift" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$is_lift')" name="estateOutParameter._ne_isLift" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
 					<td width="15%" >
 						<s:text name="_ne_toward" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="estateOutParameter._ne_toward" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$toward',null,'0')" name="estateOutParameter._ne_toward" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
 				</tr>
 				<tr>
@@ -243,8 +245,22 @@
 						<s:text name="_ne_examine" />:
 					</td>
 					<td width="35%">
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$examine',null,'0')" name="estateOutParameter._ne_examine" 
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$examine')" name="estateOutParameter._ne_examine" 
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
+					</td>
+				</tr>
+				<tr>
+					<td width="15%" >
+						<s:text name="_dge_createTime" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="estateOutParameter._dge_createTime" />
+					</td>
+					<td width="15%" >
+						<s:text name="_dle_createTime" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="estateOutParameter._dle_createTime" />
 					</td>
 				</tr>
 			</table>
@@ -290,10 +306,10 @@
 				<s:date name="createTime" format="yyyy-MM-dd"/>
 			</td>
 			<td>
-				<s:if test="examine =='0' ">
+				<s:if test="examine ==0 ">
 					<a href="${examineUrl }">审核</a>
 				</s:if>
-				<s:if test="examine =='1'">
+				<s:if test="examine ==1">
 					已审核
 				</s:if>
 			</td>

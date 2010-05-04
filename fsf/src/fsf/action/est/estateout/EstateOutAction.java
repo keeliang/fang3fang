@@ -67,6 +67,12 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	protected void initData() {
 		User u = ThreadUser.get();
 		contactUserId = u.getUserId();
+		Date d = new Date();
+		createUserId = u.getUserId();
+		createTime = d;
+		updateUserId = u.getUserId();
+		updateTime = d;
+		examine = (short)0;
 	}
 	@Override
 	protected void beforePersist() {

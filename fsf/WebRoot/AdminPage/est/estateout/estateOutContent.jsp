@@ -51,6 +51,8 @@
 <s:hidden name="estateOutParameter._ne_minMonth" />
 <s:hidden name="estateOutParameter._ne_fitment" />
 <s:hidden name="estateOutParameter._ne_device" />
+<s:hidden name="estateOutParameter._dge_createTime" />
+<s:hidden name="estateOutParameter._dle_createTime" />
 
 <s:hidden name="estateId"/>
 <s:hidden name="tradeType" value="2"/>
@@ -64,7 +66,7 @@
 	</tr>
 </table>
 
-<p class="cGray02"><b>委托交易区 - 出售信息</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<p class="cGray02"><b>委托交易区 - 出租出售信息</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 有效期：<s:textfield name="effective" id="effective" size="2" />天</p>
 <div class="memberC_line"></div>
 <p class="est_title"><b>楼盘基本信息<span class="cOrange">(必填)</span></b></p>
@@ -175,7 +177,7 @@
 			<label class="est_label" for="toward"><s:text name="toward"/>:</label>
     </td>
     <td class="content_td">
-    	<s:select	list="@fsf.web.common.SelectTagStaticUtil@getConfig('$toward')" cssClass="dropdown"
+    	<s:select	list="@fsf.web.common.SelectTagStaticUtil@getConfig('$toward',null,'0')" cssClass="dropdown"
 		 	id="toward" name="toward" emptyOption="true" listValue="itemName" listKey="itemKey" />
     </td>
   </tr>
@@ -208,8 +210,15 @@
 			<label class="est_label" for="tradeMode"><s:text name="tradeMode" /></label>
     </td>
     <td class="content_td" >
-    	<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$out_trade_mode')" 
-  		name="tradeMode" id="tradeMode" listValue="itemName" listKey="itemKey" onchange="f_chageTradeMode(this)"/>
+    	<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$out_trade_mode')" cssClass="dropdown"
+  		name="tradeMode" id="tradeMode" listValue="itemName" listKey="itemKey" onchange="f_chageTradeMode()"/>
+    </td>
+    <td class="label_td" >
+			<label class="est_label" for="examine"><s:text name="examine" /></label>
+    </td>
+    <td class="content_td" >
+    	<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$examine')" cssClass="dropdown"
+  		name="examine" id="examine" listValue="itemName" listKey="itemKey" onchange="f_chageTradeMode()"/>
     </td>
   </tr>
 </table>
@@ -246,7 +255,7 @@
   		<label class="est_label" for="salePrice"><s:text name="salePrice"/></label>
   	</td>
   	<td class="content_td" >
-  		<s:textfield name="salePrice" id="salePrice" cssClass="memberC_input03" />元
+  		<s:textfield name="salePrice" id="salePrice" cssClass="memberC_input08" />元
 		</td>
   </tr>
   <tr>
@@ -290,8 +299,13 @@
   		<label class="est_label" for="waterCost"><s:text name="waterCost"/></label>
 		</td>
 		<td class="content_td" >
-			<s:textfield name="waterCost" id="waterCost" cssClass="memberC_input08" />元/度
-			按当地政府标准
+			<input type="text" onchange="f_changeCost(this)" 
+				<s:if test="waterCost==-1">readonly class="memberC_input08_readonly" value=""</s:if>
+				<s:else>value="${electricCost }" class="memberC_input082"</s:else> 
+			/>元/度
+			<input type="checkbox" <s:if test="waterCost==-1">checked</s:if> onclick="f_changeCost(this)" />
+			<label for="waterCost">按当地政府标准</label>
+			<s:hidden name="waterCost" id="waterCost" />
 		</td>
   </tr>
   <tr>
@@ -299,15 +313,19 @@
   		<label class="est_label" for="electricCost"><s:text name="electricCost"/></label>
 		</td>
 		<td class="content_td" >
-			<s:textfield name="electricCost" id="electricCost" cssClass="memberC_input08" />元/度
-			<s:checkbox name="a" />		
+			<input type="text" onchange="f_changeCost(this)" 
+				<s:if test="electricCost==-1">readonly class="memberC_input08_readonly" value=""</s:if>
+				<s:else>value="${electricCost }" class="memberC_input082"</s:else> 
+			/>元/度
+			<input type="checkbox" <s:if test="electricCost==-1">checked</s:if> onclick="f_changeCost(this)" />
+			<label for="electricCost">按当地政府标准</label>
+			<s:hidden name="electricCost" id="electricCost" />
 		</td>
 		<td class="label_td" >
   		<label class="est_label" for="otherCost"><s:text name="otherCost"/></label>
 		</td>
 		<td class="content_td" >
 			<s:textfield name="otherCost" id="otherCost" cssClass="memberC_input08" />元/月
-			<s:checkbox name="a" />
 		</td>
   </tr>
 </table>
@@ -399,6 +417,7 @@
 <script type="text/javascript">
 $(function() {
 	f_changeProvince(true);
+	f_chageTradeMode();
 });
 
 function f_validate(){
@@ -428,6 +447,7 @@ function f_validate(){
 	addfield("manageCost","<s:text name="manageCost"/>","Number",false,14,2);
 	addfield("fitment","<s:text name="fitment"/>","Integer",false,3);
 	addfield("device","<s:text name="device"/>","Integer",false,3);
+	addfield("examine","<s:text name="examine"/>","Integer",false,3);
 	//addfield("remark","<s:text name="remark"/>","String",true,65535);
 	//addfield("imagePath","<s:text name="imagePath"/>","String",true,80);
 	//addfield("createTime","<s:text name="createTime"/>","Date",false,19);
@@ -451,7 +471,8 @@ function f_validate(){
 	}
 	return validate();
 }
-function f_chageTradeMode(obj){
+function f_chageTradeMode(){
+	var obj = $('#tradeMode').get(0);
 	if(obj.value==1){
 		$('#rentDiv').show();
 		$('#rentTbl').show();
@@ -509,6 +530,25 @@ function f_changeDistrict(isIndex){
 		var selectTag = new SelectTag("areaId","areaId",json.data,"itemKey","itemName","${areaId}");
 		$("#areaTd").html(selectTag.toString());
 	},"json");
+}
+
+function f_changeCost(obj){
+	var o = $(obj.parentNode).find("input[type='text']");
+	if(obj.type=="checkbox"){
+		o.attr("readonly",obj.checked);
+		o.val("");
+		if(obj.checked){
+			o.addClass("memberC_input08_readonly");
+			o.removeClass("memberC_input082");
+			$(obj.parentNode).find("input[type='hidden']").val("-1");
+		}else{
+			o.addClass("memberC_input082");
+			o.removeClass("memberC_input08_readonly");
+			$(obj.parentNode).find("input[type='hidden']").val("");
+		}
+	}else if(obj.type=="text"){
+		$(obj.parentNode).find("input[type='hidden']").val(obj.value)
+	}
 }
 
 </script>

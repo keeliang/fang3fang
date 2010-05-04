@@ -87,8 +87,8 @@
 			<result name="input">/AdminPage/est/estateout/estateOwnOutList.jsp</result>
 		</action>
 		<action name="estateOwnOutEdit" class="estateOutAction" method="doEdit">
-			<result>/AdminPage/est/estateout/estateOutContent.jsp</result>
-			<result name="input">/AdminPage/est/estateout/estateOutContent.jsp</result>
+			<result>/AdminPage/est/estateout/estateOwnOutContent.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOwnOutContent.jsp</result>
 		</action>
 		<action name="estateOwnOutDelete" class="estateOutAction" method="doDelete">
 			<result>/AdminPage/est/estateout/estateOwnOutList.jsp</result>
@@ -123,6 +123,12 @@
 			<result>/AdminPage/est/estatein/estateInList.jsp</result>
 			<result name="input">/AdminPage/est/estatein/estateInList.jsp</result>
 		</action>
+		
+		<action name="getCityList" class="estateInAction" method="getCityList"></action>
+		<action name="getDistrictList" class="estateInAction" method="getDistrictList"></action>
+		<action name="getBusinessareaList" class="estateInAction" method="getBusinessareaList"></action>
+		
+		
 	</package>
 	<!-- ********************************************** -->
 	

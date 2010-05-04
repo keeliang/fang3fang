@@ -23,14 +23,17 @@
         <property name="areaId" type="java.lang.Integer">
             <column name="area_id" />
         </property>
+        <property name="tradeType" type="short" not-null="true">
+        		<column name="trade_type" />
+        </property>
+        <property name="contactUserId" type="int" >
+        		<column name="contact_user_id" />
+        </property>
         <property name="tradeMode" type="short">
             <column name="trade_mode" not-null="true" />
         </property>
         <property name="estateType" type="short">
             <column name="estate_type" not-null="true" />
-        </property>
-        <property name="buildYear" type="java.lang.Integer">
-            <column name="build_year" />
         </property>
         <property name="hall" type="int">
             <column name="hall" not-null="true" />

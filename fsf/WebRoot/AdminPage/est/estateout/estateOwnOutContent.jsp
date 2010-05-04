@@ -75,7 +75,7 @@
 			<label class="est_label" for="estateName"><s:text name="estateName"/>:</label>
 		</td>
 		<td colspan="3">
-			<s:textfield name="estateName" id="estateName" cssClass="memberC_input04"/>
+			<span style="font-size: 12px;font-weight: bold;vertical-align: middle;">${estateName }</span>
 		</td>
 	</tr>
   <tr>

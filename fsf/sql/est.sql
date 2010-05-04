@@ -112,14 +112,14 @@ create table if not exists est_estate_in(
 	city_id int,
 	district_id int,
 	area_id int,
-	address varchar(80),
+	
+	trade_type tinyint not null,/* 1 自主交易 2 委托交易 固定参数trade_type*/
+	contact_user_id int not null, /*联系人 自主交易时此值和create_user_id一样，委托交易时是委托人*/
 	
 	examine tinyint,
 
 	trade_mode tinyint not null,/*交易模式 0 disabled(前台不显示) 1 求租 2 求售 3 租售均可 4 已租 5 已购 固定参数in_trade_mode*/
 	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 餐厅 5 商铺 6 写字楼 7 厂房 8 其他 固定参数estate_type*/
-	
-	build_year int,	/* 物业建筑年份 出售必填 程序控制 */
 	
 	hall int not null,/*厅*/
 	bedroom int not null,/*房*/
