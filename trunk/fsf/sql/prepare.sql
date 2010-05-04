@@ -260,7 +260,10 @@ insert into sys_dictgroup (group_name,group_desc,remark)
 select 'toward','朝向',null from dual
 where not exists (select * from sys_dictgroup where group_name = 'toward');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','1',' 东','东',1 from dual
+select 'toward','0','均可','均可',0 from dual
+where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '0');
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'toward','1','东','东',1 from dual
 where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '1');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
 select 'toward','2','南','南',2 from dual

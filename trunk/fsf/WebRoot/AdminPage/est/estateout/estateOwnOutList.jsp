@@ -15,7 +15,7 @@
 <s:hidden name="estateOutParameter.currentPage" id="currentPage"  />
 <s:hidden name="estateOutParameter.maxResults" id="maxResults" />
 
-<s:hidden name="estateOutParameter._ne_tradeType" value="2" />
+<s:hidden name="estateOutParameter._ne_tradeType" value="1" />
 
 <table>
 	<tr>
@@ -262,7 +262,7 @@
 		<td><s:text name="examine"/></td>
 	</tr>
 	<s:iterator value="pageView.records" id="item">
-		<s:url action="estateOutEdit" namespace="/sysadmin/est/estateout" id="url">
+		<s:url action="estateOwnOutEdit" namespace="/sysadmin/est/estateout" id="url">
 			<s:param name="estateId" value="#item.estateId"></s:param>
 		</s:url>
 		<tr>

@@ -1,16 +1,23 @@
 package fsf.action.est.estatein;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import fsf.beans.est.estatein.EstateIn;
-import chance.base.action.BaseAction;
 import chance.base.BaseParameter;
+import chance.base.action.BaseAction;
+import fsf.beans.est.estatein.EstateIn;
+import fsf.beans.sys.dict.DictItem;
+import fsf.beans.sys.user.User;
 import fsf.service.est.estatein.EstateInService;
+import fsf.web.common.ThreadUser;
 
 @Controller
 @Scope("prototype")
@@ -18,6 +25,70 @@ public class EstateInAction extends BaseAction<EstateIn> {
 	
 	public EstateInAction() {
 		super(EstateIn.class, new String[] { "estateId" });
+	}
+	
+	public String getCityList() throws Exception {
+		BaseParameter param = new BaseParameter();
+		param.getQueryDynamicConditions().put("_ne_province_id", provinceId);
+		List<DictItem> list = dictItemService.getDaynamicConfig("sys_city","city_id","city_name",param);
+		JSONObject json = new JSONObject();
+		json.put("data", JSONArray.fromObject(list));
+		getHttpServletResponse().setCharacterEncoding("UTF-8");
+		getHttpServletResponse().getWriter().write(json.toString());
+		return null;
+	}
+	
+	public String getDistrictList() throws Exception {
+		BaseParameter param = new BaseParameter();
+		param.getQueryDynamicConditions().put("_ne_province_id", provinceId);
+		param.getQueryDynamicConditions().put("_ne_city_id", cityId);
+		List<DictItem> list = dictItemService.getDaynamicConfig("sys_district","district_id","district_name",param);
+		JSONObject json = new JSONObject();
+		json.put("data", JSONArray.fromObject(list));
+		getHttpServletResponse().setCharacterEncoding("UTF-8");
+		getHttpServletResponse().getWriter().write(json.toString());
+		return null;
+	}
+	
+	public String getBusinessareaList() throws Exception {
+		BaseParameter param = new BaseParameter();
+		param.getQueryDynamicConditions().put("_ne_province_id", provinceId);
+		param.getQueryDynamicConditions().put("_ne_city_id", cityId);
+		param.getQueryDynamicConditions().put("_ne_district_id", districtId);
+		List<DictItem> list = dictItemService.getDaynamicConfig("est_businessarea","area_id","area_name",param);
+		JSONObject json = new JSONObject();
+		json.put("data", JSONArray.fromObject(list));
+		getHttpServletResponse().setCharacterEncoding("UTF-8");
+		getHttpServletResponse().getWriter().write(json.toString());
+		return null;
+	}
+	
+	@Override
+	protected void initData() {
+		User u = ThreadUser.get();
+		contactUserId = u.getUserId();
+		Date d = new Date();
+		createUserId = u.getUserId();
+		createTime = d;
+		updateUserId = u.getUserId();
+		updateTime = d;
+	}
+	@Override
+	protected void beforePersist() {
+		User u = ThreadUser.get();
+		contactUserId = u.getUserId();
+		createUserId = u.getUserId();
+		Date d = new Date();
+		createTime = d;
+		updateUserId = u.getUserId();
+		updateTime = d;
+	}
+	@Override
+	protected void beforeUpdate() {
+		User u = ThreadUser.get();
+		contactUserId = u.getUserId();
+		updateUserId = u.getUserId();
+		updateTime = new Date();
 	}
 	
 	@Resource
@@ -42,11 +113,11 @@ public class EstateInAction extends BaseAction<EstateIn> {
 	private Integer cityId;
 	private Integer districtId;
 	private Integer areaId;
-	private String address;
+	private Short tradeType;
+	private Integer contactUserId;
 	private Short examine;
 	private Short tradeMode;
 	private Short estateType;
-	private Integer buildYear;
 	private Integer hall;
 	private Integer bedroom;
 	private Integer toilet;
@@ -103,12 +174,6 @@ public class EstateInAction extends BaseAction<EstateIn> {
 	public Integer getAreaId(){
 		return this.areaId;
 	}
-	public void setAddress(String address){
-		this.address = address;
-	}
-	public String getAddress(){
-		return this.address;
-	}
 	public void setExamine(Short examine){
 		this.examine = examine;
 	}
@@ -126,12 +191,6 @@ public class EstateInAction extends BaseAction<EstateIn> {
 	}
 	public Short getEstateType(){
 		return this.estateType;
-	}
-	public void setBuildYear(Integer buildYear){
-		this.buildYear = buildYear;
-	}
-	public Integer getBuildYear(){
-		return this.buildYear;
 	}
 	public void setHall(Integer hall){
 		this.hall = hall;
@@ -246,6 +305,22 @@ public class EstateInAction extends BaseAction<EstateIn> {
 	}
 	public Integer getUpdateUserId(){
 		return this.updateUserId;
+	}
+
+	public Short getTradeType() {
+		return tradeType;
+	}
+
+	public void setTradeType(Short tradeType) {
+		this.tradeType = tradeType;
+	}
+
+	public Integer getContactUserId() {
+		return contactUserId;
+	}
+
+	public void setContactUserId(Integer contactUserId) {
+		this.contactUserId = contactUserId;
 	}
 
 }

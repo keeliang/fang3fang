@@ -5,11 +5,12 @@
 <title><s:text name="contentPageTitle"/></title>
 <%@include file="/share/share.jsp" %>
 <%@include file="/share/validate.jsp" %>
-<link type="text/css" rel="stylesheet" href="/css/Common.css" />
 <link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
+<link type="text/css" rel="stylesheet" href="/AdminPage/css/style.css"/>
+<script type="text/javascript" src="/js/jquery.js"></script>
 </head>
 
-<body>
+<body style="font-size: 14px;">
 <s:form action="estateInSave" namespace="/sysadmin/est/estatein" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
 <div class="contentTitle"><s:text name="contentTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
@@ -17,12 +18,11 @@
 <s:hidden name="estateInParameter.currentPage" />
 <s:hidden name="estateInParameter.maxResults" />
 <s:hidden name="estateInParameter._ne_estateId" />
-<s:hidden name="estateInParameter._se_title" />
+<s:hidden name="estateInParameter._slike_title" />
 <s:hidden name="estateInParameter._ne_provinceId" />
 <s:hidden name="estateInParameter._ne_cityId" />
 <s:hidden name="estateInParameter._ne_districtId" />
 <s:hidden name="estateInParameter._ne_areaId" />
-<s:hidden name="estateInParameter._se_address" />
 <s:hidden name="estateInParameter._ne_examine" />
 <s:hidden name="estateInParameter._ne_tradeMode" />
 <s:hidden name="estateInParameter._ne_estateType" />
@@ -32,20 +32,21 @@
 <s:hidden name="estateInParameter._ne_toilet" />
 <s:hidden name="estateInParameter._ne_porch" />
 <s:hidden name="estateInParameter._ne_toward" />
-<s:hidden name="estateInParameter._ne_buyPriceFrom" />
-<s:hidden name="estateInParameter._ne_buyPriceTo" />
-<s:hidden name="estateInParameter._ne_rentPriceFrom" />
-<s:hidden name="estateInParameter._ne_rentPriceTo" />
-<s:hidden name="estateInParameter._ne_areaFrom" />
-<s:hidden name="estateInParameter._ne_areaTo" />
+<s:hidden name="estateInParameter._nge_buyPriceFrom" />
+<s:hidden name="estateInParameter._nle_buyPriceTo" />
+<s:hidden name="estateInParameter._nge_rentPriceFrom" />
+<s:hidden name="estateInParameter._nle_rentPriceTo" />
+<s:hidden name="estateInParameter._nge_areaFrom" />
+<s:hidden name="estateInParameter._nle_areaTo" />
 <s:hidden name="estateInParameter._ne_isLift" />
 <s:hidden name="estateInParameter._ne_fitment" />
 <s:hidden name="estateInParameter._ne_device" />
-<s:hidden name="estateInParameter._se_remark" />
-<s:hidden name="estateInParameter._de_createTime" />
-<s:hidden name="estateInParameter._ne_createUserId" />
-<s:hidden name="estateInParameter._de_updateTime" />
-<s:hidden name="estateInParameter._ne_updateUserId" />
+<s:hidden name="estateInParameter._dge_createTime" />
+<s:hidden name="estateInParameter._dle_createTime" />
+
+
+<s:hidden name="estateId"/>
+<s:hidden name="tradeType" value="2"/>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -56,245 +57,260 @@
 	</tr>
 </table>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<p class="cGray02"><b>委托交易区 - 求租求售信息</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+有效期：<s:textfield name="effective" id="effective" size="2" />天</p>
+<div class="memberC_line"></div>
+<p class="est_title"><b>楼盘基本信息<span class="cOrange">(必填)</span></b></p>
+<div class="memberC_line"></div>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
+		<td class="label_td">
+			<label class="est_label" for=title><s:text name="title"/>:</label>
+		</td>
+		<td colspan="3">
+			<s:textfield name="title" id="title" cssClass="memberC_input04"/>
+		</td>
+	</tr>
+	<tr>
+  	<td class="label_td">
+  		<label class="est_label" for="provinceId"><s:text name="provinceId"/>:</label>
+  	</td>
+  	<td class="content_td">
+  		<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" cssClass="dropdown" 
+  		id="provinceId" name="provinceId" emptyOption="true" onchange="f_changeProvince()" listValue="itemName" listKey="itemKey"/>
+  	</td>
+    <td class="label_td">
+    	<label class="est_label" for="cityId"><s:text name="cityId"/>:</label>
+		</td>
+		<td class="content_td" id="cityTd">
+		
+		</td>
+  </tr>
+  <tr>
+		<td class="label_td">
+			<label class="est_label" for="districtId"><s:text name="districtId"/>:</label>
+			
+    </td>
+    <td class="content_td" id="districtTd">
+    
+    </td>
+    <td class="label_td">
+			<label class="est_label" for="area"><s:text name="areaId"/>:</label>
+			
+    </td>
+    <td class="content_td" id="areaTd">
+    
+    </td>
+  </tr>
+  <tr>
+		<td class="label_td">
+			<label class="est_label"><s:text name="area"/>:</label>
+		</td>
+		<td class="content_td">
+			<s:textfield name="areaFrom" cssClass="memberC_input08"/>m<sup>2</sup>到<s:textfield name="areaTo" cssClass="memberC_input08"/>m<sup>2</sup>
+		</td>
+	</tr>
+	<tr>
+		<td class="label_td">
+			<label class="est_label" for="estateType"><s:text name="estateType"/>:</label>
+    </td>
+    <td class="content_td">
+    	<s:select	list="@fsf.web.common.SelectTagStaticUtil@getConfig('$estate_type')" cssClass="dropdown"
+    	id="estateType" name="estateType" emptyOption="true" listValue="itemName" listKey="itemKey" />
+    </td>
+    <td class="label_td">
+			<label class="est_label" ><s:text name="structure"/>:</label>
+    </td>
+    <td class="content_td">
+    	<s:textfield name="hall" cssClass="memberC_input06" /><s:text name="hall"/>
+			<s:textfield name="bedroom" cssClass="memberC_input06" /><s:text name="bedroom"/>
+			<s:textfield name="toilet" cssClass="memberC_input06" /><s:text name="toilet"/>
+			<s:textfield name="porch" cssClass="memberC_input06" /><s:text name="porch"/>
+    </td>
+  </tr>
+	<tr>
+		<td class="label_td">
+			<label class="est_label" for="isLift"><s:text name="isLift"/>:</label>
+		</td>
+		<td class="content_td">
+			<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$is_lift')" cssClass="dropdown"
+		 	id="isLift" name="isLift" emptyOption="true" listValue="itemName" listKey="itemKey" />
+		</td>
 		<td>
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-				<tr>
-					<td>
-						<s:text name="estateId"/>:
-					</td>
-					<td>
-						<s:textfield name="estateId" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="title"/>:
-					</td>
-					<td>
-						<s:textfield name="title" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="provinceId"/>:
-					</td>
-					<td>
-						<s:textfield name="provinceId" />					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="cityId"/>:
-					</td>
-					<td>
-						<s:textfield name="cityId" />					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="districtId"/>:
-					</td>
-					<td>
-						<s:textfield name="districtId" />					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="areaId"/>:
-					</td>
-					<td>
-						<s:textfield name="areaId" />					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="address"/>:
-					</td>
-					<td>
-						<s:textfield name="address" />					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="examine"/>:
-					</td>
-					<td>
-						<s:textfield name="examine" />					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="tradeMode"/>:
-					</td>
-					<td>
-						<s:textfield name="tradeMode" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="estateType"/>:
-					</td>
-					<td>
-						<s:textfield name="estateType" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="buildYear"/>:
-					</td>
-					<td>
-						<s:textfield name="buildYear" />					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="hall"/>:
-					</td>
-					<td>
-						<s:textfield name="hall" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="bedroom"/>:
-					</td>
-					<td>
-						<s:textfield name="bedroom" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="toilet"/>:
-					</td>
-					<td>
-						<s:textfield name="toilet" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="porch"/>:
-					</td>
-					<td>
-						<s:textfield name="porch" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="toward"/>:
-					</td>
-					<td>
-						<s:textfield name="toward" />					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="buyPriceFrom"/>:
-					</td>
-					<td>
-						<s:textfield name="buyPriceFrom" />					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="buyPriceTo"/>:
-					</td>
-					<td>
-						<s:textfield name="buyPriceTo" />					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="rentPriceFrom"/>:
-					</td>
-					<td>
-						<s:textfield name="rentPriceFrom" />					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="rentPriceTo"/>:
-					</td>
-					<td>
-						<s:textfield name="rentPriceTo" />					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="areaFrom"/>:
-					</td>
-					<td>
-						<s:textfield name="areaFrom" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="areaTo"/>:
-					</td>
-					<td>
-						<s:textfield name="areaTo" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="isLift"/>:
-					</td>
-					<td>
-						<s:textfield name="isLift" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="fitment"/>:
-					</td>
-					<td>
-						<s:textfield name="fitment" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="device"/>:
-					</td>
-					<td>
-						<s:textfield name="device" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="remark"/>:
-					</td>
-					<td>
-						<s:textfield name="remark" />					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="createTime"/>:
-					</td>
-					<td>
-						<s:textfield name="createTime" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="createUserId"/>:
-					</td>
-					<td>
-						<s:textfield name="createUserId" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="updateTime"/>:
-					</td>
-					<td>
-						<s:textfield name="updateTime" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="updateUserId"/>:
-					</td>
-					<td>
-						<s:textfield name="updateUserId" /><font color="red">*</font>
-					</td>
-				</tr>
-			</table>
+			<label class="est_label" for="toward"><s:text name="toward"/>:</label>
+		</td>
+		<td>
+			<s:select	list="@fsf.web.common.SelectTagStaticUtil@getConfig('$toward')" cssClass="dropdown"
+		 	id="toward" name="toward" emptyOption="true" listValue="itemName" listKey="itemKey" />
+		</td>
+	</tr>
+	<tr>
+		<td class="label_td">
+			<label class="est_label" for="fitment"><s:text name="fitment"/>:</label>
+		</td>
+		<td class="content_td">
+			<s:select	list="@fsf.web.common.SelectTagStaticUtil@getConfig('$fitment',null,'6')" cssClass="dropdown"
+		 	id="fitment" name="fitment" emptyOption="true" listValue="itemName" listKey="itemKey" />
+		</td>
+		<td class="label_td">
+			<label class="est_label" for="device"><s:text name="device"/>:</label>
+		</td>
+		<td class="content_td">
+			<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$device',null,'4')" cssClass="dropdown"
+		 	id="device" name="device" emptyOption="true" listValue="itemName" listKey="itemKey" />
+		</td>
+	</tr>
+	<tr>
+		<td class="label_td">
+			<label class="est_label" for="examine"><s:text name="examine"/>:</label>
+		</td>
+		<td class="content_td">
+			<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$examine')" cssClass="dropdown"
+  		name="examine" id="examine" listValue="itemName" listKey="itemKey" onchange="f_chageTradeMode(this)"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="label_td">
+			<label class="est_label" for="tradeMode"><s:text name="tradeMode"/>:</label>
+		</td>
+		<td class="content_td">
+			<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$in_trade_mode')" cssClass="dropdown"
+  		name="tradeMode" id="tradeMode" listValue="itemName" listKey="itemKey" onchange="f_chageTradeMode(this)"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="label_td">
+			<label class="est_label" for="remark"><s:text name="remark"/>:</label>
+		</td>
+		<td colspan="3">
+			<s:textfield name="remark" />
+		</td>
+	</tr>
+	
+</table>
+
+<div id="saleDiv" style="display: none;">
+<div class="memberC_line"></div>
+<p class="est_title"><b>楼盘求售信息<span class="cOrange">(求售楼盘必填)</span></b></p>
+<div class="memberC_line"></div>
+</div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" id="saleTbl" style="display: none;">
+	<tr>
+		<td class="label_td">
+			<label class="est_label" ><s:text name="buyPrice"/>:
+		</td>
+		<td>
+			<s:textfield name="buyPriceFrom" />元-<s:textfield name="buyPriceTo" />元
 		</td>
 	</tr>
 </table>
+
+<div id="rentDiv" style="display: none;">
+<div class="memberC_line"></div>
+<p class="est_title"><b>楼盘求租信息<span class="cOrange">(求租楼盘必填)</span></b></p>
+<div class="memberC_line"></div>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="rentTbl" style="display: none;">
+	<tr>
+		<td class="label_td">
+			<label class="est_label" ><s:text name="rentPrice"/>:</label>
+		</td>
+		<td>
+			<s:textfield name="rentPriceFrom" />元/月-<s:textfield name="rentPriceTo" />元/月
+		</td>
+	</tr>
+</table>
+
+<div class="memberC_line"></div>
+<p class="est_title"><b>联系人信息</b></p>
+<div class="memberC_line"></div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" id="saleTbl" >
+	<tr>
+		<td class="label_td" >
+			<label class="est_label" >联系人</label>:
+    </td>
+    <td class="content_td" >
+    	<input value="${USER.userCode }" class="memberC_input01_readonly" readonly="true" />
+    </td>
+    <td class="label_td" >
+			<label class="est_label" >电话</label>:
+    </td>
+    <td class="content_td" >
+    	<input value="${USER.tel }" class="memberC_input01_readonly" readonly="true" />
+    </td>
+  </tr>
+  <tr>
+		<td class="label_td" >
+			<label class="est_label" >手机</label>:
+    </td>
+    <td class="content_td" >
+    	<input value="${USER.phone }" class="memberC_input01_readonly" readonly="true" />
+    </td>
+    <td class="label_td" >
+			<label class="est_label" >QQ</label>:
+    </td>
+    <td class="content_td" >
+    	<input value="${USER.qq }" class="memberC_input01_readonly" readonly="true" />
+    </td>
+  </tr>
+</table>
+
+<div class="memberC_line"></div>
+<p class="est_title"><b>其他信息</b></p>
+<div class="memberC_line"></div>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" >
+  <tr>
+		<td class="label_td" >
+			<s:text name="createTime"/>:
+		</td>
+		<td class="content_td" >
+			<s:textfield name="createTime"  cssClass="memberC_input01_readonly" readonly="true">
+				<s:param name="value">
+					<s:date name="createTime" format="yyyy-MM-dd"/>
+				</s:param>
+			</s:textfield>
+		</td>
+		<td class="label_td" >
+			<s:text name="createUserId" />:
+		</td>
+		<td class="content_td" >
+			<s:hidden name="createUserId"/>
+			<input class="memberC_input01_readonly" readonly="true" 
+			value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
+		</td>
+	</tr>
+	<tr>
+		<td class="label_td" >
+			<s:text name="updateTime"/>:
+		</td>
+		<td class="content_td" >
+			<s:textfield name="updateTime"  cssClass="memberC_input01_readonly" readonly="true">
+				<s:param name="value">
+					<s:date name="updateTime" format="yyyy-MM-dd"/>
+				</s:param>
+			</s:textfield>
+		</td>
+		<td class="label_td" >
+			<s:text name="updateUserId"/>:
+		</td>
+		<td class="content_td" >
+			<s:hidden name="updateUserId"/>
+			<input class="memberC_input01_readonly" readonly="true" 
+			value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
+		</td>
+	</tr>
+</table>
+
 </s:form>
 </body>
 </html>
 <script type="text/javascript">
+$(function() {
+	f_changeProvince(true);
+});
+
 function f_validate(){
 	fromName = "formItem";
 	addfield("estateId","<s:text name="estateId"/>","Integer",false,10);
@@ -328,5 +344,63 @@ function f_validate(){
 	addfield("updateTime","<s:text name="updateTime"/>","Date",false,19);
 	addfield("updateUserId","<s:text name="updateUserId"/>","Integer",false,10);
 	return validate();
+}
+function f_chageTradeMode(obj){
+	if(obj.value==1){
+		$('#rentDiv').show();
+		$('#rentTbl').show();
+		$('#saleDiv').hide();
+		$('#saleTbl').hide();
+	}else if(obj.value==2){
+		$('#rentDiv').hide();
+		$('#rentTbl').hide();
+		$('#saleDiv').show();
+		$('#saleTbl').show();
+	}else if(obj.value==3){
+		$('#rentDiv').show();
+		$('#rentTbl').show();
+		$('#saleDiv').show();
+		$('#saleTbl').show();
+	}else{
+		$('#rentDiv').hide();	
+		$('#rentTbl').hide();
+		$('#saleDiv').hide();
+		$('#saleTbl').hide();
+	}
+}
+function f_changeProvince(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	$.post("getCityList.action",{provinceId:$("#provinceId").val()},function(json){
+		var selectTag = new SelectTag("cityId","cityId",json.data,"itemKey","itemName","${cityId}","f_changeCity()");
+		$("#cityTd").html(selectTag.toString());
+		if(isIndex)
+			f_changeCity(isIndex);
+	},"json");
+}
+function f_changeCity(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	if($("#cityId").val()=="")
+		return;
+	$.post("getDistrictList.action",{provinceId:$("#provinceId").val(),cityId:$("#cityId").val()},function(json){
+		var selectTag = new SelectTag("districtId","districtId",json.data,"itemKey","itemName","${districtId}","f_changeDistrict()");
+		$("#districtTd").html(selectTag.toString());
+		if(isIndex)
+			f_changeDistrict(isIndex);
+	},"json");
+}
+
+function f_changeDistrict(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	if($("#cityId").val()=="")
+		return;
+	if($("#districtId").val()=="")
+		return;
+	$.post("getBusinessareaList.action",{provinceId:$("#provinceId").val(),cityId:$("#cityId").val(),districtId:$("#districtId").val()},function(json){
+		var selectTag = new SelectTag("areaId","areaId",json.data,"itemKey","itemName","${areaId}");
+		$("#areaTd").html(selectTag.toString());
+	},"json");
 }
 </script>

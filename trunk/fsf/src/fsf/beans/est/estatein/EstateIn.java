@@ -20,9 +20,10 @@ public class EstateIn implements java.io.Serializable {
 	private Integer cityId;
 	private Integer districtId;
 	private Integer areaId;
+	private Short tradeType;
+	private Integer contactUserId;
 	private Short tradeMode;
 	private Short estateType;
-	private Integer buildYear;
 	private Integer hall;
 	private Integer bedroom;
 	private Integer toilet;
@@ -44,65 +45,6 @@ public class EstateIn implements java.io.Serializable {
 	private Integer updateUserId;
 
 	public EstateIn() {
-	}
-
-	public EstateIn(String title, Short tradeMode, Short estateType, Integer hall,
-			Integer bedroom, Integer toilet, Integer porch, Double areaFrom, Double areaTo,
-			Short isLift, Short fitment, Short device, Date createTime,
-			Integer createUserId, Date updateTime, Integer updateUserId) {
-		this.title = title;
-		this.tradeMode = tradeMode;
-		this.estateType = estateType;
-		this.hall = hall;
-		this.bedroom = bedroom;
-		this.toilet = toilet;
-		this.porch = porch;
-		this.areaFrom = areaFrom;
-		this.areaTo = areaTo;
-		this.isLift = isLift;
-		this.fitment = fitment;
-		this.device = device;
-		this.createTime = createTime;
-		this.createUserId = createUserId;
-		this.updateTime = updateTime;
-		this.updateUserId = updateUserId;
-	}
-
-	public EstateIn(String title, Integer provinceId, Integer cityId,
-			Integer districtId, Integer areaId, Short tradeMode,
-			Short estateType, Integer buildYear, Integer hall, Integer bedroom,
-			int toilet, Integer porch, Integer toward, Double buyPriceFrom,
-			Double buyPriceTo, Double rentPriceFrom, Double rentPriceTo,
-			Double areaFrom, Double areaTo, Short isLift, Short fitment,
-			Short device, String remark, Date createTime, Integer createUserId,
-			Date updateTime, Integer updateUserId) {
-		this.title = title;
-		this.provinceId = provinceId;
-		this.cityId = cityId;
-		this.districtId = districtId;
-		this.areaId = areaId;
-		this.tradeMode = tradeMode;
-		this.estateType = estateType;
-		this.buildYear = buildYear;
-		this.hall = hall;
-		this.bedroom = bedroom;
-		this.toilet = toilet;
-		this.porch = porch;
-		this.toward = toward;
-		this.buyPriceFrom = buyPriceFrom;
-		this.buyPriceTo = buyPriceTo;
-		this.rentPriceFrom = rentPriceFrom;
-		this.rentPriceTo = rentPriceTo;
-		this.areaFrom = areaFrom;
-		this.areaTo = areaTo;
-		this.isLift = isLift;
-		this.fitment = fitment;
-		this.device = device;
-		this.remark = remark;
-		this.createTime = createTime;
-		this.createUserId = createUserId;
-		this.updateTime = updateTime;
-		this.updateUserId = updateUserId;
 	}
 
 	public Integer getEstateId() {
@@ -167,14 +109,6 @@ public class EstateIn implements java.io.Serializable {
 
 	public void setEstateType(Short estateType) {
 		this.estateType = estateType;
-	}
-
-	public Integer getBuildYear() {
-		return this.buildYear;
-	}
-
-	public void setBuildYear(Integer buildYear) {
-		this.buildYear = buildYear;
 	}
 
 	public Integer getHall() {
@@ -328,4 +262,21 @@ public class EstateIn implements java.io.Serializable {
 	public void setUpdateUserId(Integer updateUserId) {
 		this.updateUserId = updateUserId;
 	}
+
+	public Short getTradeType() {
+		return tradeType;
+	}
+
+	public void setTradeType(Short tradeType) {
+		this.tradeType = tradeType;
+	}
+
+	public Integer getContactUserId() {
+		return contactUserId;
+	}
+
+	public void setContactUserId(Integer contactUserId) {
+		this.contactUserId = contactUserId;
+	}
+	
 }
