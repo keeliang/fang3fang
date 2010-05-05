@@ -554,10 +554,9 @@ CREATE TABLE forum_moderation_log (
 	KEY(post_user_id)
 ) TYPE=InnoDB DEFAULT CHARSET=utf8;
 
---
---修改表结构
---
---在forum_users表中增加一个字段sys_user_code，其值为系统用户表的user_code
+/*修改表结构*/
+
+/*在forum_users表中增加一个字段sys_user_code，其值为系统用户表的user_code*/
 CREATE PROCEDURE tempSp() BEGIN
 IF EXISTS(
     SELECT * FROM information_schema.COLUMNS
@@ -567,7 +566,7 @@ THEN
     alter table forum_users drop sys_user_code;
 END IF;
 
-alter table forum_users add sys_user_code varchar(50) not null default 0 comment '系统用户表编码' after user_id;
+alter table forum_users add sys_user_code varchar(50) not null default '' comment '系统用户表编码' after user_id;
 
 END;
 

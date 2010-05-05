@@ -67,6 +67,20 @@ INSERT INTO forum_topics VALUES (1,1,'Welcome to forum',2,'2005-01-04 16:59:54',
 INSERT INTO forum_posts VALUES (1,1,1,2,'2005-01-04 16:59:54','127.0.0.1',1,0,1,1,null,0,1,0,0);
 INSERT INTO forum_posts_text VALUES (1,'[b][color=blue][size=18]Congratulations :!: [/size][/color][/b]\nYou have completed the installation, and forum is up and running. \n\nTo start administering the board, login as [i]Admin / <the password you supplied in the installer>[/i] and access the [b][url=/admBase/login.page]Admin Control Panel[/url][/b] using the link that shows up in the bottom of the page. There you will be able to create Categories, Forums and much more  :D  \n\nFor more information and support, please refer to the following pages:\n\n:arrow: Community forum: http://www.forum.net/community.jsp\n:arrow: Documentation: http://www.forum.net/doc\n\nThank you for choosing forum.\n\n[url=http://www.forum.net/doc/Team]The forum Team[/url]\n\n','Welcome to forum');
 
+INSERT INTO forum_categories VALUES (2,'业主论坛',2,0);
+INSERT INTO forum_forums VALUES (2,2,'华南碧桂园','住在这一区的业主请进来报到！',2,0,0,0);
+INSERT INTO forum_forums VALUES (3,2,'祈福新村','住在这一区的业主请进来报到！',3,0,0,0);
+INSERT INTO forum_forums VALUES (4,2,'华景新城','简介： 住在这一区的业主请进来报到！',4,0,0,0);
+
+INSERT INTO forum_categories VALUES (3,'生活相关',3,0);
+INSERT INTO forum_forums VALUES (5,3,'休闲灌水','最新圈内猛料、小道新闻、八卦评论，娱乐本无罪，一起来侃吧！',5,0,0,0);
+INSERT INTO forum_forums VALUES (6,3,'笑话故事','',6,0,0,0);
+INSERT INTO forum_forums VALUES (7,3,'动漫专区','',7,0,0,0);
+
+INSERT INTO forum_categories VALUES (4,'站务专区',4,0);
+INSERT INTO forum_forums VALUES (8,4,'新人疑问','',8,0,0,0);
+INSERT INTO forum_forums VALUES (9,4,'站务管理','',9,0,0,0);
+
 #
 # Roles
 #
@@ -77,7 +91,7 @@ INSERT INTO forum_roles (group_id, name) VALUES (@GENERAL_GROUP_ID, 'perm_create
 INSERT INTO forum_roles (group_id, name) VALUES (@GENERAL_GROUP_ID, 'perm_bookmarks_enabled');
 INSERT INTO forum_roles (group_id, name) VALUES (@GENERAL_GROUP_ID, 'perm_attachments_download');
 INSERT INTO forum_roles (group_id, name) VALUES (@GENERAL_GROUP_ID, 'perm_create_sticky_announcement_topics');
-INSERT INTO forum_roles (group_id, name) VALUES (@GENERAL_GROUP_ID, 'perm_moderation_log');
+/*INSERT INTO forum_roles (group_id, name) VALUES (@GENERAL_GROUP_ID, 'perm_moderation_log');*/
 
 # Admin
 INSERT INTO forum_roles (group_id, name) VALUES (@ADMIN_GROUP_ID, 'perm_administration');
@@ -101,75 +115,211 @@ INSERT INTO forum_roles (group_id, name) VALUES (@ADMIN_GROUP_ID, 'perm_full_mod
 #
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_forum', @GENERAL_GROUP_ID);
 INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 	
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_forum', @ADMIN_GROUP_ID);
 INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 #
 # Anonymous posts
 #
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_anonymous_post', @GENERAL_GROUP_ID);
 INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_anonymous_post', @ADMIN_GROUP_ID);
 INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 #
 # View Category
 #
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_category', @GENERAL_GROUP_ID);
 INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_category', @ADMIN_GROUP_ID);
 INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 #
 # Create / Reply to topics
 #
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_read_only_forums', @GENERAL_GROUP_ID);
-INSERT INTO forum_role_values ( role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_read_only_forums', @ADMIN_GROUP_ID);
-INSERT INTO forum_role_values ( role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 # 
 # Enable HTML
 #
 INSERT INTO forum_roles (name, group_id ) VALUES ('perm_html_disabled', @GENERAL_GROUP_ID);
-INSERT INTO forum_role_values ( role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 INSERT INTO forum_roles (name, group_id ) VALUES ('perm_html_disabled', @ADMIN_GROUP_ID);
-INSERT INTO forum_role_values ( role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 #
 # Attachments
 #
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_attachments_enabled', @GENERAL_GROUP_ID);
-INSERT INTO forum_role_values ( role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_attachments_enabled', @ADMIN_GROUP_ID);
-INSERT INTO forum_role_values ( role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 #
 # Reply only
 #
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_reply_only',  @GENERAL_GROUP_ID);
-INSERT INTO forum_role_values ( role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_reply_only', @ADMIN_GROUP_ID);
-INSERT INTO forum_role_values ( role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 #
 # Reply without moderation
 #
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_reply_without_moderation',  @GENERAL_GROUP_ID);
-INSERT INTO forum_role_values ( role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_reply_without_moderation', @ADMIN_GROUP_ID);
-INSERT INTO forum_role_values ( role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
 
 #
 # Moderation of forums
 #
 INSERT INTO forum_roles (name, group_id) VALUES ('perm_moderation_forums', @ADMIN_GROUP_ID);
-INSERT INTO forum_role_values ( role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value ) VALUES (LAST_INSERT_ID(), '1');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '2');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '3');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '4');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '5');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '6');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '7');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '8');
+INSERT INTO forum_role_values (role_id, role_value) VALUES (LAST_INSERT_ID(), '9');
