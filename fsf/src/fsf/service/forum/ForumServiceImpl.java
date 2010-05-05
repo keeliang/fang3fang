@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import fsf.beans.forum.ForumUser;
+import fsf.beans.forum.ForumUserGroups;
 import fsf.beans.sys.user.User;
 import fsf.dao.forum.ForumDao;
 @Service
@@ -13,6 +14,7 @@ public class ForumServiceImpl implements ForumService {
 
 	public void addForumUser(User user) {
 		ForumUser forumUser = new ForumUser();
+		ForumUserGroups forumUserGroups = new ForumUserGroups();
 		forumUser.setSysUserCode(user.getUserCode());
 		forumUser.setUsername(user.getUserName());
 		forumUser.setUserPassword(user.getPassword());
@@ -47,7 +49,11 @@ public class ForumServiceImpl implements ForumService {
 		forumUser.setUserUnreadPrivmsg(0);
 		forumUser.setUserAvatarType(0);
 		forumUser.setRankId(0);
-		forumDao.save(forumUser);
+		int userId = forumDao.save(forumUser);
+		
+		forumUserGroups.setGroupId(1);
+		forumUserGroups.setUserId(userId);
+		forumDao.save(forumUserGroups);
 	}
 
 	public boolean checkForumUser(String userCode) {

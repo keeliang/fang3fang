@@ -6,8 +6,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import net.jforum.util.MD5;
-
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -16,6 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import fsf.beans.sys.user.User;
 import fsf.service.forum.ForumService;
+import fsf.util.MD5;
 
 @Controller
 @Scope("prototype")
@@ -33,9 +32,10 @@ public class ForumAction extends ActionSupport {
 		 */
 		if(user==null){
 			user = new User();
+			MD5 md5 = new MD5();
 			user.setUserCode("2010050400000001");
 			user.setUserName("test");
-			user.setPassword(MD5.crypt("test"));
+			user.setPassword(md5.getMD5ofStr("test"));
 			user.setCreateDate(new Date());
 			user.setEmail("aa@test.com");
 			user.setMsn("test@hotmail.com");
@@ -53,7 +53,7 @@ public class ForumAction extends ActionSupport {
 			forumService.addForumUser(user);
 		}
 		req.setAttribute("username", user.getUserName());
-		req.setAttribute("password","test");
+		req.setAttribute("password",user.getPassword());
 		req.setAttribute("returnPath", "");
 		req.setAttribute("autologin", "false");
 		return "forumLogin";
