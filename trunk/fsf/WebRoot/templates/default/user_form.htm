@@ -79,8 +79,9 @@ function validateForm()
 					<td class="row1"><span class="gen">${I18n.getMessage("User.emailAddress")}: *</span></td>
 					<td class="row2"><input type="text" class="post" style="WIDTH: 200px" maxlength="255" size="25" name="email" value="${u.email?default("")?html}" /></td>
 				</tr>
-			
-				<#if !admin?default(false)>
+			  
+				<#--if !admin?default(false)-->
+				<!--
 				<tr>
 					<td class="row1">
 						<span class="gen">${I18n.getMessage("User.currentPassword")}: *</span><br />
@@ -88,8 +89,9 @@ function validateForm()
 					</td>
 					<td class="row2"><input name="current_password" type="password" class="post" id="current_password" style="WIDTH: 200px" size="25" maxlength="100" /> </td>
 				</tr>
-				</#if>
-
+				-->
+				</#--if-->
+<!--
 				<tr>
 					<td class="row1">
 						<span class="gen">${I18n.getMessage("User.newPassword")}: *</span><br />
@@ -105,7 +107,7 @@ function validateForm()
 					</td>
 					<td class="row2"><input class="post" style="WIDTH: 200px" type="password" maxlength="100" size="25" name="password_confirm" /> </td>
 				</tr>
-
+-->
 				<tr>
 					<th class="thsides" valign="middle" colspan="2" height="25">${I18n.getMessage("User.preferencesInfo")}</th>
 				</tr>
