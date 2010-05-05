@@ -557,5 +557,19 @@ CREATE TABLE forum_moderation_log (
 --
 --修改表结构
 --
-alter table forum_users drop sys_user_code,
-	add sys_user_code varchar(50) not null default 0 comment '系统用户表编码' after user_id;
+--在forum_users表中增加一个字段sys_user_code，其值为系统用户表的user_code
+CREATE PROCEDURE tempSp() BEGIN
+IF EXISTS(
+    SELECT * FROM information_schema.COLUMNS
+    WHERE COLUMN_NAME='sys_user_code' AND TABLE_NAME='forum_users'
+)
+THEN
+    alter table forum_users drop sys_user_code;
+END IF;
+
+alter table forum_users add sys_user_code varchar(50) not null default 0 comment '系统用户表编码' after user_id;
+
+END;
+
+CALL tempSp();
+DROP PROCEDURE tempSp;
