@@ -18,5 +18,5 @@ public interface ForumDao {
 	 * @return
 	 * @throws RuntimeException
 	 */
-	public void save(Serializable entity) throws RuntimeException;
+	public int save(Serializable entity) throws RuntimeException;
 }

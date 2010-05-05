@@ -89,7 +89,15 @@ public class DefaultLoginAuthenticator implements LoginAuthenticator
 			p = JForumExecutionContext.getConnection().prepareStatement(
 					SystemGlobals.getSql("UserModel.login"));
 			p.setString(1, username);
-			p.setString(2, MD5.crypt(password));
+			//for test start
+			if(password.length()<32){
+				p.setString(2, MD5.crypt(password));
+			}else{
+				p.setString(2, password);
+			}
+			//for test end
+			//p.setString(2, MD5.crypt(password));
+			//p.setString(2, password);
 
 			rs = p.executeQuery();
 			if (rs.next() && rs.getInt("user_id") > 0) {

@@ -30,7 +30,8 @@ public class ForumDaoImpl extends HibernateDaoSupport implements ForumDao {
 		return flag;
 	}
 	
-	public void save(Serializable entity) throws RuntimeException{
-		getHibernateTemplate().save(entity);
+	public int save(Serializable entity) throws RuntimeException{
+		Integer userId = (Integer)getHibernateTemplate().save(entity);
+		return userId.intValue();
 	}
 }
