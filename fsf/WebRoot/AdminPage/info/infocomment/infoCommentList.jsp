@@ -2,8 +2,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title><s:text name="listPageTitle"/></title>
 <%@include file="/share/share.jsp" %>
+<title><s:text name="listPageTitle"/></title>
 <%@include file="/share/validate.jsp" %>
 <link type="text/css" rel="stylesheet" href="/css/Common.css" />
 <link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
