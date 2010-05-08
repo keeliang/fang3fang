@@ -30,7 +30,7 @@ public class ForumAction extends ActionSupport {
 		/*
 		 * test
 		 */
-		if(user==null){
+		/*if(user==null){
 			user = new User();
 			MD5 md5 = new MD5();
 			user.setUserCode("2010050400000001");
@@ -41,19 +41,32 @@ public class ForumAction extends ActionSupport {
 			user.setMsn("test@hotmail.com");
 			user.setAddress("test address");
 			user.setStatus((short)1);
-		}
+			user.setUserType((short)0);
+		}*/
 		
 		if(user==null || "".equals(user.getUserCode())){
 			return "fsfLogin";
 		}
 		
-		if(!forumService.checkForumUser(user.getUserCode())){
+		//if user is admin or super adminstrator, not insert a record in forum user
+		if(!forumService.checkForumUser(user.getUserCode()) && user.getUserType()>1){
 			//the user does not exists in forum_users table
 			//insert into forum_users
 			forumService.addForumUser(user);
 		}
-		req.setAttribute("username", user.getUserName());
-		req.setAttribute("password",user.getPassword());
+		
+		String loginUserName="";
+		String loginPassword="";
+		//if user is adminstrator or supper adminstrator,user Admin admin to login
+		if(user.getUserType()>1){
+			loginUserName = "Admin";
+			loginUserName = "21232f297a57a5a743894a0e4a801fc3";
+		}else{
+			loginUserName = user.getUserName();
+			loginUserName = user.getPassword();
+		}
+		req.setAttribute("username", loginUserName);
+		req.setAttribute("password",loginPassword);
 		req.setAttribute("returnPath", "");
 		req.setAttribute("autologin", "false");
 		return "forumLogin";
