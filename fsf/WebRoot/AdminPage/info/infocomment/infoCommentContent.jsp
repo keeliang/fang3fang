@@ -131,7 +131,13 @@
 </html>
 <script type="text/javascript">
 function f_selectInformation(){
-	showModalDialog("selectInfo.action",document,"dialogWidth:800px;dialogHeight:600px;");
+	showModalDialog("selectInfo.action",window,"dialogWidth:800px;dialogHeight:600px;");
+}
+function f_finishSelectInfo(obj){
+	if(obj){
+		document.forms["formItem"]["infoCommentParameter._ne_informationId"].value = obj.newsId;
+		document.forms["formItem"]["informationTitle"].value = obj.newsTitle;
+	}
 }
 function f_validate(){
 	fromName = "formItem";

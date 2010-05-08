@@ -145,21 +145,9 @@ function f_selectInfo(){
 	if(bln){
 		var obj =  {"newsId":id,"newsTitle":title};
 		if(document.all){
-			if(window.dialogArguments.forms["formList"]){
-				window.dialogArguments.forms["formList"]["infoCommentParameter._ne_informationId"].value = obj.newsId;
-				window.dialogArguments.forms["formList"]["informationTitle"].value = obj.newsTitle;
-			}else if(window.dialogArguments.forms["formItem"]){
-				window.dialogArguments.forms["formItem"]["informationId"].value = obj.newsId;
-				window.dialogArguments.forms["formItem"]["informationTitle"].value = obj.newsTitle;
-			}
+			window.dialogArguments.f_finishSelectInfo(obj)
 		}else{
-			if(window.parent.opener.document.forms["formList"]){
-				window.parent.opener.document.forms["formList"]["infoCommentParameter._ne_informationId"].value = obj.newsId;
-				window.parent.opener.document.forms["formList"]["informationTitle"].value = obj.newsTitle;
-			}else if(window.parent.opener.document.forms["formItem"]){
-				window.parent.opener.document.forms["formItem"]["informationId"].value = obj.newsId;
-				window.parent.opener.document.forms["formItem"]["informationTitle"].value = obj.newsTitle;
-			}
+			window.parent.opener.f_finishSelectInfo(obj)
 		}
 		window.parent.close();
 	}else{

@@ -39,7 +39,12 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">
-			<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
+			<s:if test="cmd=='edit'">
+				<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
+			</s:if>
+			<s:if test="cmd=='select'">
+				<input type="button" onclick="f_selectUser()" value="<s:text name="g_select"/>" >
+			</s:if>
 			<input type="button" onclick="g_back('/sysadmin/sys/user/userList.action')" value="<s:text name="g_back"/>" >
 		</td>
 	</tr>
@@ -64,6 +69,9 @@
 			</td>
 		</tr>
 	</s:if>
+	<s:else>
+		<s:hidden name="password"/>
+	</s:else>
 	<tr>
 		<td>
 			<s:text name="question"/>:
@@ -361,6 +369,16 @@ function f_changeWorkCity(){
 		var selectTag = new SelectTag("districtId","districtId",json.data,"itemKey","itemName","${districtId}");
 		$("#workDistrictTd").html(selectTag.toString()+"<font color='red'>*</font>");
 	},"json");
+}
+
+function f_selectUser(){
+	var entity = {"userId":"${userId}","userCode":"${userCode}"};
+	if(document.all){
+		window.dialogArguments.f_finishSelectUser(entity);
+	}else{
+		window.parent.opener.f_finishSelectUser(entity);
+	}
+	window.parent.close();
 }
 
 </script>

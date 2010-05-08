@@ -94,9 +94,17 @@
 			<result>/AdminPage/est/estateout/estateOwnOutList.jsp</result>
 			<result name="input">/AdminPage/est/estateout/estateOwnOutList.jsp</result>
 		</action>
+		<action name="estateOutExamineFrm" class="estateOutAction" method="doSuccess">
+			<result>/AdminPage/est/estateout/estateOutExamineFrm.jsp</result>
+		</action>
+		
 		<action name="estateOutExamine" class="estateOutAction" method="doExamine">
 			<result>/AdminPage/est/estateout/estateOutExamine.jsp</result>
-			<result name="input">/AdminPage/est/estateout/estateOwnOutExamine.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOutExamine.jsp</result>
+		</action>
+		<action name="examineSubmit" class="estateOutAction" method="doExamineSubmit">
+			<result>/AdminPage/est/estateout/estateOutExamine.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOutExamine.jsp</result>
 		</action>
 	</package>
 	<!-- ********************************************** -->
