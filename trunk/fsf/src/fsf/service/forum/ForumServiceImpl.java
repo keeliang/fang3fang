@@ -14,7 +14,6 @@ public class ForumServiceImpl implements ForumService {
 
 	public void addForumUser(User user) {
 		ForumUser forumUser = new ForumUser();
-		ForumUserGroups forumUserGroups = new ForumUserGroups();
 		forumUser.setSysUserCode(user.getUserCode());
 		forumUser.setUsername(user.getUserName());
 		forumUser.setUserPassword(user.getPassword());
@@ -51,6 +50,8 @@ public class ForumServiceImpl implements ForumService {
 		forumUser.setRankId(0);
 		int userId = forumDao.save(forumUser);
 		
+		//forum group
+		ForumUserGroups forumUserGroups = new ForumUserGroups();
 		forumUserGroups.setGroupId(1);
 		forumUserGroups.setUserId(userId);
 		forumDao.save(forumUserGroups);
