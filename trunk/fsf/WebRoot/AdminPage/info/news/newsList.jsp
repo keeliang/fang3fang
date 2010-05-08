@@ -144,23 +144,9 @@ function f_selectNews(){
 	if(bln){
 		var obj =  {"newsId":id,"newsTitle":title};
 		if(document.all){
-			if(window.dialogArguments.forms["formList"]){
-				alert(1);
-				window.dialogArguments.forms["formList"]["newsCommentParameter._ne_newsId"].value = obj.newsId;
-				window.dialogArguments.forms["formList"]["newsTitle"].value = obj.newsTitle;
-			}else if(window.dialogArguments.forms["formItem"]){
-				alert(2);
-				window.dialogArguments.forms["formItem"]["newsId"].value = obj.newsId;
-				window.dialogArguments.forms["formItem"]["newsTitle"].value = obj.newsTitle;
-			}
+			window.dialogArguments.f_finishSelectNews(obj);
 		}else{
-			if(window.parent.opener.document.forms["formList"]){
-				window.parent.opener.document.forms["formList"]["newsCommentParameter._ne_newsId"].value = obj.newsId;
-				window.parent.opener.document.forms["formList"]["newsTitle"].value = obj.newsTitle;
-			}else if(window.parent.opener.document.forms["formItem"]){
-				window.parent.opener.document.forms["formItem"]["newsId"].value = obj.newsId;
-				window.parent.opener.document.forms["formItem"]["newsTitle"].value = obj.newsTitle;
-			}
+			window.parent.opener.f_finishSelectNews(obj);
 		}
 		window.parent.close();
 	}else{

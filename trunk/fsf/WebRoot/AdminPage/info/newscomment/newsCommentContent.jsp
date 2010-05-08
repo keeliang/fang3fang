@@ -133,7 +133,13 @@
 </html>
 <script type="text/javascript">
 function f_selectNews(){
-	showModalDialog("selectNews.action",document,"dialogWidth:800px;dialogHeight:600px;");
+	showModalDialog("selectNews.action",window,"dialogWidth:800px;dialogHeight:600px;");
+}
+function f_finishSelectNews(obj){
+	if(obj){
+		document.forms["formItem"]["newsId"].value = obj.newsId;
+		document.forms["formItem"]["newsTitle"].value = obj.newsTitle;
+	}
 }
 function f_validate(){
 	fromName = "formItem";

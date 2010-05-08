@@ -127,6 +127,12 @@
 </html>
 <script type="text/javascript">
 function f_selectInfo(){
-	showModalDialog("selectInfo.action",document,"dialogWidth:800px;dialogHeight:600px;");
+	showModalDialog("selectInfo.action",window,"dialogWidth:800px;dialogHeight:600px;");
+}
+function f_finishSelectInfo(obj){
+	if(obj){
+		document.forms["formList"]["infoCommentParameter._ne_informationId"].value = obj.newsId;
+		document.forms["formList"]["informationTitle"].value = obj.newsTitle;
+	}
 }
 </script>

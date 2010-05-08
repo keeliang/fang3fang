@@ -133,9 +133,21 @@
 </html>
 <script type="text/javascript">
 function f_selectNews(){
-	showModalDialog("selectNews.action",document,"dialogWidth:800px;dialogHeight:600px;");
+	showModalDialog("selectNews.action",window,"dialogWidth:800px;dialogHeight:600px;");
+}
+function f_finishSelectNews(obj){
+	if(obj){
+		document.forms["formList"]["newsCommentParameter._ne_newsId"].value = obj.newsId;
+		document.forms["formList"]["newsTitle"].value = obj.newsTitle;
+	}
 }
 function f_selectUser(){
-	showModalDialog("selectUser.action",document,"dialogWidth:800px;dialogHeight:600px;");
+	showModalDialog("selectUser.action",window,"dialogWidth:800px;dialogHeight:600px;");
+}
+function f_finishSelectUser(obj){
+	if(obj){
+		document.forms["formList"]["newsCommentParameter._ne_createUserId"].value = obj.userId;
+		document.forms["formList"]["userCode"].value = obj.userCode;
+	}
 }
 </script>

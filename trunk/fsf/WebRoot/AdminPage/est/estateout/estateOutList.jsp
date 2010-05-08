@@ -285,13 +285,10 @@
 		<td><s:text name="salePrice"/></td>
 		<td><s:text name="contactUserId"/></td>
 		<td><s:text name="createTime"/></td>
-		<td>操作</td>
+		<td><s:text name="examine"/></td>
 	</tr>
 	<s:iterator value="pageView.records" id="item">
 		<s:url action="estateOutEdit" namespace="/sysadmin/est/estateout" id="url">
-			<s:param name="estateId" value="#item.estateId"></s:param>
-		</s:url>
-		<s:url action="estateOutExamine" namespace="/sysadmin/est/estateout" id="examineUrl">
 			<s:param name="estateId" value="#item.estateId"></s:param>
 		</s:url>
 		<tr>
@@ -306,12 +303,7 @@
 				<s:date name="createTime" format="yyyy-MM-dd"/>
 			</td>
 			<td>
-				<s:if test="examine ==0 ">
-					<a href="${examineUrl }">审核</a>
-				</s:if>
-				<s:if test="examine ==1">
-					已审核
-				</s:if>
+				<fsf:dictTranslate groupName="$examine" value="examine" />				
 			</td>
 		</tr>
 	</s:iterator>
@@ -331,7 +323,6 @@
 $(function() {
 	f_changeProvince(true);
 });
-
 function f_validate(){
 	fromName = "formList";
 	addfield("estateOutParameter._nge_area","<s:text name="_nge_area"/>","Number",true,6,2);

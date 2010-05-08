@@ -62,7 +62,7 @@
         <property name="remark" type="string">
             <column name="remark" length="65535" />
         </property>
-        <property name="createDate" type="timestamp">
+        <property name="createDate" type="timestamp" update="false">
             <column name="create_date" length="19" not-null="true" />
         </property>
         <property name="imagePath" type="string">

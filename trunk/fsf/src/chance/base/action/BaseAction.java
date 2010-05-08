@@ -32,6 +32,7 @@ public abstract class BaseAction<E> extends ActionSupport {
 	private static final long serialVersionUID = -6546324092910006337L;
 	public static final String CMD_NEW = "new";
 	public static final String CMD_EDIT = "edit";
+	public static final String CMD_SELECT = "select";
 	public static final String NOPRIVILEGE = "noPrivilege";
 	
 	protected Service<E> service;
@@ -163,7 +164,9 @@ public abstract class BaseAction<E> extends ActionSupport {
 	 * @throws Exception
 	 */
 	public String doEdit()throws Exception{
-		cmd = CMD_EDIT;
+		if(!CMD_SELECT.equals(cmd)){
+			cmd = CMD_EDIT;
+		}
 		E entity = null;
 		try{
 			if(pkArray.length==1){
@@ -274,7 +277,7 @@ public abstract class BaseAction<E> extends ActionSupport {
 	 * @param entity
 	 * @throws Exception
 	 */
-	private void restoreContent(E entity)throws Exception{
+	protected void restoreContent(E entity)throws Exception{
 		if(entity!=null){
 			BeanUtils.copyProperties(this, entity);
 			if(isBusinessPK)

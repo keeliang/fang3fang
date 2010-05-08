@@ -149,6 +149,7 @@
 </table>
 
 <div style="text-align: right;">
+	
 	<s:if test="cmd!='select'">
 		<input type="button" onclick="g_new('/sysadmin/sys/user/userNew.action')" value="<s:text name="g_new"/>"/>
 		<input type="button" onclick="g_delete('/sysadmin/sys/user/userDelete.action');" value="<s:text name="g_delete"/>">
@@ -176,9 +177,9 @@
 	<td class="table_hdr"><s:text name="provinceId"/></td>
 	<td class="table_hdr"><s:text name="cityId"/></td>
 	<td class="table_hdr"><s:text name="districtId"/></td>
+	<td class="table_hdr"><s:text name="tel"/></td>
 	<td class="table_hdr"><s:text name="phone"/></td>
 	<td class="table_hdr"><s:text name="qq"/></td>
-	<td class="table_hdr"><s:text name="msn"/></td>
 	<td class="table_hdr"><s:text name="email"/></td>
 	<td class="table_hdr"><s:text name="createDate"/></td>
 </tr>
@@ -209,9 +210,9 @@
 		<td>
 			<fsf:dictTranslate groupName="#district" value="districtId"/>
 		</td>
+		<td><s:property value="tel"/></td>
 		<td><s:property value="phone"/></td>
 		<td><s:property value="qq"/></td>
-		<td><s:property value="msn"/></td>
 		<td><s:property value="email"/></td>
 		<td>
 			<s:date name="createDate" format="yyyy-MM-dd"/>
@@ -257,7 +258,7 @@ function f_changeCity(){
 
 function f_selectUser(){
 	var bln = false;
-	var id,code ;
+	var id,code,phone ;
 	var arySelectedPK = document.getElementsByName("selectedPK");
 	for(var i=0;i<arySelectedPK.length;i++){
 		if(arySelectedPK[i].checked ){
@@ -266,22 +267,23 @@ function f_selectUser(){
 			}else{
 				id = arySelectedPK[i].value;
 				code = $(arySelectedPK[i].parentNode.parentNode).find("td:eq(1)>a").text();
-				bln = true;			
+				strTel = $(arySelectedPK[i].parentNode.parentNode).find("td:eq(9)").text();
+				strPhone = $(arySelectedPK[i].parentNode.parentNode).find("td:eq(10)").text();
+				strQQ = $(arySelectedPK[i].parentNode.parentNode).find("td:eq(11)").text();
+				bln = true;
 			}
 		}
 	}
 	if(bln){
-		var obj =  {"userId":id,"userCode":code};
+		var obj =  {"userId":id,"userCode":code,"tel":strTel,"phone":strPhone,"QQ":strQQ};
 		if(document.all){
-			window.dialogArguments.forms["formList"]["newsCommentParameter._ne_createUserId"].value = obj.userId;
-			window.dialogArguments.forms["formList"]["userCode"].value = obj.userCode;
+			window.dialogArguments.f_finishSelectUser(obj);
 		}else{
-			window.parent.opener.document.forms["formList"]["newsCommentParameter._ne_createUserId"].value = obj.userId;
-			window.parent.opener.document.forms["formList"]["userCode"].value = obj.userCode;
+			window.parent.opener.f_finishSelectUser(obj);
 		}
 		window.parent.close();
 	}else{
-		alert("请选择一条新闻");
+		alert("请选择一条用户");
 	}
 }
 </script>

@@ -27,6 +27,16 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 		super(EstateOut.class, new String[] { "estateId" });
 	}
 	
+	public String doExamine() throws Exception {
+		EstateOut eo = getEstateOutService().get(estateId); 
+		if(eo!=null)
+			restoreContent(eo);
+		else{
+			
+		}
+		return SUCCESS;
+	}
+	
 	public String getCityList() throws Exception {
 		BaseParameter param = new BaseParameter();
 		param.getQueryDynamicConditions().put("_ne_province_id", provinceId);
@@ -83,11 +93,11 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 		createTime = d;
 		updateUserId = u.getUserId();
 		updateTime = d;
+		examine = (short)1;
 	}
 	@Override
 	protected void beforeUpdate() {
 		User u = ThreadUser.get();
-		contactUserId = u.getUserId();
 		updateUserId = u.getUserId();
 		updateTime = new Date();
 	}

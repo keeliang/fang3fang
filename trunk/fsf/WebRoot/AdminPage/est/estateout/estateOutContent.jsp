@@ -61,6 +61,9 @@
 	<tr>
 		<td valign="middle">
 			<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
+			<input type="button" onclick="" value="<s:text name="examineSubmit"/>" >
+			<input type="button" onclick="" value="<s:text name="examining"/>" >
+			<input type="button" onclick="" value="<s:text name="examineCancel"/>" >
 			<input type="button" onclick="g_back('/sysadmin/est/estateout/estateOutList.action')" value="<s:text name="g_back"/>" >
 		</td>
 	</tr>
@@ -213,6 +216,7 @@
     	<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$out_trade_mode')" cssClass="dropdown"
   		name="tradeMode" id="tradeMode" listValue="itemName" listKey="itemKey" onchange="f_chageTradeMode()"/>
     </td>
+    <!-- 
     <td class="label_td" >
 			<label class="est_label" for="examine"><s:text name="examine" /></label>
     </td>
@@ -220,6 +224,7 @@
     	<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$examine')" cssClass="dropdown"
   		name="examine" id="examine" listValue="itemName" listKey="itemKey" onchange="f_chageTradeMode()"/>
     </td>
+     -->
   </tr>
 </table>
 
@@ -419,6 +424,14 @@ $(function() {
 	f_changeProvince(true);
 	f_chageTradeMode();
 });
+
+function f_examine(url,strId){
+	showModalDialog(url,window,"dialogWidth:800px;dialogHeight:600px;");
+}
+
+function f_finishSelectUser(obj){
+	document.forms['formList'].action = "${contextPath}/sysadmin/est/estateout/examineSubmit.action?estateId="+examineEstateId+"&contactUserId="+obj.userId
+}
 
 function f_validate(){
 	fromName = "formItem";
