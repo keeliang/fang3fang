@@ -17,7 +17,7 @@
         <property name="palaceDesc" type="string">
             <column name="palace_desc" length="65535" />
         </property>
-        <property name="status" type="byte">
+        <property name="status" type="short">
             <column name="status" not-null="true" />
         </property>
         <property name="createTime" type="timestamp" update="false">

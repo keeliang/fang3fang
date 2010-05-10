@@ -51,6 +51,9 @@
 <s:hidden name="estateInParameter._dge_createTime" />
 <s:hidden name="estateInParameter._dle_createTime" />
 
+<s:hidden name="estateInParameter._ne_tradeType" />
+
+
 
 <s:hidden name="estateId"/>
 <s:hidden name="tradeType" value="2"/>
@@ -194,14 +197,14 @@
 	</tr>
 	<tr>
   	<td class="label_td" >
-			<label class="est_label" for="examine"><s:text name="examine" /></label>
+			<label class="est_label" for="examine"><s:text name="examine" />:</label>
     </td>
     <td class="content_td" >
     	<fsf:dictTranslate groupName="$examine" value="examine"/>
     	<s:hidden name="examine" />
     </td>
   	<td class="label_td" >
-  		<label class="est_label" ><s:text name="examineUserId" /></label>
+  		<label class="est_label" ><s:text name="examineUserId" />:</label>
   	</td>
     <td class="content_td" >
 			<s:if test="examineUserId==-1">
@@ -256,13 +259,13 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%" id="saleTbl" >
 	<tr>
 		<td class="label_td" >
-			<label class="est_label" >联系人</label>:
+			<label class="est_label" >联系人:</label>
     </td>
     <td class="content_td" >
     	<span class="est_info">${contactUser.userCode }</span>
     </td>
     <td class="label_td" >
-			<label class="est_label" >电话</label>:
+			<label class="est_label" >电话"</label>
     </td>
     <td class="content_td" >
     	<span class="est_info">${contactUser.tel }</span>
@@ -270,13 +273,13 @@
   </tr>
   <tr>
 		<td class="label_td" >
-			<label class="est_label" >手机</label>:
+			<label class="est_label" >手机:</label>
     </td>
     <td class="content_td" >
     	<span class="est_info">${contactUser.phone }</span>
     </td>
     <td class="label_td" >
-			<label class="est_label" >QQ</label>:
+			<label class="est_label" >QQ:</label>
     </td>
     <td class="content_td" >
     	<span class="est_info">${contactUser.qq }</span>

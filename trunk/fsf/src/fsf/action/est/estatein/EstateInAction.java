@@ -183,6 +183,13 @@ public class EstateInAction extends BaseAction<EstateIn> {
 		updateTime = new Date();
 	}
 	
+	@Override
+	protected void afterPersist() {
+		if(contactUserId!=null){
+			contactUser = userService.get(contactUserId);
+		}
+	}
+	
 	@Resource
 	public void setEstateInService(EstateInService estateInService){
 		this.service = estateInService;
@@ -211,6 +218,7 @@ public class EstateInAction extends BaseAction<EstateIn> {
 	private Integer contactUserId;
 	private Short examine;
 	private Integer examineUserId;
+	private Integer effective;
 	private Short tradeMode;
 	private Short estateType;
 	private Integer hall;
@@ -432,6 +440,14 @@ public class EstateInAction extends BaseAction<EstateIn> {
 
 	public void setExamineUserId(Integer examineUserId) {
 		this.examineUserId = examineUserId;
+	}
+
+	public Integer getEffective() {
+		return effective;
+	}
+
+	public void setEffective(Integer effective) {
+		this.effective = effective;
 	}
 	
 

@@ -14,6 +14,7 @@ public class EstateInParameter extends BaseParameter{
 	private Integer _ne_areaId;
 	private Short _ne_examine;
 	private Short _ne_tradeMode;
+	private Short _ne_tradeType;
 	private Short _ne_estateType;
 	private Integer _ne_hall;
 	private Integer _ne_bedroom;
@@ -210,4 +211,11 @@ public class EstateInParameter extends BaseParameter{
 	public Integer get_ne_updateUserId(){
 		return this._ne_updateUserId;
 	}
+	public Short get_ne_tradeType() {
+		return _ne_tradeType;
+	}
+	public void set_ne_tradeType(Short type) {
+		_ne_tradeType = type;
+	}
+	
 }

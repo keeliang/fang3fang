@@ -10,6 +10,10 @@ import java.util.Date;
  */
 public class NewEstate implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7202519801729157760L;
 	private Integer estateId;
 	private String estateName;
 	private String develop;
@@ -24,7 +28,7 @@ public class NewEstate implements java.io.Serializable {
 	private Short isLift;
 	private Double practicalArea;
 	private Integer effective;
-	private String estateAddress;
+	private String address;
 	private Integer toward;
 	private Integer totalFloor;
 	private Double price;
@@ -43,74 +47,6 @@ public class NewEstate implements java.io.Serializable {
 	private Integer updateUserId;
 
 	public NewEstate() {
-	}
-
-	public NewEstate(Short status, Short isHot, Short estateType, Double area,
-			Short isLift, Double practicalArea, Integer effective,
-			String estateAddress, Integer totalFloor, Integer hall,
-			Integer bedroom, Integer toilet, Integer porch, Double manageCost,
-			Short fitment, Date createTime, Integer createUserId,
-			Date updateTime, Integer updateUserId) {
-		this.status = status;
-		this.isHot = isHot;
-		this.estateType = estateType;
-		this.area = area;
-		this.isLift = isLift;
-		this.practicalArea = practicalArea;
-		this.effective = effective;
-		this.estateAddress = estateAddress;
-		this.totalFloor = totalFloor;
-		this.hall = hall;
-		this.bedroom = bedroom;
-		this.toilet = toilet;
-		this.porch = porch;
-		this.manageCost = manageCost;
-		this.fitment = fitment;
-		this.createTime = createTime;
-		this.createUserId = createUserId;
-		this.updateTime = updateTime;
-		this.updateUserId = updateUserId;
-	}
-
-	public NewEstate(String estateName, String develop, Integer provinceId,
-			Integer cityId, Integer districtId, Integer areaId, Short status,
-			Short isHot, Short estateType, Double area, Short isLift,
-			Double practicalArea, Integer effective, String estateAddress,
-			Integer toward, Integer totalFloor, Double price, Integer hall,
-			Integer bedroom, Integer toilet, Integer porch, Double manageCost,
-			Double otherCost, Short fitment, String remark, String imagePath,
-			Date createTime, Integer createUserId, Date updateTime,
-			Integer updateUserId) {
-		this.estateName = estateName;
-		this.develop = develop;
-		this.provinceId = provinceId;
-		this.cityId = cityId;
-		this.districtId = districtId;
-		this.areaId = areaId;
-		this.status = status;
-		this.isHot = isHot;
-		this.estateType = estateType;
-		this.area = area;
-		this.isLift = isLift;
-		this.practicalArea = practicalArea;
-		this.effective = effective;
-		this.estateAddress = estateAddress;
-		this.toward = toward;
-		this.totalFloor = totalFloor;
-		this.price = price;
-		this.hall = hall;
-		this.bedroom = bedroom;
-		this.toilet = toilet;
-		this.porch = porch;
-		this.manageCost = manageCost;
-		this.otherCost = otherCost;
-		this.fitment = fitment;
-		this.remark = remark;
-		this.imagePath = imagePath;
-		this.createTime = createTime;
-		this.createUserId = createUserId;
-		this.updateTime = updateTime;
-		this.updateUserId = updateUserId;
 	}
 
 	public Integer getEstateId() {
@@ -225,12 +161,12 @@ public class NewEstate implements java.io.Serializable {
 		this.effective = effective;
 	}
 
-	public String getEstateAddress() {
-		return this.estateAddress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setEstateAddress(String estateAddress) {
-		this.estateAddress = estateAddress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public Integer getToward() {

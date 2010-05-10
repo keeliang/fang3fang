@@ -187,4 +187,54 @@
 	</package>
 	<!-- ********************************************** -->
 	
+	<!--******************* palace *************** -->
+	<package name="/sysadmin/est/palace" extends="baseDefault" namespace="/sysadmin/est/palace" >
+		<action name="palaceList" class="palaceAction" method="doList">
+			<result>/AdminPage/est/palace/palaceList.jsp</result>
+			<result name="input">/AdminPage/est/palace/palaceList.jsp</result>
+		</action>
+		<action name="palaceSave" class="palaceAction" method="doSave">
+			<result>/AdminPage/est/palace/palaceContent.jsp</result>
+			<result name="input">/AdminPage/est/palace/palaceContent.jsp</result>
+		</action>
+		<action name="palaceEdit" class="palaceAction" method="doEdit">
+			<result>/AdminPage/est/palace/palaceContent.jsp</result>
+			<result name="input">/AdminPage/est/palace/palaceContent.jsp</result>
+		</action>
+		<action name="palaceNew" class="palaceAction" method="doNew">
+			<result>/AdminPage/est/palace/palaceContent.jsp</result>
+			<result name="input">/AdminPage/est/palace/palaceContent.jsp</result>
+		</action>
+		<action name="palaceDelete" class="palaceAction" method="doDelete">
+			<result>/AdminPage/est/palace/palaceList.jsp</result>
+			<result name="input">/AdminPage/est/palace/palaceList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	
+	<!--******************* newEstate *************** -->
+	<package name="/sysadmin/est/newestate" extends="baseDefault" namespace="/sysadmin/est/newestate" >
+		<action name="newEstateList" class="newEstateAction" method="doList">
+			<result>/AdminPage/est/newestate/newEstateList.jsp</result>
+			<result name="input">/AdminPage/est/newestate/newEstateList.jsp</result>
+		</action>
+		<action name="newEstateSave" class="newEstateAction" method="doSave">
+			<result>/AdminPage/est/newestate/newEstateContent.jsp</result>
+			<result name="input">/AdminPage/est/newestate/newEstateContent.jsp</result>
+		</action>
+		<action name="newEstateEdit" class="newEstateAction" method="doEdit">
+			<result>/AdminPage/est/newestate/newEstateContent.jsp</result>
+			<result name="input">/AdminPage/est/newestate/newEstateContent.jsp</result>
+		</action>
+		<action name="newEstateNew" class="newEstateAction" method="doNew">
+			<result>/AdminPage/est/newestate/newEstateContent.jsp</result>
+			<result name="input">/AdminPage/est/newestate/newEstateContent.jsp</result>
+		</action>
+		<action name="newEstateDelete" class="newEstateAction" method="doDelete">
+			<result>/AdminPage/est/newestate/newEstateList.jsp</result>
+			<result name="input">/AdminPage/est/newestate/newEstateList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	
 </struts>
