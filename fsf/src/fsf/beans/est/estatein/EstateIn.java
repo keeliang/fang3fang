@@ -23,6 +23,8 @@ public class EstateIn implements java.io.Serializable {
 	private Short tradeType;
 	private Integer contactUserId;
 	private Short tradeMode;
+	private Short examine;
+	private Integer examineUserId;
 	private Short estateType;
 	private Integer hall;
 	private Integer bedroom;
@@ -277,6 +279,22 @@ public class EstateIn implements java.io.Serializable {
 
 	public void setContactUserId(Integer contactUserId) {
 		this.contactUserId = contactUserId;
+	}
+
+	public Short getExamine() {
+		return examine;
+	}
+
+	public void setExamine(Short examine) {
+		this.examine = examine;
+	}
+
+	public Integer getExamineUserId() {
+		return examineUserId;
+	}
+
+	public void setExamineUserId(Integer examineUserId) {
+		this.examineUserId = examineUserId;
 	}
 	
 }

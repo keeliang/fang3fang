@@ -9,11 +9,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import chance.base.AdvancedQueryParameter;
-import chance.base.BaseParameter;
-import chance.base.dao.handler.QLHandlerFactory;
-import chance.common.QueryResult;
-import chance.common.SystemInitListener;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.hibernate.Criteria;
@@ -24,6 +19,12 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import chance.base.AdvancedQueryParameter;
+import chance.base.BaseParameter;
+import chance.base.dao.handler.QLHandlerFactory;
+import chance.common.QueryResult;
+import chance.common.SystemInitListener;
 
 public class BaseDao<E> extends HibernateDaoSupport implements Dao<E> {
 
@@ -76,7 +77,40 @@ public class BaseDao<E> extends HibernateDaoSupport implements Dao<E> {
 	public void deleteByProperty(String propName,Object propValue){
 		deleteByProperties(new String[]{propName}, new Object[]{propValue});
 	}
-
+	
+	public void updateByProperty(String conditionName,Serializable[] conditionValue,String propertyName,Serializable propertyValue){
+		updateByProperties(conditionName, conditionValue, new String[]{propertyName}, new Serializable[]{propertyValue});
+	}
+	
+	public void updateByProperties(String conditionName,Serializable[] conditionValue,String[] propertyName,Serializable[] propertyValue){
+		if(propertyName!=null && propertyName.length>0
+				&& propertyValue!=null && propertyValue.length>0
+				&& propertyName.length==propertyValue.length
+				&& conditionValue!=null && conditionValue.length>0){
+			StringBuffer sb = new StringBuffer();
+			sb.append("update " + entityClass.getName()+" set ");
+			for(int i=0;i<propertyName.length;i++){
+				sb.append(propertyName[i]+" = :"+propertyName[i]);
+			}
+			sb.append(" where "+conditionName+ " in (");
+			for(int i =0;i<conditionValue.length;i++){
+				sb.append(":param_"+i+",");
+			}
+			sb.deleteCharAt(sb.length()-1);
+			sb.append(")");
+			Query query = getSession().createQuery(sb.toString());
+			for(int i=0;i<propertyName.length;i++){
+				query.setParameter(propertyName[i], propertyValue[i]);
+			}
+			for(int i =0;i<conditionValue.length;i++){
+				query.setParameter("param_"+i, conditionValue[i]);
+			}
+			query.executeUpdate();
+		}else{
+			throw new IllegalArgumentException("Method updateByProperties in BaseDao argument is illegal!");
+		}
+	}
+	
 	public void update(E entity) {
 		getHibernateTemplate().update(entity);
 	}

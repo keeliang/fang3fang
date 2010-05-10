@@ -1,5 +1,6 @@
 package fsf.action.est.estateout;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +9,8 @@ import javax.annotation.Resource;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.PropertyUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -17,6 +20,7 @@ import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
 import fsf.service.est.estateout.EstateOutService;
+import fsf.service.sys.user.UserService;
 import fsf.web.common.ThreadUser;
 
 @Controller
@@ -25,6 +29,82 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	
 	public EstateOutAction() {
 		super(EstateOut.class, new String[] { "estateId" });
+	}
+	
+	@Resource
+	private UserService userService;
+	
+	public String doExamineSubmit()throws Exception{
+		EstateOut eo = getService().get(estateId);
+		eo.setExamine(examine);
+		if(((short)1)==examine){
+			eo.setContactUserId(contactUserId);
+			eo.setExamineUserId(ThreadUser.get().getUserId());
+		}else{
+			eo.setContactUserId(null);
+			eo.setExamineUserId(null);
+		}
+		getService().update(eo);
+		addActionMessage(getText("g_saveSuccess"));
+		return doEdit();
+	}
+	
+	public String doOwnExamineSubmitBatch()throws Exception{
+		String[] strPk = getSelectedPK();
+		if(strPk==null || strPk.length<1)
+			return SUCCESS;
+		if(examine==null){
+			return INPUT;
+		}
+		Serializable[] arrayObj = new Serializable[strPk.length];
+		for(int i = 0 ; i<strPk.length;i++){
+			arrayObj[i] = (Serializable)entityClass.newInstance();
+			BeanUtils.setProperty(arrayObj[i], pkArray[0], strPk[i]);
+			arrayObj[i] = (Serializable)PropertyUtils.getNestedProperty(arrayObj[i], pkArray[0]);
+		}
+		try{
+			getService().updateByProperties("estateId", arrayObj,
+					new String[]{"examine","examineUserId"},
+					new Serializable[]{examine,examine==(short)1?ThreadUser.get().getUserId():null});	
+		}catch (Exception e) {
+			handleEditException(e);
+		}
+		addActionMessage(getText("g_saveSuccess"));
+		return doList();
+	}
+	
+	public String doOwnExamineSubmit()throws Exception{
+		if(examine==null || estateId ==null){
+			return SUCCESS;
+		}
+		try{
+			getService().updateByProperties("estateId", new Serializable[]{estateId}, 
+					new String[]{"examine","examineUserId"}, 
+					new Serializable[]{examine,examine==(short)1?ThreadUser.get().getUserId():null});
+		}catch (Exception e) {
+			handleEditException(e);
+		}
+		addActionMessage(getText("g_saveSuccess"));
+		return doEdit();
+	}
+	
+	@Override
+	public String doEdit() throws Exception {
+		if(!CMD_SELECT.equals(getCmd())){
+			setCmd(CMD_EDIT);
+		}
+		EstateOut entity = null;
+		try{
+			Object pk = PropertyUtils.getNestedProperty(this, pkArray[0]);
+			entity = service.get((Serializable)pk);
+			restoreContent(entity);
+			if(entity!=null && entity.getContactUserId()!=null){
+				contactUser = userService.get(entity.getContactUserId());
+			}
+		}catch (Exception e) {
+			handleEditException(e);
+		}
+		return SUCCESS;
 	}
 	
 	public String doExamine() throws Exception {
@@ -94,12 +174,25 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 		updateUserId = u.getUserId();
 		updateTime = d;
 		examine = (short)1;
+		examineUserId = u.getUserId();
 	}
 	@Override
 	protected void beforeUpdate() {
 		User u = ThreadUser.get();
 		updateUserId = u.getUserId();
 		updateTime = new Date();
+	}
+	
+	@Override
+	protected void afterPersist() {
+		if(contactUserId!=null){
+			contactUser = userService.get(contactUserId);
+		}
+	}
+	
+	@Override
+	protected void afterUpdate() {
+		super.afterUpdate();
 	}
 	
 	@Resource
@@ -117,6 +210,8 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	public EstateOutParameter getEstateOutParameter(){
 		return (EstateOutParameter)baseParameter;
 	}
+
+	private User contactUser;
 	
 	private Integer estateId;
 	private String estateCardNo;
@@ -130,6 +225,7 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	private Integer districtId;
 	private Integer areaId;
 	private Short examine;
+	private Integer examineUserId;
 	private Short tradeMode;
 	private Short estateType;
 	private Double area;
@@ -424,6 +520,22 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 
 	public void setExamine(Short examine) {
 		this.examine = examine;
+	}
+
+	public User getContactUser() {
+		return contactUser;
+	}
+
+	public void setContactUser(User contactUser) {
+		this.contactUser = contactUser;
+	}
+
+	public Integer getExamineUserId() {
+		return examineUserId;
+	}
+
+	public void setExamineUserId(Integer examineUserId) {
+		this.examineUserId = examineUserId;
 	}
 
 }

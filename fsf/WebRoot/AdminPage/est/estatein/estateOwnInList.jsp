@@ -177,7 +177,9 @@
 </table>
 
 <div style="text-align: right;">
-	<input type="button" onclick="g_new('/sysadmin/est/estatein/estateInNew.action')" value="<s:text name="g_new"/>"/>
+	<input type="button" onclick="f_examine(1);" value="审核通过">
+	<input type="button" onclick="f_examine(0);" value="审核中">
+	<input type="button" onclick="f_examine(-1);" value="审核未通过">
 	<input type="button" onclick="g_delete('/sysadmin/est/estatein/estateInDelete.action');" value="<s:text name="g_delete"/>">
 	<input type="button" onclick="g_list()" value="<s:text name="g_search"/>">
 	<input type="button" onclick="g_reset()" value="<s:text name="g_reset"/>">
@@ -234,8 +236,27 @@
 </body>
 </html>
 <script type="text/javascript">
+$(function() {
+	f_changeProvince(true);
+});
+
 function f_change(obj){
 	$(obj.parent).find("input[type='hidden']").val(obj.value);
+}
+
+function f_examine(s){
+	var bln = false;
+	var arySelectedPK = document.getElementsByName("selectedPK");
+	for(var i=0;i<arySelectedPK.length;i++){
+		if(arySelectedPK[i].checked){
+			bln = true;
+			break;
+		}
+	}
+	if(bln){
+		document.forms['formList'].action = "${contextPath}/sysadmin/est/estatein/ownExamineSubmitBatch.action?examine="+s;
+		document.forms['formList'].submit();
+	}
 }
 
 function f_changeProvince(isIndex){

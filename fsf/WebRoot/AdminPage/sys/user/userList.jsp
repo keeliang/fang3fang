@@ -180,7 +180,6 @@
 	<td class="table_hdr"><s:text name="tel"/></td>
 	<td class="table_hdr"><s:text name="phone"/></td>
 	<td class="table_hdr"><s:text name="qq"/></td>
-	<td class="table_hdr"><s:text name="email"/></td>
 	<td class="table_hdr"><s:text name="createDate"/></td>
 </tr>
 
@@ -213,7 +212,6 @@
 		<td><s:property value="tel"/></td>
 		<td><s:property value="phone"/></td>
 		<td><s:property value="qq"/></td>
-		<td><s:property value="email"/></td>
 		<td>
 			<s:date name="createDate" format="yyyy-MM-dd"/>
 		</td>

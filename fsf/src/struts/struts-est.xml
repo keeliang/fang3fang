@@ -94,6 +94,7 @@
 			<result>/AdminPage/est/estateout/estateOwnOutList.jsp</result>
 			<result name="input">/AdminPage/est/estateout/estateOwnOutList.jsp</result>
 		</action>
+		
 		<action name="estateOutExamineFrm" class="estateOutAction" method="doSuccess">
 			<result>/AdminPage/est/estateout/estateOutExamineFrm.jsp</result>
 		</action>
@@ -103,9 +104,20 @@
 			<result name="input">/AdminPage/est/estateout/estateOutExamine.jsp</result>
 		</action>
 		<action name="examineSubmit" class="estateOutAction" method="doExamineSubmit">
-			<result>/AdminPage/est/estateout/estateOutExamine.jsp</result>
-			<result name="input">/AdminPage/est/estateout/estateOutExamine.jsp</result>
+			<result>/AdminPage/est/estateout/estateOutContent.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOutContent.jsp</result>
 		</action>
+		
+		<action name="ownExamineSubmitBatch" class="estateOutAction" method="doOwnExamineSubmitBatch">
+			<result>/AdminPage/est/estateout/estateOwnOutList.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOwnOutList.jsp</result>
+		</action>
+		
+		<action name="ownExamineSubmit" class="estateOutAction" method="doOwnExamineSubmit">
+			<result>/AdminPage/est/estateout/estateOwnOutContent.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOwnOutContent.jsp</result>
+		</action>
+		
 	</package>
 	<!-- ********************************************** -->
 
@@ -136,6 +148,41 @@
 		<action name="getDistrictList" class="estateInAction" method="getDistrictList"></action>
 		<action name="getBusinessareaList" class="estateInAction" method="getBusinessareaList"></action>
 		
+		<action name="estateOwnInList" class="estateInAction" method="doList">
+			<result>/AdminPage/est/estatein/estateOwnInList.jsp</result>
+			<result name="input">/AdminPage/est/estatein/estateOwnInList.jsp</result>
+		</action>
+		<action name="estateOwnInEdit" class="estateInAction" method="doEdit">
+			<result>/AdminPage/est/estatein/estateOwnInContent.jsp</result>
+			<result name="input">/AdminPage/est/estatein/estateOwnInContent.jsp</result>
+		</action>
+		<action name="estateOwnInDelete" class="estateInAction" method="doDelete">
+			<result>/AdminPage/est/estatein/estateOwnInList.jsp</result>
+			<result name="input">/AdminPage/est/estatein/estateOwnInList.jsp</result>
+		</action>
+		
+		<action name="estateInExamineFrm" class="estateInAction" method="doSuccess">
+			<result>/AdminPage/est/estatein/estateInExamineFrm.jsp</result>
+		</action>
+		
+		<action name="estateInExamine" class="estateInAction" method="doExamine">
+			<result>/AdminPage/est/estatein/estateInExamine.jsp</result>
+			<result name="input">/AdminPage/est/estatein/estateInExamine.jsp</result>
+		</action>
+		<action name="examineSubmit" class="estateInAction" method="doExamineSubmit">
+			<result>/AdminPage/est/estatein/estateInContent.jsp</result>
+			<result name="input">/AdminPage/est/estatein/estateInContent.jsp</result>
+		</action>
+		
+		<action name="ownExamineSubmitBatch" class="estateInAction" method="doOwnExamineSubmitBatch">
+			<result>/AdminPage/est/estatein/estateOwnInList.jsp</result>
+			<result name="input">/AdminPage/est/estatein/estateOwnInList.jsp</result>
+		</action>
+		
+		<action name="ownExamineSubmit" class="estateInAction" method="doOwnExamineSubmit">
+			<result>/AdminPage/est/estatein/estateOwnInContent.jsp</result>
+			<result name="input">/AdminPage/est/estatein/estateOwnInContent.jsp</result>
+		</action>
 		
 	</package>
 	<!-- ********************************************** -->

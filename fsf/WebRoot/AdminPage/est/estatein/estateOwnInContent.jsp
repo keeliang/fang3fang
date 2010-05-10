@@ -8,6 +8,13 @@
 <link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
 <link type="text/css" rel="stylesheet" href="/AdminPage/css/style.css"/>
 <script type="text/javascript" src="/js/jquery.js"></script>
+<style type="text/css">
+.est_info{
+	font-size: 12px;
+	font-weight: bold;
+	vertical-align: middle;
+}
+</style>
 </head>
 
 <body style="font-size: 14px;">
@@ -51,8 +58,15 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">
-			<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
-			<input type="button" onclick="f_examine()" value="<s:text name="changeExamine"/>" >
+			<s:if test="examine==0 || examine==-1">
+				<input type="button" onclick="f_examine(1);" value="审核通过">
+			</s:if>
+			<s:if test="examine==1 || examine==-1">
+				<input type="button" onclick="f_examine(0);" value="审核中">
+			</s:if>
+			<s:if test="examine==1 || examine==0">
+				<input type="button" onclick="f_examine(-1);" value="审核未通过">
+			</s:if>
 			<input type="button" onclick="g_back('/sysadmin/est/estatein/estateInList.action')" value="<s:text name="g_back"/>" >
 		</td>
 	</tr>
@@ -61,16 +75,16 @@
 <p class="cGray02"><b>委托交易区 - 求租求售信息</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 有效期：<s:textfield name="effective" id="effective" size="2" />天</p>
 <div class="memberC_line"></div>
-<p class="est_title"><b>楼盘基本信息<span class="cOrange">(必填)</span></b></p>
+<p class="est_title"><b>楼盘基本信息</b></p>
 <div class="memberC_line"></div>
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
 		<td class="label_td">
-			<label class="est_label" for="title"><s:text name="title"/>:</label>
+			<label class="est_label" for=title><s:text name="title"/>:</label>
 		</td>
 		<td colspan="3">
-			<s:textfield name="title" id="title" cssClass="memberC_input04"/>
+			<span class="est_info">${title }</span>
 		</td>
 	</tr>
 	<tr>
@@ -78,30 +92,27 @@
   		<label class="est_label" for="provinceId"><s:text name="provinceId"/>:</label>
   	</td>
   	<td class="content_td">
-  		<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" cssClass="dropdown" 
-  		id="provinceId" name="provinceId" emptyOption="true" onchange="f_changeProvince()" listValue="itemName" listKey="itemKey"/>
+  		<span class="est_info"><fsf:dictTranslate groupName="#province" value="provinceId"/></span>
   	</td>
     <td class="label_td">
     	<label class="est_label" for="cityId"><s:text name="cityId"/>:</label>
 		</td>
-		<td class="content_td" id="cityTd">
-		
+		<td class="content_td" >
+			<span class="est_info"><fsf:dictTranslate groupName="#city" value="cityId"/></span>
 		</td>
   </tr>
   <tr>
 		<td class="label_td">
 			<label class="est_label" for="districtId"><s:text name="districtId"/>:</label>
-			
     </td>
-    <td class="content_td" id="districtTd">
-    
+    <td class="content_td" >
+    	<span class="est_info"><fsf:dictTranslate groupName="#district" value="districtId"/></span>
     </td>
     <td class="label_td">
 			<label class="est_label" for="area"><s:text name="areaId"/>:</label>
-			
     </td>
     <td class="content_td" id="areaTd">
-    
+			<span class="est_info"><fsf:dictTranslate groupName="#business_area" value="areaId"/></span>    
     </td>
   </tr>
   <tr>
@@ -109,7 +120,7 @@
 			<label class="est_label"><s:text name="area"/>:</label>
 		</td>
 		<td class="content_td">
-			<s:textfield name="areaFrom" cssClass="memberC_input08"/>m<sup>2</sup>到<s:textfield name="areaTo" cssClass="memberC_input08"/>m<sup>2</sup>
+			<span class="est_info">${areaFrom }m<sup>2</sup>到${areaTo }m<sup>2</sup></span>
 		</td>
 	</tr>
 	<tr>
@@ -117,17 +128,16 @@
 			<label class="est_label" for="estateType"><s:text name="estateType"/>:</label>
     </td>
     <td class="content_td">
-    	<s:select	list="@fsf.web.common.SelectTagStaticUtil@getConfig('$estate_type')" cssClass="dropdown"
-    	id="estateType" name="estateType" emptyOption="true" listValue="itemName" listKey="itemKey" />
+    	<span class="est_info"><fsf:dictTranslate groupName="$estate_type" value="estateType"/></span>
     </td>
     <td class="label_td">
 			<label class="est_label" ><s:text name="structure"/>:</label>
     </td>
     <td class="content_td">
-    	<s:textfield name="hall" cssClass="memberC_input06" /><s:text name="hall"/>
-			<s:textfield name="bedroom" cssClass="memberC_input06" /><s:text name="bedroom"/>
-			<s:textfield name="toilet" cssClass="memberC_input06" /><s:text name="toilet"/>
-			<s:textfield name="porch" cssClass="memberC_input06" /><s:text name="porch"/>
+    	<span class="est_info">${hall }<s:text name="hall"/></span>
+    	<span class="est_info">${bedroom }<s:text name="bedroom"/></span>
+    	<span class="est_info">${toilet }<s:text name="toilet"/></span>
+    	<span class="est_info">${porch }<s:text name="porch"/></span>
     </td>
   </tr>
 	<tr>
@@ -135,15 +145,13 @@
 			<label class="est_label" for="isLift"><s:text name="isLift"/>:</label>
 		</td>
 		<td class="content_td">
-			<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$is_lift')" cssClass="dropdown"
-		 	id="isLift" name="isLift" emptyOption="true" listValue="itemName" listKey="itemKey" />
+			<span class="est_info"><fsf:dictTranslate groupName="$is_lift" value="isLift"/></span>
 		</td>
 		<td>
 			<label class="est_label" for="toward"><s:text name="toward"/>:</label>
 		</td>
 		<td>
-			<s:select	list="@fsf.web.common.SelectTagStaticUtil@getConfig('$toward')" cssClass="dropdown"
-		 	id="toward" name="toward" emptyOption="true" listValue="itemName" listKey="itemKey" />
+			<label class="est_label" for="toward"><s:text name="toward"/>:</label>
 		</td>
 	</tr>
 	<tr>
@@ -151,15 +159,21 @@
 			<label class="est_label" for="fitment"><s:text name="fitment"/>:</label>
 		</td>
 		<td class="content_td">
-			<s:select	list="@fsf.web.common.SelectTagStaticUtil@getConfig('$fitment',null,'6')" cssClass="dropdown"
-		 	id="fitment" name="fitment" emptyOption="true" listValue="itemName" listKey="itemKey" />
+			<span class="est_info"><fsf:dictTranslate groupName="$fitment" value="fitment"/></span>
 		</td>
 		<td class="label_td">
 			<label class="est_label" for="device"><s:text name="device"/>:</label>
 		</td>
 		<td class="content_td">
-			<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$device',null,'4')" cssClass="dropdown"
-		 	id="device" name="device" emptyOption="true" listValue="itemName" listKey="itemKey" />
+			<span class="est_info"><fsf:dictTranslate groupName="$device" value="device"/></span>
+		</td>
+	</tr>
+	<tr>
+		<td class="label_td">
+			<label class="est_label" for="examine"><s:text name="examine"/>:</label>
+		</td>
+		<td class="content_td">
+			<fsf:dictTranslate groupName="$examine" value="examine"/>
 		</td>
 	</tr>
 	<tr>
@@ -167,8 +181,7 @@
 			<label class="est_label" for="tradeMode"><s:text name="tradeMode"/>:</label>
 		</td>
 		<td class="content_td">
-			<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$in_trade_mode')" cssClass="dropdown"
-  		name="tradeMode" id="tradeMode" listValue="itemName" listKey="itemKey" onchange="f_chageTradeMode(this)"/>
+  		<span class="est_info"><fsf:dictTranslate groupName="$in_trade_mode" value="tradeMode"/></span>
 		</td>
 	</tr>
 	<tr>
@@ -176,48 +189,52 @@
 			<label class="est_label" for="remark"><s:text name="remark"/>:</label>
 		</td>
 		<td colspan="3">
-			<s:textfield name="remark" />
+			<span class="est_info">${remark }</span>
 		</td>
 	</tr>
-	<s:if test="cmd!='new'">
-  <tr>
-    <td class="label_td" >
-			<label class="est_label" for="examine"><s:text name="examine" />:</label>
+	<tr>
+  	<td class="label_td" >
+			<label class="est_label" for="examine"><s:text name="examine" /></label>
     </td>
     <td class="content_td" >
     	<fsf:dictTranslate groupName="$examine" value="examine"/>
     	<s:hidden name="examine" />
     </td>
-    <td class="label_td" >
-			<label class="est_label" for="examine"><s:text name="examineUserId" />:</label>
-    </td>
+  	<td class="label_td" >
+  		<label class="est_label" ><s:text name="examineUserId" /></label>
+  	</td>
     <td class="content_td" >
-    	<fsf:dictTranslate groupName="#sys_user" value="examineUserId"/>
-    	<s:hidden name="examineUserId"/>
+			<s:if test="examineUserId==-1">
+    		不需要审核
+    	</s:if>
+    	<s:else>
+    		<fsf:dictTranslate groupName="#sys_user" value="examineUserId"/>
+    	</s:else>
     </td>
   </tr>
-  </s:if>
 </table>
 
 <div id="saleDiv" style="display: none;">
 <div class="memberC_line"></div>
-<p class="est_title"><b>楼盘求售信息<span class="cOrange">(求售楼盘必填)</span></b></p>
+<p class="est_title"><b>楼盘求售信息</b></p>
 <div class="memberC_line"></div>
 </div>
 <table border="0" cellpadding="0" cellspacing="0" width="100%" id="saleTbl" style="display: none;">
 	<tr>
 		<td class="label_td">
-			<label class="est_label" ><s:text name="buyPrice"/>:</label>
+			<label class="est_label" ><s:text name="buyPrice"/>:
 		</td>
 		<td>
-			<s:textfield name="buyPriceFrom" />元-<s:textfield name="buyPriceTo" />元
+			<span class="est_info">
+				${buyPriceFrom }元-${buyPriceTo }元
+			</span>
 		</td>
 	</tr>
 </table>
 
 <div id="rentDiv" style="display: none;">
 <div class="memberC_line"></div>
-<p class="est_title"><b>楼盘求租信息<span class="cOrange">(求租楼盘必填)</span></b></p>
+<p class="est_title"><b>楼盘求租信息</b></p>
 <div class="memberC_line"></div>
 </div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="rentTbl" style="display: none;">
@@ -226,7 +243,9 @@
 			<label class="est_label" ><s:text name="rentPrice"/>:</label>
 		</td>
 		<td>
-			<s:textfield name="rentPriceFrom" />元/月-<s:textfield name="rentPriceTo" />元/月
+			<span class="est_info">
+				${rentPriceFrom }元/月-${rentPriceTo }元/月
+			</span>
 		</td>
 	</tr>
 </table>
@@ -240,24 +259,13 @@
 			<label class="est_label" >联系人</label>:
     </td>
     <td class="content_td" >
-    	<s:if test="cmd=='new'">
-    		<input value="${USER.userCode }" class="memberC_input01_readonly" readonly="true" />
-    	</s:if>
-    	<s:if test="cmd!='new'">
-    		<s:hidden name="contactUserId" />
-				<s:textfield name="contactUser.userCode" cssClass="memberC_input01_readonly" readonly="true"/>    	
-    	</s:if>
+    	<span class="est_info">${contactUser.userCode }</span>
     </td>
     <td class="label_td" >
 			<label class="est_label" >电话</label>:
     </td>
     <td class="content_td" >
-    	<s:if test="cmd=='new'">
-    		<input value="${USER.tel }" class="memberC_input01_readonly" readonly="true" />
-    	</s:if>
-    	<s:if test="cmd!='new'">
-				<s:textfield name="contactUser.tel" cssClass="memberC_input01_readonly" readonly="true"/>    	
-    	</s:if>
+    	<span class="est_info">${contactUser.tel }</span>
     </td>
   </tr>
   <tr>
@@ -265,23 +273,13 @@
 			<label class="est_label" >手机</label>:
     </td>
     <td class="content_td" >
-    	<s:if test="cmd=='new'">
-    		<input value="${USER.phone }" class="memberC_input01_readonly" readonly="true" />
-    	</s:if>
-    	<s:if test="cmd!='new'">
-				<s:textfield name="contactUser.phone" cssClass="memberC_input01_readonly" readonly="true"/>    	
-    	</s:if>
+    	<span class="est_info">${contactUser.phone }</span>
     </td>
     <td class="label_td" >
 			<label class="est_label" >QQ</label>:
     </td>
     <td class="content_td" >
-    	<s:if test="cmd=='new'">
-    		<input value="${USER.qq }" class="memberC_input01_readonly" readonly="true" />
-    	</s:if>
-    	<s:if test="cmd!='new'">
-				<s:textfield name="contactUser.qq" cssClass="memberC_input01_readonly" readonly="true"/>    	
-    	</s:if>
+    	<span class="est_info">${contactUser.qq }</span>
     </td>
   </tr>
 </table>
@@ -296,19 +294,13 @@
 			<s:text name="createTime"/>:
 		</td>
 		<td class="content_td" >
-			<s:textfield name="createTime"  cssClass="memberC_input01_readonly" readonly="true">
-				<s:param name="value">
-					<s:date name="createTime" format="yyyy-MM-dd"/>
-				</s:param>
-			</s:textfield>
+			<span class="est_info"><s:date name="createTime" format="yyyy-MM-dd" /></span>
 		</td>
 		<td class="label_td" >
 			<s:text name="createUserId" />:
 		</td>
 		<td class="content_td" >
-			<s:hidden name="createUserId"/>
-			<input class="memberC_input01_readonly" readonly="true" 
-			value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
+			<span class="est_info"><fsf:dictTranslate groupName="#sys_user" value="updateUserId"/></span>
 		</td>
 	</tr>
 	<tr>
@@ -316,19 +308,13 @@
 			<s:text name="updateTime"/>:
 		</td>
 		<td class="content_td" >
-			<s:textfield name="updateTime"  cssClass="memberC_input01_readonly" readonly="true">
-				<s:param name="value">
-					<s:date name="updateTime" format="yyyy-MM-dd"/>
-				</s:param>
-			</s:textfield>
+			<span class="est_info"><s:date name="updateTime" format="yyyy-MM-dd"/></span>
 		</td>
 		<td class="label_td" >
 			<s:text name="updateUserId"/>:
 		</td>
 		<td class="content_td" >
-			<s:hidden name="updateUserId"/>
-			<input class="memberC_input01_readonly" readonly="true" 
-			value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
+			<span class="est_info"><fsf:dictTranslate groupName="#sys_user" value="updateUserId"/></span>
 		</td>
 	</tr>
 </table>
@@ -338,27 +324,11 @@
 </html>
 <script type="text/javascript">
 $(function() {
-	f_changeProvince(true);
 	f_chageTradeMode();
 });
 
-function f_examine(){
-	showModalDialog("${contextPath}/sysadmin/est/estatein/estateInExamineFrm.action?estateId=${estateId}",window,"dialogWidth:800px;dialogHeight:600px;");
-}
-
-function f_finishSelectUser(obj){
-	document.forms['formItem'].action = "${contextPath}/sysadmin/est/estatein/examineSubmit.action";
-	var a = document.forms['formItem'].examine.value;
-	if(typeof(obj)=="string"){
-		if(obj==a){
-			return;
-		}else{
-			document.forms['formItem'].examine.value = obj;
-		}
-	}else{
-		document.forms['formItem'].contactUserId.value = obj.userId;
-		document.forms['formItem'].examine.value = 1;
-	}
+function f_examine(s){
+	document.forms['formItem'].action = "${contextPath}/sysadmin/est/estatein/ownExamineSubmit.action?examine="+s;
 	document.forms['formItem'].submit();
 }
 
@@ -397,18 +367,18 @@ function f_validate(){
 	return validate();
 }
 function f_chageTradeMode(){
-	var obj = $('#tradeMode').get(0);
-	if(obj.value==1){
+	var v = ${tradeMode};
+	if(v==1){
 		$('#rentDiv').show();
 		$('#rentTbl').show();
 		$('#saleDiv').hide();
 		$('#saleTbl').hide();
-	}else if(obj.value==2){
+	}else if(v==2){
 		$('#rentDiv').hide();
 		$('#rentTbl').hide();
 		$('#saleDiv').show();
 		$('#saleTbl').show();
-	}else if(obj.value==3){
+	}else if(v==3){
 		$('#rentDiv').show();
 		$('#rentTbl').show();
 		$('#saleDiv').show();
@@ -419,40 +389,5 @@ function f_chageTradeMode(){
 		$('#saleDiv').hide();
 		$('#saleTbl').hide();
 	}
-}
-function f_changeProvince(isIndex){
-	if($("#provinceId").val()=="")
-		return;
-	$.post("getCityList.action",{provinceId:$("#provinceId").val()},function(json){
-		var selectTag = new SelectTag("cityId","cityId",json.data,"itemKey","itemName","${cityId}","f_changeCity()");
-		$("#cityTd").html(selectTag.toString());
-		if(isIndex)
-			f_changeCity(isIndex);
-	},"json");
-}
-function f_changeCity(isIndex){
-	if($("#provinceId").val()=="")
-		return;
-	if($("#cityId").val()=="")
-		return;
-	$.post("getDistrictList.action",{provinceId:$("#provinceId").val(),cityId:$("#cityId").val()},function(json){
-		var selectTag = new SelectTag("districtId","districtId",json.data,"itemKey","itemName","${districtId}","f_changeDistrict()");
-		$("#districtTd").html(selectTag.toString());
-		if(isIndex)
-			f_changeDistrict(isIndex);
-	},"json");
-}
-
-function f_changeDistrict(isIndex){
-	if($("#provinceId").val()=="")
-		return;
-	if($("#cityId").val()=="")
-		return;
-	if($("#districtId").val()=="")
-		return;
-	$.post("getBusinessareaList.action",{provinceId:$("#provinceId").val(),cityId:$("#cityId").val(),districtId:$("#districtId").val()},function(json){
-		var selectTag = new SelectTag("areaId","areaId",json.data,"itemKey","itemName","${areaId}");
-		$("#areaTd").html(selectTag.toString());
-	},"json");
 }
 </script>

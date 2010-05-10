@@ -154,8 +154,14 @@ public abstract class BaseAction<E> extends ActionSupport {
 		} catch (Exception e) {
 			handleSaveException(e);
 		}
-		cmd = CMD_EDIT;
+		
 		restoreContent(entity);
+		if(CMD_NEW.equals(cmd)){
+			afterPersist();	
+		}else if(CMD_EDIT.equals(cmd)){
+			afterUpdate();
+		}
+		cmd = CMD_EDIT;
 		return SUCCESS;
 	}
 	/**
@@ -272,6 +278,14 @@ public abstract class BaseAction<E> extends ActionSupport {
 	 * override this method to change property before update
 	 */
 	protected void beforeUpdate(){}
+	/**
+	 * override this method will be invokeed after persist
+	 */
+	protected void afterUpdate() {}
+	/**
+	 * override this method will be invokeed after update
+	 */
+	protected void afterPersist() {}
 	/**
 	 * reset the action instance properties
 	 * @param entity
