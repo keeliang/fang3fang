@@ -49,6 +49,12 @@
 		<ItemNameProperty>user_code</ItemNameProperty>
 	</DynamicConfig>
 	
+	<DynamicConfig name="est_palace">
+		<Entity>est_palace</Entity>
+		<ItemKeyProperty>palace_id</ItemKeyProperty>
+		<ItemNameProperty>palace_name</ItemNameProperty>
+	</DynamicConfig>
+	
 	<DynamicConfig name="news_type">
 		<Entity>info_news_type</Entity>
 		<ItemKeyProperty>news_type_id</ItemKeyProperty>

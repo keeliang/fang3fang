@@ -122,7 +122,7 @@
     	<s:textfield name="area" id="area" cssClass="memberC_input08"/>m<sup>2</sup>
     </td>
     <td class="label_td">
-			<label class="est_label" for="area" ><s:text name="practicalArea"/>:</label>
+			<label class="est_label" for="practicalArea" ><s:text name="practicalArea"/>:</label>
     </td>
     <td class="content_td">
     	<s:textfield name="practicalArea" id="practicalArea" cssClass="memberC_input08"/>m<sup>2</sup>
@@ -144,6 +144,15 @@
 			<s:textfield name="bedroom" cssClass="memberC_input06" /><s:text name="bedroom"/>
 			<s:textfield name="toilet" cssClass="memberC_input06" /><s:text name="toilet"/>
 			<s:textfield name="porch" cssClass="memberC_input06" /><s:text name="porch"/>
+    </td>
+  </tr>
+  <tr>
+		<td class="label_td">
+			<label class="est_label" for="palaceId"><s:text name="palaceId"/>:</label>
+    </td>
+    <td class="content_td" colspan="3">
+    	<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#est_palace')" name="estateOutParameter.palaceId" 
+			cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
     </td>
   </tr>
   <tr>
@@ -202,7 +211,7 @@
   </tr>
   <tr>
 		<td class="label_td" >
-			<label class="est_label" for="manageCost"><s:text name="manageCost"/></label>
+			<label class="est_label" for="manageCost"><s:text name="manageCost"/>:</label>
     </td>
     <td class="content_td">
     	<s:textfield name="manageCost" id="manageCost" cssClass="memberC_input08" />元/平方米·月
@@ -218,7 +227,7 @@
   <s:if test="cmd!='new'">
   <tr>
     <td class="label_td" >
-			<label class="est_label" for="examine"><s:text name="examine" /></label>
+			<label class="est_label" for="examine"><s:text name="examine" />:</label>
     </td>
     <td class="content_td" >
     	<fsf:dictTranslate groupName="$examine" value="examine"/>

@@ -52,6 +52,7 @@ create table if not exists est_estate_out(
 	city_id int,
 	district_id int,
 	area_id int,
+	palace_id int,
 	address varchar(80),
 	
 	examine tinyint,/*自主交易时必填审核状态 1 已审核通过 0 审核中 -1 审核未通过 固定参数用examine*/

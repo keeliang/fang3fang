@@ -25,6 +25,7 @@ public class EstateOut implements java.io.Serializable {
 	private Integer cityId;
 	private Integer districtId;
 	private Integer areaId;
+	private Integer palaceId;
 	private Short examine;
 	private Integer examineUserId;
 	private Short tradeMode;
@@ -412,6 +413,14 @@ public class EstateOut implements java.io.Serializable {
 
 	public void setExamine(Short examine) {
 		this.examine = examine;
+	}
+
+	public Integer getPalaceId() {
+		return palaceId;
+	}
+
+	public void setPalaceId(Integer palaceId) {
+		this.palaceId = palaceId;
 	}
 
 	@Override

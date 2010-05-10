@@ -41,6 +41,9 @@
         <property name="areaId" type="java.lang.Integer">
             <column name="area_id" />
         </property>
+        <property name="palaceId" type="java.lang.Integer">
+            <column name="palace_id" />
+        </property>
         <property name="examine" type="short">
             <column name="examine" />
         </property>
