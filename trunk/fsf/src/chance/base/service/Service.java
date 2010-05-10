@@ -55,6 +55,22 @@ public interface Service<E> {
 	 */
 	public void update(E entity);
 	/**
+	 * update property batch 
+	 * @param conditionName  where clause condiction property name
+	 * @param conditionValue  where clause condiction property value
+	 * @param propertyName  update clause property name array
+	 * @param propertyValue  update clase property value array
+	 */
+	public void updateByProperties(String conditionName,Serializable[] conditionValue,String[] propertyName,Serializable[] propertyValue);
+	/**
+	 * update property batch
+	 * @param conditionName  where clause condiction property name
+	 * @param conditionValue where clause condiction property value
+	 * @param propertyName  update clause property name
+	 * @param propertyValue update clase property value
+	 */
+	public void updateByProperty(String conditionName,Serializable[] conditionValue,String propertyName,Serializable propertyValue);
+	/**
 	 * cautiously use this method, through delete then insert to update an entity 
 	 * when need to update primary key value (unsupported) use this method 
 	 * @param entity  updated entity

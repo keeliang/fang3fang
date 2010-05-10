@@ -24,7 +24,10 @@
             <column name="trade_type" not-null="true" />
         </property>
         <property name="contactUserId" type="int">
-            <column name="contact_user_id" not-null="true" />
+            <column name="contact_user_id" />
+        </property>
+        <property name="examineUserId" type="int">
+            <column name="examine_user_id" />
         </property>
         <property name="provinceId" type="java.lang.Integer">
             <column name="province_id" />

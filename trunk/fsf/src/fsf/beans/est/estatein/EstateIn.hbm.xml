@@ -26,6 +26,9 @@
         <property name="tradeType" type="short" not-null="true">
         		<column name="trade_type" />
         </property>
+        <property name="examine" type="short" not-null="true">
+        		<column name="examine" />
+        </property>
         <property name="contactUserId" type="int" >
         		<column name="contact_user_id" />
         </property>

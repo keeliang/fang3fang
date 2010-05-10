@@ -65,6 +65,18 @@ public class BaseService<E> implements Service<E>{
 		dao.update(entity);
 	}
 	
+	public void updateByProperties(String conditionName,
+			Serializable[] conditionValue, String[] propertyName,
+			Serializable[] propertyValue) {
+		dao.updateByProperties(conditionName, conditionValue, propertyName, propertyValue);
+	}
+
+	public void updateByProperty(String conditionName,
+			Serializable[] conditionValue, String propertyName,
+			Serializable propertyValue) {
+		dao.updateByProperty(conditionName, conditionValue, propertyName, propertyValue);
+	}
+	
 	public void update(E entity, Serializable oldId) {
 		dao.update(entity, oldId);
 	}
@@ -94,5 +106,4 @@ public class BaseService<E> implements Service<E>{
 	public List<E> doAdvancedQuery(AdvancedQueryParameter param) {
 		return dao.doAdvancedQuery(param);
 	}
-
 }

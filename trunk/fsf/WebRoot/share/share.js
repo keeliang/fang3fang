@@ -53,8 +53,9 @@ function g_chageMaxResults(val){
 }
 
 function g_select(o){
-	$('.userlist').each(function(i){
-		this.childNodes[0].childNodes[0].checked = o.checked;
+	$('#tblList tr').each(function(i){
+		if(i!=0)
+			this.childNodes[0].childNodes[0].checked = o.checked;
 	})
 }
 

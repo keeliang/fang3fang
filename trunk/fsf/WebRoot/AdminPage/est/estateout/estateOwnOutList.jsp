@@ -238,12 +238,24 @@
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
 				</tr>
+				<tr>
+					<td width="15%" >
+						<s:text name="_ne_examine" />:
+					</td>
+					<td width="35%">
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$examine')" name="estateOutParameter._ne_examine" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
+					</td>
+				</tr>
 			</table>
 		</td>
 	</tr>
 </table>
 
 <div style="text-align: right;">
+	<input type="button" onclick="f_examine(1);" value="审核通过">
+	<input type="button" onclick="f_examine(0);" value="审核中">
+	<input type="button" onclick="f_examine(-1);" value="审核未通过">
 	<input type="button" onclick="g_delete('/sysadmin/est/estateout/estateOwnOutDelete.action');" value="<s:text name="g_delete"/>">
 	<input type="button" onclick="g_list()" value="<s:text name="g_search"/>">
 	<input type="button" onclick="g_reset()" value="<s:text name="g_reset"/>">
@@ -297,6 +309,21 @@
 $(function() {
 	f_changeProvince(true);
 });
+
+function f_examine(s){
+	var bln = false;
+	var arySelectedPK = document.getElementsByName("selectedPK");
+	for(var i=0;i<arySelectedPK.length;i++){
+		if(arySelectedPK[i].checked){
+			bln = true;
+			break;
+		}
+	}
+	if(bln){
+		document.forms['formList'].action = "${contextPath}/sysadmin/est/estateout/ownExamineSubmitBatch.action?examine="+s;
+		document.forms['formList'].submit();
+	}
+}
 
 function f_validate(){
 	fromName = "formList";

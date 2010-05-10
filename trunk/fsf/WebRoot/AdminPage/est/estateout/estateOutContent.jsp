@@ -56,14 +56,16 @@
 
 <s:hidden name="estateId"/>
 <s:hidden name="tradeType" value="2"/>
+<s:hidden name="examine" />
+<s:hidden name="updateUserId"/>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">
 			<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
-			<input type="button" onclick="" value="<s:text name="examineSubmit"/>" >
-			<input type="button" onclick="" value="<s:text name="examining"/>" >
-			<input type="button" onclick="" value="<s:text name="examineCancel"/>" >
+			<s:if test="cmd!='new'">
+				<input type="button" onclick="f_examine()" value="<s:text name="changeExamine"/>" >
+			</s:if>
 			<input type="button" onclick="g_back('/sysadmin/est/estateout/estateOutList.action')" value="<s:text name="g_back"/>" >
 		</td>
 	</tr>
@@ -95,23 +97,21 @@
     	<label class="est_label" for="cityId"><s:text name="cityId"/>:</label>
 		</td>
 		<td class="content_td" id="cityTd">
-		
+
 		</td>
   </tr>
   <tr>
 		<td class="label_td">
 			<label class="est_label" for="districtId"><s:text name="districtId"/>:</label>
-			
     </td>
     <td class="content_td" id="districtTd">
-    
+
     </td>
     <td class="label_td">
 			<label class="est_label" for="area"><s:text name="areaId"/>:</label>
-			
     </td>
     <td class="content_td" id="areaTd">
-    
+
     </td>
   </tr>
   <tr>
@@ -204,28 +204,34 @@
 		<td class="label_td" >
 			<label class="est_label" for="manageCost"><s:text name="manageCost"/></label>
     </td>
-    <td class="content_td" colspan="3" >
+    <td class="content_td">
     	<s:textfield name="manageCost" id="manageCost" cssClass="memberC_input08" />元/平方米·月
     </td>
-  </tr>
-  <tr>
-		<td class="label_td" >
+    <td class="label_td" >
 			<label class="est_label" for="tradeMode"><s:text name="tradeMode" /></label>
     </td>
     <td class="content_td" >
     	<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$out_trade_mode')" cssClass="dropdown"
   		name="tradeMode" id="tradeMode" listValue="itemName" listKey="itemKey" onchange="f_chageTradeMode()"/>
     </td>
-    <!-- 
+  </tr>
+  <s:if test="cmd!='new'">
+  <tr>
     <td class="label_td" >
 			<label class="est_label" for="examine"><s:text name="examine" /></label>
     </td>
     <td class="content_td" >
-    	<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$examine')" cssClass="dropdown"
-  		name="examine" id="examine" listValue="itemName" listKey="itemKey" onchange="f_chageTradeMode()"/>
+    	<fsf:dictTranslate groupName="$examine" value="examine"/>
     </td>
-     -->
+    <td class="label_td" >
+			<label class="est_label" for="examine"><s:text name="examineUserId" /></label>
+    </td>
+    <td class="content_td" >
+  		<fsf:dictTranslate groupName="#sys_user" value="examineUserId"/>  	
+    	<s:hidden name="examineUserId"/>
+    </td>
   </tr>
+  </s:if>
 </table>
 
 <div id="saleDiv" style="display: none;">
@@ -344,13 +350,24 @@
 			<label class="est_label" >联系人</label>:
     </td>
     <td class="content_td" >
-    	<input value="${USER.userCode }" class="memberC_input01_readonly" readonly="true" />
+    	<s:if test="cmd=='new'">
+    		<input value="${USER.userCode }" class="memberC_input01_readonly" readonly="true" />
+    	</s:if>
+    	<s:if test="cmd!='new'">
+    		<s:hidden name="contactUserId" />
+				<s:textfield name="contactUser.userCode" cssClass="memberC_input01_readonly" readonly="true"/>    	
+    	</s:if>
     </td>
     <td class="label_td" >
 			<label class="est_label" >电话</label>:
     </td>
     <td class="content_td" >
-    	<input value="${USER.tel }" class="memberC_input01_readonly" readonly="true" />
+    	<s:if test="cmd=='new'">
+    		<input value="${USER.tel }" class="memberC_input01_readonly" readonly="true" />
+    	</s:if>
+    	<s:if test="cmd!='new'">
+				<s:textfield name="contactUser.tel" cssClass="memberC_input01_readonly" readonly="true"/>    	
+    	</s:if>
     </td>
   </tr>
   <tr>
@@ -358,13 +375,23 @@
 			<label class="est_label" >手机</label>:
     </td>
     <td class="content_td" >
-    	<input value="${USER.phone }" class="memberC_input01_readonly" readonly="true" />
+    	<s:if test="cmd=='new'">
+    		<input value="${USER.phone }" class="memberC_input01_readonly" readonly="true" />
+    	</s:if>
+    	<s:if test="cmd!='new'">
+				<s:textfield name="contactUser.phone" cssClass="memberC_input01_readonly" readonly="true"/>    	
+    	</s:if>
     </td>
     <td class="label_td" >
 			<label class="est_label" >QQ</label>:
     </td>
     <td class="content_td" >
-    	<input value="${USER.qq }" class="memberC_input01_readonly" readonly="true" />
+    	<s:if test="cmd=='new'">
+    		<input value="${USER.qq }" class="memberC_input01_readonly" readonly="true" />
+    	</s:if>
+    	<s:if test="cmd!='new'">
+				<s:textfield name="contactUser.qq" cssClass="memberC_input01_readonly" readonly="true"/>    	
+    	</s:if>
     </td>
   </tr>
 </table>
@@ -409,7 +436,6 @@
 			<s:text name="updateUserId"/>:
 		</td>
 		<td class="content_td" >
-			<s:hidden name="updateUserId"/>
 			<input class="memberC_input01_readonly" readonly="true" 
 			value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
 		</td>
@@ -425,12 +451,24 @@ $(function() {
 	f_chageTradeMode();
 });
 
-function f_examine(url,strId){
-	showModalDialog(url,window,"dialogWidth:800px;dialogHeight:600px;");
+function f_examine(){
+	showModalDialog("${contextPath}/sysadmin/est/estateout/estateOutExamineFrm.action?estateId=${estateId}",window,"dialogWidth:800px;dialogHeight:600px;");
 }
 
 function f_finishSelectUser(obj){
-	document.forms['formList'].action = "${contextPath}/sysadmin/est/estateout/examineSubmit.action?estateId="+examineEstateId+"&contactUserId="+obj.userId
+	document.forms['formItem'].action = "${contextPath}/sysadmin/est/estateout/examineSubmit.action";
+	var a = document.forms['formItem'].examine.value;
+	if(typeof(obj)=="string"){
+		if(obj==a){
+			return;
+		}else{
+			document.forms['formItem'].examine.value = obj;
+		}
+	}else{
+		document.forms['formItem'].contactUserId.value = obj.userId;
+		document.forms['formItem'].examine.value = 1;
+	}
+	document.forms['formItem'].submit();
 }
 
 function f_validate(){
@@ -460,7 +498,7 @@ function f_validate(){
 	addfield("manageCost","<s:text name="manageCost"/>","Number",false,14,2);
 	addfield("fitment","<s:text name="fitment"/>","Integer",false,3);
 	addfield("device","<s:text name="device"/>","Integer",false,3);
-	addfield("examine","<s:text name="examine"/>","Integer",false,3);
+	//addfield("examine","<s:text name="examine"/>","Integer",false,3);
 	//addfield("remark","<s:text name="remark"/>","String",true,65535);
 	//addfield("imagePath","<s:text name="imagePath"/>","String",true,80);
 	//addfield("createTime","<s:text name="createTime"/>","Date",false,19);
