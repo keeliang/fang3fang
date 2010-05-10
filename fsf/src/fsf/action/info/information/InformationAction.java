@@ -7,10 +7,11 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import fsf.beans.info.information.Information;
 import chance.base.action.BaseAction;
-import chance.base.BaseParameter;
+import fsf.beans.info.information.Information;
+import fsf.beans.sys.user.User;
 import fsf.service.info.information.InformationService;
+import fsf.web.common.ThreadUser;
 
 @Controller
 @Scope("prototype")
@@ -18,6 +19,30 @@ public class InformationAction extends BaseAction<Information> {
 	
 	public InformationAction() {
 		super(Information.class, new String[] { "informationId" });
+	}
+	
+	@Override
+	protected void initData() {
+		User u = ThreadUser.get();
+		createUserId = u.getUserId();
+		createTime = new Date();
+		updateUserId = u.getUserId();
+		updateTime = createTime;
+	}
+	
+	@Override
+	protected void beforePersist() {
+		User u = ThreadUser.get();
+		createUserId = u.getUserId();
+		createTime = new Date();
+		updateUserId = u.getUserId();
+		updateTime = createTime;
+	}
+	@Override
+	protected void beforeUpdate() {
+		User u = ThreadUser.get();
+		updateUserId = u.getUserId();
+		updateTime = new Date();
 	}
 	
 	@Resource
@@ -39,7 +64,6 @@ public class InformationAction extends BaseAction<Information> {
 	private Integer informationId;
 	private String informationTitle;
 	private String informationContent;
-	private Short isNew;
 	private Integer informationType;
 	private Short status;
 	private Date createTime;
@@ -65,12 +89,6 @@ public class InformationAction extends BaseAction<Information> {
 	public String getInformationContent(){
 		return this.informationContent;
 	}
-	public void setIsNew(Short isNew){
-		this.isNew = isNew;
-	}
-	public Short getIsNew(){
-		return this.isNew;
-	}
 	public void setInformationType(Integer informationType){
 		this.informationType = informationType;
 	}
@@ -95,16 +113,16 @@ public class InformationAction extends BaseAction<Information> {
 	public Integer getCreateUserId(){
 		return this.createUserId;
 	}
-	public void setupdateTime(Date updateTime){
+	public void setUpdateTime(Date updateTime){
 		this.updateTime = updateTime;
 	}
-	public Date getupdateTime(){
+	public Date getUpdateTime(){
 		return this.updateTime;
 	}
-	public void setupdateUserId(Integer updateUserId){
+	public void setUpdateUserId(Integer updateUserId){
 		this.updateUserId = updateUserId;
 	}
-	public Integer getupdateUserId(){
+	public Integer getUpdateUserId(){
 		return this.updateUserId;
 	}
 
