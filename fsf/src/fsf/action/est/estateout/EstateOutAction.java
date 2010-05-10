@@ -224,6 +224,7 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	private Integer cityId;
 	private Integer districtId;
 	private Integer areaId;
+	private Integer palaceId;
 	private Short examine;
 	private Integer examineUserId;
 	private Short tradeMode;
@@ -536,6 +537,14 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 
 	public void setExamineUserId(Integer examineUserId) {
 		this.examineUserId = examineUserId;
+	}
+
+	public Integer getPalaceId() {
+		return palaceId;
+	}
+
+	public void setPalaceId(Integer palaceId) {
+		this.palaceId = palaceId;
 	}
 
 }

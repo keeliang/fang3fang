@@ -17,6 +17,7 @@ public class EstateOutParameter extends BaseParameter{
 	private Integer _ne_cityId;
 	private Integer _ne_districtId;
 	private Integer _ne_areaId;
+	private Integer _ne_palaceId;
 	private Short _ne_examine;
 	private Short _ne_tradeMode;
 	private Short _ne_estateType;
@@ -360,5 +361,11 @@ public class EstateOutParameter extends BaseParameter{
 	}
 	public void set_ne_examine(Short _ne_examine) {
 		this._ne_examine = _ne_examine;
+	}
+	public Integer get_ne_palaceId() {
+		return _ne_palaceId;
+	}
+	public void set_ne_palaceId(Integer id) {
+		_ne_palaceId = id;
 	}
 }
