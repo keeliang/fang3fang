@@ -64,7 +64,6 @@
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="estateOutParameter._ne_provinceId" 
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey" id="provinceId" onchange="f_changeProvince()"/>
 					</td>
-
 					<td width="15%" >
 						<s:text name="_ne_cityId" />:
 					</td>

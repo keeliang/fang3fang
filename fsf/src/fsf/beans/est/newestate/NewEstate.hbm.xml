@@ -26,19 +26,19 @@
         <property name="areaId" type="java.lang.Integer">
             <column name="area_id" />
         </property>
-        <property name="status" type="byte">
+        <property name="status" type="short">
             <column name="status" not-null="true" />
         </property>
-        <property name="isHot" type="byte">
+        <property name="isHot" type="short">
             <column name="is_hot" not-null="true" />
         </property>
-        <property name="estateType" type="byte">
+        <property name="estateType" type="short">
             <column name="estate_type" not-null="true" />
         </property>
         <property name="area" type="big_decimal">
             <column name="area" precision="6" not-null="true" />
         </property>
-        <property name="isLift" type="byte">
+        <property name="isLift" type="short">
             <column name="is_lift" not-null="true" />
         </property>
         <property name="practicalArea" type="big_decimal">
@@ -47,8 +47,8 @@
         <property name="effective" type="int">
             <column name="effective" not-null="true" />
         </property>
-        <property name="estateAddress" type="string">
-            <column name="estate_address" length="128" not-null="true" />
+        <property name="address" type="string">
+            <column name="address" length="128" not-null="true" />
         </property>
         <property name="toward" type="java.lang.Integer">
             <column name="toward" />
@@ -77,7 +77,7 @@
         <property name="otherCost" type="big_decimal">
             <column name="other_cost" precision="12" scale="3" />
         </property>
-        <property name="fitment" type="byte">
+        <property name="fitment" type="short">
             <column name="fitment" not-null="true" />
         </property>
         <property name="remark" type="string">

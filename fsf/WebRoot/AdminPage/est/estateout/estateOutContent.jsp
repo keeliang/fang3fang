@@ -28,6 +28,7 @@
 <s:hidden name="estateOutParameter._ne_cityId" />
 <s:hidden name="estateOutParameter._ne_districtId" />
 <s:hidden name="estateOutParameter._ne_areaId" />
+<s:hidden name="estateOutParameter._ne_palaceId" />
 <s:hidden name="estateOutParameter._ne_tradeMode" />
 <s:hidden name="estateOutParameter._ne_estateType" />
 <s:hidden name="estateOutParameter._nge_area" />
@@ -151,7 +152,7 @@
 			<label class="est_label" for="palaceId"><s:text name="palaceId"/>:</label>
     </td>
     <td class="content_td" colspan="3">
-    	<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#est_palace')" name="estateOutParameter.palaceId" 
+    	<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#est_palace')" name="palaceId" 
 			cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
     </td>
   </tr>
@@ -217,7 +218,7 @@
     	<s:textfield name="manageCost" id="manageCost" cssClass="memberC_input08" />元/平方米·月
     </td>
     <td class="label_td" >
-			<label class="est_label" for="tradeMode"><s:text name="tradeMode" /></label>
+			<label class="est_label" for="tradeMode"><s:text name="tradeMode" />:</label>
     </td>
     <td class="content_td" >
     	<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$out_trade_mode')" cssClass="dropdown"
@@ -233,7 +234,7 @@
     	<fsf:dictTranslate groupName="$examine" value="examine"/>
     </td>
     <td class="label_td" >
-			<label class="est_label" for="examine"><s:text name="examineUserId" /></label>
+			<label class="est_label" for="examine"><s:text name="examineUserId" />:</label>
     </td>
     <td class="content_td" >
   		<fsf:dictTranslate groupName="#sys_user" value="examineUserId"/>  	

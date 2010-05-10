@@ -120,6 +120,8 @@ create table if not exists est_estate_in(
 	
 	examine tinyint,
 	examine_user_id int,/* 审核人 */
+	
+	effective int not null, /*有效期*/
 
 	trade_mode tinyint not null,/*交易模式 0 disabled(前台不显示) 1 求租 2 求售 3 租售均可 4 已租 5 已购 固定参数in_trade_mode*/
 	estate_type tinyint not null,/*类型 1 普通住宅 2 公寓 3 别墅 4 餐厅 5 商铺 6 写字楼 7 厂房 8 其他 固定参数estate_type*/
@@ -168,7 +170,7 @@ create table if not exists est_new_estate(
 	city_id int,
 	district_id int,
 	area_id int,
-	address varchar(80),
+	address varchar(80) not null,
 		
 	status tinyint not null,/* 1 enabled 0 disabled 固定参数front_visible*/
 	is_hot tinyint not null,/* 1 是 0 否 固定参数is_hot*/
@@ -180,7 +182,6 @@ create table if not exists est_new_estate(
 	
 	effective int not null,/* 有效天数 -1 长期有效*/
 
-	estate_address varchar(128) not null,
 	toward int,	/* 房子的朝向 1 东 2 南 3 西 4 北 5 东南 6 西南 7 东北 8 西北 固定参数toward*/
 	
 	total_floor int not null, /* 总楼层 */

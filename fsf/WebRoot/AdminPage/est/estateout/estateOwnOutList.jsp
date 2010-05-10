@@ -88,6 +88,28 @@
 				</tr>
 				<tr>
 					<td width="15%" >
+						<s:text name="_ne_palaceId" />:
+					</td>
+					<td width="35%" >
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#est_palace')" name="estateOutParameter._ne_palaceId" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
+					</td>
+					<td width="15%" >
+						<s:text name="structure"/>:
+					</td>
+					<td width="35%" >
+						<s:text name="_ne_hall" />:
+						<s:textfield name="estateOutParameter._ne_hall" cssClass="memberC_input03" />
+						<s:text name="_ne_bedroom" />:
+						<s:textfield name="estateOutParameter._ne_bedroom" cssClass="memberC_input03" />
+						<s:text name="_ne_toilet" />:
+						<s:textfield name="estateOutParameter._ne_toilet" cssClass="memberC_input03"/>
+						<s:text name="_ne_porch" />:
+						<s:textfield name="estateOutParameter._ne_porch" cssClass="memberC_input03"/>
+					</td>
+				</tr>
+				<tr>
+					<td width="15%" >
 						<s:text name="_ne_tradeMode" />:
 					</td>
 					<td width="35%">
@@ -203,38 +225,16 @@
 				</tr>
 				<tr>
 					<td width="15%" >
-						<s:text name="structure"/>:
-					</td>
-					<td width="35%" >
-						<s:text name="_ne_hall" />:
-						<s:textfield name="estateOutParameter._ne_hall" cssClass="memberC_input03" />
-						<s:text name="_ne_bedroom" />:
-						<s:textfield name="estateOutParameter._ne_bedroom" cssClass="memberC_input03" />
-						<s:text name="_ne_toilet" />:
-						<s:textfield name="estateOutParameter._ne_toilet" cssClass="memberC_input03"/>
-						<s:text name="_ne_porch" />:
-						<s:textfield name="estateOutParameter._ne_porch" cssClass="memberC_input03"/>
-					</td>
-					<td width="15%" >
 						<s:text name="_ne_minMonth" />:
 					</td>
 					<td width="35%">
 						<s:textfield name="estateOutParameter._ne_minMonth" />
 					</td>
-				</tr>
-				<tr>
 					<td width="15%" >
 						<s:text name="_ne_fitment" />:
 					</td>
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$fitment',null,'0')" name="estateOutParameter._ne_fitment" 
-						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
-					</td>
-					<td width="15%" >
-						<s:text name="_ne_device" />:
-					</td>
-					<td width="35%">
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$device',null,'0')" name="estateOutParameter._ne_device" 
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
 				</tr>
@@ -244,6 +244,13 @@
 					</td>
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$examine')" name="estateOutParameter._ne_examine" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
+					</td>
+					<td width="15%" >
+						<s:text name="_ne_device" />:
+					</td>
+					<td width="35%">
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$device',null,'0')" name="estateOutParameter._ne_device" 
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
 				</tr>

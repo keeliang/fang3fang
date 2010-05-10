@@ -25,6 +25,7 @@ public class EstateIn implements java.io.Serializable {
 	private Short tradeMode;
 	private Short examine;
 	private Integer examineUserId;
+	private Integer effective;
 	private Short estateType;
 	private Integer hall;
 	private Integer bedroom;
@@ -295,6 +296,14 @@ public class EstateIn implements java.io.Serializable {
 
 	public void setExamineUserId(Integer examineUserId) {
 		this.examineUserId = examineUserId;
+	}
+
+	public Integer getEffective() {
+		return effective;
+	}
+
+	public void setEffective(Integer effective) {
+		this.effective = effective;
 	}
 	
 }

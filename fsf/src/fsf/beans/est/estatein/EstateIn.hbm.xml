@@ -29,6 +29,12 @@
         <property name="examine" type="short" not-null="true">
         		<column name="examine" />
         </property>
+        <property name="examineUserId" type="int" >
+        		<column name="examine_user_id" />
+        </property>
+        <property name="effective" type="int" >
+        		<column name="effective" />
+        </property>
         <property name="contactUserId" type="int" >
         		<column name="contact_user_id" />
         </property>

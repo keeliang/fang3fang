@@ -58,8 +58,10 @@
 <s:hidden name="estateOutParameter._ne_fitment" />
 <s:hidden name="estateOutParameter._ne_device" />
 
+<s:hidden name="estateOutParameter._ne_tradeType" />
+
 <s:hidden name="estateId"/>
-<s:hidden name="tradeType" value="2"/>
+<s:hidden name="tradeType" value="1"/>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -118,6 +120,14 @@
     </td>
     <td class="content_td" >
     	<span class="est_info"><fsf:dictTranslate groupName="#est_businessarea" value="areaId" /></span>
+    </td>
+  </tr>
+  <tr>
+		<td class="label_td">
+			<label class="est_label" for="palaceId"><s:text name="palaceId"/>:</label>
+    </td>
+    <td class="content_td" colspan="3">
+    	<span class="est_info"><fsf:dictTranslate groupName="#est_palace" value="palaceId" /></span>
     </td>
   </tr>
   <tr>
@@ -203,13 +213,13 @@
   </tr>
   <tr>
 		<td class="label_td" >
-			<label class="est_label" for="manageCost"><s:text name="manageCost"/></label>
+			<label class="est_label" for="manageCost"><s:text name="manageCost"/>:</label>
     </td>
     <td class="content_td" colspan="3" >
     	<span class="est_info">${manageCost }元/平方米·月</span>
     </td>
     <td class="label_td" >
-			<label class="est_label" for="tradeMode"><s:text name="tradeMode" /></label>
+			<label class="est_label" for="tradeMode"><s:text name="tradeMode" />:</label>
     </td>
     <td class="content_td" >
   		<span class="est_info"><fsf:dictTranslate groupName="$out_trade_mode" value="tradeMode"/></span>
@@ -217,14 +227,14 @@
   </tr>
   <tr>
   	<td class="label_td" >
-			<label class="est_label" for="examine"><s:text name="examine" /></label>
+			<label class="est_label" for="examine"><s:text name="examine" />:</label>
     </td>
     <td class="content_td" >
     	<fsf:dictTranslate groupName="$examine" value="examine"/>
     	<s:hidden name="examine" />
     </td>
   	<td class="label_td" >
-  		<label class="est_label" ><s:text name="examineUserId" /></label>
+  		<label class="est_label" ><s:text name="examineUserId" />:</label>
   	</td>
     <td class="content_td" >
 			<s:if test="examineUserId==-1">
@@ -245,13 +255,13 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%" id="saleTbl" style="display: none;">
 	<tr>
 		<td class="label_td" >
-			<label class="est_label" for="estateCardNo"><s:text name="estateCardNo" /></label>:
+			<label class="est_label" for="estateCardNo"><s:text name="estateCardNo" />:</label>:
     </td>
     <td class="content_td" >
     	<span class="est_info">${estateCardNo }</span>
     </td>
     <td class="label_td" >
-			<label class="est_label" for="buildYear"><s:text name="buildYear" /></label>:
+			<label class="est_label" for="buildYear"><s:text name="buildYear" />:</label>:
     </td>
     <td class="content_td" >
     	<span class="est_info">${buildYear }</span>
@@ -259,13 +269,13 @@
   </tr>
   <tr>
   	<td class="label_td" >
-  		<label class="est_label" for="card5year"><s:text name="card5year" /></label>:
+  		<label class="est_label" for="card5year"><s:text name="card5year" />:</label>:
   	</td>
   	<td class="content_td" >
   		<span class="est_info"><fsf:dictTranslate groupName="$yes_no" value="card5year"/></span>
   	</td>
   	<td class="label_td" >
-  		<label class="est_label" for="salePrice"><s:text name="salePrice"/></label>
+  		<label class="est_label" for="salePrice"><s:text name="salePrice"/>:</label>
   	</td>
   	<td class="content_td" >
   		<span class="est_info">${salePrice }元</span>
@@ -273,7 +283,7 @@
   </tr>
   <tr>
 		<td class="label_td" >
-  		<label class="est_label" for="develop"><s:text name="develop"/></label>
+  		<label class="est_label" for="develop"><s:text name="develop"/>:</label>
   	</td>
   	<td class="content_td" colspan="3" >
   		<span class="est_info">${develop }</span>
@@ -289,13 +299,13 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="rentTbl" style="display: none;">
 	<tr>
   	<td class="label_td" >
-  		<label class="est_label" for="rentPrice"><s:text name="rentPrice"/></label>
+  		<label class="est_label" for="rentPrice"><s:text name="rentPrice"/>:</label>
 		</td>
 		<td class="content_td" >
   		<span class="est_info">${rentPrice }元/月</span>
 		</td>
 		<td class="label_td" >
-			<label class="est_label" for="minMonth"><s:text name="minMonth"/></label>
+			<label class="est_label" for="minMonth"><s:text name="minMonth"/>:</label>
 		</td>
 		<td class="content_td" >
 			<span class="est_info">${minMonth }月</span>
@@ -303,13 +313,13 @@
 	</tr>
 	<tr>
 		<td class="label_td" >
-  		<label class="est_label" for="deposit"><s:text name="deposit"/></label>
+  		<label class="est_label" for="deposit"><s:text name="deposit"/>:</label>
 		</td>
 		<td class="content_td" >
 			<span class="est_info">${deposit }元</span>
 		</td>
 		<td class="label_td" >
-  		<label class="est_label" for="waterCost"><s:text name="waterCost"/></label>
+  		<label class="est_label" for="waterCost"><s:text name="waterCost"/>:</label>
 		</td>
 		<td class="content_td" >
 			<span class="est_info">
@@ -324,7 +334,7 @@
   </tr>
   <tr>
 		<td class="label_td" >
-  		<label class="est_label" for="electricCost"><s:text name="electricCost"/></label>
+  		<label class="est_label" for="electricCost"><s:text name="electricCost"/>:</label>
 		</td>
 		<td class="content_td" >
 			<span class="est_info">
@@ -337,7 +347,7 @@
 			</span>
 		</td>
 		<td class="label_td" >
-  		<label class="est_label" for="otherCost"><s:text name="otherCost"/></label>
+  		<label class="est_label" for="otherCost"><s:text name="otherCost"/>:</label>
 		</td>
 		<td class="content_td" >
 			<span class="est_info">${otherCost }元/月</span>

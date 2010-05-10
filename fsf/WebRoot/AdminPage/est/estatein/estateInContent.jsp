@@ -372,6 +372,7 @@ function f_validate(){
 	addfield("areaId","<s:text name="areaId"/>","Integer",true,10);
 	addfield("address","<s:text name="address"/>","String",true,80);
 	//addfield("examine","<s:text name="examine"/>","Integer",true,3);
+	addfield("effective","<s:text name="effective"/>","Integer",false,10);
 	addfield("tradeMode","<s:text name="tradeMode"/>","Integer",false,3);
 	addfield("estateType","<s:text name="estateType"/>","Integer",false,3);
 	addfield("buildYear","<s:text name="buildYear"/>","Integer",true,10);

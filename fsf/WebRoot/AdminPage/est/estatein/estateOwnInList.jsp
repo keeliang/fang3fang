@@ -11,11 +11,13 @@
 </head>
 
 <body>
-<s:form action="estateInList" namespace="/sysadmin/est/estatein" name="formList" id="formList" theme="simple" method="post">
+<s:form action="estateOwnInList" namespace="/sysadmin/est/estatein" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="estateInParameter.currentPage" id="currentPage"  />
 <s:hidden name="estateInParameter.maxResults" id="maxResults" />
 
-<s:hidden name="estateInParameter._ne_tradeType" value="2" />
+<s:hidden name="estateInParameter._ne_tradeType" value="1" />
+<s:hidden name="cmd"/>
+
 <div class="contentTitle"><s:text name="contentTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
@@ -180,7 +182,7 @@
 	<input type="button" onclick="f_examine(1);" value="审核通过">
 	<input type="button" onclick="f_examine(0);" value="审核中">
 	<input type="button" onclick="f_examine(-1);" value="审核未通过">
-	<input type="button" onclick="g_delete('/sysadmin/est/estatein/estateInDelete.action');" value="<s:text name="g_delete"/>">
+	<input type="button" onclick="g_delete('/sysadmin/est/estatein/estateOwnInDelete.action');" value="<s:text name="g_delete"/>">
 	<input type="button" onclick="g_list()" value="<s:text name="g_search"/>">
 	<input type="button" onclick="g_reset()" value="<s:text name="g_reset"/>">
 </div>
@@ -205,7 +207,7 @@
 </tr>
 
 <s:iterator value="pageView.records" id="item">
-	<s:url action="estateInEdit" namespace="/sysadmin/est/estatein" id="url">
+	<s:url action="estateOwnInEdit" namespace="/sysadmin/est/estatein" id="url">
 		<s:param name="estateId" value="#item.estateId"></s:param>
 	</s:url>
 	<tr>
