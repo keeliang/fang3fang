@@ -7,6 +7,7 @@
 <%@include file="/share/validate.jsp" %>
 <link type="text/css" rel="stylesheet" href="/css/Common.css" />
 <link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
 </head>
 
 <body>
@@ -49,6 +50,8 @@
 <s:hidden name="newEstateParameter._de_updateTime" />
 <s:hidden name="newEstateParameter._ne_updateUserId" />
 
+<s:hidden name="estateId" />
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">
@@ -64,67 +67,68 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td>
-						<s:text name="estateId"/>:
-					</td>
-					<td>
-						<s:textfield name="estateId" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
 						<s:text name="estateName"/>:
 					</td>
 					<td>
-						<s:textfield name="estateName" />					</td>
+						<s:textfield name="estateName" />
+					</td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="develop"/>:
 					</td>
 					<td>
-						<s:textfield name="develop" />					</td>
+						<s:textfield name="develop" />
+					</td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="provinceId"/>:
 					</td>
 					<td>
-						<s:textfield name="provinceId" />					</td>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="provinceId" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey" id="provinceId" onchange="f_changeProvince()"/>
+					</td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="cityId"/>:
 					</td>
-					<td>
-						<s:textfield name="cityId" />					</td>
+					<td id="cityTd">
+						
+					</td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="districtId"/>:
 					</td>
-					<td>
-						<s:textfield name="districtId" />					</td>
+					<td id="districtTd">
+						
+					</td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="areaId"/>:
 					</td>
-					<td>
-						<s:textfield name="areaId" />					</td>
+					<td id="areaTd">
+						
+					</td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="address"/>:
 					</td>
 					<td>
-						<s:textfield name="address" />					</td>
+						<s:textfield name="address" />
+					</td>
 				</tr>
 				<tr>
 					<td>
 						<s:text name="status"/>:
 					</td>
 					<td>
-						<s:textfield name="status" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="status" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"  /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -132,7 +136,8 @@
 						<s:text name="isHot"/>:
 					</td>
 					<td>
-						<s:textfield name="isHot" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$yes_no')" name="isHot" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -140,7 +145,8 @@
 						<s:text name="estateType"/>:
 					</td>
 					<td>
-						<s:textfield name="estateType" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$estate_type')" name="estateType" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -156,7 +162,8 @@
 						<s:text name="isLift"/>:
 					</td>
 					<td>
-						<s:textfield name="isLift" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$is_lift')" name="isLift" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -177,18 +184,12 @@
 				</tr>
 				<tr>
 					<td>
-						<s:text name="estateAddress"/>:
-					</td>
-					<td>
-						<s:textfield name="estateAddress" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
 						<s:text name="toward"/>:
 					</td>
 					<td>
-						<s:textfield name="toward" />					</td>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$toward',null,'0')" name="toward" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
+					</td>
 				</tr>
 				<tr>
 					<td>
@@ -207,34 +208,17 @@
 				</tr>
 				<tr>
 					<td>
-						<s:text name="hall"/>:
+						<s:text name="structure"/>:
 					</td>
 					<td>
-						<s:textfield name="hall" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="bedroom"/>:
-					</td>
-					<td>
-						<s:textfield name="bedroom" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="toilet"/>:
-					</td>
-					<td>
-						<s:textfield name="toilet" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="porch"/>:
-					</td>
-					<td>
-						<s:textfield name="porch" /><font color="red">*</font>
+						<s:text name="_ne_hall" />:
+						<s:textfield name="newEstateParameter._ne_hall" cssClass="memberC_input03" />
+						<s:text name="_ne_bedroom" />:
+						<s:textfield name="newEstateParameter._ne_bedroom" cssClass="memberC_input03" />
+						<s:text name="_ne_toilet" />:
+						<s:textfield name="newEstateParameter._ne_toilet" cssClass="memberC_input03"/>
+						<s:text name="_ne_porch" />:
+						<s:textfield name="newEstateParameter._ne_porch" cssClass="memberC_input03"/>
 					</td>
 				</tr>
 				<tr>
@@ -257,7 +241,8 @@
 						<s:text name="fitment"/>:
 					</td>
 					<td>
-						<s:textfield name="fitment" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$fitment')" name="fitment" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"  /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -265,7 +250,8 @@
 						<s:text name="remark"/>:
 					</td>
 					<td>
-						<s:textfield name="remark" />					</td>
+						<s:textfield name="remark" />
+					</td>
 				</tr>
 				<tr>
 					<td>
@@ -279,7 +265,11 @@
 						<s:text name="createTime"/>:
 					</td>
 					<td>
-						<s:textfield name="createTime" /><font color="red">*</font>
+						<s:textfield name="createTime"  cssClass="memberC_input01_readonly" readonly="true">
+							<s:param name="value">
+								<s:date name="createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 				<tr>
@@ -287,7 +277,9 @@
 						<s:text name="createUserId"/>:
 					</td>
 					<td>
-						<s:textfield name="createUserId" /><font color="red">*</font>
+						<s:hidden name="createUserId"/>
+						<input class="memberC_input01_readonly" readonly="true" 
+						value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
 					</td>
 				</tr>
 				<tr>
@@ -295,7 +287,11 @@
 						<s:text name="updateTime"/>:
 					</td>
 					<td>
-						<s:textfield name="updateTime" /><font color="red">*</font>
+						<s:textfield name="updateTime"  cssClass="memberC_input01_readonly" readonly="true">
+							<s:param name="value">
+								<s:date name="updateTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 				<tr>
@@ -303,7 +299,9 @@
 						<s:text name="updateUserId"/>:
 					</td>
 					<td>
-						<s:textfield name="updateUserId" /><font color="red">*</font>
+						<s:hidden name="updateUserId"/>
+						<input class="memberC_input01_readonly" readonly="true" 
+						value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
 					</td>
 				</tr>
 			</table>
@@ -314,9 +312,12 @@
 </body>
 </html>
 <script type="text/javascript">
+$(function() {
+	f_changeProvince(true);
+});
 function f_validate(){
 	fromName = "formItem";
-	addfield("estateId","<s:text name="estateId"/>","Integer",false,10);
+	//addfield("estateId","<s:text name="estateId"/>","Integer",false,10);
 	addfield("estateName","<s:text name="estateName"/>","String",true,80);
 	addfield("develop","<s:text name="develop"/>","String",true,50);
 	addfield("provinceId","<s:text name="provinceId"/>","Integer",true,10);
@@ -331,7 +332,6 @@ function f_validate(){
 	addfield("isLift","<s:text name="isLift"/>","Integer",false,3);
 	addfield("practicalArea","<s:text name="practicalArea"/>","Number",false,6);
 	addfield("effective","<s:text name="effective"/>","Integer",false,10);
-	addfield("estateAddress","<s:text name="estateAddress"/>","String",false,128);
 	addfield("toward","<s:text name="toward"/>","Integer",true,10);
 	addfield("totalFloor","<s:text name="totalFloor"/>","Integer",false,10);
 	addfield("price","<s:text name="price"/>","Number",true,14);
@@ -343,11 +343,47 @@ function f_validate(){
 	addfield("otherCost","<s:text name="otherCost"/>","Number",true,12);
 	addfield("fitment","<s:text name="fitment"/>","Integer",false,3);
 	addfield("remark","<s:text name="remark"/>","String",true,65535);
-	addfield("imagePath","<s:text name="imagePath"/>","String",true,80);
-	addfield("createTime","<s:text name="createTime"/>","Date",false,19);
-	addfield("createUserId","<s:text name="createUserId"/>","Integer",false,10);
-	addfield("updateTime","<s:text name="updateTime"/>","Date",false,19);
-	addfield("updateUserId","<s:text name="updateUserId"/>","Integer",false,10);
+	//addfield("imagePath","<s:text name="imagePath"/>","String",true,80);
+	//addfield("createTime","<s:text name="createTime"/>","Date",false,19);
+	//addfield("createUserId","<s:text name="createUserId"/>","Integer",false,10);
+	//addfield("updateTime","<s:text name="updateTime"/>","Date",false,19);
+	//addfield("updateUserId","<s:text name="updateUserId"/>","Integer",false,10);
 	return validate();
+}
+
+function f_changeProvince(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	$.post("getCityList.action",{provinceId:$("#provinceId").val()},function(json){
+		var selectTag = new SelectTag("cityId","cityId",json.data,"itemKey","itemName","${cityId}","f_changeCity()");
+		$("#cityTd").html(selectTag.toString());
+		if(isIndex)
+			f_changeCity(isIndex);
+	},"json");
+}
+function f_changeCity(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	if($("#cityId").val()=="")
+		return;
+	$.post("getDistrictList.action",{provinceId:$("#provinceId").val(),cityId:$("#cityId").val()},function(json){
+		var selectTag = new SelectTag("districtId","districtId",json.data,"itemKey","itemName","${districtId}","f_changeDistrict()");
+		$("#districtTd").html(selectTag.toString());
+		if(isIndex)
+			f_changeDistrict(isIndex);
+	},"json");
+}
+
+function f_changeDistrict(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	if($("#cityId").val()=="")
+		return;
+	if($("#districtId").val()=="")
+		return;
+	$.post("getBusinessareaList.action",{provinceId:$("#provinceId").val(),cityId:$("#cityId").val(),districtId:$("#districtId").val()},function(json){
+		var selectTag = new SelectTag("areaId","areaId",json.data,"itemKey","itemName","${areaId}");
+		$("#areaTd").html(selectTag.toString());
+	},"json");
 }
 </script>

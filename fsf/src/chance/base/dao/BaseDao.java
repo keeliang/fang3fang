@@ -22,6 +22,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import chance.base.AdvancedQueryParameter;
 import chance.base.BaseParameter;
+import chance.base.dao.handler.QLHandler;
 import chance.base.dao.handler.QLHandlerFactory;
 import chance.common.QueryResult;
 import chance.common.SystemInitListener;
@@ -303,6 +304,11 @@ public class BaseDao<E> extends HibernateDaoSupport implements Dao<E> {
 		if(param==null){
 			return;
 		}
+		/**
+		 * queryCondition       _se_userId
+		 * colName              userId
+		 * key                  _se
+		 */
 		Map map = handlerConditions(param);
 		for (Iterator<String> it = map.keySet().iterator(); it.hasNext();) {
 			String queryCondition = it.next();
@@ -311,15 +317,14 @@ public class BaseDao<E> extends HibernateDaoSupport implements Dao<E> {
 				continue;
 			if (value == null || "".equals(value))
 				continue;
-			hql.append(" and ");
 			String colName = transferColumn(queryCondition);
 			
 			String key = queryCondition.substring(0,queryCondition.indexOf('_',1));
 			QLRegular qlRegular = SystemInitListener.QLRegularMap.get(key);
-			hql.append(QLHandlerFactory.getQLHandler(qlRegular.getHandler()).getClause(qlRegular.getCondition(), colName, queryCondition, value));
+			QLHandler qlHandler = QLHandlerFactory.getQLHandler(qlRegular.getHandler());
+			hql.append(qlHandler.getClause(qlRegular.getCondition(), colName, queryCondition, value));
 			value = QLHandlerFactory.getQLHandler(qlRegular.getHandler()).getValue(value);
-			if(value!=null)
-				mapParameter.put(queryCondition, value);
+			qlHandler.setParameterValue(mapParameter,queryCondition,value);
 			
 //			if (queryCondition.startsWith("_hql_")) {
 //				hql.append(" ( " + map.get(queryCondition) + " ) ");

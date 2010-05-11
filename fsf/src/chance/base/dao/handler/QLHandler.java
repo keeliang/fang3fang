@@ -1,5 +1,7 @@
 package chance.base.dao.handler;
 
+import java.util.Map;
+
 public interface QLHandler {
 	/**
 	 * generate codition clause like userId = :_ne_userId
@@ -17,4 +19,13 @@ public interface QLHandler {
 	 * @return
 	 */
 	public Object getValue(Object value);
+	/**
+	 * put value into mapParameter and set parameter into org.hibernate.Query 
+	 * using queryCondition as paramter name and value as parameter value  
+	 * @param map
+	 * @param queryCondition
+	 * @param value
+	 */
+	public void setParameterValue(Map<String, Object> mapParameter,String queryCondition,Object value);
+	
 }

@@ -17,11 +17,7 @@
 
 <s:hidden name="estateOutParameter._ne_tradeType" value="2" />
 
-<table>
-	<tr>
-		<td align="left" width="722">picture</td>
-	</tr>
-</table>
+<div class="contentTitle"><s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
 	<tr>
