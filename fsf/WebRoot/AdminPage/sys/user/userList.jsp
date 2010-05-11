@@ -134,13 +134,21 @@
 						<s:text name="_dge_createDate" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._dge_createDate"  />
+						<s:textfield name="userParameter._dge_createDate" onclick="WdatePicker()" >
+							<s:param name="value">
+								<s:date name="userParameter._dge_createDate" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 					<td width="15%" >
 						<s:text name="_dle_createDate" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="userParameter._dle_createDate"  />
+						<s:textfield name="userParameter._dle_createDate" onclick="WdatePicker()" >
+							<s:param name="value">
+								<s:date name="userParameter._dle_createDate" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 			</table>

@@ -17,11 +17,7 @@
 
 <s:hidden name="estateOutParameter._ne_tradeType" value="1" />
 
-<table>
-	<tr>
-		<td align="left" width="722">picture</td>
-	</tr>
-</table>
+<div class="contentTitle"><s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
 	<tr>
@@ -252,6 +248,20 @@
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$device',null,'0')" name="estateOutParameter._ne_device" 
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
+					</td>
+				</tr>
+				<tr>
+					<td width="15%" >
+						<s:text name="_dge_createTime" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="estateOutParameter._dge_createTime" onclick="WdatePicker()" />
+					</td>
+					<td width="15%" >
+						<s:text name="_dle_createTime" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="estateOutParameter._dle_createTime" onclick="WdatePicker()" />
 					</td>
 				</tr>
 			</table>

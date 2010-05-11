@@ -162,13 +162,21 @@
 						<s:text name="_dge_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="estateInParameter._dge_createTime" />
+						<s:textfield name="estateInParameter._dge_createTime" onclick="WdatePicker()" >
+							<s:param name="value">
+								<s:date name="estateInParameter._dge_createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 					<td width="15%" >
 						<s:text name="_dle_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="estateInParameter._dle_createTime" />
+						<s:textfield name="estateInParameter._dle_createTime" onclick="WdatePicker()" >
+							<s:param name="value">
+								<s:date name="estateInParameter._dle_createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 			</table>

@@ -181,7 +181,7 @@ where not exists (select * from sys_dictitem where group_name = 'est_comment_typ
 
 /*************************交易方式****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'trade_type','房产信息留言类型',null from dual
+select 'trade_type','房产交易类型',null from dual
 where not exists (select * from sys_dictgroup where group_name = 'trade_type');
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
 select 'trade_type','1','自主交易','自主交易',1 from dual

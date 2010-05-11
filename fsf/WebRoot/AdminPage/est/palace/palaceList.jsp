@@ -40,13 +40,13 @@
 						<s:text name="_dge_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="palaceParameter._dge_createTime" />
+						<s:textfield name="palaceParameter._dge_createTime" onclick="WdatePicker()" />
 					</td>
 					<td width="15%" >
 						<s:text name="_dle_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="palaceParameter._dle_createTime" />
+						<s:textfield name="palaceParameter._dle_createTime" onclick="WdatePicker()" />
 					</td>
 				</tr>
 			</table>
