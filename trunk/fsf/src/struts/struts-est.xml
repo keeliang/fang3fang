@@ -236,5 +236,29 @@
 		</action>
 	</package>
 	<!-- ********************************************** -->
+	<!--******************* estComment *************** -->
+	<package name="/sysadmin/est/comment" extends="baseDefault" namespace="/sysadmin/est/comment" >
+		<action name="estCommentList" class="estCommentAction" method="doList">
+			<result>/AdminPage/est/comment/estCommentList.jsp</result>
+			<result name="input">/AdminPage/est/comment/estCommentList.jsp</result>
+		</action>
+		<action name="estCommentSave" class="estCommentAction" method="doSave">
+			<result>/AdminPage/est/comment/estCommentContent.jsp</result>
+			<result name="input">/AdminPage/est/comment/estCommentContent.jsp</result>
+		</action>
+		<action name="estCommentEdit" class="estCommentAction" method="doEdit">
+			<result>/AdminPage/est/comment/estCommentContent.jsp</result>
+			<result name="input">/AdminPage/est/comment/estCommentContent.jsp</result>
+		</action>
+		<action name="estCommentNew" class="estCommentAction" method="doNew">
+			<result>/AdminPage/est/comment/estCommentContent.jsp</result>
+			<result name="input">/AdminPage/est/comment/estCommentContent.jsp</result>
+		</action>
+		<action name="estCommentDelete" class="estCommentAction" method="doDelete">
+			<result>/AdminPage/est/comment/estCommentList.jsp</result>
+			<result name="input">/AdminPage/est/comment/estCommentList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
 	
 </struts>
