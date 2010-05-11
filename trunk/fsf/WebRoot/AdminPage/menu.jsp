@@ -68,7 +68,7 @@ $(document).ready(function() {
 				<tr><td><a href="/sysadmin/est/estatein/estateInList.action" target="content"><span>二手房委托求租求售管理</span></a></td></tr>
 				<tr><td><a href="/sysadmin/est/estatein/estateOwnInList.action" target="content"><span>二手房自主求租求售管理</span></a></td></tr>
 				<tr><td><a href="/sysadmin/est/newestate/newEstateList.action" target="content"><span>新房管理</span></a></td></tr>
-				<tr><td><a href="AdminPage_CityType.jsp" target="content"><span>留言管理</span></a></td></tr>
+				<tr><td><a href="/sysadmin/est/comment/estCommentList.action" target="content"><span>留言管理</span></a></td></tr>
 			</table>
 		</td>
 	</tr>

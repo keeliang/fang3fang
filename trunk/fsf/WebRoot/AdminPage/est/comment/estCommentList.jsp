@@ -14,11 +14,7 @@
 <s:form action="estCommentList" namespace="/sysadmin/est/comment" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="estCommentParameter.currentPage" id="currentPage"  />
 <s:hidden name="estCommentParameter.maxResults" id="maxResults" />
-<table>
-	<tr>
-		<td align="left" width="722">picture</td>
-	</tr>
-</table>
+<div class="contentTitle"><s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
 	<tr>
@@ -35,57 +31,45 @@
 						<s:text name="_ne_type" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="estCommentParameter._ne_type" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$est_comment_type')" name="estCommentParameter._ne_type" 
+						cssClass="dropdown" id="type" listValue="itemName" listKey="itemKey" emptyOption="true"/>
 					</td>
 				</tr>
 				<tr>
-					<td width="15%" >
-						<s:text name="_se_content" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="estCommentParameter._se_content" />
-					</td>
 					<td width="15%" >
 						<s:text name="_se_ip" />:
 					</td>
 					<td width="35%">
 						<s:textfield name="estCommentParameter._se_ip" />
 					</td>
-				</tr>
-				<tr>
 					<td width="15%" >
 						<s:text name="_ne_status" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="estCommentParameter._ne_status" />
-					</td>
-					<td width="15%" >
-						<s:text name="_de_createTime" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="estCommentParameter._de_createTime" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="estCommentParameter._ne_status" 
+						cssClass="dropdown" id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/>
 					</td>
 				</tr>
 				<tr>
 					<td width="15%" >
-						<s:text name="_ne_createUserId" />:
+						<s:text name="_dge_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="estCommentParameter._ne_createUserId" />
+						<s:textfield name="estCommentParameter._dge_createTime" onclick="WdatePicker()" >
+							<s:param name="value">
+								<s:date name="estCommentParameter._dge_createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 					<td width="15%" >
-						<s:text name="_de_updateTime" />:
+						<s:text name="_dle_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="estCommentParameter._de_updateTime" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_ne_updateUserId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="estCommentParameter._ne_updateUserId" />
+						<s:textfield name="estCommentParameter._dle_createTime" onclick="WdatePicker()" >
+							<s:param name="value">
+								<s:date name="estCommentParameter._dle_createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 			</table>
@@ -108,15 +92,12 @@
 	<td width="4%" height="28" class="table_hdr">
 		<input type="checkbox" onclick="g_select(this)" >
 	</td>
+	<td><s:text name="content"/></td>
 	<td><s:text name="estateId"/></td>
 	<td><s:text name="type"/></td>
-	<td><s:text name="content"/></td>
 	<td><s:text name="ip"/></td>
 	<td><s:text name="status"/></td>
 	<td><s:text name="createTime"/></td>
-	<td><s:text name="createUserId"/></td>
-	<td><s:text name="updateTime"/></td>
-	<td><s:text name="updateUserId"/></td>
 </tr>
 
 <s:iterator value="pageView.records" id="item">
@@ -128,15 +109,12 @@
 		<td>
 			<input type="checkbox" name="selectedPK" value="<s:property value="#item.estateId"/>|<s:property value="#item.type"/>">
 		</td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="estateId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="type"/></a></td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="content"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="ip"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="status"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="createTime"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="createUserId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="updateTime"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="updateUserId"/></a></td>
+		<td><s:property value="estateId"/></td>
+		<td><fsf:dictTranslate groupName="$est_comment_type" value="type"/></td>
+		<td><s:property value="ip"/></td>
+		<td><fsf:dictTranslate groupName="$status" value="status" /></td>
+		<td><s:date name="createTime" format="yyyy-MM-dd" /></td>
 	</tr>
 </s:iterator>
 </table>

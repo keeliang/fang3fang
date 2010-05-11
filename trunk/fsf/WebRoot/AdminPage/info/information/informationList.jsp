@@ -50,7 +50,7 @@
 						<s:text name="_dge_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="informationParameter._dge_createTime" >
+						<s:textfield name="informationParameter._dge_createTime" onclick="WdatePicker()">
 							<s:param name="value">
 								<s:date name="informationParameter._dge_createTime" format="yyyy-MM-dd"/>
 							</s:param>
@@ -60,7 +60,7 @@
 						<s:text name="_dle_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="informationParameter._dle_createTime" >
+						<s:textfield name="informationParameter._dle_createTime" onclick="WdatePicker()">
 							<s:param name="value">
 								<s:date name="informationParameter._dle_createTime" format="yyyy-MM-dd"/>
 							</s:param>

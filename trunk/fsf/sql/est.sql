@@ -245,7 +245,7 @@ create table if not exists est_commerce(
 */
 drop table if exists est_comment;
 create table if not exists est_comment(
-	comment_id int not null,
+	estate_id int not null,
 	type int not null, /* 用固定参数 est_comment_type 1 出售出租 2 求售求租 3 新房 4 商业旺铺*/
 	content text not null,
 	ip varchar(30) not null,
@@ -254,7 +254,7 @@ create table if not exists est_comment(
 	create_user_id int not null,
   update_time datetime not null,
 	update_user_id int not null,
-	constraint PK_est_comment primary key(comment_id,type)
+	constraint PK_est_comment primary key(estate_id,type)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
