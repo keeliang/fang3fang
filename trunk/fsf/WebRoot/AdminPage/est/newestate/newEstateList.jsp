@@ -14,11 +14,7 @@
 <s:form action="newEstateList" namespace="/sysadmin/est/newestate" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="newEstateParameter.currentPage" id="currentPage"  />
 <s:hidden name="newEstateParameter.maxResults" id="maxResults" />
-<table>
-	<tr>
-		<td align="left" width="722">picture</td>
-	</tr>
-</table>
+<div class="contentTitle"><s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
 	<tr>
@@ -26,24 +22,17 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" >
 				<tr>
 					<td width="15%" >
-						<s:text name="_ne_estateId" />:
+						<s:text name="_slike_estateName" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newEstateParameter._ne_estateId" />
+						<s:textfield name="newEstateParameter._slike_estateName" />
 					</td>
 					<td width="15%" >
-						<s:text name="_se_estateName" />:
+						<s:text name="_ne_status" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newEstateParameter._se_estateName" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_se_develop" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newEstateParameter._se_develop" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="newEstateParameter._ne_status" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"  />
 					</td>
 				</tr>
 				<tr>
@@ -71,31 +60,8 @@
 					<td width="15%" >
 						<s:text name="_ne_areaId" />:
 					</td>
-					<td width="35%">
+					<td width="35%" id="areaTd">
 						
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_se_address" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newEstateParameter._se_address" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_ne_status" />:
-					</td>
-					<td width="35%">
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="estateOutParameter._ne_status" 
-						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey" id="provinceId" onchange="f_changeProvince()"/>
-					</td>
-					<td width="15%" >
-						<s:text name="_ne_isHot" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newEstateParameter._ne_isHot" />
 					</td>
 				</tr>
 				<tr>
@@ -107,13 +73,27 @@
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
 					<td width="15%" >
-						<s:text name="_ne_area" />:
+						<s:text name="_ne_isHot" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newEstateParameter._ne_area" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$yes_no')" name="newEstateParameter._ne_isHot" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
 				</tr>
 				<tr>
+					<td width="15%" >
+						<s:text name="structure"/>:
+					</td>
+					<td width="35%" >
+						<s:text name="_ne_hall" />:
+						<s:textfield name="newEstateParameter._ne_hall" cssClass="memberC_input03" />
+						<s:text name="_ne_bedroom" />:
+						<s:textfield name="newEstateParameter._ne_bedroom" cssClass="memberC_input03" />
+						<s:text name="_ne_toilet" />:
+						<s:textfield name="newEstateParameter._ne_toilet" cssClass="memberC_input03"/>
+						<s:text name="_ne_porch" />:
+						<s:textfield name="newEstateParameter._ne_porch" cssClass="memberC_input03"/>
+					</td>
 					<td width="15%" >
 						<s:text name="_ne_isLift" />:
 					</td>
@@ -121,11 +101,33 @@
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$is_lift')" name="newEstateParameter._ne_isLift" 
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
+				</tr>
+				<tr>
 					<td width="15%" >
-						<s:text name="_ne_practicalArea" />:
+						<s:text name="_nge_area" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newEstateParameter._ne_practicalArea" />
+						<s:textfield name="newEstateParameter._nge_area" />
+					</td>
+					<td width="15%" >
+						<s:text name="_nle_area" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="newEstateParameter._nle_area" />
+					</td>
+				</tr>
+				<tr>
+					<td width="15%" >
+						<s:text name="_nge_practicalArea" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="newEstateParameter._nge_practicalArea" />
+					</td>
+					<td width="15%" >
+						<s:text name="_nle_practicalArea" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="newEstateParameter._nle_practicalArea" />
 					</td>
 				</tr>
 				<tr>
@@ -137,74 +139,39 @@
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
 					<td width="15%" >
-						<s:text name="_ne_totalFloor" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newEstateParameter._ne_totalFloor" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_ne_price" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newEstateParameter._ne_price" />
-					</td>
-					<td width="15%" >
-						<s:text name="_ne_hall" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newEstateParameter._ne_hall" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_ne_bedroom" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newEstateParameter._ne_bedroom" />
-					</td>
-					<td width="15%" >
-						<s:text name="_ne_toilet" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newEstateParameter._ne_toilet" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_ne_porch" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newEstateParameter._ne_porch" />
-					</td>
-					<td width="15%" >
-						<s:text name="_ne_manageCost" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newEstateParameter._ne_manageCost" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
-						<s:text name="_ne_otherCost" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="newEstateParameter._ne_otherCost" />
-					</td>
-					<td width="15%" >
 						<s:text name="_ne_fitment" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newEstateParameter._ne_fitment" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$fitment')" name="newEstateParameter._ne_fitment" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"  />
 					</td>
 				</tr>
 				<tr>
 					<td width="15%" >
-						<s:text name="_de_createTime" />:
+						<s:text name="_nge_price" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="newEstateParameter._de_createTime" />
+						<s:textfield name="newEstateParameter._nge_price" />
+					</td>
+					<td width="15%" >
+						<s:text name="_nle_price" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="newEstateParameter._nle_price" />
+					</td>
+				</tr>
+				<tr>
+					<td width="15%" >
+						<s:text name="_dge_createTime" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="newEstateParameter._dge_createTime" />
+					</td>
+					<td width="15%" >
+						<s:text name="_dle_createTime" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="newEstateParameter._dle_createTime" />
 					</td>
 				</tr>
 			</table>
@@ -265,3 +232,64 @@
 </s:form>
 </body>
 </html>
+<script type="text/javascript">
+$(function() {
+	f_changeProvince(true);
+});
+function f_validate(){
+	fromName = "formList";
+	addfield("newEstateParameter._nge_area","<s:text name="_nge_area"/>","Number",true,6,2);
+	addfield("newEstateParameter._nle_area","<s:text name="_nle_area"/>","Number",true,6,2);
+	addfield("newEstateParameter._nge_practicalArea","<s:text name="_nge_practicalArea"/>","Number",true,6,2);
+	addfield("newEstateParameter._nle_practicalArea","<s:text name="_nge_practicalArea"/>","Number",true,6,2);
+	addfield("newEstateParameter._nge_floor","<s:text name="_nge_floor"/>","Integer",true,10);
+	addfield("newEstateParameter._nle_floor","<s:text name="_nle_floor"/>","Integer",true,10);
+	addfield("newEstateParameter._nge_totalFloor","<s:text name="_nge_totalFloor"/>","Integer",true,10);
+	addfield("newEstateParameter._nle_totalFloor","<s:text name="_nle_totalFloor"/>","Integer",true,10);
+	addfield("newEstateParameter._ne_hall","<s:text name="_ne_hall"/>","Integer",true,10);
+	addfield("newEstateParameter._ne_bedroom","<s:text name="_ne_bedroom"/>","Integer",true,10);
+	addfield("newEstateParameter._ne_toilet","<s:text name="_ne_toilet"/>","Integer",true,10);
+	addfield("newEstateParameter._ne_porch","<s:text name="_ne_porch"/>","Integer",true,10);
+	addfield("newEstateParameter._nge_salePrice","<s:text name="_nge_salePrice"/>","Number",true,14,2);
+	addfield("newEstateParameter._nle_salePrice","<s:text name="_nle_salePrice"/>","Number",true,14,2);
+	addfield("newEstateParameter._nge_rentPrice","<s:text name="_nge_rentPrice"/>","Number",true,14,2);
+	addfield("newEstateParameter._nle_rentPrice","<s:text name="_nle_rentPrice"/>","Number",true,14,2);
+	return validate();
+}
+
+function f_changeProvince(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	$.post("getCityList.action",{provinceId:$("#provinceId").val()},function(json){
+		var selectTag = new SelectTag("cityId","newEstateParameter._ne_cityId",json.data,"itemKey","itemName","${newEstateParameter._ne_cityId}","f_changeCity()");
+		$("#cityTd").html(selectTag.toString());
+		if(isIndex)
+			f_changeCity(isIndex);
+	},"json");
+}
+function f_changeCity(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	if($("#cityId").val()=="")
+		return;
+	$.post("getDistrictList.action",{provinceId:$("#provinceId").val(),cityId:$("#cityId").val()},function(json){
+		var selectTag = new SelectTag("districtId","newEstateParameter._ne_districtId",json.data,"itemKey","itemName","${newEstateParameter._ne_districtId}","f_changeDistrict()");
+		$("#districtTd").html(selectTag.toString());
+		if(isIndex)
+			f_changeDistrict(isIndex);
+	},"json");
+}
+
+function f_changeDistrict(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	if($("#cityId").val()=="")
+		return;
+	if($("#districtId").val()=="")
+		return;
+	$.post("getBusinessareaList.action",{provinceId:$("#provinceId").val(),cityId:$("#cityId").val(),districtId:$("#districtId").val()},function(json){
+		var selectTag = new SelectTag("areaId","newEstateParameter._ne_areaId",json.data,"itemKey","itemName","${newEstateParameter._ne_areaId}");
+		$("#areaTd").html(selectTag.toString());
+	},"json");
+}
+</script>

@@ -115,6 +115,17 @@
 	</regular-item>
 	
 	<regular-item>
+		<key>_sin</key>
+		<condition>in</condition>
+		<handler>chance.base.dao.handler.InQLHandler</handler>
+	</regular-item>
+	<regular-item>
+		<key>_nin</key>
+		<condition>in</condition>
+		<handler>chance.base.dao.handler.InQLHandler</handler>
+	</regular-item>
+	
+	<regular-item>
 		<key>_slike</key>
 		<condition>like</condition>
 		<handler>chance.base.dao.handler.LikeQLhHandler</handler>

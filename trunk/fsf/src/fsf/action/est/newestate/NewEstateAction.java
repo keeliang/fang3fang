@@ -1,16 +1,23 @@
 package fsf.action.est.newestate;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import fsf.beans.est.newestate.NewEstate;
-import chance.base.action.BaseAction;
 import chance.base.BaseParameter;
+import chance.base.action.BaseAction;
+import fsf.beans.est.newestate.NewEstate;
+import fsf.beans.sys.dict.DictItem;
+import fsf.beans.sys.user.User;
 import fsf.service.est.newestate.NewEstateService;
+import fsf.web.common.ThreadUser;
 
 @Controller
 @Scope("prototype")
@@ -18,6 +25,67 @@ public class NewEstateAction extends BaseAction<NewEstate> {
 	
 	public NewEstateAction() {
 		super(NewEstate.class, new String[] { "estateId" });
+	}
+	
+	@Override
+	protected void initData() {
+		User u = ThreadUser.get();
+		Date d = new Date();
+		createUserId = u.getUserId();
+		createTime = d;
+		updateUserId = u.getUserId();
+		updateTime = d;
+	}
+	@Override
+	protected void beforePersist() {
+		User u = ThreadUser.get();
+		createUserId = u.getUserId();
+		Date d = new Date();
+		createTime = d;
+		updateUserId = u.getUserId();
+		updateTime = d;
+	}
+	@Override
+	protected void beforeUpdate() {
+		User u = ThreadUser.get();
+		updateUserId = u.getUserId();
+		updateTime = new Date();
+	}
+	
+	public String getCityList() throws Exception {
+		BaseParameter param = new BaseParameter();
+		param.getQueryDynamicConditions().put("_ne_province_id", provinceId);
+		List<DictItem> list = dictItemService.getDaynamicConfig("sys_city","city_id","city_name",param);
+		JSONObject json = new JSONObject();
+		json.put("data", JSONArray.fromObject(list));
+		getHttpServletResponse().setCharacterEncoding("UTF-8");
+		getHttpServletResponse().getWriter().write(json.toString());
+		return null;
+	}
+	
+	public String getDistrictList() throws Exception {
+		BaseParameter param = new BaseParameter();
+		param.getQueryDynamicConditions().put("_ne_province_id", provinceId);
+		param.getQueryDynamicConditions().put("_ne_city_id", cityId);
+		List<DictItem> list = dictItemService.getDaynamicConfig("sys_district","district_id","district_name",param);
+		JSONObject json = new JSONObject();
+		json.put("data", JSONArray.fromObject(list));
+		getHttpServletResponse().setCharacterEncoding("UTF-8");
+		getHttpServletResponse().getWriter().write(json.toString());
+		return null;
+	}
+	
+	public String getBusinessareaList() throws Exception {
+		BaseParameter param = new BaseParameter();
+		param.getQueryDynamicConditions().put("_ne_province_id", provinceId);
+		param.getQueryDynamicConditions().put("_ne_city_id", cityId);
+		param.getQueryDynamicConditions().put("_ne_district_id", districtId);
+		List<DictItem> list = dictItemService.getDaynamicConfig("est_businessarea","area_id","area_name",param);
+		JSONObject json = new JSONObject();
+		json.put("data", JSONArray.fromObject(list));
+		getHttpServletResponse().setCharacterEncoding("UTF-8");
+		getHttpServletResponse().getWriter().write(json.toString());
+		return null;
 	}
 	
 	@Resource
