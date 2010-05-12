@@ -3,19 +3,26 @@ package chance.base.dao.handler;
 import java.util.List;
 import java.util.Map;
 
-public class InQLHandler extends DefaultQLHandler{
+public class InQLHandler extends DefaultQLHandler {
 
 	@Override
-	public String getClause(String condition, String colName, String queryCondition,
-			Object value) throws Exception {
-		if(value!=null && value instanceof List && ((List)value).size()>0){
-			List listValue = (List)value;
-			StringBuffer sb = new StringBuffer();
-			sb.append(" and "+colName +" in (");
-			for(int i = 0 ;i<listValue.size();i++){
-				sb.append(":"+queryCondition+"_"+i+",");
+	public String getClause(String condition, String colName,
+			String queryCondition, Object value) throws Exception {
+		if (value != null
+				&& ((value instanceof List && ((List) value).size() > 0) || (value instanceof Object[] && ((Object[]) value).length > 0))) {
+			Object[] valueArray;
+			if (value instanceof List) {
+				valueArray = ((List) value).toArray();
+			} else {
+				valueArray = (Object[]) value;
 			}
-			sb.deleteCharAt(sb.length()-1);
+			StringBuffer sb = new StringBuffer();
+			sb.append(" and " + colName + " in (");
+			for (int i = 0; i < valueArray.length; i++) {
+				if(valueArray[i]!=null)
+					sb.append(":" + queryCondition + "_" + i + ",");
+			}
+			sb.deleteCharAt(sb.length() - 1);
 			sb.append(")");
 			return sb.toString();
 		}
@@ -24,8 +31,9 @@ public class InQLHandler extends DefaultQLHandler{
 
 	@Override
 	public Object getValue(Object value) {
-		if(value!=null && value instanceof List && ((List)value).size()>0){
-			return super.getValue(value);	
+		if (value != null
+				&& ((value instanceof List && ((List) value).size() > 0) || (value instanceof Object[] && ((Object[]) value).length > 0))) {
+			return super.getValue(value);
 		}
 		return null;
 	}
@@ -33,13 +41,19 @@ public class InQLHandler extends DefaultQLHandler{
 	@Override
 	public void setParameterValue(Map<String, Object> mapParameter,
 			String queryCondition, Object value) {
-		if(value!=null && value instanceof List && ((List)value).size()>0){
-			List<String> listValue = (List)value;
-			for(int i = 0 ;i<listValue.size();i++){
-				mapParameter.put(queryCondition+"_"+i,listValue.get(i));
+		if (value != null
+				&& ((value instanceof List && ((List) value).size() > 0) || (value instanceof Object[] && ((Object[]) value).length > 0))) {
+			Object[] valueArray;
+			if (value instanceof List) {
+				valueArray = ((List) value).toArray();
+			} else {
+				valueArray = (Object[]) value;
+			}
+			for (int i = 0; i < valueArray.length; i++) {
+				if(valueArray[i]!=null)
+					mapParameter.put(queryCondition + "_" + i, valueArray[i]);
 			}
 		}
 	}
 
-	
 }
