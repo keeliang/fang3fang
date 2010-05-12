@@ -22,17 +22,20 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" >
 				<tr>
 					<td width="15%" >
-						<s:text name="_ne_estateId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="estCommentParameter._ne_estateId" />
-					</td>
-					<td width="15%" >
 						<s:text name="_ne_type" />:
 					</td>
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$est_comment_type')" name="estCommentParameter._ne_type" 
 						cssClass="dropdown" id="type" listValue="itemName" listKey="itemKey" emptyOption="true"/>
+					</td>
+					<td width="15%" >
+						<s:text name="_ne_estateId" />:
+					</td>
+					<td width="35%">
+						<s:textfield name="estCommentParameter._ne_estateId" />
+						<s:hidden name="estCommentParameter._ne_newsId"/>
+						<input value="<fsf:dictTranslate groupName="#news_type" value="estCommentParameter._ne_newsId"/>" readonly="true" >
+						<img src="/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectEstate()">
 					</td>
 				</tr>
 				<tr>
@@ -129,3 +132,19 @@
 </s:form>
 </body>
 </html>
+<script type="text/javascript">
+function f_selectEstate(){
+	var o = $("#type").val();
+	if(o==""){
+		alert("请选择房产留言类型");
+	}else if(o=="1"){
+		showModalDialog("selectEstateOut.action",window,"dialogWidth:800px;dialogHeight:600px;");
+	}else if(o=="2"){
+		showModalDialog("selectEstateIn.action",window,"dialogWidth:800px;dialogHeight:600px;");
+	}else if(o=="3"){
+		showModalDialog("selectNewEstate.action",window,"dialogWidth:800px;dialogHeight:600px;");
+	}else if(o=="4"){
+		showModalDialog("selectEstateIn.action",window,"dialogWidth:800px;dialogHeight:600px;");
+	}
+}
+</script>

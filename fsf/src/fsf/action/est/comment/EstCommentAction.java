@@ -7,10 +7,11 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import fsf.beans.est.comment.EstComment;
 import chance.base.action.BaseAction;
-import chance.base.BaseParameter;
+import fsf.beans.est.comment.EstComment;
+import fsf.beans.sys.user.User;
 import fsf.service.est.comment.EstCommentService;
+import fsf.web.common.ThreadUser;
 
 @Controller
 @Scope("prototype")
@@ -18,6 +19,30 @@ public class EstCommentAction extends BaseAction<EstComment> {
 	
 	public EstCommentAction() {
 		super(EstComment.class, new String[] { "estateId","type" });
+	}
+	
+	@Override
+	protected void initData() {
+		User u = ThreadUser.get();
+		createUserId = u.getUserId();
+		createTime = new Date();
+		updateUserId = u.getUserId();
+		updateTime = createTime;
+	}
+	
+	@Override
+	protected void beforePersist() {
+		User u = ThreadUser.get();
+		createUserId = u.getUserId();
+		createTime = new Date();
+		updateUserId = u.getUserId();
+		updateTime = createTime;
+	}
+	@Override
+	protected void beforeUpdate() {
+		User u = ThreadUser.get();
+		updateUserId = u.getUserId();
+		updateTime = new Date();
 	}
 	
 	@Resource

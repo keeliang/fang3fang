@@ -18,10 +18,10 @@
 <s:hidden name="estCommentParameter.maxResults" />
 <s:hidden name="estCommentParameter._ne_estateId" />
 <s:hidden name="estCommentParameter._ne_type" />
-<s:hidden name="estCommentParameter._se_content" />
 <s:hidden name="estCommentParameter._se_ip" />
 <s:hidden name="estCommentParameter._ne_status" />
-<s:hidden name="estCommentParameter._de_createTime" />
+<s:hidden name="estCommentParameter._dge_createTime" />
+<s:hidden name="estCommentParameter._dle_createTime" />
 <s:hidden name="estCommentParameter._ne_createUserId" />
 <s:hidden name="estCommentParameter._de_updateTime" />
 <s:hidden name="estCommentParameter._ne_updateUserId" />
@@ -52,7 +52,8 @@
 						<s:text name="type"/>:
 					</td>
 					<td>
-						<s:textfield name="type" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$est_comment_type')" name="type" 
+						cssClass="dropdown" id="type" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -76,7 +77,8 @@
 						<s:text name="status"/>:
 					</td>
 					<td>
-						<s:textfield name="status" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="status" 
+						cssClass="dropdown" id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -84,7 +86,11 @@
 						<s:text name="createTime"/>:
 					</td>
 					<td>
-						<s:textfield name="createTime" /><font color="red">*</font>
+						<s:textfield name="createTime"  cssClass="memberC_input01_readonly" readonly="true">
+							<s:param name="value">
+								<s:date name="createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 				<tr>
@@ -92,7 +98,9 @@
 						<s:text name="createUserId"/>:
 					</td>
 					<td>
-						<s:textfield name="createUserId" /><font color="red">*</font>
+						<s:hidden name="createUserId"/>
+						<input class="memberC_input01_readonly" readonly="true" 
+						value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
 					</td>
 				</tr>
 				<tr>
@@ -100,7 +108,11 @@
 						<s:text name="updateTime"/>:
 					</td>
 					<td>
-						<s:textfield name="updateTime" /><font color="red">*</font>
+						<s:textfield name="updateTime"  cssClass="memberC_input01_readonly" readonly="true">
+							<s:param name="value">
+								<s:date name="updateTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 				<tr>
@@ -108,7 +120,9 @@
 						<s:text name="updateUserId"/>:
 					</td>
 					<td>
-						<s:textfield name="updateUserId" /><font color="red">*</font>
+						<s:hidden name="updateUserId"/>
+						<input class="memberC_input01_readonly" readonly="true" 
+						value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
 					</td>
 				</tr>
 			</table>
