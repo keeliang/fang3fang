@@ -7,7 +7,7 @@
 <%@include file="/share/validate.jsp" %>
 <link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
 <link href="/AdminPage/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="${contextPath}/js/jquery.js"></script>
 <style type="text/css">
 .est_info{
 	font-size: 12px;
