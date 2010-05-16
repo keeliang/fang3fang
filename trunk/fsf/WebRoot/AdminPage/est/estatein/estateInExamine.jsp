@@ -3,7 +3,7 @@
 <html>
 <head>
 <%@ include file="/share/share.jsp" %>
-<link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
+<link type="text/css" rel="stylesheet" href="${contextPath}/css/AdminPage.css" />
 
 </head>
 <body>

@@ -5,7 +5,7 @@
 <%@include file="/share/share.jsp" %>
 <title><s:text name="contentPageTitle"/></title>
 <%@include file="/share/validate.jsp" %>
-<link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
+<link type="text/css" rel="stylesheet" href="${contextPath}/css/AdminPage.css" />
 <link href="/AdminPage/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${contextPath}/js/jquery.js"></script>
 <style type="text/css">
