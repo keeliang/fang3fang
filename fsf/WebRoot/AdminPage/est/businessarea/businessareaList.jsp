@@ -7,7 +7,7 @@
 <%@include file="/share/validate.jsp" %>
 <link type="text/css" rel="stylesheet" href="/css/Common.css" />
 <link type="text/css" rel="stylesheet" href="/css/AdminPage.css" />
-<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="${contextPath}/js/jquery.js"></script>
 </head>
 
 <body>
