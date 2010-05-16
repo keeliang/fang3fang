@@ -14,8 +14,17 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import fsf.beans.sys.city.City;
 import fsf.beans.sys.dict.DictItem;
+import fsf.beans.sys.district.District;
+import fsf.beans.sys.province.Province;
+import fsf.service.sys.city.CityService;
+import fsf.service.sys.district.DistrictService;
+import fsf.service.sys.province.ProvinceService;
+import fsf.web.common.EstFilter;
 import fsf.web.common.WebConstant;
 
 public class FSFParameterInitListener implements ServletContextListener{
@@ -26,8 +35,153 @@ public class FSFParameterInitListener implements ServletContextListener{
 
 	public void contextInitialized(ServletContextEvent event) {
 		loadSystemParameter(event.getServletContext());
+		loadEstFilter(event.getServletContext());
 	}
 	
+	/**
+	 * 加载房产过滤条件配置文件
+	 * @param servletContext
+	 */
+	private void loadEstFilter(ServletContext servletContext){
+		String estOut = "estOut";
+		String place = "place";
+		String province = "province";
+		String city = "city";
+		String district = "district";
+		String price = "price";
+		String area = "area";
+		String item = "item";
+		String name = "name";
+		String from = "from";
+		String to = "to";
+		String estIn = "estIn";
+		String rentPrice = "rentPrice";
+		String salePrice = "salePrice";
+		String lowArea = "lowArea";
+		String highArea = "highArea";
+		String value = "value";
+		
+		SAXReader reader = new SAXReader();
+		try {
+			Document doc = reader.read(getClass().getClassLoader().getResource(WebConstant.EST_FILTER_PATH));
+			Element root = doc.getRootElement();
+			Element eEstOut = root.element(estOut);
+			Element ePalce = root.element(place);
+			Element eEstIn = root.element(estIn);
+			
+			WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+			
+			ProvinceService provinceService = (ProvinceService)ctx.getBean("provinceServiceImpl");
+			CityService cityService = (CityService)ctx.getBean("cityServiceImpl");
+			DistrictService districtService = (DistrictService)ctx.getBean("districtServiceImpl");
+			//地方
+			Iterator<Element> itItem = ePalce.elementIterator();
+			List<EstFilter> listPlace = new ArrayList<EstFilter>();
+			for(;itItem.hasNext();){
+				Element o = itItem.next();
+				EstFilter ef = new EstFilter();
+				if(province.equals(o.getName())){
+					Province p = provinceService.get(Integer.valueOf(o.getTextTrim()));
+					ef.setFrom("provinceId_"+p.getProvinceId());
+					ef.setName(p.getProvinceName());
+				}else if(city.equals(o.getName())){
+					City c = cityService.get(Integer.valueOf(o.getTextTrim()));
+					ef.setFrom("cityId_"+c.getCityId());
+					ef.setName(c.getCityName());
+				}else if(district.equals(o.getName())){
+					District d = districtService.get(Integer.valueOf(o.getTextTrim()));
+					ef.setFrom("districtId_"+d.getDistrictId());
+					ef.setName(d.getDistrictName());
+				}
+				listPlace.add(ef);
+			}
+			//租价
+			Element eRentPriceOut = eEstOut.element(rentPrice);
+			itItem = eRentPriceOut.elementIterator(item);
+			List<EstFilter> listRentPriceOut = new ArrayList<EstFilter>();
+			for(;itItem.hasNext();){
+				Element o = itItem.next();
+				listRentPriceOut.add(new EstFilter(o.elementText(name),o.elementText(from),o.elementText(to)));
+			}
+			//售价
+			Element eSalesPriceOut = eEstOut.element(salePrice);
+			itItem = eSalesPriceOut.elementIterator(item);
+			List<EstFilter> listSalePriceOut = new ArrayList<EstFilter>();
+			for(;itItem.hasNext();){
+				Element o = itItem.next();
+				listSalePriceOut.add(new EstFilter(o.elementText(name),o.elementText(from),o.elementText(to)));
+			}
+			
+			//面积
+			Element eArea = eEstOut.element(area);
+			itItem = eArea.elementIterator(item);
+			List<EstFilter> listArea = new ArrayList<EstFilter>();
+			for(;itItem.hasNext();){
+				Element o = itItem.next();
+				listArea.add(new EstFilter(o.elementText(name),o.elementText(from),o.elementText(to)));
+			}
+			
+			//求租求购
+			
+			//最低接受租价
+			Element eRentPrice = eEstIn.element(rentPrice);
+			itItem = eRentPrice.elementIterator(item);
+			List<EstFilter> listRentPrice = new ArrayList<EstFilter>();
+			for(;itItem.hasNext();){
+				Element o = itItem.next();
+				listRentPrice.add(new EstFilter(o.elementText(name),o.elementText(value),null));
+			}
+			
+			//最低接受购价
+			Element eSalePrice = eEstIn.element(salePrice);
+			itItem = eSalePrice.elementIterator(item);
+			List<EstFilter> listSalePrice = new ArrayList<EstFilter>();
+			for(;itItem.hasNext();){
+				Element o = itItem.next();
+				listSalePrice.add(new EstFilter(o.elementText(name),o.elementText(value),null));
+			}
+			//最低接受面积
+			Element eLowArea = eEstIn.element(lowArea);
+			itItem = eLowArea.elementIterator(item);
+			List<EstFilter> listLowArea = new ArrayList<EstFilter>();
+			for(;itItem.hasNext();){
+				Element o = itItem.next();
+				listLowArea.add(new EstFilter(o.elementText(name),o.elementText(value),null));
+			}
+			//最高接受面积
+			Element eHighArea = eEstIn.element(highArea);
+			itItem = eHighArea.elementIterator(item);
+			List<EstFilter> listHighArea = new ArrayList<EstFilter>();
+			for(;itItem.hasNext();){
+				Element o = itItem.next();
+				listHighArea.add(new EstFilter(o.elementText(name),o.elementText(value),null));
+			}
+			
+
+			Map<String,List<EstFilter>> map = new HashMap<String, List<EstFilter>>(3);
+
+			map.put(place, listPlace);
+			
+			map.put("rentPriceOut", listRentPriceOut);
+			map.put("salePriceOut", listSalePriceOut);
+			map.put(area, listArea);
+			
+			map.put(rentPrice, listRentPrice);
+			map.put(salePrice, listSalePrice);
+			map.put(lowArea, listLowArea);
+			map.put(highArea, listHighArea);
+			
+			servletContext.setAttribute(WebConstant.EST_FILTER, map);
+			
+		} catch (DocumentException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 加载固定参数配置文件
+	 * @param servletContext
+	 */
 	private void loadSystemParameter(ServletContext servletContext){
 		String DictGroup = "DictGroup";
 		String Dictitem = "DictItem";
@@ -75,4 +229,6 @@ public class FSFParameterInitListener implements ServletContextListener{
 			e.printStackTrace();
 		} 
 	}
+	
 }
+

@@ -239,20 +239,25 @@ public class BaseDao<E> extends HibernateDaoSupport implements Dao<E> {
 		Map<String, Object> mapParameter = new HashMap<String, Object>();
 		buildHql(whereClause, param, mapParameter);
 		QueryResult<E> qr = new QueryResult<E>();
-		
-		StringBuffer countHql = new StringBuffer("select count(*) from "+ entityClass.getName() + " o where 1=1 ");
-		countHql.append(whereClause);
-		Query query = getSession().createQuery(countHql.toString());
-		setParameter(mapParameter, query);
-		qr.setTotalCount((Long)query.uniqueResult());
+		Query query;
+		if (param.getFirstResult() != -1 && param.getMaxResults() != -1) {
+			StringBuffer countHql = new StringBuffer("select count(*) from "+ entityClass.getName() + " o where 1=1 ");
+			countHql.append(whereClause);
+			query = getSession().createQuery(countHql.toString());
+			setParameter(mapParameter, query);
+			qr.setTotalCount((Long)query.uniqueResult());
+		}
 		
 		StringBuffer queryHql = new StringBuffer("select o from "+ entityClass.getName() + " o where 1=1 ");
 		queryHql.append(whereClause);
 		buildSorted(param,queryHql);
 		query = getSession().createQuery(queryHql.toString());
-		if (param.getFirstResult() != -1 && param.getMaxResults() != -1) {
+		if (param.getFirstResult() != -1 && param.getMaxResults() != -1 ) {
 			query.setFirstResult(param.getFirstResult());
 			query.setMaxResults(param.getMaxResults());
+		}else if(param.getTopCount()!=null){
+			query.setFirstResult(0);
+			query.setMaxResults(param.getTopCount());
 		}
 		setParameter(mapParameter, query);
 		qr.setResultList(query.list());

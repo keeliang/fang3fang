@@ -1,6 +1,6 @@
 body{
 	font-size:12px;
-	font-family:"����"��Arial, Helvetica, sans-serif;
+	font-family:"宋体"，Arial, Helvetica, sans-serif;
 	text-align:center;
 	margin:0 auto;
 	color:#666;
@@ -31,6 +31,13 @@ a.cGray:hover{color:#999; text-decoration:underline;}
 a.cGray02:hover{color:#ccc; text-decoration:underline;}
 .cRed,a.cRed:link,a.cRed:visited{color:#ee5e12; text-decoration:none;}
 a.cRed:hover{color:#ee5e12; text-decoration:underline;}
+
+.choose_filter,a.choose_filter:link,a.choose_filter,a.choose_filter:visited{color: #ee5e12;}
+a.choose_filter:hover{background-color: #ee5e12;color: white;}
+
+.selected_filter,a.selected_filter:link,a.selected_filter,a.selected_filter:visited{background-color: #ee5e12;color: white;}
+a.selected_filter:hover{background-color: #ee5e12;color: white;}
+
 .cRed02,a.cRed02:link,a.cRed02:visited{color:#814112; text-decoration:none;}
 a.cRed02:hover{color:#814112; text-decoration:underline;}
 .cBlue,a.cBlue:link,a.cBlue:visited{color:#014baf; text-decoration:none;}
@@ -151,15 +158,14 @@ a.cWhite:hover{color:white; text-decoration:underline;}
 .nav02_content ul li{width:auto; height:auto; list-style:none;}
 .nav02_content ul li a{text-decoration:none;}
 .nav02_content ul li a:hover{ color:#FFFFFF}
-.nav02_content .active,.nav02_content li.active{
-background:url(../images/nav02_on.jpg) no-repeat;}
+.nav02_content .active,.nav02_content li.active{background:url(../images/nav02_on.jpg) no-repeat;}
+
 .tap{height:28px; width:405px;float:left;margin-left:75px; display:inline;margin-top:8px;}
-.tap a{ background:url(../images/nav02_out.jpg); width:55px; height:28px; display:block;color: #343434; font: bold 12px/24px "����" ; text-decoration:none; float:left; text-align:center; margin-right:2px;}
+.tap a{ background:url(../images/nav02_out.jpg); width:55px; height:28px; display:block;color: #343434; font: bold 12px/24px "宋体" ; text-decoration:none; float:left; text-align:center; margin-right:2px;}
 .tap a:hover{color:#FFFFFF}
 .active{position:relative;float:left; z-index:2;margin-bottom:-1px;}
-.active a {
-background:url(../images/nav02_on.jpg)!important;height:28px; color:white;
-}
+.active a {background:url(../images/nav02_on.jpg)!important;height:28px; color:white;}
+
 .list1{ background:url(../images/search_bg.jpg) no-repeat; width:920px; height:42px; text-align:left;padding:10px 20px 0px;}
 
 /* city list */
@@ -179,7 +185,7 @@ background:url(../images/nav02_on.jpg)!important;height:28px; color:white;
 .nav03_content .active02,.nav03_content li.active03{
 background:url(../images/trade_navOn.jpg) no-repeat;}
 .tap02{ height:28px; width:455px; float:left;margin-left:275px; display:inline;margin-top:4px;}
-.tap02 a{ background:url(../images/trade_navOut.jpg); width:72px; height:32px; display:inline-block;color: #6e6e6e; font: bold 14px/24px "����" ; text-decoration:none; float:left; text-align:center; margin-right:8px;}
+.tap02 a{ background:url(../images/trade_navOut.jpg); width:72px; height:32px; display:inline-block;color: #6e6e6e; font: bold 14px/24px "宋体" ; text-decoration:none; float:left; text-align:center; margin-right:8px;}
 .tap02 a:hover{color:#830505}
 .active02{position:relative;float:left; z-index:2;margin-bottom:-1px;}
 .active02 a {
