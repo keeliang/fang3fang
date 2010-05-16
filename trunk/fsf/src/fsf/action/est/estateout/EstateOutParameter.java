@@ -9,7 +9,7 @@ public class EstateOutParameter extends BaseParameter{
 	private Integer _ne_estateId;
 	private String _se_estateCardNo;
 	private Short _ne_card5year;
-	private String _se_estateName;
+	private String _slike_estateName;
 	private String _se_develop;
 	private Short _ne_tradeType;
 	private Integer _ne_contactUserId;
@@ -57,6 +57,9 @@ public class EstateOutParameter extends BaseParameter{
 	private Integer _ne_createUserId;
 	private Date _de_updateTime;
 	private Integer _ne_updateUserId;
+	
+	private Short[] _nin_tradeMode;
+	private Short[] _nin_tradeType;
 
 	public void set_ne_estateId(Integer _ne_estateId){
 		this._ne_estateId = _ne_estateId;
@@ -76,11 +79,11 @@ public class EstateOutParameter extends BaseParameter{
 	public Short get_ne_card5year(){
 		return this._ne_card5year;
 	}
-	public void set_se_estateName(String _se_estateName){
-		this._se_estateName = _se_estateName;
+	public String get_slike_estateName() {
+		return _slike_estateName;
 	}
-	public String get_se_estateName(){
-		return this._se_estateName;
+	public void set_slike_estateName(String name) {
+		_slike_estateName = name;
 	}
 	public void set_se_develop(String _se_develop){
 		this._se_develop = _se_develop;
@@ -367,5 +370,17 @@ public class EstateOutParameter extends BaseParameter{
 	}
 	public void set_ne_palaceId(Integer id) {
 		_ne_palaceId = id;
+	}
+	public Short[] get_nin_tradeMode() {
+		return _nin_tradeMode;
+	}
+	public void set_nin_tradeMode(Short[] _nin_tradeMode) {
+		this._nin_tradeMode = _nin_tradeMode;
+	}
+	public Short[] get_nin_tradeType() {
+		return _nin_tradeType;
+	}
+	public void set_nin_tradeType(Short[] type) {
+		_nin_tradeType = type;
 	}
 }

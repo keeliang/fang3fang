@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 
 import chance.base.BaseParameter;
 import chance.base.action.BaseAction;
+import chance.common.QueryResult;
 import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
@@ -34,6 +35,38 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	@Resource
 	private UserService userService;
 	
+	private String flag = "out";
+	
+	private List<EstateOut> listEstateOut;
+	
+	/**
+	 * 首页的搜房，不分页，显示top10
+	 * @return
+	 * @throws Exception
+	 */
+	public String doIndexList()throws Exception{
+		try {
+			if(baseParameter==null){
+				baseParameter = new EstateOutParameter();
+			}
+			baseParameter.setMaxResults(-1);
+			baseParameter.setCurrentPage(-1);
+			baseParameter.setTopCount(10);
+			((EstateOutParameter)baseParameter).set_slike_estateName(estateName);
+			QueryResult<EstateOut> queryResult = service.doPaginationQuery(baseParameter);
+			listEstateOut = queryResult.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return SUCCESS;
+	}
+	
+	/**
+	 * 审核
+	 * @return
+	 * @throws Exception
+	 */
 	public String doExamineSubmit()throws Exception{
 		EstateOut eo = getService().get(estateId);
 		eo.setExamine(examine);
@@ -49,6 +82,11 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 		return doEdit();
 	}
 	
+	/**
+	 * 批量审核
+	 * @return
+	 * @throws Exception
+	 */
 	public String doOwnExamineSubmitBatch()throws Exception{
 		String[] strPk = getSelectedPK();
 		if(strPk==null || strPk.length<1)
@@ -73,6 +111,11 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 		return doList();
 	}
 	
+	/**
+	 * 查看自主交易的信息
+	 * @return
+	 * @throws Exception
+	 */
 	public String doOwnExamineSubmit()throws Exception{
 		if(examine==null || estateId ==null){
 			return SUCCESS;
@@ -89,6 +132,9 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	}
 	
 	@Override
+	/**
+	 * 编辑委托交易信息
+	 */
 	public String doEdit() throws Exception {
 		if(!CMD_SELECT.equals(getCmd())){
 			setCmd(CMD_EDIT);
@@ -107,6 +153,11 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 	public String doExamine() throws Exception {
 		EstateOut eo = getEstateOutService().get(estateId); 
 		if(eo!=null)
@@ -547,4 +598,19 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 		this.palaceId = palaceId;
 	}
 
+	public List<EstateOut> getListEstateOut() {
+		return listEstateOut;
+	}
+
+	public void setListEstateOut(List<EstateOut> listEstateOut) {
+		this.listEstateOut = listEstateOut;
+	}
+
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
 }

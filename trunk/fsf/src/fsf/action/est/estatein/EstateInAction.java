@@ -16,6 +16,8 @@ import org.springframework.stereotype.Controller;
 
 import chance.base.BaseParameter;
 import chance.base.action.BaseAction;
+import chance.common.QueryResult;
+import fsf.action.est.estateout.EstateOutParameter;
 import fsf.beans.est.estatein.EstateIn;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
@@ -29,6 +31,38 @@ public class EstateInAction extends BaseAction<EstateIn> {
 	
 	public EstateInAction() {
 		super(EstateIn.class, new String[] { "estateId" });
+	}
+	
+	/**
+	 * 关键字搜索
+	 */
+	private String estateName;
+	
+	private String flag = "in";
+	
+	private List<EstateIn> listEstateIn;
+	
+	/**
+	 * 首页的搜房，不分页，显示top10
+	 * @return
+	 * @throws Exception
+	 */
+	public String doIndexList()throws Exception{
+		try {
+			if(baseParameter==null){
+				baseParameter = new EstateOutParameter();
+			}
+			baseParameter.setMaxResults(-1);
+			baseParameter.setCurrentPage(-1);
+			baseParameter.setTopCount(10);
+			((EstateInParameter)baseParameter).set_slike_title(estateName);
+			QueryResult<EstateIn> queryResult = service.doPaginationQuery(baseParameter);
+			listEstateIn = queryResult.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return SUCCESS;
 	}
 	
 	@Resource
@@ -448,6 +482,30 @@ public class EstateInAction extends BaseAction<EstateIn> {
 
 	public void setEffective(Integer effective) {
 		this.effective = effective;
+	}
+
+	public List<EstateIn> getListEstateIn() {
+		return listEstateIn;
+	}
+
+	public void setListEstateIn(List<EstateIn> listEstateIn) {
+		this.listEstateIn = listEstateIn;
+	}
+
+	public String getEstateName() {
+		return estateName;
+	}
+
+	public void setEstateName(String estateName) {
+		this.estateName = estateName;
+	}
+
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
 	}
 	
 

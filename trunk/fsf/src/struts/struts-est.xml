@@ -261,4 +261,15 @@
 	</package>
 	<!-- ********************************************** -->
 	
+	<!-- 前台 -->
+	<package name="/est/estateout" extends="baseDefault" namespace="/est/estateout" >
+		<action name="indexList" class="estateOutAction" method="doIndexList">
+			<result>/main/index.jsp</result>
+		</action>
+	</package>
+	<package name="/est/estatein" extends="baseDefault" namespace="/est/estatein" >
+		<action name="indexList" class="estateInAction" method="doIndexList">
+			<result>/main/index.jsp</result>
+		</action>
+	</package>
 </struts>

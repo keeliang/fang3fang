@@ -14,6 +14,7 @@ public class EstateInParameter extends BaseParameter{
 	private Integer _ne_areaId;
 	private Short _ne_examine;
 	private Short _ne_tradeMode;
+	private Short[] _nin_tradeMode;
 	private Short _ne_tradeType;
 	private Short _ne_estateType;
 	private Integer _ne_hall;
@@ -21,12 +22,14 @@ public class EstateInParameter extends BaseParameter{
 	private Integer _ne_toilet;
 	private Integer _ne_porch;
 	private Integer _ne_toward;
-	private Float _nge_buyPriceFrom;
-	private Float _nle_buyPriceTo;
-	private Float _nge_rentPriceFrom;
-	private Float _nle_rentPriceTo;
-	private Float _nge_areaFrom;
-	private Float _nle_areaTo;
+	private Double _nge_buyPriceFrom;
+	private Double _nle_buyPriceFrom;
+	private Double _nle_buyPriceTo;
+	private Double _nge_rentPriceFrom;
+	private Double _nle_rentPriceFrom;
+	private Double _nle_rentPriceTo;
+	private Double _nge_areaFrom;
+	private Double _nle_areaTo;
 	private Short _ne_isLift;
 	private Short _ne_fitment;
 	private Short _ne_device;
@@ -121,40 +124,40 @@ public class EstateInParameter extends BaseParameter{
 	public Integer get_ne_toward(){
 		return this._ne_toward;
 	}
-	public Float get_nge_buyPriceFrom() {
+	public Double get_nge_buyPriceFrom() {
 		return _nge_buyPriceFrom;
 	}
-	public void set_nge_buyPriceFrom(Float priceFrom) {
+	public void set_nge_buyPriceFrom(Double priceFrom) {
 		_nge_buyPriceFrom = priceFrom;
 	}
-	public Float get_nle_buyPriceTo() {
+	public Double get_nle_buyPriceTo() {
 		return _nle_buyPriceTo;
 	}
-	public void set_nle_buyPriceTo(Float priceTo) {
+	public void set_nle_buyPriceTo(Double priceTo) {
 		_nle_buyPriceTo = priceTo;
 	}
-	public Float get_nge_rentPriceFrom() {
+	public Double get_nge_rentPriceFrom() {
 		return _nge_rentPriceFrom;
 	}
-	public void set_nge_rentPriceFrom(Float priceFrom) {
+	public void set_nge_rentPriceFrom(Double priceFrom) {
 		_nge_rentPriceFrom = priceFrom;
 	}
-	public Float get_nle_rentPriceTo() {
+	public Double get_nle_rentPriceTo() {
 		return _nle_rentPriceTo;
 	}
-	public void set_nle_rentPriceTo(Float priceTo) {
+	public void set_nle_rentPriceTo(Double priceTo) {
 		_nle_rentPriceTo = priceTo;
 	}
-	public Float get_nge_areaFrom() {
+	public Double get_nge_areaFrom() {
 		return _nge_areaFrom;
 	}
-	public void set_nge_areaFrom(Float from) {
+	public void set_nge_areaFrom(Double from) {
 		_nge_areaFrom = from;
 	}
-	public Float get_nle_areaTo() {
+	public Double get_nle_areaTo() {
 		return _nle_areaTo;
 	}
-	public void set_nle_areaTo(Float to) {
+	public void set_nle_areaTo(Double to) {
 		_nle_areaTo = to;
 	}
 	public void set_ne_isLift(Short _ne_isLift){
@@ -217,5 +220,22 @@ public class EstateInParameter extends BaseParameter{
 	public void set_ne_tradeType(Short type) {
 		_ne_tradeType = type;
 	}
-	
+	public Short[] get_nin_tradeMode() {
+		return _nin_tradeMode;
+	}
+	public void set_nin_tradeMode(Short[] mode) {
+		_nin_tradeMode = mode;
+	}
+	public Double get_nle_buyPriceFrom() {
+		return _nle_buyPriceFrom;
+	}
+	public void set_nle_buyPriceFrom(Double priceFrom) {
+		_nle_buyPriceFrom = priceFrom;
+	}
+	public Double get_nle_rentPriceFrom() {
+		return _nle_rentPriceFrom;
+	}
+	public void set_nle_rentPriceFrom(Double priceFrom) {
+		_nle_rentPriceFrom = priceFrom;
+	}
 }

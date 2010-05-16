@@ -24,6 +24,11 @@ public class BaseParameter implements Serializable {
 	 */
 	private Integer currentPage = 1;
 	/**
+	 * when needn't pagination,the top count of list 
+	 */
+	private Integer topCount;
+	
+	/**
 	 * dynamic query conditions for example:
 	 * queryConditions.put("_ne_id",value); when static and dynamic exists at
 	 * the same time,static priority
@@ -73,4 +78,13 @@ public class BaseParameter implements Serializable {
 	public void setSortedConditions(Map<String, String> sortedConditions) {
 		this.sortedConditions = sortedConditions;
 	}
+
+	public Integer getTopCount() {
+		return topCount;
+	}
+
+	public void setTopCount(Integer topCount) {
+		this.topCount = topCount;
+	}
+	
 }
