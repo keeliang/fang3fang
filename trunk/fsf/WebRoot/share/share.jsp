@@ -8,6 +8,6 @@ String contextPath = request.getContextPath();
 var contextPath = "<%=contextPath%>";
 </script>
 <s:set name="contextPath" value="pageContext.request.contextPath"/>
-<script type="text/javascript" src="${contextPath}/share/share.js"></script>
-<script type="text/javascript" src="${contextPath}/share/datePicker/WdatePicker.js"></script>
-<script type="text/javascript" src="${contextPath}/share/aa.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/share/share.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/share/datePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/share/aa.js"></script>
