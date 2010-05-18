@@ -5,7 +5,7 @@ CREATE TABLE if not exists sys_city(
 	zip_code varchar(50) not null,
 	province_id int not null,
 	constraint PK_sys_city primary key (city_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 INSERT sys_city (city_id, city_name, zip_code, province_id) VALUES (1, '北京市', '100000', 1);
 INSERT sys_city (city_id, city_name, zip_code, province_id) VALUES (2, '天津市', '100000', 2);

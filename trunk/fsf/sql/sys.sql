@@ -44,11 +44,11 @@ CREATE TABLE if not exists sys_user(
 	
 	license varchar(30),
 
-	hobby varchar(300),/* 爱好 */ 
-	glory varchar(300),/* 个人荣誉 */
+	hobby varchar(200),/* 爱好 */ 
+	glory varchar(200),/* 个人荣誉 */
 	
 	constraint PK_sys_user primary key(user_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 /*
 系统参数
@@ -59,4 +59,4 @@ CREATE TABLE if not exists sys_param(
 	param_value varchar(200),
 	param_desc varchar(200),
 	constraint PK_sys_param primary key(param_name)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);

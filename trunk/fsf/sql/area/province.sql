@@ -3,7 +3,7 @@ CREATE TABLE if not exists sys_province(
 	province_id int auto_increment NOT NULL ,
 	province_name varchar(50) not null,
 	constraint PK_sys_province primary key (province_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 INSERT sys_province (province_id, province_name) VALUES (1, '北京市');
 INSERT sys_province (province_id, province_name) VALUES (2, '天津市');

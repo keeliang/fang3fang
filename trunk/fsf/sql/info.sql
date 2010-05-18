@@ -15,7 +15,7 @@ create table if not exists info_information(
 	update_time datetime not null ,
 	update_user_id int not null ,
 	constraint PK_info_information primary key(information_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 /*
 资讯留言
@@ -32,7 +32,7 @@ create table if not exists info_info_comment(
   update_time datetime not null,
 	update_user_id int not null,
 	constraint PK_info_info_comment primary key(comment_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 /*
 新闻
@@ -49,7 +49,7 @@ create table if not exists info_news(
 	update_time datetime not null ,
 	update_user_id int not null ,
 	constraint PK_info_news primary key(news_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 /*
 新闻类型
@@ -65,7 +65,7 @@ create table if not exists info_news_type(
 	update_time datetime not null ,
 	update_user_id int not null ,
 	constraint PK_info_news_type primary key(news_type_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 /*
 新闻留言
@@ -82,4 +82,4 @@ create table if not exists info_news_comment(
   update_time datetime not null,
 	update_user_id int not null,
 	constraint PK_info_news_comment primary key(comment_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
