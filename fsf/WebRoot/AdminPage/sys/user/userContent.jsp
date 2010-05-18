@@ -39,7 +39,7 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">
-			<s:if test="cmd=='edit'">
+			<s:if test="cmd=='edit'||cmd=='new'">
 				<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
 			</s:if>
 			<s:if test="cmd=='select'">
