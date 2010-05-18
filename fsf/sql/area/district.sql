@@ -4,7 +4,7 @@ create table if not exists sys_district (
 	district_name varchar(50) not null,
 	city_id int not null,
 	constraint PK_sys_district primary key(district_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 INSERT sys_district (district_id, district_name, city_id) VALUES (1, '东城区', 1);
 INSERT sys_district (district_id, district_name, city_id) VALUES (2, '西城区', 1);

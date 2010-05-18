@@ -4,7 +4,7 @@ create table if not exists sys_dictgroup(
 	group_desc varchar(50),
   remark varchar(200),
 	constraint PK_sys_dictgroup primary key (group_name)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 drop table if exists sys_dictitem;
 create table if not exists sys_dictitem(
 	group_name varchar(30) not null,
@@ -13,370 +13,245 @@ create table if not exists sys_dictitem(
 	item_desc varchar(50),
 	seq int,
 	constraint PK_sys_dictitem primary key (group_name,item_key)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 
 /*************************固定参数****************************/
 
 /*************************性别****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'sex','性别',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'sex');
+select 'sex','性别',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'sex','1','男','男',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'sex' and item_key = '1');
+select 'sex','1','男','男',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'sex','2','女','女',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'sex' and item_key = '2');
+select 'sex','2','女','女',2 ;
 
 /*************************状态****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'status','状态',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'status');
+select 'status','状态',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'status','1','可用','可用',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'status' and item_key = '1');
+select 'status','1','可用','可用',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'status','0','不可用','不可用',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'status' and item_key = '0');
+select 'status','0','不可用','不可用',2 ;
 
 /*************************用户类型****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'user_type','用户类型',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'user_type');
+select 'user_type','用户类型',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'user_type','0','超级管理员','超级管理员',0 from dual
-where not exists (select * from sys_dictitem where group_name = 'user_type' and item_key = '0');
+select 'user_type','0','超级管理员','超级管理员',0 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'user_type','1','管理员','管理员',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'user_type' and item_key = '1');
+select 'user_type','1','管理员','管理员',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'user_type','2','顾问','顾问',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'user_type' and item_key = '2');
+select 'user_type','2','顾问','顾问',2 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'user_type','3','普通用户','普通用户',3 from dual
-where not exists (select * from sys_dictitem where group_name = 'user_type' and item_key = '3');
+select 'user_type','3','普通用户','普通用户',3 ;
 
 /*************************前台是否可见****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'front_visible','前台是否可见',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'front_visible');
+select 'front_visible','前台是否可见',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'front_visible','1','前台可见','前台可见',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'front_visible' and item_key = '1');
+select 'front_visible','1','前台可见','前台可见',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'front_visible','0','不前台可见','不前台可见',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'front_visible' and item_key = '0');
+select 'front_visible','0','不前台可见','不前台可见',2 ;
 
 /*************************是否****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'yes_no','是否',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'yes_no');
+select 'yes_no','是否',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'yes_no','1','是','是',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'yes_no' and item_key = '1');
+select 'yes_no','1','是','是',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'yes_no','0','否','否',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'yes_no' and item_key = '0');
-
-/*************************讯息类型****************************/
-insert into sys_dictgroup (group_name,group_desc,remark)
-select 'information_type','讯息类型',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'information_type');
-insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','1','焦点','焦点',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '1');
-insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','2','深度报道','深度报道',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '2');
-insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','3','房价新闻','房价新闻',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '3');
-insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','4','区域报道','区域报道',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '4');
-insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','5','房产政策','房产政策',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '5');
-insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','6','国际家居','国际家居',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '6');
-insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','7','社区推荐','社区推荐',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '7');
+select 'yes_no','0','否','否',2 ;
 
 
 /*************************讯息类型****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'information_type','讯息类型',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'information_type');
+select 'information_type','讯息类型',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','1','焦点','焦点',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '1');
+select 'information_type','1','焦点','焦点',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','2','深度报道','深度报道',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '2');
+select 'information_type','2','深度报道','深度报道',2 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','3','房价新闻','房价新闻',3 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '3');
+select 'information_type','3','房价新闻','房价新闻',3 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','4','区域报道','区域报道',4 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '4');
+select 'information_type','4','区域报道','区域报道',4 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','5','房产政策','房产政策',5 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '5');
+select 'information_type','5','房产政策','房产政策',5 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','6','国际家居','国际家居',6 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '6');
+select 'information_type','6','国际家居','国际家居',6 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','7','社区推荐','社区推荐',7 from dual
-where not exists (select * from sys_dictitem where group_name = 'information_type' and item_key = '7');
+select 'information_type','7','社区推荐','社区推荐',7 ;
 
 /*************************商业旺铺类型****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'commerce_type','商业旺铺类型',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'commerce_type');
+select 'commerce_type','商业旺铺类型',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'commerce_type','1','厂房仓库','厂房仓库',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'commerce_type' and item_key = '1');
+select 'commerce_type','1','厂房仓库','厂房仓库',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'commerce_type','2','酒楼转让','酒楼转让',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'commerce_type' and item_key = '2');
+select 'commerce_type','2','酒楼转让','酒楼转让',2 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'commerce_type','3','写字楼','写字楼',3 from dual
-where not exists (select * from sys_dictitem where group_name = 'commerce_type' and item_key = '3');
+select 'commerce_type','3','写字楼','写字楼',3 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'commerce_type','4','餐厅转让','餐厅转让',4 from dual
-where not exists (select * from sys_dictitem where group_name = 'commerce_type' and item_key = '4');
+select 'commerce_type','4','餐厅转让','餐厅转让',4 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'commerce_type','5','商铺','商铺',5 from dual
-where not exists (select * from sys_dictitem where group_name = 'commerce_type' and item_key = '5');
+select 'commerce_type','5','商铺','商铺',5 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'commerce_type','6','工厂转让','工厂转让',6 from dual
-where not exists (select * from sys_dictitem where group_name = 'commerce_type' and item_key = '6');
+select 'commerce_type','6','工厂转让','工厂转让',6 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'commerce_type','7','美容发廊','美容发廊',7 from dual
-where not exists (select * from sys_dictitem where group_name = 'commerce_type' and item_key = '7');
+select 'commerce_type','7','美容发廊','美容发廊',7 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'commerce_type','8','房租转让','房租转让',7 from dual
-where not exists (select * from sys_dictitem where group_name = 'commerce_type' and item_key = '8');
+select 'commerce_type','8','房租转让','房租转让',7 ;
 
 
 /*************************房产信息留言类型****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'est_comment_type','房产信息留言类型',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'est_comment_type');
+select 'est_comment_type','房产信息留言类型',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'est_comment_type','1','出售出租','出售出租',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'est_comment_type' and item_key = '1');
+select 'est_comment_type','1','出售出租','出售出租',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'est_comment_type','2','求售求租','求售求租',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'est_comment_type' and item_key = '2');
+select 'est_comment_type','2','求售求租','求售求租',2 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'est_comment_type','3','新房','新房',3 from dual
-where not exists (select * from sys_dictitem where group_name = 'est_comment_type' and item_key = '3');
+select 'est_comment_type','3','新房','新房',3 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'est_comment_type','4','商业旺铺','商业旺铺',4 from dual
-where not exists (select * from sys_dictitem where group_name = 'est_comment_type' and item_key = '4');
+select 'est_comment_type','4','商业旺铺','商业旺铺',4 ;
 
 /*************************交易方式****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'trade_type','房产交易类型',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'trade_type');
+select 'trade_type','房产交易类型',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'trade_type','1','自主交易','自主交易',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'trade_type' and item_key = '1');
+select 'trade_type','1','自主交易','自主交易',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'trade_type','2','委托交易','委托交易',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'trade_type' and item_key = '2');
+select 'trade_type','2','委托交易','委托交易',2 ;
 
 
 /*************************房产出租出售标识****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'out_trade_mode','房产出租出售标识',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'out_trade_mode');
+select 'out_trade_mode','房产出租出售标识',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'out_trade_mode','0','无效','无效',0 from dual
-where not exists (select * from sys_dictitem where group_name = 'out_trade_mode' and item_key = '0');
+select 'out_trade_mode','0','无效','无效',0 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'out_trade_mode','1','出租','出租',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'out_trade_mode' and item_key = '1');
+select 'out_trade_mode','1','出租','出租',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'out_trade_mode','2','出售','出售',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'out_trade_mode' and item_key = '2');
+select 'out_trade_mode','2','出售','出售',2 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'out_trade_mode','3','租售均可','租售均可',3 from dual
-where not exists (select * from sys_dictitem where group_name = 'out_trade_mode' and item_key = '3');
+select 'out_trade_mode','3','租售均可','租售均可',3 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'out_trade_mode','4','已租','已租',4 from dual
-where not exists (select * from sys_dictitem where group_name = 'out_trade_mode' and item_key = '4');
+select 'out_trade_mode','4','已租','已租',4 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'out_trade_mode','5','已售','已售',5 from dual
-where not exists (select * from sys_dictitem where group_name = 'out_trade_mode' and item_key = '5');
+select 'out_trade_mode','5','已售','已售',5 ;
 
 /*************************房产类型****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'estate_type','房产类型',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'estate_type');
+select 'estate_type','房产类型',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'estate_type','1','普通住宅','普通住宅',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'estate_type' and item_key = '1');
+select 'estate_type','1','普通住宅','普通住宅',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'estate_type','2','公寓','公寓',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'estate_type' and item_key = '2');
+select 'estate_type','2','公寓','公寓',2 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'estate_type','3','别墅','别墅',3 from dual
-where not exists (select * from sys_dictitem where group_name = 'estate_type' and item_key = '3');
+select 'estate_type','3','别墅','别墅',3 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'estate_type','4','餐厅','餐厅',4 from dual
-where not exists (select * from sys_dictitem where group_name = 'estate_type' and item_key = '4');
+select 'estate_type','4','餐厅','餐厅',4 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'estate_type','5','商铺','商铺',5 from dual
-where not exists (select * from sys_dictitem where group_name = 'estate_type' and item_key = '5');
+select 'estate_type','5','商铺','商铺',5 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'estate_type','6','写字楼','写字楼',6 from dual
-where not exists (select * from sys_dictitem where group_name = 'estate_type' and item_key = '6');
+select 'estate_type','6','写字楼','写字楼',6 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'estate_type','7','厂房','厂房',7 from dual
-where not exists (select * from sys_dictitem where group_name = 'estate_type' and item_key = '7');
+select 'estate_type','7','厂房','厂房',7 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'estate_type','8','其他','其他',8 from dual
-where not exists (select * from sys_dictitem where group_name = 'estate_type' and item_key = '8');
+select 'estate_type','8','其他','其他',8 ;
 
 /*************************房产类型****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'is_lift','是否电梯房',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'is_lift');
+select 'is_lift','是否电梯房',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'is_lift','1','电梯房','电梯房',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'is_lift' and item_key = '1');
+select 'is_lift','1','电梯房','电梯房',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'is_lift','0','非电梯房','非电梯房',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'is_lift' and item_key = '0');
+select 'is_lift','0','非电梯房','非电梯房',2 ;
 
 
 /*************************朝向****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'toward','朝向',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'toward');
+select 'toward','朝向',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','0','均可','均可',0 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '0');
+select 'toward','0','均可','均可',0 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','1','东','东',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '1');
+select 'toward','1','东','东',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','2','南','南',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '2');
+select 'toward','2','南','南',2 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','3','西','西',3 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '3');
+select 'toward','3','西','西',3 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','4','北','北',4 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '4');
+select 'toward','4','北','北',4 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','5','东南','东南',5 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '5');
+select 'toward','5','东南','东南',5 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','6','西南','西南',6 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '6');
+select 'toward','6','西南','西南',6 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','7','东北','东北',7 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '7');
+select 'toward','7','东北','东北',7 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'toward','8','西北','西北',8 from dual
-where not exists (select * from sys_dictitem where group_name = 'toward' and item_key = '8');
+select 'toward','8','西北','西北',8 ;
 
 /*************************装修****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'fitment','装修',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'fitment');
+select 'fitment','装修',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'fitment','0',' 均可','均可',0 from dual
-where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '0');
+select 'fitment','0',' 均可','均可',0 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'fitment','1',' 豪华装修','豪华装修',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '1');
+select 'fitment','1',' 豪华装修','豪华装修',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'fitment','2','新装修','新装修',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '2');
+select 'fitment','2','新装修','新装修',2 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'fitment','3','普通装修','普通装修',3 from dual
-where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '3');
+select 'fitment','3','普通装修','普通装修',3 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'fitment','4','简单装修','简单装修',4 from dual
-where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '4');
+select 'fitment','4','简单装修','简单装修',4 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'fitment','5','毛坯','毛坯',5 from dual
-where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '5');
+select 'fitment','5','毛坯','毛坯',5 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'fitment','6','其他','其他',6 from dual
-where not exists (select * from sys_dictitem where group_name = 'fitment' and item_key = '6');
+select 'fitment','6','其他','其他',6 ;
 
 /*************************家电****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'device','家电',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'device');
+select 'device','家电',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'device','0',' 均可','均可',0 from dual
-where not exists (select * from sys_dictitem where group_name = 'device' and item_key = '0');
+select 'device','0',' 均可','均可',0 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'device','1',' 吉屋','吉屋',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'device' and item_key = '1');
+select 'device','1',' 吉屋','吉屋',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'device','2','部分家电','部分家电',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'device' and item_key = '2');
+select 'device','2','部分家电','部分家电',2 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'device','3','家电齐','家电齐',3 from dual
-where not exists (select * from sys_dictitem where group_name = 'device' and item_key = '3');
+select 'device','3','家电齐','家电齐',3 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'device','4','面议','面议',4 from dual
-where not exists (select * from sys_dictitem where group_name = 'device' and item_key = '4');
+select 'device','4','面议','面议',4 ;
 
 /*************************房产出租出售标识****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'in_trade_mode','房产出租出售标识',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'in_trade_mode');
+select 'in_trade_mode','房产出租出售标识',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'in_trade_mode','0','无效','无效',0 from dual
-where not exists (select * from sys_dictitem where group_name = 'in_trade_mode' and item_key = '0');
+select 'in_trade_mode','0','无效','无效',0 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'in_trade_mode','1','求租','求租',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'in_trade_mode' and item_key = '1');
+select 'in_trade_mode','1','求租','求租',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'in_trade_mode','2','求售','求售',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'in_trade_mode' and item_key = '2');
+select 'in_trade_mode','2','求售','求售',2 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'in_trade_mode','3','租售均可','租售均可',3 from dual
-where not exists (select * from sys_dictitem where group_name = 'in_trade_mode' and item_key = '3');
+select 'in_trade_mode','3','租售均可','租售均可',3 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'in_trade_mode','4','已租','已租',4 from dual
-where not exists (select * from sys_dictitem where group_name = 'in_trade_mode' and item_key = '4');
+select 'in_trade_mode','4','已租','已租',4 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'in_trade_mode','5','已购','已购',5 from dual
-where not exists (select * from sys_dictitem where group_name = 'in_trade_mode' and item_key = '5');
+select 'in_trade_mode','5','已购','已购',5 ;
 
 /*************************房产类型****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'is_hot','是否热门',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'is_hot');
+select 'is_hot','是否热门',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'is_hot','1','热门','热门',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'is_hot' and item_key = '1');
+select 'is_hot','1','热门','热门',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'is_hot','0','非热门','非热门',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'is_hot' and item_key = '0');
+select 'is_hot','0','非热门','非热门',2 ;
 
 /*************************审核状态****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
-select 'examine','审核状态',null from dual
-where not exists (select * from sys_dictgroup where group_name = 'examine');
+select 'examine','审核状态',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'examine','1','审核通过','审核通过',1 from dual
-where not exists (select * from sys_dictitem where group_name = 'examine' and item_key = '1');
+select 'examine','1','审核通过','审核通过',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'examine','0','审核中','审核中',2 from dual
-where not exists (select * from sys_dictitem where group_name = 'examine' and item_key = '0');
+select 'examine','0','审核中','审核中',2 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'examine','-1','审核未通过','审核未通过',3 from dual
-where not exists (select * from sys_dictitem where group_name = 'examine' and item_key = '-1');
+select 'examine','-1','审核未通过','审核未通过',3 ;

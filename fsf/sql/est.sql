@@ -9,7 +9,7 @@ create table if not exists est_businessarea (
 	city_id int not null,
 	district_id int not null,
 	constraint PK_est_businessarea primary key(area_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 /*
 楼盘
@@ -26,7 +26,7 @@ create table if not exists est_palace(
 	update_time datetime not null,
 	update_user_id int not null,
 	constraint PK_est_palace primary key(palace_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 /*
 房产
@@ -100,7 +100,7 @@ create table if not exists est_estate_out(
 	update_time datetime not null,
 	update_user_id int not null,
 	constraint PK_est_estate_out primary key(estate_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 /*
 	房产求售求租
@@ -154,7 +154,7 @@ create table if not exists est_estate_in(
 	update_user_id int not null,
 	
 	constraint PK_est_estate_in primary key(estate_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 /*
 	新房
@@ -205,7 +205,7 @@ create table if not exists est_new_estate(
 	update_time datetime not null,
 	update_user_id int not null,
 	constraint PK_est_estate_out primary key(estate_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 /*
 房产图片
@@ -216,7 +216,7 @@ create table if not exists est_estate_image(
 	estate_id int not null,
 	image_path varchar(100) not null,
 	constraint PK_est_estate_image primary key(type,estate_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 /*
 旺铺招租
@@ -238,7 +238,7 @@ create table if not exists est_commerce(
 	update_time datetime not null,
 	update_user_id int not null,
 	constraint PK_est_commerce primary key(commerce_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 /*
 房子留言
@@ -255,7 +255,7 @@ create table if not exists est_comment(
   update_time datetime not null,
 	update_user_id int not null,
 	constraint PK_est_comment primary key(estate_id,type)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 
 /*
@@ -282,5 +282,5 @@ create table if not exists est_broker(
 	glory varchar(300),个人荣誉
 	
 	constraint PK_est_broker primary key(user_id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 */
