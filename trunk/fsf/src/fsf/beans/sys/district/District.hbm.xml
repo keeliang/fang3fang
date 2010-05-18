@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2010-4-24 9:01:41 by Hibernate Tools 3.2.4.GA -->
 <hibernate-mapping>
-    <class name="fsf.beans.sys.district.District" table="sys_district" catalog="fsf">
+    <class name="fsf.beans.sys.district.District" table="sys_district" >
         <id name="districtId" type="java.lang.Integer">
             <column name="district_id" />
             <generator class="identity" />

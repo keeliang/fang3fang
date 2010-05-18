@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2010-4-22 21:00:03 by Hibernate Tools 3.2.4.GA -->
 <hibernate-mapping>
-    <class name="fsf.beans.est.estatein.EstateIn" table="est_estate_in" catalog="fsf">
+    <class name="fsf.beans.est.estatein.EstateIn" table="est_estate_in" >
         <id name="estateId" type="java.lang.Integer">
             <column name="estate_id" />
             <generator class="identity" />
