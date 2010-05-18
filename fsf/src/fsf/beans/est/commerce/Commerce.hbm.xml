@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2010-4-22 21:00:03 by Hibernate Tools 3.2.4.GA -->
 <hibernate-mapping>
-    <class name="fsf.beans.est.commerce.Commerce" table="est_commerce" catalog="fsf">
+    <class name="fsf.beans.est.commerce.Commerce" table="est_commerce" >
         <id name="commerceId" type="java.lang.Integer">
             <column name="commerce_id" />
             <generator class="identity" />
