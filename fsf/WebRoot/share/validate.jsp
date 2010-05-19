@@ -1,4 +1,4 @@
-<script type="text/javascript" src="/share/validate.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/share/validate.js"></script>
 <script type="text/javascript">
 var errorMsg = [];
 errorMsg[0] = '<s:text name="g_required"/>';
