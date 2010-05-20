@@ -5,6 +5,7 @@ public class EstFilter {
 	String name;
 	String from;
 	String to;
+	String value;
 
 	public EstFilter(){}
 	
@@ -13,6 +14,14 @@ public class EstFilter {
 		this.name = name;
 		this.from = from;
 		this.to = to;
+	}
+	
+	public EstFilter(String name, String from, String to,String value) {
+		super();
+		this.name = name;
+		this.from = from;
+		this.to = to;
+		this.value = value;
 	}
 
 	public String getName() {
@@ -38,4 +47,13 @@ public class EstFilter {
 	public void setTo(String to) {
 		this.to = to;
 	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+	
 }

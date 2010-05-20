@@ -1,6 +1,7 @@
 package fsf.action.info.information;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import chance.base.action.BaseAction;
+import chance.common.QueryResult;
 import fsf.beans.info.information.Information;
 import fsf.beans.sys.user.User;
 import fsf.service.info.information.InformationService;
@@ -19,6 +21,31 @@ public class InformationAction extends BaseAction<Information> {
 	
 	public InformationAction() {
 		super(Information.class, new String[] { "informationId" });
+	}
+	
+	private List<Information> listInfo;
+	
+	/**
+	 * 首页，不分页，显示top10
+	 * @return
+	 * @throws Exception
+	 */
+	public String doIndexList()throws Exception{
+		try {
+			if(baseParameter==null){
+				baseParameter = new InformationParameter();
+			}
+			baseParameter.setMaxResults(-1);
+			baseParameter.setCurrentPage(-1);
+			baseParameter.setTopCount(10);
+			//((InformationParameter)baseParameter).set_ne_informationType(1);
+			QueryResult<Information> queryResult = service.doPaginationQuery(baseParameter);
+			listInfo = queryResult.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return SUCCESS;
 	}
 	
 	@Override
@@ -124,6 +151,14 @@ public class InformationAction extends BaseAction<Information> {
 	}
 	public Integer getUpdateUserId(){
 		return this.updateUserId;
+	}
+
+	public List<Information> getListInfo() {
+		return listInfo;
+	}
+
+	public void setListInfo(List<Information> listInfo) {
+		this.listInfo = listInfo;
 	}
 
 }

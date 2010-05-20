@@ -266,10 +266,25 @@
 		<action name="indexList" class="estateOutAction" method="doIndexList">
 			<result>/main/index.jsp</result>
 		</action>
+		<action name="query" class="estateOutAction" method="doList">
+			<result>/freetrade/index.jsp</result>
+		</action>
 	</package>
 	<package name="/est/estatein" extends="baseDefault" namespace="/est/estatein" >
 		<action name="indexList" class="estateInAction" method="doIndexList">
 			<result>/main/index.jsp</result>
+		</action>
+		<action name="query" class="estateInAction" method="doList">
+			<result>/freetrade/index.jsp</result>
+		</action>
+	</package>
+	
+	<package name="/freetrade" extends="baseDefault" namespace="/freetrade" >
+		<action name="outContent" class="estateOutAction" method="doEdit">
+			<result>/freetrade/showOut.jsp</result>
+		</action>
+		<action name="inContent" class="estateInAction" method="doEdit">
+			<result>/freetrade/showIn.jsp</result>
 		</action>
 	</package>
 </struts>
