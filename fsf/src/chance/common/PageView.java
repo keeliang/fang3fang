@@ -19,7 +19,9 @@ public class PageView<E> {
 	/** total record qty * */
 	private long totalRecord;
 	/** page count * */
-	private int pageCode = 10;
+	private int pageCode = 11;
+	/** strart index and end index **/
+	private PageIndex pageIndex;
 
 	public PageView(int maxResult, int currentPage) {
 		this.maxResult = maxResult;
@@ -63,6 +65,7 @@ public class PageView<E> {
 
 	public void setTotalPage(long totalpage) {
 		this.totalPage = totalpage;
+		this.pageIndex = PageIndex.getPageIndex(pageCode, currentPage, totalPage);
 	}
 
 	public int getMaxResult() {
@@ -75,5 +78,9 @@ public class PageView<E> {
 
 	public int getFirstResult() {
 		return (this.currentPage - 1) * this.maxResult;
+	}
+
+	public PageIndex getPageIndex() {
+		return pageIndex;
 	}
 }

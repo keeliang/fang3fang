@@ -135,5 +135,10 @@
 		</action>
 	</package>
 	<!-- ********************************************** -->
-	
+	<!-- 前台 -->
+	<package name="/Info" extends="baseDefault" namespace="/Info" >
+		<action name="infoIndexList" class="informationAction" method="doIndexList">
+			<result>/Info/index.jsp</result>
+		</action>
+	</package>
 </struts>

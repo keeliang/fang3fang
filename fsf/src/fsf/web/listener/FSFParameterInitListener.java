@@ -48,8 +48,8 @@ public class FSFParameterInitListener implements ServletContextListener{
 		String province = "province";
 		String city = "city";
 		String district = "district";
-		String price = "price";
 		String area = "area";
+		String bedroom = "bedroom";
 		String item = "item";
 		String name = "name";
 		String from = "from";
@@ -67,6 +67,7 @@ public class FSFParameterInitListener implements ServletContextListener{
 			Element root = doc.getRootElement();
 			Element eEstOut = root.element(estOut);
 			Element ePalce = root.element(place);
+			Element eBedrooom = root.element(bedroom);
 			Element eEstIn = root.element(estIn);
 			
 			WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
@@ -95,6 +96,15 @@ public class FSFParameterInitListener implements ServletContextListener{
 				}
 				listPlace.add(ef);
 			}
+			
+			//房数
+			itItem = eBedrooom.elementIterator(item);
+			List<EstFilter> listBedroom = new ArrayList<EstFilter>();
+			for(;itItem.hasNext();){
+				Element o = itItem.next();
+				listBedroom.add(new EstFilter(o.elementText(name),o.elementText(from),o.elementText(to),o.elementText(value)));
+			}
+			
 			//租价
 			Element eRentPriceOut = eEstOut.element(rentPrice);
 			itItem = eRentPriceOut.elementIterator(item);
@@ -165,6 +175,7 @@ public class FSFParameterInitListener implements ServletContextListener{
 			map.put("rentPriceOut", listRentPriceOut);
 			map.put("salePriceOut", listSalePriceOut);
 			map.put(area, listArea);
+			map.put(bedroom, listBedroom);
 			
 			map.put(rentPrice, listRentPrice);
 			map.put(salePrice, listSalePrice);

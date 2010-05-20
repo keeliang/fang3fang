@@ -39,6 +39,11 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	
 	private List<EstateOut> listEstateOut;
 	
+	public String doQuery() throws Exception{
+		
+		return null;
+	}
+	
 	/**
 	 * 首页的搜房，不分页，显示top10
 	 * @return
