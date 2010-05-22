@@ -278,6 +278,12 @@
 			<result>/freetrade/index.jsp</result>
 		</action>
 	</package>
+	<package name="/est/newEstate" extends="baseDefault" namespace="/est/newEstate">
+		<action name="list" class="newEstateAction" method="doList">
+			<result>/newHouse/index.jsp</result>
+		</action>
+	</package>
+	
 	
 	<package name="/freetrade" extends="baseDefault" namespace="/freetrade" >
 		<action name="outContent" class="estateOutAction" method="doEdit">
@@ -287,4 +293,15 @@
 			<result>/freetrade/showIn.jsp</result>
 		</action>
 	</package>
+	
+	<package name="/entrustTrade" extends="baseDefault" namespace="/entrustTrade" >
+		<action name="outContent" class="estateOutAction" method="doEdit">
+			<result>/entrustTrade/showOut.jsp</result>
+		</action>
+		<action name="inContent" class="estateInAction" method="doEdit">
+			<result>/entrustTrade/showIn.jsp</result>
+		</action>
+	</package>
+	
+	
 </struts>
