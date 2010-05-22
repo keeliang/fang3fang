@@ -9,8 +9,7 @@
 		</div>
 		<div id="content" >
 		<s:if test="flag=='out'">
-			<s:if test="pageView.records==null || pageView.records.size()=0">
-				
+			<s:if test="pageView.records==null || pageView.records.size()==0">
 				<table border="0" cellpadding="0" 	cellspacing="0" class="trade_table" width="100%">
 					<tr><td>没有符合条件的数据</td></tr>
 				</table>
@@ -33,9 +32,16 @@
 									<img src="" width="105" height="80" />
 								</td>
 								<td>
-									<a href="<%=contextPath %>/freetrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
-										<s:property value="#item.estateName" />
-									</a>
+									<s:if test="estateOutParameter._ne_tradeType==1">
+										<a href="<%=contextPath %>/freetrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
+											<s:property value="#item.estateName" />
+										</a>
+									</s:if>
+									<s:if test="estateOutParameter._ne_tradeType==2">
+										<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
+											<s:property value="#item.estateName" />
+										</a>
+									</s:if>
 								</td>
 								<td><s:property value="#item.area" />m<sup>2</sup></td>
 								<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
@@ -61,9 +67,16 @@
 									<img src="" width="105" height="80" />
 								</td>
 								<td>
-									<a target="blank" href="<%=contextPath %>/freetrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
-										<s:property value="#item.estateName" />
-									</a>
+									<s:if test="estateOutParameter._ne_tradeType==1">
+										<a href="<%=contextPath %>/freetrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
+											<s:property value="#item.estateName" />
+										</a>
+									</s:if>
+									<s:if test="estateOutParameter._ne_tradeType==2">
+										<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
+											<s:property value="#item.estateName" />
+										</a>
+									</s:if>
 								</td>
 								<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
 								<td><s:property value="#item.area" />m<sup>2</sup></td>
@@ -78,7 +91,7 @@
 		</s:if>
 
 		<s:if test="flag=='in'">
-			<s:if test="pageView.records==null || pageView.records.size()=0">
+			<s:if test="pageView.records==null || pageView.records.size()==0">
 				<table border="0" cellpadding="0" 	cellspacing="0" class="trade_table" width="100%">
 					<tr><td>没有符合条件的数据</td></tr>
 				</table>
@@ -95,9 +108,16 @@
 						<s:iterator value="pageView.records" id="item">
 							<tr>
 								<td>
-									<a href="<%=contextPath %>/freetrade/inContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
-										<s:property value="#item.title" />	
-									</a>
+									<s:if test="estateInParameter._ne_tradeType==1">
+										<a href="<%=contextPath %>/freetrade/inContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
+											<s:property value="#item.title" />	
+										</a>
+									</s:if>
+									<s:if test="estateInParameter._ne_tradeType==2">
+										<a href="<%=contextPath %>/entrustTrade/inContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
+											<s:property value="#item.title" />	
+										</a>
+									</s:if>
 								</td>
 								<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
 								<td><s:property value="#item.rentPriceFrom" />-<s:property value="#item.rentPriceTo" />元/月</td>
@@ -115,9 +135,16 @@
 						<s:iterator value="pageView.records" id="item">
 							<tr>
 								<td>
-									<a href="<%=contextPath %>/freetrade/inContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
-										<s:property value="#item.title" />
-									</a>
+									<s:if test="estateInParameter._ne_tradeType==1">
+										<a href="<%=contextPath %>/freetrade/inContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
+											<s:property value="#item.title" />
+										</a>
+									</s:if>
+									<s:if test="estateInParameter._ne_tradeType==2">
+										<a href="<%=contextPath %>/entrustTrade/inContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
+											<s:property value="#item.title" />	
+										</a>
+									</s:if>
 								</td>
 								<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
 								<td><s:property value="#item.buyPriceFrom" />-<s:property value="#item.buyPriceTo" />元</td>
@@ -128,6 +155,44 @@
 				</table>
 			</s:if>
 		</s:if>
+		
+		<s:if test="flag=='new'">
+			<s:if test="pageView.records==null || pageView.records.size()==0">
+				<table border="0" cellpadding="0" 	cellspacing="0" class="trade_table" width="100%">
+					<tr><td>没有符合条件的数据</td></tr>
+				</table>
+			</s:if>
+			<s:if test="pageView.records!=null && pageView.records.size()>0">
+				<table border="0" cellpadding="0" cellspacing="0" class="trade_table" width="850px">
+					<tr>
+						<td id="PropertyName" class="grayBg" width="330px" colspan="2">
+							<span class="cOrange">房产</span>
+						</td>
+						<td class="grayBg">户型</td>
+						<td class="grayBg"><span>面积</span></td>
+						<td class="grayBg">售价</td>
+						<td class="grayBg"><span class="cOrange">发布人</span></td>
+					</tr>
+					<s:iterator value="pageView.records" id="item">
+						<tr>
+							<td>
+								<img src="" width="105" height="80" />
+							</td>
+							<td>
+								<a href="<%=contextPath %>/freetrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
+									<s:property value="#item.estateName" />
+								</a>
+							</td>
+							<td><s:property value="#item.area" />m<sup>2</sup></td>
+							<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
+							<td><s:property value="#item.rentPrice" />元/月</td>
+							<td><s:property value="#item.createUserId" /></td>
+						</tr>
+					</s:iterator>
+				</table>
+			</s:if>
+		</s:if>
+		
 			<div id="pageNavigation">
 				<%@ include file="/share/fontPageNavigation.jsp" %>
 			</div>

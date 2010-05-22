@@ -1,5 +1,4 @@
-<%@ page language="java" pageEncoding="UTF-8"
-	contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8"	contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
@@ -15,6 +14,7 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="<%=contextPath %>/Search/js/search.js"></script>
 		<link rel="stylesheet" href="css/general.css" type="text/css" media="screen" />
 	</head>
 	<body>
@@ -41,7 +41,7 @@
 								<a href="../newHouse/index.jsp"><span>新房推荐</span> </a>
 							</li>
 							<li>
-								<a href="../Info/index.jsp"><span>地产资讯</span> </a>
+								<a href="<%=contextPath %>/Info/infoIndexList.action"><span>地产资讯</span> </a>
 							</li>
 							<li>
 								<a href="../forum/index.jsp"><span>论坛</span> </a>
@@ -776,7 +776,7 @@
 				<!-- search -->
 			</div>
 
-			<%@ include file="../CommonPage/Search.jsp"%>
+			<%@ include file="/Search/search.jsp"%>
 			<div class="clear"></div>
 			<div class="blank12"></div>
 			<!-- col04 -->
@@ -797,93 +797,7 @@
 				<aa:zone name="listZone">
 					<div class="trade_content">
 						<div class="list02" id="about0211" style="display: block;">
-							<div class="trade_table_more">
-								<a href="../freetrade/index.jsp" class="cOrange">更多...</a>
-							</div>
-							<s:if test="flag=='out'">
-								<s:if test="listEstateOut==null">
-									<table border="0" cellpadding="0" 	cellspacing="0" class="trade_table" width="100%">
-										<tr><td>没有符合条件的数据</td></tr>
-									</table>
-								</s:if>
-								<s:if test="listEstateOut!=null">
-									<table border="0" cellpadding="0" cellspacing="0" class="trade_table" width="100%">
-										<s:if test="estateOutParameter._nin_tradeMode[0]==1">
-											<tr>
-												<td>房产名</td>
-												<td>地址</td>
-												<td>户型</td>
-												<td>租价</td>
-												<td>面积</td>
-											</tr>
-											<s:iterator value="listEstateOut" id="item">
-												<tr>
-													<td><s:property value="#item.estateName" /></td>
-													<td><s:property value="#item.address" /></td>
-													<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
-													<td><s:property value="#item.rentPrice" />元/月</td>
-													<td><s:property value="#item.area" />m<sup>2</sup></td>
-												</tr>
-											</s:iterator>
-										</s:if>
-										<s:if test="estateOutParameter._nin_tradeMode[0]==2">
-											<tr>
-												<td>房产名</td>
-												<td>地址</td>
-												<td>户型</td>
-												<td>售价</td>
-												<td>面积</td>
-											</tr>
-											<s:iterator value="listEstateOut" id="item">
-												<tr>
-													<td><s:property value="#item.estateName" /></td>
-													<td><s:property value="#item.address" /></td>
-													<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
-													<td><s:property value="#item.salePrice" />元</td>
-													<td><s:property value="#item.area" />m<sup>2</sup></td>
-												</tr>
-											</s:iterator>
-										</s:if>	
-									</table>
-								</s:if>
-							</s:if>
-							
-							<s:if test="listEstateIn!=null">
-								<table border="0" cellpadding="0" cellspacing="0" class="trade_table" width="100%">
-									<s:if test="estateInParameter._nin_tradeMode[0]==1">
-										<tr>
-											<td>房产名</td>
-											<td>户型</td>
-											<td>租价</td>
-											<td>面积</td>
-										</tr>
-										<s:iterator value="listEstateIn" id="item">
-											<tr>
-												<td><s:property value="#item.estateName" /></td>
-												<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
-												<td><s:property value="#item.rentPriceFrom" />-<s:property value="#item.rentPriceTo" />元/月</td>
-												<td><s:property value="#item.area" />m<sup>2</sup></td>
-											</tr>
-										</s:iterator>
-									</s:if>
-									<s:if test="estateInParameter._nin_tradeMode[0]==2">
-										<tr>
-											<td>房产名</td>
-											<td>户型</td>
-											<td>售价</td>
-											<td>面积</td>
-										</tr>
-										<s:iterator value="listEstateIn" id="item">
-											<tr>
-												<td><s:property value="#item.estateName" /></td>
-												<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
-												<td><s:property value="#item.buyPriceFrom" />-<s:property value="#item.buyPriceTo" /></td>
-												<td><s:property value="#item.areaFrom" />-<s:property value="#item.areaTo" />m<sup>2</sup></td>
-											</tr>
-										</s:iterator>
-									</s:if>	
-								</table>
-							</s:if>
+							<%@ include file="/Search/resultIndex.jsp"%>
 						</div>
 					</div>
 				</aa:zone>
@@ -895,121 +809,3 @@
 		</div>
 	</body>
 </html>
-<script type="text/javascript">
-function f_query(){
-	var str = "";
-	/*
-	$('#divTradeMode a[class="selected_filter"]')
-	var o = $('#divTradeMode a[class="selected_filter"]');
-	if(o.attr('id')=='divTradeMode_0'){
-		str += "?estateOutParameter._nin_tradeMode=1&estateOutParameter._nin_tradeMode=2&estateOutParameter._nin_tradeMode=3"
-	}else if(o.attr('id')=='divTradeMode_1'){
-		str += "?estateOutParameter._nin_tradeMode=1&estateOutParameter._nin_tradeMode=3"
-	}else if(o.attr('id')=='divTradeMode_2'){
-		str += "?estateOutParameter._nin_tradeMode=2&estateOutParameter._nin_tradeMode=3"
-	}
-	*/
-	var param = "";
-	
-	var o = $('#divTradeMode div[class="active"]');
-	if(o.attr('id')=="divSaleOut"){
-		str +="?estateOutParameter._nin_tradeMode=2&estateOutParameter._nin_tradeMode=3"
-		param = "estateOutParameter";
-	}else if(o.attr('id')=="divRentOut"){
-		str +="?estateOutParameter._nin_tradeMode=1&estateOutParameter._nin_tradeMode=3"
-		param = "estateOutParameter";
-	}else if(o.attr('id')=="divSaleIn"){
-		str +="?estateInParameter._nin_tradeMode=2&estateInParameter._nin_tradeMode=3"
-		param = "estateInParameter";
-	}else if(o.attr('id')=="divRentIn"){
-		str +="?estateInParameter._nin_tradeMode=1&estateInParameter._nin_tradeMode=3"
-		param = "estateInParameter";
-	}
-	alert(str);
-	
-	o = $('#divTradeType a[class="selected_filter"]');
-	if(o.attr('id')=='divTradeType_1'){
-		str +="&"+param+"._ne_tradeType=1";
-	}else if(o.attr('id')=='divTradeType_2'){
-		str +="&"+param+"._ne_tradeType=2";
-	}
-	
-	o = $('#divEstateType a[class="selected_filter"]');
-	if(o.attr('id')!='divEstateType_0'){
-		str+="&"+param+"._ne_estateType="+o.attr('id').substring(14);
-	}
-	
-	o = $('#place a[class="selected_filter"]');
-	if(o.attr('id')!='place_'){
-		str +="&"+param+"._ne_"+o.attr('id').substring(6,o.attr('id').lastIndexOf('_'))+"="+o.attr('id').substring(o.attr('id').lastIndexOf('_')+1);
-	}
-	
-	o = $('#price a[class="selected_filter"]');
-	if(o.attr('id')!='price_' ){
-		var f = o.attr('id').substring(6,o.attr('id').lastIndexOf('_'))
-		if(f!="" && !isNaN(f)){
-			if($('#divSaleOut_').get(0).style.display=="none"){
-				str += "&estateOutParameter._nge_rentPrice="+f;
-			}else{
-				str += "&estateOutParameter._nge_salePrice="+f;
-			}
-		}
-		var t = o.attr('id').substring(o.attr('id').lastIndexOf('_')+1);
-		if(t!="" && !isNaN(t)){
-			if($('#divSaleOut_').get(0).style.display=="none"){
-				str += "&estateOutParameter._nle_rentPrice="+t;
-			}else{
-				str += "&estateOutParameter._nle_salePrice="+t;
-			}
-		}
-	}
-	
-	if($("#divArea_1").get(0).style.display!="none"){
-		o = $('#area a[class="selected_filter"]');
-		if(o.attr('id')!='area_'){
-			var f = o.attr('id').substring(5,o.attr('id').lastIndexOf('_'))
-			if(f!="" && !isNaN(f)){
-				str += "&estateOutParameter._nge_area="+f;
-			}
-			var t = o.attr('id').substring(o.attr('id').lastIndexOf('_')+1);
-			if(t!="" && !isNaN(t)){
-				str += "&estateOutParameter._nle_area="+t;
-			}
-		}
-	}
-	
-	if($('div.active').attr('id').indexOf("Out")>-1){
-		document.forms['formList'].action ="/est/estateout/indexList.ajax"+str;
-	}else {
-		document.forms['formList'].action ="/est/estatein/indexList.ajax"+str;
-	}
-	
-	alert(document.forms['formList'].action );
-	
-	ajaxAnywhere.formName = "formList";			
-	ajaxAnywhere.getZonesToReload = function(){return "listZone";} 
-	ajaxAnywhere.submitAJAX();
-}
-
-function f_selectFilter(divId,val){
-	$('#'+divId+' a').removeClass('selected_filter');
-	$('#'+divId+' a').addClass('choose_filter');
-	$('#'+val).removeClass('choose_filter');
-	$('#'+val).addClass('selected_filter');
-	f_query();
-}
-
-function f_selectOutIn(divIdShow,val){
-	$('#'+divIdShow).parent().find("div").removeClass('active');
-	$('#'+divIdShow).addClass('active');
-	$('#'+divIdShow+'_').parent().find("div").hide();
-	$('#'+divIdShow+'_').show();
-	$('#divArea_'+val).parent().find("div").hide();
-	$('#divArea_'+val).show();
-	f_query();
-}
-
-
-</script>
-
-
