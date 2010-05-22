@@ -10,7 +10,6 @@
 				<img src="loading.gif">
 			</div>
 			<div id="content" >
-			<s:property value="listEstateOut.size()"/>
 			<s:if test="flag=='out'">
 				<s:if test="listEstateOut==null">
 					<table border="0" cellpadding="0" 	cellspacing="0" class="trade_table" width="100%">

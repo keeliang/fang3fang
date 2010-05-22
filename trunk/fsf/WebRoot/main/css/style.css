@@ -193,7 +193,7 @@ background:url(../images/trade_navOn.jpg)!important;height:32px; color:#830505;
 }
 .tap02_more{float:right; right:0; margin:8px 100px 0px 0px; position:absolute;}
 .tap02_title{float:left; left:0; position:absolute;margin:7px 0px 0px 60px;}
-.list02{position:relative;border-left:1px solid #dcd6ca; border-right:1px solid #dcd6ca; border-bottom:1px solid #dcd6ca; height:283px; overflow:hidden;}
+.list02{position:relative;border-left:1px solid #dcd6ca; border-right:1px solid #dcd6ca; border-bottom:1px solid #dcd6ca; overflow:hidden;}
 .trade_table{width:910px; margin:0 auto;}
 .trade_table td{table-layout:fixed;word-wrap:break-word;word-break:break-all;}
 .trade_table thead td{border-bottom:1px dashed #f8bb18; background:#fffdef;padding:9px 8px 6px;}

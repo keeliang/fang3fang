@@ -4,7 +4,10 @@ function f_query(pageNum){
 	var param = "";
 
 	var o = $('#divTradeMode div[class="active"]');
-	if(o.attr('id')=="divSaleOut"){
+	if(o.parent().get(0).style.display=="none"){
+		sb.append("?newEstateParameter._ne_status=1");
+		param = "newEstateParameter";
+	}else if(o.attr('id')=="divSaleOut"){
 		sb.append("?estateOutParameter._nin_tradeMode=2&estateOutParameter._nin_tradeMode=3");
 		param = "estateOutParameter";
 	}else if(o.attr('id')=="divRentOut"){
@@ -17,7 +20,7 @@ function f_query(pageNum){
 		sb.append("?estateInParameter._nin_tradeMode=1&estateInParameter._nin_tradeMode=3");
 		param = "estateInParameter";
 	}
-
+	
 	o = $('#divTradeType a[class="selected_filter"]');
 	if(o.attr('id')=='divTradeType_1'){
 		sb.append("&"+param+"._ne_tradeType=1");
@@ -26,6 +29,7 @@ function f_query(pageNum){
 	}else if(tradeTypeFlag!=0){
 		sb.append("&"+param+"._ne_tradeType="+tradeTypeFlag);
 	}
+	
 
 	o = $('#divEstateType a[class="selected_filter"]');
 	if(o.attr('id')!='divEstateType_0'){
@@ -56,7 +60,7 @@ function f_query(pageNum){
 			}
 		}
 	}
-
+	
 	if($("#divArea_1").get(0).style.display!="none"){
 		o = $('#area a[class="selected_filter"]');
 		if(o.attr('id')!='area_'){
@@ -88,7 +92,10 @@ function f_query(pageNum){
 		sb.append("&"+param+".currentPage="+pageNum);
 	}
 	
-	if($('div.active').attr('id').indexOf("Out")>-1){
+	
+	if($('div.active').parent().get(0).style.display=="none"){
+		document.forms['formList'].action ="/est/newEstate/list.ajax"+sb.toString();
+	}else if($('div.active').attr('id').indexOf("Out")>-1){
 		if(tradeTypeFlag){
 			document.forms['formList'].action ="/est/estateout/query.ajax"+sb.toString();
 		}else{
@@ -101,7 +108,7 @@ function f_query(pageNum){
 			document.forms['formList'].action ="/est/estatein/indexList.ajax"+sb.toString();
 		}
 	}
-	
+	alert(sb.toString());
 	alert(document.forms['formList'].action );
 	
 	ajaxAnywhere.formName = "formList";

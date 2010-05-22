@@ -15,29 +15,15 @@
 				<a href="javascript:f_selectOutIn('divRentIn','2')" target="_self">求租</a>
 			</div>
 		</div>
-		<form id="formList" name="formList" method="post" action="" >
+		
+		<form id="formList" name="formList" method="post" action="" style="text-align: right;" >
 			<input name="estateName" type="text" value="" size="50" />
 			<input type="button" value="搜索 " onclick="f_query()" />
-			</form>
+		</form>
+		
 		<div class="clear"></div>
 		<!-- city list -->
 		<div class="city_list">
-			<!-- 
-				<div style="float: left;" id="divTradeMode">
-					<div>
-						<span>[租售]:</span>
-						<a href="javascript:f_selectFilter('divTradeMode','divTradeMode_0')" id="divTradeMode_0" class="selected_filter" >全部</a>
-						<a href="javascript:f_selectFilter('divTradeMode','divTradeMode_1')" id="divTradeMode_1" class="choose_filter" >出租</a>
-						<a href="javascript:f_selectFilter('divTradeMode','divTradeMode_2')" id="divTradeMode_2" class="choose_filter" >出售</a>
-					</div>
-					<div>
-						<span>[租购]:</span>
-						<a href="javascript:f_selectFilter('divTradeMode','divTradeMode_0')" id="divTradeMode_0" class="selected_filter" >全部</a>
-						<a href="javascript:f_selectFilter('divTradeMode','divTradeMode_1')" id="divTradeMode_1" class="choose_filter" >求租</a>
-						<a href="javascript:f_selectFilter('divTradeMode','divTradeMode_2')" id="divTradeMode_2" class="choose_filter" >求购</a>
-					</div>
-				</div>
-				 -->
 				<div style="float: left;" id="divTradeType">
 					<span>[交易方式]:</span>
 					<a href="javascript:f_selectFilter('divTradeType','divTradeType_0')" id="divTradeType_0" class="selected_filter">全部</a>

@@ -1,12 +1,12 @@
 $(document).ready(function() {
-	LogicClass();
-	AdClass();	 
-	FreeTrading();
-	TradingCommission();
-	MesSelected();
-	DisplayMessage();
-	selectInfoTop10();
-	InfoTop10Move();
+	//LogicClass();
+	//AdClass();	 
+	//FreeTrading();
+	//TradingCommission();
+	//MesSelected();
+	//DisplayMessage();
+	//selectInfoTop10();
+	//InfoTop10Move();
 });
 
 function LogicClass() {
