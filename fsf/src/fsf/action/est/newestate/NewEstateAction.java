@@ -27,6 +27,8 @@ public class NewEstateAction extends BaseAction<NewEstate> {
 		super(NewEstate.class, new String[] { "estateId" });
 	}
 	
+	private String flag = "new";
+	
 	@Override
 	protected void initData() {
 		User u = ThreadUser.get();
@@ -321,6 +323,12 @@ public class NewEstateAction extends BaseAction<NewEstate> {
 	}
 	public Integer getUpdateUserId(){
 		return this.updateUserId;
+	}
+	public String getFlag() {
+		return flag;
+	}
+	public void setFlag(String flag) {
+		this.flag = flag;
 	}
 
 }
