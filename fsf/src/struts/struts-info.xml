@@ -140,5 +140,20 @@
 		<action name="infoIndexList" class="informationAction" method="doIndexList">
 			<result>/Info/index.jsp</result>
 		</action>
+		<action name="infoContent" class="informationAction" method="doEdit">
+			<result>/Info/showInfo.jsp</result>
+		</action>
+		<action name="infoList" class="informationAction" method="doList">
+			<result>/Info/infoList.jsp</result>
+		</action>
+		<action name="newsIndexList" class="newsAction" method="doIndexList">
+			<result>/Info/index.jsp</result>
+		</action>
+		<action name="newsContent" class="newsAction" method="doEdit">
+			<result>/Info/showNews.jsp</result>
+		</action>
+		<action name="newsList" class="newsAction" method="doList">
+			<result>/Info/newsList.jsp</result>
+		</action>
 	</package>
 </struts>
