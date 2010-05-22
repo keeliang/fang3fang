@@ -1,16 +1,22 @@
 package fsf.action.info.news;
 
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import chance.base.BaseParameter;
 import chance.base.action.BaseAction;
+import fsf.action.info.newstype.NewsTypeParameter;
 import fsf.beans.info.news.News;
+import fsf.beans.info.newstype.NewsType;
 import fsf.beans.sys.user.User;
 import fsf.service.info.news.NewsService;
+import fsf.service.info.newstype.NewsTypeService;
 import fsf.web.common.ThreadUser;
 
 @Controller
@@ -20,6 +26,39 @@ public class NewsAction extends BaseAction<News> {
 	public NewsAction() {
 		super(News.class, new String[] { "newsId" });
 	}
+	
+	@Resource
+	private NewsTypeService newsTypeService;
+	
+	private List<NewsType> listNewsType ;
+	
+	/**
+	 * 不分页资讯首页
+	 * @return
+	 */
+	public String doIndexList() throws Exception{
+		NewsTypeParameter param = new NewsTypeParameter();
+		param.set_ne_status((short)1);
+		param.getSortedConditions().put("seq", BaseParameter.SORTED_ASC);
+		
+		listNewsType = newsTypeService.doQuery(param);
+		
+		if(listNewsType!=null && listNewsType.size()>0){
+			NewsParameter paramNews = new NewsParameter();
+			paramNews.set_ne_status((short)1);
+			paramNews.setCurrentPage(-1);
+			paramNews.setMaxResults(-1);
+			paramNews.setTopCount(10);
+			paramNews.getSortedConditions().put("updateTime", BaseParameter.SORTED_DESC);
+			for(Iterator<NewsType> it = listNewsType.iterator();it.hasNext();){
+				NewsType o = it.next();
+				paramNews.set_ne_newsTypeId(o.getNewsTypeId());
+				o.setListNews(service.doPaginationQuery(paramNews).getResultList());
+			}
+		}
+		return SUCCESS;
+	}
+	
 	
 	@Override
 	protected void initData() {
@@ -142,6 +181,16 @@ public class NewsAction extends BaseAction<News> {
 
 	public Integer getUpdateUserId() {
 		return this.updateUserId;
+	}
+
+
+	public List<NewsType> getListNewsType() {
+		return listNewsType;
+	}
+
+
+	public void setListNewsType(List<NewsType> listNewsType) {
+		this.listNewsType = listNewsType;
 	}
 
 }

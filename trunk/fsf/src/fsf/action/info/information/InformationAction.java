@@ -23,7 +23,14 @@ public class InformationAction extends BaseAction<Information> {
 		super(Information.class, new String[] { "informationId" });
 	}
 	
-	private List<Information> listInfo;
+	private List<Information> listInfo1;
+	private List<Information> listInfo2;
+	private List<Information> listInfo3;
+	private List<Information> listInfo4;
+	private List<Information> listInfo5;
+	private List<Information> listInfo6;
+	private List<Information> listInfo7;
+	
 	
 	/**
 	 * 首页，不分页，显示top10
@@ -37,10 +44,38 @@ public class InformationAction extends BaseAction<Information> {
 			}
 			baseParameter.setMaxResults(-1);
 			baseParameter.setCurrentPage(-1);
-			baseParameter.setTopCount(10);
-			//((InformationParameter)baseParameter).set_ne_informationType(1);
+			baseParameter.setTopCount(5);
+			InformationParameter p = (InformationParameter)baseParameter;
+			p.set_ne_status((short)1);
+			
+			p.set_ne_informationType(1);
 			QueryResult<Information> queryResult = service.doPaginationQuery(baseParameter);
-			listInfo = queryResult.getResultList();
+			listInfo1 = queryResult.getResultList();
+			
+			p.set_ne_informationType(2);
+			queryResult = service.doPaginationQuery(baseParameter);
+			listInfo2 = queryResult.getResultList();
+			
+			p.set_ne_informationType(3);
+			queryResult = service.doPaginationQuery(baseParameter);
+			listInfo3 = queryResult.getResultList();
+			
+			p.set_ne_informationType(4);
+			queryResult = service.doPaginationQuery(baseParameter);
+			listInfo4 = queryResult.getResultList();
+			
+			p.set_ne_informationType(5);
+			queryResult = service.doPaginationQuery(baseParameter);
+			listInfo5 = queryResult.getResultList();
+			
+			p.set_ne_informationType(6);
+			queryResult = service.doPaginationQuery(baseParameter);
+			listInfo6 = queryResult.getResultList();
+			
+			p.set_ne_informationType(7);
+			baseParameter.setTopCount(10);
+			queryResult = service.doPaginationQuery(baseParameter);
+			listInfo7 = queryResult.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -153,12 +188,59 @@ public class InformationAction extends BaseAction<Information> {
 		return this.updateUserId;
 	}
 
-	public List<Information> getListInfo() {
-		return listInfo;
+	public List<Information> getListInfo2() {
+		return listInfo2;
 	}
 
-	public void setListInfo(List<Information> listInfo) {
-		this.listInfo = listInfo;
+	public void setListInfo2(List<Information> listInfo2) {
+		this.listInfo2 = listInfo2;
 	}
 
+	public List<Information> getListInfo3() {
+		return listInfo3;
+	}
+
+	public void setListInfo3(List<Information> listInfo3) {
+		this.listInfo3 = listInfo3;
+	}
+
+	public List<Information> getListInfo4() {
+		return listInfo4;
+	}
+
+	public void setListInfo4(List<Information> listInfo4) {
+		this.listInfo4 = listInfo4;
+	}
+
+	public List<Information> getListInfo5() {
+		return listInfo5;
+	}
+
+	public void setListInfo5(List<Information> listInfo5) {
+		this.listInfo5 = listInfo5;
+	}
+
+	public List<Information> getListInfo6() {
+		return listInfo6;
+	}
+
+	public void setListInfo6(List<Information> listInfo6) {
+		this.listInfo6 = listInfo6;
+	}
+
+	public List<Information> getListInfo1() {
+		return listInfo1;
+	}
+
+	public void setListInfo1(List<Information> listInfo1) {
+		this.listInfo1 = listInfo1;
+	}
+
+	public List<Information> getListInfo7() {
+		return listInfo7;
+	}
+
+	public void setListInfo7(List<Information> listInfo7) {
+		this.listInfo7 = listInfo7;
+	}
 }
