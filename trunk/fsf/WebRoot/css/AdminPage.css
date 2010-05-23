@@ -573,3 +573,12 @@ input {
 	font-size: 12px;
 	height: 20px;
 }
+
+.contentColumnNameTd{
+	width:10%;
+}
+
+.listContentTd{
+	word-break: nowrap;
+	vertical-align: middle;
+}

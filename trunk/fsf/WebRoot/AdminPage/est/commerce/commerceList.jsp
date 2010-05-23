@@ -5,121 +5,55 @@
 <%@include file="/share/share.jsp" %>
 <title><s:text name="listPageTitle"/></title>
 <%@include file="/share/validate.jsp" %>
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/Common.css" />
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/AdminPage.css" />
-<script type="text/javascript" src="${contextPath}/js/jquery.js"></script> 
+<link type="text/css" rel="stylesheet" href="<%=contextPath%>/css/Common.css" />
+<link type="text/css" rel="stylesheet" href="<%=contextPath%>/css/AdminPage.css" />
+<script type="text/javascript" src="<%=contextPath%>/js/jquery.js"></script> 
 </head>
 
-<body>
+<body style="background-color:#FFFFFF">
 <s:form action="commerceList" namespace="/sysadmin/est/commerce" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="commerceParameter.currentPage" id="currentPage"  />
 <s:hidden name="commerceParameter.maxResults" id="maxResults" />
-<table>
-	<tr>
-		<td align="left" width="722">picture</td>
-	</tr>
-</table>
+
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" id="filter_tbl">
 	<tr>
 		<td>
-			<table width="100%" border="0" cellspacing="0" cellpadding="0" >
+			<table width="60%" border="0" cellspacing="0" cellpadding="0" align="left">
 				<tr>
-					<td width="15%" class="input_name">
-						<s:text name="_ne_commerceId" />:
-					</td>
+					<td width="15%" class="input_name"><s:text name="_ne_provinceId" />:</td>
 					<td width="35%">
-						<s:textfield name="commerceParameter._ne_commerceId" cssClass="input_text" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="commerceParameter._ne_provinceId" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey" id="provinceId" onchange="f_changeProvince()"/>
 					</td>
-					<td width="15%" class="input_name">
-						<s:text name="_se_title" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="commerceParameter._se_title" cssClass="input_text" />
-					</td>
+					<td width="15%" class="input_name"><s:text name="_ne_cityId" />:</td>
+					<td width="35%" id="cityTd"></td>
 				</tr>
+				
 				<tr>
-					<td width="15%" class="input_name">
-						<s:text name="_se_content" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="commerceParameter._se_content" cssClass="input_text" />
-					</td>
-					<td width="15%" class="input_name">
-						<s:text name="_ne_provinceId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="commerceParameter._ne_provinceId" cssClass="input_text" />
-					</td>
+					<td width="15%" class="input_name"><s:text name="_ne_districtId" />:</td>
+					<td width="35%" id="districtTd"></td>
+					<td width="15%" class="input_name"><s:text name="_ne_areaId" />:</td>
+					<td width="35%" id="areaTd"></td>
 				</tr>
+				
 				<tr>
-					<td width="15%" class="input_name">
-						<s:text name="_ne_cityId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="commerceParameter._ne_cityId" cssClass="input_text" />
-					</td>
-					<td width="15%" class="input_name">
-						<s:text name="_ne_districtId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="commerceParameter._ne_districtId" cssClass="input_text" />
-					</td>
+					<td width="15%" class="input_name"><s:text name="_se_title" />:</td>
+					<td width="35%"><s:textfield name="commerceParameter._se_title" cssClass="input_text" /></td>
+					<td width="15%" class="input_name"><s:text name="_se_content" />:</td>
+					<td width="35%"><s:textfield name="commerceParameter._se_content" cssClass="input_text" /></td>
 				</tr>
+				
 				<tr>
-					<td width="15%" class="input_name">
-						<s:text name="_ne_areaId" />:
-					</td>
+					<td width="15%" class="input_name"><s:text name="_ne_commerceType" />:</td>
 					<td width="35%">
-						<s:textfield name="commerceParameter._ne_areaId" cssClass="input_text" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$commerce_type')" name="commerceParameter._ne_commerceType" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
-					<td width="15%" class="input_name">
-						<s:text name="_ne_commerceType" />:
-					</td>
+					<td width="15%" class="input_name"><s:text name="_ne_status" />:</td>
 					<td width="35%">
-						<s:textfield name="commerceParameter._ne_commerceType" cssClass="input_text" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" class="input_name">
-						<s:text name="_ne_status" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="commerceParameter._ne_status" cssClass="input_text" />
-					</td>
-					<td width="15%" class="input_name">
-						<s:text name="_se_ip" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="commerceParameter._se_ip" cssClass="input_text" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" class="input_name">
-						<s:text name="_de_createTime" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="commerceParameter._de_createTime" cssClass="input_text" />
-					</td>
-					<td width="15%" class="input_name">
-						<s:text name="_ne_createUserId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="commerceParameter._ne_createUserId" cssClass="input_text" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" class="input_name">
-						<s:text name="_de_updateTime" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="commerceParameter._de_updateTime" cssClass="input_text" />
-					</td>
-					<td width="15%" class="input_name">
-						<s:text name="_ne_updateUserId" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="commerceParameter._ne_updateUserId" cssClass="input_text" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="commerceParameter._ne_status" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
 				</tr>
 			</table>
@@ -127,7 +61,8 @@
 	</tr>
 </table>
 
-<div style="text-align: right;">
+<br/>
+<div style="text-align: right;width:100%;">
 	<input type="button" onclick="g_new('/sysadmin/est/commerce/commerceNew.action')" value="<s:text name="g_new"/>"/>
 	<input type="button" onclick="g_delete('/sysadmin/est/commerce/commerceDelete.action');" value="<s:text name="g_delete"/>">
 	<input type="button" onclick="g_list()" value="<s:text name="g_search"/>">
@@ -137,25 +72,24 @@
 <div class="Title">&nbsp;</div>
 <div class="MainContent">
 
-<table width="100%" border="0" class="AdminTableStyle TableContent" id="tblList">
+<table width="100%" align="center" border="0" class="AdminTableStyle TableContent" id="tblList">
 <tr class="TH">
-	<td width="4%" height="28" >
+	<td width="3%" height="28" >
 		<input type="checkbox" onclick="g_select(this)" >
 	</td>
-	<td><s:text name="commerceId"/></td>
-	<td><s:text name="title"/></td>
-	<td><s:text name="content"/></td>
-	<td><s:text name="provinceId"/></td>
-	<td><s:text name="cityId"/></td>
-	<td><s:text name="districtId"/></td>
-	<td><s:text name="areaId"/></td>
-	<td><s:text name="commerceType"/></td>
-	<td><s:text name="status"/></td>
-	<td><s:text name="ip"/></td>
-	<td><s:text name="createTime"/></td>
-	<td><s:text name="createUserId"/></td>
-	<td><s:text name="updateTime"/></td>
-	<td><s:text name="updateUserId"/></td>
+	<td nowrap><s:text name="title"/></td>
+	<td nowrap><s:text name="content"/></td>
+	<td nowrap><s:text name="provinceId"/></td>
+	<td nowrap><s:text name="cityId"/></td>
+	<td nowrap><s:text name="districtId"/></td>
+	<td nowrap><s:text name="areaId"/></td>
+	<td nowrap><s:text name="commerceType"/></td>
+	<td nowrap><s:text name="status"/></td>
+	<td nowrap><s:text name="ip"/></td>
+	<td nowrap><s:text name="createTime"/></td>
+	<td nowrap><s:text name="createUserId"/></td>
+	<td nowrap><s:text name="updateTime"/></td>
+	<td nowrap><s:text name="updateUserId"/></td>
 </tr>
 
 <s:iterator value="pageView.records" id="item">
@@ -166,31 +100,73 @@
 		<td>
 			<input type="checkbox" name="selectedPK" value="<s:property value="#item.commerceId"/>">
 		</td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="commerceId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="title"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="content"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="provinceId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="cityId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="districtId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="areaId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="commerceType"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="status"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="ip"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="createTime"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="createUserId"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="updateTime"/></a></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="updateUserId"/></a></td>
+		<td class="listContentTd"><a href="javascript:g_edit('${url}')" ><s:property value="title"/></a></td>
+		<td style="width:25%;word-break:break-all"><s:property value="content"/></td>
+		<td class="listContentTd"><fsf:dictTranslate groupName="#province" value="provinceId" /></td>
+		<td class="listContentTd"><fsf:dictTranslate groupName="#city" value="cityId" /></td>
+		<td class="listContentTd"><fsf:dictTranslate groupName="#district" value="districtId" /></td>
+		<td class="listContentTd"><fsf:dictTranslate groupName="#area" value="areaId" /></td>
+		<td class="listContentTd"><fsf:dictTranslate groupName="$commerce_type" value="commerceType" /></td>
+		<td class="listContentTd"><fsf:dictTranslate groupName="$status" value="status" /></td>
+		<td class="listContentTd"><s:property value="ip"/></td>
+		<td class="listContentTd"><s:date name="createTime" format="yyyy-MM-dd" /></td>
+		<td class="listContentTd"><fsf:dictTranslate groupName="#sys_user" value="createUserId" /></td>
+		<td class="listContentTd"><s:date name="updateTime" format="yyyy-MM-dd" /></td>
+		<td class="listContentTd"><fsf:dictTranslate groupName="#sys_user" value="updateUserId" /></td>
 	</tr>
 </s:iterator>
 </table>
 
-<table width="100%" >
+<table width="100%" align="center">
 	<tr>
-		<td width="100%" align="right" >
-			<%@ include file="/share/pageNavigation.jsp" %>
+		<td width="100%" align="right" ><%@ include file="/share/pageNavigation.jsp" %>
 		</td>
 	</tr>
 </table>
 </s:form>
 </body>
 </html>
+
+<script type="text/javascript">
+<!--
+function f_change(obj){
+	$(obj.parent).find("input[type='hidden']").val(obj.value);
+}
+
+function f_changeProvince(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	$.post("getCityList.action",{provinceId:$("#provinceId").val()},function(json){
+		var selectTag = new SelectTag("cityId","commerceParameter._ne_cityId",json.data,"itemKey","itemName","${commerceParameter._ne_cityId}","f_changeCity()");
+		$("#cityTd").html(selectTag.toString());
+		if(isIndex)
+			f_changeCity(isIndex);
+	},"json");
+}
+function f_changeCity(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	if($("#cityId").val()=="")
+		return;
+	$.post("getDistrictList.action",{provinceId:$("#provinceId").val(),cityId:$("#cityId").val()},function(json){
+		var selectTag = new SelectTag("districtId","commerceParameter._ne_districtId",json.data,"itemKey","itemName","${commerceParameter._ne_districtId}","f_changeDistrict()");
+		$("#districtTd").html(selectTag.toString());
+		if(isIndex)
+			f_changeDistrict(isIndex);
+	},"json");
+}
+
+function f_changeDistrict(isIndex){
+	if($("#provinceId").val()=="")
+		return;
+	if($("#cityId").val()=="")
+		return;
+	if($("#districtId").val()=="")
+		return;
+	$.post("getBusinessareaList.action",{provinceId:$("#provinceId").val(),cityId:$("#cityId").val(),districtId:$("#districtId").val()},function(json){
+		var selectTag = new SelectTag("areaId","commerceParameter._ne_areaId",json.data,"itemKey","itemName","${commerceParameter._ne_areaId}");
+		$("#areaTd").html(selectTag.toString());
+	},"json");
+}
+-->
+</script>

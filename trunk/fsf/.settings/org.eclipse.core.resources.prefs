@@ -1,4 +1,7 @@
-#Tue May 04 10:18:58 CST 2010
+#Sun May 23 23:17:02 CST 2010
 eclipse.preferences.version=1
+encoding//WebRoot/commerce/commerceHeader.jsp=UTF-8
+encoding//WebRoot/commerce/commerceIndex.jsp=UTF-8
+encoding//WebRoot/commerce/js/commerce.js=UTF-8
 encoding//WebRoot/templates/default/header.htm=UTF-8
 encoding/<project>=UTF-8

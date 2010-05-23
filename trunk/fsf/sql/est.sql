@@ -237,8 +237,13 @@ create table if not exists est_commerce(
 	create_user_id int not null,
 	update_time datetime not null,
 	update_user_id int not null,
+	visit_count int not null comment '浏览次数',
 	constraint PK_est_commerce primary key(commerce_id)
 );
+/*索引
+drop index IND_EST_COMMERCE on est_commerce;
+CREATE INDEX IND_EST_COMMERCE ON est_commerce(commerce_type);
+*/
 
 /*
 房子留言

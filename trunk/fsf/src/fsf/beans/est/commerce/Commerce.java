@@ -21,6 +21,9 @@ public class Commerce implements java.io.Serializable {
 	private Integer cityId;
 	private Integer districtId;
 	private Integer areaId;
+	/**
+	 * 1 - 厂房仓库 2 - 酒楼转让   3 - 写字楼4 - 餐厅转让 5 - 商铺6  - 工厂转让 7 - 美容发廊 8 - 房租转让
+	 */
 	private Integer commerceType;
 	private Short status;
 	private String ip;
@@ -28,13 +31,17 @@ public class Commerce implements java.io.Serializable {
 	private Integer createUserId;
 	private Date updateTime;
 	private Integer updateUserId;
+	/*
+	 * 浏览次数
+	 */
+	private Integer visitCount;
 
 	public Commerce() {
 	}
 
 	public Commerce(String title, String content, Integer commerceType,
 			Short status, String ip, Date createTime, Integer createUserId,
-			Date updateTime, Integer updateUserId) {
+			Date updateTime, Integer updateUserId, Integer visitCount) {
 		this.title = title;
 		this.content = content;
 		this.commerceType = commerceType;
@@ -44,12 +51,13 @@ public class Commerce implements java.io.Serializable {
 		this.createUserId = createUserId;
 		this.updateTime = updateTime;
 		this.updateUserId = updateUserId;
+		this.visitCount = visitCount;
 	}
 
 	public Commerce(String title, String content, Integer provinceId,
 			Integer cityId, Integer districtId, Integer areaId,
 			Integer commerceType, Short status, String ip, Date createTime,
-			Integer createUserId, Date updateTime, Integer updateUserId) {
+			Integer createUserId, Date updateTime, Integer updateUserId, Integer visitCount) {
 		this.title = title;
 		this.content = content;
 		this.provinceId = provinceId;
@@ -63,6 +71,7 @@ public class Commerce implements java.io.Serializable {
 		this.createUserId = createUserId;
 		this.updateTime = updateTime;
 		this.updateUserId = updateUserId;
+		this.visitCount = visitCount;
 	}
 
 	public Integer getCommerceId() {
@@ -201,6 +210,14 @@ public class Commerce implements java.io.Serializable {
 		} else if (!commerceId.equals(other.commerceId))
 			return false;
 		return true;
+	}
+
+	public Integer getVisitCount() {
+		return visitCount;
+	}
+
+	public void setVisitCount(Integer visitCount) {
+		this.visitCount = visitCount;
 	}
 
 }

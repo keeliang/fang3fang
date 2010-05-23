@@ -25,6 +25,26 @@
 			<result>/AdminPage/est/commerce/commerceList.jsp</result>
 			<result name="input">/AdminPage/est/commerce/commerceList.jsp</result>
 		</action>
+		
+		<action name="commerceIndex" class="commerceAction" method="indexList">
+			<result>/commerce/commerceIndex.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="getCityList" class="estateInAction" method="getCityList"></action>
+		<action name="getDistrictList" class="estateInAction" method="getDistrictList"></action>
+		<action name="getBusinessareaList" class="estateInAction" method="getBusinessareaList"></action>
+	</package>
+	
+	<package name="/commerce" extends="baseDefault" namespace="/commerce" >
+		<action name="commerceIndex" class="commerceAction" method="indexList">
+			<result>/commerce/commerceIndex.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="getCityList" class="estateInAction" method="getCityList"></action>
+		<action name="getDistrictList" class="estateInAction" method="getDistrictList"></action>
+		<action name="getBusinessareaList" class="estateInAction" method="getBusinessareaList"></action>
 	</package>
 	<!-- ********************************************** -->
 	
