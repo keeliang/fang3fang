@@ -47,5 +47,8 @@
         <property name="updateUserId" type="int">
             <column name="update_user_id" not-null="true" />
         </property>
+        <property name="visitCount" type="int">
+            <column name="visit_count" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>
