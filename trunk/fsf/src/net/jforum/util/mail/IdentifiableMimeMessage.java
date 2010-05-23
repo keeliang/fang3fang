@@ -80,7 +80,7 @@ public class IdentifiableMimeMessage extends MimeMessage
 			this.addHeader("Message-ID", this.messageId);
 		}
 		else {
-			super.updateMessageID();
+			//super.updateMessageID();
 		}
 	}
 }
