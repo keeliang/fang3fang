@@ -17,14 +17,18 @@
 <s:hidden name="cmd" />
 <s:hidden name="commerceParameter.currentPage" />
 <s:hidden name="commerceParameter.maxResults" />
-<s:hidden name="commerceParameter._se_title" />
-<s:hidden name="commerceParameter._se_content" />
+<s:hidden name="commerceParameter._slike_title" />
+<s:hidden name="commerceParameter._slike_content" />
 <s:hidden name="commerceParameter._ne_provinceId" />
 <s:hidden name="commerceParameter._ne_cityId" />
 <s:hidden name="commerceParameter._ne_districtId" />
 <s:hidden name="commerceParameter._ne_areaId" />
 <s:hidden name="commerceParameter._ne_commerceType" />
 <s:hidden name="commerceParameter._ne_status" />
+<s:hidden name="commerceParameter._se_address" />
+<s:hidden name="commerceParameter._se_contacter" />
+<s:hidden name="commerceParameter._se_contactTel" />
+
 
 <s:hidden name="commerceId"/>
 
@@ -69,6 +73,18 @@
 					<td id="areaTd"></td>
 				</tr>
 				<tr>
+					<td class="contentColumnNameTd"><s:text name="address"/>:</td>
+					<td><s:textfield name="address" /></td>
+				</tr>
+				<tr>
+					<td class="contentColumnNameTd"><s:text name="contacter"/>:</td>
+					<td><s:textfield name="contacter" /></td>
+				</tr>
+				<tr>
+					<td class="contentColumnNameTd"><s:text name="contactTel"/>:</td>
+					<td><s:textfield name="contactTel" /></td>
+				</tr>
+				<tr>
 					<td class="contentColumnNameTd"><s:text name="commerceType"/>:</td>
 					<td>
 						<s:select	list="@fsf.web.common.SelectTagStaticUtil@getConfig('$commerce_type')" cssClass="dropdown"
@@ -87,7 +103,7 @@
 				
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="ip"/>:</td>
-					<td><s:textfield name="ip" readonly="true"/><font color="red">*</font></td>
+					<td><s:textfield name="ip" readonly="true"/></td>
 				</tr>
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="createTime"/>:</td>
@@ -123,6 +139,12 @@
 						<s:hidden name="updateUserId"/>
 						<input class="memberC_input01_readonly" readonly="true" 
 						value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
+					</td>
+				</tr>
+				<tr>
+					<td class="contentColumnNameTd">浏览次数:</td>
+					<td>
+						<s:textfield name="visitCount" readonly="true"/>
 					</td>
 				</tr>
 			</table>

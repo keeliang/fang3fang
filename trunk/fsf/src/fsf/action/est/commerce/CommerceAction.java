@@ -1,7 +1,9 @@
 package fsf.action.est.commerce;
 
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -9,17 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import chance.base.BaseParameter;
 import chance.base.action.BaseAction;
-import chance.common.PageView;
-import chance.common.QueryResult;
-
-import com.opensymphony.xwork2.ActionContext;
 
 import fsf.beans.est.commerce.Commerce;
 import fsf.beans.sys.dict.DictItem;
@@ -45,6 +42,7 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
 	List<Commerce> commerceList;
 	List<Commerce> salonList;
 	List<Commerce> hourseList;
+	List<Commerce> lastestList;
 	
     public void setServletRequest(HttpServletRequest request){
     	this.request = request;
@@ -53,6 +51,10 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
     public String indexList() throws Exception{
     	try {
     		setCommerceParameter(new CommerceParameter());
+    		commerceParameter.setTopCount(10);
+    		Map<String, String> sortedConditions = new LinkedHashMap<String, String>();
+			sortedConditions.put("updateTime", BaseParameter.SORTED_DESC);
+			commerceParameter.setSortedConditions(sortedConditions);
 			if(baseParameter==null){
 				return SUCCESS;
 			}
@@ -60,28 +62,60 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
 
 			//厂房仓库
 			commerceParameter.set_ne_commerceType(1);
-			factoryList = service.doQuery(baseParameter);
+			factoryList = service.doQuery(commerceParameter);
 			//写字楼
 			commerceParameter.set_ne_commerceType(3);
-			officeList = service.doQuery(baseParameter);
+			officeList = service.doQuery(commerceParameter);
 			//餐厅转让
 			commerceParameter.set_ne_commerceType(4);
-			restaurantList = service.doQuery(baseParameter);
+			restaurantList = service.doQuery(commerceParameter);
 			//商铺
 			commerceParameter.set_ne_commerceType(5);
-			commerceList = service.doQuery(baseParameter);
+			commerceList = service.doQuery(commerceParameter);
 			//美容发廊
 			commerceParameter.set_ne_commerceType(7);
-			salonList = service.doQuery(baseParameter);
+			salonList = service.doQuery(commerceParameter);
 			//房租转让
 			commerceParameter.set_ne_commerceType(8);
-			hourseList = service.doQuery(baseParameter);
+			hourseList = service.doQuery(commerceParameter);
+			
+			//最新旺铺信息
+			setCommerceParameter(new CommerceParameter());
+			baseParameter.setTopCount(30);
+			sortedConditions = new LinkedHashMap<String, String>();
+			sortedConditions.put("updateTime", BaseParameter.SORTED_DESC);
+			baseParameter.setSortedConditions(sortedConditions);
+    		lastestList = service.doQuery(baseParameter);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
 		}
     	
+    	return SUCCESS;
+    }
+    
+    public String commerceCatelory() throws Exception{
+    	//设置参数
+    	commerceParameter = new CommerceParameter();
+    	commerceParameter.set_ne_commerceType(commerceType);
+    	setCommerceParameter(commerceParameter);
+    	//排序
+    	Map<String, String> sortedConditions = new LinkedHashMap<String, String>();
+		sortedConditions.put("updateTime", BaseParameter.SORTED_DESC);
+		baseParameter.setSortedConditions(sortedConditions);
+    	//查询数据
+    	doList();
+    	return SUCCESS;
+    }
+    
+    public String commerceView()throws Exception{
+    	Commerce commerce = (Commerce)service.get(commerceId);
+    	if(commerce!=null){
+    		commerce.setVisitCount(commerce.getVisitCount() + 1);
+    		service.update(commerce);
+    	}
+    	doEdit();
     	return SUCCESS;
     }
 	
@@ -128,6 +162,8 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
 		if(u==null){
 			u = new User();
 			u.setUserId(1);
+			u.setPhone("84678526");
+			u.setUserName("李生");
 		}
 		/*for test end*/
 		Date today = new Date();
@@ -137,6 +173,11 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
 		updateUserId = u.getUserId();
 		createTime = today;
 		updateTime = today;
+		visitCount = 0;
+		status = 1;
+		contacter = u.getUserName();
+		contactTel = u.getPhone();
+		
 	}
 	
 	@Resource
@@ -170,6 +211,19 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
 	private Integer createUserId;
 	private Date updateTime;
 	private Integer updateUserId;
+	private String address;
+	/*
+	 * 联系人
+	 */
+	private String contacter;
+	/*
+	 * 联系电话
+	 */
+	private String contactTel;
+	/*
+	 * 浏览次数
+	 */
+	private Integer visitCount;
 
 	public void setCommerceId(Integer commerceId){
 		this.commerceId = commerceId;
@@ -278,6 +332,46 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
 
 	public List<Commerce> getHourseList() {
 		return hourseList;
+	}
+
+	public List<Commerce> getLastestList() {
+		return lastestList;
+	}
+
+	public void setLastestList(List<Commerce> lastestList) {
+		this.lastestList = lastestList;
+	}
+
+	public Integer getVisitCount() {
+		return visitCount;
+	}
+
+	public void setVisitCount(Integer visitCount) {
+		this.visitCount = visitCount;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getContacter() {
+		return contacter;
+	}
+
+	public void setContacter(String contacter) {
+		this.contacter = contacter;
+	}
+
+	public String getContactTel() {
+		return contactTel;
+	}
+
+	public void setContactTel(String contactTel) {
+		this.contactTel = contactTel;
 	}
 
 }

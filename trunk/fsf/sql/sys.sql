@@ -60,3 +60,14 @@ CREATE TABLE if not exists sys_param(
 	param_desc varchar(200),
 	constraint PK_sys_param primary key(param_name)
 );
+
+/*
+系统配置表
+*/
+drop table if exists sys_config;
+create table if not exists sys_config (
+	id int not null auto_increment,
+	item varchar(50) not null,
+	value varchar(200) not null,
+	constraint PK_est_businessarea primary key(id)
+);

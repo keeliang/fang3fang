@@ -58,7 +58,7 @@ function centerPopup(){
 
 //CONTROLLING EVENTS IN jQuery
 $(document).ready(function(){
-	
+	/*
 	//LOADING POPUP
 	//Click the button event!
 	$("#Jbutton").click(function(){
@@ -95,7 +95,7 @@ return false;
 
 });
 	
-
+*/
 });
 
 /*经纪人登陆*/
