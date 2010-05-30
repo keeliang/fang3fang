@@ -50,5 +50,14 @@
         <property name="visitCount" type="int">
             <column name="visit_count" not-null="true" />
         </property>
+        <property name="address" type="java.lang.String">
+            <column name="address" not-null="false" />
+        </property>
+        <property name="contacter" type="java.lang.String">
+            <column name="contacter" not-null="false" />
+        </property>
+        <property name="contactTel" type="java.lang.String">
+            <column name="contact_tel" not-null="false" />
+        </property>
     </class>
 </hibernate-mapping>

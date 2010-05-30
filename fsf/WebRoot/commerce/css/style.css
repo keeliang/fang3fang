@@ -17,7 +17,7 @@ img{border:0px;}
 .paddingR{padding-right:10px;}
 .paddingS02{padding:6px 0px 0px 0px;}
 .indent{text-indent:18px;}
-.bold{font-weight:bold;}
+.bold{font-weight:bold;font-size:12px}
 .blank12{height:12px; font-size:1px; overflow:hidden; clear:both;}
 
 /* link */
@@ -27,7 +27,7 @@ a:hover{color:#f60; text-decoration:underline;}
 a.cOrange:hover{color:#ea7419; text-decoration:underline;}
 .cYellow,a.cYellow:link,a.cYellow:visited{color:#fffdc3; text-decoration:none;}
 a.cYellow:hover{color:#fffdc3; text-decoration:underline;}
-.cGray,a.cGray:link,a.cGray:visited{color:#999; text-decoration:none;}
+.cGray,a.cGray:link,a.cGray:visited{color:#999; text-decoration:none;font-size:12px}
 a.cGray:hover{color:#999; text-decoration:underline;}
 .cGray02,a.cGray02:link,a.cGray02:visited{color:#ccc; text-decoration:none;}
 a.cGray02:hover{color:#ccc; text-decoration:underline;}
@@ -111,9 +111,9 @@ a.cWhite:hover{color:white; text-decoration:underline;}
 .wangpu_content{border:1px solid #ea7419; padding:7px 0px 7px 7px; text-align:left;}
 .wangpu_content_show{padding-top:10px; clear:both;overflow:auto; zoom :1;}
 
-.wangpu_col{width:176px; margin:0 auto; border-right:1px solid red; padding-right:6px;}
-.wangpu_col02{width:176px; margin:0 auto;  padding-right:6px;}
-.wangpu_col_title{padding:3px 10px; font:bold 14px/25px "����"; color:white; background:#ea771e;}
+.wangpu_col{width:176px; margin:0 auto; border-right:1px solid red; padding-right:4px;}
+.wangpu_col02{width:176px; margin:0 auto;  padding-right:4px;}
+.wangpu_col_title{padding:3px 8px; font:bold 13px; color:white; background:#ea771e;}
 .wangpu_col_line{height:1px; font-size:1px; overflow:hidden;  background:#ea771e;}
 .wangpu_col_content{margin-top:2px;padding:5px; background:url(../images/wangpu_bg.jpg) repeat-x top;}
 .wangpu_col_content p{padding-bottom:5px; line-height:130%;}
@@ -205,11 +205,10 @@ background:url(../images/trade_navOn.jpg)!important;height:32px; color:#830505;
 
 /* contentN */
 .contentN{ background:url(../images/wangpuN_bg.jpg) repeat-y; width:960px; overflow:hidden; zoom:1;}
-.contentN_left{width:728px; float:left; border-top:1px solid #ea7419;margin:0px 1px;display:inline;padding-bottom:20px;}
 .contentN_right{width:218px; float:right; border-top:1px solid #ea7419;margin:0px 1px;display:inline;}
 .contentN_bottom{ background:url(../images/wangpuN_bottom.jpg) no-repeat bottom; width:960px; height:1px; font-size:0px;}
 
-.contentN_title{background:#fffae2; height:30px; line-height:30px; padding:0px 10px; text-align:left;}
+.contentN_title{height:30px; line-height:30px; padding:0px 10px; text-align:left;}
 .contentN_rightC{padding:5px 8px; text-align:left;}
 .contentN_rightC p{padding:3px 0px;}
 .contentN_rightPic img{border:1px solid #e2c6a3; margin-bottom:8px;}
@@ -238,5 +237,26 @@ background:url(../images/trade_navOn.jpg)!important;height:32px; color:#830505;
 .bottom_right{float:right; background:url(../images/bottom_right.jpg) no-repeat; width:13px; height:9px;}
 .foot p{padding:5px 0px;}
 
+.contentColumnNameTd{
+	width:50%;
+	text-align:right;
+}
 
+.contentViewTd{
+	width:15%;
+	text-align:right;
+	line-height:35px;
+	padding:0px 10px;
+}
 
+.contentN_left{
+	width:728px;
+	float:left;
+	margin:0px 1px;
+	display:inline;
+	padding-bottom:20px;
+	border-top:1px solid #ea7419;
+	border-bottom:1px solid #ea7419;
+	border-left:1px solid #ea7419;
+	border-right:1px solid #ea7419;
+}

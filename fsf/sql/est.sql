@@ -237,6 +237,9 @@ create table if not exists est_commerce(
 	create_user_id int not null,
 	update_time datetime not null,
 	update_user_id int not null,
+	address varchar(200) null comment '地址',
+	contacter varchar(40) null comment '联系人',
+	contact_tel varchar(35) null comment '联系电话',
 	visit_count int not null comment '浏览次数',
 	constraint PK_est_commerce primary key(commerce_id)
 );

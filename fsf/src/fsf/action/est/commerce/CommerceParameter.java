@@ -6,14 +6,17 @@ public class CommerceParameter extends BaseParameter{
 	private static final long serialVersionUID = 1261849913894770682L;
 	
 	private Integer _ne_commerceId;
-	private String _se_title;
-	private String _se_content;
+	private String _slike_title;
+	private String _slike_content;
 	private Integer _ne_provinceId;
 	private Integer _ne_cityId;
 	private Integer _ne_districtId;
 	private Integer _ne_areaId;
 	private Integer _ne_commerceType;
 	private Short _ne_status;
+	private String _slike_address;
+	private String _se_contacter;
+	private String _se_contactTel;
 
 	public void set_ne_commerceId(Integer _ne_commerceId){
 		this._ne_commerceId = _ne_commerceId;
@@ -21,17 +24,17 @@ public class CommerceParameter extends BaseParameter{
 	public Integer get_ne_commerceId(){
 		return this._ne_commerceId;
 	}
-	public void set_se_title(String _se_title){
-		this._se_title = _se_title;
+	public void set_slike_title(String _slike_title){
+		this._slike_title = _slike_title;
 	}
-	public String get_se_title(){
-		return this._se_title;
+	public String get_slike_title(){
+		return this._slike_title;
 	}
-	public void set_se_content(String _se_content){
-		this._se_content = _se_content;
+	public void set_slike_content(String _slike_content){
+		this._slike_content = _slike_content;
 	}
-	public String get_se_content(){
-		return this._se_content;
+	public String get_slike_content(){
+		return this._slike_content;
 	}
 	public void set_ne_provinceId(Integer _ne_provinceId){
 		this._ne_provinceId = _ne_provinceId;
@@ -68,5 +71,23 @@ public class CommerceParameter extends BaseParameter{
 	}
 	public Short get_ne_status(){
 		return this._ne_status;
+	}
+	public String get_slike_address() {
+		return _slike_address;
+	}
+	public void set_slike_address(String _slike_address) {
+		this._slike_address = _slike_address;
+	}
+	public String get_se_contacter() {
+		return _se_contacter;
+	}
+	public void set_se_contacter(String _se_contacter) {
+		this._se_contacter = _se_contacter;
+	}
+	public String get_se_contactTel() {
+		return _se_contactTel;
+	}
+	public void set_se_contactTel(String tel) {
+		_se_contactTel = tel;
 	}
 }

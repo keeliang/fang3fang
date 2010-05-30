@@ -38,10 +38,10 @@
 				</tr>
 				
 				<tr>
-					<td width="15%" class="input_name"><s:text name="_se_title" />:</td>
-					<td width="35%"><s:textfield name="commerceParameter._se_title" cssClass="input_text" /></td>
-					<td width="15%" class="input_name"><s:text name="_se_content" />:</td>
-					<td width="35%"><s:textfield name="commerceParameter._se_content" cssClass="input_text" /></td>
+					<td width="15%" class="input_name"><s:text name="_slike_title" />:</td>
+					<td width="35%"><s:textfield name="commerceParameter._slike_title" cssClass="input_text" /></td>
+					<td width="15%" class="input_name"><s:text name="_slike_content" />:</td>
+					<td width="35%"><s:textfield name="commerceParameter._slike_content" cssClass="input_text" /></td>
 				</tr>
 				
 				<tr>
@@ -54,6 +54,22 @@
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="commerceParameter._ne_status" 
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
+					</td>
+				</tr>
+				<tr>
+					<td width="15%" class="input_name"><s:text name="_se_address" />:</td>
+					<td width="35%">
+						<s:textfield name="commerceParameter._se_address" cssClass="input_text"></s:textfield>
+					</td>
+					<td width="15%" class="input_name"><s:text name="_se_contacter" />:</td>
+					<td width="35%">
+						<s:textfield name="commereParameter._se_contacter" cssClass="input_text"></s:textfield>
+					</td>
+				</tr>
+				<tr>
+					<td width="15%" class="input_name"><s:text name="_se_contactTel" />:</td>
+					<td width="85%" colspan="2">
+						<s:textfield name="commerctParameter._se_contactTel" cssClass="input_text"/>
 					</td>
 				</tr>
 			</table>
@@ -78,7 +94,6 @@
 		<input type="checkbox" onclick="g_select(this)" >
 	</td>
 	<td nowrap><s:text name="title"/></td>
-	<td nowrap><s:text name="content"/></td>
 	<td nowrap><s:text name="provinceId"/></td>
 	<td nowrap><s:text name="cityId"/></td>
 	<td nowrap><s:text name="districtId"/></td>
@@ -101,7 +116,6 @@
 			<input type="checkbox" name="selectedPK" value="<s:property value="#item.commerceId"/>">
 		</td>
 		<td class="listContentTd"><a href="javascript:g_edit('${url}')" ><s:property value="title"/></a></td>
-		<td style="width:25%;word-break:break-all"><s:property value="content"/></td>
 		<td class="listContentTd"><fsf:dictTranslate groupName="#province" value="provinceId" /></td>
 		<td class="listContentTd"><fsf:dictTranslate groupName="#city" value="cityId" /></td>
 		<td class="listContentTd"><fsf:dictTranslate groupName="#district" value="districtId" /></td>

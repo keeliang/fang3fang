@@ -7,6 +7,7 @@
 	<include file="struts/struts-est.xml"/>
 	<include file="struts/struts-info.xml"/>
 	<include file="struts/struts-forum.xml"/>
+	<include file="struts/struts-commerce.xml"/>
 	
 	<constant name="struts.custom.i18n.resources" value="global_message"/>
 	<constant name="struts.action.extension" value="action,ajax"/>
