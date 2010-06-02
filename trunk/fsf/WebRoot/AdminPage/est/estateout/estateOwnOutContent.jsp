@@ -5,9 +5,9 @@
 <%@include file="/share/share.jsp" %>
 <title><s:text name="contentPageTitle"/></title>
 <%@include file="/share/validate.jsp" %>
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/AdminPage.css" />
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/AdminPage.css" />
 <link href="/AdminPage/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${contextPath}/js/jquery.js"></script>
+<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script>
 <style type="text/css">
 .est_info{
 	font-size: 12px;
@@ -27,7 +27,7 @@
 <s:hidden name="estateOutParameter.maxResults" />
 <s:hidden name="estateOutParameter._se_estateCardNo" />
 <s:hidden name="estateOutParameter._ne_card5year" />
-<s:hidden name="estateOutParameter._se_estateName" />
+<s:hidden name="estateOutParameter._slike_estateName" />
 <s:hidden name="estateOutParameter._ne_tradeType" />
 <s:hidden name="estateOutParameter._ne_contactUserId" />
 <s:hidden name="estateOutParameter._ne_provinceId" />
@@ -54,6 +54,7 @@
 <s:hidden name="estateOutParameter._ne_bedroom" />
 <s:hidden name="estateOutParameter._ne_toilet" />
 <s:hidden name="estateOutParameter._ne_porch" />
+<s:hidden name="estateOutParameter._ne_isRecommond" />
 <s:hidden name="estateOutParameter._ne_minMonth" />
 <s:hidden name="estateOutParameter._ne_fitment" />
 <s:hidden name="estateOutParameter._ne_device" />
@@ -75,6 +76,12 @@
 			<s:if test="examine==1 || examine==0">
 				<input type="button" onclick="f_examine(-1);" value="审核未通过">
 			</s:if>
+			<s:if test="isRecommond==0">
+					<input type="button" onclick="f_recommond(1)" value="推荐" >
+				</s:if>
+				<s:if test="isRecommond==1">
+					<input type="button" onclick="f_recommond(0)" value="取消推荐" >
+				</s:if>
 			<input type="button" onclick="g_back('/sysadmin/est/estateout/estateOutList.action')" value="<s:text name="g_back"/>" >
 		</td>
 	</tr>
@@ -215,7 +222,7 @@
 		<td class="label_td" >
 			<label class="est_label" for="manageCost"><s:text name="manageCost"/>:</label>
     </td>
-    <td class="content_td" colspan="3" >
+    <td class="content_td" >
     	<span class="est_info">${manageCost }元/平方米·月</span>
     </td>
     <td class="label_td" >
@@ -224,6 +231,22 @@
     <td class="content_td" >
   		<span class="est_info"><fsf:dictTranslate groupName="$out_trade_mode" value="tradeMode"/></span>
     </td>
+  </tr>
+  <tr>
+		<td class="label_td" >
+			<label class="est_label" for="isRecommond"><s:text name="isRecommond"/>:</label>
+    </td>
+    <td class="content_td" >
+    	<fsf:dictTranslate groupName="$yes_no" value="isRecommond"/>
+    </td>
+  </tr>
+  <tr>
+  	<td class="label_td" >
+  		<label class="est_label" for="remark"><s:text name="remark"/>:</label>
+  	</td>
+  	<td style="width: 400px;word-wrap:break-word;">
+  		${remark }
+  	</td>
   </tr>
   <tr>
   	<td class="label_td" >
@@ -434,6 +457,12 @@ $(function() {
 
 function f_examine(s){
 	document.forms['formItem'].action = "${contextPath}/sysadmin/est/estateout/ownExamineSubmit.action?examine="+s;
+	document.forms['formItem'].submit();
+}
+
+function f_recommond(s){
+	document.forms['formItem'].isRecommond.value = s;
+	document.forms['formItem'].action = contextPath+"/sysadmin/est/estateout/ownRecommond.action";
 	document.forms['formItem'].submit();
 }
 

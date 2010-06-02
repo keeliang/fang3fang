@@ -6,9 +6,11 @@
 <title><s:text name="contentPageTitle"/></title>
 <%@include file="/share/validate.jsp" %>
 
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/AdminPage.css" />
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/AdminPage.css" />
 <link href="/AdminPage/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${contextPath}/js/jquery.js"></script> 
+<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script> 
+<script type="text/javascript" src="<%=contextPath %>/js/Form.jquery.js"></script>
+
 </head>
 
 <body style="font-size: 14px;">
@@ -21,7 +23,7 @@
 <s:hidden name="estateOutParameter.maxResults" />
 <s:hidden name="estateOutParameter._se_estateCardNo" />
 <s:hidden name="estateOutParameter._ne_card5year" />
-<s:hidden name="estateOutParameter._se_estateName" />
+<s:hidden name="estateOutParameter._slike_estateName" />
 <s:hidden name="estateOutParameter._ne_tradeType" />
 <s:hidden name="estateOutParameter._ne_contactUserId" />
 <s:hidden name="estateOutParameter._ne_provinceId" />
@@ -49,6 +51,7 @@
 <s:hidden name="estateOutParameter._ne_bedroom" />
 <s:hidden name="estateOutParameter._ne_toilet" />
 <s:hidden name="estateOutParameter._ne_porch" />
+<s:hidden name="estateOutParameter._ne_isRecommond" />
 <s:hidden name="estateOutParameter._ne_minMonth" />
 <s:hidden name="estateOutParameter._ne_fitment" />
 <s:hidden name="estateOutParameter._ne_device" />
@@ -57,15 +60,19 @@
 
 <s:hidden name="estateId"/>
 <s:hidden name="tradeType" value="2"/>
-<s:hidden name="examine" />
-<s:hidden name="updateUserId"/>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">
 			<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
-			<s:if test="cmd!='new'">
+			<s:if test="cmd!='new' && cmd!='select'">
 				<input type="button" onclick="f_examine()" value="<s:text name="changeExamine"/>" >
+				<s:if test="isRecommond==0">
+					<input type="button" onclick="f_recommond(1)" value="推荐" >
+				</s:if>
+				<s:if test="isRecommond==1">
+					<input type="button" onclick="f_recommond(0)" value="取消推荐" >
+				</s:if>
 			</s:if>
 			<input type="button" onclick="g_back('/sysadmin/est/estateout/estateOutList.action')" value="<s:text name="g_back"/>" >
 		</td>
@@ -84,6 +91,8 @@
 		</td>
 		<td colspan="3">
 			<s:textfield name="estateName" id="estateName" cssClass="memberC_input04"/>
+			<input type="button" value="上传图片" id="btnUpload" />
+			<s:hidden name="imagePath" />
 		</td>
 	</tr>
   <tr>
@@ -225,6 +234,23 @@
   		name="tradeMode" id="tradeMode" listValue="itemName" listKey="itemKey" onchange="f_chageTradeMode()"/>
     </td>
   </tr>
+  <tr>
+  	<td class="label_td" >
+  		<label class="est_label" for="isRecommond"><s:text name="isRecommond"/>:</label>
+  	</td>
+  	<td class="content_td" >
+  		<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$yes_no')" cssClass="dropdown"
+  		name="isRecommond" id="isRecommond" listValue="itemName" listKey="itemKey" />
+  	</td>
+  </tr>
+  <tr>
+  	<td class="label_td" >
+  		<label class="est_label" for="remark"><s:text name="remark"/>:</label>
+  	</td>
+  	<td colspan="3">
+  		<s:textarea rows="4" cols="70" name="remark" ></s:textarea>
+  	</td>
+  </tr>
   <s:if test="cmd!='new'">
   <tr>
     <td class="label_td" >
@@ -241,6 +267,10 @@
     	<s:hidden name="examineUserId"/>
     </td>
   </tr>
+  </s:if>
+  <s:if test="cmd=='new'">
+  	<input name="examine" type="hidden" value="1" />
+  	<input name="examineUserId" type="hidden" value="${USER.userId }" />
   </s:if>
 </table>
 
@@ -451,10 +481,11 @@
 		</td>
 	</tr>
 </table>
-
 </s:form>
+<%@include file="/share/upload.jsp" %>
 </body>
 </html>
+
 <script type="text/javascript">
 $(function() {
 	f_changeProvince(true);
@@ -462,7 +493,13 @@ $(function() {
 });
 
 function f_examine(){
-	showModalDialog("${contextPath}/sysadmin/est/estateout/estateOutExamineFrm.action?estateId=${estateId}",window,"dialogWidth:800px;dialogHeight:600px;");
+	showModalDialog(contextPath+"/sysadmin/est/estateout/estateOutExamineFrm.action?estateId=${estateId}",window,"dialogWidth:800px;dialogHeight:600px;");
+}
+
+function f_recommond(s){
+	document.forms['formItem'].isRecommond.value = s;
+	document.forms['formItem'].action = contextPath+"/sysadmin/est/estateout/recommond.action";
+	document.forms['formItem'].submit();
 }
 
 function f_finishSelectUser(obj){

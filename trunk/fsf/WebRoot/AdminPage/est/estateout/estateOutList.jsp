@@ -5,9 +5,9 @@
 <%@include file="/share/share.jsp" %>
 <title><s:text name="listPageTitle"/></title>
 <%@include file="/share/validate.jsp" %>
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/Common.css" />
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/AdminPage.css" />
-<script type="text/javascript" src="${contextPath}/js/jquery.js"></script> 
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/Common.css" />
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/AdminPage.css" />
+<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script> 
 </head>
 
 <body>
@@ -40,10 +40,10 @@
 				</tr>
 				<tr>
 					<td width="15%" >
-						<s:text name="_se_estateName" />:
+						<s:text name="_slike_estateName" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="estateOutParameter._se_estateName" />
+						<s:textfield name="estateOutParameter._slike_estateName" />
 					</td>
 					<td width="15%" >
 						<s:text name="_ne_contactUserId" />:
@@ -90,9 +90,18 @@
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 					</td>
 					<td width="15%" >
-						<s:text name="structure"/>:
+						<s:text name="_ne_isRecommond" />:
 					</td>
 					<td width="35%" >
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$yes_no')" name="estateOutParameter._ne_isRecommond" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
+					</td>
+				</tr>
+				<tr>
+					<td width="15%" >
+						<s:text name="structure"/>:
+					</td>
+					<td colspan="3" >
 						<s:text name="_ne_hall" />:
 						<s:textfield name="estateOutParameter._ne_hall" cssClass="memberC_input03" />
 						<s:text name="_ne_bedroom" />:
@@ -272,6 +281,8 @@
 
 <div style="text-align: right;">
 	<input type="button" onclick="g_new('/sysadmin/est/estateout/estateOutNew.action')" value="<s:text name="g_new"/>"/>
+	<input type="button" onclick="f_recommond(1)" value="推荐"/>
+	<input type="button" onclick="f_recommond(0)" value="取消推荐"/>
 	<input type="button" onclick="g_delete('/sysadmin/est/estateout/estateOutDelete.action');" value="<s:text name="g_delete"/>">
 	<input type="button" onclick="g_list()" value="<s:text name="g_search"/>">
 	<input type="button" onclick="g_reset()" value="<s:text name="g_reset"/>">
@@ -325,6 +336,22 @@
 $(function() {
 	f_changeProvince(true);
 });
+
+function f_recommond(s){
+	var bln = false;
+	var arySelectedPK = document.getElementsByName("selectedPK");
+	for(var i=0;i<arySelectedPK.length;i++){
+		if(arySelectedPK[i].checked){
+			bln = true;
+			break;
+		}
+	}
+	if(bln){
+		document.forms['formList'].action = contextPath+"/sysadmin/est/estateout/recommondBatch.action?isRecommond="+s;
+		document.forms['formList'].submit();
+	}
+}
+
 function f_validate(){
 	fromName = "formList";
 	addfield("estateOutParameter._nge_area","<s:text name="_nge_area"/>","Number",true,6,2);
