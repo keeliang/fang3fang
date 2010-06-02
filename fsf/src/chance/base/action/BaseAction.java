@@ -8,14 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.struts2.ServletActionContext;
+
 import chance.base.BaseParameter;
 import chance.base.service.Service;
 import chance.common.PageView;
 import chance.common.QueryResult;
 import chance.exception.ServiceException;
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -352,4 +353,5 @@ public abstract class BaseAction<E> extends ActionSupport {
 	public void setSelectedPK(String[] selectedPK) {
 		this.selectedPK = selectedPK;
 	}
+
 }
