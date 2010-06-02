@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@page import="java.util.Date"%>
 	<div class="info_fjNews">
  		<s:if test="listInfo1.size()>0">
 			<dl>

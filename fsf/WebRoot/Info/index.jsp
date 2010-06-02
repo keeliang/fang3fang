@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@page import="java.util.Date"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -34,7 +35,7 @@
 							<li><a href="../freetrade/index.jsp"><span>自主交易</span></a></li>
 							<li><a href="../entrustTrade/index.jsp"><span>委托代理</span></a></li>
 							<li><a href="../newHouse/index.jsp"><span>新房推荐</span></a></li>
-							<li class="menuHere"><a href="<%=contextPath %>/Info/infoIndexList.action"><span>地产资讯</span></a></li>
+							<li class="menuHere"><a href="<%=contextPath %>/Info/infoIndexList.cache"><span>地产资讯</span></a></li>
 							<li><a href="../forum/index.jsp"><span>论坛</span></a></li>
 							<li><a href="../CoBank/index.jsp"><span>银行合作</span></a></li>
 							<li><a href="../rent/index.jsp"><span>旺铺招租</span></a></li>
@@ -43,9 +44,15 @@
 					</div>
 				</div>
 				<div class="navR">
-					您好！
-					<a href="../member/reg.jsp" class="cYellow"> [注册会员] </a>
-					<a href="../member/login.jsp" class="cYellow">[登录]</a>
+					<s:if test="#session.USER==null" >
+						<a href="../member/register.action" class="cYellow"> [注册会员] </a>
+						<a href="../member/login.jsp" class="cYellow">[登录]</a>
+					</s:if>
+					<s:else>
+						您好！${USER.userCode }
+						<a href="../memberCenter/index.action" class="cYellow"> [会员中心] </a>
+						<a href="../CommonPage/ClearSession.jsp" class="cYellow">[注销]</a>
+					</s:else>
 				</div>
 				<div class="clear"></div>
 				<div class="nav_bottom">
@@ -81,7 +88,6 @@
 									
 									<div class="info_leftTitle">
 										<b>焦点</b>
-										
 									</div>
 									<div class="info_fjNews">
 										<%@ include file="info1.jsp" %>
