@@ -18,6 +18,7 @@ public class Information implements java.io.Serializable {
 	private String informationTitle;
 	private String informationContent;
 	private Integer informationType;
+	private String imagePath;
 	private Short status;
 	private Date createTime;
 	private Integer createUserId;
@@ -99,4 +100,11 @@ public class Information implements java.io.Serializable {
 		this.updateUserId = updateUserId;
 	}
 
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
 }
