@@ -122,6 +122,9 @@
         <property name="device" type="short">
             <column name="device" not-null="true" />
         </property>
+        <property name="isRecommond" type="short" >
+            <column name="is_recommond" not-null="true" />
+        </property>
         <property name="remark" type="string">
             <column name="remark" length="65535" />
         </property>
