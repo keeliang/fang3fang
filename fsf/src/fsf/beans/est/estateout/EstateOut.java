@@ -53,6 +53,7 @@ public class EstateOut implements java.io.Serializable {
 	private Double deposit;
 	private Short fitment;
 	private Short device;
+	private Short isRecommond;
 	private String remark;
 	private String imagePath;
 	private Date createTime;
@@ -421,6 +422,14 @@ public class EstateOut implements java.io.Serializable {
 
 	public void setPalaceId(Integer palaceId) {
 		this.palaceId = palaceId;
+	}
+	
+	public Short getIsRecommond() {
+		return isRecommond;
+	}
+
+	public void setIsRecommond(Short isRecommond) {
+		this.isRecommond = isRecommond;
 	}
 
 	@Override
