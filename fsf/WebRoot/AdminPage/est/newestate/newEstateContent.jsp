@@ -5,9 +5,10 @@
 <%@include file="/share/share.jsp" %>
 <title><s:text name="contentPageTitle"/></title>
 <%@include file="/share/validate.jsp" %>
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/Common.css" />
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/AdminPage.css" />
-<script type="text/javascript" src="${contextPath}/js/jquery.js"></script>
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/Common.css" />
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/AdminPage.css" />
+<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script>
+<script type="text/javascript" src="<%=contextPath %>/js/Form.jquery.js"></script>
 </head>
 
 <body>
@@ -71,6 +72,8 @@
 					</td>
 					<td>
 						<s:textfield name="estateName" />
+						<input type="button" value="上传图片" id="btnUpload" />
+						<s:hidden name="imagePath" />
 					</td>
 				</tr>
 				<tr>
@@ -309,6 +312,7 @@
 	</tr>
 </table>
 </s:form>
+<%@include file="/share/upload.jsp" %>
 </body>
 </html>
 <script type="text/javascript">

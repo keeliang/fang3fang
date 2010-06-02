@@ -180,22 +180,26 @@
 		</td>
 	</tr>
 	<s:if test="cmd!='new'">
-  <tr>
-    <td class="label_td" >
-			<label class="est_label" for="examine"><s:text name="examine" />:</label>
-    </td>
-    <td class="content_td" >
-    	<fsf:dictTranslate groupName="$examine" value="examine"/>
-    	<s:hidden name="examine" />
-    </td>
-    <td class="label_td" >
-			<label class="est_label" for="examine"><s:text name="examineUserId" />:</label>
-    </td>
-    <td class="content_td" >
-    	<fsf:dictTranslate groupName="#sys_user" value="examineUserId"/>
-    	<s:hidden name="examineUserId"/>
-    </td>
-  </tr>
+	  <tr>
+	    <td class="label_td" >
+				<label class="est_label" for="examine"><s:text name="examine" />:</label>
+	    </td>
+	    <td class="content_td" >
+	    	<fsf:dictTranslate groupName="$examine" value="examine"/>
+	    	<s:hidden name="examine" />
+	    </td>
+	    <td class="label_td" >
+				<label class="est_label" for="examine"><s:text name="examineUserId" />:</label>
+	    </td>
+	    <td class="content_td" >
+	    	<fsf:dictTranslate groupName="#sys_user" value="examineUserId"/>
+	    	<s:hidden name="examineUserId"/>
+	    </td>
+	  </tr>
+  </s:if>
+  <s:if test="cmd=='new'">
+  	<input type="hidden" name="examine" value="1" />
+  	<input type="hidden" name="examineUserId" value="${USER.userId }" />
   </s:if>
 </table>
 
@@ -343,11 +347,11 @@ $(function() {
 });
 
 function f_examine(){
-	showModalDialog("${contextPath}/sysadmin/est/estatein/estateInExamineFrm.action?estateId=${estateId}",window,"dialogWidth:800px;dialogHeight:600px;");
+	showModalDialog(contextPath+"/sysadmin/est/estatein/estateInExamineFrm.action?estateId=${estateId}",window,"dialogWidth:800px;dialogHeight:600px;");
 }
 
 function f_finishSelectUser(obj){
-	document.forms['formItem'].action = "${contextPath}/sysadmin/est/estatein/examineSubmit.action";
+	document.forms['formItem'].action = contextPath+"/sysadmin/est/estatein/examineSubmit.action";
 	var a = document.forms['formItem'].examine.value;
 	if(typeof(obj)=="string"){
 		if(obj==a){
