@@ -7,7 +7,8 @@
 		<div class="freeTrade_contnetL_show">
 
 			<div id="EstateInfo" class="freeTrade_contnetL_title01" style="display: none;">
-				<img src="loading.gif">
+				<img src="<%=contextPath %>/images/Loading.gif"><br>
+				加载中，请稍候...
 			</div>
 			<div id="content" >
 			<s:if test="flag=='out'">

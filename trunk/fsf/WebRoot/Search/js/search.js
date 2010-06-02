@@ -108,16 +108,22 @@ function f_query(pageNum){
 			document.forms['formList'].action ="/est/estatein/indexList.ajax"+sb.toString();
 		}
 	}
-	alert(sb.toString());
-	alert(document.forms['formList'].action );
+//	alert(sb.toString());
+//	alert(document.forms['formList'].action );
 	
 	ajaxAnywhere.formName = "formList";
 	ajaxAnywhere.showLoadingMessage = function(){
 		document.getElementById('EstateInfo').style.display = "block";
 		document.getElementById('content').style.display = "none";
+		if(document.getElementById("Trade_des")){
+			document.getElementById("Trade_des").style.display = "none";
+		}
 	}
 	ajaxAnywhere.hideLoadingMessage = function(){
 		document.getElementById('EstateInfo').style.display = "none";
+		if(document.getElementById("Trade_des")){
+			document.getElementById("Trade_des").style.display = "block";
+		}
 	}
 	
 	ajaxAnywhere.getZonesToReload = function(){return "listZone";} 
