@@ -93,6 +93,26 @@
 			<result name="input">/AdminPage/est/estateout/estateOwnOutContent.jsp</result>
 		</action>
 		
+		<action name="recommond" class="estateOutAction" method="doRecommond">
+			<result>/AdminPage/est/estateout/estateOutContent.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOutContent.jsp</result>
+		</action>
+		
+		<action name="ownRecommond" class="estateOutAction" method="doRecommond">
+			<result>/AdminPage/est/estateout/estateOwnOutContent.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOwnOutContent.jsp</result>
+		</action>
+		
+		<action name="recommondBatch" class="estateOutAction" method="doRecommondBatch">
+			<result>/AdminPage/est/estateout/estateOutList.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOutList.jsp</result>
+		</action>
+		
+		<action name="ownRecommondBatch" class="estateOutAction" method="doRecommondBatch">
+			<result>/AdminPage/est/estateout/estateOwnOutList.jsp</result>
+			<result name="input">/AdminPage/est/estateout/estateOwnOutList.jsp</result>
+		</action>
+		
 	</package>
 	<!-- ********************************************** -->
 
