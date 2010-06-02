@@ -9,7 +9,35 @@
 	
 	<!-- 前台需要登录的才能访问的路径 -->
 	<FrontProtected>
-		<resource url="/AdminPage/login.action" />
-		<resource url="/AdminPage/login.jsp" />
+		<resource url="/memberCenter/index.jsp" />
+		<resource url="/memberCenter/index.action" />
+		<resource url="/memberCenter/memberInfo_password.jsp" />
+		<resource url="/memberCenter/memberInfo.action" />
+		<resource url="/memberCenter/updatePassword.action" />
+		<resource url="/memberCenter/userSave.action" />
+		
+		<resource url="/memberCenter/estateInOwnNew.action" />
+		<resource url="/memberCenter/estateInOwnEdit.action" />
+		<resource url="/memberCenter/estateInOwnSave.action" />
+		<resource url="/memberCenter/estateInOwnList.action" />
+		<resource url="/memberCenter/estateInOwnDelete.action" />
+		
+		<resource url="/memberCenter/estateInNew.action" />
+		<resource url="/memberCenter/estateInEdit.action" />
+		<resource url="/memberCenter/estateInSave.action" />
+		<resource url="/memberCenter/estateInList.action" />
+		<resource url="/memberCenter/estateInDelete.action" />
+		
+		<resource url="/memberCenter/estateOutOwnNew.action" />
+		<resource url="/memberCenter/estateOutOwnEdit.action" />
+		<resource url="/memberCenter/estateOutOwnSave.action" />
+		<resource url="/memberCenter/estateOutOwnList.action" />
+		<resource url="/memberCenter/estateOutOwnDelete.action" />
+		
+		<resource url="/memberCenter/estateOutNew.action" />
+		<resource url="/memberCenter/estateOutEdit.action" />
+		<resource url="/memberCenter/estateOutSave.action" />
+		<resource url="/memberCenter/estateOutList.action" />
+		<resource url="/memberCenter/estateOutDelete.action" />
 	</FrontProtected>
 </authorized>
