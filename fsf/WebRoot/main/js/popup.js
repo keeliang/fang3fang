@@ -1,12 +1,3 @@
-﻿/***************************/
-//@Author: Adrian "yEnS" Mato Gondelle
-//@website: www.yensdesign.com
-//@email: yensamg@gmail.com
-//@license: Feel free to use it, but keep this credits please!					
-/***************************/
-
-//SETTING UP OUR POPUP
-//0 means disabled; 1 means enabled;
 var popupStatus = 0;
 
 //loading popup with jQuery magic!
@@ -14,7 +5,7 @@ function loadPopup(){
 	//loads popup only if it is disabled
 	if(popupStatus==0){
 		$("#backgroundPopup").css({
-			"opacity": "0.7"
+			"opacity": "0.3"
 		});
 		$("#backgroundPopup").fadeIn("slow");
 		$("#popupContact").fadeIn("slow");
@@ -35,33 +26,29 @@ function disablePopup(){
 //centering popup
 function centerPopup(){
 	//request data for centering
-	var windowWidth = document.documentElement.clientWidth;
-	var windowHeight = document.documentElement.clientHeight;
+	var windowWidth = screen.width;
+	var windowHeight = screen.height;
 	var popupHeight = $("#popupContact").height();
 	var popupWidth = $("#popupContact").width();
+	
 	//centering
 	$("#popupContact").css({
 		"position": "absolute",
-	//	"top": windowHeight/2-popupHeight/2,
-	//	"left": windowWidth/2-popupWidth/2
-	"top": windowHeight/2,
-	"left": windowWidth/2-popupWidth*0.4
+		"top": windowHeight/4,
+		"left": windowWidth/2-popupWidth/2
 	});
 	//only need force for IE6
 	
 	$("#backgroundPopup").css({
 		"height": windowHeight
 	});
-	
 }
-
 
 //CONTROLLING EVENTS IN jQuery
 $(document).ready(function(){
-	
 	//LOADING POPUP
 	//Click the button event!
-	$("#Jbutton").click(function(){
+	$("#btnUpload").click(function(){
 		//centering with css
 		centerPopup();
 		//load popup
@@ -83,36 +70,15 @@ $(document).ready(function(){
 			disablePopup();
 		}
 	});
-	
-	
-	//test   show
-
-$("#showShop").click(function(){
-
-var str=escape($("#str").val());
-dialog("商铺信息","test.html","300px","auto","text"); 
-return false;
-
-});
-	
-
 });
 
-/*经纪人登陆*/
-function loginBox(){
-
-var str=escape($("#str").val());
-/*
-dialog("顾问登陆","url:test.html","380px","auto","text"); 
-dialog("blueidea","iframe:http://www.blueidea.com","500px","500px","iframe"); 
-*/
-dialog("顾问登陆","id:testID","300px","auto","id"); 
-return false;
-
-
-	
-
+function f_upload(){
+	var respCallesBack = function(json){
+		document.forms['formItem'].imagePath.value = json.data;
+		$(document.forms['uploadForm'].uploadFile).after("<input name='deleteFilePath' type='hidden' value= '"+document.forms['formItem'].imagePath.value+"' />");
+		alert(eval(json.msg));
+		disablePopup();
+	}
+	var param = {dataType:"json",success:respCallesBack}
+	$("#uploadForm").ajaxSubmit(param);
 }
-
-
-
