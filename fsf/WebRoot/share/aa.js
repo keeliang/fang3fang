@@ -798,7 +798,6 @@ AjaxAnywhere.prototype.submitOld = function (form,submitButton){
         submitHolder.setAttribute("name",submitButton.name);
         submitHolder.setAttribute("value",submitButton.value);
         form.appendChild(submitHolder);
-
     }
 
     if (typeof form.submit_old == "undefined")
