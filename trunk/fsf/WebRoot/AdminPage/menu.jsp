@@ -96,6 +96,7 @@ $(document).ready(function() {
 	<tr class="menuItemTr">
 		<td>
 			<table>
+				<tr><td><a href="<%=contextPath %>/sysadmin/info/rollInformation/rollInformationList.action" target="content"><span>首页咨询滚动管理</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/sysadmin/info/newstype/newsTypeList.action" target="content"><span>新闻类型管理</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/sysadmin/info/news/newsList.action" target="content"><span>新闻管理</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/sysadmin/info/newscomment/newsCommentList.action" target="content"><span>新闻留言管理</span></a></td></tr>
