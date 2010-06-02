@@ -195,10 +195,10 @@ public class FSFParameterInitListener implements ServletContextListener{
 	 */
 	private void loadSystemParameter(ServletContext servletContext){
 		String DictGroup = "DictGroup";
-		String Dictitem = "DictItem";
-		String itemKey = "ItemKey";
-		String itemName = "ItemName";
-		String itemDesc = "ItemDesc";
+		String Dictitem = "Dictitem";
+		String itemKey = "itemKey";
+		String itemName = "itemName";
+		String itemDesc = "itemDesc";
 		
 		String DynamicConfig = "DynamicConfig";
 		String DynamicEntityConfig = "Entity";
