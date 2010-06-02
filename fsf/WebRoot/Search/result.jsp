@@ -3,10 +3,12 @@
 <div class="freeTrade_contnet">
 	<!-- left -->
 	<div class="freeTrade_contnetL_show">
-
-		<div id="EstateInfo" class="freeTrade_contnetL_title01" style="display: none;">
-			<img src="loading.gif">
+	
+		<div id="EstateInfo" class="freeTrade_contnetL_title01" style="display: none;text-align: center;">
+			<img src="<%=contextPath %>/images/Loading.gif"><br>
+			加载中，请稍候...
 		</div>
+		
 		<div id="content" >
 		<s:if test="flag=='out'">
 			<s:if test="pageView.records==null || pageView.records.size()==0">
@@ -199,3 +201,17 @@
 		</div>
 	</div>
 </div>
+<s:if test="flag=='out'">
+	<div id="Trade_des" class="freeTrade_des">
+		<p>
+			如果没有找到您要的出售或出租房源，请重新设置查找条件，或发布一条求购求租信息，让房源来找您，现在就<a href="../memberCenter/index.jsp" class="cRed"><u>发布求购求租</u>	</a>。
+		</p>
+	</div>
+</s:if>
+<s:if test="flag=='in'">
+	<div id="Trade_des" class="freeTrade_des">
+		<p>
+			如果没有找到您要的求购或求租信息，请重新设置查找条件，或发布一个出售出租房源，让客户来找您，现在就<a href="../memberCenter/index.jsp" class="cRed"><u>发布出售出租</u></a>。
+		</p>
+	</div>
+</s:if>
