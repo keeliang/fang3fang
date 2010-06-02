@@ -50,6 +50,7 @@ public class EstateOutParameter extends BaseParameter{
 	private Double _ne_deposit;
 	private Short _ne_fitment;
 	private Short _ne_device;
+	private Short _ne_isRecommond;
 	private String _se_remark;
 	private String _se_imagePath;
 	private Date _dge_createTime;
@@ -60,6 +61,8 @@ public class EstateOutParameter extends BaseParameter{
 	
 	private Short[] _nin_tradeMode;
 	private Short[] _nin_tradeType;
+	
+	private Boolean _snull_imagePath;
 
 	public void set_ne_estateId(Integer _ne_estateId){
 		this._ne_estateId = _ne_estateId;
@@ -382,5 +385,17 @@ public class EstateOutParameter extends BaseParameter{
 	}
 	public void set_nin_tradeType(Short[] type) {
 		_nin_tradeType = type;
+	}
+	public Short get_ne_isRecommond() {
+		return _ne_isRecommond;
+	}
+	public void set_ne_isRecommond(Short recommond) {
+		_ne_isRecommond = recommond;
+	}
+	public Boolean get_snull_imagePath() {
+		return _snull_imagePath;
+	}
+	public void set_snull_imagePath(Boolean path) {
+		_snull_imagePath = path;
 	}
 }
