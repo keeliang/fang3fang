@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import chance.base.BaseParameter;
-import chance.base.action.BaseAction;
+import chance.base.action.UploadBaseAction;
 import chance.common.QueryResult;
 import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.dict.DictItem;
@@ -26,22 +26,58 @@ import fsf.web.common.ThreadUser;
 
 @Controller
 @Scope("prototype")
-public class EstateOutAction extends BaseAction<EstateOut> {
+public class EstateOutAction extends UploadBaseAction<EstateOut> {
 	
 	public EstateOutAction() {
-		super(EstateOut.class, new String[] { "estateId" });
+		super(EstateOut.class, new String[] { "estateId" },"estate");
 	}
 	
 	@Resource
 	private UserService userService;
 	
 	private String flag = "out";
-	
+	/**
+	 * 首页的搜索，不分页
+	 */
 	private List<EstateOut> listEstateOut;
+	/**
+	 * 自主推荐，top10
+	 */
+	private List<EstateOut> recommondOwnEstateList;
+	/**
+	 * 委托推荐，top10
+	 */
+	private List<EstateOut> recommondEstateList;
+	
+	private List<EstateOut> listNewestEstate;
 	
 	public String doQuery() throws Exception{
 		
 		return null;
+	}
+	
+	/**
+	 * 首页的最新的有图的房源，top4
+	 * @return
+	 * @throws Exception
+	 */
+	public String doNewestEstateList()throws Exception{
+		try {
+			if(baseParameter==null){
+				baseParameter = new EstateOutParameter();
+			}
+			baseParameter.setMaxResults(-1);
+			baseParameter.setCurrentPage(-1);
+			baseParameter.setTopCount(4);
+			((EstateOutParameter)baseParameter).set_nin_tradeMode(new Short[]{1,2,3});
+			((EstateOutParameter)baseParameter).set_snull_imagePath(false);
+			listNewestEstate = service.doPaginationQuery(baseParameter).getResultList();	
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		
+		return SUCCESS;
 	}
 	
 	/**
@@ -57,9 +93,41 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 			baseParameter.setMaxResults(-1);
 			baseParameter.setCurrentPage(-1);
 			baseParameter.setTopCount(10);
-			((EstateOutParameter)baseParameter).set_slike_estateName(estateName);
+			if(estateName!=null &&!"".equals(estateName))
+				((EstateOutParameter)baseParameter).set_slike_estateName(estateName);
 			QueryResult<EstateOut> queryResult = service.doPaginationQuery(baseParameter);
 			listEstateOut = queryResult.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return SUCCESS;
+	}
+	
+	/**
+	 * 推荐查询，不分页
+	 * @return
+	 * @throws Exception
+	 */
+	public String doRecommondList()throws Exception{
+		try {
+			if(baseParameter==null){
+				baseParameter = new EstateOutParameter();
+			}
+			baseParameter.setMaxResults(-1);
+			baseParameter.setCurrentPage(-1);
+			baseParameter.setTopCount(10);
+			
+			baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
+			((EstateOutParameter)baseParameter).set_ne_isRecommond((short)1);
+			((EstateOutParameter)baseParameter).set_ne_tradeType((short)1);
+			((EstateOutParameter)baseParameter).set_nin_tradeMode(new Short[]{1,2,3});
+			QueryResult<EstateOut> queryResult = service.doPaginationQuery(baseParameter);
+			recommondOwnEstateList = queryResult.getResultList();
+			
+			((EstateOutParameter)baseParameter).set_ne_tradeType((short)2);
+			queryResult = service.doPaginationQuery(baseParameter);
+			recommondEstateList = queryResult.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -106,9 +174,44 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 			arrayObj[i] = (Serializable)PropertyUtils.getNestedProperty(arrayObj[i], pkArray[0]);
 		}
 		try{
-			getService().updateByProperties("estateId", arrayObj,
-					new String[]{"examine","examineUserId"},
+			getService().updateByProperties("estateId", arrayObj,new String[]{"examine","examineUserId"},
 					new Serializable[]{examine,examine==(short)1?ThreadUser.get().getUserId():null});	
+		}catch (Exception e) {
+			handleEditException(e);
+		}
+		addActionMessage(getText("g_saveSuccess"));
+		return doList();
+	}
+	
+	/**
+	 * 审核
+	 * @return
+	 * @throws Exception
+	 */
+	public String doRecommond()throws Exception{
+		getService().updateByProperty("estateId", new Serializable[]{estateId}, "isRecommond", isRecommond);
+		addActionMessage(getText("g_saveSuccess"));
+		return doEdit();
+	}
+	
+	/**
+	 * 批量推荐
+	 */
+	public String doRecommondBatch() throws Exception {
+		String[] strPk = getSelectedPK();
+		if(strPk==null || strPk.length<1)
+			return SUCCESS;
+		if(examine==null){
+			return INPUT;
+		}
+		Serializable[] arrayObj = new Serializable[strPk.length];
+		for(int i = 0 ; i<strPk.length;i++){
+			arrayObj[i] = (Serializable)entityClass.newInstance();
+			BeanUtils.setProperty(arrayObj[i], pkArray[0], strPk[i]);
+			arrayObj[i] = (Serializable)PropertyUtils.getNestedProperty(arrayObj[i], pkArray[0]);
+		}
+		try{
+			getService().updateByProperty("estateId", arrayObj,"isRecommond",isRecommond);	
 		}catch (Exception e) {
 			handleEditException(e);
 		}
@@ -212,25 +315,25 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	@Override
 	protected void initData() {
 		User u = ThreadUser.get();
-		contactUserId = u.getUserId();
+//		contactUserId = u.getUserId();
 		Date d = new Date();
 		createUserId = u.getUserId();
 		createTime = d;
 		updateUserId = u.getUserId();
 		updateTime = d;
-		examine = (short)0;
+//		examine = (short)0;
 	}
 	@Override
 	protected void beforePersist() {
 		User u = ThreadUser.get();
-		contactUserId = u.getUserId();
+//		contactUserId = u.getUserId();
 		createUserId = u.getUserId();
 		Date d = new Date();
 		createTime = d;
 		updateUserId = u.getUserId();
 		updateTime = d;
-		examine = (short)1;
-		examineUserId = u.getUserId();
+//		examine = (short)1;
+//		examineUserId = u.getUserId();
 	}
 	@Override
 	protected void beforeUpdate() {
@@ -308,6 +411,7 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 	private Double deposit;
 	private Short fitment;
 	private Short device;
+	private Short isRecommond;
 	private String remark;
 	private String imagePath;
 	private Date createTime;
@@ -617,5 +721,35 @@ public class EstateOutAction extends BaseAction<EstateOut> {
 
 	public void setFlag(String flag) {
 		this.flag = flag;
+	}
+
+	public Short getIsRecommond() {
+		return isRecommond;
+	}
+
+	public void setIsRecommond(Short isRecommond) {
+		this.isRecommond = isRecommond;
+	}
+
+	public List<EstateOut> getRecommondOwnEstateList() {
+		return recommondOwnEstateList;
+	}
+
+	public void setRecommondOwnEstateList(List<EstateOut> recommondOwnEstateList) {
+		this.recommondOwnEstateList = recommondOwnEstateList;
+	}
+
+	public List<EstateOut> getRecommondEstateList() {
+		return recommondEstateList;
+	}
+
+	public void setRecommondEstateList(List<EstateOut> recommondEstateList) {
+		this.recommondEstateList = recommondEstateList;
+	}
+	public List<EstateOut> getListNewestEstate() {
+		return listNewestEstate;
+	}
+	public void setListNewestEstate(List<EstateOut> listNewestEstate) {
+		this.listNewestEstate = listNewestEstate;
 	}
 }

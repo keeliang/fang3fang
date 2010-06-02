@@ -189,30 +189,30 @@ public class EstateInAction extends BaseAction<EstateIn> {
 	@Override
 	protected void initData() {
 		User u = ThreadUser.get();
-		contactUserId = u.getUserId();
+//		contactUserId = u.getUserId();
 		Date d = new Date();
 		createUserId = u.getUserId();
 		createTime = d;
 		updateUserId = u.getUserId();
 		updateTime = d;
-		examine = (short)0;
+//		examine = (short)0;
 	}
 	@Override
 	protected void beforePersist() {
 		User u = ThreadUser.get();
-		contactUserId = u.getUserId();
+//		contactUserId = u.getUserId();
 		createUserId = u.getUserId();
 		Date d = new Date();
 		createTime = d;
 		updateUserId = u.getUserId();
 		updateTime = d;
-		examine = (short)1;
-		examineUserId = u.getUserId();
+//		examine = (short)1;
+//		examineUserId = u.getUserId();
 	}
 	@Override
 	protected void beforeUpdate() {
 		User u = ThreadUser.get();
-		contactUserId = u.getUserId();
+//		contactUserId = u.getUserId();
 		updateUserId = u.getUserId();
 		updateTime = new Date();
 	}

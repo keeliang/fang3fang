@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import chance.base.BaseParameter;
-import chance.base.action.BaseAction;
+import chance.base.action.UploadBaseAction;
 import fsf.beans.est.newestate.NewEstate;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
@@ -21,10 +21,10 @@ import fsf.web.common.ThreadUser;
 
 @Controller
 @Scope("prototype")
-public class NewEstateAction extends BaseAction<NewEstate> {
+public class NewEstateAction extends UploadBaseAction<NewEstate> {
 	
 	public NewEstateAction() {
-		super(NewEstate.class, new String[] { "estateId" });
+		super(NewEstate.class, new String[] { "estateId" },"newEstate");
 	}
 	
 	private String flag = "new";
