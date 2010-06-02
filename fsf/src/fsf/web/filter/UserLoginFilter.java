@@ -90,7 +90,7 @@ public class UserLoginFilter implements Filter {
 				if (user != null) {
 					ThreadUser.set(user);
 				} else {
-					response.sendRedirect("/tologin.jsp");
+					response.sendRedirect("/member/login.jsp");
 					return;
 				}
 			}

@@ -19,6 +19,10 @@ public interface WebConstant {
 	 */
 	public final static String SYSCONFIG = "SYSCONFIG";
 	/**
+	 * 验证码
+	 */
+	public final static String VALIDATECODE = "VALIDATECODE";
+	/**
 	 * 固定参数配置文件
 	 */
 	public final static String DICT_CONFIG_PATH = "DictConfig.xml";
