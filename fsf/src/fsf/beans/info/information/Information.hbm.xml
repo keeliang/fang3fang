@@ -17,6 +17,9 @@
         <property name="informationType" type="int">
             <column name="information_type" not-null="true" />
         </property>
+        <property name="imagePath" type="string" >
+        		<column name="image_path" length="80" />
+        </property>
         <property name="status" type="short">
             <column name="status" not-null="true" />
         </property>
