@@ -82,7 +82,7 @@ function rtrim(str){
 
 var SelectTag = function(id,name,json,itemKey,itemName,value,onchange){
 	var sb = new StringBuffer();
-	sb.append("<select id='"+id+"' name='"+name+"' class='dropdown' ");
+	sb.append("<select id='"+id+"' name='"+name+"' class='dropdown' style='width:140px;' ");
 	if(onchange)
 		sb.append("onchange='"+onchange+"'")
 	sb.append("><option value=''></option>");
