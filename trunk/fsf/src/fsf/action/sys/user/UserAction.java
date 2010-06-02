@@ -8,11 +8,12 @@ import javax.annotation.Resource;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import chance.base.BaseParameter;
-import chance.base.action.BaseAction;
+import chance.base.action.UploadBaseAction;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
 import fsf.service.sys.user.UserService;
@@ -20,10 +21,69 @@ import fsf.web.common.WebConstant;
 
 @Controller
 @Scope("prototype")
-public class UserAction extends BaseAction<User> {
+public class UserAction extends UploadBaseAction<User> {
 
 	public UserAction() {
-		super(User.class, new String[] { "userId" });
+		super(User.class, new String[] { "userId" },"user");
+	}
+	
+	public String doUpdatePassword()throws Exception{
+		User user = service.get(userId);
+		if(password!=null&&!"".equals(password)&&password.equals(user.getPassword())){
+			if(newPassword!=null&&!"".equals(newPassword)){
+				user.setPassword(newPassword);
+				service.update(user);
+				addActionMessage(getText("updatePasswordSuccess"));
+			}else{
+				addActionMessage(getText("passwordError"));
+			}
+		}else{
+			addActionMessage(getText("newPasswordError"));
+		}
+		return SUCCESS;
+	}
+	
+	public String doFrontLogin()throws Exception{
+		User user = service.getByProerty("userCode",userCode);
+		if(user==null){
+			getHttpServletResponse().getWriter().write("{message:2}");
+		}else{
+			if(user.getStatus()==(short)0){
+				getHttpServletResponse().getWriter().write("{message:4}");
+			}else if(password!=null&&!"".equals(password)&&password.equals(user.getPassword())){
+				getHttpSession().setAttribute(WebConstant.SESSION_USER, user);
+				getHttpServletResponse().getWriter().write("{message:1}");	
+			}else {
+				getHttpServletResponse().getWriter().write("{message:3}");
+			}
+		}
+		return null;
+	}
+	
+	public String toMemberCenter()throws Exception{
+		
+		return SUCCESS;
+	}
+	
+	public String toRegister(){
+		return SUCCESS;
+	}
+	
+	public String register()throws Exception{
+		if(validateCode!=null&&!"".equals(validateCode)&&
+				validateCode.equals((String)getHttpSession().getAttribute(WebConstant.VALIDATECODE))){
+			User u = new User();
+			beforePersist();
+			userType = (short)3;
+			BeanUtils.copyProperties(u, this);
+			service.persist(u);
+			getHttpServletResponse().getWriter().write("{message:1}");
+			getHttpSession().setAttribute(WebConstant.SESSION_USER, u);
+		}else{
+			addFieldError("validateCode", getText("g_validateCodeError"));
+			getHttpServletResponse().getWriter().write("{message:2}");
+		}
+		return null;
 	}
 	
 	public String doLogin() throws Exception {
@@ -69,8 +129,8 @@ public class UserAction extends BaseAction<User> {
 	protected void initData() {	}
 	@Override
 	protected void beforePersist() {
-		
 		createDate = new Date();
+		status = (short)1;
 	}
 
 	@Resource
@@ -120,6 +180,9 @@ public class UserAction extends BaseAction<User> {
 	private String license;
 	private String hobby;
 	private String glory;
+	
+	private String validateCode;
+	private String newPassword;
 
 	public void setUserId(Integer userId) {
 		this.userId = userId;
@@ -361,4 +424,19 @@ public class UserAction extends BaseAction<User> {
 		this.glory = glory;
 	}
 
+	public String getValidateCode() {
+		return validateCode;
+	}
+
+	public void setValidateCode(String validateCode) {
+		this.validateCode = validateCode;
+	}
+
+	public String getNewPassword() {
+		return newPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
+	}
 }

@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import chance.base.BaseParameter;
 import chance.base.action.BaseAction;
 import chance.common.QueryResult;
 import fsf.beans.info.information.Information;
@@ -30,10 +31,48 @@ public class InformationAction extends BaseAction<Information> {
 	private List<Information> listInfo5;
 	private List<Information> listInfo6;
 	private List<Information> listInfo7;
+
+	private List<Information> listInfo;
 	
+	private List<Information> listRollInfo;
 	
 	/**
 	 * 首页，不分页，显示top10
+	 * @return
+	 * @throws Exception
+	 */
+	public String doIndexQuery() throws Exception {
+		try {
+			if (baseParameter == null) {
+				baseParameter = new InformationParameter();
+			}
+			//首页
+			baseParameter.setMaxResults(-1);
+			baseParameter.setCurrentPage(-1);
+			baseParameter.setTopCount(10);
+			InformationParameter p = (InformationParameter)baseParameter;
+			p.set_ne_status((short)1);
+			baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
+			listInfo = service.doPaginationQuery(baseParameter).getResultList();
+			//下面是滚动
+			baseParameter = new InformationParameter();
+			baseParameter.setMaxResults(-1);
+			baseParameter.setCurrentPage(-1);
+			baseParameter.setTopCount(4);
+			p = (InformationParameter)baseParameter;
+			p.set_ne_status((short)1);
+			baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
+			listRollInfo = service.doPaginationQuery(baseParameter).getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return SUCCESS;
+	}
+	
+	
+	/**
+	 * 资讯首页，不分页，显示top5
 	 * @return
 	 * @throws Exception
 	 */
@@ -127,6 +166,7 @@ public class InformationAction extends BaseAction<Information> {
 	private String informationTitle;
 	private String informationContent;
 	private Integer informationType;
+	private String imagePath;
 	private Short status;
 	private Date createTime;
 	private Integer createUserId;
@@ -242,5 +282,29 @@ public class InformationAction extends BaseAction<Information> {
 
 	public void setListInfo7(List<Information> listInfo7) {
 		this.listInfo7 = listInfo7;
+	}
+
+	public List<Information> getListInfo() {
+		return listInfo;
+	}
+
+	public void setListInfo(List<Information> listInfo) {
+		this.listInfo = listInfo;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
+	public List<Information> getListRollInfo() {
+		return listRollInfo;
+	}
+
+	public void setListRollInfo(List<Information> listRollInfo) {
+		this.listRollInfo = listRollInfo;
 	}
 }
