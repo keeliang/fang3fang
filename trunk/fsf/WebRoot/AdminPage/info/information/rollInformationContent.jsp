@@ -5,13 +5,15 @@
 <%@include file="/share/share.jsp" %>
 <title><s:text name="contentPageTitle"/></title>
 <%@include file="/share/validate.jsp" %>
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/Common.css" />
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/AdminPage.css" />
-<script type="text/javascript" src="/fckeditor/fckeditor.js"></script>
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/Common.css" />
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/AdminPage.css" />
+<script type="text/javascript" src="<%=contextPath %>/fckeditor/fckeditor.js"></script>
+<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script> 
+<script type="text/javascript" src="<%=contextPath %>/js/Form.jquery.js"></script>
 </head>
 
 <body>
-<s:form action="informationSave" namespace="/sysadmin/info/information" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
+<s:form action="rollInformationSave" namespace="/sysadmin/info/rollInformation" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
 <div class="contentTitle"><s:text name="contentTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <s:hidden name="cmd" />
@@ -19,17 +21,19 @@
 <s:hidden name="informationParameter.maxResults" />
 
 <s:hidden name="informationParameter._slikee_informationTitle" />
-<s:hidden name="informationParameter._ne_informationType" />
+<input name="informationParameter._ne_informationType" type="hidden" value="0" />
 <s:hidden name="informationParameter._dge_createTime" />
 <s:hidden name="informationParameter._dle_createTime" />
 
 <s:hidden name="informationParameter._ne_status" />
 
+<input name="informationType" type="hidden" value="0" />
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">
 			<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
-			<input type="button" onclick="g_back('/sysadmin/info/information/informationList.action')" value="<s:text name="g_back"/>" >
+			<input type="button" onclick="g_back('/sysadmin/info/rollInformation/rollInformationList.action')" value="<s:text name="g_back"/>" >
 		</td>
 	</tr>
 </table>
@@ -56,19 +60,19 @@
 				</tr>
 				<tr>
 					<td>
-						<s:text name="informationContent"/>:
+						上传滚动图片:
 					</td>
 					<td>
-						<s:textarea name="informationContent" /><font color="red">*</font>
+						<input type="button" value="上传图片" id="btnUpload" />
+						<s:hidden name="imagePath" />
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<s:text name="informationType"/>:
+						<s:text name="informationContent"/>:
 					</td>
 					<td>
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$information_type',null,0)" name="informationType" cssClass="dropdown" 
-						id="informationType" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
+						<s:textarea name="informationContent" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -129,6 +133,7 @@
 	</tr>
 </table>
 </s:form>
+<%@include file="/share/upload.jsp" %>
 </body>
 </html>
 <script type="text/javascript">

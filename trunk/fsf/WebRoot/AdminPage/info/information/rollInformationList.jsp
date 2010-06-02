@@ -5,16 +5,18 @@
 <%@include file="/share/share.jsp" %>
 <title><s:text name="listPageTitle"/></title>
 <%@include file="/share/validate.jsp" %>
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/Common.css" />
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/AdminPage.css" />
-<script type="text/javascript" src="${contextPath}/js/jquery.js"></script> 
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/Common.css" />
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/AdminPage.css" />
+<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script> 
 </head>
 
 <body>
-<s:form action="informationList" namespace="/sysadmin/info/information" name="formList" id="formList" theme="simple" method="post">
+<s:form action="rollInformationList" namespace="/sysadmin/info/rollInformation" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="informationParameter.currentPage" id="currentPage"  />
 <s:hidden name="informationParameter.maxResults" id="maxResults" />
-<s:hidden name="cmd" />
+
+<input name="informationParameter._ne_informationType" type="hidden" value="0" />
+
 <div class="contentTitle"><s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
@@ -28,15 +30,6 @@
 					<td width="35%">
 						<s:textfield name="informationParameter._slkie_informationTitle" />
 					</td>
-					<td width="15%" >
-						<s:text name="_ne_informationType" />:
-					</td>
-					<td width="35%">
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$information_type',null,0)" name="informationParameter._ne_informationType" cssClass="dropdown" 
-						id="informationType" listValue="itemName" listKey="itemKey" emptyOption="true"/>
-					</td>
-				</tr>
-				<tr>
 					<td width="15%" >
 						<s:text name="_ne_status" />:
 					</td>
@@ -74,8 +67,8 @@
 
 <div style="text-align: right;">
 	<s:if test="cmd != 'select'">
-		<input type="button" onclick="g_new('/sysadmin/info/information/informationNew.action')" value="<s:text name="g_new"/>"/>
-		<input type="button" onclick="g_delete('/sysadmin/info/information/informationDelete.action');" value="<s:text name="g_delete"/>">
+		<input type="button" onclick="g_new('/sysadmin/info/rollInformation/rollInformationNew.action')" value="<s:text name="g_new"/>"/>
+		<input type="button" onclick="g_delete('/sysadmin/info/rollInformation/rollInformationDelete.action');" value="<s:text name="g_delete"/>">
 	</s:if>
 	<s:if test="cmd == 'select'">
 		<input type="button" onclick="f_selectInfo()" value="<s:text name="g_select"/>"/>
@@ -93,14 +86,13 @@
 		<input type="checkbox" onclick="g_select(this)" >
 	</td>
 	<td><s:text name="informationTitle"/></td>
-	<td><s:text name="informationType"/></td>
 	<td><s:text name="status"/></td>
 	<td><s:text name="createTime"/></td>
 	<td><s:text name="createUserId"/></td>
 </tr>
 
 <s:iterator value="pageView.records" id="item">
-	<s:url action="informationEdit" namespace="/sysadmin/info/information" id="url">
+	<s:url action="informationEdit" namespace="/sysadmin/info/rollInformation" id="url">
 		<s:param name="informationId" value="#item.informationId"></s:param>
 	</s:url>
 	<tr>
@@ -108,7 +100,6 @@
 			<input type="checkbox" name="selectedPK" value="<s:property value="#item.informationId"/>">
 		</td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="informationTitle"/></a></td>
-		<td><fsf:dictTranslate groupName="$information_type" value="informationType"/> </td>
 		<td><fsf:dictTranslate groupName="$status" value="status" /></td>
 		<td><s:date name="createTime" format="yyyy-MM-dd" /></td>
 	</tr>
