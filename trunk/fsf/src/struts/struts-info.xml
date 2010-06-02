@@ -56,6 +56,31 @@
 	</package>
 	<!-- ********************************************** -->
 	
+	<!--******************* 首页滚动图片 *************** -->
+	<package name="/sysadmin/info/rollInformation" extends="baseDefault" namespace="/sysadmin/info/rollInformation" >
+		<action name="rollInformationList" class="informationAction" method="doList">
+			<result>/AdminPage/info/information/rollInformationList.jsp</result>
+			<result name="input">/AdminPage/info/information/rollInformationList.jsp</result>
+		</action>
+		<action name="rollInformationSave" class="informationAction" method="doSave">
+			<result>/AdminPage/info/information/rollInformationContent.jsp</result>
+			<result name="input">/AdminPage/info/information/rollInformationContent.jsp</result>
+		</action>
+		<action name="rollInformationEdit" class="informationAction" method="doEdit">
+			<result>/AdminPage/info/information/rollInformationContent.jsp</result>
+			<result name="input">/AdminPage/info/information/rollInformationContent.jsp</result>
+		</action>
+		<action name="rollInformationNew" class="informationAction" method="doNew">
+			<result>/AdminPage/info/information/rollInformationContent.jsp</result>
+			<result name="input">/AdminPage/info/information/rollInformationContent.jsp</result>
+		</action>
+		<action name="rollInformationDelete" class="informationAction" method="doDelete">
+			<result>/AdminPage/info/information/rollInformationList.jsp</result>
+			<result name="input">/AdminPage/info/information/rollInformationList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
+	
 	<!--******************* news *************** -->
 	<package name="/sysadmin/info/news" extends="baseDefault" namespace="/sysadmin/info/news" >
 		<action name="newsList" class="newsAction" method="doList">
