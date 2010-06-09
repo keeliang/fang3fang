@@ -44,20 +44,25 @@ public class SelectTagStaticUtil {
 		List<DictItem> list = null;
 		//config from sys_dictitem
     	if(groupName.startsWith(WebConstant.DATA_DICT)){
-    		CacheManager cacheManager = EhcacheManagerFactory.getInstance();
-    		Cache cache = cacheManager.getCache("customer.DictItem");
-    		Element element  = cache.get(groupName.substring(1));
-    		if(element!=null){
-    			list = (List<DictItem>)element.getValue();
-    		}else{
-    			ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
-                DictItemService dictItemService =  (DictItemService)ctx.getBean("dictItemServiceImpl");
-                BaseParameter param = new BaseParameter();
-                param.getQueryDynamicConditions().put("_se_groupName", groupName.substring(1));
-                param.getSortedConditions().put("seq", BaseParameter.SORTED_ASC);
-                list = dictItemService.doQuery(param);
-                cache.put(new Element(groupName.substring(1),list));
-    		}
+    		
+    		Map<String,List<DictItem>> map = (Map<String,List<DictItem>>)getServletContext().getAttribute(WebConstant.CONIFG_DICT_CACHE);
+    		list = map.get(groupName.substring(1));
+    		if(list==null){
+    			CacheManager cacheManager = EhcacheManagerFactory.getInstance();
+        		Cache cache = cacheManager.getCache("customer.DictItem");
+        		Element element  = cache.get(groupName.substring(1));
+        		if(element!=null){
+        			list = (List<DictItem>)element.getValue();
+        		}else{
+        			ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+                    DictItemService dictItemService =  (DictItemService)ctx.getBean("dictItemServiceImpl");
+                    BaseParameter param = new BaseParameter();
+                    param.getQueryDynamicConditions().put("_se_groupName", groupName.substring(1));
+                    param.getSortedConditions().put("seq", BaseParameter.SORTED_ASC);
+                    list = dictItemService.doQuery(param);
+                    cache.put(new Element(groupName.substring(1),list));
+        		}
+			}
     		if(exclude!=null && !"".equals(exclude)){
     			String[] array = exclude.split(";");
 				StringBuffer sb = new StringBuffer();

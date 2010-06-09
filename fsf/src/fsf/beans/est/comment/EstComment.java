@@ -14,6 +14,7 @@ public class EstComment implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 2456338912388734691L;
+	private Integer commentId;
 	private Integer estateId;
 	private Short type;
 	private String content;
@@ -98,14 +99,22 @@ public class EstComment implements java.io.Serializable {
 	public void setEstateId(Integer estateId) {
 		this.estateId = estateId;
 	}
+	
+
+	public Integer getCommentId() {
+		return commentId;
+	}
+
+	public void setCommentId(Integer commentId) {
+		this.commentId = commentId;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
-				+ ((estateId == null) ? 0 : estateId.hashCode());
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
+				+ ((commentId == null) ? 0 : commentId.hashCode());
 		return result;
 	}
 
@@ -118,17 +127,14 @@ public class EstComment implements java.io.Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		final EstComment other = (EstComment) obj;
-		if (estateId == null) {
-			if (other.estateId != null)
+		if (commentId == null) {
+			if (other.commentId != null)
 				return false;
-		} else if (!estateId.equals(other.estateId))
-			return false;
-		if (type == null) {
-			if (other.type != null)
-				return false;
-		} else if (!type.equals(other.type))
+		} else if (!commentId.equals(other.commentId))
 			return false;
 		return true;
 	}
+
+	
 
 }

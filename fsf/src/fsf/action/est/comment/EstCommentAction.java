@@ -7,7 +7,10 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import chance.base.BaseParameter;
 import chance.base.action.BaseAction;
+import chance.common.PageView;
+import chance.common.QueryResult;
 import fsf.beans.est.comment.EstComment;
 import fsf.beans.sys.user.User;
 import fsf.service.est.comment.EstCommentService;
@@ -18,7 +21,52 @@ import fsf.web.common.ThreadUser;
 public class EstCommentAction extends BaseAction<EstComment> {
 	
 	public EstCommentAction() {
-		super(EstComment.class, new String[] { "estateId","type" });
+		super(EstComment.class, new String[] { "commentId" });
+	}
+	
+	private PageView<EstComment> commentPageView;
+	
+	public String ajaxEstCommentList()throws Exception{
+		try {
+			if(baseParameter==null){
+				return SUCCESS;
+			}
+			if(baseParameter.getMaxResults()==null){
+				baseParameter.setMaxResults(10);
+			}
+			if(baseParameter.getCurrentPage()==null){
+				baseParameter.setCurrentPage(1);
+			}
+			baseParameter.getSortedConditions().put("createTime",BaseParameter.SORTED_DESC);
+			QueryResult<EstComment> queryResult = service.doPaginationQuery(baseParameter);
+			commentPageView = new PageView<EstComment>(baseParameter.getMaxResults(),baseParameter.getCurrentPage());
+			commentPageView.setQueryResult(queryResult);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return SUCCESS;
+	}
+	
+	public String ajaxCommitComment()throws Exception{
+		try {
+			EstComment ec = new EstComment();
+			ec.setContent(content);
+			ec.setEstateId(estateId);
+			ec.setType(type);
+			ec.setStatus((short)1);
+			ec.setIp(getHttpServletRequest().getRemoteAddr());
+			ec.setCreateUserId(ThreadUser.get().getUserId());
+			ec.setUpdateUserId(ThreadUser.get().getUserId());
+			Date d = new Date();
+			ec.setCreateTime(d);
+			ec.setUpdateTime(d);
+			service.persist(ec);
+		} catch (Exception e) {
+			e.printStackTrace();
+			addActionError("添加留言失败");
+		}
+		return ajaxEstCommentList();
 	}
 	
 	@Override
@@ -61,8 +109,9 @@ public class EstCommentAction extends BaseAction<EstComment> {
 		return (EstCommentParameter)baseParameter;
 	}
 	
+	private Integer commentId;
 	private Integer estateId;
-	private Integer type;
+	private Short type;
 	private String content;
 	private String ip;
 	private Short status;
@@ -71,16 +120,33 @@ public class EstCommentAction extends BaseAction<EstComment> {
 	private Date updateTime;
 	private Integer updateUserId;
 
+	
+	public PageView<EstComment> getCommentPageView() {
+		return commentPageView;
+	}
+
+	public void setCommentPageView(PageView<EstComment> commentPageView) {
+		this.commentPageView = commentPageView;
+	}
+
+	public Integer getCommentId() {
+		return commentId;
+	}
+
+	public void setCommentId(Integer commentId) {
+		this.commentId = commentId;
+	}
+
 	public void setEstateId(Integer estateId){
 		this.estateId = estateId;
 	}
 	public Integer getEstateId(){
 		return this.estateId;
 	}
-	public void setType(Integer type){
+	public void setType(Short type){
 		this.type = type;
 	}
-	public Integer getType(){
+	public Short getType(){
 		return this.type;
 	}
 	public void setContent(String content){

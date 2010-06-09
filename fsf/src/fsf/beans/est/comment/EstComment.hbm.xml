@@ -4,21 +4,23 @@
 <!-- Generated 2010-4-22 21:14:25 by Hibernate Tools 3.2.4.GA -->
 <hibernate-mapping>
     <class name="fsf.beans.est.comment.EstComment" table="est_comment" >
-        <composite-id>
-            <key-property name="estateId" type="int">
-                <column name="estate_id" />
-            </key-property>
-            <key-property name="type" type="int">
-                <column name="type" />
-            </key-property>
-        </composite-id>
+        <id name="commentId" type="java.lang.Integer">
+            <column name="comment_id" />
+            <generator class="identity" />
+        </id>
+        <property name="estateId" type="int">
+            <column name="estate_id" not-null="true" />
+        </property>
+        <property name="type" type="short">
+            <column name="type" not-null="true" />
+        </property>
         <property name="content" type="string">
             <column name="content" length="65535" not-null="true" />
         </property>
         <property name="ip" type="string">
             <column name="ip" length="30" not-null="true" />
         </property>
-        <property name="status" type="byte">
+        <property name="status" type="short">
             <column name="status" not-null="true" />
         </property>
         <property name="createTime" type="timestamp" update="false">

@@ -6,8 +6,9 @@ import chance.base.BaseParameter;
 
 public class EstCommentParameter extends BaseParameter{
 
+	private Integer _ne_commentId;
 	private Integer _ne_estateId;
-	private Integer _ne_type;
+	private Short _ne_type;
 	private String _se_content;
 	private String _se_ip;
 	private Short _ne_status;
@@ -23,10 +24,10 @@ public class EstCommentParameter extends BaseParameter{
 	public Integer get_ne_estateId(){
 		return this._ne_estateId;
 	}
-	public void set_ne_type(Integer _ne_type){
+	public void set_ne_type(Short _ne_type){
 		this._ne_type = _ne_type;
 	}
-	public Integer get_ne_type(){
+	public Short get_ne_type(){
 		return this._ne_type;
 	}
 	public void set_se_content(String _se_content){
@@ -77,4 +78,11 @@ public class EstCommentParameter extends BaseParameter{
 	public Integer get_ne_updateUserId(){
 		return this._ne_updateUserId;
 	}
+	public Integer get_ne_commentId() {
+		return _ne_commentId;
+	}
+	public void set_ne_commentId(Integer id) {
+		_ne_commentId = id;
+	}
+	
 }

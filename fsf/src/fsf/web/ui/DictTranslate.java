@@ -1,6 +1,7 @@
 package fsf.web.ui;
 
 import java.io.Writer;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,9 @@ public class DictTranslate extends Component{
 	private String groupName;
 	private String value;
 	private PageContext pageContext;
+	
+	private static final String dictFlag = "dictTranslate:";
+	
 	public DictTranslate(ValueStack stack) {
 		super(stack);
 	}
@@ -60,13 +64,25 @@ public class DictTranslate extends Component{
         	//get dict translate from sys_dictitem
         	if(groupName.startsWith(WebConstant.DATA_DICT)){
         		if (actualValue != null) {
-                	HttpServletRequest req = (HttpServletRequest)pageContext.getRequest();
-                	WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(req.getSession().getServletContext());
-                	DictItemService dictItemService = (DictItemService)ctx.getBean("dictItemServiceImpl");
-                	di = new DictItem();
-                	di.setGroupName(groupName.substring(1));
-                	di.setItemKey(actualValue);
-                	di = dictItemService.get(di);
+        			Map<String,List<DictItem>> map = (Map<String,List<DictItem>>)pageContext.getServletContext().getAttribute(WebConstant.CONIFG_DICT_CACHE);
+        			List<DictItem> list = map.get(groupName.substring(1));
+        			if(list!=null){
+        				for(Iterator<DictItem> it = list.iterator();it.hasNext();){
+        					DictItem d = it.next();
+        					if(actualValue.equals(d.getItemKey())){
+        						di = d;
+        						break;
+        					}
+        				}
+        			}
+        			if(di==null){
+        				WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(pageContext.getServletContext());
+                    	DictItemService dictItemService = (DictItemService)ctx.getBean("dictItemServiceImpl");
+                    	di = new DictItem();
+                    	di.setGroupName(groupName.substring(1));
+                    	di.setItemKey(actualValue);
+                    	di = dictItemService.get(di);
+        			}
                 }
         	}
         	//get dict translate from dictConfig.xml
@@ -91,15 +107,20 @@ public class DictTranslate extends Component{
         				else if(cache instanceof String[]){
         					String[] aryCache = (String[])cache;
         					HttpServletRequest req = (HttpServletRequest)pageContext.getRequest();
-                        	WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(req.getSession().getServletContext());
-                        	DictItemService dictItemService = (DictItemService)ctx.getBean("dictItemServiceImpl");
-            				BaseParameter param = new BaseParameter();
-            				param.getQueryDynamicConditions().put("_se_"+aryCache[1], actualValue);
-            				List<DictItem> list = dictItemService.getDaynamicConfig(aryCache[0], aryCache[1], aryCache[2], param);
-            				if(list.size()>0)
-            					di = list.get(0);
+        					DictItem cacheDi = (DictItem)req.getAttribute(dictFlag+aryCache[0]+"_"+actualValue);
+        					if(cacheDi!=null){
+        						di = cacheDi;
+        					}else{
+        						WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(req.getSession().getServletContext());
+                            	DictItemService dictItemService = (DictItemService)ctx.getBean("dictItemServiceImpl");
+                				BaseParameter param = new BaseParameter();
+                				param.getQueryDynamicConditions().put("_se_"+aryCache[1], actualValue);
+                				List<DictItem> list = dictItemService.getDaynamicConfig(aryCache[0], aryCache[1], aryCache[2], param);
+                				if(list.size()>0)
+                					di = list.get(0);
+                				req.setAttribute(dictFlag+aryCache[0]+"_"+actualValue, di);
+        					}
         				}
-        				
         			}
         		}
         	}

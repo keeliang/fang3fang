@@ -7,7 +7,10 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import chance.base.BaseParameter;
 import chance.base.action.BaseAction;
+import chance.common.PageView;
+import chance.common.QueryResult;
 import fsf.beans.info.infocomment.InfoComment;
 import fsf.beans.sys.user.User;
 import fsf.service.info.infocomment.InfoCommentService;
@@ -19,6 +22,50 @@ public class InfoCommentAction extends BaseAction<InfoComment> {
 	
 	public InfoCommentAction() {
 		super(InfoComment.class, new String[] { "commentId" });
+	}
+	
+	private PageView<InfoComment> commentPageView;
+	
+	public String doInfoCommentList()throws Exception{
+		try {
+			if(baseParameter==null){
+				return SUCCESS;
+			}
+			if(baseParameter.getMaxResults()==null){
+				baseParameter.setMaxResults(10);
+			}
+			if(baseParameter.getCurrentPage()==null){
+				baseParameter.setCurrentPage(1);
+			}
+			baseParameter.getSortedConditions().put("createTime",BaseParameter.SORTED_DESC);
+			QueryResult<InfoComment> queryResult = service.doPaginationQuery(baseParameter);
+			commentPageView = new PageView<InfoComment>(baseParameter.getMaxResults(),baseParameter.getCurrentPage());
+			commentPageView.setQueryResult(queryResult);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return SUCCESS;
+	}
+	
+	public String doCommitInfoComment()throws Exception{
+		try {
+			InfoComment ic = new InfoComment();
+			ic.setContent(content);
+			ic.setInformationId(informationId);
+			ic.setStatus((short)1);
+			ic.setIp(getHttpServletRequest().getRemoteAddr());
+			ic.setCreateUserId(ThreadUser.get().getUserId());
+			ic.setUpdateUserId(ThreadUser.get().getUserId());
+			Date d = new Date();
+			ic.setCreateTime(d);
+			ic.setUpdateTime(d);
+			service.persist(ic);
+		} catch (Exception e) {
+			e.printStackTrace();
+			addActionError("添加留言失败");
+		}
+		return doInfoCommentList();
 	}
 	
 	@Override
@@ -126,6 +173,14 @@ public class InfoCommentAction extends BaseAction<InfoComment> {
 	}
 	public Integer getUpdateUserId(){
 		return this.updateUserId;
+	}
+
+	public PageView<InfoComment> getCommentPageView() {
+		return commentPageView;
+	}
+
+	public void setCommentPageView(PageView<InfoComment> commentPageView) {
+		this.commentPageView = commentPageView;
 	}
 
 }
