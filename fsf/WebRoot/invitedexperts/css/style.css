@@ -395,7 +395,7 @@ a.cWhite:hover {
 /*expert*/
 .expert {
 	width: 710px;
-	height: 630px;
+	height: auto;
 	border: 1px solid #ff8e00;
 	clear: both;
 	float: left;
@@ -489,6 +489,7 @@ a.cWhite:hover {
 	height: 135px;
 	border:1px solid #cccccc;
 	padding:2px;
+	float: left;
 /*	background: url(../images/p.gif) left top no-repeat border-top:1PX;
 */	
 }
