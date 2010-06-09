@@ -147,47 +147,6 @@
 					<div class="clear"></div>
 					<div class="blankP"></div>
 
-					<div class="memberC_centerC">
-						<div class="memberC_midTitle">
-							<b>我的收藏夹</b>
-						</div>
-						<div class="memberC_midShow">
-							<dl>
-								<dd>
-									<a href="#">金泰・先锋 业主论坛</a>
-								</dd>
-								<dd>
-									<a href="#">新塘新世界小户型 现认购可获88折</a>
-								</dd>
-								<dd>
-									<a href="#">阳光假日园本月加推小户型婚房</a>
-								</dd>
-								<dd>
-									<a href="#">翠城花园目前暂时缺货 预计9月推中小户</a>
-								</dd>
-								<dd>
-									<a href="#">日出观山将于5月底开售 提前登记可获9折</a>
-								</dd>
-								<dd>
-									<a href="#">方圆明月山溪5月28日首次开放 首推大户</a>
-								</dd>
-								<dd>
-									<a href="#">中海金沙磬园推限价房雅郡 现正接受登记</a>
-								</dd>
-								<dd>
-									<a href="#">专家解读廉租房建设规模增加</a>
-								</dd>
-								<dd>
-									<a href="#">豪赌楼市回暖大开发商频出手买地</a>
-								</dd>
-								<dd>
-									<a href="#">十里江湾销售中心已正式开放 </a>
-								</dd>
-							</dl>
-						</div>
-						<div class="memberC_midBottom"></div>
-					</div>
-
 					<div class="clear"></div>
 					<div class="blankP"></div>
 
