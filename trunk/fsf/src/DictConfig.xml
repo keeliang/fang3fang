@@ -18,6 +18,29 @@
 		</Dictitem>
 	</DictGroup>
 	 -->
+	 
+	<DictGroup name="question">
+		<Dictitem itemKey="1">
+			<itemName>您的名字是什么？</itemName>
+			<itemDesc></itemDesc>
+		</Dictitem>
+		<Dictitem itemKey="2">
+			<itemName>您爸爸的名字是什么？</itemName>
+			<itemDesc></itemDesc>
+		</Dictitem>
+		<Dictitem itemKey="3">
+			<itemName>您妈妈的名字是什么？</itemName>
+			<itemDesc></itemDesc>
+		</Dictitem>
+		<Dictitem itemKey="4">
+			<itemName>小学毕业学校的名字？</itemName>
+			<itemDesc></itemDesc>
+		</Dictitem>
+		<Dictitem itemKey="5">
+			<itemName>您的出生年月日是多少？</itemName>
+			<itemDesc></itemDesc>
+		</Dictitem>
+	</DictGroup>
 	
 	<DynamicConfig name="province">
 		<Entity>sys_province</Entity>
@@ -73,5 +96,25 @@
 		<ItemNameProperty>information_title</ItemNameProperty>
 	</DynamicConfig>
 	
+	<!-- 以下是直接将固定参数表直接缓存的项 -->
+	<DictItemCache>
+		<DictGroup>sex</DictGroup>
+		<DictGroup>status</DictGroup>
+		<DictGroup>user_type</DictGroup>
+		<DictGroup>front_visible</DictGroup>
+		<DictGroup>yes_no</DictGroup>
+		<DictGroup>information_type</DictGroup>
+		<DictGroup>commerce_type</DictGroup>
+		<DictGroup>est_comment_type</DictGroup>
+		<DictGroup>trade_type</DictGroup>
+		<DictGroup>out_trade_mode</DictGroup>
+		<DictGroup>estate_type</DictGroup>
+		<DictGroup>is_lift</DictGroup>
+		<DictGroup>toward</DictGroup>
+		<DictGroup>fitment</DictGroup>
+		<DictGroup>in_trade_mode</DictGroup>
+		<DictGroup>is_hot</DictGroup>
+		<DictGroup>examine</DictGroup>
+	</DictItemCache>
 	
 </DictConfig>
