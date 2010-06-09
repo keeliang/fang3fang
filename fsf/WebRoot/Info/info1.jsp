@@ -7,11 +7,11 @@
 					<img src="images/info_pic003.jpg" width="80" height="60" alt="" title="" />
 				</dt>
 				<dd>
-					<a href="<%=contextPath %>/Info/infoContent.action?informationId=<s:property value="listInfo2.get(0).informationId"/>" class="cRed03"><b><s:property value="listInfo1.get(0).informationTitle"/></b></a>
+					<a href="<%=contextPath %>/Info/infoContent.action?informationId=<s:property value="listInfo1.get(0).informationId"/>" class="cRed03"><b><s:property value="listInfo1.get(0).informationTitle"/></b></a>
 				</dd>
 				<dd>
 					<s:property value="@chance.util.HtmlUtils@removeHTML(listInfo1.get(0).informationContent,22)"/>
-					<a href="<%=contextPath %>/Info/infoContent.action?informationId=<s:property value="listInfo2.get(0).informationId"/>" class="cOrange">[全文]</a>
+					<a href="<%=contextPath %>/Info/infoContent.action?informationId=<s:property value="listInfo1.get(0).informationId"/>" class="cOrange">[全文]</a>
 				</dd>
 			</dl>
 		</s:if>
