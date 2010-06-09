@@ -14,20 +14,18 @@ function showDiv(num,num1)
  }  
 }
 
-function showDiv_com(num,num1)
-{
- for(var id = 1;id<=3;id++)
- {
-  var ss="aboutc"+num1+id;
-  var nss="aboutnavc"+num1+id;
-  if(id==num){
-  try{document.getElementById(ss).style.display="block"}catch(e){};
-  try{document.getElementById(nss).className="active_com"}catch(e){};
-  }else{
-  try{document.getElementById(ss).style.display="none"}catch(e){};
-  try{document.getElementById(nss).className=""}catch(e){};
-  }
- }  
+function showDiv_com(num,num1){
+ 	for(var id = 1;id<=3;id++){
+	  var ss="aboutc"+num1+id;
+	  var nss="aboutnavc"+num1+id;
+	  if(id==num){
+		  try{document.getElementById(ss).style.display="block"}catch(e){};
+		  try{document.getElementById(nss).className="active_com"}catch(e){};
+	  }else{
+		  try{document.getElementById(ss).style.display="none"}catch(e){};
+		  try{document.getElementById(nss).className=""}catch(e){};
+	  }
+	}  
 }
 
 function showDiv02(num,num1)
