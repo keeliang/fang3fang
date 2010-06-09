@@ -10,7 +10,6 @@
 <script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script>
 <script type="text/javascript" src="<%=contextPath %>/js/Form.jquery.js"></script>
 </head>
-
 <body>
 <s:form action="newEstateSave" namespace="/sysadmin/est/newestate" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
 <div class="contentTitle"><s:text name="contentTitle"/></div>
@@ -19,7 +18,7 @@
 <s:hidden name="newEstateParameter.currentPage" />
 <s:hidden name="newEstateParameter.maxResults" />
 <s:hidden name="newEstateParameter._ne_estateId" />
-<s:hidden name="newEstateParameter._se_estateName" />
+<s:hidden name="newEstateParameter._slike_estateName" />
 <s:hidden name="newEstateParameter._se_develop" />
 <s:hidden name="newEstateParameter._ne_provinceId" />
 <s:hidden name="newEstateParameter._ne_cityId" />
@@ -29,27 +28,23 @@
 <s:hidden name="newEstateParameter._ne_status" />
 <s:hidden name="newEstateParameter._ne_isHot" />
 <s:hidden name="newEstateParameter._ne_estateType" />
-<s:hidden name="newEstateParameter._ne_area" />
+<s:hidden name="newEstateParameter._nge_area" />
+<s:hidden name="newEstateParameter._nle_area" />
 <s:hidden name="newEstateParameter._ne_isLift" />
-<s:hidden name="newEstateParameter._ne_practicalArea" />
+<s:hidden name="newEstateParameter._nge_practicalArea" />
+<s:hidden name="newEstateParameter._nle_practicalArea" />
 <s:hidden name="newEstateParameter._ne_effective" />
-<s:hidden name="newEstateParameter._se_estateAddress" />
 <s:hidden name="newEstateParameter._ne_toward" />
-<s:hidden name="newEstateParameter._ne_totalFloor" />
-<s:hidden name="newEstateParameter._ne_price" />
+<s:hidden name="newEstateParameter._nge_price" />
+<s:hidden name="newEstateParameter._nle_price" />
 <s:hidden name="newEstateParameter._ne_hall" />
 <s:hidden name="newEstateParameter._ne_bedroom" />
 <s:hidden name="newEstateParameter._ne_toilet" />
 <s:hidden name="newEstateParameter._ne_porch" />
-<s:hidden name="newEstateParameter._ne_manageCost" />
-<s:hidden name="newEstateParameter._ne_otherCost" />
 <s:hidden name="newEstateParameter._ne_fitment" />
-<s:hidden name="newEstateParameter._se_remark" />
-<s:hidden name="newEstateParameter._se_imagePath" />
-<s:hidden name="newEstateParameter._de_createTime" />
+<s:hidden name="newEstateParameter._dge_createTime" />
+<s:hidden name="newEstateParameter._dle_createTime" />
 <s:hidden name="newEstateParameter._ne_createUserId" />
-<s:hidden name="newEstateParameter._de_updateTime" />
-<s:hidden name="newEstateParameter._ne_updateUserId" />
 
 <s:hidden name="estateId" />
 
@@ -214,14 +209,14 @@
 						<s:text name="structure"/>:
 					</td>
 					<td>
-						<s:text name="_ne_hall" />:
-						<s:textfield name="newEstateParameter._ne_hall" cssClass="memberC_input03" />
-						<s:text name="_ne_bedroom" />:
-						<s:textfield name="newEstateParameter._ne_bedroom" cssClass="memberC_input03" />
-						<s:text name="_ne_toilet" />:
-						<s:textfield name="newEstateParameter._ne_toilet" cssClass="memberC_input03"/>
-						<s:text name="_ne_porch" />:
-						<s:textfield name="newEstateParameter._ne_porch" cssClass="memberC_input03"/>
+						<s:text name="hall" />:
+						<s:textfield name="hall" cssClass="memberC_input03" />
+						<s:text name="bedroom" />:
+						<s:textfield name="bedroom" cssClass="memberC_input03" />
+						<s:text name="toilet" />:
+						<s:textfield name="toilet" cssClass="memberC_input03"/>
+						<s:text name="porch" />:
+						<s:textfield name="porch" cssClass="memberC_input03"/>
 					</td>
 				</tr>
 				<tr>
@@ -244,7 +239,7 @@
 						<s:text name="fitment"/>:
 					</td>
 					<td>
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$fitment')" name="fitment" 
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$fitment',null,'0')" name="fitment" 
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"  /><font color="red">*</font>
 					</td>
 				</tr>
@@ -255,13 +250,6 @@
 					<td>
 						<s:textfield name="remark" />
 					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="imagePath"/>:
-					</td>
-					<td>
-						<s:textfield name="imagePath" />					</td>
 				</tr>
 				<tr>
 					<td>

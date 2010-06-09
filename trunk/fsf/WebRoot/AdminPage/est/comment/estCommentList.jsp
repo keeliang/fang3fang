@@ -34,8 +34,6 @@
 					<td width="35%">
 						<s:textfield name="estCommentParameter._ne_estateId" />
 						<s:hidden name="estCommentParameter._ne_newsId"/>
-						<input value="<fsf:dictTranslate groupName="#news_type" value="estCommentParameter._ne_newsId"/>" readonly="true" >
-						<img src="/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectEstate()">
 					</td>
 				</tr>
 				<tr>
@@ -105,12 +103,11 @@
 
 <s:iterator value="pageView.records" id="item">
 	<s:url action="estCommentEdit" namespace="/sysadmin/est/comment" id="url">
-		<s:param name="estateId" value="#item.estateId"></s:param>
-		<s:param name="type" value="#item.type"></s:param>
+		<s:param name="commentId" value="#item.commentId"></s:param>
 	</s:url>
 	<tr>
 		<td>
-			<input type="checkbox" name="selectedPK" value="<s:property value="#item.estateId"/>|<s:property value="#item.type"/>">
+			<input type="checkbox" name="selectedPK" value="<s:property value="#item.commentId"/>">
 		</td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="content"/></a></td>
 		<td><s:property value="estateId"/></td>

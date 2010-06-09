@@ -26,6 +26,8 @@
 <s:hidden name="estCommentParameter._de_updateTime" />
 <s:hidden name="estCommentParameter._ne_updateUserId" />
 
+<s:hidden name="commentId"/>
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">

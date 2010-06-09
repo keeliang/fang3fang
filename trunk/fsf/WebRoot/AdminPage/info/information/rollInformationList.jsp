@@ -28,7 +28,7 @@
 						<s:text name="_slike_informationTitle" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="informationParameter._slkie_informationTitle" />
+						<s:textfield name="informationParameter._slike_informationTitle" />
 					</td>
 					<td width="15%" >
 						<s:text name="_ne_status" />:
@@ -92,7 +92,7 @@
 </tr>
 
 <s:iterator value="pageView.records" id="item">
-	<s:url action="informationEdit" namespace="/sysadmin/info/rollInformation" id="url">
+	<s:url action="rollInformationEdit" namespace="/sysadmin/info/rollInformation" id="url">
 		<s:param name="informationId" value="#item.informationId"></s:param>
 	</s:url>
 	<tr>
@@ -102,6 +102,7 @@
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="informationTitle"/></a></td>
 		<td><fsf:dictTranslate groupName="$status" value="status" /></td>
 		<td><s:date name="createTime" format="yyyy-MM-dd" /></td>
+		<td><fsf:dictTranslate groupName="#sys_user" value="createUserId" /></td>
 	</tr>
 </s:iterator>
 </table>
