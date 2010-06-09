@@ -57,6 +57,14 @@ public class BaseService<E> implements Service<E>{
 	public E load(Serializable id) {
 		return dao.load(id);
 	}
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
+	public List<E> queryByProerties(String[] propName, Object[] propValue) {
+		return dao.queryByProerties(propName, propValue);
+	}
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
+	public List<E> queryByProerties(String propName, Object propValue) {
+		return dao.queryByProerties(propName, propValue);
+	}
 
 	public E merge(E entity) {
 		return dao.merge(entity);
@@ -99,11 +107,14 @@ public class BaseService<E> implements Service<E>{
 	public void evict(E entity) {
 		dao.evict(entity);
 	}
+	
 	public void clear() {
 		dao.clear();
 	}
-
+	
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	public List<E> doAdvancedQuery(AdvancedQueryParameter param) {
 		return dao.doAdvancedQuery(param);
 	}
+	
 }

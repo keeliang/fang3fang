@@ -153,6 +153,25 @@ public class BaseDao<E> extends HibernateDaoSupport implements Dao<E> {
 	public E getByProerty(String propName, Object propValue) {
 		return getByProerties(new String[]{propName}, new Object[]{propValue});
 	}
+	
+	public List<E> queryByProerties(String[] propName, Object[] propValue) {
+		if(propName!=null && propName.length>0 && propValue!=null && propValue.length>0 && propValue.length==propName.length){
+			StringBuffer sb = new StringBuffer("select o from "+entityClass.getName()+" o where 1=1 ");
+			for(String name : propName){
+				sb.append(" and o."+name+"=:"+name);
+			}
+			Query query = getSession().createQuery(sb.toString());
+			for(int i=0;i<propName.length;i++){
+				query.setParameter(propName[i], propValue[i]);
+			}
+			return query.list();
+		}
+		return null;
+	}
+	
+	public List<E> queryByProerties(String propName, Object propValue) {
+		return queryByProerties(new String[]{propName}, new Object[]{propValue});
+	}
 
 	public Long countAll() {
 		return (Long) getSession().createQuery(

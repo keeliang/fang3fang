@@ -112,6 +112,20 @@ public interface Dao<E> {
 	 */
 	public E getByProerty(String propName,Object propValue);
 	/**
+	 * query by property
+	 * @param propName
+	 * @param propValue
+	 * @return
+	 */
+	public List<E> queryByProerties(String[] propName, Object[] propValue);
+	/**
+	 * query by property
+	 * @param propName
+	 * @param propValue
+	 * @return
+	 */
+	public List<E> queryByProerties(String propName, Object propValue);
+	/**
 	 * Completely clear the session.
 	 */
 	public void clear();

@@ -100,6 +100,20 @@ public interface Service<E> {
 	 * @return
 	 */
 	public E getByProerties(String[] propName,Object[] propValue);
+	/**
+	 * query by property
+	 * @param propName
+	 * @param propValue
+	 * @return
+	 */
+	public List<E> queryByProerties(String[] propName, Object[] propValue);
+	/**
+	 * query by property
+	 * @param propName
+	 * @param propValue
+	 * @return
+	 */
+	public List<E> queryByProerties(String propName, Object propValue);
 	
 	/**
 	 * get an entity by property
