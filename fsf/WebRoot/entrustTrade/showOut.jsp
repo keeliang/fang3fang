@@ -17,7 +17,7 @@
 		<script type="text/javascript" src="js/show.js"></script>
 		<script type="text/javascript" src="js/Cal.js"></script>
 		<script type="text/javascript" src="../js/showDiv.js"></script>
-		<SCRIPT type="text/javascript" src="js/slide.js"></SCRIPT>
+		<script type="text/javascript" src="js/slide.js"></script>
 		<script type="text/javascript" src="../js/SearchMessage.js"></script>
 
 		<style type="text/css">
@@ -843,40 +843,56 @@ body .new_menu {
 						</form>
 
 						<div class="freeTrade_contnetL_show03_con">
-							<form id="LoginForm" name="LoginForm" method="post" action="/Fang3FangWeb/Access">
-								<p>
-									<span class="float_right font14">已有
-										<span class="cRed03">248</span>位对此房源感兴趣的用户留言&nbsp;
-										<button class="freeTrade_button02">点击查看</button>
-									</span>
-									<span class="font14 cOrange"><b>顾客留言</b></span>
-									<img src="images/freeTrade_line04.jpg" width="250" height="6" align="absmiddle" />
-								</p>
-								<p>
-									<textarea id="QuestionMsg" name="QuestionMsg"	class="freeTrade_area">我来写几句！</textarea>
-								</p>
-								<p class="right">
-									<input type="hidden" name="UserID" id="UserID" value="" />
-									用户名：
-									<input type="text" name="Username" id="Username"
-										class="login_input" />
-									密码：
-									<input type="password" name="Password" id="Password"
-										class="login_input" />
-									&nbsp;
-									<input type="button" name="Login" id="Login"
-										class="freeTrade_button03" value="登录" />
-									<a href="#" class="cRed03">[我的留言记录]</a>
-									<input id="anonymous" name="anonymous" type="checkbox"	value="0" />
-									匿名&nbsp;
-									<input type="button" name="Publish" id="Publish"	class="freeTrade_button04" value="马上发表" />
-								</p>
-							</form>
+							<p>
+								<span class="font14 cOrange"><b>顾客留言</b></span>
+								<img src="images/freeTrade_line04.jpg" width="250" height="6" align="absmiddle" />
+							</p>
+							<div class="focusPic" id="loadingDiv" style="text-align: center;" >
+								<img src="<%=contextPath %>/images/loading2.gif" style="margin: 0 auto;" />
+								<br />
+								<font style="font-weight: bold;" >加载中...</font>
+							</div>
+							<div id="commentZoneDiv" style="display: none;" >
+								<aa:zone name="commentZone">
+									<s:iterator value="commentPageView.records" id="item" >
+										<div><fsf:dictTranslate groupName="#sys_user" value="createUserId" /> <s:date name="createTime" format="yyyy-MM-dd HH:mm:ss" /> ${ip }</div>
+										<div>${content }</div>
+										<br/>
+									</s:iterator>
+									<%@ include file="/share/commentPageNavigation.jsp" %>
+									<form name="commentForm" action="/entrustTrade/outEstCommentList.ajax" method="post" >
+										<s:if test="#session.USER!=null">
+											<div id="commitDiv" >
+												<p><textarea name="content" onfocus="this.value=''" onblur="if(this.value=='')this.value='我来评两句！'"
+												 class="freeTrade_area">我来评两句！</textarea></p>
+												<p class="right">
+													<input type="button" name="Publish" id="Publish" onclick="f_commitComment()"
+														class="freeTrade_button04" value="马上发表" />
+												</p>
+											</div>
+											<div class="focusPic" id="loadingDiv2" style="text-align: center;display: none;" >
+												<img src="<%=contextPath %>/images/loading2.gif" style="margin: 0 auto;" />
+												<br />
+												<font style="font-weight: bold;" >处理中...</font>
+											</div>
+										</s:if>
+										<input name="estateId" type="hidden" value="${estateId }" />
+										<input name="type" type="hidden" value="1" />
+										
+										<input name="estCommentParameter._ne_estateId" type="hidden" value="${estateId }" />
+										<input name="estCommentParameter._ne_type" type="hidden" value="1" />
+										<input name="estCommentParameter._ne_status" type="hidden" value="1" />
+										<s:hidden name="estCommentParameter.currentPage" id="currentPage" />
+										<input name="estCommentParameter.maxResults" type="hidden" value="10" />
+										
+									</form>
+								</aa:zone>
+							</div>
 						</div>
 					</div>
 				</div>
 				<!-- right -->
-				<%@ include file="showp_right.jsp"%>
+				<%@ include file="show_right.jsp"%>
 				<div class="clear"></div>
 				<div class="blank12"></div>
 				<!-- foot -->
@@ -885,3 +901,44 @@ body .new_menu {
 			</div>
 	</body>
 </html>
+<script type="text/javascript" >
+window.onload = function(){
+	f_queryComment();
+}
+function f_queryComment(pageNum){
+	document.forms["commentForm"].action = "/entrustTrade/outEstCommentList.ajax";
+	if(pageNum){
+		document.forms["commentForm"]["estCommentParameter.currentPage"].value = pageNum;
+	}else{
+		document.forms["commentForm"]["estCommentParameter.currentPage"].value = 1;
+	}
+	ajaxAnywhere.formName = "commentForm";
+	ajaxAnywhere.getZonesToReload = function(){return "commentZone";} 
+	ajaxAnywhere.showLoadingMessage = function(){
+		document.getElementById('loadingDiv').style.display = "block";
+		document.getElementById('commentZoneDiv').style.display = "none";
+	}
+	ajaxAnywhere.hideLoadingMessage = function(){
+		document.getElementById('loadingDiv').style.display = "none";
+		document.getElementById('commentZoneDiv').style.display = "block";			
+	}
+	ajaxAnywhere.submitAJAX();
+}
+
+function f_commitComment(){
+	document.forms["commentForm"].action = "/entrustTrade/outCommitComment.ajax";
+	ajaxAnywhere.getZonesToReload = function(){return "commentZone";} 
+	ajaxAnywhere.showLoadingMessage = function(){
+		document.getElementById('loadingDiv2').style.display = "block";
+		document.getElementById('commitDiv').style.display = "none";
+	}
+	ajaxAnywhere.hideLoadingMessage = function(){
+		document.getElementById('loadingDiv2').style.display = "none";
+		document.getElementById('commitDiv').style.display = "block";			
+	}
+	ajaxAnywhere.handleWrongContentType = function(){
+		eval(this.req.responseText);
+	}
+	ajaxAnywhere.submitAJAX();
+}
+</script>
