@@ -27,6 +27,10 @@ public class BaseParameter implements Serializable {
 	 * when needn't pagination,the top count of list 
 	 */
 	private Integer topCount;
+	/**
+	 * 
+	 */
+	private String[] sortColumns;
 	
 	/**
 	 * dynamic query conditions for example:
@@ -85,6 +89,21 @@ public class BaseParameter implements Serializable {
 
 	public void setTopCount(Integer topCount) {
 		this.topCount = topCount;
+	}
+
+	public String[] getSortColumns() {
+		return sortColumns;
+	}
+
+	public void setSortColumns(String[] sortColumns) {
+		this.sortColumns = sortColumns;
+		if(sortColumns!=null){
+			for(String s:sortColumns){
+				String[] sa = s.split("\\|");
+				if(sa.length==2)
+					sortedConditions.put(sa[0], sa[1]);		
+			}
+		}
 	}
 	
 }
