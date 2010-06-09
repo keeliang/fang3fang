@@ -23,11 +23,19 @@
 		window.onload = function(){
 			var aa1 = new AjaxAnywhere();
 			aa1.bindById();
-			aa1.getAJAX("/main/newestEstate.ajax","listNewestEstate");
+			aa1.showLoadingMessage = function(){
+				document.getElementById('loadingDiv').style.display = "block";
+				document.getElementById('rollInfoDiv').style.display = "none";
+			}
+			aa1.hideLoadingMessage = function(){
+				document.getElementById('loadingDiv').style.display = "none";
+				document.getElementById('rollInfoDiv').style.display = "block";			
+			}
+			aa1.getAJAX("/main/infoList.ajax","listInfo,rollList");
 			aa1.onAfterResponseProcessing = function (){
 				var aa2 = new AjaxAnywhere();
 				aa2.bindById();
-				aa2.getAJAX("/main/infoList.ajax","listInfo,rollList");
+				aa2.getAJAX("/main/newestEstate.ajax","listNewestEstate,listCommerce");
 			}
 		}
 		</script>
@@ -151,45 +159,33 @@
 								</div>
 								<ul>
 									<li>
-										<a href="../help/findHouse.jsp"
-											onmouseover="javascript:jumpTo2(1);"> <img
-												src="images/BuySell_button01.jpg" width="87" height="31"
-												alt="查看房源" title="查看房源" /> </a>
+										<a href="../help/findHouse.jsp" onmouseover="javascript:jumpTo2(1);">
+										<img src="images/BuySell_button01.jpg" width="87" height="31" alt="查看房源" title="查看房源" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/comTalk.jsp"
-											onmouseover="javascript:jumpTo2(2);"> <img
-												src="images/BuySell_button02.jpg" width="87" height="31"
-												alt="联系洽谈" title="联系洽谈" /> </a>
+										<a href="../help/comTalk.jsp" onmouseover="javascript:jumpTo2(2);">
+										<img src="images/BuySell_button02.jpg" width="87" height="31" alt="联系洽谈" title="联系洽谈" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/bargain.jsp"
-											onmouseover="javascript:jumpTo2(3);"> <img
-												src="images/BuySell_button03.jpg" width="87" height="31"
-												alt="合同签署" title="合同签署" /> </a>
+										<a href="../help/bargain.jsp" onmouseover="javascript:jumpTo2(3);">
+										<img src="images/BuySell_button03.jpg" width="87" height="31" alt="合同签署" title="合同签署" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/moneyManage.jsp"
-											onmouseover="javascript:jumpTo2(4);"> <img
-												src="images/BuySell_button04.jpg" width="87" height="31"
-												alt="资金监管" title="资金监管" /> </a>
+										<a href="../help/moneyManage.jsp" onmouseover="javascript:jumpTo2(4);">
+										<img src="images/BuySell_button04.jpg" width="87" height="31" alt="资金监管" title="资金监管" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/anjie.jsp"
-											onmouseover="javascript:jumpTo2(5);"> <img
-												src="images/BuySell_button05.jpg" width="87" height="31"
-												alt="按揭贷款" title="按揭贷款" /> </a>
+										<a href="../help/anjie.jsp" onmouseover="javascript:jumpTo2(5);">
+										<img src="images/BuySell_button05.jpg" width="87" height="31" alt="按揭贷款" title="按揭贷款" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/diya.jsp"
-											onmouseover="javascript:jumpTo2(6);"> <img
-												src="images/BuySell_button06.jpg" width="87" height="31"
-												alt="过户抵押" title="过户抵押" /> </a>
+										<a href="../help/diya.jsp" onmouseover="javascript:jumpTo2(6);">
+										<img src="images/BuySell_button06.jpg" width="87" height="31" alt="过户抵押" title="过户抵押" /> </a>
 									</li>
 								</ul>
 							</div>
@@ -203,14 +199,12 @@
 								</div>
 								<ul>
 									<li>
-										<a href="#" onmouseover="javascript:jumpTo(1);"><img
-												src="images/BuySell_nav01.jpg" width="119" height="30"
-												alt="我要买房" title="我要买房" /> </a>
+										<a href="#" onmouseover="javascript:jumpTo(1);">
+										<img src="images/BuySell_nav01.jpg" width="119" height="30" alt="我要买房" title="我要买房" /> </a>
 									</li>
 									<li>
-										<a href="#" onmouseover="javascript:jumpTo(2);"><img
-												src="images/BuySell_nav02On.jpg" width="119" height="30"
-												alt="我要卖房" title="我要卖房" /> </a>
+										<a href="#" onmouseover="javascript:jumpTo(2);">
+										<img src="images/BuySell_nav02On.jpg" width="119" height="30" alt="我要卖房" title="我要卖房" /> </a>
 									</li>
 								</ul>
 								<div class="clear"></div>
@@ -236,45 +230,33 @@
 								</div>
 								<ul>
 									<li>
-										<a href="../help/issueHouse.jsp"
-											onmouseover="javascript:jumpTo3(1);"><img
-												src="images/BuySell02_button01.jpg" width="87" height="31"
-												alt="发布房源" title="发布房源" /> </a>
+										<a href="../help/issueHouse.jsp" onmouseover="javascript:jumpTo3(1);">
+										<img src="images/BuySell02_button01.jpg" width="87" height="31" alt="发布房源" title="发布房源" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/goutong.jsp"
-											onmouseover="javascript:jumpTo3(2);"><img
-												src="images/BuySell02_button02.jpg" width="87" height="31"
-												alt="沟通平台" title="沟通平台" /> </a>
+										<a href="../help/goutong.jsp" onmouseover="javascript:jumpTo3(2);">
+										<img src="images/BuySell02_button02.jpg" width="87" height="31" alt="沟通平台" title="沟通平台" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/bargain02.jsp"
-											onmouseover="javascript:jumpTo3(3);"><img
-												src="images/BuySell02_button03.jpg" width="87" height="31"
-												alt="合同签署" title="合同签署" /> </a>
+										<a href="../help/bargain02.jsp" onmouseover="javascript:jumpTo3(3);">
+										<img src="images/BuySell02_button03.jpg" width="87" height="31" alt="合同签署" title="合同签署" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/moneyManage02.jsp"
-											onmouseover="javascript:jumpTo3(4);"><img
-												src="images/BuySell02_button04.jpg" width="87" height="31"
-												alt="资金监管" title="资金监管" /> </a>
+										<a href="../help/moneyManage02.jsp" onmouseover="javascript:jumpTo3(4);">
+										<img src="images/BuySell02_button04.jpg" width="87" height="31" alt="资金监管" title="资金监管" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/danbao.jsp"
-											onmouseover="javascript:jumpTo3(5);"><img
-												src="images/BuySell02_button05.jpg" width="87" height="31"
-												alt="担保赎楼" title="担保赎楼" /> </a>
+										<a href="../help/danbao.jsp" onmouseover="javascript:jumpTo3(5);">
+										<img src="images/BuySell02_button05.jpg" width="87" height="31" alt="担保赎楼" title="担保赎楼" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/guohu.jsp"
-											onmouseover="javascript:jumpTo3(6);"><img
-												src="images/BuySell_button06.jpg" width="87" height="31"
-												alt="过户抵押" title="过户抵押" /> </a>
+										<a href="../help/guohu.jsp" onmouseover="javascript:jumpTo3(6);">
+										<img src="images/BuySell_button06.jpg" width="87" height="31" alt="过户抵押" title="过户抵押" /> </a>
 									</li>
 								</ul>
 							</div>
@@ -283,17 +265,17 @@
 					</div>
 					<div class="BuySell_right">
 						<p>
-							<a href="choosef3f.jsp"><img src="images/list01.jpg"
-									width="205" height="31" alt="为什么要选择房上房？" title="为什么要选择房上房？" />
+							<a href="choosef3f.jsp">
+								<img src="images/list01.jpg" width="205" height="31" alt="为什么要选择房上房？" title="为什么要选择房上房？" />
 							</a>
 						</p>
 						<p>
-							<a href="howto.jsp"><img src="images/list02.jpg" width="205"
-									height="34" alt="如何发布商业招商，旺铺转让？" title="如何发布商业招商，旺铺转让？" /> </a>
+							<a href="howto.jsp">
+								<img src="images/list02.jpg" width="205" height="34" alt="如何发布商业招商，旺铺转让？" title="如何发布商业招商，旺铺转让？" /> </a>
 						</p>
 						<p>
-							<a href="care.jsp"><img src="images/list03.jpg" width="205"
-									height="34" alt="二手房交易注意事项！" title="二手房交易注意事项！" /> </a>
+							<a href="care.jsp">
+								<img src="images/list03.jpg" width="205" height="34" alt="二手房交易注意事项！" title="二手房交易注意事项！" /> </a>
 						</p>
 					</div>
 				</div>
@@ -308,55 +290,51 @@
 						<div id="kbb_content1" style="display: block;">
 							<div class="con">
 								<div class="center">
-
-									<!--  左侧滚动图片资讯 -->
-									<aa:zone name="rollList">
-									<div class="focusPic">
-										<s:iterator value="" status="st">
-											<div id="focusPic<s:property value='#st.count' />" <s:if test="st.count==1">style='display: block;'</s:if> <s:else>style='display: none;'</s:else> >
-												<div class="pic">
-													<img src="<%=contextPath %>${imagePath }" border="0"
-														height="200" width="274" />
-												</div>
-												<div class="le02">
-													<p class="font14">
-														<a href="#" class="cOrange"><b>${informationTitle}</b>
-														</a>
-													</p>
-													<p>
-														<s:property value="@chance.util.HtmlUtils@removeHTML(informationContent,22)" />
-														<a href="#" class="cOrange"><b>&nbsp;&nbsp;详细</b></a>
-													</p>
-												</div>
-											</div>
-										</s:iterator>
-
-										<!--图片对应下面的序号变改效果-->
-										<div class="more">
-											<div class="textNum">
-												<s:iterator value="listRollInfo" status="st" >
-													<div class="num bg1" id="focusPic1nav" <s:if test="st.count==1">style='display: block;'</s:if> <s:else>style='display: none;'</s:else> >
-														<ul>
-															<s:bean name="org.apache.struts2.util.Counter" id="i" >
-																<s:param name="first" value="1"/>
-																<s:param name="last" value="listRollInfo.size()+1"/>
-																<s:iterator>																	
-																	<s:if test="#st.count==current">
-																		<li><s:property value="#i.current" /></li>
-																	</s:if>
-																	<s:else>
-																		<li><a href="javascript:setFocus1(<s:property value="#i.current" />);" target="_self"><s:property value="#i.current" /></a></li>
-																	</s:else>
-																</s:iterator>
-															</s:bean>		
-														</ul>	
-													</div>
-												</s:iterator>
-											</div>
-										</div>
+									<div class="focusPic" id="loadingDiv" >
+										<img src="<%=contextPath %>/images/loading2.gif" style="margin: 0 auto;margin-top: 80px;" />
+										<br />
+										<font style="font-weight: bold;" >加载中...</font>
 									</div>
-									</aa:zone>
-
+									<!--  左侧滚动图片资讯 -->
+									<div class="focusPic" id="rollInfoDiv" style="display: none;" >
+										<aa:zone name="rollList">
+											<s:iterator value="listRollInfo" status="st">
+												<div id="focusPic<s:property value='#st.count' />" <s:if test="st.count==1">style='display: block;'</s:if> <s:else>style='display: none;'</s:else> >
+													<div class="pic">
+														<img src="<%=contextPath %>${imagePath }" border="0" height="200" width="274" />
+													</div>
+													<div class="le02">
+														<p class="font14"><a href="#" class="cOrange"><b>${informationTitle}</b></a></p>
+														<p><s:property value="@chance.util.HtmlUtils@removeHTML(informationContent,22)" /><a href="#" class="cOrange"><b>&nbsp;&nbsp;详细</b></a></p>
+													</div>
+												</div>
+											</s:iterator>
+	
+											<!--图片对应下面的序号变改效果-->
+											<div class="more">
+												<div class="textNum">
+													<s:iterator value="listRollInfo" status="st" >
+														<div class="num bg<s:property value='#st.count' />" id="focusPic<s:property value='#st.count' />nav" <s:if test="st.count==1">style='display: block;'</s:if> <s:else>style='display: none;'</s:else> >
+															<ul>
+																<s:bean name="org.apache.struts2.util.Counter" id="i" >
+																	<s:param name="first" value="1"/>
+																	<s:param name="last" value="listRollInfo.size()"/>
+																	<s:iterator>																	
+																		<s:if test="#st.count==current">
+																			<li><s:property value="#i.current-1" /></li>
+																		</s:if>
+																		<s:else>
+																			<li><a href="javascript:setFocus1(<s:property value="#i.current-1" />);" target="_self"><s:property value="#i.current-1" /></a></li>
+																		</s:else>
+																	</s:iterator>
+																</s:bean>		
+															</ul>	
+														</div>
+													</s:iterator>
+												</div>
+											</div>
+										</aa:zone>
+									</div>
 									<!-- 中间精品房源 -->
 									<div class="cen">
 										<aa:zone name="listNewestEstate">
@@ -364,18 +342,17 @@
 												<s:iterator value="listNewestEstate">
 													<li>
 														<p>
-															<a href="#" target="_blank"><img
-																	src="<%=contextPath%>${imagePath }" width="70"
-																	height="55" border="0" alt="" title="" /> </a>
+															<a href="#" target="_blank">
+																<img src="<%=contextPath%>${imagePath }" width="70" height="55" border="0" alt="" title="" />
+															</a>
 														</p>
 														<h1>
 															<a href="#" target="_blank">${hall }厅${bedroom }房</a>
 														</h1>
-														<span><a><fsf:dictTranslate groupName="#city"
-																	value="cityId" />
-																<fsf:dictTranslate groupName="#district"
-																	value="districtId" />
-														</a>
+														<span>
+															<a>
+																<fsf:dictTranslate groupName="#city" value="cityId" /><fsf:dictTranslate groupName="#district" value="districtId" />
+															</a>
 														</span>
 													</li>
 												</s:iterator>
@@ -395,9 +372,11 @@
 													<ul id="lili">
 														<s:iterator value="listInfo" id="item">
 															<li>
-																<span> <a href="../Info/show.jsp"> <s:property
-																			value="@chance.util.HtmlUtils@removeHTML(#item.informationTitle,22)" />
-																</a> </span>
+																<span>
+																	<a href="../Info/show.jsp">
+																		<s:property value="@chance.util.HtmlUtils@removeHTML(#item.informationTitle,22)" />
+																	</a>
+																</span>
 															</li>
 														</s:iterator>
 													</ul>
@@ -420,198 +399,31 @@
 					<!-- right -->
 					<div class="info">
 						<div class="info_title">
-							<span class="float_right"><a href="../rent/index.jsp"
-								class="cYellow">[信息分类]</a> </span><span class="font14"><b>商业招商、旺铺转让</b>
+							<span class="float_right"><a href="../rent/index.jsp" class="cYellow">[信息分类]</a></span>
+							<span class="font14"><b>商业招商、旺铺转让</b>
 							</span>
 						</div>
 						<div class="info_content">
 
-
 							<div class="info_content_show" id="e1" style="display: block">
 								<ul id="lili2">
-
-									<li>
-										<!--  
-											<span class="float_right cGray02">1分钟前</span>
-											-->
-										<div id="p1">
-											<p>
-												<img src="images/sound_note.gif" width="16" height="16"
-													align="absmiddle" />
-												<a href="">花都手袋厂转让</a>
-											</p>
-											<p class="undis">
-												<span>该厂房位于花都区狮岭镇振兴工业区....<a href="../rent/show.jsp"><img
-															src="images/info_more.jpg" width="32" height="19"
-															alt="more" title="more" /> </a> </span>
-											</p>
-										</div>
-									</li>
-
-
-
-									<li>
-										<!--  
-											<span class="float_right cGray02">1分钟前</span>
-											-->
-										<div id="p1">
-											<p>
-												<img src="images/sound_note.gif" width="16" height="16"
-													align="absmiddle" />
-												<a href="">白云区太和镇厂房出租</a>
-											</p>
-											<p class="undis">
-												<span>本厂房位于白云区太和镇草庄南路,全新独院厂房...<a
-													href="../rent/show.jsp"><img src="images/info_more.jpg"
-															width="32" height="19" alt="more" title="more" /> </a> </span>
-											</p>
-										</div>
-									</li>
-
-
-									<li>
-										<!--  
-											<span class="float_right cGray02">1分钟前</span>
-											-->
-										<div id="p1">
-											<p>
-												<img src="images/sound_note.gif" width="16" height="16"
-													align="absmiddle" />
-												<a href="">白云区太和镇厂房出租2</a>
-											</p>
-											<p class="undis">
-												<span>本厂房位于白云区太和镇草庄南路,全新独院厂房22...<a
-													href="../rent/show.jsp"><img src="images/info_more.jpg"
-															width="32" height="19" alt="more" title="more" /> </a> </span>
-											</p>
-										</div>
-									</li>
-
-									<li>
-										<!--  
-											<span class="float_right cGray02">1分钟前</span>
-											-->
-										<div id="p1">
-											<p>
-												<img src="images/sound_note.gif" width="16" height="16"
-													align="absmiddle" />
-												<a href="">白云区太和镇厂房出租3</a>
-											</p>
-											<p class="undis">
-												<span>本厂房位于白云区太和镇草庄南路,全新独院厂房33...<a
-													href="../rent/show.jsp"><img src="images/info_more.jpg"
-															width="32" height="19" alt="more" title="more" /> </a> </span>
-											</p>
-										</div>
-									</li>
-
-									<li>
-										<!--  
-											<span class="float_right cGray02">1分钟前</span>
-											-->
-										<div id="p1">
-											<p>
-												<img src="images/sound_note.gif" width="16" height="16"
-													align="absmiddle" />
-												<a href="">白云区太和镇厂房出租4</a>
-											</p>
-											<p class="undis">
-												<span>本厂房位于白云区太和镇草庄南路,全新独院厂房.44..<a
-													href="../rent/show.jsp"><img src="images/info_more.jpg"
-															width="32" height="19" alt="more" title="more" /> </a> </span>
-											</p>
-										</div>
-									</li>
-
-
-
-									<li>
-										<!--  
-											<span class="float_right cGray02">1分钟前</span>
-											-->
-										<div id="p1">
-											<p>
-												<img src="images/sound_note.gif" width="16" height="16"
-													align="absmiddle" />
-												<a href="">白云区太和镇厂房出租5</a>
-											</p>
-											<p class="undis">
-												<span>本厂房位于白云区太和镇草庄南路,全新独院厂房55...<a
-													href="../rent/show.jsp"><img src="images/info_more.jpg"
-															width="32" height="19" alt="more" title="more" /> </a> </span>
-											</p>
-										</div>
-									</li>
-
-									<li>
-										<!--  
-											<span class="float_right cGray02">1分钟前</span>
-											-->
-										<div id="p1">
-											<p>
-												<img src="images/sound_note.gif" width="16" height="16"
-													align="absmiddle" />
-												<a href="">白云区太和镇厂房出租6</a>
-											</p>
-											<p class="undis">
-												<span>本厂房位于白云区太和镇草庄南路,全新独院厂房6...<a
-													href="../rent/show.jsp"><img src="images/info_more.jpg"
-															width="32" height="19" alt="more" title="more" /> </a> </span>
-											</p>
-										</div>
-									</li>
-
-									<li>
-										<!--  
-											<span class="float_right cGray02">1分钟前</span>
-											-->
-										<div id="p1">
-											<p>
-												<img src="images/sound_note.gif" width="16" height="16"
-													align="absmiddle" />
-												<a href="">白云区太和镇厂房出租7</a>
-											</p>
-											<p class="undis">
-												<span>本厂房位于白云区太和镇草庄南路,全新独院厂房7...<a
-													href="../rent/show.jsp"><img src="images/info_more.jpg"
-															width="32" height="19" alt="more" title="more" /> </a> </span>
-											</p>
-										</div>
-									</li>
-
-									<li>
-										<!--  
-											<span class="float_right cGray02">1分钟前</span>
-											-->
-										<div id="p1">
-											<p>
-												<img src="images/sound_note.gif" width="16" height="16"
-													align="absmiddle" />
-												<a href="">白云区太和镇厂房出租8</a>
-											</p>
-											<p class="undis">
-												<span>本厂房位于白云区太和镇草庄南路,全新独院厂房8...<a
-													href="../rent/show.jsp"><img src="images/info_more.jpg"
-															width="32" height="19" alt="more" title="more" /> </a> </span>
-											</p>
-										</div>
-									</li>
+									<aa:zone name="listCommerce">
+										<s:iterator value="listCommerce">
+											<li>
+												<div id="p1">
+													<p>
+														<img src="images/sound_note.gif" width="16" height="16" align="absmiddle" />
+														<a href="">${title }</a>
+													</p>
+												</div>
+											</li>
+										</s:iterator>
+									</aa:zone>
 								</ul>
 							</div>
 						</div>
-						<div class="info_fun">
-							<!--  
-								<span ><a
-									href="../rent/index.jsp">更多...</a> </span>
-									-->
-							<a href="">
-								<button id="Jbutton">
-									我想发布商业招商、转让！
-								</button> </a>
-						</div>
 						<!-- 发布商铺弹出窗口 -->
 					</div>
-
 					<!-- 弹出窗口end -->
 				</div>
 
