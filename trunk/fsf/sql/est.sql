@@ -44,7 +44,7 @@ create table if not exists est_estate_out(
 	develop varchar(50),
 	
 	trade_type tinyint not null,/* 1 自主交易 2 委托交易 固定参数trade_type*/
-	contact_user_id int not null, /*联系人 自主交易时此值和create_user_id一样，委托交易时是委托人*/
+	contact_user_id int , /*联系人 自主交易时此值和create_user_id一样，委托交易时是委托人*/
 	examine_user_id int,/* 审核人 */
 	
 	/*这里把省，市，区，商圈都记了，并且可null，方便扩展和将来可能的按市、区查询时减少table的链接*/
@@ -92,6 +92,9 @@ create table if not exists est_estate_out(
 	
 	fitment tinyint not null,/* 装修程度 1 豪华装修 2 新装修 3 普通装修 4 简单装修 5 毛坯 6 其他 固定参数fitment*/
 	device tinyint not null,/* 室内配套 1 吉屋 2 部分家电 3 家电齐 4 面议 固定参数device*/
+	
+	is_recommond tinyint not null,/*是否推荐 1 是 0 否 固定参数 yes_no */
+	
 	remark text,
 	image_path varchar(80),
 
@@ -100,6 +103,16 @@ create table if not exists est_estate_out(
 	update_time datetime not null,
 	update_user_id int not null,
 	constraint PK_est_estate_out primary key(estate_id)
+);
+/*
+	顾问推荐
+*/
+drop table if exists est_recommond;
+create table if not exists est_recommond(
+	user_id int not null,
+	estate_id int not null,
+	create_time datetime not null,
+	constraint PK_est_estate_out primary key(user_id,estate_id)
 );
 
 /*
@@ -253,6 +266,7 @@ CREATE INDEX IND_EST_COMMERCE ON est_commerce(commerce_type);
 */
 drop table if exists est_comment;
 create table if not exists est_comment(
+	comment_id int not null auto_increment,
 	estate_id int not null,
 	type int not null, /* 用固定参数 est_comment_type 1 出售出租 2 求售求租 3 新房 4 商业旺铺*/
 	content text not null,
@@ -262,7 +276,7 @@ create table if not exists est_comment(
 	create_user_id int not null,
   update_time datetime not null,
 	update_user_id int not null,
-	constraint PK_est_comment primary key(estate_id,type)
+	constraint PK_est_comment primary key(comment_id)
 );
 
 

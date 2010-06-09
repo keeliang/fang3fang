@@ -67,6 +67,8 @@ select 'yes_no','0','否','否',2 ;
 insert into sys_dictgroup (group_name,group_desc,remark)
 select 'information_type','讯息类型',null;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'information_type','0','首页滚动','首页滚动',0 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
 select 'information_type','1','焦点','焦点',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
 select 'information_type','2','深度报道','深度报道',2 ;
