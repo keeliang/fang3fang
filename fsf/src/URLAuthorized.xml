@@ -39,5 +39,17 @@
 		<resource url="/memberCenter/estateOutSave.action" />
 		<resource url="/memberCenter/estateOutList.action" />
 		<resource url="/memberCenter/estateOutDelete.action" />
+		
+		<resource url="/Info/commitNewsComment.ajax" />
+		<resource url="/Info/commitInfoComment.ajax" />
+		
+		<resource url="/freetrade/outCommitComment.ajax" />
+		<resource url="/freetrade/inCommitComment.ajax" />
+		
+		<resource url="/entrustTrade/outcommitComment.ajax" />
+		<resource url="/entrustTrade/inCommitComment.ajax" />
+		
+		<resource url="/newHouse/commitComment.ajax" />
+		
 	</FrontProtected>
 </authorized>
