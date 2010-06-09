@@ -7,7 +7,8 @@ create table if not exists info_information(
 	information_id int not null auto_increment,
 	information_title varchar(80) not null,
 	information_content text not null,
-	/* 由固定参数information_type取值 1 焦点 2 深度报道 3 房价新闻 4 区域报道 5 房产政策 6 国际家居 7 社区推荐*/
+	/* 由固定参数information_type取值 1 焦点 2 深度报道 3 房价新闻 4 区域报道 5 房产政策 6 国际家居 7 社区推荐 0 首页图片 */
+	image_path varchar(80),
 	information_type int not null,
 	status tinyint not null ,	/* 状态 1 enabled 0 disabled */
 	create_time datetime not null ,

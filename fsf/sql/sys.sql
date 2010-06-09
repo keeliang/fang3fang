@@ -30,8 +30,7 @@ CREATE TABLE if not exists sys_user(
 	
 	image_path varchar(100),
 
-
-	/* 一下是顾问属性 */
+	/* 以下是顾问属性 */
 	real_name varchar(20) null,
 	
 	work_province_id int,
