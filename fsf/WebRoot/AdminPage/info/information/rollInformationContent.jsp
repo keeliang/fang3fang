@@ -20,7 +20,7 @@
 <s:hidden name="informationParameter.currentPage" />
 <s:hidden name="informationParameter.maxResults" />
 
-<s:hidden name="informationParameter._slikee_informationTitle" />
+<s:hidden name="informationParameter._slike_informationTitle" />
 <input name="informationParameter._ne_informationType" type="hidden" value="0" />
 <s:hidden name="informationParameter._dge_createTime" />
 <s:hidden name="informationParameter._dle_createTime" />

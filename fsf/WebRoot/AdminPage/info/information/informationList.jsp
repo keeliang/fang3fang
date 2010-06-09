@@ -111,6 +111,7 @@
 		<td><fsf:dictTranslate groupName="$information_type" value="informationType"/> </td>
 		<td><fsf:dictTranslate groupName="$status" value="status" /></td>
 		<td><s:date name="createTime" format="yyyy-MM-dd" /></td>
+		<td><fsf:dictTranslate groupName="#sys_user" value="createUserId" /></td>
 	</tr>
 </s:iterator>
 </table>

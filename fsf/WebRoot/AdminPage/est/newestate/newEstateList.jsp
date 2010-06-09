@@ -220,12 +220,12 @@
 			<input type="checkbox" name="selectedPK" value="<s:property value="#item.estateId"/>">
 		</td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="estateName"/></a></td>
-		<td><s:property value="status"/></td>
-		<td><s:property value="isHot"/></td>
-		<td><s:property value="estateType"/></td>
+		<td><fsf:dictTranslate groupName="$status" value="status" /></td>
+		<td><fsf:dictTranslate groupName="$yes_no" value="isHot" /></td>
+		<td><fsf:dictTranslate groupName="$estate_type" value="estateType" /></td>
 		<td><s:property value="area"/></td>
 		<td><s:property value="price"/></td>
-		<td><s:property value="createTime"/></td>
+		<td><s:date name="createTime" format="yyyy-MM-dd" /></td>
 	</tr>
 </s:iterator>
 </table>
