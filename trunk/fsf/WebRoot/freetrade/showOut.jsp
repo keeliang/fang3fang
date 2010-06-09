@@ -1,23 +1,19 @@
-<%@ page language="java" pageEncoding="UTF-8"
-	contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<%@ include file="/share/share.jsp" %>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="description"
-			content="房上房房地产网，番禺区房地产专业网站，人气最旺、最有价值的番禺房地产网络媒体，提供最全面最及时的房地产新闻资讯内容，提供所有楼盘的详细信息，是二手房(不动产)自由交易网站。为所有楼盘提供功能最全网上浏览，是国内房地产媒体及业内外网友公认的最受欢迎的专业网站和房地产信息库，搜房引擎给网友提供房地产网站中速度最快捷内容最全面的智能搜索点。">
-		<meta name="keywords"
-			content="房上房,番禺地产,番禺地产网,房地产,买房,卖房,租房,新房,二手房,写字楼,商铺,C2C交易,C2C">
-		<meta name="title"
-			content="番禺房地产门户 - 房上房地产网(http://wwww.fang3fang.com)" />
+		<meta name="description" content="房上房房地产网，番禺区房地产专业网站，人气最旺、最有价值的番禺房地产网络媒体，提供最全面最及时的房地产新闻资讯内容，提供所有楼盘的详细信息，是二手房(不动产)自由交易网站。为所有楼盘提供功能最全网上浏览，是国内房地产媒体及业内外网友公认的最受欢迎的专业网站和房地产信息库，搜房引擎给网友提供房地产网站中速度最快捷内容最全面的智能搜索点。"/>
+		<meta name="keywords" content="房上房,番禺地产,番禺地产网,房地产,买房,卖房,租房,新房,二手房,写字楼,商铺,C2C交易,C2C"/>
+		<meta name="title" content="番禺房地产门户 - 房上房地产网(http://wwww.fang3fang.com)" />
 		<title>自由贸易区 - 房上房地产网</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script>
 		<script type="text/javascript" src="js/show.js"></script>
 		<script type="text/javascript" src="js/Cal.js"></script>
 		<script type="text/javascript" src="../js/showDiv.js"></script>
-		<SCRIPT type="text/javascript" src="js/slide.js"></SCRIPT>
+		<script type="text/javascript" src="js/slide.js"></script>
 		<script type="text/javascript" src="../js/SearchMessage.js"></script>
 		<script type="text/javascript" src="<%=contextPath %>/js/Form.jquery.js"></script>
 
@@ -42,8 +38,6 @@ body .new_menu {
 						<a href="#" class="cOrange"	onclick="window.external.AddFavorite(location.href, document.title)">收藏</a>&nbsp;&nbsp;&nbsp;
 						<img src="images/freeTrade_dot02.jpg" width="20" height="19" align="absmiddle" />
 						<a href="#" onclick="window.print()">打印</a>&nbsp;&nbsp;&nbsp;
-						<img src="images/freeTrade_dot03.jpg" width="20" height="19" align="absmiddle" />
-						<a href="javascript:copyLink();"	target="_parent">推荐给好友</a>
 					</span>
 					您当前的所在位置：
 					<a href="../main/index.jsp">房上房</a> &gt;
@@ -66,21 +60,13 @@ body .new_menu {
 							<span class="cOrange font14"><b>${estateName }基本信息</b></span>
 							<img src="images/freeTrade_down.jpg" width="13" height="13" align="absmiddle" />
 						</div>
-						<table border="0" cellpadding="0" cellspacing="0"
-							class="freeTrade_table">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%" class="freeTrade_table">
 							<tr>
 								<td class="grayBg right freeTrade_tableW01">
 									物业名称：
 								</td>
-								<td id="PropertyName" class="left freeTrade_tableW03">
+								<td id="PropertyName" class="left freeTrade_tableW03" colspan="3">
 									<span class="cOrange">${estateName }</span>
-									
-								</td>
-								<td class="grayBg right freeTrade_tableW02">
-									房源编号：
-								</td>
-								<td id="EstateMsgID" class="left freeTrade_tableW04">
-									<span class="cOrange">ACS00000037</span>
 								</td>
 							</tr>
 							<tr>
@@ -117,6 +103,7 @@ body .new_menu {
 									物业地址：
 								</td>
 								<td id="Address" colspan="3" class="left">
+									&nbsp;
 									${address }
 								</td>
 							</tr>
@@ -125,13 +112,13 @@ body .new_menu {
 									建筑年份：
 								</td>
 								<td id="DoneTime" class="left">
-									${buildYear }
+									&nbsp;${buildYear }
 								</td>
 								<td class="grayBg right">
 									开&nbsp;发&nbsp;商：
 								</td>
 								<td id="BuildingTypeName" class="left">
-									${develop }
+									&nbsp;${develop }
 								</td>
 							</tr>
 							<tr>
@@ -145,6 +132,7 @@ body .new_menu {
 									朝&nbsp;&nbsp;向：
 								</td>
 								<td id="OrientationName" class="left">
+								&nbsp;
 									<fsf:dictTranslate groupName="$toward" value="toward" />
 								</td>
 							</tr>
@@ -159,21 +147,8 @@ body .new_menu {
 									有无电梯：
 								</td>
 								<td id="Lift" class="left">
+								&nbsp;
 									<fsf:dictTranslate groupName="$is_lift" value="isLift" />
-								</td>
-							</tr>
-							<tr>
-								<td class="grayBg right">
-									房产证号或购房合同号：
-								</td>
-								<td id="DocumentNum" class="left">
-									${estateCardNo }
-								</td>
-								<td class="grayBg right">
-									产权性质：
-								</td>
-								<td id="EstateTypeName" class="left">
-									经济适用住房
 								</td>
 							</tr>
 							<tr>
@@ -181,12 +156,14 @@ body .new_menu {
 									建筑面积：
 								</td>
 								<td id="TotalArea" class="left">
+								&nbsp;
 									${area } 平方米
 								</td>
 								<td class="grayBg right">
 									使用面积：
 								</td>
 								<td id="UsableArea" class="left">
+								&nbsp;
 									${practicalArea } 平方米
 								</td>
 							</tr>
@@ -201,6 +178,7 @@ body .new_menu {
 									管&nbsp;理&nbsp;费：
 								</td>
 								<td id="ManagementFees" class="left">
+								&nbsp;
 									<span class="cOrange">${manageCost }</span> 元/平方米·月
 								</td>
 							</tr>
@@ -209,12 +187,14 @@ body .new_menu {
 									装修程度：
 								</td>
 								<td id="RenovationStandardName" class="left freeTrade_tableW03">
+								&nbsp;
 									<fsf:dictTranslate groupName="$fitment" value="fitment" />
 								</td>
 								<td class="grayBg right">
 									家电配套：
 								</td>
 								<td id="Indoor" colspan="3" class="left">
+								&nbsp;
 									<fsf:dictTranslate groupName="$device" value="device" />
 								</td>
 							</tr>
@@ -286,8 +266,8 @@ body .new_menu {
 									<td class="grayBg right">
 										<span class="cOrange">其他费用：</span>
 									</td>
-									<td id="Rent" class="left">
-											<span class="cOrange">${electricCost }</span> 元/月
+									<td id="Rent" class="left">&nbsp;
+											<span class="cOrange">${otherCost }</span> 元/月
 									</td>
 								</tr>
 							</table>
@@ -346,13 +326,13 @@ body .new_menu {
 								<td class="grayBg right freeTrade_tableW01">
 									业主姓名：
 								</td>
-								<td id="Contacter" class="left freeTrade_tableW03">
+								<td id="Contacter" class="left freeTrade_tableW03">&nbsp;
 									${contactUser.userCode }
 								</td>
 								<td class="grayBg right freeTrade_tableW02">
 									联系电话：
 								</td>
-								<td id="HomePhone" class="left freeTrade_tableW04">
+								<td id="HomePhone" class="left freeTrade_tableW04">&nbsp;
 									${contactUser.tel }
 								</td>
 							</tr>
@@ -360,14 +340,14 @@ body .new_menu {
 								<td class="grayBg right">
 									手&nbsp;&nbsp;机：
 								</td>
-								<td id="MobilePhone" class="left">
+								<td id="MobilePhone" class="left">&nbsp;
 									${contactUser.phone }
 									<span class="cRed03">(中介免问)</span>
 								</td>
 								<td class="grayBg right">
 									QQ：
 								</td>
-								<td id="QQ" class="left">
+								<td id="QQ" class="left">&nbsp;
 									${contactUser.qq }
 								</td>
 							</tr>
@@ -375,13 +355,13 @@ body .new_menu {
 								<td class="grayBg right">
 									MSN：
 								</td>
-								<td id="MSN" class="left">
+								<td id="MSN" class="left">&nbsp;
 									${contactUser.msn }
 								</td>
 								<td class="grayBg right">
 									E-mail：
 								</td>
-								<td id="Email" class="left">
+								<td id="Email" class="left">&nbsp;
 									${contactUser.email }
 								</td>
 							</tr>
@@ -845,36 +825,53 @@ body .new_menu {
 						</form>
 
 						<div class="freeTrade_contnetL_show03_con">
-							<form id="LoginForm" name="LoginForm" method="post" action="/Fang3FangWeb/Access">
-								<p>
-									<span class="float_right font14">已有
-										<span class="cRed03">248</span>位对此房源感兴趣的用户留言&nbsp;
-										<button class="freeTrade_button02">点击查看</button>
-									</span>
-									<span class="font14 cOrange"><b>顾客留言</b></span>
-									<img src="images/freeTrade_line04.jpg" width="250" height="6" align="absmiddle" />
-								</p>
-								<p>
-									<textarea id="QuestionMsg" name="QuestionMsg"	class="freeTrade_area">我来写几句！</textarea>
-								</p>
-								<p class="right">
-									<input type="hidden" name="UserID" id="UserID" value="" />
-									用户名：
-									<input type="text" name="Username" id="Username"
-										class="login_input" />
-									密码：
-									<input type="password" name="Password" id="Password"
-										class="login_input" />
-									&nbsp;
-									<input type="button" name="Login" id="Login"
-										class="freeTrade_button03" value="登录" />
-									<a href="#" class="cRed03">[我的留言记录]</a>
-									<input id="anonymous" name="anonymous" type="checkbox"	value="0" />
-									匿名&nbsp;
-									<input type="button" name="Publish" id="Publish"	class="freeTrade_button04" value="马上发表" />
-								</p>
-							</form>
+							<p>
+								<span class="font14 cOrange"><b>顾客留言</b></span>
+								<img src="images/freeTrade_line04.jpg" width="250" height="6" align="absmiddle" />
+							</p>
+							<div class="focusPic" id="loadingDiv" style="text-align: center;" >
+								<img src="<%=contextPath %>/images/loading2.gif" style="margin: 0 auto;" />
+								<br />
+								<font style="font-weight: bold;" >加载中...</font>
+							</div>
+							<div id="commentZoneDiv" style="display: none;" >
+								<aa:zone name="commentZone">
+									<s:iterator value="commentPageView.records" id="item" >
+										<div><fsf:dictTranslate groupName="#sys_user" value="createUserId" /> <s:date name="createTime" format="yyyy-MM-dd HH:mm:ss" /> ${ip }</div>
+										<div>${content }</div>
+										<br/>
+									</s:iterator>
+									<%@ include file="/share/commentPageNavigation.jsp" %>
+									<form name="commentForm" action="/freetrade/outEstCommentList.ajax" method="post" >
+										<s:if test="#session.USER!=null">
+											<div id="commitDiv" >
+												<p><textarea name="content" onfocus="this.value=''" onblur="if(this.value=='')this.value='我来评两句！'"
+												 class="freeTrade_area">我来评两句！</textarea></p>
+												<p class="right">
+													<input type="button" name="Publish" id="Publish" onclick="f_commitComment()"
+														class="freeTrade_button04" value="马上发表" />
+												</p>
+											</div>
+											<div class="focusPic" id="loadingDiv2" style="text-align: center;display: none;" >
+												<img src="<%=contextPath %>/images/loading2.gif" style="margin: 0 auto;" />
+												<br />
+												<font style="font-weight: bold;" >处理中...</font>
+											</div>
+										</s:if>
+										<input name="estateId" type="hidden" value="${estateId }" />
+										<input name="type" type="hidden" value="1" />
+										
+										<input name="estCommentParameter._ne_estateId" type="hidden" value="${estateId }" />
+										<input name="estCommentParameter._ne_type" type="hidden" value="1" />
+										<input name="estCommentParameter._ne_status" type="hidden" value="1" />
+										<s:hidden name="estCommentParameter.currentPage" id="currentPage" />
+										<input name="estCommentParameter.maxResults" type="hidden" value="10" />
+										
+									</form>
+								</aa:zone>
+							</div>
 						</div>
+						
 					</div>
 				</div>
 				<!-- right -->
@@ -883,7 +880,47 @@ body .new_menu {
 				<div class="blank12"></div>
 				<!-- foot -->
 				<%@ include file="../CommonPage/Foot.jsp"%>
-
 			</div>
 	</body>
 </html>
+<script type="text/javascript" >
+window.onload = function(){
+	f_queryComment();
+}
+function f_queryComment(pageNum){
+	document.forms["commentForm"].action = "/freetrade/outEstCommentList.ajax";
+	if(pageNum){
+		document.forms["commentForm"]["estCommentParameter.currentPage"].value = pageNum;
+	}else{
+		document.forms["commentForm"]["estCommentParameter.currentPage"].value = 1;
+	}
+	ajaxAnywhere.formName = "commentForm";
+	ajaxAnywhere.getZonesToReload = function(){return "commentZone";} 
+	ajaxAnywhere.showLoadingMessage = function(){
+		document.getElementById('loadingDiv').style.display = "block";
+		document.getElementById('commentZoneDiv').style.display = "none";
+	}
+	ajaxAnywhere.hideLoadingMessage = function(){
+		document.getElementById('loadingDiv').style.display = "none";
+		document.getElementById('commentZoneDiv').style.display = "block";			
+	}
+	ajaxAnywhere.submitAJAX();
+}
+
+function f_commitComment(){
+	document.forms["commentForm"].action = "/freetrade/outCommitComment.ajax";
+	ajaxAnywhere.getZonesToReload = function(){return "commentZone";} 
+	ajaxAnywhere.showLoadingMessage = function(){
+		document.getElementById('loadingDiv2').style.display = "block";
+		document.getElementById('commitDiv').style.display = "none";
+	}
+	ajaxAnywhere.hideLoadingMessage = function(){
+		document.getElementById('loadingDiv2').style.display = "none";
+		document.getElementById('commitDiv').style.display = "block";			
+	}
+	ajaxAnywhere.handleWrongContentType = function(){
+		eval(this.req.responseText);
+	}
+	ajaxAnywhere.submitAJAX();
+}
+</script>
