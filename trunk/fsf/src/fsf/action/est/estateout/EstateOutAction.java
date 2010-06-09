@@ -17,9 +17,12 @@ import org.springframework.stereotype.Controller;
 import chance.base.BaseParameter;
 import chance.base.action.UploadBaseAction;
 import chance.common.QueryResult;
+import fsf.action.est.commerce.CommerceParameter;
+import fsf.beans.est.commerce.Commerce;
 import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
+import fsf.service.est.commerce.CommerceService;
 import fsf.service.est.estateout.EstateOutService;
 import fsf.service.sys.user.UserService;
 import fsf.web.common.ThreadUser;
@@ -35,6 +38,9 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 	@Resource
 	private UserService userService;
 	
+	@Resource
+	private CommerceService commerceService;
+	
 	private String flag = "out";
 	/**
 	 * 首页的搜索，不分页
@@ -48,11 +54,16 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 	 * 委托推荐，top10
 	 */
 	private List<EstateOut> recommondEstateList;
-	
+	/**
+	 * 首页最新有图房源 top4
+	 */
 	private List<EstateOut> listNewestEstate;
+	/**
+	 * 首页最新旺铺top8
+	 */
+	private List<Commerce> listCommerce;
 	
 	public String doQuery() throws Exception{
-		
 		return null;
 	}
 	
@@ -71,7 +82,16 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 			baseParameter.setTopCount(4);
 			((EstateOutParameter)baseParameter).set_nin_tradeMode(new Short[]{1,2,3});
 			((EstateOutParameter)baseParameter).set_snull_imagePath(false);
-			listNewestEstate = service.doPaginationQuery(baseParameter).getResultList();	
+			listNewestEstate = service.doPaginationQuery(baseParameter).getResultList();
+			
+			CommerceParameter param = new CommerceParameter();
+			param.set_ne_status((short)1);
+			param.setMaxResults(-1);
+			param.setCurrentPage(-1);
+			param.setTopCount(8);
+			param.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
+			listCommerce = commerceService.doPaginationQuery(param).getResultList();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -752,4 +772,12 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 	public void setListNewestEstate(List<EstateOut> listNewestEstate) {
 		this.listNewestEstate = listNewestEstate;
 	}
+
+	public List<Commerce> getListCommerce() {
+		return listCommerce;
+	}
+	public void setListCommerce(List<Commerce> listCommerce) {
+		this.listCommerce = listCommerce;
+	}
+	
 }

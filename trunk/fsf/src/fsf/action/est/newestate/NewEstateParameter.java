@@ -17,22 +17,22 @@ public class NewEstateParameter extends BaseParameter{
 	private Short _ne_status;
 	private Short _ne_isHot;
 	private Short _ne_estateType;
-	private Float _nge_area;
-	private Float _nle_area;
+	private Double _nge_area;
+	private Double _nle_area;
 	private Short _ne_isLift;
-	private Float _nge_practicalArea;
-	private Float _nle_practicalArea;
+	private Double _nge_practicalArea;
+	private Double _nle_practicalArea;
 	private Integer _ne_effective;
 	private Integer _ne_toward;
 	private Integer _ne_totalFloor;
-	private Float _nge_price;
-	private Float _nle_price;
+	private Double _nge_price;
+	private Double _nle_price;
 	private Integer _ne_hall;
 	private Integer _ne_bedroom;
 	private Integer _ne_toilet;
 	private Integer _ne_porch;
-	private Float _ne_manageCost;
-	private Float _ne_otherCost;
+	private Double _ne_manageCost;
+	private Double _ne_otherCost;
 	private Short _ne_fitment;
 	private Date _dge_createTime;
 	private Date _dle_createTime;
@@ -152,16 +152,16 @@ public class NewEstateParameter extends BaseParameter{
 	public Integer get_ne_porch(){
 		return this._ne_porch;
 	}
-	public void set_ne_manageCost(Float _ne_manageCost){
+	public void set_ne_manageCost(Double _ne_manageCost){
 		this._ne_manageCost = _ne_manageCost;
 	}
-	public Float get_ne_manageCost(){
+	public Double get_ne_manageCost(){
 		return this._ne_manageCost;
 	}
-	public void set_ne_otherCost(Float _ne_otherCost){
+	public void set_ne_otherCost(Double _ne_otherCost){
 		this._ne_otherCost = _ne_otherCost;
 	}
-	public Float get_ne_otherCost(){
+	public Double get_ne_otherCost(){
 		return this._ne_otherCost;
 	}
 	public void set_ne_fitment(Short _ne_fitment){
@@ -194,40 +194,40 @@ public class NewEstateParameter extends BaseParameter{
 	public void set_slike_estateName(String name) {
 		_slike_estateName = name;
 	}
-	public Float get_nge_area() {
+	public Double get_nge_area() {
 		return _nge_area;
 	}
-	public void set_nge_area(Float _nge_area) {
+	public void set_nge_area(Double _nge_area) {
 		this._nge_area = _nge_area;
 	}
-	public Float get_nle_area() {
+	public Double get_nle_area() {
 		return _nle_area;
 	}
-	public void set_nle_area(Float _nle_area) {
+	public void set_nle_area(Double _nle_area) {
 		this._nle_area = _nle_area;
 	}
-	public Float get_nge_practicalArea() {
+	public Double get_nge_practicalArea() {
 		return _nge_practicalArea;
 	}
-	public void set_nge_practicalArea(Float area) {
+	public void set_nge_practicalArea(Double area) {
 		_nge_practicalArea = area;
 	}
-	public Float get_nle_practicalArea() {
+	public Double get_nle_practicalArea() {
 		return _nle_practicalArea;
 	}
-	public void set_nle_practicalArea(Float area) {
+	public void set_nle_practicalArea(Double area) {
 		_nle_practicalArea = area;
 	}
-	public Float get_nge_price() {
+	public Double get_nge_price() {
 		return _nge_price;
 	}
-	public void set_nge_price(Float _nge_price) {
+	public void set_nge_price(Double _nge_price) {
 		this._nge_price = _nge_price;
 	}
-	public Float get_nle_price() {
+	public Double get_nle_price() {
 		return _nle_price;
 	}
-	public void set_nle_price(Float _nle_price) {
+	public void set_nle_price(Double _nle_price) {
 		this._nle_price = _nle_price;
 	}
 	public Date get_dge_createTime() {

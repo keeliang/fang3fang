@@ -22,6 +22,7 @@ import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.district.District;
 import fsf.beans.sys.province.Province;
 import fsf.service.sys.city.CityService;
+import fsf.service.sys.dict.DictItemService;
 import fsf.service.sys.district.DistrictService;
 import fsf.service.sys.province.ProvinceService;
 import fsf.web.common.EstFilter;
@@ -204,6 +205,9 @@ public class FSFParameterInitListener implements ServletContextListener{
 		String DynamicEntityConfig = "Entity";
 		String ItemKeyProperty = "ItemKeyProperty";
 		String ItemNameProperty = "ItemNameProperty";
+		
+		String DictItemCache = "DictItemCache";
+		
 		SAXReader reader = new SAXReader();
 		try {
 			Document doc = reader.read(getClass().getClassLoader().getResource(WebConstant.DICT_CONFIG_PATH));
@@ -236,6 +240,20 @@ public class FSFParameterInitListener implements ServletContextListener{
 				sysConfig.put(groupName, array);
 			}
 			servletContext.setAttribute(WebConstant.SYSCONFIG, sysConfig);
+			
+			//直接将参数表加入到缓存中
+			WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+			DictItemService dictItemService = (DictItemService)ctx.getBean("dictItemServiceImpl");
+			
+			Element elementCache = root.element(DictItemCache);
+			if(elementCache!=null){
+				Map<String,List<DictItem>> map  = new HashMap<String, List<DictItem>>();
+				for(Iterator<Element> itCache = elementCache.elementIterator(DictGroup);itCache.hasNext();){
+					Element dictGroup = itCache.next();
+					map.put(dictGroup.getTextTrim(), dictItemService.queryByProerties("groupName", dictGroup.getTextTrim()));
+				}
+				servletContext.setAttribute(WebConstant.CONIFG_DICT_CACHE, map);
+			}
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		} 

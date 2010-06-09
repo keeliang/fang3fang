@@ -1,11 +1,16 @@
 package fsf.service.sys.user;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import chance.base.service.BaseService;
 import chance.exception.ServiceException;
+import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.user.User;
 import fsf.dao.sys.user.UserDao;
 @Service
@@ -39,7 +44,6 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
 		super.persist(entity);
 	}
 	
-	
 	@Resource
 	public void setUserDao(UserDao userDao){
 		dao = userDao;
@@ -48,4 +52,14 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
 	public UserDao getUserDao(){
 		return (UserDao)dao;
 	}
+
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
+	public List<EstateOut> queryRecommondIndex(Integer userId) {
+		return getUserDao().queryRecommondIndex(userId);
+	}
+
+	public List<EstateOut> queryRecommond(Integer userId, Integer tradeMode) {
+		return getUserDao().queryRecommond(userId, tradeMode);
+	}
+
 }

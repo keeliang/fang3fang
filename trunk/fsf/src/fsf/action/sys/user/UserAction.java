@@ -1,6 +1,7 @@
 package fsf.action.sys.user;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -14,6 +15,9 @@ import org.springframework.stereotype.Controller;
 
 import chance.base.BaseParameter;
 import chance.base.action.UploadBaseAction;
+import chance.common.PageView;
+import chance.common.QueryResult;
+import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
 import fsf.service.sys.user.UserService;
@@ -27,6 +31,60 @@ public class UserAction extends UploadBaseAction<User> {
 		super(User.class, new String[] { "userId" },"user");
 	}
 	
+	private List<EstateOut> rentRecommond;
+	
+	private List<EstateOut> salesRecommond;
+	
+	/**
+	 * 顾问内页推荐
+	 * @return
+	 */
+	public String ajaxQueryRecommond(){
+		rentRecommond = getUserService().queryRecommond(userId, 1);
+		salesRecommond = getUserService().queryRecommond(userId, 2);
+		return SUCCESS;
+	}
+
+	/**
+	 * 顾问首页
+	 * @return
+	 * @throws Exception
+	 */
+	public String doExportList()throws Exception{
+		try {
+			if(baseParameter==null){
+				baseParameter = new UserParameter();
+			}
+			baseParameter.setMaxResults(4);
+			if(baseParameter.getCurrentPage()==null){
+				baseParameter.setCurrentPage(1);
+			}
+			UserParameter param = (UserParameter)baseParameter;
+			param.set_ne_status((short)1);
+			param.set_ne_userType((short)2);
+			param.getSortedConditions().put("level", BaseParameter.SORTED_ASC);
+			QueryResult<User> queryResult = service.doPaginationQuery(baseParameter);
+			setPageView(new PageView<User>(baseParameter.getMaxResults(),baseParameter.getCurrentPage()));
+			getPageView().setQueryResult(queryResult);
+			List<User> list = getPageView().getRecords();
+			if(list!=null && list.size()>0)
+				for(Iterator<User> it = list.iterator();it.hasNext();){
+					User u = it.next();
+					Integer userId = u.getUserId();
+					u.setRecommondEstate(getUserService().queryRecommondIndex(userId));
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return SUCCESS;
+	}
+	
+	/**
+	 * 修改密码
+	 * @return
+	 * @throws Exception
+	 */
 	public String doUpdatePassword()throws Exception{
 		User user = service.get(userId);
 		if(password!=null&&!"".equals(password)&&password.equals(user.getPassword())){
@@ -43,6 +101,11 @@ public class UserAction extends UploadBaseAction<User> {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 前台登录
+	 * @return
+	 * @throws Exception
+	 */
 	public String doFrontLogin()throws Exception{
 		User user = service.getByProerty("userCode",userCode);
 		if(user==null){
@@ -69,6 +132,11 @@ public class UserAction extends UploadBaseAction<User> {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 注册
+	 * @return
+	 * @throws Exception
+	 */
 	public String register()throws Exception{
 		if(validateCode!=null&&!"".equals(validateCode)&&
 				validateCode.equals((String)getHttpSession().getAttribute(WebConstant.VALIDATECODE))){
@@ -438,5 +506,21 @@ public class UserAction extends UploadBaseAction<User> {
 
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
+	}
+
+	public List<EstateOut> getRentRecommond() {
+		return rentRecommond;
+	}
+
+	public void setRentRecommond(List<EstateOut> rentRecommond) {
+		this.rentRecommond = rentRecommond;
+	}
+
+	public List<EstateOut> getSalesRecommond() {
+		return salesRecommond;
+	}
+
+	public void setSalesRecommond(List<EstateOut> salesRecommond) {
+		this.salesRecommond = salesRecommond;
 	}
 }

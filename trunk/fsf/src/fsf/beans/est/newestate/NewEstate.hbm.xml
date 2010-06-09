@@ -35,20 +35,20 @@
         <property name="estateType" type="short">
             <column name="estate_type" not-null="true" />
         </property>
-        <property name="area" type="big_decimal">
+        <property name="area" type="double">
             <column name="area" precision="6" not-null="true" />
         </property>
         <property name="isLift" type="short">
             <column name="is_lift" not-null="true" />
         </property>
-        <property name="practicalArea" type="big_decimal">
+        <property name="practicalArea" type="double">
             <column name="practical_area" precision="6" not-null="true" />
         </property>
         <property name="effective" type="int">
             <column name="effective" not-null="true" />
         </property>
         <property name="address" type="string">
-            <column name="address" length="128" not-null="true" />
+            <column name="address" length="80" not-null="true" />
         </property>
         <property name="toward" type="java.lang.Integer">
             <column name="toward" />
@@ -56,7 +56,7 @@
         <property name="totalFloor" type="int">
             <column name="total_floor" not-null="true" />
         </property>
-        <property name="price" type="big_decimal">
+        <property name="price" type="double">
             <column name="price" precision="14" />
         </property>
         <property name="hall" type="int">
@@ -71,10 +71,10 @@
         <property name="porch" type="int">
             <column name="porch" not-null="true" />
         </property>
-        <property name="manageCost" type="big_decimal">
+        <property name="manageCost" type="double">
             <column name="manage_cost" precision="14" not-null="true" />
         </property>
-        <property name="otherCost" type="big_decimal">
+        <property name="otherCost" type="double">
             <column name="other_cost" precision="12" scale="3" />
         </property>
         <property name="fitment" type="short">

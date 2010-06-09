@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-4-22 21:14:25 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="fsf.beans.est.recommond.Recommond" table="est_recommond" >
+        <composite-id>
+        		<key-property name="userId" type="int">
+                <column name="user_id" />
+            </key-property>
+            <key-property name="estateId" type="int">
+                <column name="estate_id" />
+            </key-property>
+        </composite-id>
+        <property name="createTime" type="java.util.Date">
+            <column name="create_time" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
