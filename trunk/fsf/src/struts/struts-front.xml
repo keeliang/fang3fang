@@ -5,13 +5,14 @@
 <struts>
 	<!-- 前台 -->
 	<package name="/main" extends="baseDefault" namespace="/main" >
+		<action name="refresh" class="refreshAction" method="refresh" />
 		<action name="infoList" class="informationAction" method="doIndexQuery">
 			<result>/main/index.jsp</result>
 		</action>
-		<action name="rollInfoList" class="informationAction" method="doRollInfoList">
+		<action name="rollInfoList" class="informationAction" method="ajaxRollInfoList">
 			<result>/main/index.jsp</result>
 		</action>
-		<action name="newestEstate" class="estateOutAction" method="doNewestEstateList">
+		<action name="newestEstate" class="estateOutAction" method="ajaxNewestEstateList">
 			<result>/main/index.jsp</result>
 		</action>
 	</package>
@@ -106,6 +107,9 @@
 			<result>/memberCenter/estateOutContent.jsp</result>
 		</action>
 		<action name="estateOutDelete" class="estateOutAction" method="doDelete">
+			<result>/memberCenter/estateOutList.jsp</result>
+		</action>
+		<action name="expertRecommond" class="estateOutAction" method="doExpertRecommond">
 			<result>/memberCenter/estateOutList.jsp</result>
 		</action>
 		

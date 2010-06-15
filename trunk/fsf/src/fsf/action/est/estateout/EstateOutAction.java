@@ -17,12 +17,11 @@ import org.springframework.stereotype.Controller;
 import chance.base.BaseParameter;
 import chance.base.action.UploadBaseAction;
 import chance.common.QueryResult;
-import fsf.action.est.commerce.CommerceParameter;
 import fsf.beans.est.commerce.Commerce;
 import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
-import fsf.service.est.commerce.CommerceService;
+import fsf.service.common.IndexCacheService;
 import fsf.service.est.estateout.EstateOutService;
 import fsf.service.sys.user.UserService;
 import fsf.web.common.ThreadUser;
@@ -37,9 +36,6 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 	
 	@Resource
 	private UserService userService;
-	
-	@Resource
-	private CommerceService commerceService;
 	
 	private String flag = "out";
 	/**
@@ -67,36 +63,22 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 		return null;
 	}
 	
+	public String doExpertRecommond()throws Exception{
+		String[] strPk = getSelectedPK();
+		if(strPk==null || strPk.length<1)
+			return SUCCESS;
+		getEstateOutService().doExpertRecommond(isRecommond,strPk);
+		return doList();
+	}
+	
 	/**
 	 * 首页的最新的有图的房源，top4
 	 * @return
 	 * @throws Exception
 	 */
-	public String doNewestEstateList()throws Exception{
-		try {
-			if(baseParameter==null){
-				baseParameter = new EstateOutParameter();
-			}
-			baseParameter.setMaxResults(-1);
-			baseParameter.setCurrentPage(-1);
-			baseParameter.setTopCount(4);
-			((EstateOutParameter)baseParameter).set_nin_tradeMode(new Short[]{1,2,3});
-			((EstateOutParameter)baseParameter).set_snull_imagePath(false);
-			listNewestEstate = service.doPaginationQuery(baseParameter).getResultList();
-			
-			CommerceParameter param = new CommerceParameter();
-			param.set_ne_status((short)1);
-			param.setMaxResults(-1);
-			param.setCurrentPage(-1);
-			param.setTopCount(8);
-			param.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
-			listCommerce = commerceService.doPaginationQuery(param).getResultList();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw e;
-		}
-		
+	public String ajaxNewestEstateList()throws Exception{
+		listNewestEstate = IndexCacheService.getListNewestEstate();
+		listCommerce = IndexCacheService.getListCommerce();
 		return SUCCESS;
 	}
 	
