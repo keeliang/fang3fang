@@ -1,6 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <div class="info_fjNews">
-		<s:if test="listInfo6.size()>0">
+		<s:if test="listInfo6!=null && listInfo6.size()>0">
 		<dl>
 			<dt>
 				<img src="images/info_pic003.jpg" width="80" height="60" alt="" title="" />
@@ -24,7 +24,7 @@
 			</s:if>
 		</s:iterator>
 	</ul>
-	<s:if test="listInfo6.size()>0">
+	<s:if test="listInfo6!=null && listInfo6.size()>0">
 		<div align="right" ><a target="_blank" href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=6&informationParameter.currentPage=1&informationParameter.maxResults=30" >更多&gt;&gt;</a></div>
 	</s:if>
 </div>
