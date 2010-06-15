@@ -33,19 +33,9 @@
 			</div>
 
 			<!-- banner -->
-			<div class="infoShow_banner">
+			<div class="infoShow_banner" >
 				<div class="infoShow_bannerL">
 					<img src="images/AD-InfoShow1.jpg" alt="" title="" style="border: 1px solid #cccccc;" />
-				</div>
-				<div class="infoShow_bannerR">
-					<div class="infoShow_bannerT">
-						近日导读
-					</div>
-					<div class="infoShow_bannerC">
-						<p>・<a href="#">网络营销解决方案网案网案</a></p>
-						<p>・<a href="#">网络营销解决方案网案网案</a></p>
-						<p>・<a href="#">网络营销解决方案网案网案</a></p>
-					</div>
 				</div>
 			</div>
 
@@ -100,18 +90,6 @@
 								${newsContent }
 							</div>
 							<div class="blank12"></div>
-							<div class="infoShow_contentL_contentShow_title">
-								<img src="images/infoS_dot01.jpg" width="7" height="7" align="absmiddle" />
-								<b>相关新闻</b>
-							</div>
-							<div class="infoShow_contentL_contentLine02"></div>
-							<ul>
-								<li>・<a href="#">宋祖德准确预测周倪结婚 称二人经济状况糟</a></li>
-								<li>・<a href="#">宋祖德准确预测周倪结婚 称二人经济状况糟</a></li>
-								<li>・<a href="#">宋祖德准确预测周倪结婚 称二人经济状况糟</a></li>
-								<li>・<a href="#">宋祖德准确预测周倪结婚 称二人经济状况糟</a></li>
-								<li>・<a href="#">宋祖德准确预测周倪结婚 称二人经济状况糟</a></li>
-							</ul>
 						</div>
 					</div>
 
@@ -181,71 +159,20 @@
 					</div>
 					<div class="col05a">
 						<ul>
-							<li>
-								<p>
-									<img src="images/p01.jpg" width="131" height="86" alt=""
-										title="" />
-								</p>
-								<p>
-									<a href="#" class="cRed02"><u>金泰・先锋</u>
-									</a>&nbsp;&nbsp;
-									<a href="#" class="cRed02"><u>业主论坛</u>
-									</a>
-								</p>
-								<p>
-									<span class="cRed02">2008.12.12</span>&nbsp;&nbsp;
-									<span class="cRed02">16000元</span>
-								</p>
-							</li>
-							<li>
-								<p>
-									<img src="images/p02.jpg" width="131" height="86" alt=""
-										title="" />
-								</p>
-								<p>
-									<a href="#" class="cRed02"><u>金泰・先锋</u>
-									</a>&nbsp;&nbsp;
-									<a href="#" class="cRed02"><u>业主论坛</u>
-									</a>
-								</p>
-								<p>
-									<span class="cRed02">2008.12.12</span>&nbsp;&nbsp;
-									<span class="cRed02">16000元</span>
-								</p>
-							</li>
-							<li>
-								<p>
-									<img src="images/p03.jpg" width="131" height="86" alt=""
-										title="" />
-								</p>
-								<p>
-									<a href="#" class="cRed02"><u>金泰・先锋</u>
-									</a>&nbsp;&nbsp;
-									<a href="#" class="cRed02"><u>业主论坛</u>
-									</a>
-								</p>
-								<p>
-									<span class="cRed02">2008.12.12</span>&nbsp;&nbsp;
-									<span class="cRed02">16000元</span>
-								</p>
-							</li>
-							<li>
-								<p>
-									<img src="images/p04.jpg" width="131" height="86" alt=""
-										title="" />
-								</p>
-								<p>
-									<a href="#" class="cRed02"><u>金泰・先锋</u>
-									</a>&nbsp;&nbsp;
-									<a href="#" class="cRed02"><u>业主论坛</u>
-									</a>
-								</p>
-								<p>
-									<span class="cRed02">2008.12.12</span>&nbsp;&nbsp;
-									<span class="cRed02">16000元</span>
-								</p>
-							</li>
-
+							<s:iterator value="@fsf.service.common.EstateOutRecommondCacheService@getListRecommond()">
+								<li>
+									<p>
+										<img src="<%=contextPath %>${imagePth }" width="131" height="86" alt="" title="" />
+									</p>
+									<p>
+										<a href="#" class="cRed02"><u>${estateName }</u></a>&nbsp;&nbsp;
+									</p>
+									<p>
+										<span class="cRed02"><s:date name="createTime" format="yyyy-MM-dd" /></span>&nbsp;&nbsp;
+										<span class="cRed02">${salePrice }元</span>
+									</p>
+								</li>							
+							</s:iterator>
 						</ul>
 					</div>
 
@@ -257,71 +184,23 @@
 					</div>
 					<div class="col05a">
 						<ul>
-							<li>
-								<p>
-									<img src="images/p01.jpg" width="131" height="86" alt=""
-										title="" />
-								</p>
-								<p>
-									<a href="#" class="cRed02"><u>金泰・先锋</u>
-									</a>&nbsp;&nbsp;
-									<a href="#" class="cRed02"><u>业主论坛</u>
-									</a>
-								</p>
-								<p>
-									<span class="cRed02">2008.12.12</span>&nbsp;&nbsp;
-									<span class="cRed02">16000元</span>
-								</p>
-							</li>
-							<li>
-								<p>
-									<img src="images/p02.jpg" width="131" height="86" alt=""
-										title="" />
-								</p>
-								<p>
-									<a href="#" class="cRed02"><u>金泰・先锋</u>
-									</a>&nbsp;&nbsp;
-									<a href="#" class="cRed02"><u>业主论坛</u>
-									</a>
-								</p>
-								<p>
-									<span class="cRed02">2008.12.12</span>&nbsp;&nbsp;
-									<span class="cRed02">16000元</span>
-								</p>
-							</li>
-							<li>
-								<p>
-									<img src="images/p03.jpg" width="131" height="86" alt=""
-										title="" />
-								</p>
-								<p>
-									<a href="#" class="cRed02"><u>金泰・先锋</u>
-									</a>&nbsp;&nbsp;
-									<a href="#" class="cRed02"><u>业主论坛</u>
-									</a>
-								</p>
-								<p>
-									<span class="cRed02">2008.12.12</span>&nbsp;&nbsp;
-									<span class="cRed02">16000元</span>
-								</p>
-							</li>
-							<li>
-								<p>
-									<img src="images/p04.jpg" width="131" height="86" alt=""
-										title="" />
-								</p>
-								<p>
-									<a href="#" class="cRed02"><u>金泰・先锋</u>
-									</a>&nbsp;&nbsp;
-									<a href="#" class="cRed02"><u>业主论坛</u>
-									</a>
-								</p>
-								<p>
-									<span class="cRed02">2008.12.12</span>&nbsp;&nbsp;
-									<span class="cRed02">16000元</span>
-								</p>
-							</li>
-
+							<s:iterator value="@fsf.service.common.EstateOutRecommondCacheService@getListOwnRecommond()">
+								<li>
+									<p>
+										<img src="<%=contextPath %>${imagePth }" width="131" height="86" alt="" title="" />
+									</p>
+									<p>
+										<a href="#" class="cRed02"><u>${estateName }</u>
+										</a>&nbsp;&nbsp;
+										<a href="#" class="cRed02"><u>业主论坛</u>
+										</a>
+									</p>
+									<p>
+										<span class="cRed02"><s:date name="createTime" format="yyyy-MM-dd" /></span>&nbsp;&nbsp;
+										<span class="cRed02">${salePrice }元</span>
+									</p>
+								</li>
+							</s:iterator>
 						</ul>
 					</div>
 

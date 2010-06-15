@@ -21,16 +21,10 @@
 		</div>
     
     <!-- banner -->
-		<div class="infoShow_banner">
-			<div class="infoShow_bannerL"><img src="images/AD-InfoShow1.jpg" alt="" title="" style="border:1px solid #cccccc;"/></div>
-		    <div class="infoShow_bannerR">
-		    	<div class="infoShow_bannerT">近日导读</div>
-		        <div class="infoShow_bannerC">
-		        	<p>・<a href="#">网络营销解决方案网案网案</a></p>
-		          <p>・<a href="#">网络营销解决方案网案网案</a></p>
-		          <p>・<a href="#">网络营销解决方案网案网案</a></p>
-		        </div>
-		    </div>
+		<div class="infoShow_banner" >
+			<div class="infoShow_bannerL" >
+				<img src="images/AD-InfoShow1.jpg" style="border:1px solid #cccccc;"/>
+			</div>
 		</div>
     
     <div class="clear"></div>
@@ -67,16 +61,6 @@
               <div class="infoShow_contentL_contentLine"></div>
               <div class="infoShow_contentL_contentShow">
 	              <div id="info_content">${informationContent }</div>
-	              <div class="blank12"></div>
-	              <div class="infoShow_contentL_contentShow_title"><img src="images/infoS_dot01.jpg" width="7" height="7" align="absmiddle" /> <b>相关新闻</b></div>
-	              <div class="infoShow_contentL_contentLine02"></div>
-                <ul>
-                	<li>・<a href="#">宋祖德准确预测周倪结婚 称二人经济状况糟</a> </li>
-                  <li>・<a href="#">宋祖德准确预测周倪结婚 称二人经济状况糟</a> </li>
-                  <li>・<a href="#">宋祖德准确预测周倪结婚 称二人经济状况糟</a> </li>
-                  <li>・<a href="#">宋祖德准确预测周倪结婚 称二人经济状况糟</a> </li>
-                  <li>・<a href="#">宋祖德准确预测周倪结婚 称二人经济状况糟</a> </li>
-                </ul>
 							</div>  
             </div>
             
@@ -129,111 +113,64 @@
         
         <!-- right -->
         <div class="infoShow_contentR">
-        	
-            <div class="infoShow_contentR_buy"><img src="images/infoS_rightTitle.jpg" width="249" height="16" alt="想发布房源信息?你只需点击右边!" title="想发布房源信息?你只需点击右边!" align="absmiddle" />&nbsp;&nbsp;<span class="cRed04">→</span>&nbsp;&nbsp;<a href="#" class="cRed04">[我要卖房]</a></div>
-            
-            
-            <div class="clear"></div>
-            <div class="blank12"></div>
-            <div class="infoShow_contentR_title"><div class="infoShow_contentR_title_line"></div><b>委托推荐</b></div>
-            <div class="col05a">
-            	<ul>
-                	<li>
-                    	<p><img src="images/p01.jpg" width="131" height="86" alt="" title="" /></p>
-                        <p><a href="#" class="cRed02"><u>金泰・先锋</u></a>&nbsp;&nbsp;<a href="#" class="cRed02"><u>业主论坛</u></a></p>
-                        <p><span class="cRed02">2008.12.12</span>&nbsp;&nbsp;<span class="cRed02">16000元</span></p>
-                    </li>
-                    <li>
-                    	<p><img src="images/p02.jpg" width="131" height="86" alt="" title="" /></p>
-                        <p><a href="#" class="cRed02"><u>金泰・先锋</u></a>&nbsp;&nbsp;<a href="#" class="cRed02"><u>业主论坛</u></a></p>
-                        <p><span class="cRed02">2008.12.12</span>&nbsp;&nbsp;<span class="cRed02">16000元</span></p>
-                    </li>
-                    <li>
-                    	<p><img src="images/p03.jpg" width="131" height="86" alt="" title="" /></p>
-                        <p><a href="#" class="cRed02"><u>金泰・先锋</u></a>&nbsp;&nbsp;<a href="#" class="cRed02"><u>业主论坛</u></a></p>
-                        <p><span class="cRed02">2008.12.12</span>&nbsp;&nbsp;<span class="cRed02">16000元</span></p>
-                    </li>
-                    <li>
-                    	<p><img src="images/p04.jpg" width="131" height="86" alt="" title="" /></p>
-                        <p><a href="#" class="cRed02"><u>金泰・先锋</u></a>&nbsp;&nbsp;<a href="#" class="cRed02"><u>业主论坛</u></a></p>
-                        <p><span class="cRed02">2008.12.12</span>&nbsp;&nbsp;<span class="cRed02">16000元</span></p>
-                    </li>
-                    
-                </ul>
+	        <div class="infoShow_contentR_buy"><img src="images/infoS_rightTitle.jpg" width="249" height="16" alt="想发布房源信息?你只需点击右边!" title="想发布房源信息?你只需点击右边!" align="absmiddle" />&nbsp;&nbsp;<span class="cRed04">→</span>&nbsp;&nbsp;<a href="#" class="cRed04">[我要卖房]</a></div>
+	        
+	        
+	        <div class="clear"></div>
+	        <div class="blank12"></div>
+	        <div class="infoShow_contentR_title"><div class="infoShow_contentR_title_line"></div><b>委托推荐</b></div>
+	        <div class="col05a">
+          	<ul>
+            	<s:iterator value="@fsf.service.common.EstateOutRecommondCacheService@getListRecommond()">
+								<li>
+									<p>
+										<img src="<%=contextPath %>${imagePth }" width="131" height="86" alt="" title="" />
+									</p>
+									<p>
+										<a href="#" class="cRed02"><u>${estateName }</u></a>&nbsp;&nbsp;
+									</p>
+									<p>
+										<span class="cRed02"><s:date name="createTime" format="yyyy-MM-dd" /></span>&nbsp;&nbsp;
+										<span class="cRed02">${salePrice }元</span>
+									</p>
+								</li>							
+							</s:iterator>
+          	</ul>
+          </div>
+          
+					<div class="clear"></div>
+          <div class="blank12"></div>
+          <div class="infoShow_contentR_title"><div class="infoShow_contentR_title_line"></div><b>自主推荐</b></div>
+          <div class="col05a">
+         		<ul>
+             	<s:iterator value="@fsf.service.common.EstateOutRecommondCacheService@getListOwnRecommond()">
+								<li>
+									<p>
+										<img src="<%=contextPath %>${imagePth }" width="131" height="86" alt="" title="" />
+									</p>
+									<p>
+										<a href="#" class="cRed02"><u>${estateName }</u>
+										</a>&nbsp;&nbsp;
+										<a href="#" class="cRed02"><u>业主论坛</u>
+										</a>
+									</p>
+									<p>
+										<span class="cRed02"><s:date name="createTime" format="yyyy-MM-dd" /></span>&nbsp;&nbsp;
+										<span class="cRed02">${salePrice }元</span>
+									</p>
+								</li>
+							</s:iterator>
+          	</ul>
           </div>
                 
-                <div class="clear"></div>
-            <div class="blank12"></div>
-            <div class="infoShow_contentR_title"><div class="infoShow_contentR_title_line"></div><b>自主推荐</b></div>
-            <div class="col05a">
-            	<ul>
-                	<li>
-                    	<p><img src="images/p01.jpg" width="131" height="86" alt="" title="" /></p>
-                        <p><a href="#" class="cRed02"><u>金泰・先锋</u></a>&nbsp;&nbsp;<a href="#" class="cRed02"><u>业主论坛</u></a></p>
-                        <p><span class="cRed02">2008.12.12</span>&nbsp;&nbsp;<span class="cRed02">16000元</span></p>
-                    </li>
-                    <li>
-                    	<p><img src="images/p02.jpg" width="131" height="86" alt="" title="" /></p>
-                        <p><a href="#" class="cRed02"><u>金泰・先锋</u></a>&nbsp;&nbsp;<a href="#" class="cRed02"><u>业主论坛</u></a></p>
-                        <p><span class="cRed02">2008.12.12</span>&nbsp;&nbsp;<span class="cRed02">16000元</span></p>
-                    </li>
-                    <li>
-                    	<p><img src="images/p03.jpg" width="131" height="86" alt="" title="" /></p>
-                        <p><a href="#" class="cRed02"><u>金泰・先锋</u></a>&nbsp;&nbsp;<a href="#" class="cRed02"><u>业主论坛</u></a></p>
-                        <p><span class="cRed02">2008.12.12</span>&nbsp;&nbsp;<span class="cRed02">16000元</span></p>
-                    </li>
-                    <li>
-                    	<p><img src="images/p04.jpg" width="131" height="86" alt="" title="" /></p>
-                        <p><a href="#" class="cRed02"><u>金泰・先锋</u></a>&nbsp;&nbsp;<a href="#" class="cRed02"><u>业主论坛</u></a></p>
-                        <p><span class="cRed02">2008.12.12</span>&nbsp;&nbsp;<span class="cRed02">16000元</span></p>
-                    </li>
-                    
-                </ul>
-          </div>
-                
-                <div class="clear"></div>
-                <div class="blank12"></div>
-                <div class="infoShow_contentR_img02"><img src="images/infoS_img004.jpg" width="360" height="140" alt="" title="" /></div>
-                
-                <div class="clear"></div>
-                <div class="blank12"></div>
-                <div class="infoShow_contentR_title"><div class="infoShow_contentR_title_line"></div><b>社区推荐</b></div>
-            <div class="infoShow_contentR_content">
-            	<ul>
-                	<li>
-                    	<p><img src="images/infoS_pic003.jpg" width="120" height="90" alt="" title="" /></p>
-                        <p><a href="#">21世纪幼稚园上学最贵</a></p>
-                    </li>
-                    <li>
-                    	<p><img src="images/infoS_pic004.jpg" width="120" height="90" alt="" title="" /></p>
-                        <p><a href="#">21世纪幼稚园上学最贵</a></p>
-                    </li>
-                </ul>
-                <div class="clear"></div>
-                <dl>
-                	<dd>・<a href="#">21世纪幼稚园上学最贵上学</a></dd>
-                    <dd>・<a href="#">21世纪幼稚园上学最贵上学</a></dd>
-                    <dd>・<a href="#">21世纪幼稚园上学最贵上学</a></dd>
-                    <dd>・<a href="#">21世纪幼稚园上学最贵上学</a></dd>
-                    <dd>・<a href="#">21世纪幼稚园上学最贵上学</a></dd>
-                    <dd>・<a href="#">21世纪幼稚园上学最贵上学</a></dd>
-                    <dd>・<a href="#">21世纪幼稚园上学最贵上学</a></dd>
-                    <dd>・<a href="#">21世纪幼稚园上学最贵上学</a></dd>
-                    <dd>・<a href="#">21世纪幼稚园上学最贵上学</a></dd>
-                    <dd>・<a href="#">21世纪幼稚园上学最贵上学</a></dd>
-                    <dd>・<a href="#">21世纪幼稚园上学最贵上学</a></dd>
-                    <dd>・<a href="#">21世纪幼稚园上学最贵上学</a></dd>
-                </dl>
-            </div>
+          <div class="clear"></div>
+          <div class="blank12"></div>
+          <div class="infoShow_contentR_img02"><img src="images/infoS_img004.jpg" width="360" height="140" alt="" title="" /></div>
         </div>
-        
         <div class="clear"></div>
         <div class="infoShow_content_bottom"></div>
-    </div>
-
-</div>
-    
-    
+	    </div>
+	</div>
   
   <div class="clear"></div>
   <div class="blank12"></div>
