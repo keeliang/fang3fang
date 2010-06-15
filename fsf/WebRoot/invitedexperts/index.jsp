@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -27,32 +27,32 @@
 						<div class="headMenuLine"></div>
 						<ul class="menuList">
 							<li>
-								<a href="../main/index.jsp"><span>首页</span> </a>
+								<a href="<%=contextPath %>/main/index.jsp"><span>首页</span></a>
 							</li>
 							<li>
-								<a href="../freetrade/index.jsp"><span>自主交易</span> </a>
+								<a href="<%=contextPath %>/freetrade/index.jsp"><span>自主交易</span></a>
 							</li>
 							<li>
-								<a href="../entrustTrade/index.jsp"><span>委托代理</span> </a>
+								<a href="<%=contextPath %>/entrustTrade/index.jsp"><span>委托代理</span></a>
 							</li>
 							<li>
-								<a href="../newHouse/index.jsp"><span>新房推荐</span> </a>
+								<a href="<%=contextPath %>/newHouse/index.jsp"><span>新房推荐</span></a>
 							</li>
 							<li>
-								<a href="../Info/index.jsp"><span>地产资讯</span> </a>
+								<a href="<%=contextPath %>/Info/infoIndexList.action"><span>地产资讯</span></a>
 							</li>
 							<li>
-								<a href="../forum/index.jsp"><span>论坛</span> </a>
+								<a href="<%=contextPath %>/forum/index.jsp"><span>论坛</span></a>
 							</li>
 							<li>
-								<a href="../CoBank/index.jsp"><span>银行合作</span> </a>
+								<a href="<%=contextPath %>/CoBank/index.jsp"><span>银行合作</span> </a>
 							</li>
 							<li>
-								<a href="../rent/index.jsp"><span>旺铺招租</span>
+								<a href="<%=contextPath %>/commerce/commerceIndex.action"><span>旺铺招租</span></a>
 								</a>
 							</li>
 							<li class="menuHere">
-								<a href="index.jsp"><span>专家顾问</span>
+								<a href="<%=contextPath %>/invitedexperts/index.action"><span>专家顾问</span> </a>
 								</a>
 							</li>
 						</ul>
@@ -124,11 +124,16 @@
 										<ul>
 											<li class="expertName2">
 												<a href="ExpertsHouse.jsp">${realName }</a>
-												<img src="images/blue_1.gif" />
-												<img src="images/blue_1.gif" />
-												<img src="images/email.png" alt="给我发E-mail" />
+												<s:bean name="org.apache.struts2.util.Counter" id="i" >
+													<s:param name="first" value="1"/>
+													<s:param name="last" value="level"/>
+													<s:iterator>
+														<img src="images/blue_1.gif" />
+													</s:iterator>
+												</s:bean>
+												<a href="mailto:${email }" title="给${realName }发邮件"><img src="images/email.png" alt="给我发E-mail" /></a>
 												&nbsp;
-												<img src="images/qq.gif" alt="在线联系我" />
+												<a href="tencent://message/?uin=${qq }" title="给${realName }发QQ信息"><img src="images/qq.gif" alt="在线联系我" /></a>
 												<a href="<%=contextPath %>/invitedexperts/exportHouse.action?userId=${userId }"><img src="images/house.gif" alt="进入我的空间" /></a>
 												<br/>
 											<li>
