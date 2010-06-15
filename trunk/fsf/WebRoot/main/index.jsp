@@ -1,5 +1,4 @@
-<%@ page language="java" pageEncoding="UTF-8"
-	contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
@@ -31,11 +30,13 @@
 				document.getElementById('loadingDiv').style.display = "none";
 				document.getElementById('rollInfoDiv').style.display = "block";			
 			}
-			aa1.getAJAX("/main/infoList.ajax","listInfo,rollList");
+			aa1.getAJAX("/main/newestEstate.ajax","listNewestEstate,listCommerce");
 			aa1.onAfterResponseProcessing = function (){
 				var aa2 = new AjaxAnywhere();
+				aa2.showLoadingMessage = function(){}
+				aa2.hideLoadingMessage = function(){}
 				aa2.bindById();
-				aa2.getAJAX("/main/newestEstate.ajax","listNewestEstate,listCommerce");
+				aa2.getAJAX("/main/rollInfoList.ajax","listInfo,rollList");
 			}
 		}
 		</script>
@@ -52,35 +53,31 @@
 						<div class="headMenuLine"></div>
 						<ul class="menuList">
 							<li class="menuHere">
-								<a href="index.jsp"><span>首页</span>
-								</a>
+								<a href="<%=contextPath %>/main/index.jsp"><span>首页</span></a>
 							</li>
 							<li>
-								<a href="../freetrade/index.jsp"><span>自主交易</span>
-								</a>
+								<a href="<%=contextPath %>/freetrade/index.jsp"><span>自主交易</span></a>
 							</li>
 							<li>
-								<a href="../entrustTrade/index.jsp"><span>委托代理</span>
-								</a>
+								<a href="<%=contextPath %>/entrustTrade/index.jsp"><span>委托代理</span></a>
 							</li>
 							<li>
-								<a href="../newHouse/index.jsp"><span>新房推荐</span> </a>
+								<a href="<%=contextPath %>/newHouse/index.jsp"><span>新房推荐</span></a>
 							</li>
 							<li>
-								<a href="<%=contextPath %>/Info/infoIndexList.action"><span>地产资讯</span>
-								</a>
+								<a href="<%=contextPath %>/Info/infoIndexList.action"><span>地产资讯</span></a>
 							</li>
 							<li>
-								<a href="../forum/index.jsp"><span>论坛</span> </a>
+								<a href="<%=contextPath %>/forum/index.jsp"><span>论坛</span></a>
 							</li>
 							<li>
-								<a href="../CoBank/index.jsp"><span>银行合作</span> </a>
+								<a href="<%=contextPath %>/CoBank/index.jsp"><span>银行合作</span> </a>
 							</li>
 							<li>
-								<a href="../rent/index.jsp"><span>旺铺招租</span> </a>
+								<a href="<%=contextPath %>/commerce/commerceIndex.action"><span>旺铺招租</span></a>
 							</li>
 							<li>
-								<a href="../invitedexperts/index.jsp"><span>专家顾问</span> </a>
+								<a href="<%=contextPath %>/invitedexperts/index.action"><span>专家顾问</span> </a>
 							</li>
 						</ul>
 					</div>
@@ -92,9 +89,8 @@
 					</s:if>
 					<s:else>
 						您好！${USER.userCode }
-						<a href="../memberCenter/index.action" class="cYellow"> [会员中心]
-						</a>
-						<a href="../CommonPage/ClearSession.jsp" class="cYellow">[注销]</a>
+						<a href="<%=contextPath %>/memberCenter/index.action" class="cYellow"> [会员中心]</a>
+						<a href="<%=contextPath %>/CommonPage/ClearSession.jsp" class="cYellow">[注销]</a>
 					</s:else>
 				</div>
 				<div class="clear"></div>
@@ -107,9 +103,9 @@
 			<div class="info_img" align="left">
 				<EMBED src='images/gg06.swf' quality=high WIDTH=820 HEIGHT=102
 					TYPE='application/x-shockwave-flash' id=ad wmode=opaque></EMBED>
-				<span style="width: 10px;"> <a
+				<span style="width: 10px;"><a
 					href="http://webchat.tq.cn/sendmain.jsp?uin=8827338&ltype=0&page=&localurl=http://localhost:8080/Fang3FangWeb/f3f/main/&uingroup=8827338&chattype=5&transferpage=1&tq_bottom_ad_url=http://qtt.tq.cn/post/sendmain.html&tq_right_infocard_url=http://qtt.tq.cn/showcard.do&buttonsflag=&buttonsflag=&iscallback=1&agentid=0&isnoshowuser=no&rand=149091121842">
-						<img src="http://sysimages.tq.cn/images/kefu7.gif" /> </a> </span>
+						<img src="http://sysimages.tq.cn/images/kefu7.gif" /></a></span>
 			</div>
 
 			<!-- content -->
@@ -126,12 +122,12 @@
 								</div>
 								<ul>
 									<li>
-										<a href="#" onmouseover="javascript:jumpTo(1);"> <img
+										<a href="#" onmouseover="javascript:jumpTo(1);"><img
 												src="images/BuySell_nav01On.jpg" width="119" height="30"
 												alt="我要买房" title="我要买房" /> </a>
 									</li>
 									<li>
-										<a href="#" onmouseover="javascript:jumpTo(2);"> <img
+										<a href="#" onmouseover="javascript:jumpTo(2);"><img
 												src="images/BuySell_nav02.jpg" width="119" height="30"
 												alt="我要卖房" title="我要卖房" /> </a>
 									</li>
@@ -297,15 +293,16 @@
 									</div>
 									<!--  左侧滚动图片资讯 -->
 									<div class="focusPic" id="rollInfoDiv" style="display: none;" >
+									
 										<aa:zone name="rollList">
 											<s:iterator value="listRollInfo" status="st">
 												<div id="focusPic<s:property value='#st.count' />" <s:if test="st.count==1">style='display: block;'</s:if> <s:else>style='display: none;'</s:else> >
 													<div class="pic">
-														<img src="<%=contextPath %>${imagePath }" border="0" height="200" width="274" />
+														<a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" ><img src="<%=contextPath %>${imagePath }" border="0" height="200" width="274" /></a>
 													</div>
 													<div class="le02">
-														<p class="font14"><a href="#" class="cOrange"><b>${informationTitle}</b></a></p>
-														<p><s:property value="@chance.util.HtmlUtils@removeHTML(informationContent,22)" /><a href="#" class="cOrange"><b>&nbsp;&nbsp;详细</b></a></p>
+														<p class="font14"><a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" class="cOrange" ><b>${informationTitle}</b></a></p>
+														<p><s:property value="@chance.util.HtmlUtils@removeHTML(informationContent,38)" /><a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" class="cOrange"><b>&nbsp;&nbsp;详细</b></a></p>
 													</div>
 												</div>
 											</s:iterator>
@@ -334,15 +331,21 @@
 												</div>
 											</div>
 										</aa:zone>
+										
 									</div>
-									<!-- 中间精品房源 -->
+									<!-- 中间房源 -->
 									<div class="cen">
 										<aa:zone name="listNewestEstate">
 											<ul>
 												<s:iterator value="listNewestEstate">
 													<li>
 														<p>
-															<a href="#" target="_blank">
+															<s:if test="tradeType==1">
+																<a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" target="_blank">
+															</s:if>
+															<s:if test="tradeType==2">
+																<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" target="_blank">
+															</s:if>
 																<img src="<%=contextPath%>${imagePath }" width="70" height="55" border="0" alt="" title="" />
 															</a>
 														</p>
@@ -364,7 +367,7 @@
 									<div class="rig">
 										<div class="rig1">
 											<div class="rig1_title">
-												<span class="more"><a href="../Info/index.jsp">MORE</a>
+												<span class="more"><a href="<%=contextPath %>/Info/infoIndexList.action">MORE</a>
 												</span>最新地产资讯
 											</div>
 											<aa:zone name="listInfo">
@@ -373,7 +376,7 @@
 														<s:iterator value="listInfo" id="item">
 															<li>
 																<span>
-																	<a href="../Info/show.jsp">
+																	<a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" >
 																		<s:property value="@chance.util.HtmlUtils@removeHTML(#item.informationTitle,22)" />
 																	</a>
 																</span>
@@ -413,7 +416,7 @@
 												<div id="p1">
 													<p>
 														<img src="images/sound_note.gif" width="16" height="16" align="absmiddle" />
-														<a href="">${title }</a>
+														<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=${commerceId }" target="blank" >${title }</a>
 													</p>
 												</div>
 											</li>
