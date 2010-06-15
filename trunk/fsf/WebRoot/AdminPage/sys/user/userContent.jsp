@@ -251,7 +251,8 @@
 			<s:text name="level"/>:
 		</td>
 		<td>
-			<s:textfield name="level" /><font color="red">*</font>
+			<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$expert_level')" name="level" id="level"  
+			listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/><font color="red">*</font>
 		</td>
 	</tr>
 	<tr>
