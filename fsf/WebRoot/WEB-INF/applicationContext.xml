@@ -66,4 +66,59 @@
 	<!-- 使用annotation定义事务 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
+	<!-- 改变有效天数 -->
+	<bean id="updateEffectiveJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="updateEffectiveService" />
+		<property name="targetMethod" value="refresh" />
+	</bean>
+	<!-- 每天 00:00 执行 -->
+	<bean id="updateEffectiveTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="updateEffectiveJob" />
+		<property name="cronExpression" value="0 0 0 * * ?" />
+	</bean>
+	<!-- 删除无用图片 -->
+	<bean id="deleteImageFileJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="deleteImageFileService" />
+		<property name="targetMethod" value="refresh" />
+	</bean>
+	<!-- 每月 1号03:00 执行 -->
+	<bean id="deleteImageFileTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="deleteImageFileJob" />
+		<property name="cronExpression" value="0 0 3 1 * ?" />
+	</bean>
+	
+	<!-- 每一小时刷新推荐房源缓存 -->
+	<bean id="estateOutRecommondCacheJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="estateOutRecommondCacheService" />
+		<property name="targetMethod" value="refresh" />
+	</bean>
+	<bean id="estateOutRecommondCacheTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+    <property name="jobDetail" ref="estateOutRecommondCacheJob" />
+    <property name="startDelay" value="5000" />
+  	<property name="repeatInterval" value="3600000" />
+	</bean>
+	
+	<!-- 每一小时刷新首页滚动和首页资讯 -->
+	<bean id="indexCacheServiceJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="indexCacheService" />
+		<property name="targetMethod" value="refresh" />
+	</bean>
+	<bean id="indexCacheServiceTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+    <property name="jobDetail" ref="indexCacheServiceJob" />
+    <property name="startDelay" value="2000" />
+  	<property name="repeatInterval" value="3600000" />
+	</bean>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false" >
+		<property name="triggers">
+			<list>
+				<ref bean="updateEffectiveTrigger" />
+				<ref bean="deleteImageFileTrigger" />
+				<ref bean="estateOutRecommondCacheTrigger" />
+				<ref bean="indexCacheServiceTrigger" />
+			</list>
+		</property>
+	</bean>
+	
+
 </beans>
