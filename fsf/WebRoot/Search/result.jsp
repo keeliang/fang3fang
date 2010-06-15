@@ -31,7 +31,12 @@
 						<s:iterator value="pageView.records" id="item">
 							<tr>
 								<td>
-									<img src="" width="105" height="80" />
+									<s:if test="imagePath!=null">
+										<img src="<%=contextPath %>${imagePath }" width="105" height="80" />
+									</s:if>
+									<s:else>
+										<img src="<%=contextPath %>/images/logo.gif" width="105" height="80" />
+									</s:else>
 								</td>
 								<td>
 									<s:if test="estateOutParameter._ne_tradeType==1">
@@ -66,7 +71,12 @@
 						<s:iterator value="pageView.records" id="item">
 							<tr>
 								<td>
-									<img src="" width="105" height="80" />
+									<s:if test="imagePath!=null">
+										<img src="<%=contextPath %>${imagePath }" width="105" height="80" />
+									</s:if>
+									<s:else>
+										<img src="<%=contextPath %>/images/logo.gif" width="105" height="80" />
+									</s:else>
 								</td>
 								<td>
 									<s:if test="estateOutParameter._ne_tradeType==1">
@@ -178,7 +188,12 @@
 					<s:iterator value="pageView.records" id="item">
 						<tr>
 							<td>
-								<img src="" width="105" height="80" />
+								<s:if test="imagePath!=null">
+									<img src="<%=contextPath %>${imagePath }" width="105" height="80" />
+								</s:if>
+								<s:else>
+									<img src="<%=contextPath %>/images/logo.gif" width="105" height="80" />
+								</s:else>
 							</td>
 							<td>
 								<a href="<%=contextPath %>/newHouse/content.action?estateId=<s:property value="#item.estateId" />" target="blank" >
