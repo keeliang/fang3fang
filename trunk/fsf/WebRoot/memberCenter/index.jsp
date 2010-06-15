@@ -110,7 +110,7 @@
 				<div class="memberC_mid">
 					<div class="memberC_midInfo">
 						<p>
-							<b class="font14">欢迎您，<span class="cOrange"></span>!</b>[ 您是${USER.userCode } ]
+							<b class="font14">欢迎您，<span class="cOrange"></span>!</b>[ 您是${USER.userCode } ]&nbsp;您是:<fsf:dictTranslate groupName="$user_type" value="#session.USER.userType" />
 						</p>
 						<p>
 							[

@@ -39,8 +39,7 @@
 				<s:hidden name="estateOutParameter.maxResults" id="maxResults" />
 				<s:hidden name="estateOutParameter._ne_tradeType" />
 				<s:hidden name="estateOutParameter._ne_createUserId" />
-				
-				
+				<input type="hidden" name="isRecommond" value="1" />
 				
 				<div class="memberC_allRight02">
 					<!-- right -->
@@ -81,6 +80,10 @@
 							</tr>
 							<tr>
 								<td colspan="4" align="right">
+									<s:if test="#session.USER.userType!=3">
+										<input class="memberC_button1" type="button" onclick="f_recommond(1)" value="设为推荐" />
+										<input class="memberC_button1" type="button" onclick="f_recommond(0)" value="设为不推荐" />
+									</s:if>
 									<input class="memberC_button1" type="button" onclick="g_delete('/memberCenter/estateOutDelete.action')" value="删除" />
 									<input class="memberC_button1" type="button" onclick="g_list()" value="搜索" />
 								</td>
@@ -143,3 +146,10 @@
 		<%@ include file="../CommonPage/Foot.jsp"%>
 	</body>
 </html>
+<script type="text/javascript" >
+function f_recommond(val){
+	document.forms["formList"].action = "/memberCenter/expertRecommond.action";
+	document.forms["formList"].isRecommond.value = val;
+	document.forms["formList"].submit();
+}
+</script>
