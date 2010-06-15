@@ -32,33 +32,32 @@
 						<div class="headMenuLine"></div>
 						<ul class="menuList">
 							<li>
-								<a href="../main/index.jsp"><span>首页</span> </a>
+								<a href="<%=contextPath %>/main/index.jsp"><span>首页</span></a>
 							</li>
-							<li class="menuHere">
-								<a href="index.jsp"><span>自主交易</span> </a>
-							</li>
-							<li>
-								<a href="../entrustTrade/index.jsp"><span>委托代理</span> </a>
+							<li class="menuHere" >
+								<a href="<%=contextPath %>/freetrade/index.jsp"><span>自主交易</span></a>
 							</li>
 							<li>
-								<a href="../newHouse/index.jsp"><span>新房推荐</span> </a>
+								<a href="<%=contextPath %>/entrustTrade/index.jsp"><span>委托代理</span></a>
 							</li>
 							<li>
-								<a href="../Info/index.jsp"><span>地产资讯</span> </a>
+								<a href="<%=contextPath %>/newHouse/index.jsp"><span>新房推荐</span></a>
 							</li>
 							<li>
-								<a href="../forum/index.jsp"><span>论坛</span> </a>
+								<a href="<%=contextPath %>/Info/infoIndexList.action"><span>地产资讯</span></a>
 							</li>
 							<li>
-								<a href="../CoBank/index.jsp"><span>银行合作</span> </a>
+								<a href="<%=contextPath %>/forum/index.jsp"><span>论坛</span></a>
 							</li>
 							<li>
-								<a href="../rent/index.jsp"><span>旺铺招租</span> </a>
+								<a href="<%=contextPath %>/CoBank/index.jsp"><span>银行合作</span> </a>
 							</li>
 							<li>
-								<a href="../invitedexperts/index.jsp"><span>专家顾问</span> </a>
+								<a href="<%=contextPath %>/commerce/commerceIndex.action"><span>旺铺招租</span></a>
 							</li>
-
+							<li>
+								<a href="<%=contextPath %>/invitedexperts/index.action"><span>专家顾问</span> </a>
+							</li>
 						</ul>
 					</div>
 				</div>
