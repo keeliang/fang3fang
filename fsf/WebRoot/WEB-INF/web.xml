@@ -25,7 +25,7 @@
 	<listener>
 		<listener-class>chance.common.SystemConfigInitListener</listener-class>
 	</listener>
-<!-- 
+ 
 	<filter>
 		<filter-name>userLoginFilter</filter-name>
 		<filter-class>fsf.web.filter.UserLoginFilter</filter-class>
@@ -36,13 +36,17 @@
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>userLoginFilter</filter-name>
+		<url-pattern>*.ajax</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>userLoginFilter</filter-name>
 		<url-pattern>*.jsp</url-pattern>
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>userLoginFilter</filter-name>
 		<url-pattern>/</url-pattern>
 	</filter-mapping>
-	 -->
+
 	<filter>
 		<filter-name>AjaxAnywhere</filter-name>
 		<filter-class>org.ajaxanywhere.AAFilter</filter-class>
