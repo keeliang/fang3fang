@@ -8,11 +8,11 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import chance.base.BaseParameter;
 import chance.base.action.BaseAction;
 import chance.common.QueryResult;
 import fsf.beans.info.information.Information;
 import fsf.beans.sys.user.User;
+import fsf.service.common.IndexCacheService;
 import fsf.service.info.information.InformationService;
 import fsf.web.common.ThreadUser;
 
@@ -41,32 +41,9 @@ public class InformationAction extends BaseAction<Information> {
 	 * @return
 	 * @throws Exception
 	 */
-	public String doIndexQuery() throws Exception {
-		try {
-			if (baseParameter == null) {
-				baseParameter = new InformationParameter();
-			}
-			//首页
-			baseParameter.setMaxResults(-1);
-			baseParameter.setCurrentPage(-1);
-			baseParameter.setTopCount(10);
-			InformationParameter p = (InformationParameter)baseParameter;
-			p.set_ne_status((short)1);
-			baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
-			listInfo = service.doPaginationQuery(baseParameter).getResultList();
-			//下面是滚动
-			baseParameter = new InformationParameter();
-			baseParameter.setMaxResults(-1);
-			baseParameter.setCurrentPage(-1);
-			baseParameter.setTopCount(4);
-			p = (InformationParameter)baseParameter;
-			p.set_ne_status((short)1);
-			baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
-			listRollInfo = service.doPaginationQuery(baseParameter).getResultList();
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw e;
-		}
+	public String ajaxRollInfoList() throws Exception {
+		listInfo = IndexCacheService.getListInfo();
+		listRollInfo = IndexCacheService.getListRollInfo();
 		return SUCCESS;
 	}
 	

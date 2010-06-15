@@ -57,7 +57,8 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
 	public List<EstateOut> queryRecommondIndex(Integer userId) {
 		return getUserDao().queryRecommondIndex(userId);
 	}
-
+	
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	public List<EstateOut> queryRecommond(Integer userId, Integer tradeMode) {
 		return getUserDao().queryRecommond(userId, tradeMode);
 	}

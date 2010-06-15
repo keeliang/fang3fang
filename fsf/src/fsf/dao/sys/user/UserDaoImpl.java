@@ -22,7 +22,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao{
 	}
 	
 	public List<EstateOut> queryRecommondIndex(Integer userId){
-		String hql = "select o from Recommond a,EstateOut o where a.estateId = o.estateId and o.tradeMode in (1,2,3) and a.userId = ? order by a.createTime asc";
+		String hql = "select o from Recommond a,EstateOut o where a.estateId = o.estateId and o.tradeMode in (1,2,3) and a.userId = ? order by a.createTime desc";
 		Query query = getSession().createQuery(hql);
 		query.setParameter(0, userId);
 		query.setMaxResults(3);
@@ -31,7 +31,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao{
 	}
 	
 	public List<EstateOut> queryRecommond(Integer userId,Integer tradeMode){
-		StringBuffer sb = new StringBuffer("select o from Recommond a,EstateOut o where a.estateId = o.estateId and a.userId = ? ");
+		StringBuffer sb = new StringBuffer("select o from Recommond a,EstateOut o where a.estateId = o.estateId and a.userId = ? order by a.createTime desc");
 		if(tradeMode==1){
 			sb.append(" and o.tradeMode in (1,3) ");
 		}else if(tradeMode==2){

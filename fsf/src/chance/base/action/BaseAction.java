@@ -288,6 +288,10 @@ public abstract class BaseAction<E> extends ActionSupport {
 	 */
 	protected void afterPersist() {}
 	/**
+	 * override this method to handler where after load entity that is null
+	 */
+	protected void nullEntityHandler(){}
+	/**
 	 * reset the action instance properties
 	 * @param entity
 	 * @throws Exception
@@ -299,8 +303,12 @@ public abstract class BaseAction<E> extends ActionSupport {
 				for(String pk : pkArray){
 					BeanUtils.setProperty(this, "old_"+pk, BeanUtils.getProperty(entity, pk));
 				}
+		}else{
+			nullEntityHandler();
 		}
 	}
+	
+	
 
 	public ServletContext getServletContext(){
 		return ServletActionContext.getServletContext();

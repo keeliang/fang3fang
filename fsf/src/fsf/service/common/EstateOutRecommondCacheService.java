@@ -12,7 +12,7 @@ import chance.base.BaseParameter;
 import fsf.beans.est.estateout.EstateOut;
 import fsf.dao.est.estateout.EstateOutDao;
 
-@Service("")
+@Service("estateOutRecommondCacheService")
 public class EstateOutRecommondCacheService implements ScheduleService{
 	
 	/**
@@ -33,22 +33,33 @@ public class EstateOutRecommondCacheService implements ScheduleService{
 	}
 
 	public void init() {
-		
+		refresh();
 	}
 
 	public void refresh() {
-		BaseParameter param = new BaseParameter();
-		param.getQueryDynamicConditions().put("_ne_tradeType", (short)1);
-		param.getQueryDynamicConditions().put("_ne_isRecommond", (short)1);
-		param.getQueryDynamicConditions().put("_nin_tradeMode", new Short[]{2,3});
-		param.setCurrentPage(-1);
-		param.setMaxResults(-1);
-		param.setTopCount(4);
-		param.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
 		try {
+			BaseParameter param = new BaseParameter();
+			param.getQueryDynamicConditions().put("_ne_tradeType", (short)1);
+			param.getQueryDynamicConditions().put("_ne_isRecommond", (short)1);
+			param.getQueryDynamicConditions().put("_nin_tradeMode", new Short[]{2,3});
+			param.setCurrentPage(-1);
+			param.setMaxResults(-1);
+			param.setTopCount(4);
+			param.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
 			listOwnRecommond = estateOutDao.doPaginationQuery(param).getResultList();
+			
+			param.getQueryDynamicConditions().put("_ne_tradeType", (short)2);
+			listRecommond = estateOutDao.doPaginationQuery(param).getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static List<EstateOut> getListOwnRecommond(){
+		return listOwnRecommond;
+	}
+	
+	public static List<EstateOut> getListRecommond(){
+		return listRecommond;
 	}
 }
