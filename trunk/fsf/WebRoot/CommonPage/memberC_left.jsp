@@ -14,9 +14,6 @@
 			<p class="font14">
 				<img src="images/memberC_leftDot02.jpg" width="26" height="21"
 					align="absmiddle" />
-				&nbsp;
-				<b><a href="AJLoan.jsp" class="cRedB">按揭贷款</a>
-				</b>
 			</p>
 			<p class="memberC_leftShow_line"></p>
 			<dl>
@@ -45,11 +42,7 @@
 			<div class="memberC_leftShow">
 				<div class="blank10"></div>
 				<p class="font14">
-					<img src="images/memberC_leftDot03.jpg" width="26" height="21"
-						align="absmiddle" />
-					&nbsp;
-					<b><a href="JGFunds.jsp" class="cRedB">资金监管</a>
-					</b>
+					<img src="images/memberC_leftDot03.jpg" width="26" height="21" align="absmiddle" />
 				</p>
 				<p class="memberC_leftShow_line"></p>
 				<dl>
@@ -78,12 +71,6 @@
 			<div class="blank10"></div>
 			<dl>
 				<dd>
-					<a href="ListAJLoan.jsp" class="cRed06">按揭贷款</a>
-				</dd>
-				<dd>
-					<a href="ListJGFunds.jsp" class="cRed06">资金监管</a>
-				</dd>
-				<dd>
 					自主交易区-<a href="<%=contextPath %>/memberCenter/estateInOwnList.action?estateInParameter._ne_createUserId=${USER.userId }&estateInParameter._ne_tradeType=1" class="cRed06">求购求租管理</a>
 				</dd>
 				<dd>
@@ -93,7 +80,7 @@
 					委托交易区-<a href="<%=contextPath %>/memberCenter/estateInList.action?estateInParameter._ne_createUserId=${User.userId }&estateInParameter._ne_tradeType=2" class="cRed06">求购求租管理</a>
 				</dd>
 				<dd>
-					委托交易区-<a href="<%=contextPath %>/memberCenter/estateOutOwnList.action?estateOutParameter._ne_createUserId=${USER.userId }&estateOutParameter._ne_tradeType=2" class="cRed06">出售出租管理</a>
+					委托交易区-<a href="<%=contextPath %>/memberCenter/estateOutList.action?estateOutParameter._ne_createUserId=${USER.userId }&estateOutParameter._ne_tradeType=2" class="cRed06">出售出租管理</a>
 				</dd>
 			</dl>
 			<div class="blank10"></div>
