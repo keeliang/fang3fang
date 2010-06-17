@@ -18,7 +18,7 @@
 <title>${pageTitle?default("JForum")?html}</title>
 
 </head>
-<body class="${language}">
+<body style="background-color:#FFFFFF;text-align:center;margin:0 auto;color:#666;" class="${language}">
 
 <!--
 Original theme from phpBB (http://www.phpbb.com) subSilver
@@ -32,6 +32,95 @@ Modifications by JForum Team
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" width="100%" border="0">
+				<tr>
+					<td colspan="2">
+						<div class="box">
+
+	<!-- new menu -->
+    	
+	<!-- head -->
+     <div class="head">
+    	<div class="logo"><a href="../main/index.jsp"><img src="${contextPath}/images/logo.jpg" width="154" height="51" alt="fang3fang" title="fang3fang" /></a></div>
+      <div class="web_des">
+        	<p><span class="cOrange headerFont">${I18n.getMessage("ForumHeader.header")}</span></p>
+            <p><a href="#" class="headerFont">${I18n.getMessage("ForumHeader.yzsq")}</a></p>
+      </div>
+        <div class="menu">
+        	<ul>
+            	<li><a href="../memberCenter/index.jsp"><img src="${contextPath}/images/head_buy.jpg" width="55" height="50" align="absmiddle" /><b class="headerFont">${I18n.getMessage("ForumHeader.buy")}</b></a></li>
+                <li><a href="../memberCenter/index.jsp"><img src="${contextPath}/images/head_sell.jpg" width="55" height="50" align="absmiddle" /><b class="headerFont">${I18n.getMessage("ForumHeader.sell")}</b></a></li>
+                <li><a href="../help/findHouse.jsp"><img src="${contextPath}/images/head_help.jpg" width="55" height="50" align="absmiddle" /><b class="headerFont">${I18n.getMessage("ForumHeader.trayHelp")}</b></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+     
+     <!-- menu -->
+     <div class="nav">
+       <div class="navL">
+					<div class="headMenu">
+						<div class="headMenuLine"></div>
+						<ul class="menuList">
+							<li>
+								<a href="../main/index.jsp"><span>${I18n.getMessage("index")}</span>
+								</a>
+							</li>
+							<li>
+								<a href="../freetrade/index.jsp"><span>${I18n.getMessage("ForumHeader.tray")}</span>
+								</a>
+							</li>
+							<li>
+								<a href="../entrustTrade/index.jsp"><span>${I18n.getMessage("ForumHeader.proxy")}</span>
+								</a>
+							</li>
+							<li>
+								<a href="../newHouse/index.jsp"><span>${I18n.getMessage("ForumHeader.newEst")}</span>
+								</a>
+							</li>
+							<li>
+								<a href="../Info/index.jsp"><span>${I18n.getMessage("ForumHeader.estNew")}</span>
+								</a>
+							</li>
+							<li class="menuHere">
+								<span>${I18n.getMessage("ForumHeader.forum")}</span>
+							</li>
+							<li>
+								<a href="../CoBank/index.jsp"><span>${I18n.getMessage("ForumHeader.bank")}</span>
+								</a>
+							</li>
+							<li><a href="${contextPath}/commerce/commerceIndex.action"><span>${I18n.getMessage("ForumHeader.commerce")}</span></a></li> 
+                  			<li><a href="../invitedexperts/index.jsp"><span>${I18n.getMessage("ForumHeader.gw")}</span></a></li>
+						</ul>
+					</div>
+				</div> 
+       <div class="navR">
+					
+					<a href="../member/reg.jsp" class="cYellow"> [${I18n.getMessage("ForumHeader.register")}] </a>
+					<a href="../member/login.jsp" class="cYellow">[${I18n.getMessage("ForumHeader.login")}]</a>
+					
+					<a href="../memberCenter/index.jsp" class="cYellow"> [${I18n.getMessage("ForumHeader.menberCenter")}] </a>
+					<a href="../CommonPage/ClearSession.jsp" class="cYellow">[${I18n.getMessage("ForumHeader.zx")}]</a>
+					
+		</div>
+        <div class="clear"></div>
+    	<div class="nav_bottom">
+        	<div class="nav_bottomL"></div>
+            <div class="nav_bottomR"></div>
+        </div>
+    </div>
+    
+    <!-- wangpu -->
+    <div class="wangpu_top">
+    	<div class="wangpu_topL"><img src="${contextPath}/commerce/images/wangpu_img01.jpg" width="709" height="101" alt="" title="" /></div>
+      <div class="wangpu_topR">
+       	  <p class="cOrange bold headerFont">${I18n.getMessage("ForumHeader.link")}</p>
+          <p class="headerFont"><img src="images/info_dot01.jpg" width="5" height="5" align="absmiddle"  />${I18n.getMessage("ForumHeader.kf")}MSN: sever@fang3fang.com</p>
+          <p class="headerFont"><img src="images/info_dot01.jpg" width="5" height="5" align="absmiddle"  />${I18n.getMessage("ForumHeader.kf")}QQ: 3921958912</p>
+          <p class="headerFont"><img src="images/info_dot01.jpg" width="5" height="5" align="absmiddle"  /> ${I18n.getMessage("ForumHeader.kftel")}:86-10-82790251</p>
+        </div>
+    </div>
+					</td>
+				</tr>
 				<tr>
 					<td>
 						<a href="${homepageLink}"><img src="${contextPath}/templates/${templateName}/images/logo.jpg"  vspace="1" border="0" alt="[Logo]" /></a>
