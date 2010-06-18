@@ -6,10 +6,10 @@ public interface ForumService {
 
 	/**
 	 * check user in table forum_users
-	 * @param userCode
+	 * @param userName
 	 * @return true:if exists false:no exists
 	 */
-	public boolean checkForumUser(String userCode);
+	public boolean checkForumUser(String userName);
 	
 	/**
 	 * add a new forum user

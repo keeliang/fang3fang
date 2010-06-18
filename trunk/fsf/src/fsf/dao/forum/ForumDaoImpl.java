@@ -20,11 +20,17 @@ public class ForumDaoImpl extends HibernateDaoSupport implements ForumDao {
 		setSessionFactory(sessionFactory);
 	}
 	
-	public boolean checkForumUser(String userCode) throws RuntimeException {
+	/**
+	 * check user in table forum_users
+	 * @param userName
+	 * @return true:if exists false:no exists
+	 * @throws RuntimeException
+	 */
+	public boolean checkForumUser(String userName) throws RuntimeException {
 		boolean flag = false;
-		String hql = "select count(*) from ForumUser where sysUserCode=:userCode";
+		String hql = "select count(*) from ForumUser where username=:userName";
 		Query query = getSession().createQuery(hql);
-		query.setParameter("userCode", userCode);
+		query.setParameter("userName", userName);
 		Long result = (Long)query.uniqueResult();
 		if(result>0)flag = true;
 		return flag;

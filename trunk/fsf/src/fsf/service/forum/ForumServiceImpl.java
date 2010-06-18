@@ -8,15 +8,17 @@ import fsf.beans.forum.ForumUser;
 import fsf.beans.forum.ForumUserGroups;
 import fsf.beans.sys.user.User;
 import fsf.dao.forum.ForumDao;
+import fsf.util.MD5;
 @Service
 public class ForumServiceImpl implements ForumService {
 	ForumDao forumDao;
 
 	public void addForumUser(User user) {
 		ForumUser forumUser = new ForumUser();
-		forumUser.setSysUserCode(user.getUserCode());
-		forumUser.setUsername(user.getUserName());
-		forumUser.setUserPassword(user.getPassword());
+		MD5 md5 = new MD5();
+		forumUser.setSysUserCode("0");
+		forumUser.setUsername(user.getUserCode());
+		forumUser.setUserPassword(md5.getMD5ofStr(user.getPassword()));
 		forumUser.setUserActive(user.getStatus());
 		forumUser.setUserRegdate(user.getCreateDate());
 		forumUser.setUserEmail(user.getEmail());
@@ -57,8 +59,8 @@ public class ForumServiceImpl implements ForumService {
 		forumDao.save(forumUserGroups);
 	}
 
-	public boolean checkForumUser(String userCode) {
-		boolean flag = forumDao.checkForumUser(userCode);
+	public boolean checkForumUser(String userName) {
+		boolean flag = forumDao.checkForumUser(userName);
 		return flag;
 	}
 	

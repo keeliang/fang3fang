@@ -105,7 +105,29 @@ $(document).ready(function() {
 			</table>
 		</td>
 	</tr>
-	
+	<tr class="menuHeadTr">
+		<td class="menuHeadTd"><a>论坛管理</a></td>
+	</tr>
+	<tr class="menuItemTr">
+		<td>
+			<table>
+				<tr><td><a href="<%=contextPath %>/adminGroups/list.page" target="content"><span>会员分组</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/adminUsers/list.page" target="content"><span>会员管理</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/adminUsers/pendingActivations.page" target="content"><span>尚未启用</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/adminCategories/list.page" target="content"><span>版面分类</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/adminForums/list.page" target="content"><span>版面管理</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/adminModeration/list.page" target="content"><span>文章审核</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/adminRankings/list.page" target="content"><span>等级管理</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/adminBanning/list.page" target="content"><span>封锁控制</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/adminSmilies/list.page" target="content"><span>表情符号</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/adminAttachments/configurations.page" target="content"><span>附件管理--附件设置</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/adminAttachments/quotaLimit.page" target="content"><span>附件管理--附件大小限制</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/adminAttachments/extensionGroups.page" target="content"><span>附件管理--扩展名分组</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/adminAttachments/extensions.page" target="content"><span>附件管理--扩展名</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/adminCache/list.page" target="content"><span>缓存</span></a></td></tr>
+			</table>
+		</td>
+	</tr>
 	
 </table>
 </body>

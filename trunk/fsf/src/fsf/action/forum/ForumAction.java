@@ -15,6 +15,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import fsf.beans.sys.user.User;
 import fsf.service.forum.ForumService;
 import fsf.util.MD5;
+import fsf.web.common.ThreadUser;
+import fsf.web.common.WebConstant;
 
 @Controller
 @Scope("prototype")
@@ -26,7 +28,8 @@ public class ForumAction extends ActionSupport {
 	public String goToForum(){
 		HttpServletRequest req = ServletActionContext.getRequest();
 		HttpSession session = req.getSession();
-		User user = (User)session.getAttribute("user");
+		User user = (User)session.getAttribute(WebConstant.SESSION_USER);
+		//User user = ThreadUser.get();
 		/*
 		 * test
 		 */
@@ -43,9 +46,8 @@ public class ForumAction extends ActionSupport {
 			user.setStatus((short)1);
 			user.setUserType((short)0);
 		}*/
-		
 		if(user==null || "".equals(user.getUserCode())){
-			return "fsfLogin";
+			return "forumList";
 		}
 		
 		//if user is admin or super adminstrator, not insert a record in forum user
@@ -58,12 +60,13 @@ public class ForumAction extends ActionSupport {
 		String loginUserName="";
 		String loginPassword="";
 		//if user is adminstrator or supper adminstrator,user Admin admin to login
-		if(user.getUserType()>1){
+		if(user.getUserType()<1){
 			loginUserName = "Admin";
-			loginUserName = "21232f297a57a5a743894a0e4a801fc3";
+			loginPassword = "21232f297a57a5a743894a0e4a801fc3";
 		}else{
-			loginUserName = user.getUserName();
-			loginUserName = user.getPassword();
+			MD5 md5 = new MD5();
+			loginUserName = user.getUserCode();
+			loginPassword = md5.getMD5ofStr(user.getPassword());
 		}
 		req.setAttribute("username", loginUserName);
 		req.setAttribute("password",loginPassword);

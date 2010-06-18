@@ -35,7 +35,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="<%=contextPath%>/index.htm"><span>论坛</span>
+								<a href="<%=contextPath%>/forum/goToForum.action"><span>论坛</span>
 								</a>
 							</li>
 							<li>
@@ -48,13 +48,15 @@
 					</div>
 				</div> 
        <div class="navR">
-					
-					<a href="../member/reg.jsp" class="cYellow"> [注册会员] </a>
-					<a href="../member/login.jsp" class="cYellow">[登录]</a>
-					
-					<a href="../memberCenter/index.jsp" class="cYellow"> [会员中心] </a>
-					<a href="../CommonPage/ClearSession.jsp" class="cYellow">[注销]</a>
-					
+			<s:if test="#session.USER==null">
+				<a href="<%=contextPath %>/member/register.action" class="cYellow"> [注册会员] </a>
+				<a href="<%=contextPath %>/member/login.jsp" class="cYellow">[登录]</a>
+			</s:if>
+			<s:else>
+				您好！${USER.userCode }
+				<a href="<%=contextPath %>/memberCenter/index.action" class="cYellow"> [会员中心]</a>
+				<a href="<%=contextPath %>/CommonPage/ClearSession.jsp" class="cYellow">[注销]</a>
+			</s:else>	
 		</div>
         <div class="clear"></div>
     	<div class="nav_bottom">
