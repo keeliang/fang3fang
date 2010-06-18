@@ -33,7 +33,7 @@ Modifications by JForum Team
 		<td>
 			<table cellspacing="0" cellpadding="0" width="100%" border="0">
 				<tr>
-					<td colspan="2">
+					<td colspan="2" align="center">
 						<div class="box">
 
 	<!-- new menu -->
@@ -122,12 +122,8 @@ Modifications by JForum Team
 					</td>
 				</tr>
 				<tr>
-					<td>
-						<a href="${homepageLink}"><img src="${contextPath}/templates/${templateName}/images/logo.jpg"  vspace="1" border="0" alt="[Logo]" /></a>
-					</td>
-					 
-					<td width="100%" align="center" valign="middle">
-						<span class="boardtitle">${forumTitle?default("Fang3fang Forum")}</span>
+					<td width="10%">&nbsp;</td>
+					<td width="90%" valign="middle" align="left">
 						<table cellspacing="0" cellpadding="2" border="0">
 							<tr>
 								<td valign="top" nowrap="nowrap" align="center">&nbsp;
@@ -147,7 +143,6 @@ Modifications by JForum Team
 									-->
 									<span class="mainmenu"> <img src="${contextPath}/templates/${templateName}/images/icon_mini_groups.gif" alt="[Groups]" />&nbsp;<a id="backtosite" class="mainmenu" href="${homepageLink}">${I18n.getMessage("ForumBase.backToSite")}</a>&nbsp;
 									
-									<br>
 
 									<#if canAccessModerationLog?default(false)>
 										<img src="${contextPath}/templates/${templateName}/images/icon_mini_members.gif" alt="[Moderation Log]" />
@@ -173,12 +168,12 @@ Modifications by JForum Team
 										</#if>
 									</#if>
 									
-									<!--this will be delete when project complited-->
+									<!--this will be delete when project complited
 									<#if !logged && !sso>
 										<a id="register" class="mainmenu" href="${JForumContext.encodeURL("/user/insert")}"><img src="${contextPath}/templates/${templateName}/images/icon_mini_register.gif" border="0" alt="[Register]" /> ${I18n.getMessage("ForumBase.register")}</a>&nbsp;/&nbsp;</span>
 										<a id="login" class="mainmenu" href="${JForumContext.encodeURL("/user/login")}"><img src="${contextPath}/templates/${templateName}/images/icon_mini_login.gif" border="0" alt="[Login]" /> ${I18n.getMessage("ForumBase.login")}</a>&nbsp; </span>
 									</#if>
-									
+									-->
 
 									
 								</td>

@@ -47,7 +47,7 @@
         <property name="updateUserId" type="int">
             <column name="update_user_id" not-null="true" />
         </property>
-        <!-- 
+        
         <property name="visitCount" type="int">
             <column name="visit_count" not-null="true" />
         </property>
@@ -60,6 +60,6 @@
         <property name="contactTel" type="java.lang.String">
             <column name="contact_tel" not-null="false" />
         </property>
-         -->
+         
     </class>
 </hibernate-mapping>

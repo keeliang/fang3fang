@@ -6,11 +6,11 @@ public interface ForumDao {
 
 	/**
 	 * check user in table forum_users
-	 * @param userCode
+	 * @param username
 	 * @return true:if exists false:no exists
 	 * @throws RuntimeException
 	 */
-	public boolean checkForumUser(String userCode) throws RuntimeException;
+	public boolean checkForumUser(String username) throws RuntimeException;
 	
 	/**
 	 * add a new forum user

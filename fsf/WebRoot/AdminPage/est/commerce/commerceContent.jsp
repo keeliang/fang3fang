@@ -8,6 +8,7 @@
 <link type="text/css" rel="stylesheet" href="<%=contextPath%>/css/Common.css" />
 <link type="text/css" rel="stylesheet" href="<%=contextPath%>/css/AdminPage.css" />
 <script type="text/javascript" src="<%=contextPath%>/js/jquery.js"></script>
+<script type="text/javascript" src="<%=contextPath %>/fckeditor/fckeditor.js"></script>
 </head>
 
 <body style="background-color:#FFFFFF">
@@ -155,6 +156,14 @@
 </body>
 </html>
 <script type="text/javascript">
+window.onload = function(){
+	var oFCKeditor = new FCKeditor( 'content' ) ;
+	oFCKeditor.BasePath	= "/fckeditor/" ;
+	oFCKeditor.Height = "300";
+	oFCKeditor.Width = "800";
+	oFCKeditor.ReplaceTextarea() ;
+}
+
 $(function() {
 	f_changeProvince(true);
 });
@@ -162,7 +171,8 @@ $(function() {
 function f_validate(){
 	fromName = "formItem";
 	addfield("title","<s:text name="title"/>","String",false,50);
-	addfield("content","<s:text name="content"/>","String",false,65535);
+	//addfield("content","<s:text name="content"/>","String",false,65535);
+	addfield("content","<s:text name="content"/>","String",false,65535,null,null,null,null,FCKeditorAPI.GetInstance("content").GetXHTML(true));
 	addfield("provinceId","<s:text name="provinceId"/>","Integer",true,10);
 	addfield("cityId","<s:text name="cityId"/>","Integer",true,10);
 	addfield("districtId","<s:text name="districtId"/>","Integer",true,10);

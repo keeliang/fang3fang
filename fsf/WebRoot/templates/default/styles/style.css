@@ -289,7 +289,7 @@ a:link,a:visited{color:#666; text-decoration:none;}
 a:hover{color:#f60; text-decoration:underline;}
 .cOrange,a.cOrange:link,a.cOrange:visited{color:#ea7419; text-decoration:none;}
 a.cOrange:hover{color:#ea7419; text-decoration:underline;}
-.cYellow,a.cYellow:link,a.cYellow:visited{color:#fffdc3; text-decoration:none;}
+.cYellow,a.cYellow:link,a.cYellow:visited{color:#fffdc3; text-decoration:none;font-weight:normal;}
 a.cYellow:hover{font-size:12px; color:#fffdc3; text-decoration:underline;}
 .cGray,a.cGray:link,a.cGray:visited{color:#999; text-decoration:none;font-size:12px}
 a.cGray:hover{color:#999; text-decoration:underline;}
@@ -331,7 +331,7 @@ a.cWhite:hover{color:white; text-decoration:underline;}
 .headMenuLine{float:left; position:absolute;BACKGROUND-POSITION: left 1px; Z-INDEX: 4; BACKGROUND-IMAGE: url(../../../commerce/images/menuSideT.gif); OVERFLOW: hidden; WIDTH: 10px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 29px;}
 .menuList {BACKGROUND-POSITION: right 1px; Z-INDEX: 3; BACKGROUND-IMAGE: url(../../../commerce/images/menuSideT.gif); OVERFLOW: hidden; WIDTH: 690px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 29px; }
 .menuList LI {font-size:12px; BACKGROUND: url(../../../commerce/images/menuSplitT.gif) no-repeat left bottom; FLOAT: left; HEIGHT: 27px; list-style:none; padding-top:2px;}
-.menuList LI SPAN {font-size:12px;PADDING-RIGHT: 16px; DISPLAY: block; PADDING-LEFT: 16px; PADDING-BOTTOM: 0px; PADDING-TOP: 8px}
+.menuList LI SPAN {font-size:12px; font-weight:normal; PADDING-RIGHT: 16px; DISPLAY: block; PADDING-LEFT: 16px; PADDING-BOTTOM: 0px; PADDING-TOP: 8px}
 .menuList LI a:visited {TEXT-DECORATION: none}
 .menuList LI a:hover {COLOR: #ff5500; TEXT-DECORATION: none}
 .menuList .menuHere {FONT-WEIGHT: bold; FONT-SIZE: 14px; BACKGROUND: url(../../../commerce/images/menuHereT.gif) no-repeat left bottom;}
@@ -526,4 +526,5 @@ background:url(../images/trade_navOn.jpg)!important;height:32px; color:#830505;
 }
 .headerFont{
 	font-size:12px;
+	font-weight:normal;
 }
