@@ -115,6 +115,7 @@
 		<DictGroup>in_trade_mode</DictGroup>
 		<DictGroup>is_hot</DictGroup>
 		<DictGroup>examine</DictGroup>
+		<DictGroup>expert_level</DictGroup>
 	</DictItemCache>
 	
 </DictConfig>
