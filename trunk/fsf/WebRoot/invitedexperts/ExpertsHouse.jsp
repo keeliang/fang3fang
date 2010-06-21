@@ -27,22 +27,17 @@
 				</div>
 				<div class="wangpu_topR">
 					<p class="cOrange bold">
-						联系房上房 (周一至周五9:30~18:00)
+						联系房上房 (<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('worktime')" />)
 					</p>
 					<p>
 						<img src="images/info_dot01.jpg" width="5" height="5"
 							align="absmiddle" />
-						客服MSN：sever@fang3fang.com
+						客服MSN：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('msn')" />
 					</p>
 					<p>
 						<img src="images/info_dot01.jpg" width="5" height="5"
 							align="absmiddle" />
-						客服QQ：3921958912
-					</p>
-					<p>
-						<img src="images/info_dot01.jpg" width="5" height="5"
-							align="absmiddle" />
-						客服电话：86-10-82790251
+						客服QQ：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('qq')" />
 					</p>
 				</div>
 			</div>
