@@ -117,8 +117,10 @@
 						<div class="nav_content" id="a1" style="display: block;">
 							<div class="nav_content_list">
 								<div class="qq">
-									服务热线：020-84881393
-									<span class="cGray">|</span> 020-84881510
+									服务热线：
+									<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('tel1')" />
+									<span class="cGray">|</span>
+									<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('tel2')" />
 								</div>
 								<ul>
 									<li>
@@ -190,8 +192,10 @@
 						<div class="nav_content" id="a2" style="display: none">
 							<div class="nav_content_list">
 								<div class="qq">
-									服务热线：020-84881393
-									<span class="cGray">|</span> 020-84881510
+									服务热线：
+									<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('tel1')" />
+									<span class="cGray">|</span> 
+									<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('tel2')" />
 								</div>
 								<ul>
 									<li>
