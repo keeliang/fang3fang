@@ -257,3 +257,17 @@ insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
 select 'examine','0','审核中','审核中',2 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
 select 'examine','-1','审核未通过','审核未通过',3 ;
+
+/*************************顾问星级****************************/
+insert into sys_dictgroup (group_name,group_desc,remark)
+select 'expert_level','顾问星级',null;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'expert_level','1','一星级顾问','一星级顾问',1 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'expert_level','2','二星级顾问','二星级顾问',2 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'expert_level','3','三星级顾问','三星级顾问',3 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'expert_level','4','四星级顾问','四星级顾问',4 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'expert_level','5','五星级顾问','五星级顾问',5 ;
