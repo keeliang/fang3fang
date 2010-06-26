@@ -106,4 +106,20 @@
 	</package>
 	<!-- ********************************************** -->
 	
+	<!--******************* system config *************** -->
+	<package name="/sysadmin/sys/config" extends="baseDefault" namespace="/sysadmin/sys/config" >
+		<action name="configList" class="fsf.action.sys.config.SysConfigAction" method="doList">
+			<result>/AdminPage/sys/config/configList.jsp</result>
+			<result name="input">/AdminPage/sys/config/configList.jsp</result>
+		</action>
+		<action name="configSave" class="fsf.action.sys.config.SysConfigAction" method="doSave">
+			<result>/AdminPage/sys/config/configContent.jsp</result>
+			<result name="input">/AdminPage/sys/config/configContent.jsp</result>
+		</action>
+		<action name="configEdit" class="fsf.action.sys.config.SysConfigAction" method="doEdit">
+			<result>/AdminPage/sys/config/configContent.jsp</result>
+			<result name="input">/AdminPage/sys/config/configContent.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
 </struts>

@@ -68,5 +68,6 @@ create table if not exists sys_config (
 	id int not null auto_increment,
 	item varchar(50) not null,
 	value varchar(200) not null,
+	item_desc varchar(255) null,
 	constraint PK_est_businessarea primary key(id)
 );

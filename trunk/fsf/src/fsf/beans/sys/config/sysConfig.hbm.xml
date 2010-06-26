@@ -10,5 +10,6 @@
 		</id>
 		<property name="item" column="item" type="java.lang.String" length="50"/>
 		<property name="value" column="value" type="java.lang.String" length="200"/>
+		<property name="itemDesc" column="item_desc" type="java.lang.String" length="255"/>
 	</class>
 </hibernate-mapping>
