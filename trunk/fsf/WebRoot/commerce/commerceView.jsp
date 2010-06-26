@@ -46,7 +46,7 @@
 	<div class="contentN_left">
 		<div style="width:100%;text-align:left">
 			<span style="font-size:30px;text-align:left"><s:property value="title"/></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span style="font-size:15px;color:blue">(有</span><span style="font-size:15px;color:red"><s:property value="visitCount"/></span><span style="font-size:15px;color:blue">人浏览)</span>
+			<!-- <span style="font-size:15px;color:blue">(有</span><span style="font-size:15px;color:red"><s:property value="visitCount"/></span><span style="font-size:15px;color:blue">人浏览)</span> -->
 		</div>
 		
 		<div style="text-align:left">

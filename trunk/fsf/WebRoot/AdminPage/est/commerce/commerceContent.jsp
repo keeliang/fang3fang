@@ -142,12 +142,14 @@
 						value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
 					</td>
 				</tr>
+				<!-- 
 				<tr>
 					<td class="contentColumnNameTd">浏览次数:</td>
 					<td>
 						<s:textfield name="visitCount" readonly="true"/>
 					</td>
 				</tr>
+				 -->
 			</table>
 		</td>
 	</tr>
