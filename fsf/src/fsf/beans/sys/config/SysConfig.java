@@ -1,20 +1,28 @@
 package fsf.beans.sys.config;
 
-import java.util.Date;
-
 /**
  * SysConfig generated
  */
 
 public class SysConfig  implements java.io.Serializable {
-    // Fields
+	private static final long serialVersionUID = 4756364366210602883L;
+	// Fields
 	private int id;//auto_increment
 	private String item;//
 	private String value;//
+	private String itemDesc;
 
     // Constructors
 
-    /** default constructor */
+    public String getItemDesc() {
+		return itemDesc;
+	}
+
+	public void setItemDesc(String itemDesc) {
+		this.itemDesc = itemDesc;
+	}
+
+	/** default constructor */
     public SysConfig() {
     }
 

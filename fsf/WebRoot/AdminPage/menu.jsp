@@ -105,6 +105,9 @@ $(document).ready(function() {
 			</table>
 		</td>
 	</tr>
+	
+	<tr style="height: 5px;"></tr>
+	
 	<tr class="menuHeadTr">
 		<td class="menuHeadTd"><a>论坛管理</a></td>
 	</tr>
@@ -125,6 +128,19 @@ $(document).ready(function() {
 				<tr><td><a href="<%=contextPath %>/adminAttachments/extensionGroups.page" target="content"><span>附件管理--扩展名分组</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/adminAttachments/extensions.page" target="content"><span>附件管理--扩展名</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/adminCache/list.page" target="content"><span>缓存</span></a></td></tr>
+			</table>
+		</td>
+	</tr>
+	
+	<tr style="height: 5px;"></tr>
+
+	<tr class="menuHeadTr">
+		<td class="menuHeadTd"><a>系统管理</a></td>
+	</tr>
+	<tr class="menuItemTr">
+		<td>
+			<table>
+				<tr><td><a href="<%=contextPath %>/sysadmin/sys/config/configList.action" target="content"><span>系统配置信息管理</span></a></td></tr>
 			</table>
 		</td>
 	</tr>
