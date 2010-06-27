@@ -14,10 +14,9 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript"
-			src="<%=contextPath %>/Search/js/search.js"></script>
-		<link rel="stylesheet" href="css/general.css" type="text/css"
-			media="screen" />
+		<script type="text/javascript" src="<%=contextPath %>/Search/js/search.js"></script>
+		<script type="text/javascript" src="<%=contextPath %>/main/js/jump.js"></script>
+		<link rel="stylesheet" href="css/general.css" type="text/css" media="screen" />
 		<script type="text/javascript">
 		window.onload = function(){
 			var aa1 = new AjaxAnywhere();
@@ -35,6 +34,9 @@
 				var aa2 = new AjaxAnywhere();
 				aa2.showLoadingMessage = function(){}
 				aa2.hideLoadingMessage = function(){}
+				aa2.onAfterResponseProcessing = function (){
+					setTimeout("change_img()", 3000);
+				}
 				aa2.bindById();
 				aa2.getAJAX("/main/rollInfoList.ajax","listInfo,rollList");
 			}
