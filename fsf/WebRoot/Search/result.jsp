@@ -219,14 +219,16 @@
 <s:if test="flag=='out'">
 	<div id="Trade_des" class="freeTrade_des">
 		<p>
-			如果没有找到您要的出售或出租房源，请重新设置查找条件，或发布一条求购求租信息，让房源来找您，现在就<a href="../memberCenter/index.jsp" class="cRed"><u>发布求购求租</u>	</a>。
+			如果没有找到您要的出售或出租房源，请重新设置查找条件，或发布一条求购求租信息，让房源来找您，现在就
+			<a href="<%=contextPath %>/<s:if test="estateOutParameter._ne_tradeType==1">freetrade</s:if><s:elseif test="estateOutParameter._ne_tradeType==2">entrustTrade</s:elseif>/estateOwnRelease.action?flag=in" class="cRed"><u>发布求购求租</u></a>。
 		</p>
 	</div>
 </s:if>
 <s:if test="flag=='in'">
 	<div id="Trade_des" class="freeTrade_des">
 		<p>
-			如果没有找到您要的求购或求租信息，请重新设置查找条件，或发布一个出售出租房源，让客户来找您，现在就<a href="../memberCenter/index.jsp" class="cRed"><u>发布出售出租</u></a>。
+			如果没有找到您要的求购或求租信息，请重新设置查找条件，或发布一个出售出租房源，让客户来找您，现在就
+			<a href="<%=contextPath %>/<s:if test="estateInParameter._ne_tradeType==1">freetrade</s:if><s:elseif test="estateInParameter._ne_tradeType==2">entrustTrade</s:elseif>/estateOwnRelease.action?flag=out" class="cRed"><u>发布出售出租</u></a>。
 		</p>
 	</div>
 </s:if>
