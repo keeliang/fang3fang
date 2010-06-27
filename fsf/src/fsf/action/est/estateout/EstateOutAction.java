@@ -25,6 +25,7 @@ import fsf.service.common.IndexCacheService;
 import fsf.service.est.estateout.EstateOutService;
 import fsf.service.sys.user.UserService;
 import fsf.web.common.ThreadUser;
+import fsf.web.common.WebConstant;
 
 @Controller
 @Scope("prototype")
@@ -61,6 +62,37 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 	
 	public String doQuery() throws Exception{
 		return null;
+	}
+	/**
+	 * 保存发布
+	 * @return
+	 * @throws Exception
+	 */
+	public String doReleaseSave()throws Exception{
+		EstateOut eo = new EstateOut();
+		BeanUtils.copyProperties(eo, this);
+		Date d = new Date();
+		contactUser.setStatus((short)1);
+		contactUser.setCreateDate(d);
+		contactUser.setUserType((short)3);
+		contactUser.setPhone(contactUser.getUserCode());
+		eo.setCreateTime(d);
+		eo.setUpdateTime(d);
+		eo.setIsRecommond((short)0);
+		try {
+			getEstateOutService().doReleaseSave(eo, contactUser);
+			getHttpSession().setAttribute(WebConstant.SESSION_USER, contactUser);
+		} catch (Exception e) {
+			handleDefaultException(e);
+		}
+		return SUCCESS;
+	}
+	
+	public String doRelease()throws Exception{
+		if(getHttpSession().getAttribute(WebConstant.SESSION_USER)==null){
+			return SUCCESS;
+		}
+		return "success2";
 	}
 	
 	public String doExpertRecommond()throws Exception{

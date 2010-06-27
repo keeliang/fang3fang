@@ -73,7 +73,7 @@ public class SelectTagStaticUtil {
 				for(Iterator<DictItem> it = list.iterator();it.hasNext();){
 					DictItem d = it.next();
 					String k = d.getItemKey();
-					if(transfer(k).indexOf(sb.toString())==-1){
+					if(sb.toString().indexOf(transfer(k))==-1){
 						resultList.add(d);
 					}
 				}
@@ -114,7 +114,7 @@ public class SelectTagStaticUtil {
     					for(Iterator<DictItem> it = list.iterator();it.hasNext();){
     						DictItem d = it.next();
     						String k = d.getItemKey();
-    						if(transfer(k).indexOf(sb.toString())!=-1){
+    						if(sb.toString().indexOf(transfer(k))!=-1){
     							list.remove(d);
     						}
     					}
