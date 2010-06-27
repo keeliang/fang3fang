@@ -14,7 +14,11 @@ public enum UserExceptionCode implements ExceptionCode {
 	/**
 	 * insert user when userCode duplicate
 	 */
-	USER_CODE_DUPLICATE("g_user_code_duplicate");
+	USER_CODE_DUPLICATE("g_user_code_duplicate"),
+	/**
+	 * user is exists
+	 */
+	USER_EXISTS("g_user_exists");
 	
 	private String code;
 

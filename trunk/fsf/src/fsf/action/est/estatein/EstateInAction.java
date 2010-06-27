@@ -24,6 +24,7 @@ import fsf.beans.sys.user.User;
 import fsf.service.est.estatein.EstateInService;
 import fsf.service.sys.user.UserService;
 import fsf.web.common.ThreadUser;
+import fsf.web.common.WebConstant;
 
 @Controller
 @Scope("prototype")
@@ -41,6 +42,30 @@ public class EstateInAction extends BaseAction<EstateIn> {
 	private String flag = "in";
 	
 	private List<EstateIn> listEstateIn;
+	
+	/**
+	 * 保存发布
+	 * @return
+	 * @throws Exception
+	 */
+	public String doReleaseSave()throws Exception{
+		EstateIn eo = new EstateIn();
+		BeanUtils.copyProperties(eo, this);
+		Date d = new Date();
+		contactUser.setStatus((short)1);
+		contactUser.setCreateDate(d);
+		contactUser.setUserType((short)3);
+		contactUser.setPhone(contactUser.getUserCode());
+		eo.setCreateTime(d);
+		eo.setUpdateTime(d);
+		try {
+			getEstateInService().doReleaseSave(eo, contactUser);
+			getHttpSession().setAttribute(WebConstant.SESSION_USER, contactUser);
+		} catch (Exception e) {
+			handleDefaultException(e);
+		}
+		return SUCCESS;
+	}
 	
 	/**
 	 * 首页的搜房，不分页，显示top10

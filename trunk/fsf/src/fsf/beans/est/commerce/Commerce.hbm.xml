@@ -47,10 +47,11 @@
         <property name="updateUserId" type="int">
             <column name="update_user_id" not-null="true" />
         </property>
-        
+        <!-- 
         <property name="visitCount" type="int">
             <column name="visit_count" not-null="true" />
         </property>
+         -->
         <property name="address" type="java.lang.String">
             <column name="address" not-null="false" />
         </property>
