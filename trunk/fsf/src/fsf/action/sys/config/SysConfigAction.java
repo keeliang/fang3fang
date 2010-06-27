@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import chance.base.action.BaseAction;
+import chance.common.SystemConfigInitListener;
 import fsf.beans.sys.config.SysConfig;
 import fsf.service.sys.config.SysConfigService;
 
@@ -32,6 +33,10 @@ public class SysConfigAction extends BaseAction<SysConfig> {
 	}
 	public SysConfigParameter getSysConfigParameter(){
 		return (SysConfigParameter)baseParameter;
+	}
+	
+	protected void afterUpdate() {
+		SystemConfigInitListener.sysConfig.put(item, value);
 	}
 	
 	private int id;
