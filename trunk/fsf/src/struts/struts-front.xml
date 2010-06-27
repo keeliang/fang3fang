@@ -209,6 +209,22 @@
 	
 	<!-- 自主 -->
 	<package name="/freetrade" extends="baseDefault" namespace="/freetrade" >
+		<action name="getCityList" class="userAction" method="getCityList"></action>
+		<action name="getDistrictList" class="userAction" method="getDistrictList"></action>
+		<action name="getBusinessareaList" class="estateOutAction" method="getBusinessareaList"></action>
+		
+		<action name="estateOwnRelease" class="estateOutAction" method="doRelease">
+			<result>/freetrade/toRelease.jsp</result>
+			<result name="success2" type="redirect" >/memberCenter/index.jsp</result>
+		</action>
+	
+		<action name="estateOutOwnReleaseSave" class="estateOutAction" method="doReleaseSave">
+			<result>/freetrade/releaseResult.jsp</result>
+		</action>
+		<action name="estateInOwnReleaseSave" class="estateInAction" method="doReleaseSave">
+			<result>/freetrade/releaseResult.jsp</result>
+		</action>
+	
 		<action name="outContent" class="estateOutAction" method="doEdit">
 			<result>/freetrade/showOut.jsp</result>
 		</action>
@@ -241,6 +257,22 @@
 	
 	<!-- 委托 -->
 	<package name="/entrustTrade" extends="baseDefault" namespace="/entrustTrade" >
+		<action name="estateOwnRelease" class="estateOutAction" method="doRelease">
+			<result>/entrustTrade/toRelease.jsp</result>
+			<result name="success2" type="redirect" >/memberCenter/index.jsp</result>
+		</action>
+	
+		<action name="estateOutOwnReleaseSave" class="estateOutAction" method="doReleaseSave">
+			<result>/entrustTrade/releaseResult.jsp</result>
+		</action>
+		<action name="estateInOwnReleaseSave" class="estateInAction" method="doReleaseSave">
+			<result>/entrustTrade/releaseResult.jsp</result>
+		</action>
+	
+		<action name="getCityList" class="userAction" method="getCityList"></action>
+		<action name="getDistrictList" class="userAction" method="getDistrictList"></action>
+		<action name="getBusinessareaList" class="estateOutAction" method="getBusinessareaList"></action>
+	
 		<action name="outContent" class="estateOutAction" method="doEdit">
 			<result>/entrustTrade/showOut.jsp</result>
 		</action>
