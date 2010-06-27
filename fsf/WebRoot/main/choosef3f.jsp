@@ -71,7 +71,7 @@
      </ul>
      <br/>
      <span>
-	<img src="images/rainbow.png" />&nbsp;更多帮助内容请浏览&nbsp;<a href="../help/findHouse.jsp">帮助中心</a>，或致电房上房热线：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('tel1')" />
+	<img src="images/rainbow.png" />&nbsp;更多帮助内容请浏览&nbsp;<a href="../help/findHouse.jsp">帮助中心</a>，或致电房上房热线：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />
 </span><br/><br/><br/>
      </div>
      
