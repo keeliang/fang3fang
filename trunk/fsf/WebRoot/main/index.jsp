@@ -120,9 +120,9 @@
 							<div class="nav_content_list">
 								<div class="qq">
 									服务热线：
-									<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('tel1')" />
+									<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />
 									<span class="cGray">|</span>
-									<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('tel2')" />
+									<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel2')" />
 								</div>
 								<ul>
 									<li>

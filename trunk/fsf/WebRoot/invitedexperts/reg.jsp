@@ -30,7 +30,7 @@
 		<!-- content -->
 		<div class="member_regContent">
 			<div class="member_regContent_des">
-				欢迎您注册房上房经纪人帐号，申请过程将不会收取您任何费用。您将享受更多房上房为您提供的功能、放心的会员服务。我们的服务热线是：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('tel1')" />，<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('tel2')" />
+				欢迎您注册房上房经纪人帐号，申请过程将不会收取您任何费用。您将享受更多房上房为您提供的功能、放心的会员服务。我们的服务热线是：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />，<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel2')" />
 			</div>
 			<div class="member_regContent_show">
 				<form action="/Fang3FangWeb/Access" method="post"
