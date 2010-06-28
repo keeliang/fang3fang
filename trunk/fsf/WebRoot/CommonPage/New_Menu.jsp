@@ -19,15 +19,15 @@
             <li class="cGray">|</li>
             <li><a href="../newHouse/index.jsp">新房推荐</a></li>
             <li class="cGray">|</li>
-            <li><a href="../Info/index.jsp">地产资讯</a></li>
+            <li><a href="<%=contextPath %>/Info/infoIndexList.action">地产资讯</a></li>
             <li class="cGray">|</li>
             <li><a href="../forum/index.jsp">论坛</a></li>
             <li class="cGray">|</li>
-            <li><a href="../CoBank/index.jsp">合作银行</a></li>
+            <li><a href="<%=contextPath %>/CoBank/index.jsp">合作银行</a></li>
             <li class="cGray">|</li>
-            <li><a href="../rent/index.jsp">旺铺招租</a></li>
+            <li><a href="<%=contextPath %>/commerce/commerceIndex.action">旺铺招租</a></li>
             <li class="cGray">|</li>
-            <li><a href="../invitedexperts/index.jsp">专家顾问</a></li>
+            <li><a href="<%=contextPath %>/invitedexperts/index.action">专家顾问</a></li>
             
         </ul>
     </div>
