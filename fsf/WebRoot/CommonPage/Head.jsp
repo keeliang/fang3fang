@@ -2,8 +2,7 @@
   <div class="head">
     	<div class="logo"><a href="../main/index.jsp"><img src="images/logo.jpg" width="154" height="51" alt="房上房" title="房上房" /></a></div>
       <div class="web_des">
-        	<p><span class="cOrange">国内首家二手房(不动产)自主交易网</span></p>
-            <p><a href="#">业主的社区</a></p>
+        <p><span class="cOrange">国内首家二手房(不动产)自主交易网</span></p>
       </div>
         <div class="menu">
         	<ul>

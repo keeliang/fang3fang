@@ -450,13 +450,11 @@
 				<div class="trade_title">
 					<div class="nav03_content">
 						<div class="tap02_more">
-							<a href="../freetrade/index.jsp" class="cWhite">[进入频道]</a>
+							<a href="<%=contextPath %>/freetrade/index.jsp" class="cWhite" ><span>[进入自主交易频道]</span></a>
+							<a href="<%=contextPath %>/entrustTrade/index.jsp" class="cWhite" ><span>[进入委托交易频道]</span></a>
 						</div>
 						<div class="tap02_title">
-							<img src="images/trade_title01.jpg" width="156" height="15"
-								alt="自由交易区" title="自由交易区" />
 						</div>
-
 					</div>
 				</div>
 

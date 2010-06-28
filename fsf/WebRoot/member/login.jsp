@@ -26,22 +26,6 @@
 			<!-- content -->
 			<div class="member_loginC">
 				<div class="member_loginC_left">
-					<p>
-						<img src="images/member_loginTitle.jpg" width="96" height="30"
-							alt="房上房动态" title="房上房动态" />
-					</p>
-					<p>
-						&nbsp;注册就送分，凡在房上房活动期间注册用户，就能获得10积分。
-					</p>
-					<p>
-						&nbsp;申请信用卡送唐装！在线申请信用卡，参加活动抽奖，幸运大您！
-					</p>
-					<p>
-						&nbsp;注册就送分，凡在房上房活动期间注册用户，就能获得10积分。
-					</p>
-					<p>
-						&nbsp;申请信用卡送唐装！在线申请信用卡。。
-					</p>
 					<div class="member_loginC_left_line"></div>
 					<p>
 						<img src="images/member_loginTitle02.jpg" width="206" height="30"
