@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -137,11 +137,7 @@
 						<label id="left">&nbsp;</label>
 						<s:fielderror name="validateCode"/>
 					</p>
-					<div class="member_regContent_tiaokuan">
-						<input type="checkbox" name="Protocol" id="Protocol" />&nbsp;
-						<span class="cGray">请查看并同意<a href="#">《房上房用户协议》</a>
-						</span>
-					</div>
+					<div class="member_regContent_tiaokuan"></div>
 					<p class="center" id="loading" style="display: none;">
 						<img src="<%=contextPath %>/images/Loading.gif" /><br/>
 						处理中，请稍候...

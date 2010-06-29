@@ -6,9 +6,14 @@
 -->
 </style>
   <div class="new_menu">
-    	<span class="float_right">您好，<b id="hello"></b>！ 
-		  <a href="../member/reg.jsp">[注册会员]</a> 
-		  <a href="../member/login.jsp">[登录]</a>
+    	<span class="float_right">
+    	<s:if test="#session.USER==null"> 
+			  <a href="../member/register.action">[注册会员]</a> 
+			  <a href="../member/login.jsp">[登录]</a>
+		  </s:if>
+		  <s:else>
+				您好！<b id="hello">${USER.userCode }</b>！
+			</s:else>
 		</span>   	 
     	<ul>
         	<li><a href="../main/index.jsp">首页</a></li>
@@ -21,7 +26,7 @@
             <li class="cGray">|</li>
             <li><a href="<%=contextPath %>/Info/infoIndexList.action">地产资讯</a></li>
             <li class="cGray">|</li>
-            <li><a href="../forum/index.jsp">论坛</a></li>
+            <li><a href="<%=contextPath %>/forums/list.page">论坛</a></li>
             <li class="cGray">|</li>
             <li><a href="<%=contextPath %>/CoBank/index.jsp">合作银行</a></li>
             <li class="cGray">|</li>

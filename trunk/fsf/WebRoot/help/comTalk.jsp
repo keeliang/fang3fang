@@ -104,12 +104,7 @@
             <div class="blank12"></div>
             <p><b>4. <a href="freeService.jsp" class="cOrange"><u>免费服务</u></a></b></p>
 
-            <div class="help_info">
-            	<p>如果您还有疑问，您可以来 自主交易社区 提问，或找寻答案 </p>
-                <p>帮助内容解决了您的问题了吗？</p>
-                <p><span class="cGreen">是，已经解决</span> &gt; <a href="#"><u>返回交易帮助首页</u></a> </p>
-                <p><span class="cRed03">否，尚未解决</span> &gt; <a href="#"><u>请给我们留言</u></a> </p>
-            </div>
+            <%@ include file="/CommonPage/HelpAttention.jsp" %>
       </div>
     </div>
   
