@@ -520,10 +520,7 @@ function f_finishSelectUser(obj){
 
 function f_validate(){
 	fromName = "formItem";
-	//addfield("estateId","<s:text name="estateId"/>","Integer",false,10);
-	addfield("estateName","<s:text name="estateName"/>","String",true,80);
-	//addfield("tradeType","<s:text name="tradeType"/>","Integer",false,3);
-	//addfield("contactUserId","<s:text name="contactUserId"/>","Integer",false,10);
+	addfield("estateName","<s:text name="estateName"/>","String",false,80);
 	addfield("provinceId","<s:text name="provinceId"/>","Integer",false,10);
 	addfield("cityId","<s:text name="cityId"/>","Integer",false,10);
 	addfield("districtId","<s:text name="districtId"/>","Integer",false,10);

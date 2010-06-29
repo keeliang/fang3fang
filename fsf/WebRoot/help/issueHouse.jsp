@@ -84,7 +84,7 @@
             <p><b>1、想将手里房子卖掉？</b></p>
             <p class="indent24 font12">您有没有想过在网络上发布呢？在房上房自主交易网上发布房源信息，寻找买家，在房上房自主交易网注册会员就可以免费发布房源。 </p>
             <div class="blank12"></div>
-            <div class="help_contentR_title"><a href="#"><img src="images/help_issueHouse_button01.jpg" width="175" height="49" alt="发布房源请点击" title="发布房源请点击" /></a></div>
+            <div class="help_contentR_title"><a href="<%=contextPath %>/freetrade/estateOwnRelease.action"><img src="images/help_issueHouse_button01.jpg" width="175" height="49" alt="发布房源请点击" title="发布房源请点击" /></a></div>
             <div class="blank12"></div>
             <div class="blank12"></div>
             <p><b>2、在房上房发布的好处？</b></p>
@@ -96,17 +96,13 @@
             <div class="blank12"></div>
             <p><b>3、您也可以在这里搜索求购信息，主动寻找买家。 </p>
             <div class="blank12"></div>
-            <div class="help_contentR_title"><a href="#"><img src="images/help_issueHouse_button02.jpg" width="175" height="49" alt="查询买家请点击" title="查询买家请点击" /></a></div>
+            <div class="help_contentR_title"><a href="<%=contextPath %>/freetrade/index.jsp"><img src="images/help_issueHouse_button02.jpg" width="175" height="49" alt="查询买家请点击" title="查询买家请点击" /></a></div>
             <div class="blank12"></div>
             <p><b>4、为了让您的物业更快的让别人物色，请详细填写您物业的资料和图片。</b></p>
             
             
-      <div class="help_info">
-            	<p>如果您还有疑问，您可以来 自主交易社区 提问，或找寻答案 </p>
-                <p>帮助内容解决了您的问题了吗？</p>
-                <p><span class="cGreen">是，已经解决</span> &gt; <a href="#"><u>返回交易帮助首页</u></a> </p>
-                <p><span class="cRed03">否，尚未解决</span> &gt; <a href="#"><u>请给我们留言</u></a> </p>
-            </div>
+					<%@ include file="/CommonPage/HelpAttention.jsp" %>
+
       </div>
     </div>
   
