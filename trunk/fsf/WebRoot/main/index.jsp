@@ -408,7 +408,7 @@
 					<!-- right -->
 					<div class="info">
 						<div class="info_title">
-							<span class="float_right"><a href="../rent/index.jsp" class="cYellow">[信息分类]</a></span>
+							<span class="float_right"><a href="<%=contextPath %>/commerce/commerceIndex.action" class="cYellow">[信息分类]</a></span>
 							<span class="font14"><b>商业招商、旺铺转让</b>
 							</span>
 						</div>
