@@ -58,12 +58,11 @@
 	<div class="info_img"><img src="images/ad.gif" width="937" height="121" alt="" title="" /></div>
 	</div>
 	<br/>
-	<div style="background-image:url(images/bBg.jpg);"><div class="BTitleImg"><img src="images/coBank.jpg" /></div>
-	<div style="float:left;margin-left:825px;position:absolute;margin-top:-55px"><a href="AJLoan.jsp"><img src="images/loan.jpg" /></a></div>
-
-
+	<div style="background-image:url(images/bBg.jpg);">
+		<div class="BTitleImg"><img src="images/coBank.jpg" /></div>
+		<div style="float:left;margin-left:825px;position:absolute;margin-top:-55px"></div>
 	</div>
-	
+
 	<br/><br/>
 	<div class="Bcontent">
 	<div align=left>

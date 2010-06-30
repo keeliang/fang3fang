@@ -1,8 +1,9 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <%@ include file="/share/share.jsp" %>
+<%@ include file="/share/validate.jsp" %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="房上房房地产网，番禺区房地产专业网站，人气最旺、最有价值的番禺房地产网络媒体，提供最全面最及时的房地产新闻资讯内容，提供所有楼盘的详细信息，是二手房(不动产)自由交易网站。为所有楼盘提供功能最全网上浏览，是国内房地产媒体及业内外网友公认的最受欢迎的专业网站和房地产信息库，搜房引擎给网友提供房地产网站中速度最快捷内容最全面的智能搜索点。"/> 
 <meta name="keywords" content="房上房,番禺地产,番禺地产网,房地产,买房,卖房,租房,新房,二手房,写字楼,商铺,C2C交易,C2C"/>
@@ -15,10 +16,6 @@
 <script type="text/javascript" src="../js/Validate.cmxforms.js"></script>
 <script type="text/javascript" src="../js/Validate.jquery.metadata.js"></script>
 <script type="text/javascript" src="../js/Validate.jquery.validate.min.js"></script>
-<script type="text/javascript" src="../js/SelectAll.js"></script>
-<script type="text/javascript" src="../js/HistoryBack.js"></script>
-<script type="text/javascript" src="../js/DisplayClear.js"></script>
-<script type="text/javascript" src="js/PQG.js"></script>
 </head>
 <body>
 		<div class="memberC_box">
@@ -43,7 +40,8 @@
 				<!-- right -->
 				<div class="memberC_allRight02">
 					<!-- right -->
-					<s:form namespace="/memberCenter" action="estateInOwnSave" name="formItem" theme="simple" >
+					<div id="errorMsg" class="errorMsg" style="width: 100%;text-align: left;" ></div>
+					<s:form namespace="/memberCenter" action="estateInOwnSave" name="formItem" id="formItem" theme="simple" onsubmit="return f_validate()" >
 						<s:hidden name="estateInParameter.currentPage" id="currentPage"  />
 						<s:hidden name="estateInParameter.maxResults" id="maxResults" />
 						<s:hidden name="estateInParameter._ne_tradeType" value="2" />
@@ -303,8 +301,7 @@
 						<div class="blank10"></div>
 						<div class="blank10"></div>
 						<div class="memberC_button">
-							<input class="memberC_button1" type="button" value="保存" />&nbsp;&nbsp;&nbsp;&nbsp;
-							<input class="memberC_button1" type="button" value="返回" />
+							<input class="memberC_button1" type="submit" value="保存" />&nbsp;&nbsp;&nbsp;&nbsp;
 						</div>
 					</s:form>
 				</div>
@@ -319,6 +316,37 @@
 	</body>
 </html>
 <script type="text/javascript" >
+function f_validate(){
+	fromName = "formItem";
+	addfield("title","标题","String",false,80);
+	addfield("provinceId","省份","Integer",true,10);
+	addfield("cityId","城市","Integer",true,10);
+	addfield("districtId","区域","Integer",true,10);
+	addfield("areaId","商圈","Integer",true,10);
+	addfield("effective","有效天数","Integer",false,10);
+	addfield("tradeMode","交易方式","Integer",false,3);
+	addfield("hall","厅","Integer",false,10);
+	addfield("bedroom","室","Integer",false,10);
+	addfield("toilet","卫","Integer",false,10);
+	addfield("porch","阳","Integer",false,10);
+	addfield("toward","朝向","Integer",true,10);
+	addfield("areaFrom","可接受面积大于","Number",false,12);
+	addfield("areaTo","可接受面积小于","Number",false,12);
+	addfield("isLift","要求电梯房","Integer",false,3);
+	addfield("fitment","要求装修","Integer",false,3);
+	addfield("device","家电设备","Integer",false,3);
+	addfield("remark","备注","String",true,65535);
+	var obj = document.forms[0].tradeMode;
+	if(obj.value==1 || obj.value==3){
+		addfield("rentPriceFrom","可接受租价大于","Number",true,14);
+		addfield("rentPriceTo","可接受租价小于","Number",true,14);	
+	}else if(obj.value==2 || obj.value==3){
+		addfield("buyPriceFrom","可接受购买价大于","Number",true,14);
+		addfield("buyPriceTo","可接受购买价小于","Number",true,14);
+	}
+	
+	return validate();
+}
 function f_chageTradeMode(){
 	var obj = $('#tradeMode').get(0);
 	if(obj.value==1){

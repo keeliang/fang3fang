@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<%@ include file="/share/share.jsp"%>
+		<%@ include file="/share/validate.jsp" %>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="description"
 			content="房上房房地产网，番禺区房地产专业网站，人气最旺、最有价值的番禺房地产网络媒体，提供最全面最及时的房地产新闻资讯内容，提供所有楼盘的详细信息，是二手房(不动产)自由交易网站。为所有楼盘提供功能最全网上浏览，是国内房地产媒体及业内外网友公认的最受欢迎的专业网站和房地产信息库，搜房引擎给网友提供房地产网站中速度最快捷内容最全面的智能搜索点。"/>
@@ -103,8 +104,8 @@
 						</select>
 					</b>
 				</p>
-				
-				<s:form name="formItemOut" action="estateOutOwnReleaseSave" namespace="/freetrade" method="post" theme="simple">
+				<div id="errorMsg" class="errorMsg" style="width: 100%;text-align: left;" ></div>
+				<s:form name="formItemOut" action="estateOutOwnReleaseSave" namespace="/freetrade" method="post" theme="simple" onsubmit="return f_validate()" >
 					<s:hidden name="estateId"/>
 					<!-- 自主 -->
 					<s:hidden name="tradeType" value="2"/>
@@ -126,8 +127,6 @@
 								</td>
 								<td colspan="3" class="aaa" >
 									<s:textfield name="estateName" id="estateName" cssClass="memberC_input04"/>
-									<input type="button" value="上传图片" id="btnUpload" />
-									<s:hidden name="imagePath" />
 								</td>
 							</tr>
 						  <tr>
@@ -431,7 +430,7 @@
 						</div>
 					</s:form>
 					
-					<s:form name="formItemIn" action="estateInOwnReleaseSave" namespace="/freetrade" method="post" theme="simple" cssStyle="display:none;" >
+					<s:form name="formItemIn" action="estateInOwnReleaseSave" namespace="/freetrade" method="post" theme="simple" cssStyle="display:none;" onsubmit="return f_validate2()" >
 						<s:hidden name="tradeType" value="2"/>
 						<s:hidden name="estateId" />
 						<p class="cGray02">
@@ -772,5 +771,79 @@ function f_changeCost(obj){
 	}else if(obj.type=="text"){
 		$(obj.parentNode).find("input[type='hidden']").val(obj.value)
 	}
+}
+
+function f_validate(){
+	fromName = "formItemOut";
+	addfield("estateName","房源名称","String",false,80);
+	addfield("provinceId","省份","Integer",false,10);
+	addfield("cityId","城市","Integer",false,10);
+	addfield("districtId","区域","Integer",false,10);
+	addfield("tradeMode","交易方式","Integer",false,3);
+	addfield("area","面积","Number",false,6,2);
+	addfield("practicalArea","实用面积","Number",false,6,2);
+	addfield("isLift","是否电梯房","Integer",false,3);
+	addfield("effective","有效天数","Integer",false,10);
+	addfield("address","地址","String",false,128);
+	addfield("toward","朝向","Integer",false,10);
+	addfield("floor","楼层","Integer",false,10);
+	addfield("totalFloor","总楼","Integer",false,10);
+	
+	addfield("hall","厅","Integer",false,10);
+	addfield("bedroom","室","Integer",false,10);
+	addfield("toilet","卫","Integer",false,10);
+	addfield("porch","阳","Integer",false,10);
+	
+	addfield("manageCost","管理费","Number",false,14,2);
+	addfield("fitment","装修","Integer",false,3);
+	addfield("device","家电设备","Integer",false,3);
+	
+	var obj = document.forms[0].tradeMode;
+	if(obj.value==1 || obj.value==3){
+		addfield("rentPrice","租价","Number",false,14,2);
+		addfield("minMonth","最小租期","Integer",false,10);
+		addfield("waterCost","水费","Number",false,6,2);
+		addfield("electricCost","电费","Number",false,6,2);
+		addfield("otherCost","其他费用","Number",false,12,2);
+		addfield("deposit","押金","Number",false,12,2);
+	}else if(obj.value==2 || obj.value==3){
+		addfield("estateCardNo","房产证号","String",false,50);
+		addfield("card5year","房产证是否满五年","Integer",false,3);
+		addfield("salePrice","售价","Number",false,14,2);
+		addfield("develop","发展商","String",false,50);
+		addfield("buildYear","建筑年份","Integer",false,10);
+	}
+	return validate();
+}
+
+function f_validate2(){
+	fromName = "formItemIn";
+	addfield("title","标题","String",false,80);
+	addfield("provinceId","省份","Integer",true,10);
+	addfield("cityId","城市","Integer",true,10);
+	addfield("districtId","区域","Integer",true,10);
+	addfield("areaId","商圈","Integer",true,10);
+	addfield("effective","有效天数","Integer",false,10);
+	addfield("tradeMode","交易方式","Integer",false,3);
+	addfield("hall","厅","Integer",false,10);
+	addfield("bedroom","室","Integer",false,10);
+	addfield("toilet","卫","Integer",false,10);
+	addfield("porch","阳","Integer",false,10);
+	addfield("toward","朝向","Integer",true,10);
+	addfield("areaFrom","可接受面积大于","Number",false,12);
+	addfield("areaTo","可接受面积小于","Number",false,12);
+	addfield("isLift","要求电梯房","Integer",false,3);
+	addfield("fitment","要求装修","Integer",false,3);
+	addfield("device","家电设备","Integer",false,3);
+	addfield("remark","备注","String",true,65535);
+	var obj = document.forms[1].tradeMode;
+	if(obj.value==1 || obj.value==3){
+		addfield("rentPriceFrom","可接受租价大于","Number",true,14);
+		addfield("rentPriceTo","可接受租价小于","Number",true,14);	
+	}else if(obj.value==2 || obj.value==3){
+		addfield("buyPriceFrom","可接受购买价大于","Number",true,14);
+		addfield("buyPriceTo","可接受购买价小于","Number",true,14);
+	}
+	return validate();
 }
 </script>

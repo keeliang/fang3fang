@@ -17,7 +17,17 @@
 	<!-- head -->
   <div class="infoShow_head">
 		<div class="infoShow_logo"><a href="#"><img src="images/logo.jpg" width="154" height="51" alt="房上房" title="房上房" /></a></div>
-		  <p><a href="../main/index.jsp"><u>首页</u></a> | <a href="../freetrade/index.jsp" ><u>自主交易</u></a> | <a href="../entrustTrade/index.jsp" ><u>委托代理</u></a> | <a href="../newHouse/index.jsp"><u>新房推荐</u></a> | <a href="../Info/index.jsp"><u>地产资讯</u></a> | <a href="../forum/index.jsp"><u>论坛</u></a> | <a href="../CoBank/index.jsp"><u>合作银行</u></a> | <a href="../rent/index.jsp"><u>旺铺招租</u></a> | <a href="../invitedexperts/index.jsp"><u>专家顾问</u></a> </p>
+		  <p>
+				<a href="<%=contextPath %>/main/index.jsp"><u>首页</u></a> |
+				<a href="<%=contextPath %>/freetrade/index.jsp"><u>自主交易</u></a> |
+				<a href="<%=contextPath %>/entrustTrade/index.jsp"><u>委托代理</u></a> |
+				<a href="<%=contextPath %>/newHouse/index.jsp"><u>新房推荐</u></a> |
+				<a href="<%=contextPath %>/Info/infoIndexList.action"><u>地产资讯</u></a> |
+				<a href="<%=contextPath %>/forums/list.page"><u>论坛</u></a> |
+				<a href="<%=contextPath %>/CoBank/index.jsp"><u>合作银行</u></a> |
+				<a href="<%=contextPath %>/commerce/commerceIndex.action"><u>旺铺招租</u></a> |
+				<a href="<%=contextPath %>/invitedexperts/index.action"><u>专家顾问</u></a>
+		  </p>
 		</div>
     
     <!-- banner -->
@@ -32,16 +42,27 @@
     <!-- menu -->
     <div class="infoShow_menu">
     	<p>
-	    	<span class="on"><a href="#">焦点</a></span>
-	    	<span><a href="#">房价新闻</a></span>
-	    	<span><a href="#">深度报告</a></span>
-	    	<span><a href="#">市场动态</a></span>
-	    	<span><a href="#">本地新闻</a></span>
-	    	<span><a href="#">房地产金融道</a></span>
-	    	<span><a href="#">楼盘动态</a></span>
-	    	<span><a href="#">房产政策</a></span>
-	    	<span><a href="#">土地市场</a></span>
-	    	<span><a href="#">区域报告</a>
+	    	<span <s:if test="informationParameter._ne_informationType==1">class="on"</s:if> >
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=1&informationParameter.currentPage=1&informationParameter.maxResults=30">焦点</a>
+					</span>
+					<span <s:if test="informationParameter._ne_informationType==3">class="on"</s:if> >
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=3&informationParameter.currentPage=1&informationParameter.maxResults=30">房价新闻</a>
+					</span>
+					<span <s:if test="informationParameter._ne_informationType==2">class="on"</s:if> >
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=2&informationParameter.currentPage=1&informationParameter.maxResults=30">深度报告</a>
+					</span>
+					<span <s:if test="informationParameter._ne_informationType==5">class="on"</s:if> >
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=5&informationParameter.currentPage=1&informationParameter.maxResults=30">房产政策</a>
+					</span>
+					<span <s:if test="informationParameter._ne_informationType==4">class="on"</s:if> >
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=4&informationParameter.currentPage=1&informationParameter.maxResults=30">区域报告</a>
+					</span>
+					<span <s:if test="informationParameter._ne_informationType==6">class="on"</s:if> >
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=6&informationParameter.currentPage=1&informationParameter.maxResults=30">国际家居</a>
+					</span>
+					<span <s:if test="informationParameter._ne_informationType==7">class="on"</s:if> >
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=7&informationParameter.currentPage=1&informationParameter.maxResults=30">社区推荐</a>
+					</span>
     	</p>
     </div>
     
@@ -54,7 +75,15 @@
         <!-- left -->
     	<div class="infoShow_contentL">
         	<div class="infoShow_contentL_img"><img src="images/AD-InfoShow2.jpg" width="550" height="150" alt="" title="" /></div>
-            <div class="infoShow_contentL_guide"><p>您当前的所在位置：<a href="#">房上房</a> &gt; <a href="#">地产资讯</a> &gt; <a href="#">焦点</a> &gt; <span class="cOrange">${informationTitle }</span></p></div>
+            <div class="infoShow_contentL_guide">
+            	<p>您当前的所在位置：
+            		<a href="<%=contextPath %>/main/index.jsp">房上房</a> &gt;
+            		<a href="<%=contextPath %>/Info/infoIndexList.action">地产资讯</a> &gt;
+            		<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=${informationType }&informationParameter.currentPage=1&informationParameter.maxResults=30">
+            			<fsf:dictTranslate groupName="$information_type" value="informationType" />
+            		</a> 
+            	</p>
+            </div>
             <div class="infoShow_contentL_content" id="info_title" name="info_title">
             	<h1>${informationTitle }</h1>
               <div class="infoShow_contentL_contentTime"><span id="info_infoDate" name="info_infoDate">${updateTime}　</span>　来源:<span id="info_From">房上房</span> <a href="../forum/index.jsp">&nbsp;进入论坛</a></div>

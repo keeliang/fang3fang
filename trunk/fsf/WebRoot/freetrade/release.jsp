@@ -469,7 +469,7 @@
 						</div>
 					</s:form>
 					
-					<s:form name="formItemIn" action="estateInOwnReleaseSave" namespace="/freetrade" method="post" theme="simple" cssStyle="display:none;" >
+					<s:form name="formItemIn" action="estateInOwnReleaseSave" namespace="/freetrade" method="post" theme="simple" cssStyle="display:none;" onsubmit="return f_validate2()" >
 						<s:hidden name="tradeType" value="1"/>
 						<s:hidden name="estateId" />
 						<p class="cGray02">
@@ -850,6 +850,37 @@ function f_validate(){
 		addfield("salePrice","售价","Number",false,14,2);
 		addfield("develop","发展商","String",false,50);
 		addfield("buildYear","建筑年份","Integer",false,10);
+	}
+	return validate();
+}
+
+function f_validate2(){
+	fromName = "formItemIn";
+	addfield("title","标题","String",false,80);
+	addfield("provinceId","省份","Integer",true,10);
+	addfield("cityId","城市","Integer",true,10);
+	addfield("districtId","区域","Integer",true,10);
+	addfield("areaId","商圈","Integer",true,10);
+	addfield("effective","有效天数","Integer",false,10);
+	addfield("tradeMode","交易方式","Integer",false,3);
+	addfield("hall","厅","Integer",false,10);
+	addfield("bedroom","室","Integer",false,10);
+	addfield("toilet","卫","Integer",false,10);
+	addfield("porch","阳","Integer",false,10);
+	addfield("toward","朝向","Integer",true,10);
+	addfield("areaFrom","可接受面积大于","Number",false,12);
+	addfield("areaTo","可接受面积小于","Number",false,12);
+	addfield("isLift","要求电梯房","Integer",false,3);
+	addfield("fitment","要求装修","Integer",false,3);
+	addfield("device","家电设备","Integer",false,3);
+	addfield("remark","备注","String",true,65535);
+	var obj = document.forms[1].tradeMode;
+	if(obj.value==1 || obj.value==3){
+		addfield("rentPriceFrom","可接受租价大于","Number",true,14);
+		addfield("rentPriceTo","可接受租价小于","Number",true,14);	
+	}else if(obj.value==2 || obj.value==3){
+		addfield("buyPriceFrom","可接受购买价大于","Number",true,14);
+		addfield("buyPriceTo","可接受购买价小于","Number",true,14);
 	}
 	return validate();
 }
