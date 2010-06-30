@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import net.jforum.util.MD5;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -87,9 +88,9 @@ public class UserAction extends UploadBaseAction<User> {
 	 */
 	public String doUpdatePassword()throws Exception{
 		User user = service.get(userId);
-		if(password!=null&&!"".equals(password)&&password.equals(user.getPassword())){
+		if(password!=null&&!"".equals(password)&&MD5.crypt(password).equals(user.getPassword())){
 			if(newPassword!=null&&!"".equals(newPassword)){
-				user.setPassword(newPassword);
+				user.setPassword(MD5.crypt(newPassword));
 				service.update(user);
 				addActionMessage(getText("updatePasswordSuccess"));
 			}else{
@@ -113,7 +114,7 @@ public class UserAction extends UploadBaseAction<User> {
 		}else{
 			if(user.getStatus()==(short)0){
 				getHttpServletResponse().getWriter().write("{message:4}");
-			}else if(password!=null&&!"".equals(password)&&password.equals(user.getPassword())){
+			}else if(password!=null&&!"".equals(password)&&MD5.crypt(password).equals(user.getPassword())){
 				getHttpSession().setAttribute(WebConstant.SESSION_USER, user);
 				getHttpServletResponse().getWriter().write("{message:1}");	
 			}else {
@@ -144,6 +145,7 @@ public class UserAction extends UploadBaseAction<User> {
 			beforePersist();
 			userType = (short)3;
 			BeanUtils.copyProperties(u, this);
+			u.setPassword(MD5.crypt(u.getPassword()));
 			service.persist(u);
 			getHttpServletResponse().getWriter().write("{message:1}");
 			getHttpSession().setAttribute(WebConstant.SESSION_USER, u);
@@ -156,7 +158,7 @@ public class UserAction extends UploadBaseAction<User> {
 	
 	public String doLogin() throws Exception {
 		try{
-			User user = getUserService().login(userCode, password);
+			User user = getUserService().login(userCode, MD5.crypt(password));
 			getHttpSession().setAttribute(WebConstant.SESSION_USER, user);
 		}catch(Exception e){
 			handleDefaultException(e);
@@ -191,6 +193,12 @@ public class UserAction extends UploadBaseAction<User> {
 		getHttpServletResponse().setCharacterEncoding("UTF-8");
 		getHttpServletResponse().getWriter().write(json.toString());
 		return null;
+	}
+	
+	@Override
+	public String doSave() throws Exception {
+		password = MD5.crypt(password);
+		return super.doSave();
 	}
 	
 	@Override

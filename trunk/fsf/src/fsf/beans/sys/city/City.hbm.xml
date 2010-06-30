@@ -4,6 +4,7 @@
 <!-- Generated 2010-4-24 9:01:41 by Hibernate Tools 3.2.4.GA -->
 <hibernate-mapping>
     <class name="fsf.beans.sys.city.City" table="sys_city" >
+    	<cache usage="read-only" />
         <id name="cityId" type="java.lang.Integer">
             <column name="city_id" />
             <generator class="identity" />

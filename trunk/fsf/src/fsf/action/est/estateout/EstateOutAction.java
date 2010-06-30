@@ -1,11 +1,14 @@
 package fsf.action.est.estateout;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
 
+import net.jforum.util.MD5;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -76,6 +79,7 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 		contactUser.setCreateDate(d);
 		contactUser.setUserType((short)3);
 		contactUser.setPhone(contactUser.getUserCode());
+		contactUser.setPassword(MD5.crypt(contactUser.getPassword()));
 		eo.setCreateTime(d);
 		eo.setUpdateTime(d);
 		eo.setIsRecommond((short)0);
@@ -794,4 +798,9 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 		this.listCommerce = listCommerce;
 	}
 	
+	public String getUnitPrice(){
+		DecimalFormat df=(DecimalFormat)NumberFormat.getInstance();
+		df.setMaximumFractionDigits(2);
+		return df.format(salePrice/area);
+	}
 }

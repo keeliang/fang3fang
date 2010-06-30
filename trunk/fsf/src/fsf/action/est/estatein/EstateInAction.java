@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import net.jforum.util.MD5;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -56,6 +57,7 @@ public class EstateInAction extends BaseAction<EstateIn> {
 		contactUser.setCreateDate(d);
 		contactUser.setUserType((short)3);
 		contactUser.setPhone(contactUser.getUserCode());
+		contactUser.setPassword(MD5.crypt(contactUser.getPassword()));
 		eo.setCreateTime(d);
 		eo.setUpdateTime(d);
 		try {
