@@ -4,7 +4,6 @@
 <!-- Generated 2010-4-24 17:00:12 by Hibernate Tools 3.2.4.GA -->
 <hibernate-mapping>
     <class name="fsf.beans.sys.user.User" table="sys_user" >
-    <cache usage="read-only" region="crm.bean.sys.DictItem"/>
         <id name="userId" type="java.lang.Integer">
             <column name="user_id" />
             <generator class="identity" />

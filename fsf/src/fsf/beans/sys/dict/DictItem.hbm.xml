@@ -4,7 +4,7 @@
 
 <hibernate-mapping>
 	<class name="fsf.beans.sys.dict.DictItem" table="sys_dictitem">
-		<cache usage="read-only" region="crm.bean.sys.DictItem"/>
+		<cache usage="read-only" region="fsf.beans.sys.DictItem"/>
 		<composite-id>
 			<key-property name="groupName" column="group_name" type="java.lang.String" length="30"></key-property>
 			<key-property name="itemKey" column="item_key" type="java.lang.String" length="10"></key-property>
