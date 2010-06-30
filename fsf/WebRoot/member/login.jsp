@@ -56,7 +56,7 @@
 					<div class="member_loginC_rightContent">
 						<form action="<%=contextPath %>/member/login.action" id="formItem" name="formItem" method="post"	>
 							<p>会员帐号：<input type="text" name="userCode" id="userCode" class="member_loginC_right_input" /></p>
-							<p>帐号密码：<input type="password" name="password" id="password" class="member_loginC_right_input" />&nbsp;<a href="reg.jsp" class="cRed04" onclick="test()"><u>忘记密码?</u></a></p>
+							<p>帐号密码：<input type="password" name="password" id="password" class="member_loginC_right_input" /></p>
 							<div id="loading" style="display: none;text-align: center;">
 								<img src="<%=contextPath %>/images/Loading.gif" /><br/>
 								处理中，请稍候...

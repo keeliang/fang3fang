@@ -32,13 +32,10 @@
 						<a href="#" class="cOrange">收藏</a>&nbsp;&nbsp;&nbsp;
 						<img src="images/freeTrade_dot02.jpg" width="20" height="19" align="absmiddle" />
 						<a href="#">打印</a>&nbsp;&nbsp;&nbsp;
-						<img src="images/freeTrade_dot03.jpg" width="20" height="19" align="absmiddle" />
-						<a href="#">推荐给好友</a>
 					</span>您当前的所在位置：
-					<a href="../main/index.jsp">房上房</a> &gt;
-					<a href="../freetrade/index.jsp">自主交易区</a> &gt;
-					<a id="TypeInfo" href="../freetrade/index.jsp">求购信息</a> &gt;
-					<span id="PropertyInfo" class="cOrange">岭南雅院</span>
+					<a href="<%=contextPath %>/main/index.jsp">房上房</a> &gt;
+					<a href="<%=contextPath %>/entrustTrade/index.jsp">委托交易区</a> &gt;
+					<span id="PropertyInfo" class="cOrange">${title }</span>
 				</p>
 			</div>
 
@@ -113,7 +110,7 @@
 								<td id="RenovationStandardName" class="left freeTrade_tableW03">
 									<fsf:dictTranslate groupName="$fitment" value="fitment" />
 								</td>
-								<td class="grayBg right freeTrade_tableW01">
+								<td class="grayBg right">
 									家电设备要求：
 								</td>
 								<td id="RenovationStandardName" class="left freeTrade_tableW03">
@@ -147,10 +144,6 @@
 									</td>
 									<td id="EndPrice" class="left">
 										<span class="cOrange">${buyPriceTo }</span>元
-										<span class="cOrange">[房贷计算器 <a href="#"><img
-												src="images/freeTrade_count.jpg" width="14" height="14"
-												align="absmiddle" />
-									</a> ]</span>
 									</td>
 								</tr>
 							</s:if>

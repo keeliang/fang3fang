@@ -29,7 +29,7 @@
 			<div class="guide">
 				<p>
 					您当前的所在位置：
-					<a href="#">房上房</a> &gt;&gt;
+					<a href="<%=contextPath %>/main/index.jsp">房上房</a> &gt;&gt;
 					<span class="cOrange">会员中心</span>
 				</p>
 			</div>
@@ -51,7 +51,7 @@
 								<div class="memberC_rightShow">
 									<s:iterator value="recommondOwnEstateList">
 										<p>
-											・<a href="#">${estateName }</a>
+											・<a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" target="blank" >${estateName }</a>
 										</p>
 									</s:iterator>
 								</div>
@@ -68,7 +68,7 @@
 								<div class="memberC_rightShow">
 									<s:iterator value="recommondEstateList">
 										<p>
-											・<a href="#">${estateName }</a>
+											・<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }">${estateName }</a>
 										</p>
 									</s:iterator>
 								</div>
@@ -78,31 +78,6 @@
 					
 					<div class="clear"></div>
 					<div class="blankP"></div>
-
-					<div class="memberC_rightC">
-						<div class="memberC_rightTitle03">
-							<b>购房卖房百宝箱</b>
-						</div>
-						<div class="memberC_rightShow">
-							<dl>
-								<dd>
-									<a href="AutonomousCS.jsp">[旺铺发布]</a>
-								</dd>
-								<dd>
-									<a href="#">[房贷计算器]</a>
-								</dd>
-								<dd>
-									<a href="#">[按揭贷款]</a>
-								</dd>
-								<dd>
-									<a href="#">[资金监管]</a>
-								</dd>
-								<dd>
-									<a href="#">[邀请专家]</a>
-								</dd>
-							</dl>
-						</div>
-					</div>
 
 				</div>
 
@@ -121,24 +96,6 @@
 							<span><a href="../help/chargeService.jsp"><u>付费服务说明</u></a></span>
 							]
 						</p>
-					</div>
-
-					<div class="clear"></div>
-					<div class="blankP"></div>
-
-					<div class="memberC_centerC">
-						<div class="memberC_midTitle">
-							<b>温馨提醒</b>
-						</div>
-						<div class="memberC_midShow">
-							<p>
-								最近1个月您共有发布了
-								<span class="cOrange">40</span> 套房源&nbsp;&nbsp;&nbsp;&nbsp;
-								<a href="#" class="cRed02"><u>[查看发布的房源]</u>
-								</a>
-							</p>
-						</div>
-						<div class="memberC_midBottom"></div>
 					</div>
 
 					<div class="clear"></div>

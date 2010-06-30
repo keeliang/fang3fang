@@ -40,10 +40,9 @@ body .new_menu {
 						<a href="#" onclick="window.print()">打印</a>&nbsp;&nbsp;&nbsp;
 					</span>
 					您当前的所在位置：
-					<a href="../main/index.jsp">房上房</a> &gt;
-					<a href="../freetrade/index.jsp">自主交易区</a> &gt;
-					<a id="TypeInfo" href="../freetrade/index.jsp">出售信息</a> &gt;
-					<span id="PropertyInfo" class="cOrange">岭南雅院</span>
+					<a href="<%=contextPath %>/main/index.jsp">房上房</a> &gt;
+					<a href="<%=contextPath %>/freetrade/index.jsp">自主交易区</a> &gt;
+					<span id="PropertyInfo" class="cOrange">${estateName }</span>
 				</p>
 			</div>
 
@@ -55,7 +54,7 @@ body .new_menu {
 						<div id="EstateInfo" class="freeTrade_contnetL_title01">
 							<span class="float_right">
 								发布日期：<s:date name="createTime" format="yyyy-MM-dd HH:mm:ss" />&nbsp;&nbsp;&nbsp;&nbsp;
-								有效期：<span class="cOrange">${effective }</span>天s
+								有效期：<span class="cOrange">${effective }</span>天
 							</span>
 							<span class="cOrange font14"><b>${estateName }基本信息</b></span>
 							<img src="images/freeTrade_down.jpg" width="13" height="13" align="absmiddle" />
@@ -292,8 +291,8 @@ body .new_menu {
 										<span class="cOrange">单&nbsp;&nbsp;价：</span>
 									</td>
 									<td id="UnitCost" class="left">
-										<span class="cOrange">${salePrice/area }</span> 元/平方米
-										<a href="#" class="cRed03">[按建筑面积计算]</a>
+										<span class="cOrange">${unitPrice }</span> 元/平方米
+										<a class="cRed03">[按建筑面积计算]</a>
 									</td>
 								</tr>
 								<tr>
@@ -315,10 +314,7 @@ body .new_menu {
 						<div class="clear"></div>
 						<div class="blank12"></div>
 						<div class="freeTrade_contnetL_title02">
-							<span class="float_right">
-								<a href="#" class="cRed03"><u>[如果联系人是中介，点击投诉]</u></a></span>
-								<span class="cOrange font14"><b>联系方式</b>
-							</span>
+							<span class="cOrange font14"><b>联系方式</b></span>
 							<img src="images/freeTrade_down02.jpg" width="13" height="13" align="absmiddle" />&nbsp;&nbsp;[自主交易]
 						</div>
 						<table border="0" cellpadding="0" cellspacing="0" width="100%" class="freeTrade_table">

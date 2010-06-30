@@ -53,8 +53,6 @@
 
 <s:hidden name="estateInParameter._ne_tradeType" />
 
-
-
 <s:hidden name="estateId"/>
 <s:hidden name="tradeType" value="2"/>
 
@@ -337,36 +335,33 @@ function f_examine(s){
 
 function f_validate(){
 	fromName = "formItem";
-	//addfield("estateId","<s:text name="estateId"/>","Integer",false,10);
 	addfield("title","<s:text name="title"/>","String",false,80);
 	addfield("provinceId","<s:text name="provinceId"/>","Integer",true,10);
 	addfield("cityId","<s:text name="cityId"/>","Integer",true,10);
 	addfield("districtId","<s:text name="districtId"/>","Integer",true,10);
 	addfield("areaId","<s:text name="areaId"/>","Integer",true,10);
-	addfield("address","<s:text name="address"/>","String",true,80);
-	//addfield("examine","<s:text name="examine"/>","Integer",true,3);
+	addfield("effective","<s:text name="effective"/>","Integer",false,10);
 	addfield("tradeMode","<s:text name="tradeMode"/>","Integer",false,3);
 	addfield("estateType","<s:text name="estateType"/>","Integer",false,3);
-	addfield("buildYear","<s:text name="buildYear"/>","Integer",true,10);
 	addfield("hall","<s:text name="hall"/>","Integer",false,10);
 	addfield("bedroom","<s:text name="bedroom"/>","Integer",false,10);
 	addfield("toilet","<s:text name="toilet"/>","Integer",false,10);
 	addfield("porch","<s:text name="porch"/>","Integer",false,10);
 	addfield("toward","<s:text name="toward"/>","Integer",true,10);
-	addfield("buyPriceFrom","<s:text name="buyPriceFrom"/>","Number",true,14);
-	addfield("buyPriceTo","<s:text name="buyPriceTo"/>","Number",true,14);
-	addfield("rentPriceFrom","<s:text name="rentPriceFrom"/>","Number",true,14);
-	addfield("rentPriceTo","<s:text name="rentPriceTo"/>","Number",true,14);
 	addfield("areaFrom","<s:text name="areaFrom"/>","Number",false,12);
 	addfield("areaTo","<s:text name="areaTo"/>","Number",false,12);
 	addfield("isLift","<s:text name="isLift"/>","Integer",false,3);
 	addfield("fitment","<s:text name="fitment"/>","Integer",false,3);
 	addfield("device","<s:text name="device"/>","Integer",false,3);
 	addfield("remark","<s:text name="remark"/>","String",true,65535);
-	addfield("createTime","<s:text name="createTime"/>","Date",false,19);
-	addfield("createUserId","<s:text name="createUserId"/>","Integer",false,10);
-	addfield("updateTime","<s:text name="updateTime"/>","Date",false,19);
-	addfield("updateUserId","<s:text name="updateUserId"/>","Integer",false,10);
+	var obj = document.forms[0].tradeMode;
+	if(obj.value==1 || obj.value==3){
+		addfield("rentPriceFrom","<s:text name="rentPriceFrom"/>","Number",true,14);
+		addfield("rentPriceTo","<s:text name="rentPriceTo"/>","Number",true,14);	
+	}else if(obj.value==2 || obj.value==3){
+		addfield("buyPriceFrom","<s:text name="buyPriceFrom"/>","Number",true,14);
+		addfield("buyPriceTo","<s:text name="buyPriceTo"/>","Number",true,14);
+	}
 	return validate();
 }
 function f_chageTradeMode(){

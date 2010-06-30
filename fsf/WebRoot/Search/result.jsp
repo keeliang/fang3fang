@@ -31,11 +31,11 @@
 						<s:iterator value="pageView.records" id="item">
 							<tr>
 								<td>
-									<s:if test="imagePath!=null">
+									<s:if test="imagePath!=null && imagePath.trim()!=''">
 										<img src="<%=contextPath %>${imagePath }" width="105" height="80" />
 									</s:if>
 									<s:else>
-										<img src="<%=contextPath %>/images/logo.gif" width="105" height="80" />
+										<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
 									</s:else>
 								</td>
 								<td>
@@ -71,11 +71,11 @@
 						<s:iterator value="pageView.records" id="item">
 							<tr>
 								<td>
-									<s:if test="imagePath!=null">
+									<s:if test="imagePath!=null && imagePath.trim()!=''">
 										<img src="<%=contextPath %>${imagePath }" width="105" height="80" />
 									</s:if>
 									<s:else>
-										<img src="<%=contextPath %>/images/logo.gif" width="105" height="80" />
+										<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
 									</s:else>
 								</td>
 								<td>
@@ -188,11 +188,11 @@
 					<s:iterator value="pageView.records" id="item">
 						<tr>
 							<td>
-								<s:if test="imagePath!=null">
+								<s:if test="imagePath!=null && imagePath.trim()==''">
 									<img src="<%=contextPath %>${imagePath }" width="105" height="80" />
 								</s:if>
 								<s:else>
-									<img src="<%=contextPath %>/images/logo.gif" width="105" height="80" />
+									<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
 								</s:else>
 							</td>
 							<td>
