@@ -42,6 +42,7 @@ public class EstateOutRecommondCacheService implements ScheduleService{
 			param.getQueryDynamicConditions().put("_ne_tradeType", (short)1);
 			param.getQueryDynamicConditions().put("_ne_isRecommond", (short)1);
 			param.getQueryDynamicConditions().put("_nin_tradeMode", new Short[]{2,3});
+			param.getQueryDynamicConditions().put("_ne_examine", (short)1);
 			param.setCurrentPage(-1);
 			param.setMaxResults(-1);
 			param.setTopCount(4);
