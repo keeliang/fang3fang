@@ -63,6 +63,8 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 	 */
 	private List<Commerce> listCommerce;
 	
+	private List<EstateOut> listRecommondEstateOnInfo;
+	
 	public String doQuery() throws Exception{
 		return null;
 	}
@@ -143,7 +145,7 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 	}
 	
 	/**
-	 * 推荐查询，不分页
+	 * 会员首页右侧 房源推荐查询，不分页
 	 * @return
 	 * @throws Exception
 	 */
@@ -166,6 +168,31 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 			((EstateOutParameter)baseParameter).set_ne_tradeType((short)2);
 			queryResult = service.doPaginationQuery(baseParameter);
 			recommondEstateList = queryResult.getResultList();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return SUCCESS;
+	}
+	/**
+	 * 资讯首页右侧推荐房源
+	 * @return
+	 * @throws Exception
+	 */
+	public String ajaxRecommondListOnInfoPage() throws Exception{
+		try {
+			if(baseParameter==null){
+				baseParameter = new EstateOutParameter();
+			}
+			baseParameter.setMaxResults(-1);
+			baseParameter.setCurrentPage(-1);
+			baseParameter.setTopCount(5);
+			
+			baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
+			((EstateOutParameter)baseParameter).set_ne_isRecommond((short)1);
+			((EstateOutParameter)baseParameter).set_nin_tradeMode(new Short[]{2,3});
+			QueryResult<EstateOut> queryResult = service.doPaginationQuery(baseParameter);
+			listRecommondEstateOnInfo = queryResult.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -791,6 +818,12 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 		this.listNewestEstate = listNewestEstate;
 	}
 
+	public List<EstateOut> getListRecommondEstateOnInfo() {
+		return listRecommondEstateOnInfo;
+	}
+	public void setListRecommondEstateOnInfo(List<EstateOut> listRecommondEstateOnInfo) {
+		this.listRecommondEstateOnInfo = listRecommondEstateOnInfo;
+	}
 	public List<Commerce> getListCommerce() {
 		return listCommerce;
 	}
@@ -803,4 +836,6 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 		df.setMaximumFractionDigits(2);
 		return df.format(salePrice/area);
 	}
+	
+	
 }
