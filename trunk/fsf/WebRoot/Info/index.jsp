@@ -15,6 +15,18 @@
 			ajaxAnywhere.showLoadingMessage = function(){}
 			ajaxAnywhere.hideLoadingMessage = function(){}
 			ajaxAnywhere.getAJAX("<%=contextPath %>/Info/newsIndexList.ajax","listZone");
+			ajaxAnywhere.onAfterResponseProcessing = function (){
+				aa = new AjaxAnywhere();
+				aa.showLoadingMessage = function(){
+					document.getElementById("loadingDiv").style.display = "block";
+					document.getElementById("estateDiv").style.display = "none";
+				}
+				aa.hideLoadingMessage = function(){
+					document.getElementById("loadingDiv").style.display = "none";
+					document.getElementById("estateDiv").style.display = "block";
+				}
+				aa.getAJAX("/Info/recommondListOnInfoPage.ajax","zoneRecommondEstateOnInfo");
+			}
 		}
 		</script>
 	</head>
@@ -199,95 +211,51 @@
 								<div class="info_rightTitle">
 									<b>楼房推荐</b>
 								</div>
-								<div class="info_tuijian">
-									<ul>
-										<li>
-											<p>
-												<img src="images/info_pic009.jpg" width="131" height="86"
-													alt="" title="" />
-											</p>
-											<p>
-												<a href="#" class="cRed02">金泰・先锋</a>&nbsp;&nbsp;
-												<a href="#" class="cRed02">业主论坛</a>
-											</p>
-											<p>
-												<span class="cRed02">2008.12.12</span>&nbsp;&nbsp;
-												<span class="cRed02">16000元</span>
-											</p>
-										</li>
-										<li>
-											<p>
-												<img src="images/info_pic010.jpg" width="131" height="86"
-													alt="" title="" />
-											</p>
-											<p>
-												<a href="#" class="cRed02">广州雅居乐</a>&nbsp;
-												<a href="#" class="cRed02">业主论坛</a>
-											</p>
-											<p>
-												<span class="cRed02">2008.12.12</span>&nbsp;&nbsp;
-												<span class="cRed02">16000元</span>
-											</p>
-										</li>
-										<li>
-											<p>
-												<img src="images/info_pic011.jpg" width="131" height="86"
-													alt="" title="" />
-											</p>
-											<p>
-												<a href="#" class="cRed02">富庭华园</a>&nbsp;
-												<a href="#" class="cRed02">业主论坛</a>
-											</p>
-											<p>
-												<span class="cRed02">2008.12.12</span>&nbsp;&nbsp;
-												<span class="cRed02">16000元</span>
-											</p>
-										</li>
-										<li>
-											<p>
-												<img src="images/info_pic012.jpg" width="131" height="86"
-													alt="" title="" />
-											</p>
-											<p>
-												<a href="#" class="cRed02">绿庭雅苑</a>&nbsp;
-												<a href="#" class="cRed02">业主论坛</a>
-											</p>
-											<p>
-												<span class="cRed02">2008.12.12</span>&nbsp;&nbsp;
-												<span class="cRed02">16000元</span>
-											</p>
-										</li>
-									</ul>
+								
+								<div id="loadingDiv" >
+									<img src="<%=contextPath %>/images/loading2.gif" />
+									<br />
+									<font style="font-weight: bold;" >加载中...</font>
+								</div>
+								
+								<div class="info_tuijian" id="estateDiv" >
+									<aa:zone name="zoneRecommondEstateOnInfo">
+										<ul>
+											<s:iterator value="listRecommondEstateOnInfo" >
+												<li>
+													<p>
+														<s:if test="imagePath!=null && imagePath.trim()!=''">
+															<img src="<%=contextPath %>${imagePath }" width="131" height="86" />
+														</s:if>
+														<s:else>
+															<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
+														</s:else>
+													</p>
+													<p>
+														<s:if test="tradeType==1">
+															<a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" class="cRed02">${estateName }</a>
+														</s:if>
+														<s:if test="tradeType==2">
+															<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" class="cRed02">${estateName }</a>
+														</s:if>
+													</p>
+													<p>
+														<span class="cRed02"><s:date name="createTime" format="yyyy-MM-dd" /></span>&nbsp;&nbsp;
+														<span class="cRed02">${unitPrice}元/平方</span>
+													</p>
+												</li>
+											</s:iterator>
+										</ul>
+									</aa:zone>
 								</div>
 
 								<div class="info_button">
-									<a href="#"><img src="images/info_button.jpg" width="174"
-											height="27" alt="更多房源尽在自主交易" title="更多房源尽在自主交易" /></a>
+									<a href="<%=contextPath %>/freetrade/index.jsp">
+										<img src="images/info_button.jpg" width="174" height="27" alt="更多房源尽在自主交易" title="更多房源尽在自主交易" />
+									</a>
 								</div>
 								<br />
-								<div class="info_rightTitle02">
-									<b>社区推荐</b>
-								</div>
-								<div class="info_bbs">
-									<div class="info_bbs_pic">
-										<img src="images/info_pic012.jpg" width="160" height="120"
-											alt="" title="" />
-									</div>
-									<ul>
-										<s:if test="listInfo7==null || listInfo7.size()<1">
-											没有记录
-										</s:if>
-										<s:else>
-											<s:iterator value="listInfo7">
-												<li>
-													<a target="_blank" href="">${informationTitle }</a>
-												</li>
-											</s:iterator>										
-										</s:else>
-									</ul>
-								</div>
 							</div>
-
 						<!-- col02_1 -->
 						
 					</div>
@@ -302,13 +270,10 @@
 				<p>
 					<a href="http://www.chinahr.com/">中华英才网</a> |
 					<a href="http://www.gov.cn/">中国政府网</a>|
-					<a href="#">新华网</a> |
-					<a href="http://www.zhcw.com/">中 彩 网</a><a href="#"></a> |
-					<a href="http://www.xcar.com.cn/">爱卡汽车网</a><a href="#"></a> |
+					<a href="http://www.zhcw.com/">中 彩 网</a>
+					<a href="http://www.xcar.com.cn/">爱卡汽车网</a>
 					<a href="http://www.xiaonei.com/">校 内 网</a>|
-					<a target="_blank" href="http://www.anjuke.com/?&amp;pi=H-1">安居客房产网</a><a
-						href="#"></a> |
-					<a href="#">新华网</a> |
+					<a target="_blank" href="http://www.anjuke.com/?&amp;pi=H-1">安居客房产网</a>
 					<a href="http://www.taobao.com/">淘 宝 网</a> |&nbsp;
 					<a target="_blank" href="http://www.ddmap.com/">丁丁地图</a> |&nbsp;
 					<a href="http://www.people.com.cn/">人 民 网</a> |&nbsp;
@@ -317,10 +282,8 @@
 					<a href="http://fund.eastmoney.com/">天天基金</a> |
 					<a href="http://sports.sina.com.cn/">新浪体育</a> |
 					<a href="http://www.bitauto.com/" class="greenfont">易车网</a> |
-					<a href="http://www.myspace.cn/">聚友网</a><a href="#"></a> |
-					<a href="#">新华网</a> |
+					<a href="http://www.myspace.cn/">聚友网</a>
 					<a href="http://www.lottery.gov.cn/">中国体彩网</a>
-					<a href="#"></a> |&nbsp;
 					<a href="http://www.eastmoney.com/">东方财富网</a>
 				</p>
 			</div>
