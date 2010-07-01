@@ -46,11 +46,11 @@
             <ul>
             <div class="blank12"></div>
             	<li class="help_menuNav01_01"><a href="findHouse.jsp"><span class="float_right">&gt;&gt;</span>查找房源</a></li>
-                <li class="help_menuNav01_02"><a href="comTalk.jsp"><span class="float_right">&gt;&gt;</span>联络洽谈</a></li>
-                <li class="help_menuNav01_03"><a href="bargain.jsp"><span class="float_right">&gt;&gt;</span>合同签署</a></li>
-                <li class="help_menuNav01_04"><a href="moneyManage.jsp"><span class="float_right">&gt;&gt;</span>资金监管</a></li>
-                <li class="help_menuNav01_05 on"><a href="anjie.jsp"><span class="float_right">&gt;&gt;</span>按揭贷款</a></li>
-                <li class="help_menuNav01_06"><a href="diya.jsp"><span class="float_right">&gt;&gt;</span>过户抵押</a></li>
+              <li class="help_menuNav01_02"><a href="comTalk.jsp"><span class="float_right">&gt;&gt;</span>联络洽谈</a></li>
+              <li class="help_menuNav01_03"><a href="bargain.jsp"><span class="float_right">&gt;&gt;</span>合同签署</a></li>
+              <li class="help_menuNav01_04"><a href="moneyManage.jsp"><span class="float_right">&gt;&gt;</span>资金监管</a></li>
+              <li class="help_menuNav01_05 on"><a href="anjie.jsp"><span class="float_right">&gt;&gt;</span>按揭贷款</a></li>
+              <li class="help_menuNav01_06"><a href="diya.jsp"><span class="float_right">&gt;&gt;</span>过户抵押</a></li>
             </ul>
             </div>
             <div class="blank12"></div>

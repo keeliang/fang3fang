@@ -16,7 +16,7 @@
 <div class="infoShow_box">
 	<!-- head -->
   <div class="infoShow_head">
-		<div class="infoShow_logo"><a href="#"><img src="images/logo.jpg" width="154" height="51" alt="房上房" title="房上房" /></a></div>
+		<div class="infoShow_logo"><img src="images/logo.jpg" width="154" height="51" alt="房上房" title="房上房" /></div>
 		  <p>
 				<a href="<%=contextPath %>/main/index.jsp"><u>首页</u></a> |
 				<a href="<%=contextPath %>/freetrade/index.jsp"><u>自主交易</u></a> |
@@ -153,10 +153,15 @@
             	<s:iterator value="@fsf.service.common.EstateOutRecommondCacheService@getListRecommond()">
 								<li>
 									<p>
-										<img src="<%=contextPath %>${imagePth }" width="131" height="86" alt="" title="" />
+										<s:if test="imagePath!=null && imagePath.trim()!=''">
+											<img src="<%=contextPath %>${imagePth }" width="131" height="86" />
+										</s:if>
+										<s:else>
+											<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
+										</s:else>
 									</p>
 									<p>
-										<a href="#" class="cRed02"><u>${estateName }</u></a>&nbsp;&nbsp;
+										<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" class="cRed02"><u>${estateName }</u></a>&nbsp;&nbsp;
 									</p>
 									<p>
 										<span class="cRed02"><s:date name="createTime" format="yyyy-MM-dd" /></span>&nbsp;&nbsp;
@@ -175,13 +180,15 @@
              	<s:iterator value="@fsf.service.common.EstateOutRecommondCacheService@getListOwnRecommond()">
 								<li>
 									<p>
-										<img src="<%=contextPath %>${imagePth }" width="131" height="86" alt="" title="" />
+										<s:if test="imagePath!=null && imagePath.trim()!=''">
+											<img src="<%=contextPath %>${imagePth }" width="131" height="86" />
+										</s:if>
+										<s:else>
+											<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
+										</s:else>
 									</p>
 									<p>
-										<a href="#" class="cRed02"><u>${estateName }</u>
-										</a>&nbsp;&nbsp;
-										<a href="#" class="cRed02"><u>业主论坛</u>
-										</a>
+										<a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" class="cRed02"><u>${estateName }</u></a>
 									</p>
 									<p>
 										<span class="cRed02"><s:date name="createTime" format="yyyy-MM-dd" /></span>&nbsp;&nbsp;

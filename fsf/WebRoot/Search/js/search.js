@@ -21,6 +21,8 @@ function f_query(pageNum){
 		param = "estateInParameter";
 	}
 	
+	sb.append("&"+param+"._ne_examine=1");
+	
 	o = $('#divTradeType a[class="selected_filter"]');
 	if(o.attr('id')=='divTradeType_1'){
 		sb.append("&"+param+"._ne_tradeType=1");
@@ -29,7 +31,6 @@ function f_query(pageNum){
 	}else if(tradeTypeFlag!=0){
 		sb.append("&"+param+"._ne_tradeType="+tradeTypeFlag);
 	}
-	
 
 	o = $('#divEstateType a[class="selected_filter"]');
 	if(o.attr('id')!='divEstateType_0'){

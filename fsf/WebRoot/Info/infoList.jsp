@@ -18,8 +18,7 @@
 		<div class="infoList_box">
 			<div class="infoList_head">
 				<div class="infoList_logo">
-					<a href="#"><img src="images/logo.jpg" width="154" height="51" alt="房上房" title="房上房" />
-					</a>
+					<img src="images/logo.jpg" width="154" height="51" alt="房上房" title="房上房" />
 				</div>
 				<p>
 					<a href="<%=contextPath %>/main/index.jsp"><u>首页</u></a> |
