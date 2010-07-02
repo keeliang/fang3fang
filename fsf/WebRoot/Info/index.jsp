@@ -17,6 +17,7 @@
 			ajaxAnywhere.getAJAX("<%=contextPath %>/Info/newsIndexList.ajax","listZone");
 			ajaxAnywhere.onAfterResponseProcessing = function (){
 				aa = new AjaxAnywhere();
+				aa.bindById();
 				aa.showLoadingMessage = function(){
 					document.getElementById("loadingDiv").style.display = "block";
 					document.getElementById("estateDiv").style.display = "none";

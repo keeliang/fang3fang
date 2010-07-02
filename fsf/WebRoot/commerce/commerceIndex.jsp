@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <%@include file="/share/share.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,7 +8,6 @@
 <meta name="keywords" content="房上房,番禺地产,番禺地产网,房地产,买房,卖房,租房,新房,二手房,写字楼,商铺,C2C交易,C2C"/> 
 <meta name="title" content="番禺房地产门户 - 房上房地产网(http://wwww.fang3fang.com)"/> 
 <title>旺铺招租 - 房上房地产网</title>
-
 
 <link type="text/css" href="<%=contextPath%>/commerce/css/general.css" rel="stylesheet"/>
 <link type="text/css" href="<%=contextPath%>/commerce/css/dialog.css" rel="stylesheet"/>
@@ -35,27 +34,27 @@
         <div class="wangpu_show">
             <!-- wangpu menu -->
         <div class="wangpu_menu">
-                <div class="wangpu_menuLine"></div>
-                <ul class="wangpuList"> 
-                  <li class="wangpuLeftW">&nbsp;</li>                  
-                 <li id="aboutnav11" class="wangpuHere"><a href="<%=contextPath %>/commerce/commerceIndex.action" target="_self"><span>全部信息</span></a></li> 
-                  <li id="aboutnav21"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceType=1" target="_self"><span>厂房仓库</span></a></li>
-                  <li id="aboutnav31"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceType=2" target="_self"><span>酒楼转让 </span></a></li>
-                  <li class="wangpuLine">&nbsp;</li>
-                  <li id="aboutnav41"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceType=3" target="_self"><span>写字楼</span></a></li> 
-                  <li class="wangpuLine">&nbsp;</li>
-                  <li id="aboutnav51"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceType=4" target="_self"><span>餐厅转让</span></a></li>
-                  <li class="wangpuLine">&nbsp;</li>
-                  <li id="aboutnav61"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceType=5" target="_self"><span>商铺</span></a></li>
-                  <li class="wangpuLine">&nbsp;</li>
-                  <li id="aboutnav71"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceType=6" target="_self"><span>工厂转让</span></a></li>
-                  <li class="wangpuLine">&nbsp;</li>
-                  <li id="aboutnav81"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceType=7" target="_self"><span>美容发廊</span></a></li>
-                  <li class="wangpuLine">&nbsp;</li>
-                  <li id="aboutnav91"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceType=8" target="_self"><span>房租转让</span></a></li>
-                  <li class="wangpuList">&nbsp;</li>
-                </ul>  
-          </div>
+        	<div class="wangpu_menuLine"></div>
+	        <ul class="wangpuList"> 
+	          <li class="wangpuLeftW">&nbsp;</li>                  
+	         <li id="aboutnav11" class="wangpuHere"><a href="<%=contextPath %>/commerce/commerceIndex.action" target="_self"><span>全部信息</span></a></li> 
+	          <li id="aboutnav21"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=1" target="_self"><span>厂房仓库</span></a></li>
+	          <li id="aboutnav31"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=2" target="_self"><span>酒楼转让 </span></a></li>
+	          <li class="wangpuLine">&nbsp;</li>
+	          <li id="aboutnav41"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=3" target="_self"><span>写字楼</span></a></li> 
+	          <li class="wangpuLine">&nbsp;</li>
+	          <li id="aboutnav51"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=4" target="_self"><span>餐厅转让</span></a></li>
+	          <li class="wangpuLine">&nbsp;</li>
+	          <li id="aboutnav61"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=5" target="_self"><span>商铺</span></a></li>
+	          <li class="wangpuLine">&nbsp;</li>
+	          <li id="aboutnav71"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=6" target="_self"><span>工厂转让</span></a></li>
+	          <li class="wangpuLine">&nbsp;</li>
+	          <li id="aboutnav81"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=7" target="_self"><span>美容发廊</span></a></li>
+	          <li class="wangpuLine">&nbsp;</li>
+	          <li id="aboutnav91"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=8" target="_self"><span>房租转让</span></a></li>
+	          <li class="wangpuList">&nbsp;</li>
+	        </ul>  
+				</div>
          
           <div class="wangpu_button" id="Jbutton"><a href="<%=contextPath %>/commerce/commerceNew.action"><img src="images/wangpu_fabu.jpg" width="142" height="31" alt="我要发布信息" title="我要发布信息"/></a></div>
 
@@ -63,8 +62,14 @@
      
         <div class="clear"></div>
         <div class="wangpu_content">
-        	<p><span class="float_right paddingR"><b>显示全部</b> <a href="#">近1天</a>&nbsp;<a href="#">近2天</a>&nbsp;<a href="#">近3天</a>&nbsp;<a href="#">近5天</a></span><img src="images/freeTrade_dot04.jpg" width="10" height="10" align="absmiddle" />
-				<b>地区：</b><a href="#">番禺</a>&nbsp;&nbsp;<a href="#">市桥</a>&nbsp;&nbsp;<a href="#">天河区</a>&nbsp;&nbsp;<a href="#">越秀区</a>&nbsp;&nbsp;<a href="#">海珠区</a>&nbsp;&nbsp;<a href="#">荔湾区</a>&nbsp;&nbsp;<a href="#">白云区</a>&nbsp;&nbsp;<a href="#">增城</a>&nbsp;&nbsp;<a href="#">从化</a>&nbsp;&nbsp;<a href="#">惠州</a>&nbsp;&nbsp;<a href="#">汕头</a></p>
+        	<p>
+       			<img src="images/freeTrade_dot04.jpg" width="10" height="10" align="absmiddle" />
+						<b>地区：</b>
+						<a href="<%=contextPath %>/commerce/commerceIndex.action" >全部</a>
+						<s:iterator value="#application.est_filter.place" id="var">
+							<a href="<%=contextPath %>/commerce/commerceIndex.action?commerceParameter._ne_<s:property value="#var.from.split('_')[0]" />=<s:property value="#var.from.split('_')[1]" />">${name }</a>&nbsp;&nbsp;
+						</s:iterator>
+					</p>
             <div class="wangpu_content_show">
             	<table border="0" cellpadding="0" cellspacing="0" width="100%">
                 	<tr>
@@ -109,7 +114,6 @@
                                     		<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="commerceId"/>">
                                     			<span class="cOrange bold"><s:property value="title"/></span>
                                     		</a>
-                                    		
                                     	</p>
                                     </s:iterator>
                                 </div>

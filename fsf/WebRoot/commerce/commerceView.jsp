@@ -37,7 +37,7 @@
     	<a href="#">推荐给好友</a></span>
     	您当前的所在位置：<a href="/index.jsp">房上房</a> &gt; 
     		<a href="<%=contextPath %>/commerce/commerceIndex.action">旺铺招租</a> &gt; 
-    		<a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceType=<s:property value="commerceType"/>"><fsf:dictTranslate groupName="$commerce_type" value="commerceType" /></a> &gt; 
+    		<a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=<s:property value="commerceType"/>"><fsf:dictTranslate groupName="$commerce_type" value="commerceType" /></a> &gt; 
     		<span class="cOrange"><s:property value="title"/></span></p>
 </div>
 
