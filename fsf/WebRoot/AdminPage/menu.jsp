@@ -114,6 +114,8 @@ $(document).ready(function() {
 	<tr class="menuItemTr">
 		<td>
 			<table>
+				<tr><td><a href="<%=contextPath %>/admBase/login.page" target="_blank"><span>论坛管理</span></a></td></tr>
+			<!-- /user/login.page
 				<tr><td><a href="<%=contextPath %>/adminGroups/list.page" target="content"><span>会员分组</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/adminUsers/list.page" target="content"><span>会员管理</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/adminUsers/pendingActivations.page" target="content"><span>尚未启用</span></a></td></tr>
@@ -128,6 +130,7 @@ $(document).ready(function() {
 				<tr><td><a href="<%=contextPath %>/adminAttachments/extensionGroups.page" target="content"><span>附件管理--扩展名分组</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/adminAttachments/extensions.page" target="content"><span>附件管理--扩展名</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/adminCache/list.page" target="content"><span>缓存</span></a></td></tr>
+				 -->
 			</table>
 		</td>
 	</tr>
