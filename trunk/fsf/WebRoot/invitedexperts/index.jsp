@@ -173,47 +173,33 @@
 				<!--expert-->
 				
 				<div class="contentR">
+				
 					<div class="hot">
 						<div class="hot_top">
 							<span>网友收藏最多的房源</span>
 						</div>
-						<ul>
-							<li class="li1">
-								<span>[海珠区] 天汇大厦 05-21</span>
-								<p>
-									256㎡
-									<span class="red_span">230万</span> 单价:9196元/㎡
-								</p>
-							</li>
-							<li class="li2">
-								<span>[海珠区] 前进路 05-21</span>
-								<p>
-									56㎡
-									<span class="red_span">42万</span> 单价:7656元/㎡
-								</p>
-							</li>
-							<li class="li3">
-								<span>[白云区] 云山熹景 05-21</span>
-								<p>
-									156㎡
-									<span class="red_span">130万 </span>单价:1196元/㎡
-								</p>
-							</li>
-							<li class="li4">
-								<span>[番禺区] 南浦海滨花园 05-21</span>
-								<p>
-									119㎡
-									<span class="red_span">83万</span> 单价:7196元/㎡
-								</p>
-							</li>
-							<li class="li5">
-								<span>[番禺区] 南浦海滨花园 05-21</span>
-								<p>
-									119㎡
-									<span class="red_span">83万</span> 单价:7196元/㎡
-								</p>
-							</li>
-						</ul>
+						<div id="loadingDiv" style="width: 100%;text-align: center;" >
+							<img src="<%=contextPath %>/images/loading2.gif" />
+							<br />
+							<font style="font-weight: bold;" >加载中...</font>
+						</div>
+						<div id="estateDiv">
+							<aa:zone name="zoneRecommondEstateOnExpert">
+								<ul>
+									<s:iterator value="listRecommondEstateOnInfo" >
+										<li class="li1">
+											<s:if test="tradeType==1">
+												<span><a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" class="cRed02">${estateName }</a></span>
+											</s:if>
+											<s:if test="tradeType==2">
+												<span><a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" class="cRed02">${estateName }</a></span>
+											</s:if>
+											<p>${area }㎡<span class="red_span">${salePrice }万</span> 单价:${unitPrice }元/㎡</p>
+										</li>
+									</s:iterator>
+								</ul>
+							</aa:zone>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -234,5 +220,17 @@
 function f_goto(url){
 	document.forms[0].action = url;
 	document.forms[0].submit();
+}
+window.onload = function(){
+	ajaxAnywhere = new AjaxAnywhere();
+	ajaxAnywhere.showLoadingMessage = function(){
+		document.getElementById("loadingDiv").style.display = "block";
+		document.getElementById("estateDiv").style.display = "none";
+	}
+	ajaxAnywhere.hideLoadingMessage = function(){
+		document.getElementById("loadingDiv").style.display = "none";
+		document.getElementById("estateDiv").style.display = "block";
+	}
+	ajaxAnywhere.getAJAX("/commerce/recommondListOnCommercePage.ajax","zoneRecommondEstateOnExpert");
 }
 </script>

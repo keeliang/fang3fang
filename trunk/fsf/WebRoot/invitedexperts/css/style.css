@@ -931,23 +931,23 @@ div.expert,div.contentR {
 }
 
 .hot ul li.li1 {
-	list-style-image: url(../images/li1.gif);
+	list-style: none;
 }
 
 .hot ul li.li2 {
-	list-style-image: url(../images/li2.gif);
+	list-style: none;
 }
 
 .hot ul li.li3 {
-	list-style-image: url(../images/li3.gif);
+	list-style: none;
 }
 
 .hot ul li.li4 {
-	list-style-image: url(../images/li4.gif);
+	list-style: none;
 }
 
 .hot ul li.li5 {
-	list-style-image: url(../images/li5.gif);
+	list-style: none;
 }
 
 .hot ul span {
