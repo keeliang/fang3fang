@@ -93,6 +93,7 @@ Modifications by JForum Team
 						</ul>
 					</div>
 				</div> 
+		<!--  
        <div class="navR">
 					
 					<a href="../member/reg.jsp" class="cYellow"> [${I18n.getMessage("ForumHeader.register")}] </a>
@@ -102,6 +103,7 @@ Modifications by JForum Team
 					<a href="../CommonPage/ClearSession.jsp" class="cYellow">[${I18n.getMessage("ForumHeader.zx")}]</a>
 					
 		</div>
+		 -->
         <div class="clear"></div>
     	<div class="nav_bottom">
         	<div class="nav_bottomL"></div>
@@ -119,6 +121,7 @@ Modifications by JForum Team
           <p class="headerFont"><img src="images/info_dot01.jpg" width="5" height="5" align="absmiddle"  /> ${I18n.getMessage("ForumHeader.kftel")}:86-10-82790251</p>
         </div>
     </div>
+    
 					</td>
 				</tr>
 				<tr>
@@ -141,8 +144,9 @@ Modifications by JForum Team
 									<img src="${contextPath}/templates/${templateName}/images/icon_mini_members.gif" alt="[Members]" />&nbsp;
 									<a id="latest2" class="mainmenu" href="${JForumContext.encodeURL("/user/list")}">${I18n.getMessage("ForumBase.usersList")}</a> &nbsp;
 									-->
+									<!-- 
 									<span class="mainmenu"> <img src="${contextPath}/templates/${templateName}/images/icon_mini_groups.gif" alt="[Groups]" />&nbsp;<a id="backtosite" class="mainmenu" href="${homepageLink}">${I18n.getMessage("ForumBase.backToSite")}</a>&nbsp;
-									
+									 -->
 
 									<#if canAccessModerationLog?default(false)>
 										<img src="${contextPath}/templates/${templateName}/images/icon_mini_members.gif" alt="[Moderation Log]" />
@@ -162,10 +166,13 @@ Modifications by JForum Team
 											</#if>
 										</a>&nbsp;
 										</span>
-
+										
+										[${session.username}]
+										<!-- 
 										<#if !sso>
 											<a id="logout" class="mainmenu" href="${JForumContext.encodeURL("/user/logout")}"><img src="${contextPath}/templates/${templateName}/images/icon_mini_login.gif" border="0" alt="[Login]" /> ${I18n.getMessage("ForumBase.logout")} [${session.username}] </a></span>
 										</#if>
+										 -->
 									</#if>
 									
 									<!--this will be delete when project complited
