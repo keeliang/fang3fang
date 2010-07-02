@@ -27,7 +27,7 @@
 				</div>
 				<div class="wangpu_topR">
 					<p class="cOrange bold">
-						联系房上房 (<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('worktime')" />)
+						联系房上房:<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('work_time')" />
 					</p>
 					<p>
 						<img src="images/info_dot01.jpg" width="5" height="5"
