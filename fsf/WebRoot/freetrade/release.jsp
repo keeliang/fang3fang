@@ -307,6 +307,14 @@
 						  		name="tradeMode" id="tradeMode" listValue="itemName" listKey="itemKey" emptyOption="true" onchange="f_chageTradeModeO()"/>
 						    </td>
 						  </tr>
+						  <tr>
+								<td class="aaa">
+									<label class="est_label" for="remark">备注:</label>
+								</td>
+								<td colspan="3" style="text-align: left;" >
+									<s:textarea name="remark" cols="80" rows="5" />
+								</td>
+							</tr>
 						</table>
 						
 						<div id="saleDivO" style="display: none;">
@@ -455,7 +463,7 @@
 										<label class="est_label" >确认密码</label>:
 							    </td>
 							    <td class="aaa" >
-										<input id="" class="memberC_input01" />
+										<input id="confirmPassword" class="memberC_input01" type="password" />
 							    </td>
 							  </tr>
 							</table>
@@ -592,8 +600,8 @@
 									<td class="aaa">
 										<label class="est_label" for="remark">备注:</label>
 									</td>
-									<td class="aaa" colspan="3">
-										<s:textfield name="remark" />
+									<td colspan="3" style="text-align: left;" >
+										<s:textarea name="remark" cols="80" rows="5" />
 									</td>
 								</tr>
 							</table>
@@ -659,13 +667,13 @@
 									<label>帐号密码:</label>
 								</td>
 								<td class="aaa" >
-										<s:password name="contactUser.password" cssClass="memberC_input01" />    	
+									<s:password name="contactUser.password" cssClass="memberC_input01" />    	
 								</td>
 								<td class="aaa" >
 									<label>确认密码:</label>
 								</td>
 								<td class="aaa" >
-									<input id="" class="memberC_input01" />
+									<input id="confirmPassword2" class="memberC_input01" type="password" />
 								</td>
 							</tr>
 						</table>
@@ -812,6 +820,10 @@ function f_changeCost(obj){
 	}
 }
 function f_validate(){
+	if(document.forms["formItemOut"]["contactUser.password"].value!=document.getElementById("confirmPassword").value){
+		alert("密码和确认密码不相同!");
+		return false;
+	}
 	fromName = "formItemOut";
 	addfield("estateName","房源名称","String",false,80);
 	addfield("provinceId","省份","Integer",false,10);
@@ -836,6 +848,10 @@ function f_validate(){
 	addfield("fitment","装修","Integer",false,3);
 	addfield("device","家电设备","Integer",false,3);
 	
+	addfield("contactUser.userName","联系人","String",false,50);
+	addfield("contactUser.password","密码","String",false,50);
+	addfield("contactUser.userCode","手机","String",true,32);
+	
 	var obj = document.forms[0].tradeMode;
 	if(obj.value==1 || obj.value==3){
 		addfield("rentPrice","租价","Number",false,14,2);
@@ -855,6 +871,10 @@ function f_validate(){
 }
 
 function f_validate2(){
+	if(document.forms["formItemOut"]["contactUser.password"].value!=document.getElementById("confirmPassword2").value){
+		alert("密码和确认密码不相同!");
+		return false;
+	}
 	fromName = "formItemIn";
 	addfield("title","标题","String",false,80);
 	addfield("provinceId","省份","Integer",true,10);
@@ -874,6 +894,10 @@ function f_validate2(){
 	addfield("fitment","要求装修","Integer",false,3);
 	addfield("device","家电设备","Integer",false,3);
 	addfield("remark","备注","String",true,65535);
+	
+	addfield("contactUser.userName","联系人","String",false,50);
+	addfield("contactUser.password","密码","String",false,50);
+	addfield("contactUser.userCode","手机","String",true,32);
 	var obj = document.forms[1].tradeMode;
 	if(obj.value==1 || obj.value==3){
 		addfield("rentPriceFrom","可接受租价大于","Number",true,14);

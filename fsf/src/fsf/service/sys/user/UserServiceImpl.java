@@ -30,7 +30,7 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
 			se.setParameters(new String[]{userCode});
 			throw se;
 		}
-		if(0!=user.getUserType()||1!=user.getUserType()){
+		if(!(0==user.getUserType()||1==user.getUserType())){
 			ServiceException se = new ServiceException();
 			se.setExceptionCode(UserExceptionCode.USER_NO_PRIVILEGE_ADMIN);
 			se.setParameters(new String[]{userCode});
