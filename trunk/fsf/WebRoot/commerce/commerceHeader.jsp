@@ -31,7 +31,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="../Info/index.jsp"><span>地产资讯</span>
+								<a href="<%=contextPath %>/Info/infoIndexList.action"><span>地产资讯</span>
 								</a>
 							</li>
 							<li>
@@ -39,11 +39,11 @@
 								</a>
 							</li>
 							<li>
-								<a href="../CoBank/index.jsp"><span>银行合作</span>
+								<a href="<%=contextPath %>/CoBank/index.jsp"><span>银行合作</span>
 								</a>
 							</li>
 							<li class="menuHere"><a href="<%=contextPath%>/commerce/commerceIndex.action"><span>旺铺招租</span></a></li> 
-                  			<li><a href="../invitedexperts/index.jsp"><span>专家顾问</span></a></li>
+              <li><a href="<%=contextPath %>/invitedexperts/index.action"><span>专家顾问</span></a></li>
 						</ul>
 					</div>
 				</div> 
@@ -69,9 +69,8 @@
     <div class="wangpu_top">
     	<div class="wangpu_topL"><img src="<%=contextPath %>/commerce/images/wangpu_img01.jpg" width="709" height="101" alt="" title="" /></div>
       <div class="wangpu_topR">
-       	  <p class="cOrange bold">联系房上房 (周一至周五9:30~18:00) </p>
-          <p><img src="images/info_dot01.jpg" width="5" height="5" align="absmiddle"  /> 客服MSN：sever@fang3fang.com</p>
-          <p><img src="images/info_dot01.jpg" width="5" height="5" align="absmiddle"  /> 客服QQ：3921958912</p>
-          <p><img src="images/info_dot01.jpg" width="5" height="5" align="absmiddle"  /> 客服电话：86-10-82790251</p>
+       	  <p class="cOrange bold">联系房上房:<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('work_time')" /></p>
+          <p><img src="images/info_dot01.jpg" width="5" height="5" align="absmiddle"  /> 客服MSN：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('msn')" /></p>
+          <p><img src="images/info_dot01.jpg" width="5" height="5" align="absmiddle"  /> 客服QQ：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('qq')" /></p>
         </div>
     </div>
