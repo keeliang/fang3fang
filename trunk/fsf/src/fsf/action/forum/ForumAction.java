@@ -66,7 +66,7 @@ public class ForumAction extends ActionSupport {
 		}else{
 			MD5 md5 = new MD5();
 			loginUserName = user.getUserCode();
-			loginPassword = md5.getMD5ofStr(user.getPassword());
+			loginPassword = user.getPassword();
 		}
 		req.setAttribute("username", loginUserName);
 		req.setAttribute("password",loginPassword);
