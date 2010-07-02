@@ -35,7 +35,13 @@
 			<result name="noPrivilege">/noPrivilege.jsp</result>
 		</global-results>
 		 -->
-		
+	 	<global-results>
+			<result name="errorException" >/main/error.jsp</result>
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping result="errorException" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
 	</package>
 	
 	<package name="/AdminPage" extends="baseDefault" namespace="/AdminPage" >

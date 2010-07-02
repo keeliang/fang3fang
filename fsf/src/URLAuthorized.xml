@@ -51,5 +51,8 @@
 		
 		<resource url="/newHouse/commitComment.ajax" />
 		
+		<resource url="/commerce/commerceSave.action" />
+		<resource url="/commerce/commerceNew.action" />
+		
 	</FrontProtected>
 </authorized>
