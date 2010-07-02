@@ -24,6 +24,7 @@ import fsf.beans.est.commerce.Commerce;
 import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
+import fsf.service.common.EstateOutRecommondCacheService;
 import fsf.service.common.IndexCacheService;
 import fsf.service.est.estateout.EstateOutService;
 import fsf.service.sys.user.UserService;
@@ -180,23 +181,7 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 	 * @throws Exception
 	 */
 	public String ajaxRecommondListOnInfoPage() throws Exception{
-		try {
-			if(baseParameter==null){
-				baseParameter = new EstateOutParameter();
-			}
-			baseParameter.setMaxResults(-1);
-			baseParameter.setCurrentPage(-1);
-			baseParameter.setTopCount(5);
-			
-			baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
-			((EstateOutParameter)baseParameter).set_ne_isRecommond((short)1);
-			((EstateOutParameter)baseParameter).set_nin_tradeMode(new Short[]{2,3});
-			QueryResult<EstateOut> queryResult = service.doPaginationQuery(baseParameter);
-			listRecommondEstateOnInfo = queryResult.getResultList();
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw e;
-		}
+		listRecommondEstateOnInfo = EstateOutRecommondCacheService.getListRecommondSales();
 		return SUCCESS;
 	}
 	

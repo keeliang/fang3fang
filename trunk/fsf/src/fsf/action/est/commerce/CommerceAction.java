@@ -1,9 +1,7 @@
 package fsf.action.est.commerce;
 
 import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +15,6 @@ import org.springframework.stereotype.Controller;
 
 import chance.base.BaseParameter;
 import chance.base.action.BaseAction;
-
 import fsf.beans.est.commerce.Commerce;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
@@ -35,7 +32,6 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
 	}
 	
 	private HttpServletRequest request;
-	private CommerceParameter commerceParameter;
 	List<Commerce> factoryList;
 	List<Commerce> officeList;
 	List<Commerce> restaurantList;
@@ -50,73 +46,59 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
     
     public String indexList() throws Exception{
     	try {
-    		setCommerceParameter(new CommerceParameter());
-    		commerceParameter.setTopCount(10);
-    		Map<String, String> sortedConditions = new LinkedHashMap<String, String>();
-			sortedConditions.put("updateTime", BaseParameter.SORTED_DESC);
-			commerceParameter.setSortedConditions(sortedConditions);
-			if(baseParameter==null){
-				return SUCCESS;
-			}
+    		if(baseParameter==null){
+    			baseParameter = new CommerceParameter();
+    		}
+    		
+    		baseParameter.setTopCount(10);
+    		baseParameter.setMaxResults(-1);
+    		baseParameter.setCurrentPage(-1);
+    		baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
+    		((CommerceParameter)baseParameter).set_ne_status((short)1);
+	
 			//1 - 厂房仓库   3 - 写字楼4 - 餐厅转让 5 - 商铺 7 - 美容发廊 8 - 房租转让
 
 			//厂房仓库
-			commerceParameter.set_ne_commerceType(1);
-			factoryList = service.doQuery(commerceParameter);
+    		((CommerceParameter)baseParameter).set_ne_commerceType(1);
+			factoryList = service.doQuery(baseParameter);
 			//写字楼
-			commerceParameter.set_ne_commerceType(3);
-			officeList = service.doQuery(commerceParameter);
+			((CommerceParameter)baseParameter).set_ne_commerceType(3);
+			officeList = service.doQuery(baseParameter);
 			//餐厅转让
-			commerceParameter.set_ne_commerceType(4);
-			restaurantList = service.doQuery(commerceParameter);
+			((CommerceParameter)baseParameter).set_ne_commerceType(4);
+			restaurantList = service.doQuery(baseParameter);
 			//商铺
-			commerceParameter.set_ne_commerceType(5);
-			commerceList = service.doQuery(commerceParameter);
+			((CommerceParameter)baseParameter).set_ne_commerceType(5);
+			commerceList = service.doQuery(baseParameter);
 			//美容发廊
-			commerceParameter.set_ne_commerceType(7);
-			salonList = service.doQuery(commerceParameter);
+			((CommerceParameter)baseParameter).set_ne_commerceType(7);
+			salonList = service.doQuery(baseParameter);
 			//房租转让
-			commerceParameter.set_ne_commerceType(8);
-			hourseList = service.doQuery(commerceParameter);
+			((CommerceParameter)baseParameter).set_ne_commerceType(8);
+			hourseList = service.doQuery(baseParameter);
 			
 			//最新旺铺信息
-			setCommerceParameter(new CommerceParameter());
-			baseParameter.setTopCount(30);
-			sortedConditions = new LinkedHashMap<String, String>();
-			sortedConditions.put("updateTime", BaseParameter.SORTED_DESC);
-			baseParameter.setSortedConditions(sortedConditions);
-    		lastestList = service.doQuery(baseParameter);
 			
+			baseParameter= new CommerceParameter();
+			baseParameter.setTopCount(30);
+			baseParameter.setMaxResults(-1);
+			baseParameter.setCurrentPage(-1);
+			((CommerceParameter)baseParameter).set_ne_status((short)1);
+			baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
+    		lastestList = service.doQuery(baseParameter);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
 		}
-    	
     	return SUCCESS;
     }
     
     public String commerceCatelory() throws Exception{
-    	//设置参数
-    	commerceParameter = new CommerceParameter();
-    	commerceParameter.set_ne_commerceType(commerceType);
-    	setCommerceParameter(commerceParameter);
-    	//排序
-    	Map<String, String> sortedConditions = new LinkedHashMap<String, String>();
-		sortedConditions.put("updateTime", BaseParameter.SORTED_DESC);
-		baseParameter.setSortedConditions(sortedConditions);
-    	//查询数据
-    	doList();
-    	return SUCCESS;
+    	return doList();
     }
     
     public String commerceView()throws Exception{
-    	Commerce commerce = (Commerce)service.get(commerceId);
-    	if(commerce!=null){
-    		commerce.setVisitCount(commerce.getVisitCount() + 1);
-    		service.update(commerce);
-    	}
-    	doEdit();
-    	return SUCCESS;
+    	return doEdit();
     }
 	
 	public String getCityList() throws Exception {
@@ -158,14 +140,6 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
 	@Override
 	protected void initData() {
 		User u = ThreadUser.get();
-		/*for test start*/
-		if(u==null){
-			u = new User();
-			u.setUserId(1);
-			u.setPhone("84678526");
-			u.setUserName("李生");
-		}
-		/*for test end*/
 		Date today = new Date();
 		
 		ip = request.getRemoteAddr();
@@ -191,8 +165,8 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
 
 	public void setCommerceParameter(CommerceParameter param){
 		this.baseParameter = param;
-		this.commerceParameter = param;
 	}
+	
 	public CommerceParameter getCommerceParameter(){
 		return (CommerceParameter)baseParameter;
 	}

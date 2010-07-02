@@ -75,7 +75,7 @@ public class UserLoginFilter implements Filter {
 		if(uri.startsWith(contextPath+"/AdminPage")||uri.startsWith(contextPath+"/sysadmin")){
 			if(!BackMangerNotNeedLoginURL.contains(contextPath+uri)){
 				User user = (User) request.getSession().getAttribute(WebConstant.SESSION_USER);
-				if (user != null) {
+				if (user != null&&(0==user.getUserType()||1==user.getUserType())) {
 					ThreadUser.set(user);
 				} else {
 					response.sendRedirect("/AdminPage/tologin.jsp");

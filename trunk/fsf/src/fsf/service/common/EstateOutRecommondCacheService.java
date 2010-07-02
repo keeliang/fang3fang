@@ -8,7 +8,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import chance.base.BaseParameter;
+import chance.common.QueryResult;
 
+import fsf.action.est.estateout.EstateOutParameter;
 import fsf.beans.est.estateout.EstateOut;
 import fsf.dao.est.estateout.EstateOutDao;
 
@@ -24,6 +26,11 @@ public class EstateOutRecommondCacheService implements ScheduleService{
 	 * 委托推荐
 	 */
 	private static List<EstateOut> listRecommond = new ArrayList<EstateOut>(4);
+	
+	/**
+	 * 资讯和旺铺页面的推荐房源
+	 */
+	private static List<EstateOut> listRecommondSales = new ArrayList<EstateOut>(5);
 	
 	@Resource
 	private EstateOutDao estateOutDao;
@@ -51,6 +58,18 @@ public class EstateOutRecommondCacheService implements ScheduleService{
 			
 			param.getQueryDynamicConditions().put("_ne_tradeType", (short)2);
 			listRecommond = estateOutDao.doPaginationQuery(param).getResultList();
+			
+			
+			param = new EstateOutParameter();
+			param.setMaxResults(-1);
+			param.setCurrentPage(-1);
+			param.setTopCount(5);
+			param.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
+			((EstateOutParameter)param).set_ne_isRecommond((short)1);
+			((EstateOutParameter)param).set_nin_tradeMode(new Short[]{2,3});
+			param.getQueryDynamicConditions().put("_ne_examine", (short)1);
+			QueryResult<EstateOut> queryResult = estateOutDao.doPaginationQuery(param);
+			listRecommondSales = queryResult.getResultList();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -62,5 +81,9 @@ public class EstateOutRecommondCacheService implements ScheduleService{
 	
 	public static List<EstateOut> getListRecommond(){
 		return listRecommond;
+	}
+
+	public static List<EstateOut> getListRecommondSales() {
+		return listRecommondSales;
 	}
 }

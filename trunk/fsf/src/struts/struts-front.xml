@@ -6,6 +6,7 @@
 	<!-- 前台 -->
 	<package name="/main" extends="baseDefault" namespace="/main" >
 		<action name="refresh" class="refreshAction" method="refresh" />
+		<action name="protectedSystem" class="refreshAction" method="protectedSystem" />
 		<action name="infoList" class="informationAction" method="doIndexQuery">
 			<result>/main/index.jsp</result>
 		</action>

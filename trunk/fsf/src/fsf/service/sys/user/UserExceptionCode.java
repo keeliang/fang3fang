@@ -12,6 +12,10 @@ public enum UserExceptionCode implements ExceptionCode {
 	 */
 	USER_PASSWORD_ERROR("g_user_password_error"),
 	/**
+	 * no privilege login admin
+	 */
+	USER_NO_PRIVILEGE_ADMIN("g_user_no_privilege_login_admin"),
+	/**
 	 * insert user when userCode duplicate
 	 */
 	USER_CODE_DUPLICATE("g_user_code_duplicate"),
