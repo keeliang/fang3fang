@@ -15,10 +15,11 @@ public class ForumServiceImpl implements ForumService {
 
 	public void addForumUser(User user) {
 		ForumUser forumUser = new ForumUser();
-		MD5 md5 = new MD5();
+		//MD5 md5 = new MD5();
 		forumUser.setSysUserCode("0");
 		forumUser.setUsername(user.getUserCode());
-		forumUser.setUserPassword(md5.getMD5ofStr(user.getPassword()));
+		//forumUser.setUserPassword(md5.getMD5ofStr(user.getPassword()));
+		forumUser.setUserPassword(user.getPassword());
 		forumUser.setUserActive(user.getStatus());
 		forumUser.setUserRegdate(user.getCreateDate());
 		forumUser.setUserEmail(user.getEmail());
