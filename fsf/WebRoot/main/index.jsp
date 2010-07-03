@@ -80,7 +80,7 @@
 								<a href="<%=contextPath %>/commerce/commerceIndex.action"><span>旺铺招租</span></a>
 							</li>
 							<li>
-								<a href="<%=contextPath %>/invitedexperts/index.action"><span>专家顾问</span> </a>
+								<a href="<%=contextPath %>/invitedexperts/index.action"><span>交易顾问</span> </a>
 							</li>
 						</ul>
 					</div>
@@ -127,12 +127,12 @@
 								</div>
 								<ul>
 									<li>
-										<a href="#" onmouseover="javascript:jumpTo(1);"><img
+										<a onmouseover="javascript:jumpTo(1);"><img
 												src="images/BuySell_nav01On.jpg" width="119" height="30"
 												alt="我要买房" title="我要买房" /> </a>
 									</li>
 									<li>
-										<a href="#" onmouseover="javascript:jumpTo(2);"><img
+										<a onmouseover="javascript:jumpTo(2);"><img
 												src="images/BuySell_nav02.jpg" width="119" height="30"
 												alt="我要卖房" title="我要卖房" /> </a>
 									</li>
@@ -196,9 +196,9 @@
 							<div class="nav_content_list">
 								<div class="qq">
 									服务热线：
-									<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('tel1')" />
+									<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />
 									<span class="cGray">|</span> 
-									<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('tel2')" />
+									<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel2')" />
 								</div>
 								<ul>
 									<li>

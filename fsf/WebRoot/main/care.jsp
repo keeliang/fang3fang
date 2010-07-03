@@ -63,7 +63,7 @@
     <p class="pCentent">二手房的买卖合同虽然不需像商品房买卖合同那么全面，但对于一些细节问题还应约定清楚，如：合同主体、权利保证、房屋价款、交易方式、违约责任、纠纷解决、签订日期等等问题均应全面考虑。</p>
 <br/>
 <span>
-	<img src="images/rainbow.png" />&nbsp;更多注意事项请咨询&nbsp;<a href="<%=contextPath %>/invitedexperts/index.action">专家顾问</a>，或致电房上房热线：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />.
+	<img src="images/rainbow.png" />&nbsp;更多注意事项请咨询&nbsp;<a href="<%=contextPath %>/invitedexperts/index.action">交易顾问</a>，或致电房上房热线：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />.
 </span>
 
 <br/><br/><br/>

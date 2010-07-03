@@ -26,7 +26,7 @@
 				<a href="<%=contextPath %>/forum/goToForum.action"><u>论坛</u></a> |
 				<a href="<%=contextPath %>/CoBank/index.jsp"><u>合作银行</u></a> |
 				<a href="<%=contextPath %>/commerce/commerceIndex.action"><u>旺铺招租</u></a> |
-				<a href="<%=contextPath %>/invitedexperts/index.action"><u>专家顾问</u></a>
+				<a href="<%=contextPath %>/invitedexperts/index.action"><u>交易顾问</u></a>
 		  </p>
 		</div>
     

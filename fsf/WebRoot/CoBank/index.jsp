@@ -29,7 +29,7 @@
                   <li><a href="<%=contextPath %>/forum/goToForum.action"><span>论坛</span></a></li> 
                   <li class="menuHere"><a href="<%=contextPath %>/CoBank/index.jsp"><span>银行合作</span></a></li>
                   <li><a href="<%=contextPath %>/commerce/commerceIndex.action"><span>旺铺招租</span></a></li> 
-                  <li><a href="<%=contextPath %>/invitedexperts/index.action"><span>专家顾问</span></a></li> 
+                  <li><a href="<%=contextPath %>/invitedexperts/index.action"><span>交易顾问</span></a></li> 
                 </ul>
             </div>
         </div>
