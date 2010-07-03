@@ -36,6 +36,7 @@
 				aa2.hideLoadingMessage = function(){}
 				aa2.onAfterResponseProcessing = function (){
 					setTimeout("change_img()", 3000);
+					f_query();
 				}
 				aa2.bindById();
 				aa2.getAJAX("/main/rollInfoList.ajax","listInfo,rollList");
@@ -70,7 +71,7 @@
 								<a href="<%=contextPath %>/Info/infoIndexList.action"><span>地产资讯</span></a>
 							</li>
 							<li>
-								<a href="<%=contextPath %>/forums/goToForum.action"><span>论坛</span></a>
+								<a href="<%=contextPath %>/forum/goToForum.action"><span>论坛</span></a>
 							</li>
 							<li>
 								<a href="<%=contextPath %>/CoBank/index.jsp"><span>银行合作</span> </a>
