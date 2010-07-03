@@ -32,9 +32,25 @@
 							<s:iterator value="listEstateOut" id="item">
 								<tr>
 									<td>
-										<img src="" width="105" height="80" />
+										<s:if test="imagePath!=null && imagePath.trim()!=''">
+											<img src="<%=contextPath %>${imagePath }" width="105" height="80" />
+										</s:if>
+										<s:else>
+											<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
+										</s:else>
 									</td>
-									<td><a href="<%=contextPath %>/freetrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank"><s:property value="#item.estateName" /></a></td>
+									<td>
+										<s:if test="tradeType==1">
+											<a href="<%=contextPath %>/freetrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank">
+												<s:property value="#item.estateName" />
+											</a>
+										</s:if>
+										<s:if test="tradeType==2">
+											<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank">
+												<s:property value="#item.estateName" />
+											</a>
+										</s:if>
+									</td>
 									<td><s:property value="#item.area" />m<sup>2</sup></td>
 									<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
 									<td><s:property value="#item.rentPrice" />元/月</td>
