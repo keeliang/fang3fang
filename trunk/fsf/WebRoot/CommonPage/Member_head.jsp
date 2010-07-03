@@ -12,7 +12,7 @@
 		<span><a href="../entrustTrade/index.jsp"><u>委托代理</u></a></span> |
 		<span><a href="../newHouse/index.jsp"><u>新房推荐</u></a></span> |
 		<span><a href="<%=contextPath %>/Info/infoIndexList.action"><u>地产资讯</u></a></span> |
-		<span><a href="<%=contextPath %>/forums/list.page"><u>论坛</u></a></span> |
+		<span><a href="<%=contextPath %>/forums/goToForum.action"><u>论坛</u></a></span> |
 		<span><a href="<%=contextPath %>/CoBank/index.jsp"><u>合作银行</u></a></span> |
 		<span><a href="<%=contextPath %>/commerce/commerceIndex.action"><u>旺铺招租</u></a></span> |
 		<span><a href="<%=contextPath %>/invitedexperts/index.action"><u>邀请专家</u></a></span>
