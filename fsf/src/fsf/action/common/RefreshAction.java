@@ -1,6 +1,7 @@
 package fsf.action.common;
 
 import java.io.File;
+import java.util.Date;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -10,8 +11,10 @@ import org.springframework.stereotype.Repository;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import fsf.beans.sys.user.User;
 import fsf.service.common.IndexCacheService;
 import fsf.service.common.ScheduleService;
+import fsf.service.sys.user.UserService;
 import fsf.web.common.WebConstant;
 @Repository
 public class RefreshAction extends ActionSupport {
@@ -20,6 +23,8 @@ public class RefreshAction extends ActionSupport {
 	private IndexCacheService indexService;
 	@Resource(name="estateOutRecommondCacheService")
 	private ScheduleService estateOutRecommondCacheService ;
+	@Resource
+	private UserService userService;
 	
 	public void refresh() throws Exception {
 		getHttpServletResponse().setContentType("text/html; charset=utf-8");
@@ -54,6 +59,20 @@ public class RefreshAction extends ActionSupport {
 		f = new File(p);
 		f.delete();
 		getHttpServletResponse().getWriter().write("成功");
+	}
+	
+	public void init()throws Exception{
+		User u = new User();
+		u.setUserCode("admin");
+		u.setPassword("21232f297a57a5a743894a0e4a801fc3");
+		u.setUserName("admin");
+		u.setUserType((short)0);
+		u.setStatus((short)1);
+		u.setPhone("123456789");
+		u.setQq("1111111111");
+		u.setTel("888888888");
+		u.setCreateDate(new Date());
+		userService.persist(u);
 	}
 	
 	public HttpServletResponse getHttpServletResponse(){
