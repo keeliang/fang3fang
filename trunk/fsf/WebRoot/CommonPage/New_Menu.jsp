@@ -32,7 +32,7 @@
             <li class="cGray">|</li>
             <li><a href="<%=contextPath %>/commerce/commerceIndex.action">旺铺招租</a></li>
             <li class="cGray">|</li>
-            <li><a href="<%=contextPath %>/invitedexperts/index.action">专家顾问</a></li>
+            <li><a href="<%=contextPath %>/invitedexperts/index.action">交易顾问</a></li>
             
         </ul>
     </div>

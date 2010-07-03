@@ -52,7 +52,7 @@
 								</a>
 							</li>
 							<li class="menuHere">
-								<a href="<%=contextPath %>/invitedexperts/index.action"><span>专家顾问</span> </a>
+								<a href="<%=contextPath %>/invitedexperts/index.action"><span>交易顾问</span> </a>
 								</a>
 							</li>
 						</ul>

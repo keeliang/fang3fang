@@ -62,7 +62,7 @@
 								<a href="<%=contextPath %>/commerce/commerceIndex.action"><span>旺铺招租</span></a>
 							</li>
 							<li>
-								<a href="<%=contextPath %>/invitedexperts/index.action"><span>专家顾问</span> </a>
+								<a href="<%=contextPath %>/invitedexperts/index.action"><span>交易顾问</span> </a>
 							</li>
 						</ul>
 					</div>
