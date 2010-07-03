@@ -62,7 +62,7 @@
 				</div>
 				<div class="navR">
 					<s:if test="#session.USER==null" >
-						<a href="../member/register.action" class="cYellow"> [注册会员] </a>
+						<a href="../member/toRegister.action" class="cYellow"> [注册会员] </a>
 						<a href="../member/login.jsp" class="cYellow">[登录]</a>
 					</s:if>
 					<s:else>

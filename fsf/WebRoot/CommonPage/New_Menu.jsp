@@ -8,7 +8,7 @@
   <div class="new_menu">
     	<span class="float_right">
     	<s:if test="#session.USER==null"> 
-			  <a href="../member/register.action">[注册会员]</a> 
+			  <a href="../member/toRegister.action">[注册会员]</a> 
 			  <a href="../member/login.jsp">[登录]</a>
 		  </s:if>
 		  <s:else>

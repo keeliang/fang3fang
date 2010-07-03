@@ -28,7 +28,7 @@
 				欢迎您注册房上房会员帐号，申请过程将不会收取您任何费用。您将享受更多房上房为您提供的功能、放心的会员服务。我们的服务热线是：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />，<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel2')" />
 			</div>
 			<div class="member_regContent_show">
-				<form action="/member/register.action" method="post" name="formItem" id="formItem">
+				<form action="/member/toRegister.action" method="post" name="formItem" id="formItem">
 					<p>注：<span class="cRed">*</span>为必填内容</p>
 					<div class="member_regContent_showTitle">
 						<b>基本信息 (必填)</b>
