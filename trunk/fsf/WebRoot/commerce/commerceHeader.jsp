@@ -49,7 +49,7 @@
 				</div> 
        <div class="navR">
 			<s:if test="#session.USER==null">
-				<a href="<%=contextPath %>/member/register.action" class="cYellow"> [注册会员] </a>
+				<a href="<%=contextPath %>/member/toRegister.action" class="cYellow"> [注册会员] </a>
 				<a href="<%=contextPath %>/member/login.jsp" class="cYellow">[登录]</a>
 			</s:if>
 			<s:else>
