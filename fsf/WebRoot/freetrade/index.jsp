@@ -47,7 +47,7 @@
 								<a href="<%=contextPath %>/Info/infoIndexList.action"><span>地产资讯</span></a>
 							</li>
 							<li>
-								<a href="<%=contextPath %>/forums/list.page"><span>论坛</span></a>
+								<a href="<%=contextPath %>/forums/goToForum.action"><span>论坛</span></a>
 							</li>
 							<li>
 								<a href="<%=contextPath %>/CoBank/index.jsp"><span>银行合作</span> </a>

@@ -26,7 +26,7 @@
             <li class="cGray">|</li>
             <li><a href="<%=contextPath %>/Info/infoIndexList.action">地产资讯</a></li>
             <li class="cGray">|</li>
-            <li><a href="<%=contextPath %>/forums/list.page">论坛</a></li>
+            <li><a href="<%=contextPath %>/forums/goToForum.action">论坛</a></li>
             <li class="cGray">|</li>
             <li><a href="<%=contextPath %>/CoBank/index.jsp">合作银行</a></li>
             <li class="cGray">|</li>

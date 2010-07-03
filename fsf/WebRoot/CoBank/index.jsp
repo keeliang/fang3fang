@@ -26,7 +26,7 @@
                   <li><a href="../entrustTrade/index.jsp"><span>委托代理</span></a></li>
                   <li><a href="../newHouse/index.jsp"><span>新房推荐</span></a></li>  
                   <li><a href="<%=contextPath %>/Info/infoIndexList.action"><span>地产资讯</span></a></li>  
-                  <li><a href="<%=contextPath %>/forums/list.page"><span>论坛</span></a></li> 
+                  <li><a href="<%=contextPath %>/forums/goToForum.action"><span>论坛</span></a></li> 
                   <li class="menuHere"><a href="<%=contextPath %>/CoBank/index.jsp"><span>银行合作</span></a></li>
                   <li><a href="<%=contextPath %>/commerce/commerceIndex.action"><span>旺铺招租</span></a></li> 
                   <li><a href="<%=contextPath %>/invitedexperts/index.action"><span>专家顾问</span></a></li> 
