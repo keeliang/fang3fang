@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-7-4 17:25:28 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="fsf.beans.sys.pageinfo.PageInfo" table="sys_page_info" >
+        <id name="infoName" type="string">
+            <column name="info_name" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="infoDesc" type="string" update="false" >
+            <column name="info_desc" length="50" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="100" />
+        </property>
+        <property name="content" type="string">
+            <column name="content" length="65535" />
+        </property>
+        <property name="seq" type="java.lang.Byte" update="false">
+            <column name="seq" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -122,4 +122,25 @@
 		</action>
 	</package>
 	<!-- ********************************************** -->
+	
+	<!--******************* pageInfo *************** -->
+	<package name="/sysadmin/sys/pageinfo" extends="baseDefault" namespace="/sysadmin/sys/pageinfo" >
+		<action name="pageInfoList" class="pageInfoAction" method="doHelpList">
+			<result>/AdminPage/sys/pageinfo/pageInfoList.jsp</result>
+			<result name="input">/AdminPage/sys/pageinfo/pageInfoList.jsp</result>
+		</action>
+		<action name="pageInfoSave" class="pageInfoAction" method="doSave">
+			<result>/AdminPage/sys/pageinfo/pageInfoContent.jsp</result>
+			<result name="input">/AdminPage/sys/pageinfo/pageInfoContent.jsp</result>
+		</action>
+		<action name="pageInfoBank" class="pageInfoAction" method="doEdit">
+			<result>/AdminPage/sys/pageinfo/pageInfoBank.jsp</result>
+			<result name="input">/AdminPage/sys/pageinfo/pageInfoBank.jsp</result>
+		</action>
+		<action name="pageInfoEdit" class="pageInfoAction" method="doEdit">
+			<result>/AdminPage/sys/pageinfo/pageInfoContent.jsp</result>
+			<result name="input">/AdminPage/sys/pageinfo/pageInfoContent.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
 </struts>
