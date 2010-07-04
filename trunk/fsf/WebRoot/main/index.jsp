@@ -160,32 +160,32 @@
 								</div>
 								<ul>
 									<li>
-										<a href="../help/findHouse.jsp" onmouseover="javascript:jumpTo2(1);">
+										<a href="<%=contextPath %>/help/help.action?infoName=FindHouse" onmouseover="javascript:jumpTo2(1);">
 										<img src="images/BuySell_button01.jpg" width="87" height="31" alt="查看房源" title="查看房源" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/comTalk.jsp" onmouseover="javascript:jumpTo2(2);">
+										<a href="<%=contextPath %>/help/help.action?infoName=Contact" onmouseover="javascript:jumpTo2(2);">
 										<img src="images/BuySell_button02.jpg" width="87" height="31" alt="联系洽谈" title="联系洽谈" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/bargain.jsp" onmouseover="javascript:jumpTo2(3);">
+										<a href="<%=contextPath %>/help/help.action?infoName=ContractSale" onmouseover="javascript:jumpTo2(3);">
 										<img src="images/BuySell_button03.jpg" width="87" height="31" alt="合同签署" title="合同签署" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/moneyManage.jsp" onmouseover="javascript:jumpTo2(4);">
+										<a href="<%=contextPath %>/help/help.action?infoName=MoneyManagerSale" onmouseover="javascript:jumpTo2(4);">
 										<img src="images/BuySell_button04.jpg" width="87" height="31" alt="资金监管" title="资金监管" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/anjie.jsp" onmouseover="javascript:jumpTo2(5);">
+										<a href="<%=contextPath %>/help/help.action?infoName=Mortgage" onmouseover="javascript:jumpTo2(5);">
 										<img src="images/BuySell_button05.jpg" width="87" height="31" alt="按揭贷款" title="按揭贷款" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/diya.jsp" onmouseover="javascript:jumpTo2(6);">
+										<a href="<%=contextPath %>/help/help.action?infoName=TransferSale" onmouseover="javascript:jumpTo2(6);">
 										<img src="images/BuySell_button06.jpg" width="87" height="31" alt="过户抵押" title="过户抵押" /> </a>
 									</li>
 								</ul>
@@ -233,32 +233,32 @@
 								</div>
 								<ul>
 									<li>
-										<a href="../help/issueHouse.jsp" onmouseover="javascript:jumpTo3(1);">
+										<a href="<%=contextPath %>/help/help.action?infoName=ReleaseHouse" onmouseover="javascript:jumpTo3(1);">
 										<img src="images/BuySell02_button01.jpg" width="87" height="31" alt="发布房源" title="发布房源" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/goutong.jsp" onmouseover="javascript:jumpTo3(2);">
+										<a href="<%=contextPath %>/help/help.action?infoName=Communicate" onmouseover="javascript:jumpTo3(2);">
 										<img src="images/BuySell02_button02.jpg" width="87" height="31" alt="沟通平台" title="沟通平台" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/bargain02.jsp" onmouseover="javascript:jumpTo3(3);">
+										<a href="<%=contextPath %>/help/help.action?infoName=ContractBuy" onmouseover="javascript:jumpTo3(3);">
 										<img src="images/BuySell02_button03.jpg" width="87" height="31" alt="合同签署" title="合同签署" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/moneyManage02.jsp" onmouseover="javascript:jumpTo3(4);">
+										<a href="<%=contextPath %>/help/help.action?infoName=MoneyManagerBuy" onmouseover="javascript:jumpTo3(4);">
 										<img src="images/BuySell02_button04.jpg" width="87" height="31" alt="资金监管" title="资金监管" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/danbao.jsp" onmouseover="javascript:jumpTo3(5);">
+										<a href="<%=contextPath %>/help/help.action?infoName=Guarantee" onmouseover="javascript:jumpTo3(5);">
 										<img src="images/BuySell02_button05.jpg" width="87" height="31" alt="担保赎楼" title="担保赎楼" /> </a>
 									</li>
 									<li class="BuySell_jiantou"></li>
 									<li>
-										<a href="../help/guohu.jsp" onmouseover="javascript:jumpTo3(6);">
+										<a href="<%=contextPath %>/help/help.action?infoName=TransferBuy" onmouseover="javascript:jumpTo3(6);">
 										<img src="images/BuySell_button06.jpg" width="87" height="31" alt="过户抵押" title="过户抵押" /> </a>
 									</li>
 								</ul>
