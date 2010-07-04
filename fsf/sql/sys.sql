@@ -52,13 +52,50 @@ CREATE TABLE if not exists sys_user(
 /*
 系统参数
 */
-drop table if exists sys_param;
-CREATE TABLE if not exists sys_param(
-	param_name varchar(20),
-	param_value varchar(200),
-	param_desc varchar(200),
-	constraint PK_sys_param primary key(param_name)
+drop table if exists sys_page_info;
+CREATE TABLE if not exists sys_page_info(
+	info_name varchar(20) not null,
+	info_desc varchar(50),
+	title varchar(100),
+	content text,
+	seq tinyint,
+	constraint PK_sys_param primary key(info_name)
 );
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('FindHouse','查找房源',null,null,1);
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('Contact','联络洽谈',null,null,2);
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('ContractSale','合同签署',null,null,3);
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('MoneyManagerSale','资金监管',null,null,4);
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('Mortgage','按揭贷款',null,null,5);
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('TransferSale','过户抵押',null,null,6);
+
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('ReleaseHouse','发布房源',null,null,7);
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('Communicate','沟通平台',null,null,8);
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('ContractBuy','合同签署',null,null,9);
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('MoneyManagerBuy','资金监管',null,null,10);
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('Guarantee','担保赎楼',null,null,11);
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('TransferBuy','过户抵押',null,null,12);
+
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('ChooseFSF','为什么要选择房上房',null,null,13);
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('HowRelease','如何发布商业招商、旺铺转让',null,null,14);
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('MattersNeedAttention','二手房交易注意事项',null,null,15);
+insert into sys_page_info(info_name,info_desc,title,content,seq)
+values('Bank','银行合作',null,null,16);
+
 
 /*
 系统配置表
