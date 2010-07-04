@@ -14,11 +14,7 @@
 <s:form action="configList" namespace="/sysadmin/sys/config" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="sysConfigParameter.currentPage" id="currentPage"  />
 <s:hidden name="sysConfigParameter.maxResults" id="maxResults" />
-<table>
-	<tr>
-		<td align="left" width="722"><img src="/AdminPage/images/csgl.jpg"/></td>
-	</tr>
-</table>
+<div class="contentTitle"><s:text name="contentTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
 	<tr>

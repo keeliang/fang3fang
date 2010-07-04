@@ -144,6 +144,8 @@ $(document).ready(function() {
 		<td>
 			<table>
 				<tr><td><a href="<%=contextPath %>/sysadmin/sys/config/configList.action" target="content"><span>系统配置信息管理</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/sysadmin/sys/pageinfo/pageInfoList.action?pageInfoParameter.currentPage=1" target="content"><span>页面信息管理</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/sysadmin/sys/pageinfo/pageInfoBank.action?infoName=Bank" target="content"><span>银行合作</span></a></td></tr>
 			</table>
 		</td>
 	</tr>
