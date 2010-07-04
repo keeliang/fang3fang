@@ -308,5 +308,11 @@
 			<result>/entrustTrade/showIn.jsp</result>
 		</action>
 	</package>
+	
+	<package name="/help" extends="baseDefault" namespace="/help" >
+		<action name="help" class="pageInfoAction" method="doEdit">
+			<result>/help/help.jsp</result>
+		</action>
+	</package>
 
 </struts>

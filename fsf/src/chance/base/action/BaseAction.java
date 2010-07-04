@@ -65,6 +65,10 @@ public abstract class BaseAction<E> extends ActionSupport {
 	 */
 	private boolean isBusinessPK = false;
 	
+	private String aaxmlrequest;
+	
+	private String aazones;
+	
 	public BaseAction(){
 	}
 	
@@ -360,6 +364,22 @@ public abstract class BaseAction<E> extends ActionSupport {
 
 	public void setSelectedPK(String[] selectedPK) {
 		this.selectedPK = selectedPK;
+	}
+
+	public String getAaxmlrequest() {
+		return aaxmlrequest;
+	}
+
+	public void setAaxmlrequest(String aaxmlrequest) {
+		this.aaxmlrequest = aaxmlrequest;
+	}
+
+	public String getAazones() {
+		return aazones;
+	}
+
+	public void setAazones(String aazones) {
+		this.aazones = aazones;
 	}
 
 }
