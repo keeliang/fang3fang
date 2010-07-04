@@ -8,11 +8,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=${encoding}" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="-1" />
-<style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/style.css?${startupTime} );</style>
-<style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/${language}.css?${startupTime} );</style>
+<!-- 
+<style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/style.css);</style>
+<style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/${language}.css);</style>
+ -->
+<link type="text/css" href="/templates/default/styles/style.css" rel="stylesheet"/>
+<link type="text/css" href="/templates/default/styles/zh_CN.css" rel="stylesheet"/>
 
 <#if hasCodeBlock>
+	<!-- 
 	<style type="text/css">@import url( ${contextPath}/templates/${templateName}/styles/SyntaxHighlighter.css?${startupTime} );</style>
+	 -->
+	 <link type="text/css" href="/templates/default/styles/SyntaxHighlighter.css" rel="stylesheet"/>
 </#if>
 
 <title>${pageTitle?default("JForum")?html}</title>
@@ -62,30 +69,30 @@ Modifications by JForum Team
 						<div class="headMenuLine"></div>
 						<ul class="menuList">
 							<li>
-								<a href="../main/index.jsp"><span>${I18n.getMessage("index")}</span>
+								<a href="${contextPath}/main/index.jsp"><span>${I18n.getMessage("index")}</span>
 								</a>
 							</li>
 							<li>
-								<a href="../freetrade/index.jsp"><span>${I18n.getMessage("ForumHeader.tray")}</span>
+								<a href="${contextPath}/freetrade/index.jsp"><span>${I18n.getMessage("ForumHeader.tray")}</span>
 								</a>
 							</li>
 							<li>
-								<a href="../entrustTrade/index.jsp"><span>${I18n.getMessage("ForumHeader.proxy")}</span>
+								<a href="${contextPath}/entrustTrade/index.jsp"><span>${I18n.getMessage("ForumHeader.proxy")}</span>
 								</a>
 							</li>
 							<li>
-								<a href="../newHouse/index.jsp"><span>${I18n.getMessage("ForumHeader.newEst")}</span>
+								<a href="${contextPath}/newHouse/index.jsp"><span>${I18n.getMessage("ForumHeader.newEst")}</span>
 								</a>
 							</li>
 							<li>
-								<a href="../Info/index.jsp"><span>${I18n.getMessage("ForumHeader.estNew")}</span>
+								<a href="${contextPath}/Info/index.jsp"><span>${I18n.getMessage("ForumHeader.estNew")}</span>
 								</a>
 							</li>
 							<li class="menuHere">
 								<span>${I18n.getMessage("ForumHeader.forum")}</span>
 							</li>
 							<li>
-								<a href="../CoBank/index.jsp"><span>${I18n.getMessage("ForumHeader.bank")}</span>
+								<a href="${contextPath}/CoBank/index.jsp"><span>${I18n.getMessage("ForumHeader.bank")}</span>
 								</a>
 							</li>
 							<li><a href="${contextPath}/commerce/commerceIndex.action"><span>${I18n.getMessage("ForumHeader.commerce")}</span></a></li> 
