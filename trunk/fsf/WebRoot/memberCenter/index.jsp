@@ -12,13 +12,6 @@
 		<title>会员中心 - 房上房地产网</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script src="js/CollapsiblePanel.js" type="text/javascript"></script>
-		<script type="text/javascript">
-		window.onload = function(){
-			ajaxAnywhere.showLoadingMessage = function(){}
-			ajaxAnywhere.hideLoadingMessage = function(){}
-			ajaxAnywhere.getAJAX("/memberCenter/recommondList.ajax","recommondList");
-		}
-		</script>
 	</head>
 
 	<body>
@@ -91,9 +84,9 @@
 							[
 							<span><a href="<%=contextPath %>/memberCenter/memberInfo.action?userId=${USER.userId }"><u>修改密码/个人资料</u></a></span>
 							<span class="cGray">|</span>
-							<span><a href="../help/freeService.jsp"><u>免费服务说明</u></a></span>
+							<span><a href="<%=contextPath %>/help/help.action?infoName=FreeService"><u>免费服务说明</u></a></span>
 							<span class="cGray">|</span>
-							<span><a href="../help/chargeService.jsp"><u>付费服务说明</u></a></span>
+							<span><a href="<%=contextPath %>/help/help.action?infoName=ChargeService"><u>付费服务说明</u></a></span>
 							]
 						</p>
 					</div>
@@ -108,65 +101,55 @@
 					<div class="blankP"></div>
 
 					<div class="memberC_centerC">
-						<div class="memberC_midTitle">
-							<b>交易培训班</b>
-						</div>
-						<div class="memberC_midShow02">
-							<div class="memberC_midShow02L">
-								<p>
-									<img src="images/head_buy.jpg" width="55" height="50" alt="buy"
-										title="buy" align="absmiddle" />
-									&nbsp;
-									<span class="font14 cRed05"><b>买房注意事项</b>
-									</span>
-								</p>
-								<dl>
-									<dd>
-										<a href="#">挑选房源时应注意的四大因素</a>
-									</dd>
-									<dd>
-										<a href="#">二手房交易具体流程</a>
-									</dd>
-									<dd>
-										<a href="#">申请办证时资料应清晰</a>
-									</dd>
-									<dd>
-										<a href="#">精装房收房需注意三点</a>
-									</dd>
-									<dd>
-										<a href="#">十大秘技教你淘出二手好房</a>
-									</dd>
-								</dl>
+						<aa:zone name="attentionZone">
+							<div class="memberC_midTitle">
+								<b>交易培训班</b>
 							</div>
-							<div class="memberC_midShow02R">
-								<p>
-									<img src="images/head_sell.jpg" width="55" height="50"
-										alt="sell" title="sell" align="absmiddle" />
-									&nbsp;
-									<span class="font14 cRed05"><b>卖房注意事项</b>
-									</span>
-								</p>
-								<dl>
-									<dd>
-										<a href="#">自售房屋有学问</a>
-									</dd>
-									<dd>
-										<a href="#">合同细节要讲清</a>
-									</dd>
-									<dd>
-										<a href="#">全权委托公证</a>
-									</dd>
-									<dd>
-										<a href="#">无证房地产买卖</a>
-									</dd>
-									<dd>
-										<a href="#">注意阴阳合同</a>
-									</dd>
-								</dl>
+							<div class="memberC_midShow02">
+								<s:if test="cmd==null">
+									<div class="memberC_midShow02L">
+										<p>
+											<img src="images/head_buy.jpg" width="55" height="50" alt="buy" title="buy" align="absmiddle" />
+											&nbsp;
+											<span class="font14 cRed05"><b>买房注意事项</b></span>
+										</p>
+										<dl>
+											<s:iterator value="@fsf.web.common.ConstantCache@SALEATTENTIONCACHE" >
+												<dd><a href="javascript:f_attention(${key })">${value }</a></dd>
+											</s:iterator>
+											<dd><a href="#">挑选房源时应注意的四大因素</a></dd>
+											<dd><a href="#">二手房交易具体流程</a></dd>
+											<dd><a href="#">申请办证时资料应清晰</a></dd>
+											<dd><a href="#">精装房收房需注意三点</a></dd>
+											<dd><a href="#">十大秘技教你淘出二手好房</a></dd>
+										</dl>
+									</div>
+									<div class="memberC_midShow02R">
+										<p>
+											<img src="images/head_sell.jpg" width="55" height="50" alt="sell" title="sell" align="absmiddle" />
+											&nbsp;
+											<span class="font14 cRed05"><b>卖房注意事项</b></span>
+										</p>
+										<dl>
+											<s:iterator value="@fsf.web.common.ConstantCache@BUYATTENTIONCACHE" >
+												<dd><a href="javascript:f_attention(${key })">${value }</a></dd>
+											</s:iterator>
+											<dd><a href="#">自售房屋有学问</a></dd>
+											<dd><a href="#">合同细节要讲清</a></dd>
+											<dd><a href="#">全权委托公证</a></dd>
+											<dd><a href="#">无证房地产买卖</a></dd>
+											<dd><a href="#">注意阴阳合同</a></dd>
+										</dl>
+									</div>
+								</s:if>
+								<s:else>
+									<div style="width: 100%;text-align: center;font-weight: bold;font: 16px;">${title }</div>
+									${content }
+									<div style="width: 100%;text-align: right;"><a href="javascript:f_attention(0)" >返回</a></div>
+								</s:else>
 							</div>
-						</div>
+						</aa:zone>
 					</div>
-
 				</div>
 				<div class="memberC_bottom"></div>
 			</div>
@@ -179,3 +162,19 @@
 		<%@ include file="../CommonPage/Foot.jsp"%>
 	</body>
 </html>
+<script type="text/javascript">
+window.onload = function(){
+	ajaxAnywhere.showLoadingMessage = function(){}
+	ajaxAnywhere.hideLoadingMessage = function(){}
+	ajaxAnywhere.getAJAX("/memberCenter/recommondList.ajax","recommondList");
+}
+function f_attention(attentionId){
+	ajaxAnywhere.showLoadingMessage = function(){}
+	ajaxAnywhere.hideLoadingMessage = function(){}
+	if(attentionId==0){
+		ajaxAnywhere.getAJAX("/memberCenter/attentionBack.ajax","attentionZone");
+	}else{
+		ajaxAnywhere.getAJAX("/memberCenter/attentionContent.ajax?attentionId="+attentionId,"attentionZone");
+	}
+}
+</script>

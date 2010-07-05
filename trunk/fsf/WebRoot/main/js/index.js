@@ -1,5 +1,6 @@
 var nn;
 nn = 1;
+change_img();
 function change_img(){
 	if (nn > 4) {
 		nn = 1;

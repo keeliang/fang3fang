@@ -19,6 +19,8 @@
 		<link rel="stylesheet" href="css/general.css" type="text/css" media="screen" />
 		<script type="text/javascript">
 		window.onload = function(){
+		f_query();
+		/**
 			var aa1 = new AjaxAnywhere();
 			aa1.bindById();
 			aa1.showLoadingMessage = function(){
@@ -30,17 +32,17 @@
 				document.getElementById('rollInfoDiv').style.display = "block";			
 			}
 			aa1.getAJAX("/main/newestEstate.ajax","listNewestEstate,listCommerce");
+			
 			aa1.onAfterResponseProcessing = function (){
 				var aa2 = new AjaxAnywhere();
 				aa2.showLoadingMessage = function(){}
 				aa2.hideLoadingMessage = function(){}
 				aa2.onAfterResponseProcessing = function (){
-					setTimeout("change_img()", 3000);
-					f_query();
+					
 				}
 				aa2.bindById();
 				aa2.getAJAX("/main/rollInfoList.ajax","listInfo,rollList");
-			}
+			}*/
 		}
 		</script>
 	</head>
@@ -141,21 +143,27 @@
 							</div>
 							<div class="nav_content_show">
 								<div class="nav_content_input01" id="b1">
+									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('FindHouse')" />
 									您要买房，房上房为您提供数量丰富的业主房源信息，您也可以发布求购信息，让卖家找到您。
 								</div>
 								<div class="nav_content_input02" id="b2" style="display: none;">
+									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('Contact')" />
 									您联络到卖家了，但要看房并如何与业主洽谈买卖房产，请您留意了。
 								</div>
 								<div class="nav_content_input03" id="b3" style="display: none;">
+									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('ContractSale')" />
 									签署买卖合同时，有些问题需要您特别留意。您也可以邀请房上房经纪人上门签约。
 								</div>
 								<div class="nav_content_input04" id="b4" style="display: none;">
+									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('MoneyManagerSale')" />
 									银行为您提供免费的交易资金监护服务。
 								</div>
 								<div class="nav_content_input05" id="b5" style="display: none;">
+									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('Mortgage')" />
 									您买房缺资金吗？银行提供网上在线的按揭申请，为您提供优质的多组合的按揭贷款。
 								</div>
 								<div class="nav_content_input06" id="b6" style="display: none;">
+									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('TransferSale')" />
 									房上房为您提供上门签署“三方合同”及银行按揭服务等，只需要很少的费用就可以为您省心省力。
 								</div>
 								<ul>
@@ -214,21 +222,27 @@
 							</div>
 							<div class="nav_content_show">
 								<div class="nav_content_input01" id="c1">
+									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('ReleaseHouse')" />
 									您想要免费卖房吗？您只需要免费注册为房上房的会员就可以做到了。
 								</div>
 								<div class="nav_content_input02" id="c2" style="display: none;">
+									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('Communicate')" />
 									免费的交易平台，为您提供卖家信息和专业的交易服务。
 								</div>
 								<div class="nav_content_input03" id="c3" style="display: none;">
+									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('ContractBuy')" />
 									签署买卖合同时，有些问题需要您特别留意。您也可以邀请房上房经纪人上门签约。
 								</div>
 								<div class="nav_content_input04" id="c4" style="display: none;">
+									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('MoneyManagerBuy')" />
 									银行为您提供免费的交易资金监护服务。
 								</div>
 								<div class="nav_content_input05" id="c5" style="display: none;">
+									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('Guarantee')" />
 									您的房子还在按揭或抵押状态吗？那么出售前您需要进行赎屋。
 								</div>
 								<div class="nav_content_input06" id="c6" style="display: none;">
+									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('TransferBuy')" />
 									房上房为您提供上门签署“三方合同”及银行按揭服务等，只需要很少的费用就可以为您省心省力。
 								</div>
 								<ul>
@@ -293,81 +307,78 @@
 						<div id="kbb_content1" style="display: block;">
 							<div class="con">
 								<div class="center">
-									<div class="focusPic" id="loadingDiv" >
+									<!-- 
+									<div class="focusPic" id="loadingDiv" style="display: none;" >
 										<img src="<%=contextPath %>/images/loading2.gif" style="margin: 0 auto;margin-top: 80px;" />
 										<br />
 										<font style="font-weight: bold;" >加载中...</font>
 									</div>
+									 -->
 									<!--  左侧滚动图片资讯 -->
-									<div class="focusPic" id="rollInfoDiv" style="display: none;" >
-									
-										<aa:zone name="rollList">
-											<s:iterator value="listRollInfo" status="st">
-												<div id="focusPic<s:property value='#st.count' />" <s:if test="st.count==1">style='display: block;'</s:if> <s:else>style='display: none;'</s:else> >
-													<div class="pic">
-														<a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" ><img src="<%=contextPath %>${imagePath }" border="0" height="200" width="274" /></a>
-													</div>
-													<div class="le02">
-														<p class="font14"><a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" class="cOrange" ><b>${informationTitle}</b></a></p>
-														<p><s:property value="@chance.util.HtmlUtils@removeHTML(informationContent,38)" /><a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" class="cOrange"><b>&nbsp;&nbsp;详细</b></a></p>
-													</div>
+									<div class="focusPic" id="rollInfoDiv" >
+										<s:iterator value="@fsf.web.common.ConstantCache@LISTROLLINFO" status="st">
+											<div id="focusPic<s:property value='#st.count' />" <s:if test="st.count==1">style='display: block;'</s:if> <s:else>style='display: none;'</s:else> >
+												<div class="pic">
+													<a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" ><img src="<%=contextPath %>${imagePath }" border="0" height="200" width="274" /></a>
 												</div>
-											</s:iterator>
-	
-											<!--图片对应下面的序号变改效果-->
-											<div class="more">
-												<div class="textNum">
-													<s:iterator value="listRollInfo" status="st" >
-														<div class="num bg<s:property value='#st.count' />" id="focusPic<s:property value='#st.count' />nav" <s:if test="st.count==1">style='display: block;'</s:if> <s:else>style='display: none;'</s:else> >
-															<ul>
-																<s:bean name="org.apache.struts2.util.Counter" id="i" >
-																	<s:param name="first" value="1"/>
-																	<s:param name="last" value="listRollInfo.size()"/>
-																	<s:iterator>																	
-																		<s:if test="#st.count==current">
-																			<li><s:property value="#i.current-1" /></li>
-																		</s:if>
-																		<s:else>
-																			<li><a href="javascript:setFocus1(<s:property value="#i.current-1" />);" target="_self"><s:property value="#i.current-1" /></a></li>
-																		</s:else>
-																	</s:iterator>
-																</s:bean>		
-															</ul>	
-														</div>
-													</s:iterator>
+												<div class="le02">
+													<p class="font14"><a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" class="cOrange" ><b>${informationTitle}</b></a></p>
+													<p><s:property value="@chance.util.HtmlUtils@removeHTML(informationContent,38)" /><a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" class="cOrange"><b>&nbsp;&nbsp;详细</b></a></p>
 												</div>
 											</div>
-										</aa:zone>
+										</s:iterator>
+
+										<!--图片对应下面的序号变改效果-->
+										<div class="more">
+											<div class="textNum">
+												<s:iterator value="@fsf.web.common.ConstantCache@LISTROLLINFO" status="st" >
+													<div class="num bg<s:property value='#st.count' />" id="focusPic<s:property value='#st.count' />nav" <s:if test="st.count==1">style='display: block;'</s:if> <s:else>style='display: none;'</s:else> >
+														<ul>
+															<s:bean name="org.apache.struts2.util.Counter" id="i" >
+																<s:param name="first" value="1"/>
+																<s:param name="last" value="@fsf.web.common.ConstantCache@LISTROLLINFO.size()"/>
+																<s:iterator>																	
+																	<s:if test="#st.count==current">
+																		<li><s:property value="#i.current-1" /></li>
+																	</s:if>
+																	<s:else>
+																		<li><a href="javascript:setFocus1(<s:property value="#i.current-1" />);" target="_self"><s:property value="#i.current-1" /></a></li>
+																	</s:else>
+																</s:iterator>
+															</s:bean>		
+														</ul>	
+													</div>
+												</s:iterator>
+											</div>
+										</div>
 										
 									</div>
 									<!-- 中间房源 -->
 									<div class="cen">
-										<aa:zone name="listNewestEstate">
-											<ul>
-												<s:iterator value="listNewestEstate">
-													<li>
-														<p>
-															<s:if test="tradeType==1">
-																<a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" target="_blank">
-															</s:if>
-															<s:if test="tradeType==2">
-																<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" target="_blank">
-															</s:if>
-																<img src="<%=contextPath%>${imagePath }" width="70" height="55" border="0" alt="" title="" />
-															</a>
-														</p>
-														<h1>
-															<a href="#" target="_blank">${hall }厅${bedroom }房</a>
-														</h1>
-														<span>
-															<a>
-																<fsf:dictTranslate groupName="#city" value="cityId" /><fsf:dictTranslate groupName="#district" value="districtId" />
-															</a>
-														</span>
-													</li>
-												</s:iterator>
-											</ul>
-										</aa:zone>
+										<ul>
+											<s:iterator value="@fsf.web.common.ConstantCache@LISTNEWESTATE">
+												<li>
+													<p>
+														<s:if test="tradeType==1">
+															<a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" target="_blank">
+														</s:if>
+														<s:if test="tradeType==2">
+															<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" target="_blank">
+														</s:if>
+															<img src="<%=contextPath%>${imagePath }" width="70" height="55" border="0" alt="" title="" />
+														</a>
+													</p>
+													<h1>
+														<a href="#" target="_blank">${hall }厅${bedroom }房</a>
+													</h1>
+													<span>
+														<a>
+															<fsf:dictTranslate groupName="#city" value="cityId" /><fsf:dictTranslate groupName="#district" value="districtId" />
+														</a>
+													</span>
+												</li>
+											</s:iterator>
+										</ul>
 									</div>
 
 									<!-- 中间最新地产资讯 -->
@@ -377,21 +388,19 @@
 												<span class="more"><a href="<%=contextPath %>/Info/infoIndexList.action">MORE</a>
 												</span>最新地产资讯
 											</div>
-											<aa:zone name="listInfo">
-												<div class="rig02" id="d1">
-													<ul id="lili">
-														<s:iterator value="listInfo" id="item">
-															<li>
-																<span>
-																	<a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" >
-																		<s:property value="@chance.util.HtmlUtils@removeHTML(#item.informationTitle,22)" />
-																	</a>
-																</span>
-															</li>
-														</s:iterator>
-													</ul>
-												</div>
-											</aa:zone>
+											<div class="rig02" id="d1">
+												<ul id="lili">
+													<s:iterator value="@fsf.web.common.ConstantCache@LISTINFO" id="item">
+														<li>
+															<span>
+																<a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" >
+																	<s:property value="@chance.util.HtmlUtils@removeHTML(#item.informationTitle,22)" />
+																</a>
+															</span>
+														</li>
+													</s:iterator>
+												</ul>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -400,8 +409,7 @@
 
 						<div class="blank12"></div>
 						<div class="info_pic">
-							<img src="images/info_pic2.jpg" width="670" height="86" alt=""
-								title="" />
+							<img src="images/info_pic2.jpg" width="670" height="86" alt="" title="" />
 						</div>
 
 					</div>
@@ -417,18 +425,16 @@
 
 							<div class="info_content_show" id="e1" style="display: block">
 								<ul id="lili2">
-									<aa:zone name="listCommerce">
-										<s:iterator value="listCommerce">
-											<li>
-												<div id="p1">
-													<p>
-														<img src="images/sound_note.gif" width="16" height="16" align="absmiddle" />
-														<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=${commerceId }" target="blank" >${title }</a>
-													</p>
-												</div>
-											</li>
-										</s:iterator>
-									</aa:zone>
+									<s:iterator value="@fsf.web.common.ConstantCache@LISTCOMMERCE">
+										<li>
+											<div id="p1">
+												<p>
+													<img src="images/sound_note.gif" width="16" height="16" align="absmiddle" />
+													<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=${commerceId }" target="blank" >${title }</a>
+												</p>
+											</div>
+										</li>
+									</s:iterator>
 								</ul>
 							</div>
 						</div>
