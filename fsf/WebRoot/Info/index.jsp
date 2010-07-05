@@ -59,7 +59,7 @@
 								<a href="<%=contextPath %>/forum/goToForum.action"><span>论坛</span></a>
 							</li>
 							<li>
-								<a href="<%=contextPath %>/CoBank/index.jsp"><span>银行合作</span> </a>
+								<a href="<%=contextPath %>/CoBank/index.action"><span>银行合作</span> </a>
 							</li>
 							<li>
 								<a href="<%=contextPath %>/commerce/commerceIndex.action"><span>旺铺招租</span></a>
