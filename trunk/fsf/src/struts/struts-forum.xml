@@ -7,7 +7,7 @@
 	<package name="forum" extends="baseDefault" namespace="/forum" >
 		<action name="goToForum" class="fsf.action.forum.ForumAction" method="goToForum">
 			<result name="forumLogin">/forum/goToForum.jsp</result>
-			<result name="forumList">/forums/list.page</result>
+			<result name="forumList" type="redirect">/forums/list.page</result>
 		</action>
 	</package>
 	<!-- ********************************************** -->
