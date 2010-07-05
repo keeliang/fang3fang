@@ -117,11 +117,6 @@
 											<s:iterator value="@fsf.web.common.ConstantCache@SALEATTENTIONCACHE" >
 												<dd><a href="javascript:f_attention(${key })">${value }</a></dd>
 											</s:iterator>
-											<dd><a href="#">挑选房源时应注意的四大因素</a></dd>
-											<dd><a href="#">二手房交易具体流程</a></dd>
-											<dd><a href="#">申请办证时资料应清晰</a></dd>
-											<dd><a href="#">精装房收房需注意三点</a></dd>
-											<dd><a href="#">十大秘技教你淘出二手好房</a></dd>
 										</dl>
 									</div>
 									<div class="memberC_midShow02R">
@@ -134,11 +129,6 @@
 											<s:iterator value="@fsf.web.common.ConstantCache@BUYATTENTIONCACHE" >
 												<dd><a href="javascript:f_attention(${key })">${value }</a></dd>
 											</s:iterator>
-											<dd><a href="#">自售房屋有学问</a></dd>
-											<dd><a href="#">合同细节要讲清</a></dd>
-											<dd><a href="#">全权委托公证</a></dd>
-											<dd><a href="#">无证房地产买卖</a></dd>
-											<dd><a href="#">注意阴阳合同</a></dd>
 										</dl>
 									</div>
 								</s:if>

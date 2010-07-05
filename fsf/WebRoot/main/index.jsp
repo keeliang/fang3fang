@@ -144,27 +144,21 @@
 							<div class="nav_content_show">
 								<div class="nav_content_input01" id="b1">
 									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('FindHouse')" />
-									您要买房，房上房为您提供数量丰富的业主房源信息，您也可以发布求购信息，让卖家找到您。
 								</div>
 								<div class="nav_content_input02" id="b2" style="display: none;">
 									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('Contact')" />
-									您联络到卖家了，但要看房并如何与业主洽谈买卖房产，请您留意了。
 								</div>
 								<div class="nav_content_input03" id="b3" style="display: none;">
 									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('ContractSale')" />
-									签署买卖合同时，有些问题需要您特别留意。您也可以邀请房上房经纪人上门签约。
 								</div>
 								<div class="nav_content_input04" id="b4" style="display: none;">
 									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('MoneyManagerSale')" />
-									银行为您提供免费的交易资金监护服务。
 								</div>
 								<div class="nav_content_input05" id="b5" style="display: none;">
 									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('Mortgage')" />
-									您买房缺资金吗？银行提供网上在线的按揭申请，为您提供优质的多组合的按揭贷款。
 								</div>
 								<div class="nav_content_input06" id="b6" style="display: none;">
 									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('TransferSale')" />
-									房上房为您提供上门签署“三方合同”及银行按揭服务等，只需要很少的费用就可以为您省心省力。
 								</div>
 								<ul>
 									<li>
@@ -223,27 +217,21 @@
 							<div class="nav_content_show">
 								<div class="nav_content_input01" id="c1">
 									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('ReleaseHouse')" />
-									您想要免费卖房吗？您只需要免费注册为房上房的会员就可以做到了。
 								</div>
 								<div class="nav_content_input02" id="c2" style="display: none;">
 									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('Communicate')" />
-									免费的交易平台，为您提供卖家信息和专业的交易服务。
 								</div>
 								<div class="nav_content_input03" id="c3" style="display: none;">
 									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('ContractBuy')" />
-									签署买卖合同时，有些问题需要您特别留意。您也可以邀请房上房经纪人上门签约。
 								</div>
 								<div class="nav_content_input04" id="c4" style="display: none;">
 									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('MoneyManagerBuy')" />
-									银行为您提供免费的交易资金监护服务。
 								</div>
 								<div class="nav_content_input05" id="c5" style="display: none;">
 									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('Guarantee')" />
-									您的房子还在按揭或抵押状态吗？那么出售前您需要进行赎屋。
 								</div>
 								<div class="nav_content_input06" id="c6" style="display: none;">
 									<s:property value="@fsf.web.common.ConstantCache@PAGEINFOCACHE.get('TransferBuy')" />
-									房上房为您提供上门签署“三方合同”及银行按揭服务等，只需要很少的费用就可以为您省心省力。
 								</div>
 								<ul>
 									<li>
