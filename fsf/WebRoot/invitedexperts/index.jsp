@@ -176,29 +176,29 @@
 				
 					<div class="hot">
 						<div class="hot_top">
-							<span>网友收藏最多的房源</span>
+							<span>推荐房源</span>
 						</div>
+						<!-- 
 						<div id="loadingDiv" style="width: 100%;text-align: center;" >
 							<img src="<%=contextPath %>/images/loading2.gif" />
 							<br />
 							<font style="font-weight: bold;" >加载中...</font>
 						</div>
+						 -->
 						<div id="estateDiv">
-							<aa:zone name="zoneRecommondEstateOnExpert">
-								<ul>
-									<s:iterator value="listRecommondEstateOnInfo" >
-										<li class="li1">
-											<s:if test="tradeType==1">
-												<span><a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" class="cRed02">${estateName }</a></span>
-											</s:if>
-											<s:if test="tradeType==2">
-												<span><a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" class="cRed02">${estateName }</a></span>
-											</s:if>
-											<p>${area }㎡<span class="red_span">${salePrice }万</span> 单价:${unitPrice }元/㎡</p>
-										</li>
-									</s:iterator>
-								</ul>
-							</aa:zone>
+							<ul>
+								<s:iterator value="@fsf.web.common.ConstantCache@LISTRECOMMONDSALE10" >
+									<li class="li1">
+										<s:if test="tradeType==1">
+											<span><a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" class="cRed02">${estateName }</a></span>
+										</s:if>
+										<s:if test="tradeType==2">
+											<span><a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" class="cRed02">${estateName }</a></span>
+										</s:if>
+										<p>${area }㎡<span class="red_span">${salePrice }万</span> 单价:${unitPrice }元/㎡</p>
+									</li>
+								</s:iterator>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -221,16 +221,5 @@ function f_goto(url){
 	document.forms[0].action = url;
 	document.forms[0].submit();
 }
-window.onload = function(){
-	ajaxAnywhere = new AjaxAnywhere();
-	ajaxAnywhere.showLoadingMessage = function(){
-		document.getElementById("loadingDiv").style.display = "block";
-		document.getElementById("estateDiv").style.display = "none";
-	}
-	ajaxAnywhere.hideLoadingMessage = function(){
-		document.getElementById("loadingDiv").style.display = "none";
-		document.getElementById("estateDiv").style.display = "block";
-	}
-	ajaxAnywhere.getAJAX("/commerce/recommondListOnCommercePage.ajax","zoneRecommondEstateOnExpert");
-}
+
 </script>

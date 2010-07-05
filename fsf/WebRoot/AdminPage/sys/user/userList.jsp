@@ -59,8 +59,14 @@
 						<s:text name="_ne_userType" />:
 					</td>
 					<td width="35%">
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$user_type')" name="userParameter._ne_userType" 
-						listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/>
+						<s:if test="#session.USER.userType==0">
+							<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$user_type',null,'0')" name="userParameter._ne_userType" 
+							listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/>
+						</s:if>
+						<s:elseif test="#session.USER.userType==1">
+							<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$user_type',null,'0;1')" name="userParameter._ne_userType" 
+							listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/>
+						</s:elseif>
 					</td>
 					<td width="15%" >
 						<s:text name="_ne_sex" />:

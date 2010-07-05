@@ -163,7 +163,7 @@
 					</div>
 					<div class="col05a">
 						<ul>
-							<s:iterator value="@fsf.service.common.EstateOutRecommondCacheService@getListRecommond()">
+							<s:iterator value="@fsf.web.common.ConstantCache@LISTRECOMMOND">
 								<li>
 									<p>
 										<s:if test="imagePath!=null && imagePath.trim()!=''">
@@ -193,7 +193,7 @@
 					</div>
 					<div class="col05a">
 						<ul>
-							<s:iterator value="@fsf.service.common.EstateOutRecommondCacheService@getListOwnRecommond()">
+							<s:iterator value="@fsf.web.common.ConstantCache@LISTOWNRECOMMOND">
 								<li>
 									<p>
 										<s:if test="imagePath!=null && imagePath.trim()!=''">

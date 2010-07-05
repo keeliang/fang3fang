@@ -150,7 +150,7 @@
 	        <div class="infoShow_contentR_title"><div class="infoShow_contentR_title_line"></div><b>委托推荐</b></div>
 	        <div class="col05a">
           	<ul>
-            	<s:iterator value="@fsf.service.common.EstateOutRecommondCacheService@getListRecommond()">
+            	<s:iterator value="@fsf.web.common.ConstantCache@LISTRECOMMOND">
 								<li>
 									<p>
 										<s:if test="imagePath!=null && imagePath.trim()!=''">
@@ -177,7 +177,7 @@
           <div class="infoShow_contentR_title"><div class="infoShow_contentR_title_line"></div><b>自主推荐</b></div>
           <div class="col05a">
          		<ul>
-             	<s:iterator value="@fsf.service.common.EstateOutRecommondCacheService@getListOwnRecommond()">
+             	<s:iterator value="@fsf.web.common.ConstantCache@LISTOWNRECOMMOND">
 								<li>
 									<p>
 										<s:if test="imagePath!=null && imagePath.trim()!=''">
