@@ -14,7 +14,7 @@
 
 <body>
 <s:form action="rollInformationSave" namespace="/sysadmin/info/rollInformation" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
-<div class="contentTitle"><s:text name="contentTitle"/></div>
+<div class="contentTitle"><s:text name="contentRollTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <s:hidden name="cmd" />
 <s:hidden name="informationParameter.currentPage" />

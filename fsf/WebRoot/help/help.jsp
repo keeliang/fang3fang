@@ -58,23 +58,23 @@
 							</div>
 							<ul>
 								<div class="blank12"></div>
-								<li class="help_menuNav01_01 on">
-									<a href="findHouse.jsp"><span class="float_right">&gt;&gt;</span>查找房源</a>
+								<li class="help_menuNav01_01 <s:if test="infoName=='FindHouse'">on</s:if>">
+									<a href="<%=contextPath %>/help/help.action?infoName=FindHouse"><span class="float_right">&gt;&gt;</span>查找房源</a>
 								</li>
-								<li class="help_menuNav01_02">
-									<a href="comTalk.jsp"><span class="float_right">&gt;&gt;</span>联络洽谈</a>
+								<li class="help_menuNav01_02 <s:if test="infoName=='Contact'">on</s:if>">
+									<a href="<%=contextPath %>/help/help.action?infoName=Contact"><span class="float_right">&gt;&gt;</span>联络洽谈</a>
 								</li>
-								<li class="help_menuNav01_03">
-									<a href="bargain.jsp"><span class="float_right">&gt;&gt;</span>合同签署</a>
+								<li class="help_menuNav01_03 <s:if test="infoName=='ContractSale'">on</s:if>">
+									<a href="<%=contextPath %>/help/help.action?infoName=ContractSale"><span class="float_right">&gt;&gt;</span>合同签署</a>
 								</li>
-								<li class="help_menuNav01_04">
-									<a href="moneyManage.jsp"><span class="float_right">&gt;&gt;</span>资金监管</a>
+								<li class="help_menuNav01_04" <s:if test="infoName=='MoneyManagerSale'">on</s:if>>
+									<a href="<%=contextPath %>/help/help.action?infoName=MoneyManagerSale"><span class="float_right">&gt;&gt;</span>资金监管</a>
 								</li>
-								<li class="help_menuNav01_05">
-									<a href="anjie.jsp"><span class="float_right">&gt;&gt;</span>按揭贷款</a>
+								<li class="help_menuNav01_05 <s:if test="infoName=='Mortgage'">on</s:if>">
+									<a href="<%=contextPath %>/help/help.action?infoName=Mortgage"><span class="float_right">&gt;&gt;</span>按揭贷款</a>
 								</li>
-								<li class="help_menuNav01_06">
-									<a href="diya.jsp"><span class="float_right">&gt;&gt;</span>过户抵押</a>
+								<li class="help_menuNav01_06 <s:if test="infoName=='TransferSale'">on</s:if>">
+									<a href="<%=contextPath %>/help/help.action?infoName=TransferSale"><span class="float_right">&gt;&gt;</span>过户抵押</a>
 								</li>
 							</ul>
 						</div>
@@ -87,33 +87,33 @@
 							</div>
 							<ul>
 								<div class="blank12"></div>
-								<li class="help_menuNav02_01">
-									<a href="issueHouse.jsp"><span class="float_right">&gt;&gt;</span>发布房源</a>
+								<li class="help_menuNav02_01 <s:if test="infoName=='ReleaseHouse'">on</s:if>">
+									<a href="<%=contextPath %>/help/help.action?infoName=ReleaseHouse"><span class="float_right">&gt;&gt;</span>发布房源</a>
 								</li>
-								<li class="help_menuNav02_02">
-									<a href="goutong.jsp"><span class="float_right">&gt;&gt;</span>沟通平台</a>
+								<li class="help_menuNav02_02 <s:if test="infoName=='Communicate'">on</s:if>">
+									<a href="<%=contextPath %>/help/help.action?infoName=Communicate"><span class="float_right">&gt;&gt;</span>沟通平台</a>
 								</li>
-								<li class="help_menuNav02_03">
-									<a href="bargain02.jsp"><span class="float_right">&gt;&gt;</span>合同签署</a>
+								<li class="help_menuNav02_03 <s:if test="infoName=='ContractBuy'">on</s:if>">
+									<a href="<%=contextPath %>/help/help.action?infoName=ContractBuy"><span class="float_right">&gt;&gt;</span>合同签署</a>
 								</li>
-								<li class="help_menuNav02_04">
-									<a href="moneyManage02.jsp"><span class="float_right">&gt;&gt;</span>资金监管</a>
+								<li class="help_menuNav02_04 <s:if test="infoName=='MoneyManagerBuy'">on</s:if>">
+									<a href="<%=contextPath %>/help/help.action?infoName=MoneyManagerBuy"><span class="float_right">&gt;&gt;</span>资金监管</a>
 								</li>
-								<li class="help_menuNav02_05">
-									<a href="danbao.jsp"><span class="float_right">&gt;&gt;</span>担保赎楼</a>
+								<li class="help_menuNav02_05 <s:if test="infoName=='Guarantee'">on</s:if>">
+									<a href="<%=contextPath %>/help/help.action?infoName=Guarantee"><span class="float_right">&gt;&gt;</span>担保赎楼</a>
 								</li>
-								<li class="help_menuNav02_06">
-									<a href="guohu.jsp"><span class="float_right">&gt;&gt;</span>房产过户</a>
+								<li class="help_menuNav02_06 <s:if test="infoName=='TransferBuy'">on</s:if>">
+									<a href="<%=contextPath %>/help/help.action?infoName=TransferBuy"><span class="float_right">&gt;&gt;</span>房产过户</a>
 								</li>
 							</ul>
 						</div>
 						<div class="blank12"></div>
 						<div class="help_menuNav01">
-							<a href="freeService.jsp"><b>免费服务</b></a>
+							<a href="<%=contextPath %>/help/help.action?infoName=FreeService"><b>免费服务</b></a>
 						</div>
 						<div class="blank12"></div>
 						<div class="help_menuNav01">
-							<a href="chargeService.jsp"><b>收费服务</b></a>
+							<a href="<%=contextPath %>/help/help.action?infoName=ChargeService"><b>收费服务</b></a>
 						</div>
 						<div class="blank12"></div>
 						<div class="blank12"></div>
@@ -131,11 +131,11 @@
 			<%@ include file="../CommonPage/Foot.jsp"%>
 
 		</div>
+	</body>
+</html>
 <script type="text/javascript">
 <!--
 var CollapsiblePanel1 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel1");
 var CollapsiblePanel2 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel2");
 //-->
 </script>
-	</body>
-</html>

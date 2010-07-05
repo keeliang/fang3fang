@@ -42,13 +42,16 @@
 			<td style="text-align: left;" ></td>
 		</tr>
 	</s:if>
+	<s:if test="#st.index==14">
+		<tr>
+			<td style="text-align: left;" ></td>
+		</tr>
+	</s:if>
 	<tr>
 		<td style="text-align: left;" ><a href="javascript:g_edit('${url}')" ><s:property value="infoDesc"/></a></td>
 	</tr>
 </s:iterator>
 </table>
-
-
 </s:form>
 </body>
 </html>

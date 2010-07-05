@@ -11,9 +11,6 @@
          	<a href="<%=contextPath %>/memberCenter/memberInfo.action?userId=${USER.userId }" class="cOrange"><u>个人设置</u></a>
          </span>|
          <span>
-         	<a href="#" class="cOrange"><u>我的收藏夹(402)</u></a>
-				</span>|
-         <span>
          	<a href="../help/findHouse.jsp" class="cOrange"><u>帮助中心</u></a>
          </span>
          <span style="color:#666;">]</span>
