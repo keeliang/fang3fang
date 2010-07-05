@@ -26,7 +26,7 @@
 					<a href="<%=contextPath %>/newHouse/index.jsp"><u>新房推荐</u></a> |
 					<a href="<%=contextPath %>/Info/infoIndexList.action"><u>地产资讯</u></a> |
 					<a href="<%=contextPath %>/forum/goToForum.action"><u>论坛</u></a> |
-					<a href="<%=contextPath %>/CoBank/index.jsp"><u>合作银行</u></a> |
+					<a href="<%=contextPath %>/CoBank/index.action"><u>合作银行</u></a> |
 					<a href="<%=contextPath %>/commerce/commerceIndex.action"><u>旺铺招租</u></a> |
 					<a href="<%=contextPath %>/invitedexperts/index.action"><u>交易顾问</u></a>
 				</p>
