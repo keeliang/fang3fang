@@ -145,19 +145,6 @@
 	</body>
 </html>
 <script type="text/javascript" >
-window.onload = function(){
-	ajaxAnywhere = new AjaxAnywhere();
-	ajaxAnywhere.showLoadingMessage = function(){
-		document.getElementById("loadingDiv").style.display = "block";
-		document.getElementById("estateDiv").style.display = "none";
-	}
-	ajaxAnywhere.hideLoadingMessage = function(){
-		document.getElementById("loadingDiv").style.display = "none";
-		document.getElementById("estateDiv").style.display = "block";
-	}
-	ajaxAnywhere.getAJAX("/commerce/recommondListOnCommercePage.ajax","zoneRecommondEstateOnInfo");
-}
-
 function f_query(v){
 	if(v)
 		document.forms["formList"]["commerceParameter._ne_"+v.split('_')[0]].value = v.split('_')[1];

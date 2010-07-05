@@ -121,8 +121,17 @@
 			<s:text name="userType"/>:
 		</td>
 		<td>
-			<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$user_type')" name="userType" id="userType"  
-			listValue="itemName" listKey="itemKey" emptyOption="true" onchange="f_changeUserType()" cssClass="dropdown"/><font color="red">*</font>
+			<s:if test="#session.USER.userType==0 && userType==0">
+				超级管理员
+			</s:if>
+			<s:elseif test="#session.USER.userType==0">
+				<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$user_type',null,'0')" name="userType" id="userType"  
+				listValue="itemName" listKey="itemKey" emptyOption="true" onchange="f_changeUserType()" cssClass="dropdown"/><font color="red">*</font>
+			</s:elseif>
+			<s:elseif test="#session.USER.userType==1">
+				<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$user_type',null,'0;1')" name="userType" id="userType"  
+				listValue="itemName" listKey="itemKey" emptyOption="true" onchange="f_changeUserType()" cssClass="dropdown"/><font color="red">*</font>
+			</s:elseif>
 		</td>
 	</tr>
 	<tr>

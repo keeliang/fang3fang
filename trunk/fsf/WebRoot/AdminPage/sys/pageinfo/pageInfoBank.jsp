@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<s:form action="pageInfoSave" namespace="/sysadmin/sys/pageinfo" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
+<s:form action="pageInfoBankSave" namespace="/sysadmin/sys/pageinfo" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
 <div class="contentTitle">${infoDesc }</div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <s:hidden name="cmd" />
