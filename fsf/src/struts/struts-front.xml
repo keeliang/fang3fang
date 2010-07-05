@@ -313,5 +313,11 @@
 			<result>/help/help.jsp</result>
 		</action>
 	</package>
+	
+	<package name="/CoBank" extends="baseDefault" namespace="/CoBank" >
+		<action name="index" class="pageInfoAction" method="doBank">
+			<result>/CoBank/index.jsp</result>
+		</action>
+	</package>
 
 </struts>
