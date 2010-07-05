@@ -271,3 +271,11 @@ insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
 select 'expert_level','4','四星级顾问','四星级顾问',4 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
 select 'expert_level','5','五星级顾问','五星级顾问',5 ;
+
+/*************************买卖房注意事项类型****************************/
+insert into sys_dictgroup (group_name,group_desc,remark)
+select 'attention_type','买卖房注意事项类型',null;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'attention_type','1','买房注意事项','买房注意事项',1 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'attention_type','2','卖房注意事项','卖房注意事项',2 ;
