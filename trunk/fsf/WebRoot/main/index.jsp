@@ -310,8 +310,12 @@
 													<a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" ><img src="<%=contextPath %>${imagePath }" border="0" height="200" width="274" /></a>
 												</div>
 												<div class="le02">
-													<p class="font14"><a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" class="cOrange" ><b>${informationTitle}</b></a></p>
-													<p><s:property value="@chance.util.HtmlUtils@removeHTML(informationContent,38)" /><a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" class="cOrange"><b>&nbsp;&nbsp;详细</b></a></p>
+													<p class="font14">
+														<a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" class="cOrange" >
+															<b><s:property value="@chance.util.HtmlUtils@removeHTML(informationTitle,20)" /></b>
+														</a>
+													</p>
+													<p><s:property value="@chance.util.HtmlUtils@removeHTML(informationContent,20)" /><a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" class="cOrange"><b>&nbsp;&nbsp;详细</b></a></p>
 												</div>
 											</div>
 										</s:iterator>
