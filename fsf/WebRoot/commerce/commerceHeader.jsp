@@ -39,7 +39,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="<%=contextPath %>/CoBank/index.jsp"><span>银行合作</span>
+								<a href="<%=contextPath %>/CoBank/index.action"><span>银行合作</span>
 								</a>
 							</li>
 							<li class="menuHere"><a href="<%=contextPath%>/commerce/commerceIndex.action"><span>旺铺招租</span></a></li> 

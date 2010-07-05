@@ -28,7 +28,7 @@
             <li class="cGray">|</li>
             <li><a href="<%=contextPath %>/forum/goToForum.action">论坛</a></li>
             <li class="cGray">|</li>
-            <li><a href="<%=contextPath %>/CoBank/index.jsp">合作银行</a></li>
+            <li><a href="<%=contextPath %>/CoBank/index.action">合作银行</a></li>
             <li class="cGray">|</li>
             <li><a href="<%=contextPath %>/commerce/commerceIndex.action">旺铺招租</a></li>
             <li class="cGray">|</li>
