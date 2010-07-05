@@ -24,10 +24,8 @@ import fsf.beans.est.commerce.Commerce;
 import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
-import fsf.service.common.EstateOutRecommondCacheService;
 import fsf.service.est.estateout.EstateOutService;
 import fsf.service.sys.user.UserService;
-import fsf.web.common.ConstantCache;
 import fsf.web.common.ThreadUser;
 import fsf.web.common.WebConstant;
 
@@ -47,24 +45,6 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 	 * 首页的搜索，不分页
 	 */
 	private List<EstateOut> listEstateOut;
-	/**
-	 * 自主推荐，top10
-	 */
-	private List<EstateOut> recommondOwnEstateList;
-	/**
-	 * 委托推荐，top10
-	 */
-	private List<EstateOut> recommondEstateList;
-	/**
-	 * 首页最新有图房源 top4
-	 */
-	private List<EstateOut> listNewestEstate;
-	/**
-	 * 首页最新旺铺top8
-	 */
-	private List<Commerce> listCommerce;
-	
-	private List<EstateOut> listRecommondEstateOnInfo;
 	
 	public String doQuery() throws Exception{
 		return null;
@@ -131,46 +111,6 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 			e.printStackTrace();
 			throw e;
 		}
-		return SUCCESS;
-	}
-	
-	/**
-	 * 会员首页右侧 房源推荐查询，不分页
-	 * @return
-	 * @throws Exception
-	 */
-	public String doRecommondList()throws Exception{
-		try {
-			if(baseParameter==null){
-				baseParameter = new EstateOutParameter();
-			}
-			baseParameter.setMaxResults(-1);
-			baseParameter.setCurrentPage(-1);
-			baseParameter.setTopCount(10);
-			
-			baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
-			((EstateOutParameter)baseParameter).set_ne_isRecommond((short)1);
-			((EstateOutParameter)baseParameter).set_ne_tradeType((short)1);
-			((EstateOutParameter)baseParameter).set_nin_tradeMode(new Short[]{1,2,3});
-			QueryResult<EstateOut> queryResult = service.doPaginationQuery(baseParameter);
-			recommondOwnEstateList = queryResult.getResultList();
-			
-			((EstateOutParameter)baseParameter).set_ne_tradeType((short)2);
-			queryResult = service.doPaginationQuery(baseParameter);
-			recommondEstateList = queryResult.getResultList();
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw e;
-		}
-		return SUCCESS;
-	}
-	/**
-	 * 资讯首页右侧推荐房源
-	 * @return
-	 * @throws Exception
-	 */
-	public String ajaxRecommondListOnInfoPage() throws Exception{
-		listRecommondEstateOnInfo = EstateOutRecommondCacheService.getListRecommondSales();
 		return SUCCESS;
 	}
 	
@@ -768,41 +708,6 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 
 	public void setIsRecommond(Short isRecommond) {
 		this.isRecommond = isRecommond;
-	}
-
-	public List<EstateOut> getRecommondOwnEstateList() {
-		return recommondOwnEstateList;
-	}
-
-	public void setRecommondOwnEstateList(List<EstateOut> recommondOwnEstateList) {
-		this.recommondOwnEstateList = recommondOwnEstateList;
-	}
-
-	public List<EstateOut> getRecommondEstateList() {
-		return recommondEstateList;
-	}
-
-	public void setRecommondEstateList(List<EstateOut> recommondEstateList) {
-		this.recommondEstateList = recommondEstateList;
-	}
-	public List<EstateOut> getListNewestEstate() {
-		return listNewestEstate;
-	}
-	public void setListNewestEstate(List<EstateOut> listNewestEstate) {
-		this.listNewestEstate = listNewestEstate;
-	}
-
-	public List<EstateOut> getListRecommondEstateOnInfo() {
-		return listRecommondEstateOnInfo;
-	}
-	public void setListRecommondEstateOnInfo(List<EstateOut> listRecommondEstateOnInfo) {
-		this.listRecommondEstateOnInfo = listRecommondEstateOnInfo;
-	}
-	public List<Commerce> getListCommerce() {
-		return listCommerce;
-	}
-	public void setListCommerce(List<Commerce> listCommerce) {
-		this.listCommerce = listCommerce;
 	}
 	
 	public String getUnitPrice(){

@@ -15,6 +15,7 @@ public class UserParameter extends BaseParameter {
 	private Short _ne_sex;
 	private Short _ne_status;
 	private Short _ne_userType;
+	private Short[] _nin_userType;
 	private Integer _ne_provinceId;
 	private Integer _ne_cityId;
 	private Integer _ne_districtId;
@@ -204,4 +205,13 @@ public class UserParameter extends BaseParameter {
 	public String get_se_imagePath() {
 		return this._se_imagePath;
 	}
+
+	public Short[] get_nin_userType() {
+		return _nin_userType;
+	}
+
+	public void set_nin_userType(Short[] type) {
+		_nin_userType = type;
+	}
+	
 }

@@ -37,4 +37,28 @@ public final class ConstantCache {
 	 * 会员首页卖房注意事项缓存
 	 */
 	public static Map<Integer,String> BUYATTENTIONCACHE;
+	/**
+	 * 自主推荐房源 top4
+	 */
+	public static List<EstateOut> LISTOWNRECOMMOND ;
+	/**
+	 * 委托推荐房源 top4
+	 */
+	public static List<EstateOut> LISTRECOMMOND;
+	/**
+	 * 资讯和旺铺页面的推荐房源 top5
+	 */
+	public static List<EstateOut> LISTRECOMMONDSALE;
+	/**
+	 * 顾问首页 右侧 top10
+	 */
+	public static List<EstateOut> LISTRECOMMONDSALE10;
+	/**
+	 * 会员首页右侧自主推荐 top10
+	 */
+	public static List<EstateOut> LISTOWNRECOMMOND10;
+	/**
+	 * 会员首页右侧委托推荐 top10
+	 */
+	public static List<EstateOut> LISTRECOMMOND10;
 }

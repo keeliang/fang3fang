@@ -61,10 +61,6 @@
 			<result name="input">/commerce/commerceView.jsp</result>
 		</action>
 		
-		<action name="recommondListOnCommercePage" class="estateOutAction" method="ajaxRecommondListOnInfoPage">
-			<result>/commerce/commerceCatelogy.jsp</result>
-		</action>
-		
 		<action name="getCityList" class="estateInAction" method="getCityList"></action>
 		<action name="getDistrictList" class="estateInAction" method="getDistrictList"></action>
 		<action name="getBusinessareaList" class="estateInAction" method="getBusinessareaList"></action>

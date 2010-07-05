@@ -22,6 +22,7 @@ import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
 import fsf.service.sys.user.UserService;
+import fsf.web.common.ThreadUser;
 import fsf.web.common.WebConstant;
 
 @Controller
@@ -43,6 +44,39 @@ public class UserAction extends UploadBaseAction<User> {
 	public String ajaxQueryRecommond(){
 		rentRecommond = getUserService().queryRecommond(userId, 1);
 		salesRecommond = getUserService().queryRecommond(userId, 2);
+		return SUCCESS;
+	}
+	
+	@Override
+	public String doList() throws Exception {
+		
+		try {
+			if(baseParameter==null){
+				return SUCCESS;
+			}
+			if(baseParameter.getMaxResults()==null){
+				baseParameter.setMaxResults(10);
+			}
+			if(baseParameter.getCurrentPage()==null){
+				baseParameter.setCurrentPage(1);
+			}
+			User u = ThreadUser.get();
+			UserParameter param = (UserParameter)baseParameter;
+			//超级管理员
+			if(u.getUserType()==0){
+				
+			}else if(u.getUserType()==1){
+				if(param.get_ne_userType()==null){
+					param.set_nin_userType(new Short[]{2,3});
+				}
+			}
+			QueryResult<User> queryResult = service.doPaginationQuery(baseParameter);
+			setPageView(new PageView<User>(baseParameter.getMaxResults(),baseParameter.getCurrentPage()));
+			getPageView().setQueryResult(queryResult);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
 		return SUCCESS;
 	}
 
