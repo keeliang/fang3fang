@@ -158,10 +158,6 @@
 		<action name="commitInfoComment" class="infoCommentAction" method="doCommitInfoComment">
 			<result>/Info/showInfo.jsp</result>
 		</action>
-		
-		<action name="recommondListOnInfoPage" class="estateOutAction" method="ajaxRecommondListOnInfoPage">
-			<result>/Info/index.jsp</result>
-		</action>
 	</package>
 	
 	<package name="/invitedexperts" extends="baseDefault" namespace="/invitedexperts" >
@@ -173,10 +169,6 @@
 		</action>
 		<action name="queryRecommond" class="userAction" method="ajaxQueryRecommond" >
 			<result>/invitedexperts/ExpertsHouse.jsp</result>
-		</action>
-		
-		<action name="recommondListOnPage" class="estateOutAction" method="ajaxRecommondListOnInfoPage">
-			<result>/invitedexperts/index.jsp</result>
 		</action>
 	</package>
 	

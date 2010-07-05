@@ -36,6 +36,11 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 		return SUCCESS;
 	}
 	
+	public String doBank() throws Exception{
+		infoName = "Bank";
+		return doEdit();
+	}
+	
 	@Override
 	protected void afterUpdate() {
 		if(seq<=12)
