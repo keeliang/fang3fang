@@ -116,6 +116,7 @@
 		<DictGroup>is_hot</DictGroup>
 		<DictGroup>examine</DictGroup>
 		<DictGroup>expert_level</DictGroup>
+		<DictGroup>attention_type</DictGroup>
 	</DictItemCache>
 	
 </DictConfig>

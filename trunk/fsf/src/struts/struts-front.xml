@@ -8,15 +8,6 @@
 		<action name="refresh" class="refreshAction" method="refresh" />
 		<action name="protectedSystem" class="refreshAction" method="protectedSystem" />
 		<action name="init" class="refreshAction" method="init" />
-		<action name="infoList" class="informationAction" method="doIndexQuery">
-			<result>/main/index.jsp</result>
-		</action>
-		<action name="rollInfoList" class="informationAction" method="ajaxRollInfoList">
-			<result>/main/index.jsp</result>
-		</action>
-		<action name="newestEstate" class="estateOutAction" method="ajaxNewestEstateList">
-			<result>/main/index.jsp</result>
-		</action>
 	</package>
 	
 	<package name="/member" extends="baseDefault" namespace="/member" >
@@ -117,7 +108,15 @@
 		
 		<action name="recommondList" class="estateOutAction" method="doRecommondList">
 			<result>/memberCenter/index.jsp</result>
-		</action> 
+		</action>
+		 
+		<action name="attentionContent" class="attentionAction" method="doEdit">
+			<result>/memberCenter/index.jsp</result>
+		</action>
+		
+		<action name="attentionBack" class="attentionAction" method="doSuccess" >
+			<result>/memberCenter/index.jsp</result>
+		</action>
 		
 		<action name="uploadFile" class="estateOutAction" method="doUploadFile" ></action>
 

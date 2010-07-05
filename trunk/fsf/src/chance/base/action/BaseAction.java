@@ -224,7 +224,8 @@ public abstract class BaseAction<E> extends ActionSupport {
 			}
 		}
 		try {
-			service.deleteByPK(arrayObj);	
+			service.deleteByPK(arrayObj);
+			afterDelete(arrayObj);
 		} catch (Exception e) {
 			handleDeleteException(e);
 		}
@@ -291,6 +292,10 @@ public abstract class BaseAction<E> extends ActionSupport {
 	 * override this method will be invokeed after update
 	 */
 	protected void afterPersist() {}
+	/**
+	 * override this method will be invokeed after delete
+	 */
+	protected void afterDelete(Serializable[] arrayId) {}
 	/**
 	 * override this method to handler where after load entity that is null
 	 */

@@ -21,10 +21,13 @@ import fsf.beans.sys.city.City;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.district.District;
 import fsf.beans.sys.province.Province;
+import fsf.service.sys.attention.AttentionService;
 import fsf.service.sys.city.CityService;
 import fsf.service.sys.dict.DictItemService;
 import fsf.service.sys.district.DistrictService;
+import fsf.service.sys.pageinfo.PageInfoService;
 import fsf.service.sys.province.ProvinceService;
+import fsf.web.common.ConstantCache;
 import fsf.web.common.EstFilter;
 import fsf.web.common.WebConstant;
 
@@ -37,6 +40,29 @@ public class FSFParameterInitListener implements ServletContextListener{
 	public void contextInitialized(ServletContextEvent event) {
 		loadSystemParameter(event.getServletContext());
 		loadEstFilter(event.getServletContext());
+		loadPageInfoCache(event.getServletContext());
+		loadAttentionCache(event.getServletContext());
+	}
+	
+	/**
+	 * 会员首页注意事项
+	 * @param servletContext
+	 */
+	public void loadAttentionCache(ServletContext servletContext){
+		WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+		AttentionService attentionService = (AttentionService)ctx.getBean("attentionServiceImpl");
+		ConstantCache.SALEATTENTIONCACHE = attentionService.getAttentionCache((byte)1);
+		ConstantCache.BUYATTENTIONCACHE = attentionService.getAttentionCache((byte)2);
+	}
+	
+	/**
+	 * 首页页面信息
+	 * @param servletContext
+	 */
+	private void loadPageInfoCache(ServletContext servletContext){
+		WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+		PageInfoService pageInfoService = (PageInfoService)ctx.getBean("pageInfoServiceImpl");
+		ConstantCache.PAGEINFOCACHE = pageInfoService.getPageInfoCache(); 
 	}
 	
 	/**

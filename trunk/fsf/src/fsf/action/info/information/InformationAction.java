@@ -8,20 +8,20 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import chance.base.action.BaseAction;
+import chance.base.action.UploadBaseAction;
 import chance.common.QueryResult;
 import fsf.beans.info.information.Information;
 import fsf.beans.sys.user.User;
-import fsf.service.common.IndexCacheService;
 import fsf.service.info.information.InformationService;
+import fsf.web.common.ConstantCache;
 import fsf.web.common.ThreadUser;
 
 @Controller
 @Scope("prototype")
-public class InformationAction extends BaseAction<Information> {
+public class InformationAction extends UploadBaseAction<Information> {
 	
 	public InformationAction() {
-		super(Information.class, new String[] { "informationId" });
+		super(Information.class, new String[] { "informationId" },"infoRoll");
 	}
 	
 	private List<Information> listInfo1;
@@ -35,18 +35,6 @@ public class InformationAction extends BaseAction<Information> {
 	private List<Information> listInfo;
 	
 	private List<Information> listRollInfo;
-	
-	/**
-	 * 首页，不分页，显示top10
-	 * @return
-	 * @throws Exception
-	 */
-	public String ajaxRollInfoList() throws Exception {
-		listInfo = IndexCacheService.getListInfo();
-		listRollInfo = IndexCacheService.getListRollInfo();
-		return SUCCESS;
-	}
-	
 	
 	/**
 	 * 资讯首页，不分页，显示top5

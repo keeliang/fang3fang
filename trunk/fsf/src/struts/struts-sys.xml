@@ -143,4 +143,28 @@
 		</action>
 	</package>
 	<!-- ********************************************** -->
+	<!--******************* attention *************** -->
+	<package name="/sysadmin/sys/attention" extends="baseDefault" namespace="/sysadmin/sys/attention" >
+		<action name="attentionList" class="attentionAction" method="doList">
+			<result>/AdminPage/sys/attention/attentionList.jsp</result>
+			<result name="input">/AdminPage/sys/attention/attentionList.jsp</result>
+		</action>
+		<action name="attentionSave" class="attentionAction" method="doSave">
+			<result>/AdminPage/sys/attention/attentionContent.jsp</result>
+			<result name="input">/AdminPage/sys/attention/attentionContent.jsp</result>
+		</action>
+		<action name="attentionEdit" class="attentionAction" method="doEdit">
+			<result>/AdminPage/sys/attention/attentionContent.jsp</result>
+			<result name="input">/AdminPage/sys/attention/attentionContent.jsp</result>
+		</action>
+		<action name="attentionNew" class="attentionAction" method="doNew">
+			<result>/AdminPage/sys/attention/attentionContent.jsp</result>
+			<result name="input">/AdminPage/sys/attention/attentionContent.jsp</result>
+		</action>
+		<action name="attentionDelete" class="attentionAction" method="doDelete">
+			<result>/AdminPage/sys/attention/attentionList.jsp</result>
+			<result name="input">/AdminPage/sys/attention/attentionList.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
 </struts>
