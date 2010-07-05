@@ -7,9 +7,11 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import chance.base.BaseParameter;
 import chance.base.action.BaseAction;
 import fsf.beans.sys.pageinfo.PageInfo;
 import fsf.service.sys.pageinfo.PageInfoService;
+import fsf.web.common.ConstantCache;
 
 @Controller
 @Scope("prototype")
@@ -25,13 +27,21 @@ public class PageInfoAction extends BaseAction<PageInfo> {
 		try {
 			if(baseParameter==null)
 				baseParameter = new PageInfoParameter();
-			((PageInfoParameter)baseParameter).set_nne_seq((byte)16);
+			((PageInfoParameter)baseParameter).set_nne_seq((byte)18);
+			baseParameter.getSortedConditions().put("seq", BaseParameter.SORTED_ASC);
 			listPageInfo = service.doQuery(baseParameter);
 		} catch (Exception e) {
 			throw e;
 		}
 		return SUCCESS;
 	}
+	
+	@Override
+	protected void afterUpdate() {
+		if(seq<=12)
+			ConstantCache.PAGEINFOCACHE.put(infoName, title);
+	}
+	
 	
 	@Resource
 	public void setPageInfoService(PageInfoService pageInfoService){

@@ -25,9 +25,9 @@ import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
 import fsf.service.common.EstateOutRecommondCacheService;
-import fsf.service.common.IndexCacheService;
 import fsf.service.est.estateout.EstateOutService;
 import fsf.service.sys.user.UserService;
+import fsf.web.common.ConstantCache;
 import fsf.web.common.ThreadUser;
 import fsf.web.common.WebConstant;
 
@@ -108,17 +108,6 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 			return SUCCESS;
 		getEstateOutService().doExpertRecommond(isRecommond,strPk);
 		return doList();
-	}
-	
-	/**
-	 * 首页的最新的有图的房源，top4
-	 * @return
-	 * @throws Exception
-	 */
-	public String ajaxNewestEstateList()throws Exception{
-		listNewestEstate = IndexCacheService.getListNewestEstate();
-		listCommerce = IndexCacheService.getListCommerce();
-		return SUCCESS;
 	}
 	
 	/**

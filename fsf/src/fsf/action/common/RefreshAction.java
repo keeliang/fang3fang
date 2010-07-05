@@ -26,6 +26,11 @@ public class RefreshAction extends ActionSupport {
 	@Resource
 	private UserService userService;
 	
+	public String index() throws Exception{
+		
+		return SUCCESS;
+	}
+	
 	public void refresh() throws Exception {
 		getHttpServletResponse().setContentType("text/html; charset=utf-8");
 		try {

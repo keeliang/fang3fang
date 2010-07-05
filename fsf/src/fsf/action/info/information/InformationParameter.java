@@ -10,6 +10,7 @@ public class InformationParameter extends BaseParameter{
 	private String _slike_informationTitle;
 	private String _se_informationContent;
 	private Integer _ne_informationType;
+	private Integer _nne_informationType;
 	private Short _ne_status;
 	private Date _dge_createTime;
 	private Date _dle_createTime;
@@ -77,4 +78,11 @@ public class InformationParameter extends BaseParameter{
 	public Integer get_ne_updateUserId(){
 		return this._ne_updateUserId;
 	}
+	public Integer get_nne_informationType() {
+		return _nne_informationType;
+	}
+	public void set_nne_informationType(Integer type) {
+		_nne_informationType = type;
+	}
+	
 }

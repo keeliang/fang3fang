@@ -4,7 +4,7 @@
 <!-- Generated 2010-4-24 9:01:41 by Hibernate Tools 3.2.4.GA -->
 <hibernate-mapping>
     <class name="fsf.beans.sys.province.Province" table="sys_province" >
-    	<cache usage="read-only" />
+    	<cache usage="read-only" region="fsf.beans.sys.province.Province" />
         <id name="provinceId" type="java.lang.Integer">
             <column name="province_id" />
             <generator class="identity" />
