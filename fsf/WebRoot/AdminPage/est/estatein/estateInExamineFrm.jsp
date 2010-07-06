@@ -7,7 +7,7 @@
 </head>
 
 <frameset rows="80,*" border="0">
-	<frame src="${contextPath}/sysadmin/est/estatein/estateInExamine.action?estateId=${estateId }" noresize="noresize"  />
+	<frame src="<%=contextPath %>/sysadmin/est/estatein/estateInExamine.action?estateId=${estateId }" noresize="noresize"  />
 	<frame src="" noresize="noresize" id="userSelect" />
 </frameset>
 </html>

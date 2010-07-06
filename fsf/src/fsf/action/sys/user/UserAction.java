@@ -62,10 +62,14 @@ public class UserAction extends UploadBaseAction<User> {
 			}
 			User u = ThreadUser.get();
 			UserParameter param = (UserParameter)baseParameter;
-			//超级管理员
+			//超级管理员只能搜管理员、顾问和普通用户
 			if(u.getUserType()==0){
-				
-			}else if(u.getUserType()==1){
+				if(param.get_ne_userType()==null){
+					param.set_nin_userType(new Short[]{1,2,3});
+				}
+			}
+			//管理员只能搜顾问和普通用户
+			else if(u.getUserType()==1){
 				if(param.get_ne_userType()==null){
 					param.set_nin_userType(new Short[]{2,3});
 				}

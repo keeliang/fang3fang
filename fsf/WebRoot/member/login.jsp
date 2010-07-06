@@ -12,11 +12,6 @@
 		<script type="text/javascript" src="../js/jquery.js"></script>
 		<script type="text/javascript" src="../js/Form.jquery.js"></script>
 		<script type="text/javascript" src="<%=contextPath %>/member/js/login.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$("#Username").focus();
-			})
-		</script>
 	</head>
 	<body>
 		<div class="member_box">

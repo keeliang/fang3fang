@@ -19,7 +19,7 @@
     <%@ include file="../CommonPage/Head.jsp" %> 
     
      <div align="center"><img src="images/choiceTitle.jpg" /></div>
-     <div class="help_contentR_line">&nbsp;</div>
+     <hr color="#cccccc"/>
 
 <!-- 
 <div align="center"><img src="images/choose1.jpg" width="960" height="990"  /></div>

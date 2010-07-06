@@ -12,41 +12,18 @@
 </head>
 
 <body>
-<s:form action="userSave" namespace="/sysadmin/sys/user" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
-<div class="contentTitle"><s:text name="contentTitle"/></div>
+<s:form action="userInfoSave" namespace="/sysadmin/sys/user" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
+<div class="contentTitle">个人信息修改</div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <s:hidden name="cmd" />
-<s:hidden name="userParameter.currentPage" />
-<s:hidden name="userParameter.maxResults" />
-<s:hidden name="userParameter._ne_userId" />
-<s:hidden name="userParameter._se_userCode" />
-<s:hidden name="userParameter._se_userName" />
-<s:hidden name="userParameter._ne_sex" />
-<s:hidden name="userParameter._ne_status" />
-<s:hidden name="userParameter._ne_userType" />
-<s:hidden name="userParameter._ne_provinceId" />
-<s:hidden name="userParameter._ne_cityId" />
-<s:hidden name="userParameter._ne_districtId" />
-<s:hidden name="userParameter._se_tel" />
-<s:hidden name="userParameter._se_phone" />
-<s:hidden name="userParameter._se_qq" />
-<s:hidden name="userParameter._se_msn" />
-<s:hidden name="userParameter._se_email" />
-<s:hidden name="userParameter._dle_createDate" />
-<s:hidden name="userParameter._dge_createDate" />
 
 <s:hidden name="userId" />
+<s:hidden name="password"/>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">
-			<s:if test="cmd=='edit'||cmd=='new'">
-				<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
-			</s:if>
-			<s:if test="cmd=='select'">
-				<input type="button" onclick="f_selectUser()" value="<s:text name="g_select"/>" >
-			</s:if>
-			<input type="button" onclick="g_back('/sysadmin/sys/user/userList.action')" value="<s:text name="g_back"/>" >
+			<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
 		</td>
 	</tr>
 </table>
@@ -64,14 +41,6 @@
 	</tr>
 	<tr>
 		<td>
-			<s:text name="password"/>:
-		</td>
-		<td>
-			<s:textfield name="password" /><font color="red">*</font>
-		</td>
-	</tr>
-	<tr>
-		<td>
 			<s:text name="question"/>:
 		</td>
 		<td>
@@ -84,7 +53,7 @@
 			<s:text name="answer"/>:
 		</td>
 		<td>
-			<s:textfield name="answer" />
+			<s:textfield name="answer" /><font color="red">*</font>
 		</td>
 	</tr>
 	<tr>
@@ -109,8 +78,13 @@
 			<s:text name="status"/>:
 		</td>
 		<td>
-			<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="status" id="status"  
-			listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/><font color="red">*</font>
+			<s:if test="#session.USER.userType==0">
+				可用<s:hidden name="status" />
+			</s:if>
+			<s:else>
+				<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="status" id="status"  
+				listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/><font color="red">*</font>
+			</s:else>
 		</td>
 	</tr>
 	<tr>
@@ -118,10 +92,13 @@
 			<s:text name="userType"/>:
 		</td>
 		<td>
-			<s:if test="#session.USER.userType==0">
+			<s:if test="#session.USER.userType==0 && userType==0">
+				超级管理员<s:hidden name="userType" />
+			</s:if>
+			<s:elseif test="#session.USER.userType==0">
 				<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$user_type',null,'0')" name="userType" id="userType"  
 				listValue="itemName" listKey="itemKey" emptyOption="true" onchange="f_changeUserType()" cssClass="dropdown"/><font color="red">*</font>
-			</s:if>
+			</s:elseif>
 			<s:elseif test="#session.USER.userType==1">
 				<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$user_type',null,'0;1')" name="userType" id="userType"  
 				listValue="itemName" listKey="itemKey" emptyOption="true" onchange="f_changeUserType()" cssClass="dropdown"/><font color="red">*</font>
@@ -214,7 +191,7 @@
 			<s:text name="realName"/>:
 		</td>
 		<td>
-			<s:textfield name="realName" />
+			<s:textfield name="realName" /><font color="red">*</font>
 		</td>
 	</tr>
 	<tr>
@@ -223,7 +200,7 @@
 		</td>
 		<td>
 			<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" name="workProvinceId" onchange="f_chageWorkProvince()" 
-			listValue="itemName" listKey="itemKey" emptyOption="true" id="workProvinceId" cssClass="dropdown"/>
+			listValue="itemName" listKey="itemKey" emptyOption="true" id="workProvinceId" cssClass="dropdown"/><font color="red">*</font>
 		</td>
 	</tr>
 	<tr>
@@ -247,7 +224,7 @@
 			<s:text name="company"/>:
 		</td>
 		<td>
-			<s:textfield name="company" />
+			<s:textfield name="company" /><font color="red">*</font>
 		</td>
 	</tr>
 	<tr>
@@ -256,7 +233,7 @@
 		</td>
 		<td>
 			<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$expert_level')" name="level" id="level"  
-			listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/>
+			listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/><font color="red">*</font>
 		</td>
 	</tr>
 	<tr>
@@ -264,7 +241,7 @@
 			<s:text name="license"/>:
 		</td>
 		<td>
-			<s:textfield name="license" />
+			<s:textfield name="license" /><font color="red">*</font>
 		</td>
 	</tr>
 	<tr>
@@ -272,7 +249,7 @@
 			<s:text name="hobby"/>:
 		</td>
 		<td>
-			<s:textfield name="hobby" />
+			<s:textfield name="hobby" /><font color="red">*</font>
 		</td>
 	</tr>
 	<tr>
@@ -280,7 +257,7 @@
 			<s:text name="glory"/>:
 		</td>
 		<td>
-			<s:textfield name="glory" />
+			<s:textfield name="glory" /><font color="red">*</font>
 		</td>
 	</tr>
 </table>
@@ -303,10 +280,11 @@ function f_changeUserType(){
 }
 function f_validate(){
 	fromName = "formItem";
+	//addfield("userId","<s:text name="userId"/>","Integer",false,10);
 	addfield("userCode","<s:text name="userCode"/>","String",false,50);
 	addfield("password","<s:text name="password"/>","String",false,50);
-	addfield("question","<s:text name="question"/>","String",true,30);
-	addfield("answer","<s:text name="answer"/>","String",true,30);
+	addfield("question","<s:text name="question"/>","String",false,30);
+	addfield("answer","<s:text name="answer"/>","String",false,30);
 	addfield("userName","<s:text name="userName"/>","String",true,50);
 	addfield("sex","<s:text name="sex"/>","Integer",false,3);
 	addfield("status","<s:text name="status"/>","Integer",false,3);
@@ -323,7 +301,6 @@ function f_validate(){
 	addfield("remark","<s:text name="remark"/>","String",true,65535);
 	//addfield("createDate","<s:text name="createDate"/>","Date",false,19);
 	//addfield("imagePath","<s:text name="imagePath"/>","String",true,100);
-	/*
 	if($('#userType').val() == 2){
 		addfield("realName","<s:text name="realName"/>","String",false,20);
 		addfield("workProvinceId","<s:text name="workProvinceId"/>","Integer",false,10);
@@ -334,7 +311,7 @@ function f_validate(){
 		addfield("license","<s:text name="license"/>","String",false,30);
 		addfield("hobby","<s:text name="hobby"/>","String",false,300);
 		addfield("glory","<s:text name="glory"/>","String",false,300);
-	}*/
+	}
 	return validate();
 }
 
@@ -364,7 +341,7 @@ function f_chageWorkProvince(isIndex){
 		return;
 	$.post("getCityList.action",{provinceId:$("#workProvinceId").val()},function(json){
 		var selectTag = new SelectTag("workCityId","workCityId",json.data,"itemKey","itemName","${workCityId}","f_changeWorkCity()");
-		$("#workCityTd").html(selectTag.toString());
+		$("#workCityTd").html(selectTag.toString()+"<font color='red'>*</font>");
 		if(isIndex)
 			f_changeWorkCity();
 	},"json");
@@ -377,7 +354,7 @@ function f_changeWorkCity(){
 		return;
 	$.post("getDistrictList.action",{provinceId:$("#workProvinceId").val(),cityId:$("#workCityId").val()},function(json){
 		var selectTag = new SelectTag("workDistrictId","workDistrictId",json.data,"itemKey","itemName","${workDistrictId}");
-		$("#workDistrictTd").html(selectTag.toString());
+		$("#workDistrictTd").html(selectTag.toString()+"<font color='red'>*</font>");
 	},"json");
 }
 

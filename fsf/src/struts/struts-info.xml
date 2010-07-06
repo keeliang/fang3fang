@@ -53,6 +53,7 @@
 			<result>/AdminPage/info/information/informationList.jsp</result>
 			<result name="input">/AdminPage/info/information/informationList.jsp</result>
 		</action>
+		<action name="uploadFile" class="informationAction" method="doUploadFile" ></action>
 	</package>
 	<!-- ********************************************** -->
 	

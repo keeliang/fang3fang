@@ -8,6 +8,9 @@
 		<action name="refresh" class="refreshAction" method="refresh" />
 		<action name="protectedSystem" class="refreshAction" method="protectedSystem" />
 		<action name="init" class="refreshAction" method="init" />
+		<action name="help" class="pageInfoAction" method="doEdit">
+			<result>/main/help.jsp</result>
+		</action>
 	</package>
 	
 	<package name="/member" extends="baseDefault" namespace="/member" >
@@ -118,8 +121,8 @@
 			<result>/memberCenter/index.jsp</result>
 		</action>
 		
-		<action name="uploadFile" class="estateOutAction" method="doUploadFile" ></action>
-
+		<action name="estUploadFile" class="estateOutAction" method="doUploadFile" ></action>
+		<action name="userUploadFile" class="userAction" method="doUploadFile" ></action>
 	</package>
 	
 	

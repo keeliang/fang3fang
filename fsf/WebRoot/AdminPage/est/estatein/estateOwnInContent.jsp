@@ -5,9 +5,9 @@
 <%@include file="/share/share.jsp" %>
 <title><s:text name="contentPageTitle"/></title>
 <%@include file="/share/validate.jsp" %>
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/AdminPage.css" />
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/AdminPage.css" />
 <link type="text/css" rel="stylesheet" href="/AdminPage/css/style.css"/>
-<script type="text/javascript" src="${contextPath}/js/jquery.js"></script>
+<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script>
 <style type="text/css">
 .est_info{
 	font-size: 12px;
@@ -329,7 +329,7 @@ $(function() {
 });
 
 function f_examine(s){
-	document.forms['formItem'].action = "${contextPath}/sysadmin/est/estatein/ownExamineSubmit.action?examine="+s;
+	document.forms['formItem'].action = "<%=contextPath %>/sysadmin/est/estatein/ownExamineSubmit.action?examine="+s;
 	document.forms['formItem'].submit();
 }
 

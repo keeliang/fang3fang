@@ -346,7 +346,7 @@ function f_examine(s){
 		}
 	}
 	if(bln){
-		document.forms['formList'].action = "${contextPath}/sysadmin/est/estateout/ownExamineSubmitBatch.action?examine="+s;
+		document.forms['formList'].action = "<%=contextPath %>/sysadmin/est/estateout/ownExamineSubmitBatch.action?examine="+s;
 		document.forms['formList'].submit();
 	}
 }

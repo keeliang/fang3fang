@@ -411,6 +411,7 @@
 	</body>
 </html>
 <script type="text/javascript">
+var UploadActionName = "<%=contextPath%>/memberCenter/estUploadFile.action";
 $(function() {
 	f_changeProvince(true);
 	f_chageTradeMode();

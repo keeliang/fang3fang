@@ -3,6 +3,8 @@ package fsf.service.common;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import chance.base.BaseParameter;
 import fsf.action.est.commerce.CommerceParameter;
@@ -13,6 +15,7 @@ import fsf.dao.est.estateout.EstateOutDao;
 import fsf.dao.info.information.InformationDao;
 import fsf.web.common.ConstantCache;
 @Service
+@Transactional
 public class IndexCacheService implements ScheduleService{
 
 	@Resource
@@ -23,7 +26,8 @@ public class IndexCacheService implements ScheduleService{
 	
 	@Resource
 	private CommerceDao commerceDao;
-
+	
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	public void refresh() throws Exception {
 		//首页4条最新房源
 		EstateOutParameter estateOutParameter = new EstateOutParameter();
@@ -65,7 +69,8 @@ public class IndexCacheService implements ScheduleService{
 	public void destroy() {
 		
 	}
-
+	
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	public void init()throws Exception {
 		refresh();
 	}

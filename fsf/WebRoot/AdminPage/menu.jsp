@@ -30,6 +30,17 @@ $(document).ready(function() {
 <body>
 <table style="width: 100%;">
 	<tr class="menuHeadTr">
+		<td class="menuHeadTd"><a>个人信息管理</a></td>
+	</tr>
+	<tr class="menuItemTr">
+		<td>
+			<table>
+				<tr><td><a href="<%=contextPath %>/sysadmin/sys/user/userInfo.action?userId=${USER.userId }" target="content"><span>个人资料管理</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/AdminPage/sys/user/userPassword.jsp" target="content"><span>修改密码</span></a></td></tr>
+			</table>
+		</td>
+	</tr>
+	<tr class="menuHeadTr">
 		<td class="menuHeadTd"><a>用户信息管理</a></td>
 	</tr>
 	<tr class="menuItemTr">

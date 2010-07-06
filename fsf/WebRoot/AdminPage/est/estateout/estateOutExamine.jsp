@@ -3,7 +3,7 @@
 <html>
 <head>
 <%@ include file="/share/share.jsp" %>
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/AdminPage.css" />
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/AdminPage.css" />
 
 </head>
 <body>
@@ -18,7 +18,7 @@ window.onload = function(){
 }
 function f_changeExamine(){
 	if(document.getElementById('examine1').checked){
-		window.parent.document.getElementById('userSelect').src = "${contextPath}/sysadmin/sys/user/userList.action?cmd=select"	
+		window.parent.document.getElementById('userSelect').src = "<%=contextPath %>/sysadmin/sys/user/userList.action?cmd=select"	
 	}else{
 		window.parent.document.getElementById('userSelect').src = ""
 	}

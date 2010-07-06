@@ -13,7 +13,6 @@ import chance.common.QueryResult;
 import fsf.beans.info.information.Information;
 import fsf.beans.sys.user.User;
 import fsf.service.info.information.InformationService;
-import fsf.web.common.ConstantCache;
 import fsf.web.common.ThreadUser;
 
 @Controller

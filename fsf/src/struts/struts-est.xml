@@ -232,6 +232,8 @@
 		<action name="getCityList" class="estateOutAction" method="getCityList"></action>
 		<action name="getDistrictList" class="estateOutAction" method="getDistrictList"></action>
 		<action name="getBusinessareaList" class="estateOutAction" method="getBusinessareaList"></action>
+		
+		<action name="uploadFile" class="newEstateAction" method="doUploadFile" ></action>
 	</package>
 	<!-- ********************************************** -->
 	<!--******************* estComment *************** -->

@@ -456,7 +456,7 @@ $(function() {
 });
 
 function f_examine(s){
-	document.forms['formItem'].action = "${contextPath}/sysadmin/est/estateout/ownExamineSubmit.action?examine="+s;
+	document.forms['formItem'].action = "<%=contextPath %>/sysadmin/est/estateout/ownExamineSubmit.action?examine="+s;
 	document.forms['formItem'].submit();
 }
 

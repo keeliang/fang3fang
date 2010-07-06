@@ -137,6 +137,7 @@
 </body>
 </html>
 <script type="text/javascript">
+var UploadActionName = "<%=contextPath%>/sysadmin/info/information/uploadFile.action";
 window.onload = function(){
 	var oFCKeditor = new FCKeditor( 'informationContent' ) ;
 	oFCKeditor.BasePath	= "/fckeditor/" ;
