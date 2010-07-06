@@ -301,6 +301,7 @@ function f_changeUserType(){
 	else
 		$("#brokerTbl").hide();
 }
+
 function f_validate(){
 	fromName = "formItem";
 	addfield("userCode","<s:text name="userCode"/>","String",false,50);
