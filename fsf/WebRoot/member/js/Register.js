@@ -9,7 +9,6 @@ function f_register(){
 		alert("确认密码和密码不一致");
 		return;
 	}
-	return;
 	var o = document.getElementById("loading");
 	o.style.display = "block";
 	var param = {
