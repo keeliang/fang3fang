@@ -109,10 +109,6 @@
 			<result>/memberCenter/estateOutList.jsp</result>
 		</action>
 		
-		<action name="recommondList" class="estateOutAction" method="doRecommondList">
-			<result>/memberCenter/index.jsp</result>
-		</action>
-		 
 		<action name="attentionContent" class="attentionAction" method="doEdit">
 			<result>/memberCenter/index.jsp</result>
 		</action>

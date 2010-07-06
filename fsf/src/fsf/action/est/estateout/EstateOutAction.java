@@ -20,7 +20,6 @@ import org.springframework.stereotype.Controller;
 import chance.base.BaseParameter;
 import chance.base.action.UploadBaseAction;
 import chance.common.QueryResult;
-import fsf.beans.est.commerce.Commerce;
 import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
