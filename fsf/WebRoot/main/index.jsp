@@ -312,10 +312,10 @@
 												<div class="le02">
 													<p class="font14">
 														<a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" class="cOrange" >
-															<b><s:property value="@chance.util.HtmlUtils@removeHTML(informationTitle,20)" /></b>
+															<b><s:property value="@chance.util.HtmlUtils@removeHTML(informationTitle,16)" /></b>
 														</a>
 													</p>
-													<p><s:property value="@chance.util.HtmlUtils@removeHTML(informationContent,20)" /><a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" class="cOrange"><b>&nbsp;&nbsp;详细</b></a></p>
+													<p><s:property value="@chance.util.HtmlUtils@removeHTML(informationContent,16)" /><a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" class="cOrange"><b>&nbsp;&nbsp;详细</b></a></p>
 												</div>
 											</div>
 										</s:iterator>
@@ -386,7 +386,7 @@
 														<li>
 															<span>
 																<a href="<%=contextPath %>/Info/infoContent.action?informationId=${informationId }" target="blank" >
-																	<s:property value="@chance.util.HtmlUtils@removeHTML(#item.informationTitle,22)" />
+																	<s:property value="@chance.util.HtmlUtils@removeHTML(#item.informationTitle,14)" />
 																</a>
 															</span>
 														</li>

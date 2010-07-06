@@ -11,7 +11,7 @@
          	<a href="<%=contextPath %>/memberCenter/memberInfo.action?userId=${USER.userId }" class="cOrange"><u>个人设置</u></a>
          </span>|
          <span>
-         	<a href="../help/findHouse.jsp" class="cOrange"><u>帮助中心</u></a>
+         	<a href="<%=contextPath %>/help/help.action?infoName=FindHouse" class="cOrange"><u>帮助中心</u></a>
          </span>
          <span style="color:#666;">]</span>
 		</div>

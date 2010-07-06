@@ -8,7 +8,7 @@
         	<ul>
             	<li><a href="../memberCenter/index.jsp"><img src="images/head_buy.jpg" width="55" height="50" align="absmiddle" /><b>我要买房</b></a></li>
                 <li><a href="../memberCenter/index.jsp"><img src="images/head_sell.jpg" width="55" height="50" align="absmiddle" /><b>我要卖房</b></a></li>
-                <li><a href="../help/findHouse.jsp"><img src="images/head_help.jpg" width="55" height="50" align="absmiddle" /><b>交易帮助</b></a></li>
+                <li><a href="<%=contextPath %>/help/help.action?infoName=FindHouse"><img src="images/head_help.jpg" width="55" height="50" align="absmiddle" /><b>交易帮助</b></a></li>
             </ul>
         </div>
     </div>

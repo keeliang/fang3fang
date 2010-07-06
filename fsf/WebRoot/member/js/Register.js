@@ -2,6 +2,14 @@ $(document).ready(function() {
 	$("#btnRegister").click(f_register);
 });
 function f_register(){
+	if(!f_validate()){
+		return ;
+	}
+	if(document.getElementById("confirmPassword").value!=document.getElementById("password").value){
+		alert("确认密码和密码不一致");
+		return;
+	}
+	return;
 	var o = document.getElementById("loading");
 	o.style.display = "block";
 	var param = {

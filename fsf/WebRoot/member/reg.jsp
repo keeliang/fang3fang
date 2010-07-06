@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<%@ include file="/share/share.jsp" %>
+		<%@ include file="/share/validate.jsp" %>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="description" content="房上房房地产网，番禺区房地产专业网站，人气最旺、最有价值的番禺房地产网络媒体，提供最全面最及时的房地产新闻资讯内容，提供所有楼盘的详细信息，是二手房(不动产)自由交易网站。为所有楼盘提供功能最全网上浏览，是国内房地产媒体及业内外网友公认的最受欢迎的专业网站和房地产信息库，搜房引擎给网友提供房地产网站中速度最快捷内容最全面的智能搜索点。" />
 		<meta name="keywords" content="房上房,番禺地产,番禺地产网,房地产,买房,卖房,租房,新房,二手房,写字楼,商铺,C2C交易,C2C" />
@@ -14,7 +15,6 @@
 		<script type="text/javascript" src="../js/Form.jquery.js"></script>
 		<script type="text/javascript" src="../js/Validate.cmxforms.js"></script>
 		<script type="text/javascript" src="js/Register.js"></script>
-		<script type="text/javascript" src="js/check.js"></script>
 	</head>
 	<body>
 
@@ -28,8 +28,9 @@
 				欢迎您注册房上房会员帐号，申请过程将不会收取您任何费用。您将享受更多房上房为您提供的功能、放心的会员服务。我们的服务热线是：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />，<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel2')" />
 			</div>
 			<div class="member_regContent_show">
-				<form action="/member/toRegister.action" method="post" name="formItem" id="formItem">
+				<form action="/member/register.action" method="post" name="formItem" id="formItem">
 					<p>注：<span class="cRed">*</span>为必填内容</p>
+					<div id="errorMsg" class="errorMsg"></div>
 					<div class="member_regContent_showTitle">
 						<b>基本信息 (必填)</b>
 					</div>
@@ -43,7 +44,7 @@
 					</p>
 					<p class="p_suggestive">
 						<label>&nbsp;</label>
-						<span class="cGray">1-12个字符，每个汉字或全角字符算2个字符。</span>
+						<span class="cGray">1-20个字符。</span>
 					</p>
 					<p class="p_userpsw">
 						<label id="left">
@@ -53,13 +54,13 @@
 					</p>
 					<p class="p_suggestive">
 						<label>&nbsp;</label>
-						<span class="cGray">6-16个字符组成，但不能9位以下的纯数字。英文字符区分大小写。</span>
+						<span class="cGray">不得多于16个字符组成。</span>
 					</p>
 					<p class="p_reuserpsw">
 						<label id="left">
 							<span class="cRed">*</span>重新输入密码：
 						</label>
-						<input name="confirmPassword" type="password" id="confirmPassword" onblur="password()" class="member_regContent_showInput" />
+						<input name="confirmPassword" type="password" id="confirmPassword" class="member_regContent_showInput" />
 						<label id="c_password"></label>
 					</p>
 
@@ -102,7 +103,7 @@
 					<div class="blank12"></div>
 					<p class="p_realname">
 						<label id="left">
-							<span class="cRed">*</span>真实姓名：
+							真实姓名：
 						</label>
 						<input name="userName" type="text" id="userName" class="member_regContent_showInput" />
 					</p>
@@ -114,8 +115,8 @@
 					</p>
 					<p class="p_sex">
 						<label id="left">性别：	</label>
-						<input name="Sex" type="radio" id="man" value="1"	checked="checked" />男&nbsp;&nbsp;
-						<input name="Sex" type="radio" id="woman" value="2" />女
+						<input name="sex" type="radio" id="man" value="1"	checked="checked" />男&nbsp;&nbsp;
+						<input name="sex" type="radio" id="woman" value="2" />女
 					</p>
 					<p class="p_qq">
 						<label id="left">	QQ号码：</label>
@@ -157,3 +158,18 @@
 		<%@ include file="../CommonPage/Foot.jsp"%>
 	</body>
 </html>
+<script type="text/javascript" >
+function f_validate(){
+	fromName = "formItem";
+	addfield("userCode","<s:text name="userCode"/>","String",false,20);
+	addfield("password","<s:text name="password"/>","String",false,16);
+	addfield("question","<s:text name="question"/>","String",false,30);
+	addfield("answer","<s:text name="answer"/>","String",false,30);
+	addfield("userName","<s:text name="userName"/>","String",true,50);
+	addfield("sex","<s:text name="sex"/>","Integer",false,3);
+	addfield("phone","<s:text name="phone"/>","String",false,32);
+	addfield("qq","<s:text name="qq"/>","String",true,20);
+	addfield("email","<s:text name="email"/>","Email",true,80);
+	return validate();
+}
+</script>
