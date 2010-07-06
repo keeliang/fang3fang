@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 import com.opensymphony.xwork2.ActionSupport;
 
 import fsf.beans.sys.user.User;
-import fsf.service.common.IndexCacheService;
 import fsf.service.common.ScheduleService;
 import fsf.service.sys.user.UserService;
 import fsf.web.common.WebConstant;
@@ -20,7 +19,7 @@ import fsf.web.common.WebConstant;
 public class RefreshAction extends ActionSupport {
 	
 	@Resource(name="indexCacheService")
-	private IndexCacheService indexService;
+	private ScheduleService indexService;
 	@Resource(name="estateOutRecommondCacheService")
 	private ScheduleService estateOutRecommondCacheService ;
 	@Resource
