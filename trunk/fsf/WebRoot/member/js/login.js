@@ -13,7 +13,7 @@ function f_login(){
 			}else if(msg.message=="2"){
 				alert("用户不存在");
 			}else if(msg.message=="3"){
-				alert("验证码错误");
+				alert("密码错误");
 			}else if(msg.message=="4"){
 				alert("无效用户");
 			}

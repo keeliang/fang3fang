@@ -5,9 +5,9 @@
 <%@include file="/share/share.jsp" %>
 <title><s:text name="listPageTitle"/></title>
 <%@include file="/share/validate.jsp" %>
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/Common.css" />
-<link type="text/css" rel="stylesheet" href="${contextPath}/css/AdminPage.css" />
-<script type="text/javascript" src="${contextPath}/js/jquery.js"></script> 
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/Common.css" />
+<link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/AdminPage.css" />
+<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script> 
 </head>
 
 <body>
@@ -264,7 +264,7 @@ function f_examine(s){
 		}
 	}
 	if(bln){
-		document.forms['formList'].action = "${contextPath}/sysadmin/est/estatein/ownExamineSubmitBatch.action?examine="+s;
+		document.forms['formList'].action = "<%=contextPath %>/sysadmin/est/estatein/ownExamineSubmitBatch.action?examine="+s;
 		document.forms['formList'].submit();
 	}
 }

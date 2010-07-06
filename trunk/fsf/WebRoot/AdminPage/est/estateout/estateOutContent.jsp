@@ -485,8 +485,8 @@
 <%@include file="/share/upload.jsp" %>
 </body>
 </html>
-
 <script type="text/javascript">
+var UploadActionName = "<%=contextPath%>/sysadmin/est/estateout/uploadFile.action";
 $(function() {
 	f_changeProvince(true);
 	f_chageTradeMode();
@@ -503,7 +503,7 @@ function f_recommond(s){
 }
 
 function f_finishSelectUser(obj){
-	document.forms['formItem'].action = "${contextPath}/sysadmin/est/estateout/examineSubmit.action";
+	document.forms['formItem'].action = "<%=contextPath %>/sysadmin/est/estateout/examineSubmit.action";
 	var a = document.forms['formItem'].examine.value;
 	if(typeof(obj)=="string"){
 		if(obj==a){

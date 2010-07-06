@@ -3,6 +3,8 @@ package fsf.service.common;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import chance.base.BaseParameter;
 import chance.common.QueryResult;
@@ -12,6 +14,7 @@ import fsf.dao.est.estateout.EstateOutDao;
 import fsf.web.common.ConstantCache;
 
 @Service("estateOutRecommondCacheService")
+@Transactional
 public class EstateOutRecommondCacheService implements ScheduleService{
 	
 	@Resource
@@ -20,11 +23,13 @@ public class EstateOutRecommondCacheService implements ScheduleService{
 	public void destroy() {
 		
 	}
-
+	
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	public void init() {
 		refresh();
 	}
 
+	@Transactional(readOnly=true,propagation=Propagation.NOT_SUPPORTED)
 	public void refresh() {
 		try {
 			//自主推荐 top4 资讯内页

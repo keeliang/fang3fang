@@ -27,6 +27,20 @@
 		</action>
 		<action name="getCityList" class="userAction" method="getCityList"></action>
 		<action name="getDistrictList" class="userAction" method="getDistrictList"></action>
+		
+		<action name="userInfo" class="userAction" method="doEdit">
+			<result>/AdminPage/sys/user/userInfo.jsp</result>
+			<result name="input">/AdminPage/sys/user/userInfo.jsp</result>
+		</action>
+		<action name="userInfoSave" class="userAction" method="doSave">
+			<result>/AdminPage/sys/user/userInfo.jsp</result>
+			<result name="input">/AdminPage/sys/user/userInfo.jsp</result>
+		</action>
+		<action name="userPassowrdSave" class="userAction" method="doUpdatePassword">
+			<result>/AdminPage/sys/user/userPassword.jsp</result>
+			<result name="input">/AdminPage/sys/user/userPassword.jsp</result>
+		</action>
+		<action name="uploadFile" class="userAction" method="doUploadFile" ></action>
 	</package>
 	<!-- ********************************************** -->
 	

@@ -270,16 +270,16 @@
 					</div>
 					<div class="BuySell_right">
 						<p>
-							<a href="choosef3f.jsp">
+							<a href="<%=contextPath %>/main/help.action?infoName=ChooseFSF">
 								<img src="images/list01.jpg" width="205" height="31" alt="为什么要选择房上房？" title="为什么要选择房上房？" />
 							</a>
 						</p>
 						<p>
-							<a href="howto.jsp">
+							<a href="<%=contextPath %>/main/help.action?infoName=HowRelease">
 								<img src="images/list02.jpg" width="205" height="34" alt="如何发布商业招商，旺铺转让？" title="如何发布商业招商，旺铺转让？" /> </a>
 						</p>
 						<p>
-							<a href="care.jsp">
+							<a href="<%=contextPath %>/main/help.action?infoName=MattersNeedAttention">
 								<img src="images/list03.jpg" width="205" height="34" alt="二手房交易注意事项！" title="二手房交易注意事项！" /> </a>
 						</p>
 					</div>

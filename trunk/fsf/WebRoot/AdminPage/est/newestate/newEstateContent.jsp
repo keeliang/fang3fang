@@ -304,6 +304,7 @@
 </body>
 </html>
 <script type="text/javascript">
+var UploadActionName = "<%=contextPath%>/sysadmin/est/newestate/uploadFile.action";
 $(function() {
 	f_changeProvince(true);
 });

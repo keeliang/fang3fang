@@ -3,12 +3,14 @@ package fsf.service.common;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import fsf.dao.est.estatein.EstateInDao;
 import fsf.dao.est.estateout.EstateOutDao;
 import fsf.dao.est.newestate.NewEstateDao;
 
 @Service("updateEffectiveService")
+@Transactional
 public class UpdateEffectiveServiceImpl implements ScheduleService{
 
 	@Resource

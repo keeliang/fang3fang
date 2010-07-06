@@ -9,7 +9,6 @@
 <meta name="title" content="帮助中心 - 房上房地产网(http://wwww.fang3fang.com)" /> 
 <title>发布旺铺信息 - 帮助中心 - 房上房地产网</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<script src="js/CollapsiblePanel.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="box">
@@ -17,22 +16,12 @@
 	<%@ include file="../CommonPage/New_Menu.jsp" %> 
 	<!-- head -->
   <%@ include file="../CommonPage/Head.jsp" %> 
-  
-  <div align="center"><img src="images/help_ShopTitle.jpg" /></div>
-  <hr color="#cccccc"/>
-  <div align="left" class="careCentent"><br/>
-		<p><img src="images/direction.png" />&nbsp;您想找到适合的旺铺，大展身手？ 您想转让自己商铺，另谋发展？ 您的商铺架设好了，想要招商引资？</p>
-   	<p>在房上房，你可以免费发布自己的商铺信息，让更多的人看到。只需简单几步，就可以完成发布：</p><br/>
-	<div style="padding-left:40%"><img src="images/help_ShopContent.jpg" /></div>
-<br/><br/>
-<span>
-	<img src="images/rainbow.png" />&nbsp;如有疑问，请致电房上房热线：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />.
-</span>
 
-<br/><br/><br/>
-</div>
-    
-    <%@ include file="../CommonPage/Foot.jsp" %> 
+  <div>
+		${content }  
+  </div>
+
+  <%@ include file="../CommonPage/Foot.jsp" %> 
  </div>
  </body>
 </html>
