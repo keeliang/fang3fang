@@ -120,13 +120,15 @@
 										<s:textfield name="address" cssClass="memberC_input04" theme="simple" />
 									</td>
 								</tr>
-								<tr>
-									<td colspan="2">
-										<label>相关相片:</label>
-										<input type="button" value="上传图片" id="btnUpload" />
-										<s:hidden name="imagePath" />
-									</td>
-								</tr>
+								<s:if test="#session.USER.userType==2">
+									<tr>
+										<td colspan="2">
+											<label>相关相片:</label>
+											<input type="button" value="上传图片" id="btnUpload" />
+										</td>
+									</tr>
+								</s:if>
+								<s:hidden name="imagePath" />
 								<tr>
 									<td colspan="2">
 										<label>备注:</label>
