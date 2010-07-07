@@ -162,7 +162,7 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 	}
 	
 	/**
-	 * 审核
+	 * 推荐
 	 * @return
 	 * @throws Exception
 	 */
