@@ -41,6 +41,10 @@
 			<result name="input">/AdminPage/sys/user/userPassword.jsp</result>
 		</action>
 		<action name="uploadFile" class="userAction" method="doUploadFile" ></action>
+		
+		<action name="selectUser" >
+			<result>/AdminPage/sys/user/selectUserFrm.jsp</result>
+		</action>
 	</package>
 	<!-- ********************************************** -->
 	

@@ -25,9 +25,6 @@
 			<result>/AdminPage/info/infocomment/infoCommentList.jsp</result>
 			<result name="input">/AdminPage/info/infocomment/infoCommentList.jsp</result>
 		</action>
-		<action name="selectInfo" >
-			<result>/AdminPage/info/infocomment/selectInfoFrm.jsp</result>
-		</action>
 	</package>
 	<!-- ********************************************** -->
 
@@ -54,6 +51,9 @@
 			<result name="input">/AdminPage/info/information/informationList.jsp</result>
 		</action>
 		<action name="uploadFile" class="informationAction" method="doUploadFile" ></action>
+		<action name="selectInfo" >
+			<result>/AdminPage/info/information/selectInfoFrm.jsp</result>
+		</action>
 	</package>
 	<!-- ********************************************** -->
 	
@@ -104,6 +104,9 @@
 			<result>/AdminPage/info/news/newsList.jsp</result>
 			<result name="input">/AdminPage/info/news/newsList.jsp</result>
 		</action>
+		<action name="selectNews" >
+			<result>/AdminPage/info/news/selectNewsFrm.jsp</result>
+		</action>
 	</package>
 	<!-- ********************************************** -->
 	
@@ -128,12 +131,6 @@
 		<action name="newsCommentDelete" class="newsCommentAction" method="doDelete">
 			<result>/AdminPage/info/newscomment/newsCommentList.jsp</result>
 			<result name="input">/AdminPage/info/newscomment/newsCommentList.jsp</result>
-		</action>
-		<action name="selectNews" >
-			<result>/AdminPage/info/newscomment/selectNewsFrm.jsp</result>
-		</action>
-		<action name="selectUser" >
-			<result>/AdminPage/info/newscomment/selectUserFrm.jsp</result>
 		</action>
 	</package>
 	<!-- ********************************************** -->

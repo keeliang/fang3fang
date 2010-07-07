@@ -3,6 +3,8 @@ package fsf.beans.est.estateout;
 // default package
 // Generated 2010-4-22 21:00:06 by Hibernate Tools 3.2.4.GA
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Date;
 
 /**
@@ -430,6 +432,12 @@ public class EstateOut implements java.io.Serializable {
 
 	public void setIsRecommond(Short isRecommond) {
 		this.isRecommond = isRecommond;
+	}
+	
+	public String getUnitPrice(){
+		DecimalFormat df=(DecimalFormat)NumberFormat.getInstance();
+		df.setMaximumFractionDigits(2);
+		return df.format(salePrice/area);
 	}
 
 	@Override

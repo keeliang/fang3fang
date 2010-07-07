@@ -96,6 +96,36 @@
 		<ItemNameProperty>information_title</ItemNameProperty>
 	</DynamicConfig>
 	
+	<DynamicConfig name="est_estate_out">
+		<Entity>est_estate_out</Entity>
+		<ItemKeyProperty>estate_id</ItemKeyProperty>
+		<ItemNameProperty>estate_name</ItemNameProperty>
+	</DynamicConfig>
+	
+	<DynamicConfig name="est_estate_out">
+		<Entity>est_estate_out</Entity>
+		<ItemKeyProperty>estate_id</ItemKeyProperty>
+		<ItemNameProperty>estate_name</ItemNameProperty>
+	</DynamicConfig>
+	
+	<DynamicConfig name="est_estate_in">
+		<Entity>est_estate_in</Entity>
+		<ItemKeyProperty>estate_id</ItemKeyProperty>
+		<ItemNameProperty>title</ItemNameProperty>
+	</DynamicConfig>
+	
+	<DynamicConfig name="est_new_estate">
+		<Entity>est_new_estate</Entity>
+		<ItemKeyProperty>estate_id</ItemKeyProperty>
+		<ItemNameProperty>estate_name</ItemNameProperty>
+	</DynamicConfig>
+	
+	<DynamicConfig name="est_commerce">
+		<Entity>est_commerce</Entity>
+		<ItemKeyProperty>commerce_id</ItemKeyProperty>
+		<ItemNameProperty>title</ItemNameProperty>
+	</DynamicConfig>
+	
 	<!-- 以下是直接将固定参数表直接缓存的项 -->
 	<DictItemCache>
 		<DictGroup>sex</DictGroup>

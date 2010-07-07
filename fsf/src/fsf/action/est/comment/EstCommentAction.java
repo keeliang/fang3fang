@@ -76,6 +76,7 @@ public class EstCommentAction extends BaseAction<EstComment> {
 		createTime = new Date();
 		updateUserId = u.getUserId();
 		updateTime = createTime;
+		ip = getHttpServletRequest().getRemoteAddr();
 	}
 	
 	@Override
@@ -85,6 +86,7 @@ public class EstCommentAction extends BaseAction<EstComment> {
 		createTime = new Date();
 		updateUserId = u.getUserId();
 		updateTime = createTime;
+		ip = getHttpServletRequest().getRemoteAddr();
 	}
 	@Override
 	protected void beforeUpdate() {

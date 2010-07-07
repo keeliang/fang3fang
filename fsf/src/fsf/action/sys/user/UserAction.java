@@ -179,6 +179,10 @@ public class UserAction extends UploadBaseAction<User> {
 	public String register()throws Exception{
 		if(validateCode!=null&&!"".equals(validateCode)&&
 				validateCode.equals((String)getHttpSession().getAttribute(WebConstant.VALIDATECODE))){
+			if(service.getByProerty("userCode", userCode)!=null){
+				getHttpServletResponse().getWriter().write("{message:3}");
+				return null;
+			}
 			User u = new User();
 			beforePersist();
 			userType = (short)3;

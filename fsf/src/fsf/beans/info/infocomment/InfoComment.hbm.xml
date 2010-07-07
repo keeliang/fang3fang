@@ -11,10 +11,10 @@
         <property name="content" type="string">
             <column name="content" length="65535" not-null="true" />
         </property>
-        <property name="informationId" type="int">
+        <property name="informationId" type="int" update="false" >
             <column name="information_id" not-null="true" />
         </property>
-        <property name="ip" type="string">
+        <property name="ip" type="string" update="false" >
             <column name="ip" length="30" not-null="true" />
         </property>
         <property name="status" type="short">
