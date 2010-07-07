@@ -45,6 +45,7 @@
 						<s:hidden name="estateId"/>
 						<s:hidden name="tradeType" value="2"/>
 						<s:hidden name="cmd" />
+						<s:hidden name="isRecommond" value="0"/>
 
 						<p class="cGray02"> 
 							<b>委托交易区 - 出售出租信息</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有效期：

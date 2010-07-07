@@ -45,6 +45,7 @@
 						<s:hidden name="estateId"/>
 						<s:hidden name="tradeType" value="1"/>
 						<s:hidden name="cmd" />
+						<s:hidden name="isRecommond" value="1"/>
 
 						<p class="cGray02"> 
 							<b>自主交易区 - 出售出租信息</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有效期：
