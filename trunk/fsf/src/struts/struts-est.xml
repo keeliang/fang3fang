@@ -112,7 +112,7 @@
 			<result>/AdminPage/est/estateout/estateOwnOutList.jsp</result>
 			<result name="input">/AdminPage/est/estateout/estateOwnOutList.jsp</result>
 		</action>
-		
+		<action name="uploadFile" class="estateOutAction" method="doUploadFile" ></action>
 	</package>
 	<!-- ********************************************** -->
 
@@ -257,6 +257,9 @@
 		<action name="estCommentDelete" class="estCommentAction" method="doDelete">
 			<result>/AdminPage/est/comment/estCommentList.jsp</result>
 			<result name="input">/AdminPage/est/comment/estCommentList.jsp</result>
+		</action>
+		<action name="newContentFrm" class="estCommentAction" method="doSuccess" >
+			<result>/AdminPage/est/comment/newContentFrm.jsp</result>
 		</action>
 	</package>
 	<!-- ********************************************** -->

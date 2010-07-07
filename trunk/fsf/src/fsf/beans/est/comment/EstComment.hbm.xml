@@ -8,16 +8,16 @@
             <column name="comment_id" />
             <generator class="identity" />
         </id>
-        <property name="estateId" type="int">
+        <property name="estateId" type="int" update="false" >
             <column name="estate_id" not-null="true" />
         </property>
-        <property name="type" type="short">
+        <property name="type" type="short" update="false" >
             <column name="type" not-null="true" />
         </property>
         <property name="content" type="string">
             <column name="content" length="65535" not-null="true" />
         </property>
-        <property name="ip" type="string">
+        <property name="ip" type="string" update="false" >
             <column name="ip" length="30" not-null="true" />
         </property>
         <property name="status" type="short">
