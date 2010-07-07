@@ -76,7 +76,7 @@ function f_upload(){
 	var filePath = document.forms["uploadForm"].uploadFile.value;
 	var allowedFile = "jpg,jpeg,gif";
 	var fileType = filePath.substring(filePath.lastIndexOf(".")+1);
-	if(allowedFile.indexOf()==-1){
+	if(allowedFile.indexOf(fileType)==-1){
 		alert("不允许上传"+fileType+"文件");
 		return;		
 	}
