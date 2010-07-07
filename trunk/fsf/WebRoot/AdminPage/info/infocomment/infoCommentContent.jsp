@@ -44,11 +44,11 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td valign="top" >
 						<s:text name="content"/>:
 					</td>
 					<td>
-						<s:textarea name="content" cols="120" rows="20" /><font color="red">*</font>
+						<s:textarea name="content" cols="60" rows="8" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -131,7 +131,7 @@
 </html>
 <script type="text/javascript">
 function f_selectInformation(){
-	showModalDialog("selectInfo.action",window,"dialogWidth:800px;dialogHeight:600px;");
+	showModalDialog(contextPath+"/sysadmin/info/information/selectInfo.action",window,"dialogWidth:800px;dialogHeight:600px;");
 }
 function f_finishSelectInfo(obj){
 	if(obj){

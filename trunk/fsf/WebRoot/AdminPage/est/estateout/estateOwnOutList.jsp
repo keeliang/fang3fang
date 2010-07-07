@@ -320,7 +320,7 @@
 		</tr>
 	</s:iterator>
 </table>	
-
+</s:form>
 <table width="100%" >
 	<tr>
 		<td width="100%" align="right" >
@@ -328,7 +328,7 @@
 		</td>
 	</tr>
 </table>
-</s:form>
+
 </body>
 </html>
 <script type="text/javascript">

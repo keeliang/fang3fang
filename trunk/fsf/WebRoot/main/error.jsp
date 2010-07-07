@@ -11,14 +11,14 @@
 		<meta name="title"
 			content="番禺房地产门户 - 房上房地产网(http://wwww.fang3fang.com)" />
 		<title>番禺房地产门户 - 房上房地产网</title>
-		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<link href="<%=contextPath %>/css/style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="js/jquery.js"></script>
-		<link rel="stylesheet" href="css/general.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="<%=contextPath %>/css/general.css" type="text/css" media="screen" />
 	</head>
 	<body>
 		<div class="box" >
 		<!-- head -->
-			<%@ include file="../CommonPage/Head.jsp"%>
+			<%@ include file="/CommonPage/Head.jsp"%>
 			<div class="nav">
 				<div class="navL">
 					<div class="headMenu">

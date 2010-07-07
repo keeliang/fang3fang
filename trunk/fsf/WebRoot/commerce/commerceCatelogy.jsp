@@ -16,12 +16,6 @@
 		<link type="text/css" href="<%=contextPath%>/commerce/css/style.css" rel="stylesheet" />
 
 		<script type="text/javascript" src="<%=contextPath%>/js/jquery.js"></script>
-		<script type="text/javascript" src="<%=contextPath%>/commerce/js/popup.js"></script>
-		<script type="text/javascript" src="<%=contextPath%>/commerce/js/dialog.js"></script>
-		<script type="text/javascript" src="<%=contextPath%>/commerce/js/showDiv.js"></script>
-		<script type="text/javascript" src="<%=contextPath%>/commerce/js/commerce.js"></script>
-		<script type="text/javascript" src="<%=contextPath%>/commerce/js/showRent.js"></script>
-		<script type="text/javascript" src="<%=contextPath%>/commerce/js/DisplayMessageShopType.js"></script>
 	</head>
 	<body style="background-color: #FFFFFF">
 		<s:form action="commerceCatelogy" namespace="/commerce" name="formList" id="formList" theme="simple" method="post">

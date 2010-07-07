@@ -41,7 +41,7 @@
                   <li><a href="../entrustTrade/index.jsp"><span>委托代理</span></a></li>
                   <li><a href="../newHouse/index.jsp"><span>新房推荐</span></a></li>  
                   <li><a href="../Info/index.jsp"><span>地产资讯</span></a></li>  
-                  <li><a href="../forum/index.jsp"><span>论坛</span></a></li> 
+                  <li><a href="..<%=contextPath %>/forum/goToForum.action"><span>论坛</span></a></li> 
                   <li class="menuHere"><a href="index.jsp"><span>银行合作</span></a></li>
                   <li><a href="../rent/index.jsp"><span>旺铺招租</span></a></li> 
                   <li><a href="../invitedexperts/index.jsp"><span>交易顾问</span></a></li> 

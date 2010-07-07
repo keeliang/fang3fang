@@ -115,7 +115,7 @@
 	</tr>
 </s:iterator>
 </table>
-
+</s:form>
 <table width="100%" >
 	<tr>
 		<td width="100%" align="right" >
@@ -123,7 +123,7 @@
 		</td>
 	</tr>
 </table>
-</s:form>
+
 </body>
 
 </html>
@@ -136,6 +136,7 @@ function f_selectInfo(){
 		if(arySelectedPK[i].checked ){
 			if(bln){
 				alert("只能选择一条讯息");
+				return;
 			}else{
 				id = arySelectedPK[i].value;
 				title = $(arySelectedPK[i].parentNode.parentNode).find("td:eq(1)>a").text();

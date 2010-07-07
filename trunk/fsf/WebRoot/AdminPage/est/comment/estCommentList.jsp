@@ -25,15 +25,17 @@
 						<s:text name="_ne_type" />:
 					</td>
 					<td width="35%">
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$est_comment_type')" name="estCommentParameter._ne_type" 
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$est_comment_type',null,'4')" name="estCommentParameter._ne_type" 
 						cssClass="dropdown" id="type" listValue="itemName" listKey="itemKey" emptyOption="true"/>
 					</td>
 					<td width="15%" >
-						<s:text name="_ne_estateId" />:
+						<s:text name="_ne_createUserId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="estCommentParameter._ne_estateId" />
-						<s:hidden name="estCommentParameter._ne_newsId"/>
+						<s:hidden name="estCommentParameter._ne_createUserId"/>
+						<input value="<fsf:dictTranslate groupName="#sys_user" value="estCommentParameter._ne_createUserId"/>" id="userCode" readonly="true" >
+						<img src="<%=contextPath %>/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectUser()">
+						<img src="<%=contextPath %>/images/closeall.gif" style="cursor: pointer;" onclick="f_clear(this)">
 					</td>
 				</tr>
 				<tr>
@@ -79,7 +81,6 @@
 </table>
 
 <div style="text-align: right;">
-	<input type="button" onclick="g_new('/sysadmin/est/comment/estCommentNew.action')" value="<s:text name="g_new"/>"/>
 	<input type="button" onclick="g_delete('/sysadmin/est/comment/estCommentDelete.action');" value="<s:text name="g_delete"/>">
 	<input type="button" onclick="g_list()" value="<s:text name="g_search"/>">
 	<input type="button" onclick="g_reset()" value="<s:text name="g_reset"/>">
@@ -109,8 +110,18 @@
 		<td>
 			<input type="checkbox" name="selectedPK" value="<s:property value="#item.commentId"/>">
 		</td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="content"/></a></td>
-		<td><s:property value="estateId"/></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="@chance.util.HtmlUtils@removeHTML(content,12)"/></a></td>
+		<td>
+			<s:if test="type==1">
+				<fsf:dictTranslate groupName="#est_estate_out" value="estateId" />
+			</s:if>
+			<s:elseif test="2">
+				<fsf:dictTranslate groupName="#est_estate_in" value="estateId" />
+			</s:elseif>
+			<s:elseif test="3">
+				<fsf:dictTranslate groupName="#est_new_estate" value="estateId" />
+			</s:elseif>
+		</td>
 		<td><fsf:dictTranslate groupName="$est_comment_type" value="type"/></td>
 		<td><s:property value="ip"/></td>
 		<td><fsf:dictTranslate groupName="$status" value="status" /></td>
@@ -118,7 +129,7 @@
 	</tr>
 </s:iterator>
 </table>
-
+</s:form>
 <table width="100%" >
 	<tr>
 		<td width="100%" align="right" >
@@ -126,22 +137,20 @@
 		</td>
 	</tr>
 </table>
-</s:form>
+
 </body>
 </html>
 <script type="text/javascript">
-function f_selectEstate(){
-	var o = $("#type").val();
-	if(o==""){
-		alert("请选择房产留言类型");
-	}else if(o=="1"){
-		showModalDialog("selectEstateOut.action",window,"dialogWidth:800px;dialogHeight:600px;");
-	}else if(o=="2"){
-		showModalDialog("selectEstateIn.action",window,"dialogWidth:800px;dialogHeight:600px;");
-	}else if(o=="3"){
-		showModalDialog("selectNewEstate.action",window,"dialogWidth:800px;dialogHeight:600px;");
-	}else if(o=="4"){
-		showModalDialog("selectEstateIn.action",window,"dialogWidth:800px;dialogHeight:600px;");
+function f_selectUser(){
+	showModalDialog(contextPath+"/sysadmin/sys/user/selectUser.action",window,"dialogWidth:800px;dialogHeight:600px;");
+}
+function f_finishSelectUser(obj){
+	if(obj){
+		document.forms["formList"]["estCommentParameter._ne_createUserId"].value = obj.userId;
+		document.getElementById("userCode").value = obj.userCode;
 	}
+}
+function f_clear(src){
+	$(src).parent().find("input").val("");
 }
 </script>

@@ -76,13 +76,13 @@
 				<input type="checkbox" name="selectedPK" value="<s:property value="#item.attentionId"/>">
 			</td>
 			<td><a href="javascript:g_edit('${url}')" ><s:property value="title"/></a></td>
-			<td><s:property value="type"/></td>
-			<td><s:property value="status"/></td>
+			<td><fsf:dictTranslate groupName="$attention_type" value="type" /></td>
+			<td><fsf:dictTranslate groupName="$status" value="status" /></td>
 			<td><s:date name="createTime" format="yyyy-MM-dd" /></td>
 		</tr>
 	</s:iterator>
 </table>		
-
+</s:form>
 <table width="100%" >
 	<tr>
 		<td width="100%" align="right" >
@@ -90,6 +90,6 @@
 		</td>
 	</tr>
 </table>
-</s:form>
+
 </body>
 </html>

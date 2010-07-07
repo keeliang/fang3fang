@@ -39,7 +39,7 @@
 						<label id="left">
 							<span class="cRed">*</span>用户名：
 						</label>
-						<input name="userCode" type="text" id="userCode" onblur="" class="member_regContent_showInput" />
+						<input name="userCode" type="text" id="userCode" class="member_regContent_showInput" />
 						<label id="c_UserName"></label>
 					</p>
 					<p class="p_suggestive">
@@ -121,11 +121,6 @@
 					<p class="p_qq">
 						<label id="left">	QQ号码：</label>
 						<input name="qq" type="text" id="qq" class="member_regContent_showInput" />
-					</p>
-					<p class="p_image">
-						<label id="left">头像相片：</label>
-						<select name="Photo" id="Photo" size="1" class="member_regContent_showInput" multiple="multiple" ></select>
-						<input type="button" name="selectfile" id="selectfile" value="选择文件" />
 					</p>
 					<p class="p_verification">
 						<label id="left">

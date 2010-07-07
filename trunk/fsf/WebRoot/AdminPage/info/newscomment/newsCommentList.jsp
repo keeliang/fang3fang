@@ -26,16 +26,18 @@
 					</td>
 					<td width="35%">
 						<s:hidden name="newsCommentParameter._ne_newsId"/>
-						<input value="<fsf:dictTranslate groupName="#news_type" value="newsCommentParameter._ne_newsId"/>" name="newsTitle" readonly="true" >
-						<img src="/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectNews()">
+						<input value="<fsf:dictTranslate groupName="#news_type" value="newsCommentParameter._ne_newsId"/>" id="newsTitle" readonly="true" >
+						<img src="<%=contextPath %>/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectNews()">
+						<img src="<%=contextPath %>/images/closeall.gif" style="cursor: pointer;" onclick="f_clear(this)">
 					</td>
 					<td width="15%" >
 						<s:text name="_ne_createUserId" />:
 					</td>
 					<td width="35%">
 						<s:hidden name="newsCommentParameter._ne_createUserId"/>
-						<input value="<fsf:dictTranslate groupName="#sys_user" value="newsCommentParameter._ne_createUserId"/>" name="userCode" readonly="true" >
-						<img src="/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectUser()">
+						<input value="<fsf:dictTranslate groupName="#sys_user" value="newsCommentParameter._ne_createUserId"/>" id="userCode" readonly="true" >
+						<img src="<%=contextPath %>/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectUser()">
+						<img src="<%=contextPath %>/images/closeall.gif" style="cursor: pointer;" onclick="f_clear(this)">
 					</td>
 				</tr>
 				<tr>
@@ -111,7 +113,7 @@
 		<td>
 			<input type="checkbox" name="selectedPK" value="<s:property value="#item.commentId"/>">
 		</td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="content"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="@chance.util.HtmlUtils@removeHTML(content,12)"/></a></td>
 		<td><fsf:dictTranslate groupName="#info_news" value="newsId"/></td>
 		<td><s:property value="ip"/></td>
 		<td><fsf:dictTranslate groupName="$status" value="status" /></td>
@@ -120,7 +122,7 @@
 	</tr>
 </s:iterator>
 </table>
-
+</s:form>
 <table width="100%" >
 	<tr>
 		<td width="100%" align="right" >
@@ -128,26 +130,29 @@
 		</td>
 	</tr>
 </table>
-</s:form>
+
 </body>
 </html>
 <script type="text/javascript">
 function f_selectNews(){
-	showModalDialog("selectNews.action",window,"dialogWidth:800px;dialogHeight:600px;");
+	showModalDialog(contextPath+"/sysadmin/info/news/selectNews.action",window,"dialogWidth:800px;dialogHeight:600px;");
 }
 function f_finishSelectNews(obj){
 	if(obj){
 		document.forms["formList"]["newsCommentParameter._ne_newsId"].value = obj.newsId;
-		document.forms["formList"]["newsTitle"].value = obj.newsTitle;
+		document.getElementById("newsTitle").value = obj.newsTitle;
 	}
 }
 function f_selectUser(){
-	showModalDialog("selectUser.action",window,"dialogWidth:800px;dialogHeight:600px;");
+	showModalDialog(contextPath+"/sysadmin/sys/user/selectUser.action",window,"dialogWidth:800px;dialogHeight:600px;");
 }
 function f_finishSelectUser(obj){
 	if(obj){
 		document.forms["formList"]["newsCommentParameter._ne_createUserId"].value = obj.userId;
-		document.forms["formList"]["userCode"].value = obj.userCode;
+		document.getElementById("userCode").value = obj.userCode;
 	}
+}
+function f_clear(src){
+	$(src).parent().find("input").val("");
 }
 </script>

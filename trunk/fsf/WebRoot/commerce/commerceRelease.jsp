@@ -16,12 +16,6 @@
 <link type="text/css" href="<%=contextPath%>/commerce/css/style.css" rel="stylesheet"/>
 
 <script type="text/javascript" src="<%=contextPath%>/js/jquery.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/popup.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/dialog.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/showDiv.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/commerce.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/showRent.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/DisplayMessageShopType.js"></script>
 
 </head>
 <body style="background-color:#FFFFFF">
@@ -131,7 +125,6 @@ $(function() {
 });
 
 function f_validate(){
-	alert("aa");
 	fromName = "formItem";
 	addfield("title","<s:text name="title"/>","String",false,50);
 	addfield("content","<s:text name="content"/>","String",false,65535);

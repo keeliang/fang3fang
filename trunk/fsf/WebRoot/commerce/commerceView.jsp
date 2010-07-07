@@ -16,13 +16,6 @@
 <link type="text/css" href="<%=contextPath%>/commerce/css/style.css" rel="stylesheet"/>
 
 <script type="text/javascript" src="<%=contextPath%>/js/jquery.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/popup.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/dialog.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/showDiv.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/commerce.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/showRent.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/DisplayMessageShopType.js"></script>
-
 </head>
 <body style="background-color:#FFFFFF">
 
@@ -31,10 +24,8 @@
 <div class="clear"></div>
     
 <div class="guide">
-    <p><span class="float_right"><img src="images/freeTrade_dot01.jpg" width="20" height="19" align="absmiddle" />
-    	<a href="#" class="cOrange">收藏</a>&nbsp;&nbsp;&nbsp;<img src="images/freeTrade_dot02.jpg" width="20" height="19" align="absmiddle" />
-    	<a href="#">打印</a>&nbsp;&nbsp;&nbsp;<img src="images/freeTrade_dot03.jpg" width="20" height="19" align="absmiddle" />
-    	<a href="#">推荐给好友</a></span>
+    <p>
+    	<span class="float_right"></span>
     	您当前的所在位置：<a href="/index.jsp">房上房</a> &gt; 
     		<a href="<%=contextPath %>/commerce/commerceIndex.action">旺铺招租</a> &gt; 
     		<a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=<s:property value="commerceType"/>"><fsf:dictTranslate groupName="$commerce_type" value="commerceType" /></a> &gt; 

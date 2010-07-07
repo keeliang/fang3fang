@@ -9,14 +9,6 @@
 		<meta name="title" content="番禺房地产门户 - 房上房地产网(http://wwww.fang3fang.com)"/>
 		<title>地产资讯 - 房上房地产网</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript">
-		window.onload = function(){
-			ajaxAnywhere.showLoadingMessage = function(){}
-			ajaxAnywhere.hideLoadingMessage = function(){}
-			ajaxAnywhere.getAJAX("<%=contextPath %>/Info/newsIndexList.ajax","listZone");
-			ajaxAnywhere.onAfterResponseProcessing = function (){}
-		}
-		</script>
 	</head>
 	<body>
 		<div class="box">
@@ -282,3 +274,11 @@
 		</div>
 	</body>
 </html>
+<script type="text/javascript">
+window.onload = function(){
+	ajaxAnywhere.showLoadingMessage = function(){}
+	ajaxAnywhere.hideLoadingMessage = function(){}
+	ajaxAnywhere.getAJAX("<%=contextPath %>/Info/newsIndexList.ajax","listZone");
+	ajaxAnywhere.onAfterResponseProcessing = function (){}
+}
+</script>
