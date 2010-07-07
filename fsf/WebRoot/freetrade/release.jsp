@@ -14,12 +14,7 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<link href="css/style2.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="js/jquery.js"></script>
-		<script language="javascript" src="../js/showDiv.js"></script>
 		<script src="js/swfobject_modified.js" type="text/javascript"></script>
-		<script type="text/javascript" src="js/jquery.pagination.js"></script>
-		<script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript" src="../js/SearchMessage.js"></script>
-
 		<script type="text/javascript" src="<%=contextPath%>/Search/js/search.js"></script>
 		<style>
 		.aaa{
@@ -53,7 +48,7 @@
 								<a href="<%=contextPath %>/Info/infoIndexList.action"><span>地产资讯</span></a>
 							</li>
 							<li>
-								<a href="<%=contextPath %>/forum/index.jsp"><span>论坛</span></a>
+								<a href="<%=contextPath %>/forum/goToForum.action"><span>论坛</span></a>
 							</li>
 							<li>
 								<a href="<%=contextPath %>/CoBank/index.action"><span>银行合作</span> </a>

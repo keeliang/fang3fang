@@ -7,13 +7,8 @@
 		<title>邀请专家</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script>
-		<script src="../rent/js/jquery-1.3.1.js" type="text/javascript"></script>
-		<script src="js/index.js" type="text/javascript"></script>
-		<script src="../rent/js/popup.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="css/general.css" type="text/css" media="screen" />
-		<script language="javascript" src="js/dialog.js"></script>
 		<link href="css/dialog.css" rel="stylesheet" type="text/css" />
-		
 	</head>
 	<body>
 		<div class="box">

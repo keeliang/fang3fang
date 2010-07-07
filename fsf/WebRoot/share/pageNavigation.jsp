@@ -41,7 +41,7 @@
 				<input type="button" onclick="g_gotoPage(document.getElementById('gotoPageInput').value,${pageView.totalPage })" value="GO" >
 			</td>
 			<td class="page">
-				<s:select cssStyle="font-size:12px;" theme="simple" list="#{5:'5条',10:'10条',20:'20条',50:'50条' }" onchange="g_chageMaxResults(this.value)" value="baseParameter.maxResults" ></s:select>
+				<s:select  theme="simple" list="#{5:'5条',10:'10条',20:'20条',50:'50条' }" onchange="g_chageMaxResults(this.value)" value="baseParameter.maxResults" ></s:select>
 			</td>
 		</tr>
 	</table>

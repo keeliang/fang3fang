@@ -92,7 +92,7 @@
 								</td>
 								<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
 								<td><s:property value="#item.area" />m<sup>2</sup></td>
-								<td><s:property value="#item.salePrice/#item.area" />元</td>
+								<td><s:property value="#item.unitPrice" />元</td>
 								<td><s:property value="#item.salePrice" />元</td>
 								<td><fsf:dictTranslate groupName="#sys_user" value="createUserId"/></td>
 							</tr>

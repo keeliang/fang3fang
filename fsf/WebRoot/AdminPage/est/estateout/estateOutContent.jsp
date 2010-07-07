@@ -66,6 +66,7 @@
 		<td valign="middle">
 			<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
 			<s:if test="cmd!='new' && cmd!='select'">
+				<input type="button" onclick="f_newComment()" value="新增留言"/>
 				<input type="button" onclick="f_examine()" value="<s:text name="changeExamine"/>" >
 				<s:if test="isRecommond==0">
 					<input type="button" onclick="f_recommond(1)" value="推荐" >
@@ -646,4 +647,7 @@ function f_changeCost(obj){
 	}
 }
 
+function f_newComment(){
+	showModalDialog(contextPath+"/sysadmin/est/comment/newContentFrm.action?estateId=${estateId}&type=1",window,"dialogWidth:800px;dialogHeight:600px;");
+}
 </script>

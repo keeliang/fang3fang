@@ -14,6 +14,7 @@
 <div class="contentTitle"><s:text name="contentTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <s:hidden name="cmd" />
+<s:if test="cmd!='new'">
 <s:hidden name="estCommentParameter.currentPage" />
 <s:hidden name="estCommentParameter.maxResults" />
 <s:hidden name="estCommentParameter._ne_estateId" />
@@ -25,14 +26,18 @@
 <s:hidden name="estCommentParameter._ne_createUserId" />
 <s:hidden name="estCommentParameter._de_updateTime" />
 <s:hidden name="estCommentParameter._ne_updateUserId" />
-
+</s:if>
 <s:hidden name="commentId"/>
+<s:hidden name="estateId" />
+<s:hidden name="type" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">
 			<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
-			<input type="button" onclick="g_back('/sysadmin/est/comment/estCommentList.action')" value="<s:text name="g_back"/>" >
+			<s:if test="cmd!='new'">
+				<input type="button" onclick="g_back('/sysadmin/est/comment/estCommentList.action')" value="<s:text name="g_back"/>" >
+			</s:if>
 		</td>
 	</tr>
 </table>
@@ -42,28 +47,11 @@
 		<td>
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td>
-						<s:text name="estateId"/>:
-					</td>
-					<td>
-						<s:textfield name="estateId" /><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="type"/>:
-					</td>
-					<td>
-						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$est_comment_type')" name="type" 
-						cssClass="dropdown" id="type" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
+					<td valign="top">
 						<s:text name="content"/>:
 					</td>
 					<td>
-						<s:textfield name="content" /><font color="red">*</font>
+						<s:textarea name="content" cols="60" rows="8"  /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -71,7 +59,7 @@
 						<s:text name="ip"/>:
 					</td>
 					<td>
-						<s:textfield name="ip" /><font color="red">*</font>
+						<s:textfield name="ip" cssClass="memberC_input01_readonly"/><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -137,8 +125,6 @@
 <script type="text/javascript">
 function f_validate(){
 	fromName = "formItem";
-	addfield("estateId","<s:text name="estateId"/>","Integer",false,10);
-	addfield("type","<s:text name="type"/>","Integer",false,10);
 	addfield("content","<s:text name="content"/>","String",false,65535);
 	addfield("ip","<s:text name="ip"/>","String",false,30);
 	addfield("status","<s:text name="status"/>","Integer",false,3);

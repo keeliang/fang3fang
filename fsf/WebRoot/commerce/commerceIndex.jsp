@@ -12,15 +12,7 @@
 <link type="text/css" href="<%=contextPath%>/commerce/css/general.css" rel="stylesheet"/>
 <link type="text/css" href="<%=contextPath%>/commerce/css/dialog.css" rel="stylesheet"/>
 <link type="text/css" href="<%=contextPath%>/commerce/css/style.css" rel="stylesheet"/>
-
 <script type="text/javascript" src="<%=contextPath%>/js/jquery.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/popup.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/dialog.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/showDiv.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/commerce.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/showRent.js"></script>
-<script type="text/javascript" src="<%=contextPath%>/commerce/js/DisplayMessageShopType.js"></script>
-
 </head>
 <body style="background-color:#FFFFFF">
 <%@include file="/commerce/commerceHeader.jsp" %>
@@ -210,7 +202,6 @@
   <div class="blank12"></div>
   <!-- foot -->
     <%@ include file="/CommonPage/Foot.jsp" %>
-    
 </div>   
 </body>
 </html>

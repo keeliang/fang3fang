@@ -10,11 +10,7 @@
 		<title>自由贸易区 - 房上房地产网</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/showQG.js"></script>
 		<script type="text/javascript" src="js/Cal.js"></script>
-		<script type="text/javascript" src="../js/showDiv.js"></script>
-		<script type="text/javascript" src="js/slide.js"></script>
-		<script type="text/javascript" src="../js/SearchMessage.js"></script>
 
 		<style type="text/css">
 body .new_menu {

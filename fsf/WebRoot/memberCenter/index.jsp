@@ -35,39 +35,36 @@
 				<div class="memberC_right">
 					<div class="clear"></div>
 					<div class="blankP"></div>
-					
-						<aa:zone name="recommondList">
-							<div class="memberC_rightC">
-								<div class="memberC_rightTitle02">
-									<b>自主推荐</b>
-								</div>
-								<div class="memberC_rightShow">
-									<s:iterator value="recommondOwnEstateList">
-										<p>
-											・<a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" target="blank" >${estateName }</a>
-										</p>
-									</s:iterator>
-								</div>
-								<div class="memberC_rightBottom"></div>
+						<div class="memberC_rightC">
+							<div class="memberC_rightTitle02">
+								<b>自主推荐</b>
 							</div>
-		
-							<div class="clear"></div>
-							<div class="blankP"></div>
-		
-							<div class="memberC_rightC">
-								<div class="memberC_rightTitle02">
-									<b>委托推荐</b>
-								</div>
-								<div class="memberC_rightShow">
-									<s:iterator value="recommondEstateList">
-										<p>
-											・<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }">${estateName }</a>
-										</p>
-									</s:iterator>
-								</div>
-								<div class="memberC_rightBottom"></div>
+							<div class="memberC_rightShow">
+								<s:iterator value="recommondOwnEstateList">
+									<p>
+										・<a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" target="blank" >${estateName }</a>
+									</p>
+								</s:iterator>
 							</div>
-						</aa:zone>
+							<div class="memberC_rightBottom"></div>
+						</div>
+	
+						<div class="clear"></div>
+						<div class="blankP"></div>
+	
+						<div class="memberC_rightC">
+							<div class="memberC_rightTitle02">
+								<b>委托推荐</b>
+							</div>
+							<div class="memberC_rightShow">
+								<s:iterator value="recommondEstateList">
+									<p>
+										・<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }">${estateName }</a>
+									</p>
+								</s:iterator>
+							</div>
+							<div class="memberC_rightBottom"></div>
+						</div>
 					
 					<div class="clear"></div>
 					<div class="blankP"></div>
@@ -153,11 +150,6 @@
 	</body>
 </html>
 <script type="text/javascript">
-window.onload = function(){
-	ajaxAnywhere.showLoadingMessage = function(){}
-	ajaxAnywhere.hideLoadingMessage = function(){}
-	ajaxAnywhere.getAJAX("/memberCenter/recommondList.ajax","recommondList");
-}
 function f_attention(attentionId){
 	ajaxAnywhere.showLoadingMessage = function(){}
 	ajaxAnywhere.hideLoadingMessage = function(){}

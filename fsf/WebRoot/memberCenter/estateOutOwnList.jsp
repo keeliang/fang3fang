@@ -11,8 +11,6 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script src="js/CollapsiblePanel.js" type="text/javascript"></script>
 		<script type="text/javascript" src="../js/jquery.js"></script>
-		<script type="text/javascript" src="../js/TableHover.js"></script>
-		<script type="text/javascript" src="js/ListProxyCS.js"></script>
 	</head>
 	<body>
 		<div class="memberC_box">

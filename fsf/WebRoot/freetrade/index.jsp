@@ -13,11 +13,7 @@
 		<title>自主交易 - 房上房地产网</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="js/jquery.js"></script>
-		<script language="javascript" src="../js/showDiv.js"></script>
 		<script src="js/swfobject_modified.js" type="text/javascript"></script>
-		<script type="text/javascript" src="js/jquery.pagination.js"></script>
-		<script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript" src="../js/SearchMessage.js"></script>
 
 		<script type="text/javascript" src="<%=contextPath%>/Search/js/search.js"></script>
 	</head>

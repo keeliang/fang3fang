@@ -52,6 +52,9 @@
 	<tr>
 		<td valign="middle">
 			<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
+			<s:if test="cmd!='new' && cmd!='select'">
+				<input type="button" onclick="f_newComment()" value="新增留言"/>
+			</s:if>
 			<input type="button" onclick="f_examine()" value="<s:text name="changeExamine"/>" >
 			<input type="button" onclick="g_back('/sysadmin/est/estatein/estateInList.action')" value="<s:text name="g_back"/>" >
 		</td>
@@ -455,5 +458,9 @@ function f_changeDistrict(isIndex){
 		var selectTag = new SelectTag("areaId","areaId",json.data,"itemKey","itemName","${areaId}");
 		$("#areaTd").html(selectTag.toString());
 	},"json");
+}
+
+function f_newComment(){
+	showModalDialog(contextPath+"/sysadmin/est/comment/newContentFrm.action?estateId=${estateId}&type=2",window,"dialogWidth:800px;dialogHeight:600px;");
 }
 </script>

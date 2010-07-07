@@ -4,10 +4,10 @@
 <div id="popupContact">
 	<a id="popupContactClose" href="#">x</a>
 	<h1>上传</h1>
-	<s:form name="uploadForm" namespace="/memberCenter" enctype="multipart/form-data" method="post" action="uploadFile" 
-		id="uploadForm" theme="simple" >
+	<form name="uploadForm" enctype="multipart/form-data" method="post" action="" 
+		id="uploadForm"  >
 		<s:file name="uploadFile" ></s:file>
 		<input type="button" onclick="f_upload()" value="上传" />
-	</s:form>
+	</form>
 </div>
 <div id="backgroundPopup"></div>

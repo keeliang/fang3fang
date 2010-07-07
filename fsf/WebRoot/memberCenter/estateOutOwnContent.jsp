@@ -12,14 +12,6 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script src="js/CollapsiblePanel.js" type="text/javascript"></script>
 		<script type="text/javascript" src="../js/jquery.js"></script>
-		<script type="text/javascript" src="../js/Form.jquery.js"></script>
-		<script type="text/javascript" src="../js/Validate.cmxforms.js"></script>
-		<script type="text/javascript" src="../js/Validate.jquery.metadata.js"></script>
-		<script type="text/javascript" src="../js/Validate.jquery.validate.min.js"></script>
-		<script type="text/javascript" src="../js/SelectAll.js"></script>
-		<script type="text/javascript" src="../js/HistoryBack.js"></script>
-		<script type="text/javascript" src="../js/DisplayClear.js"></script>
-		<script type="text/javascript" src="js/DisplayMessageCS_Proxy.js"></script>
 		<script type="text/javascript" src="<%=contextPath %>/js/Form.jquery.js"></script>
 		<style type="text/css">
 		.readonly{background-color:#D4D4D4;width: 80px;}

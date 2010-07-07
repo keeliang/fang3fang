@@ -232,7 +232,7 @@
 	</tr>
 </s:iterator>
 </table>
-
+</s:form>
 <table width="100%" >
 	<tr>
 		<td width="100%" align="right" >
@@ -240,7 +240,7 @@
 		</td>
 	</tr>
 </table>
-</s:form>
+
 </body>
 </html>
 <script type="text/javascript">
@@ -276,6 +276,7 @@ function f_selectUser(){
 		if(arySelectedPK[i].checked ){
 			if(bln){
 				alert("只能选择一个用户");
+				return;
 			}else{
 				id = arySelectedPK[i].value;
 				code = $(arySelectedPK[i].parentNode.parentNode).find("td:eq(1)>a").text();

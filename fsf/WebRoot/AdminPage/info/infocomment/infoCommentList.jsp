@@ -26,8 +26,18 @@
 					</td>
 					<td width="35%">
 						<s:hidden name="infoCommentParameter._ne_informationId" />
-						<input value="<fsf:dictTranslate groupName="$information_type" value="infoCommentParameter._ne_informationId"/>" name="informationTitle" readonly="true" >
-						<img src="/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectInfo()">
+						<input value="<fsf:dictTranslate groupName="$information_type" value="infoCommentParameter._ne_informationId"/>" id="informationTitle" readonly="true" >
+						<img src="<%=contextPath %>/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectInfo()">
+						<img src="<%=contextPath %>/images/closeall.gif" style="cursor: pointer;" onclick="f_clear(this)">
+					</td>
+					<td width="15%" >
+						<s:text name="_ne_createUserId" />:
+					</td>
+					<td width="35%">
+						<s:hidden name="infoCommentParameter._ne_createUserId"/>
+						<input value="<fsf:dictTranslate groupName="#sys_user" value="infoCommentParameter._ne_createUserId"/>" id="userCode" readonly="true" >
+						<img src="<%=contextPath %>/images/select.gif" style="vertical-align: bottom;cursor: pointer;" onclick="f_selectUser()">
+						<img src="<%=contextPath %>/images/closeall.gif" style="cursor: pointer;" onclick="f_clear(this)">
 					</td>
 				</tr>
 				<tr>
@@ -42,7 +52,7 @@
 					</td>
 					<td width="35%">
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$status')" name="infoCommentParameter._ne_status" cssClass="dropdown" 
-						id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/><font color="red">*</font>
+						id="status" listValue="itemName" listKey="itemKey" emptyOption="true"/>
 					</td>
 				</tr>
 				<tr>
@@ -103,7 +113,7 @@
 		<td>
 			<input type="checkbox" name="selectedPK" value="<s:property value="#item.commentId"/>">
 		</td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="content"/></a></td>
+		<td><a href="javascript:g_edit('${url}')" ><s:property value="@chance.util.HtmlUtils@removeHTML(content,12)"/></a></td>
 		<td><fsf:dictTranslate groupName="#info_information" value="informationId"/></td>
 		<td><s:property value="ip"/></td>
 		<td>
@@ -114,7 +124,7 @@
 	</tr>
 </s:iterator>
 </table>
-
+</s:form>
 <table width="100%" >
 	<tr>
 		<td width="100%" align="right" >
@@ -122,17 +132,29 @@
 		</td>
 	</tr>
 </table>
-</s:form>
+
 </body>
 </html>
 <script type="text/javascript">
 function f_selectInfo(){
-	showModalDialog("selectInfo.action",window,"dialogWidth:800px;dialogHeight:600px;");
+	showModalDialog(contextPath+"/sysadmin/info/information/selectInfo.action",window,"dialogWidth:800px;dialogHeight:600px;");
 }
 function f_finishSelectInfo(obj){
 	if(obj){
 		document.forms["formList"]["infoCommentParameter._ne_informationId"].value = obj.newsId;
-		document.forms["formList"]["informationTitle"].value = obj.newsTitle;
+		document.getElementById("informationTitle").value = obj.newsTitle;
 	}
+}
+function f_selectUser(){
+	showModalDialog(contextPath+"/sysadmin/sys/user/selectUser.action",window,"dialogWidth:800px;dialogHeight:600px;");
+}
+function f_finishSelectUser(obj){
+	if(obj){
+		document.forms["formList"]["infoCommentParameter._ne_createUserId"].value = obj.userId;
+		document.getElementById("userCode").value = obj.userCode;
+	}
+}
+function f_clear(src){
+	$(src).parent().find("input").val("");
 }
 </script>

@@ -113,7 +113,7 @@
 	</tr>
 </s:iterator>
 </table>
-
+</s:form>
 <table width="100%" >
 	<tr>
 		<td width="100%" align="right" >
@@ -121,7 +121,7 @@
 		</td>
 	</tr>
 </table>
-</s:form>
+
 </body>
 </html>
 <script type="text/javascript">
@@ -133,6 +133,7 @@ function f_selectNews(){
 		if(arySelectedPK[i].checked ){
 			if(bln){
 				alert("只能选择一条新闻");
+				return;
 			}else{
 				id = arySelectedPK[i].value;
 				//alert($(arySelectedPK[i].parentNode.parentNode).find("td:eq(1)>a").text());

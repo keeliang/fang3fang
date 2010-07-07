@@ -9,8 +9,7 @@
 <meta name="title" content="番禺房地产门户 - 房上房地产网(http://wwww.fang3fang.com)" />
 <title>地产资讯 - 房上房地产网</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/show.js"></script>
+<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script>
 </head>
 <body>
 <div class="infoShow_box">
@@ -86,7 +85,7 @@
             </div>
             <div class="infoShow_contentL_content" id="info_title" name="info_title">
             	<h1>${informationTitle }</h1>
-              <div class="infoShow_contentL_contentTime"><span id="info_infoDate" name="info_infoDate">${updateTime}　</span>　来源:<span id="info_From">房上房</span> <a href="../forum/index.jsp">&nbsp;进入论坛</a></div>
+              <div class="infoShow_contentL_contentTime"><span id="info_infoDate" name="info_infoDate">${updateTime}　</span>　来源:<span id="info_From">房上房</span> <a href="<%=contextPath %>/forum/goToForum.action">&nbsp;进入论坛</a></div>
               <div class="infoShow_contentL_contentLine"></div>
               <div class="infoShow_contentL_contentShow">
 	              <div id="info_content">${informationContent }</div>
@@ -142,9 +141,7 @@
         
         <!-- right -->
         <div class="infoShow_contentR">
-	        <div class="infoShow_contentR_buy"><img src="images/infoS_rightTitle.jpg" width="249" height="16" alt="想发布房源信息?你只需点击右边!" title="想发布房源信息?你只需点击右边!" align="absmiddle" />&nbsp;&nbsp;<span class="cRed04">→</span>&nbsp;&nbsp;<a href="#" class="cRed04">[我要卖房]</a></div>
-	        
-	        
+	        <div class="infoShow_contentR_buy"><img src="images/infoS_rightTitle.jpg" width="249" height="16" alt="想发布房源信息?你只需点击右边!" title="想发布房源信息?你只需点击右边!" align="absmiddle" />&nbsp;&nbsp;<span class="cRed04">→</span>&nbsp;&nbsp;<a href="<%=contextPath %>/memberCenter/index.action" class="cRed04">[我要卖房]</a></div>
 	        <div class="clear"></div>
 	        <div class="blank12"></div>
 	        <div class="infoShow_contentR_title"><div class="infoShow_contentR_title_line"></div><b>委托推荐</b></div>

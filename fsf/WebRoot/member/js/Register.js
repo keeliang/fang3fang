@@ -19,6 +19,9 @@ function f_register(){
 				alert("注册成功");
 			}else if(msg.message=="2"){
 				alert("验证码错误");
+			}else if(msg.message=="3"){
+				alert("["+document.getElementById("userCode").value+"]已存在，请重新输入新帐号");
+				document.getElementById("userCode").value = "";
 			}
 		}
 	}

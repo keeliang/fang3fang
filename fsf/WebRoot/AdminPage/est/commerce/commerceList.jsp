@@ -130,14 +130,14 @@
 	</tr>
 </s:iterator>
 </table>
-
+</s:form>
 <table width="100%" align="center">
 	<tr>
 		<td width="100%" align="right" ><%@ include file="/share/pageNavigation.jsp" %>
 		</td>
 	</tr>
 </table>
-</s:form>
+
 </body>
 </html>
 

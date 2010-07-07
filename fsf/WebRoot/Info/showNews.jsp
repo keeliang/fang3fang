@@ -9,8 +9,7 @@
 		<meta name="title" content="番禺房地产门户 - 房上房地产网(http://wwww.fang3fang.com)"/>
 		<title>地产资讯 - 房上房地产网</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/show.js"></script>
+		<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script>
 	</head>
 	<body>
 		<div class="infoShow_box">
@@ -94,7 +93,7 @@
 						<div class="infoShow_contentL_contentTime">
 							<span id="info_infoDate" name="info_infoDate">${updateTime}</span> 来源:
 							<span id="info_From">房上房</span>
-							<a href="../forum/index.jsp">&nbsp;进入论坛</a>
+							<a href="..<%=contextPath %>/forum/goToForum.action">&nbsp;进入论坛</a>
 						</div>
 						<div class="infoShow_contentL_contentLine"></div>
 						<div class="infoShow_contentL_contentShow">
@@ -125,7 +124,7 @@
 									<br/>
 								</s:iterator>
 								<%@ include file="/share/commentPageNavigation.jsp" %>
-								<form name="commentForm" action="/Info/newsCommentList.ajax" method="post" >
+								<form name="commentForm" action="<%=contextPath %>/Info/newsCommentList.ajax" method="post" >
 									<s:if test="#session.USER!=null">
 										<div id="commitDiv" >
 											<p><textarea name="content" onfocus="this.value=''" onblur="if(this.value=='')this.value='我来评两句！'"
@@ -241,7 +240,7 @@ window.onload = function(){
 	f_queryComment();
 }
 function f_queryComment(pageNum){
-	document.forms["commentForm"].action = "/Info/newsCommentList.ajax";
+	document.forms["commentForm"].action = contextPath+"/Info/newsCommentList.ajax";
 	if(pageNum){
 		document.forms["commentForm"]["newsCommentParameter.currentPage"].value = pageNum;
 	}else{
@@ -261,7 +260,7 @@ function f_queryComment(pageNum){
 }
 
 function f_commitComment(){
-	document.forms["commentForm"].action = "/Info/commitNewsComment.ajax";
+	document.forms["commentForm"].action = contextPath+"/Info/commitNewsComment.ajax";
 	ajaxAnywhere.getZonesToReload = function(){return "commentZone";} 
 	ajaxAnywhere.showLoadingMessage = function(){
 		document.getElementById('loadingDiv2').style.display = "block";

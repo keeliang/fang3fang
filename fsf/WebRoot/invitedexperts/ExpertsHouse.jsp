@@ -11,7 +11,6 @@
 		<title>店铺 - 房上房地产网</title>
 		<link href="css/style-house.css" rel="stylesheet" type="text/css" />
 		<link href="css/tuijian.css" rel="stylesheet" type="text/css" />
-		<script language="javascript" src="js/showDiv.js"></script>
 	</head>
 	<body>
 		<div class="box">

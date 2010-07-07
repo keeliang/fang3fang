@@ -15,14 +15,6 @@
 		<script type="text/javascript" src="js/CollapsiblePanel.js"></script>
 		<script type="text/javascript" src="../js/jquery.js"></script>
 		<script type="text/javascript" src="../js/Form.jquery.js"></script>
-		<script type="text/javascript" src="../js/Validate.cmxforms.js"></script>
-		<script type="text/javascript" src="../js/Validate.jquery.metadata.js"></script>
-		<script type="text/javascript"
-			src="../js/Validate.jquery.validate.min.js"></script>
-		<script type="text/javascript" src="../js/SelectAll.js"></script>
-		<script type="text/javascript" src="../js/HistoryBack.js"></script>
-		<script type="text/javascript" src="../js/DisplayClear.js"></script>
-		<script type="text/javascript" src="js/DisplayMessageQG_Autonomous.js"></script>
 
 	</head>
 	<body>
