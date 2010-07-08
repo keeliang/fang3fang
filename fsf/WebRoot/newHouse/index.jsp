@@ -9,7 +9,7 @@
 		<meta name="title" content="新房推荐 - 房上房地产网(http://wwww.fang3fang.com)"/> 
 		<title>新房推荐 - 房上房地产网</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
-		<script src="js/jquery.js" type=text/javascript></script>
+		<script src="<%=contextPath %>/js/jquery.js" type=text/javascript></script>
 		<script type="text/javascript" src="<%=contextPath%>/Search/js/search.js"></script>
 	</head>
 	<body>

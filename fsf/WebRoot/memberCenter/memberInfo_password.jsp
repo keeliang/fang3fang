@@ -12,7 +12,7 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script src="js/CollapsiblePanel.js" type="text/javascript"></script>
 		<script src="js/jump.js" type="text/javascript"></script>
-		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script>
 		<script type="text/javascript" src="<%=contextPath %>/js/Form.jquery.js"></script>
 	</head>
 	<body>
