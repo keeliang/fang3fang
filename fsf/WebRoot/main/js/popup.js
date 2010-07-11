@@ -86,7 +86,7 @@ function f_upload(){
 		alert(eval(json.msg));
 		disablePopup();
 	}
-	var param = {dataType:"json",success:respCallesBack}
+	var param = {dataType:"json",success:respCallesBack};
 	document.getElementById("uploadForm").action = UploadActionName;
 	$("#uploadForm").ajaxSubmit(param);
 }
