@@ -143,7 +143,7 @@
 					<s:hidden name="estateId"/>
 					<!-- 自主 -->
 					<s:hidden name="tradeType" value="1"/>
-					<input type="hidden" name="examine" value="0" />
+					<input type="hidden" name="examine" value="1" />
 					<p class="cGray02">
 						<b>出售出租信息</b>
 					</p>

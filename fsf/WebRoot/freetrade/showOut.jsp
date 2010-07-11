@@ -151,8 +151,7 @@ body .new_menu {
 									建筑面积：
 								</td>
 								<td id="TotalArea" class="left">
-								&nbsp;
-									${area } 平方米
+									&nbsp;${area } 平方米
 								</td>
 								<td class="grayBg right">
 									使用面积：
@@ -196,8 +195,6 @@ body .new_menu {
 							<tr>
 								<td class="grayBg right">
 									备&nbsp;&nbsp;注：
-									<br/>
-									<a href="#" class="cGray">基本介绍</a>&nbsp;&nbsp;
 								</td>
 								<td id="Remark" colspan="3" class="left">
 									${remark }
@@ -288,7 +285,6 @@ body .new_menu {
 									</td>
 									<td id="UnitCost" class="left">
 										<span class="cOrange">${unitPrice }</span> 元/平方米
-										<a class="cRed03">[按建筑面积计算]</a>
 									</td>
 								</tr>
 								<tr>
@@ -299,9 +295,6 @@ body .new_menu {
 										<fsf:dictTranslate groupName="$yes_no" value="card5year" />
 									</td>
 									<td id="PayWayTypeName" class="left freeTrade_tableW04" colspan="2">
-										<span class="cOrange">
-											[房贷计算器 <a href="#"><img src="images/freeTrade_count.jpg" width="14" height="14" align="absmiddle" /></a>]
-										</span>
 									</td>
 								</tr>
 							</table>
@@ -403,6 +396,9 @@ body .new_menu {
 												<font style="font-weight: bold;" >处理中...</font>
 											</div>
 										</s:if>
+										<s:else>
+											你不是会员，如想留言请先<a href="<%=contextPath %>/member/toRegister.action" target="blank" >注册</a>房上房会员
+										</s:else>
 										<input name="estateId" type="hidden" value="${estateId }" />
 										<input name="type" type="hidden" value="1" />
 										

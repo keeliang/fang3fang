@@ -93,7 +93,7 @@
 								<td width="4%" >
 									<input type="checkbox" onclick="g_select(this)" />
 								</td>
-								<td><b>物业名称</b></td>
+								<td><b>楼盘名称</b></td>
 								<td><b>面积</b></td>
 								<td><b>售价</b></td>
 								<td><b>租价</b></td>

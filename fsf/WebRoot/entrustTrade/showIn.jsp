@@ -47,7 +47,7 @@
 							<span	class="cOrange font14"><b>信息</b></span>
 							<img src="images/freeTrade_down.jpg" width="13" height="13" align="absmiddle" />
 						</div>
-						<table border="0" cellpadding="0" cellspacing="0" class="freeTrade_table">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%" class="freeTrade_table">
 							<tr>
 								<td class="grayBg right">
 									城&nbsp;&nbsp;市：
@@ -172,13 +172,13 @@
 									求购者姓名：
 								</td>
 								<td id="Contacter" class="left freeTrade_tableW03">
-									${contactUser.userCode }
+									&nbsp;${contactUser.userCode }
 								</td>
 								<td class="grayBg right freeTrade_tableW02">
 									联系电话：
 								</td>
 								<td id="HomePhone" class="left freeTrade_tableW04">
-									${contactUser.tel }
+									&nbsp;${contactUser.tel }
 								</td>
 							</tr>
 							<tr>
@@ -186,14 +186,14 @@
 									手&nbsp;&nbsp;机：
 								</td>
 								<td id="MobilePhone" class="left">
-									${contactUser.phone }
+									&nbsp;${contactUser.phone }
 									<span class="cRed03">(中介免问)</span>
 								</td>
 								<td class="grayBg right">
 									QQ：
 								</td>
 								<td id="QQ" class="left">
-									${contactUser.qq }
+									&nbsp;${contactUser.qq }
 								</td>
 							</tr>
 							<tr>
@@ -201,13 +201,13 @@
 									MSN：
 								</td>
 								<td id="MSN" class="left">
-									${contactUser.msn }
+									&nbsp;${contactUser.msn }
 								</td>
 								<td class="grayBg right">
 									E-mail：
 								</td>
 								<td id="Email" class="left">
-									${contactUser.email }
+									&nbsp;${contactUser.email }
 								</td>
 							</tr>
 							<tr>
@@ -256,15 +256,16 @@
 												<font style="font-weight: bold;" >处理中...</font>
 											</div>
 										</s:if>
+										<s:else>
+											你不是会员，如想留言请先<a href="<%=contextPath %>/member/toRegister.action" target="blank" >注册</a>房上房会员
+										</s:else>
 										<input name="estateId" type="hidden" value="${estateId }" />
 										<input name="type" type="hidden" value="2" />
-										
 										<input name="estCommentParameter._ne_estateId" type="hidden" value="${estateId }" />
 										<input name="estCommentParameter._ne_type" type="hidden" value="2" />
 										<input name="estCommentParameter._ne_status" type="hidden" value="1" />
 										<s:hidden name="estCommentParameter.currentPage" id="currentPage" />
 										<input name="estCommentParameter.maxResults" type="hidden" value="10" />
-										
 									</form>
 								</aa:zone>
 							</div>

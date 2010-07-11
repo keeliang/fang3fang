@@ -34,7 +34,9 @@ function f_queryNear(o,n){
 	<div class="blank12"></div>
 	<div class="freeTrade_invite">
 		<p>
-			<a href="#"><img src="images/freeTrade_intro.jpg" width="280" height="36" alt="邀请专家" title="邀请专家" /></a>
+			<a href="<%=contextPath %>/invitedexperts/index.action">
+				<img src="images/freeTrade_intro.jpg" width="280" height="36" alt="邀请专家" title="邀请专家" />
+			</a>
 		</p>
 	</div>
 	<!-- compare -->
