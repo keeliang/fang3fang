@@ -10,7 +10,7 @@
 
 <script src="js/CollapsiblePanel.js" type="text/javascript"></script>
 <script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/Form.jquery.js"></script>
+<script type="text/javascript" src="../js/jquery.form.min.js"></script>
 <script type="text/javascript" src="../js/Validate.cmxforms.js"></script>
 <script type="text/javascript" src="../js/Validate.jquery.metadata.js"></script>
 <script type="text/javascript" src="../js/Validate.jquery.validate.min.js"></script>

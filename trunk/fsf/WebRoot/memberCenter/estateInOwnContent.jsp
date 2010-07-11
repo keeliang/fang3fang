@@ -14,7 +14,7 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="js/CollapsiblePanel.js"></script>
 		<script type="text/javascript" src="../js/jquery.js"></script>
-		<script type="text/javascript" src="../js/Form.jquery.js"></script>
+		<script type="text/javascript" src="../js/jquery.form.min.js"></script>
 
 	</head>
 	<body>
