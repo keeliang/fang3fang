@@ -31,12 +31,19 @@
 						<s:iterator value="pageView.records" id="item">
 							<tr>
 								<td>
-									<s:if test="imagePath!=null && imagePath.trim()!=''">
-										<img src="<%=contextPath %>${imagePath }" width="105" height="80" />
+									<s:if test="estateOutParameter._ne_tradeType==1">
+										<a href="<%=contextPath %>/freetrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
 									</s:if>
-									<s:else>
-										<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
-									</s:else>
+									<s:if test="estateOutParameter._ne_tradeType==2">
+										<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
+									</s:if>
+											<s:if test="imagePath!=null && imagePath.trim()!=''">
+												<img src="<%=contextPath %>${imagePath }" width="105" height="80" />
+											</s:if>
+											<s:else>
+												<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
+											</s:else>
+										</a>
 								</td>
 								<td>
 									<s:if test="estateOutParameter._ne_tradeType==1">
@@ -71,12 +78,19 @@
 						<s:iterator value="pageView.records" id="item">
 							<tr>
 								<td>
-									<s:if test="imagePath!=null && imagePath.trim()!=''">
-										<img src="<%=contextPath %>${imagePath }" width="105" height="80" />
+									<s:if test="estateOutParameter._ne_tradeType==1">
+										<a href="<%=contextPath %>/freetrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
 									</s:if>
-									<s:else>
-										<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
-									</s:else>
+									<s:if test="estateOutParameter._ne_tradeType==2">
+										<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank" >
+									</s:if>
+											<s:if test="imagePath!=null && imagePath.trim()!=''">
+												<img src="<%=contextPath %>${imagePath }" width="105" height="80" />
+											</s:if>
+											<s:else>
+												<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
+											</s:else>
+										</a>
 								</td>
 								<td>
 									<s:if test="estateOutParameter._ne_tradeType==1">
