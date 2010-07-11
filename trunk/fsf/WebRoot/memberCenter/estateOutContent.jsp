@@ -48,9 +48,7 @@
 						<s:hidden name="isRecommond" value="0"/>
 
 						<p class="cGray02"> 
-							<b>委托交易区 - 出售出租信息</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有效期：
-							<input name="effective" type="text" size="2" value="${effective }" />
-							天
+							<b>委托交易区 - 出售出租信息</b>
 						</p>
 						<div class="memberC_line"></div>
 						<p id="left_title">
@@ -125,8 +123,8 @@
 									<label class="est_label" ><s:text name="structure"/>:</label>
 						    </td>
 						    <td class="content_td">
-						    	<s:textfield name="hall" cssClass="memberC_input06" /><s:text name="hall"/>
 									<s:textfield name="bedroom" cssClass="memberC_input06" /><s:text name="bedroom"/>
+									<s:textfield name="hall" cssClass="memberC_input06" /><s:text name="hall"/>
 									<s:textfield name="toilet" cssClass="memberC_input06" /><s:text name="toilet"/>
 									<s:textfield name="porch" cssClass="memberC_input06" /><s:text name="porch"/>
 						    </td>
@@ -209,6 +207,14 @@
 						  		name="tradeMode" id="tradeMode" listValue="itemName" listKey="itemKey" onchange="f_chageTradeMode()"/>
 						    </td>
 						  </tr>
+						  <tr>
+						  	<td class="label_td" >
+						  		<label class="est_label" for="remark"><s:text name="remark"/>:</label>
+						  	</td>
+						  	<td colspan="3">
+						  		<s:textarea rows="4" cols="70" name="remark" ></s:textarea>
+						  	</td>
+						  </tr>
 						  <s:if test="cmd!='new'">
 							  <tr>
 							    <td class="label_td" >
@@ -230,6 +236,14 @@
 						  <s:if test="cmd=='new'">
 						  	<s:hidden name="examine" value="0" />
 						  </s:if>
+						  <tr>
+						  	<td class="label_td" >
+						  		<label class="est_label" for="effective">有效期：</label>
+						  	</td>
+						  	<td colspan="3">
+						  		<input name="effective" type="text" size="2" value="${effective }" />天
+						  	</td>
+						  </tr>
 						</table>
 						
 						<div id="saleDiv" style="display: none;">
@@ -346,12 +360,15 @@
 						  </tr>
 						</table>
 						
-						<s:if test="cmd!='new'">
-							<div class="blank10"></div>
+						<div class="blank10"></div>
 							<p id="left_title">
 								<b>联系方式</b>
 							</p>
 							<div class="memberC_line"></div>
+						<s:if test="cmd=='new' || contactUserId==null">
+							发布此房源属于委托交易，客户联系看房需要联系房上房客服：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />
+						</s:if>
+						<s:else>	
 							<table border="0" cellpadding="0" cellspacing="0" width="100%" id="saleTbl" >
 								<tr>
 									<td style="width: 120px;">
@@ -383,7 +400,7 @@
 							    </td>
 							  </tr>
 							</table>
-						</s:if>
+						</s:else>
 						
 						<div class="blank10"></div>
 						<div class="blank10"></div>

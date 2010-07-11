@@ -361,7 +361,7 @@
 														</a>
 													</p>
 													<h1>
-														<a href="#" target="_blank">${hall }厅${bedroom }房</a>
+														<a href="#" target="_blank">${bedroom }室${hall }厅</a>
 													</h1>
 													<span>
 														<a>

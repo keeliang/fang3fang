@@ -256,7 +256,7 @@
 		</td>
 		<td>
 			<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$expert_level')" name="level" id="level"  
-			listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/>
+			listValue="itemName" listKey="itemKey" emptyOption="true" cssClass="dropdown"/><font color="red">*</font>
 		</td>
 	</tr>
 	<tr>
@@ -324,18 +324,20 @@ function f_validate(){
 	addfield("remark","<s:text name="remark"/>","String",true,65535);
 	//addfield("createDate","<s:text name="createDate"/>","Date",false,19);
 	//addfield("imagePath","<s:text name="imagePath"/>","String",true,100);
-	/*
+	
 	if($('#userType').val() == 2){
+		addfield("level","<s:text name="level"/>","String",false,20);
+		/*
 		addfield("realName","<s:text name="realName"/>","String",false,20);
 		addfield("workProvinceId","<s:text name="workProvinceId"/>","Integer",false,10);
 		addfield("workCityId","<s:text name="workCityId"/>","Integer",false,10);
 		addfield("workDistrictId","<s:text name="workDistrictId"/>","Integer",false,10);
 		addfield("company","<s:text name="company"/>","String",false,50);
-		addfield("level","<s:text name="level"/>","String",false,20);
 		addfield("license","<s:text name="license"/>","String",false,30);
 		addfield("hobby","<s:text name="hobby"/>","String",false,300);
 		addfield("glory","<s:text name="glory"/>","String",false,300);
-	}*/
+		*/
+	}
 	return validate();
 }
 

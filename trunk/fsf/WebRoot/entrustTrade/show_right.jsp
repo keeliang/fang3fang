@@ -73,8 +73,8 @@ function f_queryNear(o,n){
 		</div>
 
 		<form action="/freetrade/estateOutNear.ajax" name="ajaxSubmitForm1" method="post" style="display: none;" >
-			<input type="hidden" name="estateOutParameter._ne_bedroom" value="${bedroom }" >
 			<input type="hidden" name="estateOutParameter._ne_hall" value="${hall }" >
+			<input type="hidden" name="estateOutParameter._ne_bedroom" value="${bedroom }" >
 			<input type="hidden" name="estateOutParameter._ne_tradeMode" value="${tradeMode }" />
 			<input type="hidden" name="estateOutParameter._ne_tradeType" value="${tradeType }" />
 		</form>
