@@ -12,7 +12,7 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script src="js/CollapsiblePanel.js" type="text/javascript"></script>
 <script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/Form.jquery.js"></script>
+<script type="text/javascript" src="../js/jquery.form.min.js"></script>
 </head>
 <body>
 		<div class="memberC_box">

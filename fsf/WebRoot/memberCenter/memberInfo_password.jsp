@@ -13,7 +13,7 @@
 		<script src="js/CollapsiblePanel.js" type="text/javascript"></script>
 		<script src="js/jump.js" type="text/javascript"></script>
 		<script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script>
-		<script type="text/javascript" src="<%=contextPath %>/js/Form.jquery.js"></script>
+		<script type="text/javascript" src="<%=contextPath %>/js/jquery.form.min.js"></script>
 	</head>
 	<body>
 		<div class="memberC_box">

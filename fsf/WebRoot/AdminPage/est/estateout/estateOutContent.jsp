@@ -9,7 +9,7 @@
 <link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/AdminPage.css" />
 <link href="/AdminPage/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script> 
-<script type="text/javascript" src="<%=contextPath %>/js/Form.jquery.js"></script>
+<script type="text/javascript" src="<%=contextPath %>/js/jquery.form.min.js"></script>
 
 </head>
 

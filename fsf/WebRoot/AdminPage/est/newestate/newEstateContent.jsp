@@ -8,7 +8,7 @@
 <link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/Common.css" />
 <link type="text/css" rel="stylesheet" href="<%=contextPath %>/css/AdminPage.css" />
 <script type="text/javascript" src="<%=contextPath %>/js/jquery.js"></script>
-<script type="text/javascript" src="<%=contextPath %>/js/Form.jquery.js"></script>
+<script type="text/javascript" src="<%=contextPath %>/js/jquery.form.min.js"></script>
 </head>
 <body>
 <s:form action="newEstateSave" namespace="/sysadmin/est/newestate" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
