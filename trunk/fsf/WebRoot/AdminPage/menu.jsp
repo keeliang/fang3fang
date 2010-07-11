@@ -75,7 +75,9 @@ $(document).ready(function() {
 	<tr class="menuItemTr">
 		<td>
 			<table>
+				<!-- 
 				<tr><td><a href="<%=contextPath %>/sysadmin/est/palace/palaceList.action" target="content"><span>楼盘管理</span></a></td></tr>
+				 -->
 				<tr><td><a href="<%=contextPath %>/sysadmin/est/estateout/estateOutList.action" target="content"><span>二手房委托出租出售管理</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/sysadmin/est/estateout/estateOwnOutList.action" target="content"><span>二手房自主出租出售管理</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/sysadmin/est/estatein/estateInList.action" target="content"><span>二手房委托求租求售管理</span></a></td></tr>

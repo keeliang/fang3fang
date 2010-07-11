@@ -128,6 +128,9 @@
 											<font style="font-weight: bold;" >处理中...</font>
 										</div>
 									</s:if>
+									<s:else>
+										你不是会员，如想留言请先<a href="<%=contextPath %>/member/toRegister.action" target="blank" >注册</a>房上房会员
+									</s:else>
 									<input name="informationId" type="hidden" value="${informationId }" />
 									<input name="infoCommentParameter._ne_informationId" type="hidden" value="${informationId }" />
 									<input name="infoCommentParameter._ne_status" type="hidden" value="1" />

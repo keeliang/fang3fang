@@ -6,9 +6,9 @@
 		<%@ include file="/share/share.jsp" %>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="description"
-			content="房上房房地产网，番禺区房地产专业网站，人气最旺、最有价值的番禺房地产网络媒体，提供最全面最及时的房地产新闻资讯内容，提供所有楼盘的详细信息，是二手房(不动产)自由交易网站。为所有楼盘提供功能最全网上浏览，是国内房地产媒体及业内外网友公认的最受欢迎的专业网站和房地产信息库，搜房引擎给网友提供房地产网站中速度最快捷内容最全面的智能搜索点。">
+			content="房上房房地产网，番禺区房地产专业网站，人气最旺、最有价值的番禺房地产网络媒体，提供最全面最及时的房地产新闻资讯内容，提供所有楼盘的详细信息，是二手房(不动产)自由交易网站。为所有楼盘提供功能最全网上浏览，是国内房地产媒体及业内外网友公认的最受欢迎的专业网站和房地产信息库，搜房引擎给网友提供房地产网站中速度最快捷内容最全面的智能搜索点。"/>
 		<meta name="keywords"
-			content="房上房,番禺地产,番禺地产网,房地产,买房,卖房,租房,新房,二手房,写字楼,商铺,C2C交易,C2C">
+			content="房上房,番禺地产,番禺地产网,房地产,买房,卖房,租房,新房,二手房,写字楼,商铺,C2C交易,C2C"/>
 		<meta name="title"
 			content="番禺房地产门户 - 房上房地产网(http://wwww.fang3fang.com)" />
 		<title>委托交易区 - 房上房地产网</title>
@@ -38,7 +38,7 @@ body .new_menu {
 					</span>
 					您当前的所在位置：
 					<a href="<%=contextPath %>/main/index.jsp">房上房</a> &gt;
-					<a href="<%=contextPath %>/entrustTrade/index.jsp">自主交易区</a> &gt;
+					<a href="<%=contextPath %>/entrustTrade/index.jsp">委托交易区</a> &gt;
 					<span id="PropertyInfo" class="cOrange">${estateName }</span>
 				</p>
 			</div>
@@ -56,10 +56,9 @@ body .new_menu {
 							<span class="cOrange font14"><b>${estateName }基本信息</b></span>
 							<img src="images/freeTrade_down.jpg" width="13" height="13" align="absmiddle" />
 						</div>
-						<table border="0" cellpadding="0" cellspacing="0"
-							class="freeTrade_table">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%" class="freeTrade_table">
 							<tr>
-								<td class="grayBg right freeTrade_tableW01">
+								<td class="grayBg right">
 									物业名称：
 								</td>
 								<td id="PropertyName" class="left freeTrade_tableW03" colspan="3" >
@@ -100,7 +99,7 @@ body .new_menu {
 									物业地址：
 								</td>
 								<td id="Address" colspan="3" class="left">
-									${address }
+									&nbsp;${address }
 								</td>
 							</tr>
 							<tr>
@@ -108,13 +107,13 @@ body .new_menu {
 									建筑年份：
 								</td>
 								<td id="DoneTime" class="left">
-									${buildYear }
+									&nbsp;${buildYear }
 								</td>
 								<td class="grayBg right">
 									开&nbsp;发&nbsp;商：
 								</td>
 								<td id="BuildingTypeName" class="left">
-									${develop }
+									&nbsp;${develop }
 								</td>
 							</tr>
 							<tr>
@@ -149,14 +148,8 @@ body .new_menu {
 								<td class="grayBg right">
 									房产证号或购房合同号：
 								</td>
-								<td id="DocumentNum" class="left">
+								<td id="DocumentNum" class="left" colspan="3" >&nbsp;
 									${estateCardNo }
-								</td>
-								<td class="grayBg right">
-									产权性质：
-								</td>
-								<td id="EstateTypeName" class="left">
-									经济适用住房
 								</td>
 							</tr>
 							<tr>
@@ -205,7 +198,6 @@ body .new_menu {
 								<td class="grayBg right">
 									备&nbsp;&nbsp;注：
 									<br/>
-									<a href="#" class="cGray">基本介绍</a>&nbsp;&nbsp;
 								</td>
 								<td id="Remark" colspan="3" class="left">
 									${remark }
@@ -270,7 +262,7 @@ body .new_menu {
 										<span class="cOrange">其他费用：</span>
 									</td>
 									<td id="Rent" class="left">
-											<span class="cOrange">${electricCost }</span> 元/月
+											<span class="cOrange">${otherCost }</span> 元/月
 									</td>
 								</tr>
 							</table>
@@ -317,52 +309,63 @@ body .new_menu {
 						<div class="blank12"></div>
 						<div class="freeTrade_contnetL_title02">
 							<span class="cOrange font14"><b>联系方式</b></span>
-							<img src="images/freeTrade_down02.jpg" width="13" height="13" align="absmiddle" />&nbsp;&nbsp;[自主交易]
+							<img src="images/freeTrade_down02.jpg" width="13" height="13" align="absmiddle" />&nbsp;&nbsp;[委托交易]
 						</div>
 						<table border="0" cellpadding="0" cellspacing="0" width="100%" class="freeTrade_table">
-							<tr>
-								<td class="grayBg right freeTrade_tableW01">
-									业主姓名：
-								</td>
-								<td id="Contacter" class="left freeTrade_tableW03">
-									${contactUser.userCode }
-								</td>
-								<td class="grayBg right freeTrade_tableW02">
-									联系电话：
-								</td>
-								<td id="HomePhone" class="left freeTrade_tableW04">
-									${contactUser.tel }
-								</td>
-							</tr>
-							<tr>
-								<td class="grayBg right">
-									手&nbsp;&nbsp;机：
-								</td>
-								<td id="MobilePhone" class="left">
-									${contactUser.phone }
-									<span class="cRed03">(中介免问)</span>
-								</td>
-								<td class="grayBg right">
-									QQ：
-								</td>
-								<td id="QQ" class="left">
-									${contactUser.qq }
-								</td>
-							</tr>
-							<tr>
-								<td class="grayBg right">
-									MSN：
-								</td>
-								<td id="MSN" class="left">
-									${contactUser.msn }
-								</td>
-								<td class="grayBg right">
-									E-mail：
-								</td>
-								<td id="Email" class="left">
-									${contactUser.email }
-								</td>
-							</tr>
+							<s:if test="contactUserId!=null">
+								<tr>
+									<td class="grayBg right freeTrade_tableW01">
+										业主姓名：
+									</td>
+									<td id="Contacter" class="left freeTrade_tableW03">
+										${contactUser.userCode }
+									</td>
+									<td class="grayBg right freeTrade_tableW02">
+										联系电话：
+									</td>
+									<td id="HomePhone" class="left freeTrade_tableW04">
+										${contactUser.tel }
+									</td>
+								</tr>
+								<tr>
+									<td class="grayBg right">
+										手&nbsp;&nbsp;机：
+									</td>
+									<td id="MobilePhone" class="left">
+										${contactUser.phone }
+										<span class="cRed03">(中介免问)</span>
+									</td>
+									<td class="grayBg right">
+										QQ：
+									</td>
+									<td id="QQ" class="left">
+										${contactUser.qq }
+									</td>
+								</tr>
+								<tr>
+									<td class="grayBg right">
+										MSN：
+									</td>
+									<td id="MSN" class="left">
+										${contactUser.msn }
+									</td>
+									<td class="grayBg right">
+										E-mail：
+									</td>
+									<td id="Email" class="left">
+										${contactUser.email }
+									</td>
+								</tr>
+							</s:if>
+							<s:else>
+								<tr>
+									<td class="grayBg left" width="100%"  >
+										此房源属于委托交易，客户联系看房需要联系房上房客服：
+										<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />&nbsp;&nbsp;
+										<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel2')" />
+									</td>
+								</tr>
+							</s:else>
 						</table>
 					</div>
 
@@ -403,6 +406,9 @@ body .new_menu {
 												<font style="font-weight: bold;" >处理中...</font>
 											</div>
 										</s:if>
+										<s:else>
+											你不是会员，如想留言请先<a href="<%=contextPath %>/member/toRegister.action" target="blank" >注册</a>房上房会员
+										</s:else>
 										<input name="estateId" type="hidden" value="${estateId }" />
 										<input name="type" type="hidden" value="1" />
 										

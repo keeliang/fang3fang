@@ -107,7 +107,7 @@ a.cBlue:hover{color:#003ab0; text-decoration:underline;}
 .memberC_input07{width:280px;border:1px solid #ccc; }/*background:#CF0}/*黄色背景*/
 .memberC_input08{width:80px;border:1px solid #ccc; }/*background:#F00}/*红色背景部分*/
 .memberC_textarea{width:200px; height:80px;border:1px solid #ccc;}
-.memberC_textarea02{width:320px; height:80px;border:1px solid #ccc;}
+.memberC_textarea02{width:500px; height:80px;border:1px solid #ccc;}
 .memberC_button{text-align:center;}
 .memberC_button a:link,.memberC_button a:visited{display:inline-block; border:1px solid #ccc;padding:4px 13px 1px; color:#666; background:white; text-decoration:none;}
 .memberC_button a:hover{display:inline-block; border:1px solid #ccc;padding:4px 13px 1px; color:#f60; background:white; text-decoration:none;}

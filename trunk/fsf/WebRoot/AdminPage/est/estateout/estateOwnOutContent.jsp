@@ -93,14 +93,6 @@
 <p class="est_title"><b>楼盘基本信息</b></p>
 <div class="memberC_line"></div>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-	<tr>
-		<td>
-			<label class="est_label" for="estateName"><s:text name="estateName"/>:</label>
-		</td>
-		<td colspan="3">
-			<span class="est_info">${estateName }</span>
-		</td>
-	</tr>
   <tr>
   	<td class="label_td">
   		<label class="est_label" for="provinceId"><s:text name="provinceId"/>:</label>
@@ -130,13 +122,13 @@
     </td>
   </tr>
   <tr>
-		<td class="label_td">
-			<label class="est_label" for="palaceId"><s:text name="palaceId"/>:</label>
-    </td>
-    <td class="content_td" colspan="3">
-    	<span class="est_info"><fsf:dictTranslate groupName="#est_palace" value="palaceId" /></span>
-    </td>
-  </tr>
+		<td>
+			<label class="est_label" for="estateName"><s:text name="estateName"/>:</label>
+		</td>
+		<td colspan="3">
+			<span class="est_info">${estateName }</span>
+		</td>
+	</tr>
   <tr>
 		<td class="label_td">
 			<label class="est_label" for="area"><s:text name="area"/>:</label>

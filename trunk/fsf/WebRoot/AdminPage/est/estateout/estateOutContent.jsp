@@ -85,16 +85,6 @@
 <p class="est_title"><b>楼盘基本信息<span class="cOrange">(必填)</span></b></p>
 <div class="memberC_line"></div>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-	<tr>
-		<td>
-			<label class="est_label" for="estateName"><s:text name="estateName"/>:</label>
-		</td>
-		<td colspan="3">
-			<s:textfield name="estateName" id="estateName" cssClass="memberC_input04"/>
-			<input type="button" value="上传图片" id="btnUpload" />
-			<s:hidden name="imagePath" />
-		</td>
-	</tr>
   <tr>
   	<td class="label_td">
   		<label class="est_label" for="provinceId"><s:text name="provinceId"/>:</label>
@@ -125,6 +115,16 @@
     </td>
   </tr>
   <tr>
+		<td>
+			<label class="est_label" for="estateName"><s:text name="estateName"/>:</label>
+		</td>
+		<td colspan="3">
+			<s:textfield name="estateName" id="estateName" cssClass="memberC_input04"/>
+			<input type="button" value="上传图片" id="btnUpload" />
+			<s:hidden name="imagePath" />
+		</td>
+	</tr>
+  <tr>
 		<td class="label_td">
 			<label class="est_label" for="area"><s:text name="area"/>:</label>
     </td>
@@ -154,15 +154,6 @@
     	<s:textfield name="hall" cssClass="memberC_input06" /><s:text name="hall"/>
 			<s:textfield name="toilet" cssClass="memberC_input06" /><s:text name="toilet"/>
 			<s:textfield name="porch" cssClass="memberC_input06" /><s:text name="porch"/>
-    </td>
-  </tr>
-  <tr>
-		<td class="label_td">
-			<label class="est_label" for="palaceId"><s:text name="palaceId"/>:</label>
-    </td>
-    <td class="content_td" colspan="3">
-    	<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#est_palace')" name="palaceId" 
-			cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/>
     </td>
   </tr>
   <tr>

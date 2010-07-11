@@ -58,16 +58,6 @@
 						<div class="memberC_line"></div>
 
 						<table border="0" cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<td>
-									<label class="est_label" for="estateName"><s:text name="estateName"/>:</label>
-								</td>
-								<td colspan="3">
-									<s:textfield name="estateName" id="estateName" cssClass="memberC_input04"/>
-									<input type="button" value="上传图片" id="btnUpload" />
-									<s:hidden name="imagePath" />
-								</td>
-							</tr>
 						  <tr>
 						  	<td class="label_td">
 						  		<label class="est_label" for="provinceId"><s:text name="provinceId"/>:</label>
@@ -98,6 +88,16 @@
 						    </td>
 						  </tr>
 						  <tr>
+								<td>
+									<label class="est_label" for="estateName"><s:text name="estateName"/>:</label>
+								</td>
+								<td colspan="3">
+									<s:textfield name="estateName" id="estateName" cssClass="memberC_input04"/>
+									<input type="button" value="上传图片" id="btnUpload" />
+									<s:hidden name="imagePath" />
+								</td>
+							</tr>
+						  <tr>
 								<td class="label_td">
 									<label class="est_label" for="area"><s:text name="area"/>:</label>
 						    </td>
@@ -127,15 +127,6 @@
 									<s:textfield name="hall" cssClass="memberC_input06" /><s:text name="hall"/>
 									<s:textfield name="toilet" cssClass="memberC_input06" /><s:text name="toilet"/>
 									<s:textfield name="porch" cssClass="memberC_input06" /><s:text name="porch"/>
-						    </td>
-						  </tr>
-						  <tr>
-								<td class="label_td">
-									<label class="est_label" for="palaceId"><s:text name="palaceId"/>:</label>
-						    </td>
-						    <td class="content_td" colspan="3">
-						    	<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#est_palace')" name="palaceId" 
-									cssStyle="width:140px;" emptyOption="true" listValue="itemName" listKey="itemKey"/>
 						    </td>
 						  </tr>
 						  <tr>
@@ -429,7 +420,7 @@ $(function() {
 
 function f_validate(){
 	fromName = "formItem";
-	addfield("estateName","房源名称","String",false,80);
+	addfield("estateName","<s:text name="estateName"/>","String",false,80);
 	addfield("provinceId","省份","Integer",false,10);
 	addfield("cityId","城市","Integer",false,10);
 	addfield("districtId","区域","Integer",false,10);
