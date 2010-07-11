@@ -110,8 +110,8 @@
 					</div>
 					<table>
 						<tr>
-							<td style="vertical-align: top;width: 50%;" >
-								<s:iterator value="pageView.records" status="st" >
+							<s:iterator value="pageView.records" status="st" >
+								<td style="vertical-align: top;width: 50%;" >
 									<div class="picture">
 										<img src="<%=contextPath %>${imagePath }" width="116px" height="135px;" />
 									</div>
@@ -146,15 +146,15 @@
 												<li>
 													<span>${estateName }</span>
 													<p>
-														<fsf:dictTranslate groupName="#district" value="districtId" /> ${bedroom }房${hall }厅 ${area }㎡ ${salesPrice }万
+														<fsf:dictTranslate groupName="#district" value="districtId" /> ${bedroom }室${hall }厅 ${area }㎡ ${salesPrice }万
 													</p>
 												</li>
 											</s:iterator>
 										</ul>
 									</div>
-								</td><td style="vertical-align: top;width: 50%;" >
-								<s:if test="st.count==2">
-									</td></tr><tr>
+								</td>
+								<s:if test="#st.count==2">
+									</tr><tr>
 								</s:if>
 							</s:iterator>
 						</tr>

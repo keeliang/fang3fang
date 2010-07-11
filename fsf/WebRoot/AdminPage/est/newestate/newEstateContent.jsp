@@ -210,10 +210,10 @@
 						<s:text name="structure"/>:
 					</td>
 					<td>
-						<s:text name="hall" />:
-						<s:textfield name="hall" cssClass="memberC_input03" />
 						<s:text name="bedroom" />:
 						<s:textfield name="bedroom" cssClass="memberC_input03" />
+						<s:text name="hall" />:
+						<s:textfield name="hall" cssClass="memberC_input03" />
 						<s:text name="toilet" />:
 						<s:textfield name="toilet" cssClass="memberC_input03"/>
 						<s:text name="porch" />:

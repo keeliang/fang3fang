@@ -107,8 +107,7 @@
 					<s:hidden name="tradeType" value="2"/>
 					<input type="hidden" name="examine" value="0" />
 					<p class="cGray02">
-						<b>出售出租信息</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有效期：
-						<input name="effective" type="text" size="2" value="${effective }" />天
+						<b>出售出租信息</b>
 					</p>
 					<div class="memberC_line"></div>
 					<p id="left_title">
@@ -180,8 +179,8 @@
 									<label class="est_label" >户型:</label>
 						    </td>
 						    <td class="aaa">
+						    	<s:textfield name="bedroom" cssClass="memberC_input06" />室
 						    	<s:textfield name="hall" cssClass="memberC_input06" />厅
-									<s:textfield name="bedroom" cssClass="memberC_input06" />室
 									<s:textfield name="toilet" cssClass="memberC_input06" />卫
 									<s:textfield name="porch" cssClass="memberC_input06" />阳
 						    </td>
@@ -270,6 +269,14 @@
 								</td>
 								<td colspan="3" style="text-align: left;" >
 									<s:textarea name="remark" cols="80" rows="5" />
+								</td>
+							</tr>
+							<tr>
+								<td class="aaa">
+									<label class="est_label" for="effective">有效期：</label>
+								</td>
+								<td colspan="3" style="text-align: left;" >
+									<input name="effective" type="text" size="2" value="${effective }" />天
 								</td>
 							</tr>
 						</table>

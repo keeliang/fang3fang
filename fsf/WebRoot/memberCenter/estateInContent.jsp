@@ -50,8 +50,7 @@
 						<s:hidden name="cmd" />
 						
 						<p class="cGray02">
-							<b>委托交易区 - 求购求租信息</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有效期：
-							<input name="effective" type="text" size="2" value="${effective }" />天
+							<b>委托交易区 - 求购求租信息</b>
 						</p>
 						<div class="memberC_line"></div>
 						<p id="left_title">
@@ -120,8 +119,8 @@
 									<label class="est_label" ><s:text name="structure"/>:</label>
 						    </td>
 						    <td class="content_td">
-						    	<s:textfield name="hall" cssClass="memberC_input06" /><s:text name="hall"/>
 									<s:textfield name="bedroom" cssClass="memberC_input06" /><s:text name="bedroom"/>
+									<s:textfield name="hall" cssClass="memberC_input06" /><s:text name="hall"/>
 									<s:textfield name="toilet" cssClass="memberC_input06" /><s:text name="toilet"/>
 									<s:textfield name="porch" cssClass="memberC_input06" /><s:text name="porch"/>
 						    </td>
@@ -197,6 +196,14 @@
 						  	<input type="hidden" name="examine" value="1" />
 						  	<input type="hidden" name="examineUserId" value="${USER.userId }" />
 						  </s:if>
+						  <tr>
+								<td class="label_td">
+									<label class="est_label" for="effective">有效期：</label>
+								</td>
+								<td colspan="3">
+									<input name="effective" type="text" size="2" value="${effective }" />天
+								</td>
+							</tr>
 						</table>
 						
 						
@@ -242,56 +249,40 @@
 						</p>
 						<div class="memberC_line"></div>
 						<table border="0" cellpadding="0" cellspacing="0" width="100%">
-							<tr>
-								<td style="width: 110px;">
-									<label> 联系人:</label>
-								</td>
-								<td>
-									<s:if test="cmd=='new'">
-										<input name="contactUserId" type="hidden" value="${USER.userId }" />
-						    		<input value="${USER.userCode }" class="memberC_input01_readonly" readonly="true" />
-						    	</s:if>
-						    	<s:if test="cmd!='new'">
-						    		<s:hidden name="contactUserId" />
-										<s:textfield name="contactUser.userCode" cssClass="memberC_input01_readonly" readonly="true"/>    	
-						    	</s:if>
-								</td>
-								<td style="width: 110px;">
-									<label> 手机号码:</label>
-								</td>
-								<td>
-									<s:if test="cmd=='new'">
-						    		<input value="${USER.phone }" class="memberC_input01_readonly" readonly="true" />
-						    	</s:if>
-						    	<s:if test="cmd!='new'">
+							<s:if test="cmd=='new' || contactUserId==null">
+								发布此房源属于委托交易，客户联系看房需要联系房上房客服：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />
+							</s:if>
+							<s:else>
+								<tr>
+									<td style="width: 110px;">
+										<label> 联系人:</label>
+									</td>
+									<td>
+										<input name="contactUserId" type="hidden" value="contactUserId" />
+						    		<input value="${contactUser.userCode }" class="memberC_input01_readonly" readonly="true" />
+									</td>
+									<td style="width: 110px;">
+										<label> 手机号码:</label>
+									</td>
+									<td>
 										<s:textfield name="contactUser.phone" cssClass="memberC_input01_readonly" readonly="true"/>    	
-						    	</s:if>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<label>固定电话:</label>
-								</td>
-								<td>
-									<s:if test="cmd=='new'">
-						    		<input value="${USER.tel }" class="memberC_input01_readonly" readonly="true" />
-						    	</s:if>
-						    	<s:if test="cmd!='new'">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label>固定电话:</label>
+									</td>
+									<td>
 										<s:textfield name="contactUser.tel" cssClass="memberC_input01_readonly" readonly="true"/>    	
-						    	</s:if>
-								</td>
-								<td>
-									<label>QQ号码:</label>
-								</td>
-								<td>
-									<s:if test="cmd=='new'">
-						    		<input value="${USER.qq }" class="memberC_input01_readonly" readonly="true" />
-						    	</s:if>
-						    	<s:if test="cmd!='new'">
+									</td>
+									<td>
+										<label>QQ号码:</label>
+									</td>
+									<td>
 										<s:textfield name="contactUser.qq" cssClass="memberC_input01_readonly" readonly="true"/>    	
-						    	</s:if>
-								</td>
-							</tr>
+									</td>
+								</tr>
+							</s:else>
 						</table>
 						
 						<div class="blank10"></div>

@@ -52,8 +52,7 @@
 						<s:hidden name="estateId" />
 						<s:hidden name="cmd" />
 						<p class="cGray02">
-							<b>自主交易区 - 求购求租信息</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有效期：
-							<input name="effective" type="text" size="2" value="${effective }" />天
+							<b>自主交易区 - 求购求租信息</b>
 						</p>
 						<div class="memberC_line"></div>
 						<p id="left_title">
@@ -120,8 +119,8 @@
 										<label class="est_label" ><s:text name="structure"/>:</label>
 							    </td>
 							    <td class="content_td">
-							    	<s:textfield name="hall" cssClass="memberC_input06" /><s:text name="hall"/>
 										<s:textfield name="bedroom" cssClass="memberC_input06" /><s:text name="bedroom"/>
+										<s:textfield name="hall" cssClass="memberC_input06" /><s:text name="hall"/>
 										<s:textfield name="toilet" cssClass="memberC_input06" /><s:text name="toilet"/>
 										<s:textfield name="porch" cssClass="memberC_input06" /><s:text name="porch"/>
 							    </td>
@@ -194,8 +193,16 @@
 							  </tr>
 							  </s:if>
 							  <s:if test="cmd=='new'">
-							  	<input type="hidden" name="examine" value="0" />
+							  	<input type="hidden" name="examine" value="1" />
 							  </s:if>
+							  <tr>
+									<td class="label_td">
+										<label class="est_label" for="effective">有效期：</label>
+									</td>
+									<td colspan="3">
+										<input name="effective" type="text" size="2" value="${effective }" />天
+									</td>
+								</tr>
 							</table>
 						
 						<div id="saleDiv" style="display: none;">

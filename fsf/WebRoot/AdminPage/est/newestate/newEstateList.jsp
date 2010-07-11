@@ -85,10 +85,10 @@
 						<s:text name="structure"/>:
 					</td>
 					<td width="35%" >
-						<s:text name="_ne_hall" />:
-						<s:textfield name="newEstateParameter._ne_hall" cssClass="memberC_input03" />
 						<s:text name="_ne_bedroom" />:
 						<s:textfield name="newEstateParameter._ne_bedroom" cssClass="memberC_input03" />
+						<s:text name="_ne_hall" />:
+						<s:textfield name="newEstateParameter._ne_hall" cssClass="memberC_input03" />
 						<s:text name="_ne_toilet" />:
 						<s:textfield name="newEstateParameter._ne_toilet" cssClass="memberC_input03"/>
 						<s:text name="_ne_porch" />:

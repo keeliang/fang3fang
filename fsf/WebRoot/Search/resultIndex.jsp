@@ -52,7 +52,7 @@
 										</s:if>
 									</td>
 									<td><s:property value="#item.area" />m<sup>2</sup></td>
-									<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
+									<td><s:property value="#item.bedroom" />房<s:property value="#item.hall" />厅</td>
 									<td><s:property value="#item.rentPrice" />元/月</td>
 									<td><fsf:dictTranslate groupName="#sys_user" value="createUserId"/></td>
 								</tr>

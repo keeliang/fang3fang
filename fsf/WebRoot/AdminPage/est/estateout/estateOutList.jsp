@@ -102,10 +102,10 @@
 						<s:text name="structure"/>:
 					</td>
 					<td colspan="3" >
-						<s:text name="_ne_hall" />:
-						<s:textfield name="estateOutParameter._ne_hall" cssClass="memberC_input03" />
 						<s:text name="_ne_bedroom" />:
 						<s:textfield name="estateOutParameter._ne_bedroom" cssClass="memberC_input03" />
+						<s:text name="_ne_hall" />:
+						<s:textfield name="estateOutParameter._ne_hall" cssClass="memberC_input03" />
 						<s:text name="_ne_toilet" />:
 						<s:textfield name="estateOutParameter._ne_toilet" cssClass="memberC_input03"/>
 						<s:text name="_ne_porch" />:

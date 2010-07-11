@@ -61,8 +61,7 @@
 	</tr>
 </table>
 
-<p class="cGray02"><b>委托交易区 - 求租求售信息</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-有效期：<s:textfield name="effective" id="effective" size="2" />天</p>
+<p class="cGray02"><b>委托交易区 - 求租求售信息</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 <div class="memberC_line"></div>
 <p class="est_title"><b>楼盘基本信息<span class="cOrange">(必填)</span></b></p>
 <div class="memberC_line"></div>
@@ -127,8 +126,8 @@
 			<label class="est_label" ><s:text name="structure"/>:</label>
     </td>
     <td class="content_td">
+    	<s:textfield name="bedroom" cssClass="memberC_input06" /><s:text name="bedroom"/>
     	<s:textfield name="hall" cssClass="memberC_input06" /><s:text name="hall"/>
-			<s:textfield name="bedroom" cssClass="memberC_input06" /><s:text name="bedroom"/>
 			<s:textfield name="toilet" cssClass="memberC_input06" /><s:text name="toilet"/>
 			<s:textfield name="porch" cssClass="memberC_input06" /><s:text name="porch"/>
     </td>
@@ -204,6 +203,14 @@
   	<input type="hidden" name="examine" value="1" />
   	<input type="hidden" name="examineUserId" value="${USER.userId }" />
   </s:if>
+  <tr>
+  	<td class="label_td" >
+  		<label class="est_label" for="effective">有效期：</label>
+  	</td>
+  	<td colspan="3" class="content_td" >
+  		<s:textfield name="effective" id="effective" size="2" />天
+  	</td>
+  </tr>
 </table>
 
 <div id="saleDiv" style="display: none;">

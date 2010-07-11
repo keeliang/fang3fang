@@ -88,8 +88,7 @@
 	</tr>
 </table>
 
-<p class="cGray02"><b>委托交易区 - 出售信息</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-有效期：<s:textfield name="effective" id="effective" size="2" />天</p>
+<p class="cGray02"><b>委托交易区 - 出售信息</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 <div class="memberC_line"></div>
 <p class="est_title"><b>楼盘基本信息</b></p>
 <div class="memberC_line"></div>
@@ -163,8 +162,8 @@
 			<label class="est_label" ><s:text name="structure"/>:</label>
     </td>
     <td class="content_td">
-    	<span class="est_info">${hall }<s:text name="hall"/></span>
     	<span class="est_info">${bedroom }<s:text name="bedroom"/></span>
+    	<span class="est_info">${hall }<s:text name="hall"/></span>
     	<span class="est_info">${toilet }<s:text name="toilet"/></span>
     	<span class="est_info">${porch }<s:text name="porch"/></span>
     </td>
@@ -268,6 +267,14 @@
     		<fsf:dictTranslate groupName="#sys_user" value="examineUserId"/>
     	</s:else>
     </td>
+  </tr>
+  <tr>
+  	<td class="label_td" >
+  		<label class="est_label" for="effective">有效期：</label>
+  	</td>
+  	<td colspan="3" class="content_td" >
+  		<s:textfield name="effective" id="effective" size="2" />天
+  	</td>
   </tr>
 </table>
 

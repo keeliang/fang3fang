@@ -51,7 +51,7 @@
 									</s:if>
 								</td>
 								<td><s:property value="#item.area" />m<sup>2</sup></td>
-								<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
+								<td><s:property value="#item.bedroom" />房<s:property value="#item.hall" />厅</td>
 								<td><s:property value="#item.rentPrice" />元/月</td>
 								<td><fsf:dictTranslate groupName="#sys_user" value="createUserId"/></td>
 							</tr>
@@ -90,7 +90,7 @@
 										</a>
 									</s:if>
 								</td>
-								<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
+								<td><s:property value="#item.bedroom" />房<s:property value="#item.hall" />厅</td>
 								<td><s:property value="#item.area" />m<sup>2</sup></td>
 								<td><s:property value="#item.unitPrice" />元</td>
 								<td><s:property value="#item.salePrice" />元</td>
@@ -131,7 +131,7 @@
 										</a>
 									</s:if>
 								</td>
-								<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
+								<td><s:property value="#item.bedroom" />房<s:property value="#item.hall" />厅</td>
 								<td><s:property value="#item.rentPriceFrom" />-<s:property value="#item.rentPriceTo" />元/月</td>
 								<td><s:property value="#item.area" />m<sup>2</sup></td>
 							</tr>
@@ -158,7 +158,7 @@
 										</a>
 									</s:if>
 								</td>
-								<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
+								<td><s:property value="#item.bedroom" />房<s:property value="#item.hall" />厅</td>
 								<td><s:property value="#item.buyPriceFrom" />-<s:property value="#item.buyPriceTo" />元</td>
 								<td><s:property value="#item.areaFrom" />-<s:property value="#item.areaTo" />m<sup>2</sup></td>
 							</tr>
@@ -201,7 +201,7 @@
 								</a>
 							</td>
 							<td><s:property value="#item.area" />m<sup>2</sup></td>
-							<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
+							<td><s:property value="#item.bedroom" />房<s:property value="#item.hall" />厅</td>
 							<td><s:property value="#item.rentPrice" />元/月</td>
 							<td><fsf:dictTranslate groupName="#sys_user" value="createUserId"/></td>
 						</tr>

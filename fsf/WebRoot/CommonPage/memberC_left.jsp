@@ -27,7 +27,7 @@
 					<b>委托收费发布信息</b>
 				</dt>
 				<dd>
-					委托交易区-<a href="<%=contextPath %>/memberCenter/estateInOwnNew.action">求购求租信息</a>
+					委托交易区-<a href="<%=contextPath %>/memberCenter/estateInNew.action">求购求租信息</a>
 				</dd>
 			</dl>
 			<div class="blank10"></div>
