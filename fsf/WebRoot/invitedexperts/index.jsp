@@ -113,7 +113,9 @@
 							<s:iterator value="pageView.records" status="st" >
 								<td style="vertical-align: top;width: 50%;" >
 									<div class="picture">
-										<img src="<%=contextPath %>${imagePath }" width="116px" height="135px;" />
+										<a href="<%=contextPath %>/invitedexperts/exportHouse.action?userId=${userId }" target="blank" >
+											<img src="<%=contextPath %>${imagePath }" width="116px" height="135px;" />
+										</a>
 									</div>
 									<div class="details">
 										<ul>
@@ -129,7 +131,7 @@
 												<a href="mailto:${email }" title="给${realName }发邮件"><img src="images/email.png" alt="给我发E-mail" /></a>
 												&nbsp;
 												<a href="tencent://message/?uin=${qq }" title="给${realName }发QQ信息"><img src="images/qq.gif" alt="在线联系我" /></a>
-												<a href="<%=contextPath %>/invitedexperts/exportHouse.action?userId=${userId }"><img src="images/house.gif" alt="进入我的空间" /></a>
+												<a href="<%=contextPath %>/invitedexperts/exportHouse.action?userId=${userId }" target="blank"><img src="images/house.gif" alt="进入我的空间" /></a>
 												<br/>
 											<li>
 												<img src="images/phone.gif" alt="联系电话" />
