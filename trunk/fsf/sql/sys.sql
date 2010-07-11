@@ -85,6 +85,9 @@ insert into sys_page_info(info_name,info_desc,title,content,seq) values('Matters
 
 insert into sys_page_info(info_name,info_desc,title,content,seq) values('Bank','银行合作',null,null,18);
 
+insert into sys_page_info(info_name,info_desc,title,content,seq) values('Disclaimer','免责声明',null,null,19);
+insert into sys_page_info(info_name,info_desc,title,content,seq) values('Recruitment','人才招聘',null,null,20);
+
 
 /*
 系统配置表
