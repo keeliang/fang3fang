@@ -81,11 +81,11 @@
 				</tr>
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="contacter"/>:</td>
-					<td><s:textfield name="contacter" /></td>
+					<td><s:textfield name="contactUser.userName" cssClass="memberC_input01_readonly" readonly="true" /></td>
 				</tr>
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="contactTel"/>:</td>
-					<td><s:textfield name="contactTel" /></td>
+					<td><s:textfield name="contactUser.phone" cssClass="memberC_input01_readonly" readonly="true" /></td>
 				</tr>
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="commerceType"/>:</td>
