@@ -41,6 +41,7 @@ public class EstateOutServiceImpl extends BaseService<EstateOut> implements Esta
 			ServiceException se = new ServiceException();
 			se.setExceptionCode(UserExceptionCode.USER_NOT_EXISTS);
 			se.setParameters(new String[]{contactUser.getUserCode()});
+			throw se;
 		}
 		userDao.persist(contactUser);
 		if(eo.getTradeType()==1){

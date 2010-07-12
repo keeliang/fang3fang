@@ -31,6 +31,8 @@
 			<result name="error">/error.jsp</result>
 		</action>
 		
+		<action name="uploadFile" class="commerceAction" method="doUploadFile"></action>
+		
 		<action name="getCityList" class="estateInAction" method="getCityList"></action>
 		<action name="getDistrictList" class="estateInAction" method="getDistrictList"></action>
 		<action name="getBusinessareaList" class="estateInAction" method="getBusinessareaList"></action>
@@ -61,9 +63,21 @@
 			<result name="input">/commerce/commerceView.jsp</result>
 		</action>
 		
+		<action name="commerceReleaseSave" class="commerceAction" method="doReleaseSave">
+			<result>/commerce/releaseResult.jsp</result>
+			<result name="input">/commerce/releaseResult.jsp</result>
+		</action>
+		
+		<action name="uploadFile" class="commerceAction" method="doUploadFile"></action>
+		
 		<action name="getCityList" class="estateInAction" method="getCityList"></action>
 		<action name="getDistrictList" class="estateInAction" method="getDistrictList"></action>
 		<action name="getBusinessareaList" class="estateInAction" method="getBusinessareaList"></action>
+		
+		<action name="commerceRelease" class="commerceAction" method="doRelease">
+			<result>/commerce/toRelease.jsp</result>
+			<result name="success2" type="redirect" >/memberCenter/index.jsp</result>
+		</action>
 	</package>
 	<!-- ********************************************** -->
 </struts>
