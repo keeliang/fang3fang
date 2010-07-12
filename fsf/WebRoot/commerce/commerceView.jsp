@@ -22,84 +22,84 @@
 <%@include file="/commerce/commerceHeader.jsp" %>
 
 <div class="clear"></div>
-    
 <div class="guide">
     <p>
     	<span class="float_right"></span>
     	您当前的所在位置：<a href="/index.jsp">房上房</a> &gt; 
-    		<a href="<%=contextPath %>/commerce/commerceIndex.action">旺铺招租</a> &gt; 
-    		<a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=<s:property value="commerceType"/>"><fsf:dictTranslate groupName="$commerce_type" value="commerceType" /></a> &gt; 
-    		<span class="cOrange"><s:property value="title"/></span></p>
+   		<a href="<%=contextPath %>/commerce/commerceIndex.action">旺铺招租</a> &gt; 
+   		<a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=<s:property value="commerceType"/>"><fsf:dictTranslate groupName="$commerce_type" value="commerceType" /></a> &gt; 
+   		<span class="cOrange">${title }</span></p>
 </div>
 
 <div>
 
-	<div class="contentN_left">
+	<div class="contentN_left" style="width: 100%" >
 		<div style="width:100%;text-align:left">
-			<span style="font-size:30px;text-align:left"><s:property value="title"/></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<!-- <span style="font-size:15px;color:blue">(有</span><span style="font-size:15px;color:red"><s:property value="visitCount"/></span><span style="font-size:15px;color:blue">人浏览)</span> -->
+			<span style="font-size:18px;text-align:left">${title }</span>
 		</div>
 		
 		<div style="text-align:left">
-			
+
 		</div>
 		<div class="blank12"></div>
-		<div class="contentN_title">
-			<table width="100%" align="right" cellspacing="2px">
-				<tr>
-					<td class="contentViewTd"><s:text name="commerceType"/>: </td>
-					<td><fsf:dictTranslate groupName="$commerce_type" value="commerceType" /></td>
-				</tr>
-				<tr>
-					<td  class="contentViewTd"><s:text name="updateTime"/>: </td>
-					<td><s:date name="updateTime" format="yyyy-MM-dd HH:mm"/></td>
-				</tr>
-				
-				<tr>
-					<td class="contentViewTd">位置:  </td>
-					<td>
-						<fsf:dictTranslate groupName="#province" value="provinceId" />&nbsp;&nbsp;
-						<fsf:dictTranslate groupName="#city" value="cityId" />&nbsp;&nbsp;
-						<fsf:dictTranslate groupName="#district" value="districtId" />
-					</td>
-				</tr>
-				
-				<tr>
-					<td class="contentViewTd"><s:text name="areaId"/>: </td>
-					<td><fsf:dictTranslate groupName="#area" value="areaId" /></td>
-				</tr>
-				
-				<tr>
-					<td class="contentViewTd"><s:text name="address"/>: </td>
-					<td><s:property value="address"/></td>
-				</tr>
-				
-				<tr>
-					<td class="contentViewTd"><s:text name="contacter"/>: </td>
-					<td><s:property value="contacter"/></td>
-				</tr>
-				
-				<tr>
-					<td class="contentViewTd"><s:text name="contactTel"/>: </td>
-					<td><s:property value="contactTel"/></td>
-				</tr>
-			</table>
+		<div class="contentN_title"  >
+			<div style="width: 50%;float: left" >
+				<table width="100%" cellspacing="0" cellpadding="0" style="font-size: 12px;" >
+					<tr>
+						<td width="80px" ><s:text name="commerceType"/>: </td>
+						<td><fsf:dictTranslate groupName="$commerce_type" value="commerceType" /></td>
+					</tr>
+					<tr>
+						<td><s:text name="createTime"/>: </td>
+						<td><s:date name="createTime" format="yyyy-MM-dd HH:mm"/></td>
+					</tr>
+					<tr>
+						<td>位置:</td>
+						<td>
+							<fsf:dictTranslate groupName="#province" value="provinceId" />&nbsp;&nbsp;
+							<fsf:dictTranslate groupName="#city" value="cityId" />&nbsp;&nbsp;
+							<fsf:dictTranslate groupName="#district" value="districtId" />
+						</td>
+					</tr>
+					
+					<tr>
+						<td><s:text name="areaId"/>: </td>
+						<td><fsf:dictTranslate groupName="#area" value="areaId" /></td>
+					</tr>
+					
+					<tr>
+						<td><s:text name="address"/>: </td>
+						<td><s:property value="address"/></td>
+					</tr>
+					
+					<tr>
+						<td><s:text name="contacter"/>: </td>
+						<td><s:property value="contactUser.userName"/></td>
+					</tr>
+					
+					<tr>
+						<td><s:text name="contactTel"/>: </td>
+						<td><s:property value="contactUser.phone"/></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div style="width: 50%" >
+				<s:if test="imagePath!=null && imagePath.trim()!=''">
+					<img src="<%=contextPath %>${imagePath }" width="300" height="160" >
+				</s:if>
+			</div>
 			
 			<div class="clear"></div>
-			  <div class="blank12"></div>
+			<div class="blank12"></div>
 			<div>
 			
-			<div class="contentN_left">
-				<p style="text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="content"/></p>
+			<div class="contentN_left" style="width: 100%" >
+				<p style="text-align:left">&nbsp;&nbsp;&nbsp;&nbsp;${content }</p>
 			</div>
 		</div>
 	</div>
 </div>
-
-
-<div class="wangpu_CF_right">
-		<%@include file="/commerce/commerceRecommend.jsp" %>
-	</div>
 
 
 <div class="clear"></div>

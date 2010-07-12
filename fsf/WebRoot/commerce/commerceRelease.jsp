@@ -9,76 +9,68 @@
 <meta name="keywords" content="房上房,番禺地产,番禺地产网,房地产,买房,卖房,租房,新房,二手房,写字楼,商铺,C2C交易,C2C"/> 
 <meta name="title" content="番禺房地产门户 - 房上房地产网(http://wwww.fang3fang.com)"/> 
 <title>旺铺招租 - 房上房地产网</title>
-
-
 <link type="text/css" href="<%=contextPath%>/commerce/css/general.css" rel="stylesheet"/>
 <link type="text/css" href="<%=contextPath%>/commerce/css/dialog.css" rel="stylesheet"/>
 <link type="text/css" href="<%=contextPath%>/commerce/css/style.css" rel="stylesheet"/>
-
 <script type="text/javascript" src="<%=contextPath%>/js/jquery.js"></script>
-
+<script type="text/javascript" src="<%=contextPath %>/js/jquery.form.min.js"></script>
 </head>
-<body style="background-color:#FFFFFF">
+<body style="background-color:#FFFFFF;font-size: 12px;">
 
-<s:form action="commerceSave" namespace="/commerce" name="formItem" id="formItem" theme="simple" method="post">
-<div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
+<%@include file="/commerce/commerceHeader.jsp" %>
+
+<s:form action="commerceReleaseSave" namespace="/commerce" name="formItem" id="formItem" theme="simple" method="post" onsubmit="return f_validate()" >
 <s:hidden name="cmd" />
 <s:hidden name="ip" />
 <s:hidden name="createUserId" />
 <s:hidden name="updateUserId" />
 <s:hidden name="createTime" />
 <s:hidden name="updateTime" />
-<s:hidden name="visitCount" />
 <s:hidden name="status" />
 
-<%@include file="/commerce/commerceHeader.jsp" %>
-
 <div>
-	<table width="65%" height="28" border="0" align="left" cellspacing="0" bordercolor="#ffffff" bordercolorlight="#c3c3c3" bgcolor="#FFFFFF">
-		<tr>
-			<td align="center" colspan="2"><h1>发布旺铺信息</h1></td>
+	<table width="65%" border="0" align="left" cellspacing="0" bordercolor="#ffffff" bgcolor="#FFFFFF">
+		<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr><td colspan="2" >
+			<div id="errorMsg" ><s:actionmessage /><s:actionerror/><s:fielderror/></div></td>
 		</tr>
-	    <tr>
-		<td class="contentColumnNameTd"><s:text name="commerceType"/>：</td>
-		<td>
-			<s:select	list="@fsf.web.common.SelectTagStaticUtil@getConfig('$commerce_type')" cssClass="dropdown"
- 					id="commerceType" name="commerceType" emptyOption="false" listValue="itemName" listKey="itemKey" />
- 					<font color="red">*</font>
-		</td>
+	  <tr>
+			<td class="contentColumnNameTd"><s:text name="commerceType"/>：</td>
+			<td>
+				<s:select	list="@fsf.web.common.SelectTagStaticUtil@getConfig('$commerce_type')" cssClass="dropdown"
+ 				id="commerceType" name="commerceType" emptyOption="false" listValue="itemName" listKey="itemKey" />
+ 				<font color="red">*</font>
+			</td>
     </td>
 	</tr>
 	<tr>
 		<td class="contentColumnNameTd"><s:text name="title"/>：</td>
-		<td><s:textfield name="title" /><font color="red">*</font></td>
+		<td><s:textfield name="title" /><font color="red">*</font><input type="button" value="上传图片" id="btnUpload" /></td>
+		<s:hidden name="imagePath" />
 	</tr>
 	<tr>
 		<td class="contentColumnNameTd"><s:text name="content"/>：</td>
-		<td><s:textarea name="content" rows="4" cols="35"/>
-			<br/>
-			<font color="#999999">[可对商铺详细描述，请控制在128个字以内]</font>
-		</td>
+		<td><s:textarea name="content" rows="4" cols="35"/></td>
 	</tr>
-	
-	<tr height="32" >
-		<td  style="text-align:right"><span class="label">位置：</span></td>
+	<tr>
+		<td style="text-align:right"><span class="label">位置：</span></td>
 		<td>
 			<span>
+				<s:text name="provinceId"/>&nbsp;&nbsp;&nbsp;&nbsp;
 				<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#province')" cssClass="dropdown" 
-  				id="provinceId" name="provinceId" emptyOption="true" onchange="f_changeProvince()" listValue="itemName" listKey="itemKey"/>
-				&nbsp;<s:text name="provinceId"/>
-			</span>
+  			id="provinceId" name="provinceId" emptyOption="true" onchange="f_changeProvince()" listValue="itemName" listKey="itemKey"/>
+			</span><br>
 			<span>
+				<s:text name="cityId"/>&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="citySpan"></span>
-				&nbsp;<s:text name="cityId"/>
-			</span>
-			<br/>
+			</span><br/>
 			<span>
+				<s:text name="districtId"/>&nbsp;&nbsp;&nbsp;&nbsp;
 				<span id="districtSpan"></span>
-				&nbsp;<s:text name="districtId"/>
-			</span>
+			</span><br/>
 			<span>
+				<s:text name="areaId"/>
 				<span id="areaSpan"></span>
-				&nbsp;<s:text name="areaId"/>
 			</span>
 		</td>
 	</tr>
@@ -88,43 +80,50 @@
 	</tr>
 	<tr>
 		<td class="contentColumnNameTd"><s:text name="contacter"/>：</td>
-		<td><s:textfield name="contacter" /></td>
+		<td><s:textfield name="contactUser.userName" /></td>
 	</tr>
 	<tr>
 		<td class="contentColumnNameTd"><s:text name="contactTel"/>：</td>
-		<td><s:textfield name="contactTel" /></td>
+		<td><s:textfield name="contactUser.phone" /></td>
 	</tr>
-
 	<tr>
-		<td align="center" colspan="2" height="44">
+		<td class="contentColumnNameTd">密码：</td>
+		<td><s:password name="contactUser.password" /></td>
+	</tr>
+	<tr>
+		<td class="contentColumnNameTd">确认密码：</td>
+		<td><input type="password" id="confirmPassword"/></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td align="center" height="44">
 			<input type="button" onclick="g_save()" value="<s:text name="g_save"/>" >
-			<input type="reset" name="Reset" id="Reset" value=" 重 置 "/>
 			<input type="button" onclick="javascript:history.back();" value=" 返 回 "/>
 		</td>
 	</tr>
-
-
 </table>
 </s:form>
-
-<div class="wangpu_CF_right">
-			<%@include file="/commerce/commerceRecommend.jsp" %>
-			</div>
-</div>
-
 <div class="clear"></div>
   <div class="blank12"></div>
 <div>
 <%@ include file="/CommonPage/Foot.jsp" %>
 </div>
+<%@include file="/share/upload.jsp" %>
 </body>
 </html>
 <script type="text/javascript">
+var UploadActionName = "<%=contextPath%>/commerce/uploadFile.action";
 $(function() {
 	f_changeProvince(true);
 });
 
 function f_validate(){
+	var p = document.forms["formItem"]["contactUser.password"].value;
+	var cp = document.getElementById("confirmPassword").value;
+	if(p!=cp){
+		alert("密码和确认密码不一致");
+		return false；
+	}
 	fromName = "formItem";
 	addfield("title","<s:text name="title"/>","String",false,50);
 	addfield("content","<s:text name="content"/>","String",false,65535);
@@ -134,6 +133,9 @@ function f_validate(){
 	addfield("areaId","<s:text name="areaId"/>","Integer",true,10);
 	addfield("commerceType","<s:text name="commerceType"/>","Integer",false,10);
 	addfield("status","<s:text name="status"/>","Integer",false,3);
+	addfield("contactUser.userName","联系人","String",false,50);
+	addfield("contactUser.password","密码","String",false,50);
+	addfield("contactUser.phone","手机","String",false,32);
 	return validate();
 }
 

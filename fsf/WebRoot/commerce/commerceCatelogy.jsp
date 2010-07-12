@@ -42,30 +42,30 @@
 								<li id="aboutnav11">
 									<a href="<%=contextPath%>/commerce/commerceIndex.action" target="_self"><span>全部信息</span></a>
 								</li>
-								<li id="aboutnav21" class="<s:if test="commerceParameter._ne_commerceType==1">wangpuHere</s:if>">
+								<li id="aboutnav21" class="<s:if test="commerceParameter._ne_commerceType==1&commerceParameter.maxResults=30">wangpuHere</s:if>">
 									<a href="<%=contextPath%>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=1" target="_self"><span>厂房仓库</span></a>
 								</li>
-								<li id="aboutnav31" class="<s:if test="commerceParameter._ne_commerceType==2">wangpuHere</s:if>">
+								<li id="aboutnav31" class="<s:if test="commerceParameter._ne_commerceType==2&commerceParameter.maxResults=30">wangpuHere</s:if>">
 									<a href="<%=contextPath%>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=2" target="_self"><span>酒楼转让 </span></a>
 								</li>
 								<li class="wangpuLine">&nbsp;</li>
-								<li id="aboutnav41" class="<s:if test="commerceParameter._ne_commerceType==3">wangpuHere</s:if>">
+								<li id="aboutnav41" class="<s:if test="commerceParameter._ne_commerceType==3&commerceParameter.maxResults=30">wangpuHere</s:if>">
 									<a href="<%=contextPath%>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=3" target="_self"><span>写字楼</span></a>
 								</li>
 								<li class="wangpuLine">&nbsp;</li>
-								<li id="aboutnav51" class="<s:if test="commerceParameter._ne_commerceType==4">wangpuHere</s:if>">
+								<li id="aboutnav51" class="<s:if test="commerceParameter._ne_commerceType==4&commerceParameter.maxResults=30">wangpuHere</s:if>">
 									<a href="<%=contextPath%>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=4" target="_self"><span>餐厅转让</span></a>
 								</li>
 								<li class="wangpuLine">&nbsp;</li>
-								<li id="aboutnav61" class="<s:if test="commerceParameter._ne_commerceType==5">wangpuHere</s:if>">
+								<li id="aboutnav61" class="<s:if test="commerceParameter._ne_commerceType==5&commerceParameter.maxResults=30">wangpuHere</s:if>">
 									<a href="<%=contextPath%>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=5" target="_self"><span>商铺</span></a>
 								</li>
 								<li class="wangpuLine">&nbsp;</li>
-								<li id="aboutnav71" class="<s:if test="commerceParameter._ne_commerceType==6">wangpuHere</s:if>">
+								<li id="aboutnav71" class="<s:if test="commerceParameter._ne_commerceType==6&commerceParameter.maxResults=30">wangpuHere</s:if>">
 									<a href="<%=contextPath%>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=6" target="_self"><span>工厂转让</span></a>
 								</li>
 								<li class="wangpuLine">&nbsp;</li>
-								<li id="aboutnav81" class="<s:if test="commerceParameter._ne_commerceType==7">wangpuHere</s:if>">
+								<li id="aboutnav81" class="<s:if test="commerceParameter._ne_commerceType==7&commerceParameter.maxResults=30">wangpuHere</s:if>">
 									<a href="<%=contextPath%>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=7" target="_self"><span>美容发廊</span></a>
 								</li>
 								<li class="wangpuLine">&nbsp;</li>
@@ -91,31 +91,33 @@
 								<a href="javascript:f_query('${from }')" >${name}</a>&nbsp;&nbsp;
 							</s:iterator>
 						</p>
-						<div class="wangpu_content_show">
-							<div class="wangpu_CF_left">
-								<ul>
+						<div class="wangpu_content_show" style="border: 1px solid red;" >
+							<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+								<tr>
 									<s:iterator value="pageView.records" id="item" status="status">
-										<li class="<s:if test="#status.odd==true">LiBg</s:if>">
-											<dl>
-												<dd>
-													<a href="#" class="cOrange">
-														<b>
-															<a href="<%=contextPath%>/commerce/commerceView.action?commerceId=<s:property value="commerceId"/>">
-																<s:property value="title" />
-															</a>
-														</b>
-													</a>&nbsp;&nbsp;&nbsp;&nbsp;--
-													<s:date name="updateTime" format="yyyy-MM-dd hh:mm" />
-													&nbsp;&nbsp;&nbsp;&nbsp;--
-													<fsf:dictTranslate groupName="#sys_user" value="createUser" />
-												</dd>
-												<dd>
-													<s:property value="content" />
-												</dd>
-											</dl>
-										</li>
+										<td style="width: 33%" >
+			        				<div class="two_left_5_2" >
+												<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="#item.commerceId" />" target="_blank">
+													<s:if test="imagePath!=null && imagePath.trim()!=''">
+														<img src="<%=contextPath %>${imagePath }" alt="${title }" width="74" height="59" border="0" />
+													</s:if>
+													<s:else>
+														<img src="<%=contextPath %>/images/logo.jpg" width="120" height="40" alt="${title }" />
+													</s:else>
+												</a>
+											</div>
+											<div class="two_left_5_3" style="font-size: 12px;" >
+												<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="#item.commerceId" />" target="_blank" title="${title }" ><s:property value="@chance.util.HtmlUtils@removeHTML(title,20)"/></a><br/>
+												<s:property value="@chance.util.HtmlUtils@removeHTML(content,24)"/>
+											</div>
+			        			</td>
+			        			<s:if test="#status.count%3==0">
+			        				</tr><tr>
+			        			</s:if>
 									</s:iterator>
-								</ul>
+								</tr>
+							</table>
+							
 								<ul>
 									<table width="100%" align="center">
 										<tr>
@@ -125,10 +127,6 @@
 										</tr>
 									</table>
 								</ul>
-							</div>
-
-							<div class="wangpu_CF_right">
-								<%@include file="/commerce/commerceRecommend.jsp"%>
 							</div>
 						</div>
 					</div>

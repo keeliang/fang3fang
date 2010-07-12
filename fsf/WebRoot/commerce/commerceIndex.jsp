@@ -17,185 +17,86 @@
 <body style="background-color:#FFFFFF">
 <%@include file="/commerce/commerceHeader.jsp" %>
     
-    <div class="clear"></div>
-    <div class="blank12"></div>
-    <!-- content -->
-    <div class="content">
-		
-        <div id="about11" style="display: block;">
-        <div class="wangpu_show">
-            <!-- wangpu menu -->
-        <div class="wangpu_menu">
-        	<div class="wangpu_menuLine"></div>
-	        <ul class="wangpuList"> 
-	          <li class="wangpuLeftW">&nbsp;</li>                  
-	         <li id="aboutnav11" class="wangpuHere"><a href="<%=contextPath %>/commerce/commerceIndex.action" target="_self"><span>全部信息</span></a></li> 
-	          <li id="aboutnav21"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=1" target="_self"><span>厂房仓库</span></a></li>
-	          <li id="aboutnav31"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=2" target="_self"><span>酒楼转让 </span></a></li>
-	          <li class="wangpuLine">&nbsp;</li>
-	          <li id="aboutnav41"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=3" target="_self"><span>写字楼</span></a></li> 
-	          <li class="wangpuLine">&nbsp;</li>
-	          <li id="aboutnav51"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=4" target="_self"><span>餐厅转让</span></a></li>
-	          <li class="wangpuLine">&nbsp;</li>
-	          <li id="aboutnav61"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=5" target="_self"><span>商铺</span></a></li>
-	          <li class="wangpuLine">&nbsp;</li>
-	          <li id="aboutnav71"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=6" target="_self"><span>工厂转让</span></a></li>
-	          <li class="wangpuLine">&nbsp;</li>
-	          <li id="aboutnav81"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=7" target="_self"><span>美容发廊</span></a></li>
-	          <li class="wangpuLine">&nbsp;</li>
-	          <li id="aboutnav91"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=8" target="_self"><span>房租转让</span></a></li>
-	          <li class="wangpuList">&nbsp;</li>
-	        </ul>  
+	<div class="clear"></div>
+	<div class="blank12"></div>
+	<!-- content -->
+	<div class="content">
+		<div id="about11" style="display: block;">
+      <div class="wangpu_show">
+          <!-- wangpu menu -->
+	      <div class="wangpu_menu">
+	      	<div class="wangpu_menuLine"></div>
+	       	<ul class="wangpuList"> 
+						<li class="wangpuLeftW">&nbsp;</li>                  
+						<li id="aboutnav11" class="wangpuHere"><a href="<%=contextPath %>/commerce/commerceIndex.action" target="_self"><span>全部信息</span></a></li> 
+						<li id="aboutnav21"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=1&commerceParameter.maxResults=30" target="_self"><span>厂房仓库</span></a></li>
+						<li id="aboutnav31"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=2&commerceParameter.maxResults=30" target="_self"><span>酒楼转让 </span></a></li>
+						<li class="wangpuLine">&nbsp;</li>
+						<li id="aboutnav41"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=3&commerceParameter.maxResults=30" target="_self"><span>写字楼</span></a></li> 
+						<li class="wangpuLine">&nbsp;</li>
+						<li id="aboutnav51"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=4&commerceParameter.maxResults=30" target="_self"><span>餐厅转让</span></a></li>
+						<li class="wangpuLine">&nbsp;</li>
+						<li id="aboutnav61"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=5&commerceParameter.maxResults=30" target="_self"><span>商铺</span></a></li>
+						<li class="wangpuLine">&nbsp;</li>
+						<li id="aboutnav71"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=6&commerceParameter.maxResults=30" target="_self"><span>工厂转让</span></a></li>
+						<li class="wangpuLine">&nbsp;</li>
+						<li id="aboutnav81"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=7&commerceParameter.maxResults=30" target="_self"><span>美容发廊</span></a></li>
+						<li class="wangpuLine">&nbsp;</li>
+						<li id="aboutnav91"><a href="<%=contextPath %>/commerce/commerceCatelogy.action?commerceParameter._ne_commerceType=8&commerceParameter.maxResults=30" target="_self"><span>房租转让</span></a></li>
+						<li class="wangpuList">&nbsp;</li>
+	       	</ul>  
 				</div>
-         
-          <div class="wangpu_button" id="Jbutton"><a href="<%=contextPath %>/commerce/commerceNew.action"><img src="images/wangpu_fabu.jpg" width="142" height="31" alt="我要发布信息" title="我要发布信息"/></a></div>
-
+				<div class="wangpu_button" id="Jbutton"><a href="<%=contextPath %>/commerce/commerceRelease.action"><img src="images/wangpu_fabu.jpg" width="142" height="31" alt="我要发布信息" title="我要发布信息"/></a></div>
+			</div>
+   
+      <div class="clear"></div>
+      <div class="wangpu_content">
+      	<p>
+      		<img src="images/freeTrade_dot04.jpg" width="10" height="10" align="absmiddle" /><b>地区：</b>
+					<a href="<%=contextPath %>/commerce/commerceIndex.action" >全部</a>
+					<s:iterator value="#application.est_filter.place" id="var">
+						<a href="<%=contextPath %>/commerce/commerceIndex.action?commerceParameter._ne_<s:property value="#var.from.split('_')[0]" />=<s:property value="#var.from.split('_')[1]" />">${name }</a>&nbsp;&nbsp;
+					</s:iterator>
+				</p>
+        <div class="wangpu_content_show">
+        	<table border="0" width="100%" cellpadding="0" cellspacing="0" >
+        		<tr>
+        			<s:iterator value="pageView.records" status="st" >
+	        			<td style="width: 33%" >
+	        				<div class="two_left_5_2" >
+										<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="commerceId" />" target="_blank">
+											<s:if test="imagePath!=null && imagePath.trim()!=''">
+												<img src="<%=contextPath %>${imagePath }" alt="${title }" width="74" height="59" border="0" />
+											</s:if>
+											<s:else>
+												<img src="<%=contextPath %>/images/logo.jpg" width="120" height="40" alt="${title }" />
+											</s:else>
+										</a>
+									</div>
+									<div class="two_left_5_3" style="font-size: 12px;" >
+										<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="commerceId" />" target="_blank" title="${title }" ><s:property value="@chance.util.HtmlUtils@removeHTML(title,20)"/></a><br/>
+										<fsf:dictTranslate groupName="$commerce_type" value="commerceType" /><br/>
+										<s:property value="@chance.util.HtmlUtils@removeHTML(content,20)"/>
+									</div>
+	        			</td>
+	        			<s:if test="#st.count%3==0">
+	        				</tr></tr>
+	        			</s:if>
+        			</s:iterator>
+        		</tr>
+        		<tr>
+        			<td width="100%" colspan="3" >
+								<%@ include file="/share/pageNavigation.jsp"%>
+							</td>
+        		</tr>
+        	</table>
+        	<s:form action="commerceIndex" namespace="/commerce" name="formList" id="formList" theme="simple" method="post">
+						<s:hidden name="commerceParameter.currentPage" id="currentPage" />
+						<s:hidden name="commerceParameter.maxResults" id="maxResults" />
+					</s:form>
         </div>
-     
-        <div class="clear"></div>
-        <div class="wangpu_content">
-        	<p>
-       			<img src="images/freeTrade_dot04.jpg" width="10" height="10" align="absmiddle" />
-						<b>地区：</b>
-						<a href="<%=contextPath %>/commerce/commerceIndex.action" >全部</a>
-						<s:iterator value="#application.est_filter.place" id="var">
-							<a href="<%=contextPath %>/commerce/commerceIndex.action?commerceParameter._ne_<s:property value="#var.from.split('_')[0]" />=<s:property value="#var.from.split('_')[1]" />">${name }</a>&nbsp;&nbsp;
-						</s:iterator>
-					</p>
-            <div class="wangpu_content_show">
-            	<table border="0" cellpadding="0" cellspacing="0" width="100%">
-                	<tr>
-                    	<td valign="top">
-                        	<div class="wangpu_col">
-                        		<div class="wangpu_col_title">旺铺</div>
-                                <div class="wangpu_col_content" id="showShop">
-                                    <s:iterator value="commerceList" id="item">
-                                    	<p>
-                                    		<span class="float_right cGray"><s:date name="updateTime" format="yyyy-MM-dd"/></span>
-                                    		<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="commerceId"/>">
-                                    			<span class="cOrange bold"><s:property value="title"/></span>
-                                    		</a>
-                                    		
-                                    	</p>
-                                    </s:iterator>
-                                </div>
-                                 <div class="wangpu_col_line"></div>
-                                 
-                                 <div class="wangpu_col_title">房租转让</div>
-                                <div class="wangpu_col_content" id="showShop">
-                                    <s:iterator value="hourseList" id="item">
-                                    	<p>
-                                    		<span class="float_right cGray"><s:date name="updateTime" format="yyyy-MM-dd"/></span>
-                                    		<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="commerceId"/>">
-                                    			<span class="cOrange bold"><s:property value="title"/></span>
-                                    		</a>
-                                    		
-                                    	</p>
-                                    </s:iterator>
-                                </div>
-                                 <div class="wangpu_col_line"></div>
-                            </div>
-                        </td>
-                        <td valign="top">
-                        	<div class="wangpu_col">
-                                <div class="wangpu_col_title">写字楼</div>
-                                <div class="wangpu_col_content" id="showShop">
-                                    <s:iterator value="officeList" id="item">
-                                    	<p>
-                                    		<span class="float_right cGray"><s:date name="updateTime" format="yyyy-MM-dd"/></span>
-                                    		<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="commerceId"/>">
-                                    			<span class="cOrange bold"><s:property value="title"/></span>
-                                    		</a>
-                                    	</p>
-                                    </s:iterator>
-                                </div>
-                                 <div class="wangpu_col_line"></div>
-                                 
-                                 <div class="wangpu_col_title">餐厅转让</div>
-                                <div class="wangpu_col_content" id="showShop">
-                                    <s:iterator value="restaurantList" id="item">
-                                    	<p>
-                                    		<span class="float_right cGray"><s:date name="updateTime" format="yyyy-MM-dd"/></span>
-                                    		<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="commerceId"/>">
-                                    			<span class="cOrange bold"><s:property value="title"/></span>
-                                    		</a>
-                                    		
-                                    	</p>
-                                    </s:iterator>
-                                </div>
-                                 <div class="wangpu_col_line"></div>
-                            </div>
-                        </td>
-                        <td valign="top">
-                        	<div class="wangpu_col">
-                                <div class="wangpu_col_title">厂房仓库</div>
-                                <div class="wangpu_col_content" id="showShop">
-                                    <s:iterator value="factoryList" id="item">
-                                    	<p>
-                                    		<span class="float_right cGray"><s:date name="updateTime" format="yyyy-MM-dd"/></span>
-                                    		<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="commerceId"/>">
-                                    			<span class="cOrange bold"><s:property value="title"/></span>
-                                    		</a>
-                                    		
-                                    	</p>
-                                    </s:iterator>
-                                </div>
-                                 <div class="wangpu_col_line"></div>
-
-								<div class="wangpu_col_title">美容美发</div>
-                                <div class="wangpu_col_content" id="showShop">
-                                    <s:iterator value="salonList" id="item">
-                                    	<p>
-                                    		<span class="float_right cGray"><s:date name="updateTime" format="yyyy-MM-dd"/></span>
-                                    		<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="commerceId"/>">
-                                    			<span class="cOrange bold"><s:property value="title"/></span>
-                                    		</a>
-                                    		
-                                    	</p>
-                                    </s:iterator>
-                                </div>
-                                 <div class="wangpu_col_line"></div>
-                            </div>
-                        </td>
-                        <!-- ==================================最新旺铺========================================= -->
-                        <td valign="top">
-                        	<div class="wangpu_col">
-                                <div class="wangpu_col_line"></div>
-                                <s:iterator value="lastestList" id="item" status="status">
-                                	<s:if test="#status.odd == true">
-                                	<div class="wangpu_col_content">
-                                		<p><a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="commerceId"/>">
-                                				<span class="cOrange bold"><s:property value="title"/></span>
-                                			</a>
-                                		</p>
-                                    	<p><span class="cGray"><s:property value="content"/></span></p>
-                                	</div>
-                                	</s:if>
-                                </s:iterator>
-                            </div>
-                        </td>
-                        <td valign="top">
-                        	<div class="wangpu_col02">
-                                <div class="wangpu_col_line"></div>
-                                <s:iterator value="lastestList" id="item" status="status">
-                                	<s:if test="#status.even == true">
-                                	<div class="wangpu_col_content">
-                                		<p><a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="commerceId"/>">
-                                				<span class="cOrange bold"><s:property value="title"/></span>
-                                			</a>
-                                		</p>
-                                    	<p><span class="cGray"><s:property value="content"/></span></p>
-                                	</div>
-                                	</s:if>
-                                </s:iterator>
-                            </div>
-                        </td>
-                        
-                    </tr>
-                </table>
-            </div>
-        </div>
-	</div>
+      </div>
+		</div>
   </div>
   
   <div class="clear"></div>

@@ -260,3 +260,17 @@ background:url(../images/trade_navOn.jpg)!important;height:32px; color:#830505;
 	border-left:1px solid #ea7419;
 	border-right:1px solid #ea7419;
 }
+
+.two_left_5_2{
+	float: left;
+	margin-right: 10px;
+	padding: 5px;
+	border: solid 1px #ccc;
+	background-color: #fff;
+}
+
+.two_left_5_3{
+	float: left;
+	line-height: 20px;
+	text-align: left;
+}
