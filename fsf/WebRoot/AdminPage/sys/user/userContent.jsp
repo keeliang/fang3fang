@@ -36,6 +36,7 @@
 <s:hidden name="userParameter._dge_createDate" />
 
 <s:hidden name="userId" />
+<s:hidden name="password" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -60,14 +61,6 @@
 			<s:textfield name="userCode" /><font color="red">*</font>
 			<input type="button" value="上传图片" id="btnUpload" />
 			<s:hidden name="imagePath" />
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<s:text name="password"/>:
-		</td>
-		<td>
-			<s:textfield name="password" /><font color="red">*</font>
 		</td>
 	</tr>
 	<tr>
