@@ -21,6 +21,7 @@ public class Commerce implements java.io.Serializable {
 	private Integer cityId;
 	private Integer districtId;
 	private Integer areaId;
+	private String imagePath;
 	/**
 	 * 1 - 厂房仓库 2 - 酒楼转让   3 - 写字楼4 - 餐厅转让 5 - 商铺6  - 工厂转让 7 - 美容发廊 8 - 房租转让
 	 */
@@ -32,26 +33,14 @@ public class Commerce implements java.io.Serializable {
 	private Date updateTime;
 	private Integer updateUserId;
 	private String address;
-	/*
-	 * 联系人
-	 */
-	private String contacter;
-	/*
-	 * 联系电话
-	 */
-	private String contactTel;
-	/*
-	 * 浏览次数
-	 */
-	private Integer visitCount;
 
 	public Commerce() {
 	}
 
 	public Commerce(String title, String content, Integer commerceType,
 			Short status, String ip, Date createTime, Integer createUserId,
-			Date updateTime, Integer updateUserId, Integer visitCount, 
-			String address, String contacter, String contactTel) {
+			Date updateTime, Integer updateUserId, 
+			String address) {
 		this.title = title;
 		this.content = content;
 		this.commerceType = commerceType;
@@ -61,17 +50,14 @@ public class Commerce implements java.io.Serializable {
 		this.createUserId = createUserId;
 		this.updateTime = updateTime;
 		this.updateUserId = updateUserId;
-		this.visitCount = visitCount;
 		this.address = address;
-		this.contacter = contacter;
-		this.contactTel = contactTel;
 	}
 
 	public Commerce(String title, String content, Integer provinceId,
 			Integer cityId, Integer districtId, Integer areaId,
 			Integer commerceType, Short status, String ip, Date createTime,
 			Integer createUserId, Date updateTime, Integer updateUserId, 
-			Integer visitCount, String address, String contacter, String contactTel) {
+			 String address) {
 		this.title = title;
 		this.content = content;
 		this.provinceId = provinceId;
@@ -85,11 +71,7 @@ public class Commerce implements java.io.Serializable {
 		this.createUserId = createUserId;
 		this.updateTime = updateTime;
 		this.updateUserId = updateUserId;
-		this.visitCount = visitCount;
-		this.visitCount = visitCount;
 		this.address = address;
-		this.contacter = contacter;
-		this.contactTel = contactTel;
 	}
 
 	public Integer getCommerceId() {
@@ -230,14 +212,6 @@ public class Commerce implements java.io.Serializable {
 		return true;
 	}
 
-	public Integer getVisitCount() {
-		return visitCount;
-	}
-
-	public void setVisitCount(Integer visitCount) {
-		this.visitCount = visitCount;
-	}
-
 	public String getAddress() {
 		return address;
 	}
@@ -246,20 +220,11 @@ public class Commerce implements java.io.Serializable {
 		this.address = address;
 	}
 
-	public String getContacter() {
-		return contacter;
+	public String getImagePath() {
+		return imagePath;
 	}
 
-	public void setContacter(String contacter) {
-		this.contacter = contacter;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
-
-	public String getContactTel() {
-		return contactTel;
-	}
-
-	public void setContactTel(String contactTel) {
-		this.contactTel = contactTel;
-	}
-
 }

@@ -1,97 +1,128 @@
 package fsf.action.est.commerce;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.PropertyUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import chance.base.BaseParameter;
-import chance.base.action.BaseAction;
+import chance.base.action.UploadBaseAction;
+import chance.common.PageView;
 import fsf.beans.est.commerce.Commerce;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
 import fsf.service.est.commerce.CommerceService;
+import fsf.service.sys.user.UserService;
 import fsf.web.common.ThreadUser;
+import fsf.web.common.WebConstant;
 
 @Controller
 @Scope("prototype")
-public class CommerceAction extends BaseAction<Commerce> implements ServletRequestAware{
+public class CommerceAction extends UploadBaseAction<Commerce> {
 
 	private static final long serialVersionUID = 4817958598506277718L;
 	
 	public CommerceAction() {
-		super(Commerce.class, new String[] { "commerceId" });
+		super(Commerce.class, new String[] { "commerceId" },"commerce");
+	}
+	@Resource
+	private UserService userService;
+	
+//	List<Commerce> factoryList;
+//	List<Commerce> officeList;
+//	List<Commerce> restaurantList;
+//	List<Commerce> commerceList;
+//	List<Commerce> salonList;
+//	List<Commerce> hourseList;
+//	List<Commerce> lastestList;
+	
+	/**
+	 * 保存发布
+	 * @return
+	 * @throws Exception
+	 */
+	public String doReleaseSave()throws Exception{
+		Commerce commerce = new Commerce();
+		BeanUtils.copyProperties(commerce, this);
+		commerce.setStatus((short)1);
+		Date d = new Date();
+		commerce.setCreateTime(d);
+		commerce.setUpdateTime(d);
+		contactUser.setCreateDate(d);
+		contactUser.setUserCode(contactUser.getPhone());
+		try {
+			getCommerceService().doReleaseSave(commerce,contactUser );
+			getHttpSession().setAttribute(WebConstant.SESSION_USER,contactUser );
+		} catch (Exception e) {
+			handleDefaultException(e);
+		}
+		return SUCCESS;
 	}
 	
-	private HttpServletRequest request;
-	List<Commerce> factoryList;
-	List<Commerce> officeList;
-	List<Commerce> restaurantList;
-	List<Commerce> commerceList;
-	List<Commerce> salonList;
-	List<Commerce> hourseList;
-	List<Commerce> lastestList;
-	
-    public void setServletRequest(HttpServletRequest request){
-    	this.request = request;
-    }
-    
     public String indexList() throws Exception{
     	try {
     		if(baseParameter==null){
     			baseParameter = new CommerceParameter();
     		}
-    		
-    		baseParameter.setTopCount(10);
-    		baseParameter.setMaxResults(-1);
-    		baseParameter.setCurrentPage(-1);
-    		baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
-    		((CommerceParameter)baseParameter).set_ne_status((short)1);
-	
-			//1 - 厂房仓库   3 - 写字楼4 - 餐厅转让 5 - 商铺 7 - 美容发廊 8 - 房租转让
-
-			//厂房仓库
-    		((CommerceParameter)baseParameter).set_ne_commerceType(1);
-			factoryList = service.doQuery(baseParameter);
-			//写字楼
-			((CommerceParameter)baseParameter).set_ne_commerceType(3);
-			officeList = service.doQuery(baseParameter);
-			//餐厅转让
-			((CommerceParameter)baseParameter).set_ne_commerceType(4);
-			restaurantList = service.doQuery(baseParameter);
-			//商铺
-			((CommerceParameter)baseParameter).set_ne_commerceType(5);
-			commerceList = service.doQuery(baseParameter);
-			//美容发廊
-			((CommerceParameter)baseParameter).set_ne_commerceType(7);
-			salonList = service.doQuery(baseParameter);
-			//房租转让
-			((CommerceParameter)baseParameter).set_ne_commerceType(8);
-			hourseList = service.doQuery(baseParameter);
+//    		baseParameter.setTopCount(10);
+//    		baseParameter.setMaxResults(-1);
+//    		baseParameter.setCurrentPage(-1);
+//    		baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
+//    		((CommerceParameter)baseParameter).set_ne_status((short)1);
+//	
+//			//1 - 厂房仓库   3 - 写字楼4 - 餐厅转让 5 - 商铺 7 - 美容发廊 8 - 房租转让
+//
+//			//厂房仓库
+//    		((CommerceParameter)baseParameter).set_ne_commerceType(1);
+//			factoryList = service.doQuery(baseParameter);
+//			//写字楼
+//			((CommerceParameter)baseParameter).set_ne_commerceType(3);
+//			officeList = service.doQuery(baseParameter);
+//			//餐厅转让
+//			((CommerceParameter)baseParameter).set_ne_commerceType(4);
+//			restaurantList = service.doQuery(baseParameter);
+//			//商铺
+//			((CommerceParameter)baseParameter).set_ne_commerceType(5);
+//			commerceList = service.doQuery(baseParameter);
+//			//美容发廊
+//			((CommerceParameter)baseParameter).set_ne_commerceType(7);
+//			salonList = service.doQuery(baseParameter);
+//			//房租转让
+//			((CommerceParameter)baseParameter).set_ne_commerceType(8);
+//			hourseList = service.doQuery(baseParameter);
 			
 			//最新旺铺信息
 			
-			baseParameter= new CommerceParameter();
-			baseParameter.setTopCount(30);
-			baseParameter.setMaxResults(-1);
-			baseParameter.setCurrentPage(-1);
+			baseParameter.setMaxResults(30);
+			if(baseParameter.getCurrentPage()==null){
+				baseParameter.setCurrentPage(1);	
+			}
 			((CommerceParameter)baseParameter).set_ne_status((short)1);
 			baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
-    		lastestList = service.doQuery(baseParameter);
+			setPageView(new PageView<Commerce>(baseParameter.getMaxResults(),baseParameter.getCurrentPage()));
+			getPageView().setQueryResult(service.doPaginationQuery(baseParameter));
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
 		}
     	return SUCCESS;
     }
+    
+    public String doRelease()throws Exception{
+		if(getHttpSession().getAttribute(WebConstant.SESSION_USER)==null){
+			return SUCCESS;
+		}
+		return "success2";
+	}
     
     public String commerceCatelory() throws Exception{
     	return doList();
@@ -100,6 +131,25 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
     public String commerceView()throws Exception{
     	return doEdit();
     }
+    
+    @Override
+	public String doEdit() throws Exception {
+		if(!CMD_SELECT.equals(getCmd())){
+			setCmd(CMD_EDIT);
+		}
+		Commerce entity = null;
+		try{
+			Object pk = PropertyUtils.getNestedProperty(this, pkArray[0]);
+			entity = service.get((Serializable)pk);
+			restoreContent(entity);
+			if(entity!=null && entity.getCreateUserId()!=null){
+				contactUser = userService.get(entity.getCreateUserId());
+			}
+		}catch (Exception e) {
+			handleEditException(e);
+		}
+		return SUCCESS;
+	}
 	
 	public String getCityList() throws Exception {
 		BaseParameter param = new BaseParameter();
@@ -140,18 +190,15 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
 	@Override
 	protected void initData() {
 		User u = ThreadUser.get();
+		if(u!=null){
+			createUserId = u.getUserId();
+			updateUserId = u.getUserId();
+		}
 		Date today = new Date();
-		
-		ip = request.getRemoteAddr();
-		createUserId = u.getUserId();
-		updateUserId = u.getUserId();
 		createTime = today;
 		updateTime = today;
-		visitCount = 0;
+		ip = getHttpServletRequest().getRemoteAddr();
 		status = 1;
-		contacter = u.getUserName();
-		contactTel = u.getPhone();
-		
 	}
 	
 	@Resource
@@ -186,18 +233,9 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
 	private Date updateTime;
 	private Integer updateUserId;
 	private String address;
-	/*
-	 * 联系人
-	 */
-	private String contacter;
-	/*
-	 * 联系电话
-	 */
-	private String contactTel;
-	/*
-	 * 浏览次数
-	 */
-	private Integer visitCount;
+	private String imagePath;
+	private User contactUser;
+	
 
 	public void setCommerceId(Integer commerceId){
 		this.commerceId = commerceId;
@@ -284,45 +322,37 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
 		return this.updateUserId;
 	}
 
-	public List<Commerce> getFactoryList() {
-		return factoryList;
-	}
-
-	public List<Commerce> getOfficeList() {
-		return officeList;
-	}
-
-	public List<Commerce> getRestaurantList() {
-		return restaurantList;
-	}
-
-	public List<Commerce> getCommerceList() {
-		return commerceList;
-	}
-
-	public List<Commerce> getSalonList() {
-		return salonList;
-	}
-
-	public List<Commerce> getHourseList() {
-		return hourseList;
-	}
-
-	public List<Commerce> getLastestList() {
-		return lastestList;
-	}
-
-	public void setLastestList(List<Commerce> lastestList) {
-		this.lastestList = lastestList;
-	}
-
-	public Integer getVisitCount() {
-		return visitCount;
-	}
-
-	public void setVisitCount(Integer visitCount) {
-		this.visitCount = visitCount;
-	}
+//	public List<Commerce> getFactoryList() {
+//		return factoryList;
+//	}
+//
+//	public List<Commerce> getOfficeList() {
+//		return officeList;
+//	}
+//
+//	public List<Commerce> getRestaurantList() {
+//		return restaurantList;
+//	}
+//
+//	public List<Commerce> getCommerceList() {
+//		return commerceList;
+//	}
+//
+//	public List<Commerce> getSalonList() {
+//		return salonList;
+//	}
+//
+//	public List<Commerce> getHourseList() {
+//		return hourseList;
+//	}
+//
+//	public List<Commerce> getLastestList() {
+//		return lastestList;
+//	}
+//
+//	public void setLastestList(List<Commerce> lastestList) {
+//		this.lastestList = lastestList;
+//	}
 
 	public String getAddress() {
 		return address;
@@ -332,20 +362,21 @@ public class CommerceAction extends BaseAction<Commerce> implements ServletReque
 		this.address = address;
 	}
 
-	public String getContacter() {
-		return contacter;
+	public String getImagePath() {
+		return imagePath;
 	}
 
-	public void setContacter(String contacter) {
-		this.contacter = contacter;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
-	public String getContactTel() {
-		return contactTel;
+	public User getContactUser() {
+		return contactUser;
 	}
 
-	public void setContactTel(String contactTel) {
-		this.contactTel = contactTel;
+	public void setContactUser(User contactUser) {
+		this.contactUser = contactUser;
 	}
+	
 
 }
