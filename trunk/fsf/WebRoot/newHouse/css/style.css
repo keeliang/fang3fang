@@ -360,8 +360,16 @@ background:url(../images/freeTrade_navOn.gif) no-repeat; font-weight:bold;}
 　　left: -width/2;
 }
 
+.two_left_5_2{
+	float: left;
+	margin-right: 10px;
+	padding: 5px;
+	border: solid 1px #ccc;
+	background-color: #fff;
+}
 
-
-
-
-
+.two_left_5_3{
+	float: left;
+	line-height: 20px;
+	text-align: left;
+}

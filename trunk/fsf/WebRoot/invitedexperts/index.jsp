@@ -120,7 +120,7 @@
 									<div class="details">
 										<ul>
 											<li class="expertName2">
-												<a href="ExpertsHouse.jsp">${realName }</a>
+												<a href="<%=contextPath %>/invitedexperts/exportHouse.action?userId=${userId }" target="blank" >${realName }</a>
 												<s:bean name="org.apache.struts2.util.Counter" id="i" >
 													<s:param name="first" value="1"/>
 													<s:param name="last" value="level"/>

@@ -9,6 +9,7 @@
 <link type="text/css" rel="stylesheet" href="<%=contextPath%>/css/AdminPage.css" />
 <script type="text/javascript" src="<%=contextPath%>/js/jquery.js"></script>
 <script type="text/javascript" src="<%=contextPath %>/fckeditor/fckeditor.js"></script>
+<script type="text/javascript" src="<%=contextPath %>/js/jquery.form.min.js"></script>
 </head>
 
 <body style="background-color:#FFFFFF">
@@ -48,7 +49,8 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="title"/>:</td>
-					<td><s:textfield name="title" /><font color="red">*</font></td>
+					<td><s:textfield name="title" /><font color="red">*</font><input type="button" value="上传图片" id="btnUpload" /></td>
+					<s:hidden name="imagePath" />
 				</tr>
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="content"/>:</td>
@@ -142,22 +144,16 @@
 						value="<fsf:dictTranslate groupName="#sys_user" value="updateUserId"/>">
 					</td>
 				</tr>
-				<!-- 
-				<tr>
-					<td class="contentColumnNameTd">浏览次数:</td>
-					<td>
-						<s:textfield name="visitCount" readonly="true"/>
-					</td>
-				</tr>
-				 -->
 			</table>
 		</td>
 	</tr>
 </table>
 </s:form>
+<%@include file="/share/upload.jsp" %>
 </body>
 </html>
 <script type="text/javascript">
+var UploadActionName = "<%=contextPath%>/sysadmin/est/commerce/uploadFile.action";
 window.onload = function(){
 	var oFCKeditor = new FCKeditor( 'content' ) ;
 	oFCKeditor.BasePath	= "/fckeditor/" ;

@@ -191,35 +191,29 @@
 			<s:if test="pageView.records!=null && pageView.records.size()>0">
 				<table border="0" cellpadding="0" cellspacing="0" class="trade_table" width="850px">
 					<tr>
-						<td id="PropertyName" class="grayBg" width="330px" colspan="2">
-							<span class="cOrange">房产</span>
-						</td>
-						<td class="grayBg">户型</td>
-						<td class="grayBg"><span>面积</span></td>
-						<td class="grayBg">售价</td>
-						<td class="grayBg"><span class="cOrange">发布人</span></td>
+						<s:iterator value="pageView.records" id="item" status="st" >
+							<td style="width: 50%;" >
+								<div class="two_left_5_2" >
+									<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="#item.commerceId" />" target="_blank">
+										<s:if test="imagePath!=null && imagePath.trim()!=''">
+											<img src="<%=contextPath %>${imagePath }" alt="${estateName }" width="74" height="59" border="0" />
+										</s:if>
+										<s:else>
+											<img src="<%=contextPath %>/images/logo.jpg" width="120" height="40" alt="${estateName }" />
+										</s:else>
+									</a>
+								</div>
+								<div class="two_left_5_3" >
+									<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="#item.commerceId" />" target="_blank" title="${estateName }" ><s:property value="@chance.util.HtmlUtils@removeHTML(estateName,20)"/></a><br/>
+									${bedroom }室${hall }厅&nbsp;&nbsp; ${price }元<br/>
+									<s:property value="@chance.util.HtmlUtils@removeHTML(remark,20)"/>
+								</div>
+							</td>
+							<s:if test="#st.count%2==0">
+								</tr><tr>
+							</s:if>
+						</s:iterator>
 					</tr>
-					<s:iterator value="pageView.records" id="item">
-						<tr>
-							<td>
-								<s:if test="imagePath!=null && imagePath.trim()==''">
-									<img src="<%=contextPath %>${imagePath }" width="105" height="80" />
-								</s:if>
-								<s:else>
-									<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
-								</s:else>
-							</td>
-							<td>
-								<a href="<%=contextPath %>/newHouse/content.action?estateId=<s:property value="#item.estateId" />" target="blank" >
-									<s:property value="#item.estateName" />
-								</a>
-							</td>
-							<td><s:property value="#item.area" />m<sup>2</sup></td>
-							<td><s:property value="#item.bedroom" />房<s:property value="#item.hall" />厅</td>
-							<td><s:property value="#item.rentPrice" />元/月</td>
-							<td><fsf:dictTranslate groupName="#sys_user" value="createUserId"/></td>
-						</tr>
-					</s:iterator>
 				</table>
 			</s:if>
 		</s:if>
