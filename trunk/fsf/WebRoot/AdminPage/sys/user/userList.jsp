@@ -185,7 +185,6 @@
 	</td>
 	<td class="table_hdr"><s:text name="userCode"/></td>
 	<td class="table_hdr"><s:text name="userName"/></td>
-	<td class="table_hdr"><s:text name="sex"/></td>
 	<td class="table_hdr"><s:text name="status"/></td>
 	<td class="table_hdr"><s:text name="userType"/></td>
 	<td class="table_hdr"><s:text name="provinceId"/></td>
@@ -195,6 +194,7 @@
 	<td class="table_hdr"><s:text name="phone"/></td>
 	<td class="table_hdr"><s:text name="qq"/></td>
 	<td class="table_hdr"><s:text name="createDate"/></td>
+	<td>修改密码</td>
 </tr>
 
 <s:iterator value="pageView.records" id="item">
@@ -207,7 +207,6 @@
 		</td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="userCode"/></a></td>
 		<td><s:property value="userName"/></td>
-		<td><s:property value="sex"/></td>
 		<td>
 			<fsf:dictTranslate groupName="$status" value="status"/>
 		</td>
@@ -229,6 +228,7 @@
 		<td>
 			<s:date name="createDate" format="yyyy-MM-dd"/>
 		</td>
+		<td><a href="<%=contextPath %>/AdminPage/sys/user/updatePassword.jsp?userId=${userId }" >修改密码</a></td>
 	</tr>
 </s:iterator>
 </table>

@@ -277,6 +277,41 @@ create table if not exists est_comment(
 	constraint PK_est_comment primary key(comment_id)
 );
 
+/**
+贷款申请
+*/
+drop table if exists bank_loan_apply;
+create table if not exists bank_loan_apply(
+	apply_id int not null auto_increment,
+	real_name varchar(20),
+	sex tinyint,
+	paper_type tinyint,
+	paper_no varchar(30),
+	company varchar(30),
+	is_marry tinyint,
+	phone varchar(20),
+	tel varchar(20),
+	loan_amount decimal(14,2),
+	loan_year int,
+	repay_type tinyint,
+	loan_usage tinyint,
+	province_id int,
+	city_id int,
+	district_id int,
+	estate_property tinyint,
+	estate_name varchar(50),
+	address varchar(80),
+	estate_price decimal(14,2),
+	register_price decimal(14,2),
+	estate_year int,
+	estate_month int,
+	area decimal(14,2),
+	create_time datetime,
+	create_user_id int,
+	status tinyint,
+	constraint PK_bank_loan_apply primary key(apply_id)
+);
+
 
 /*
 经纪人信息

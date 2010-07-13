@@ -12,10 +12,10 @@
 </head>
 
 <body>
-<s:form action="userPassowrdSave" namespace="/sysadmin/sys/user" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
+<s:form action="updatePasswordSave" namespace="/sysadmin/sys/user" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
 <div class="contentTitle">密码修改</div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
-<input type="hidden" name="userId"  value="${USER.userId }" />
+<input type="hidden" name="userId"  value="${param.userId }" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -24,16 +24,7 @@
 		</td>
 	</tr>
 </table>
-
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-	<tr>
-		<td style="width: 150px;">
-			密码：
-		</td>
-		<td>
-			<s:password name="password" />
-		</td>
-	</tr>
 	<tr>
 		<td>
 			新密码：
@@ -62,7 +53,7 @@ function f_validate(){
 		document.getElementById('confirmPassword').value = "";
 		return false;
 	}
-	addfield("password","密码","String",false,50);
+	addfield("newPassword","密码","String",false,50);
 	return validate();
 }
 </script>

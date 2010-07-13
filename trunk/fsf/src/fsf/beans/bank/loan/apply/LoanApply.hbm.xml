@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-7-13 11:02:38 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="fsf.beans.bank.loan.apply.LoanApply" table="bank_loan_apply" >
+        <id name="applyId" type="java.lang.Integer">
+            <column name="apply_id" />
+            <generator class="identity" />
+        </id>
+        <property name="realName" type="string">
+            <column name="real_name" length="20" />
+        </property>
+        <property name="sex" type="java.lang.Byte">
+            <column name="sex" />
+        </property>
+        <property name="paperType" type="java.lang.Byte">
+            <column name="paper_type" />
+        </property>
+        <property name="paperNo" type="string">
+            <column name="paper_no" length="30" />
+        </property>
+        <property name="company" type="string">
+            <column name="company" length="30" />
+        </property>
+        <property name="isMarry" type="java.lang.Byte">
+            <column name="is_marry" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="20" />
+        </property>
+        <property name="tel" type="string">
+            <column name="tel" length="20" />
+        </property>
+        <property name="loanAmount" type="double">
+            <column name="loan_amount" precision="14" />
+        </property>
+        <property name="loanYear" type="java.lang.Integer">
+            <column name="loan_year" />
+        </property>
+        <property name="repayType" type="java.lang.Byte">
+            <column name="repay_type" />
+        </property>
+        <property name="loanUsage" type="java.lang.Byte">
+            <column name="loan_usage" />
+        </property>
+        <property name="provinceId" type="java.lang.Integer">
+            <column name="province_id" />
+        </property>
+        <property name="cityId" type="java.lang.Integer">
+            <column name="city_id" />
+        </property>
+        <property name="districtId" type="java.lang.Integer">
+            <column name="district_id" />
+        </property>
+        <property name="estateName" type="string">
+            <column name="estate_name" length="50" />
+        </property>
+        <property name="estateProperty" type="java.lang.Byte">
+            <column name="estate_property" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="80" />
+        </property>
+        <property name="estatePrice" type="double">
+            <column name="estate_price" precision="14" />
+        </property>
+        <property name="registerPrice" type="double">
+            <column name="register_price" precision="14" />
+        </property>
+        <property name="estateYear" type="java.lang.Integer">
+            <column name="estate_year" />
+        </property>
+        <property name="estateMonth" type="java.lang.Integer">
+            <column name="estate_month" />
+        </property>
+        <property name="area" type="double">
+            <column name="area" precision="14" />
+        </property>
+        <property name="createTime" type="timestamp" update="false" >
+            <column name="create_time" length="19" />
+        </property>
+        <property name="createUserId" type="java.lang.Integer" update="false">
+            <column name="create_user_id" />
+        </property>
+        <property name="status" type="java.lang.Byte">
+            <column name="status" />
+        </property>
+    </class>
+</hibernate-mapping>

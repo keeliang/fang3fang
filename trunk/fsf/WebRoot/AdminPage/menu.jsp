@@ -6,8 +6,6 @@ String contextPath = request.getContextPath();
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>My JSP 'bbb.jsp' starting page</title>
-    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -40,6 +38,9 @@ $(document).ready(function() {
 			</table>
 		</td>
 	</tr>
+	
+	<tr style="height: 5px;"></tr>
+	
 	<tr class="menuHeadTr">
 		<td class="menuHeadTd"><a>用户信息管理</a></td>
 	</tr>
@@ -87,6 +88,18 @@ $(document).ready(function() {
 			</table>
 		</td>
 	</tr>
+	
+	<tr style="height: 5px;"></tr>
+
+	<tr class="menuHeadTr">
+		<td class="menuHeadTd"><a>贷款申请管理</a></td>
+	</tr>
+	<tr class="menuItemTr">
+		<td>
+			<table>
+				<tr><td><a href="<%=contextPath %>/sysadmin/bank/loan/apply/loanApplyList.action" target="content"><span>贷款申请管理</span></a></td></tr>
+			</table>
+		</td>
 	
 	<tr style="height: 5px;"></tr>
 

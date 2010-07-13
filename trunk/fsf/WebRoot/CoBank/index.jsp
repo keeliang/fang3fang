@@ -61,11 +61,13 @@
 			<br />
 			<div style="background-image: url(images/bBg.jpg);">
 				<div class="BTitleImg">
-					<img src="images/coBank.jpg" />
+					<img src="images/coBank.jpg" /><br/>
 				</div>
 				<div style="float: left; margin-left: 825px; position: absolute; margin-top: -55px"></div>
 			</div>
-
+			<a href="<%=contextPath %>/CoBank/loanApplyNew.action">
+				<img src="<%=contextPath %>/images/help_button02.jpg" width="155" height="49" alt="在线按揭申请" title="在线按揭申请" />	
+			</a>
 			<br />
 			<br />
 			<div class="Bcontent">

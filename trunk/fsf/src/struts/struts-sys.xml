@@ -40,10 +40,15 @@
 			<result>/AdminPage/sys/user/userPassword.jsp</result>
 			<result name="input">/AdminPage/sys/user/userPassword.jsp</result>
 		</action>
+		
 		<action name="uploadFile" class="userAction" method="doUploadFile" ></action>
 		
 		<action name="selectUser" >
 			<result>/AdminPage/sys/user/selectUserFrm.jsp</result>
+		</action>
+		
+		<action name="updatePasswordSave" class="userAction" method="doUpdatePasswordByAdmin" >
+			<result>/AdminPage/sys/user/updatePassword.jsp</result>
 		</action>
 	</package>
 	<!-- ********************************************** -->
@@ -191,4 +196,31 @@
 		</action>
 	</package>
 	<!-- ********************************************** -->
+	<!--******************* loanApply *************** -->
+	<package name="/sysadmin/bank/loan/apply" extends="baseDefault" namespace="/sysadmin/bank/loan/apply" >
+		<action name="loanApplyList" class="loanApplyAction" method="doList">
+			<result>/AdminPage/bank/loan/apply/loanApplyList.jsp</result>
+			<result name="input">/AdminPage/bank/loan/apply/loanApplyList.jsp</result>
+		</action>
+		<action name="loanApplySave" class="loanApplyAction" method="doSave">
+			<result>/AdminPage/bank/loan/apply/loanApplyContent.jsp</result>
+			<result name="input">/AdminPage/bank/loan/apply/loanApplyContent.jsp</result>
+		</action>
+		<action name="loanApplyEdit" class="loanApplyAction" method="doEdit">
+			<result>/AdminPage/bank/loan/apply/loanApplyContent.jsp</result>
+			<result name="input">/AdminPage/bank/loan/apply/loanApplyContent.jsp</result>
+		</action>
+		<action name="loanApplyNew" class="loanApplyAction" method="doNew">
+			<result>/AdminPage/bank/loan/apply/loanApplyContent.jsp</result>
+			<result name="input">/AdminPage/bank/loan/apply/loanApplyContent.jsp</result>
+		</action>
+		<action name="loanApplyDelete" class="loanApplyAction" method="doDelete">
+			<result>/AdminPage/bank/loan/apply/loanApplyList.jsp</result>
+			<result name="input">/AdminPage/bank/loan/apply/loanApplyList.jsp</result>
+		</action>
+		<action name="getCityList" class="userAction" method="getCityList"></action>
+		<action name="getDistrictList" class="userAction" method="getDistrictList"></action>
+	</package>
+	<!-- ********************************************** -->
+	
 </struts>

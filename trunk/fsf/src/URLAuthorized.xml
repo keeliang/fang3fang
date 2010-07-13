@@ -51,5 +51,7 @@
 		
 		<resource url="/newHouse/commitComment.ajax" />
 		
+		<resource url="/CoBank/loanApplyNew.action" />
+		<resource url="/CoBank/loanApplySave.action" />
 	</FrontProtected>
 </authorized>
