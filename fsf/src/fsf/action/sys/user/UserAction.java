@@ -140,6 +140,18 @@ public class UserAction extends UploadBaseAction<User> {
 		return SUCCESS;
 	}
 	
+	public String doUpdatePasswordByAdmin()throws Exception{
+		User user = service.get(userId);
+		if(newPassword!=null&&!"".equals(newPassword)){
+			user.setPassword(MD5.crypt(newPassword));
+			service.update(user);
+			addActionMessage(getText("updatePasswordSuccess"));
+		}else{
+			addActionMessage(getText("passwordError"));
+		}
+		return SUCCESS;
+	}
+	
 	/**
 	 * 前台登录
 	 * @return

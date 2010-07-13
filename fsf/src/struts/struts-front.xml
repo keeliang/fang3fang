@@ -309,6 +309,15 @@
 		<action name="index" class="pageInfoAction" method="doBank">
 			<result>/CoBank/index.jsp</result>
 		</action>
+		<action name="loanApplyNew" class="loanApplyAction" method="doNew" >
+			<result>/CoBank/loan.jsp</result>
+		</action>
+		<action name="loanApplySave" class="loanApplyAction" method="doSave" >
+			<result>/CoBank/loan.jsp</result>
+		</action>
+		
+		<action name="getCityList" class="userAction" method="getCityList"></action>
+		<action name="getDistrictList" class="userAction" method="getDistrictList"></action>
 	</package>
 
 </struts>

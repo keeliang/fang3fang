@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import net.jforum.util.MD5;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -59,6 +60,7 @@ public class CommerceAction extends UploadBaseAction<Commerce> {
 		commerce.setUpdateTime(d);
 		contactUser.setCreateDate(d);
 		contactUser.setUserCode(contactUser.getPhone());
+		contactUser.setPassword(MD5.crypt(contactUser.getPassword()));
 		try {
 			getCommerceService().doReleaseSave(commerce,contactUser );
 			getHttpSession().setAttribute(WebConstant.SESSION_USER,contactUser );

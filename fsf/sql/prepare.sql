@@ -279,3 +279,57 @@ insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
 select 'attention_type','1','买房注意事项','买房注意事项',1 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
 select 'attention_type','2','卖房注意事项','卖房注意事项',2 ;
+
+/*************************还款方式****************************/
+insert into sys_dictgroup (group_name,group_desc,remark)
+select 'repay_type','还款方式',null;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'repay_type','1','按月等额还款','按月等额还款',1 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'repay_type','2','按月递减还款','按月递减还款',2 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'repay_type','3','双周供','双周供',3 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'repay_type','4','气球贷','气球贷',4 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'repay_type','5','其它','其它',5 ;
+
+/*************************贷款用途****************************/
+insert into sys_dictgroup (group_name,group_desc,remark)
+select 'loan_usage','贷款用途',null;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'loan_usage','1','购二手房','购二手房',1 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'loan_usage','2','非交易转按','非交易转按',2 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'loan_usage','3','加按','加按',3 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'loan_usage','4','赎楼','赎楼',4 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'loan_usage','5','其它','其它',5 ;
+
+/*************************证件类型****************************/
+insert into sys_dictgroup (group_name,group_desc,remark)
+select 'paper_type','证件类型',null;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'paper_type','1','身份证','身份证',1 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'paper_type','2','护照','护照',2 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'paper_type','3','户口薄','户口薄',3 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'paper_type','4','回乡证','回乡证',4 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'paper_type','5','军人/武警/证','军人/武警/证',5 ;
+
+/*************************房产性质****************************/
+insert into sys_dictgroup (group_name,group_desc,remark)
+select 'estate_property','房产性质',null;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'estate_property','1','住宅','住宅',1 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'estate_property','2','别墅','别墅',2 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'estate_property','3','公寓','公寓',3 ;
+insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
+select 'estate_property','4','其它','其它',4 ;
