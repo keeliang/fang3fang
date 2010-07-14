@@ -84,13 +84,21 @@
 						<s:text name="_dge_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="loanApplyParameter._dge_createTime" onclick="WdatePicker()" />
+						<s:textfield name="loanApplyParameter._dge_createTime" onclick="WdatePicker()" >
+							<s:param name="value">
+								<s:date name="loanApplyParameter._dge_createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 					<td width="15%" >
 						<s:text name="_dle_createTime" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="loanApplyParameter._dle_createTime" onclick="WdatePicker()"  />
+						<s:textfield name="loanApplyParameter._dle_createTime" onclick="WdatePicker()"  >
+							<s:param name="value">
+								<s:date name="loanApplyParameter._dle_createDate" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 				<tr>
