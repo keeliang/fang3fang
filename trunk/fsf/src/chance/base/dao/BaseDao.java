@@ -241,14 +241,16 @@ public class BaseDao<E> extends HibernateDaoSupport implements Dao<E> {
 		buildSorted(param,hql);
 		Query query = getSession().createQuery(hql.toString());
 		setParameter(mapParameter, query);
+		if(param.getTopCount()!=null){
+			query.setFirstResult(0);
+			query.setMaxResults(param.getTopCount());
+		}
 		return query.list();
 	}
 
 	public List<E> doQueryAll() {
-		Session session = getSession();
-		Query query = session.createQuery("select o from "
-				+ entityClass.getName() + " o ");
-		return query.list();
+		Criteria c = getSession().createCriteria(entityClass);
+		return c.list();
 	}
 
 	public QueryResult<E> doPaginationQuery(BaseParameter param) throws Exception {
@@ -274,9 +276,6 @@ public class BaseDao<E> extends HibernateDaoSupport implements Dao<E> {
 		if (param.getFirstResult() != -1 && param.getMaxResults() != -1 ) {
 			query.setFirstResult(param.getFirstResult());
 			query.setMaxResults(param.getMaxResults());
-		}else if(param.getTopCount()!=null){
-			query.setFirstResult(0);
-			query.setMaxResults(param.getTopCount());
 		}
 		setParameter(mapParameter, query);
 		qr.setResultList(query.list());

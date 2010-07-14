@@ -38,47 +38,37 @@ public class EstateOutRecommondCacheService implements ScheduleService{
 			param.getQueryDynamicConditions().put("_ne_isRecommond", (short)1);
 			param.getQueryDynamicConditions().put("_nin_tradeMode", new Short[]{2,3});
 			param.getQueryDynamicConditions().put("_ne_examine", (short)1);
-			param.setCurrentPage(-1);
-			param.setMaxResults(-1);
 			param.setTopCount(4);
 			param.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
-			ConstantCache.LISTOWNRECOMMOND = estateOutDao.doPaginationQuery(param).getResultList();
+			ConstantCache.LISTOWNRECOMMOND = estateOutDao.doQuery(param);
 			//委托推荐 top4 资讯内页
 			param.getQueryDynamicConditions().put("_ne_tradeType", (short)2);
-			ConstantCache.LISTRECOMMOND = estateOutDao.doPaginationQuery(param).getResultList();
+			ConstantCache.LISTRECOMMOND = estateOutDao.doQuery(param);
 			//资讯首页、旺铺种类内页 右侧 top5
 			param = new EstateOutParameter();
-			param.setMaxResults(-1);
-			param.setCurrentPage(-1);
 			param.setTopCount(5);
 			param.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
 			((EstateOutParameter)param).set_ne_isRecommond((short)1);
 			((EstateOutParameter)param).set_nin_tradeMode(new Short[]{2,3});
 			param.getQueryDynamicConditions().put("_ne_examine", (short)1);
-			QueryResult<EstateOut> queryResult = estateOutDao.doPaginationQuery(param);
-			ConstantCache.LISTRECOMMONDSALE = queryResult.getResultList();
+			ConstantCache.LISTRECOMMONDSALE = estateOutDao.doQuery(param);
 			
 			//顾问首页 右侧 top10
 			param.setTopCount(10);
-			queryResult = estateOutDao.doPaginationQuery(param);
-			ConstantCache.LISTRECOMMONDSALE = queryResult.getResultList();
+			ConstantCache.LISTRECOMMONDSALE = estateOutDao.doQuery(param);
 			
 			//会员首页右侧自主推荐 top10
 			param = new EstateOutParameter();
-			param.setMaxResults(-1);
-			param.setCurrentPage(-1);
 			param.setTopCount(10);
 			param.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
 			((EstateOutParameter)param).set_ne_isRecommond((short)1);
 			((EstateOutParameter)param).set_ne_tradeType((short)1);
 			((EstateOutParameter)param).set_nin_tradeMode(new Short[]{1,2,3});
-			queryResult = estateOutDao.doPaginationQuery(param);
-			ConstantCache.LISTOWNRECOMMOND10 = queryResult.getResultList();
+			ConstantCache.LISTOWNRECOMMOND10 = estateOutDao.doQuery(param);
 			
 			//会员首页右侧委托推荐 top10
 			((EstateOutParameter)param).set_ne_tradeType((short)2);
-			queryResult = estateOutDao.doPaginationQuery(param);
-			ConstantCache.LISTRECOMMOND10 = queryResult.getResultList();
+			ConstantCache.LISTRECOMMOND10 = estateOutDao.doQuery(param);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

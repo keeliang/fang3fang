@@ -40,6 +40,11 @@
 		<resource url="/memberCenter/estateOutList.action" />
 		<resource url="/memberCenter/estateOutDelete.action" />
 		
+		<resource url="/memberCenter/loanApplyNew.action" />
+		<resource url="/memberCenter/loanApplySave.action" />
+		<resource url="/memberCenter/loanApplyList.action" />
+		<resource url="/memberCenter/loanApplyEdit.action" />
+		
 		<resource url="/Info/commitNewsComment.ajax" />
 		<resource url="/Info/commitInfoComment.ajax" />
 		
@@ -53,5 +58,6 @@
 		
 		<resource url="/CoBank/loanApplyNew.action" />
 		<resource url="/CoBank/loanApplySave.action" />
+		
 	</FrontProtected>
 </authorized>
