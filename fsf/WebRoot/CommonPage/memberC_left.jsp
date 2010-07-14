@@ -70,6 +70,7 @@
 		<div class="memberC_leftShow02">
 			<div class="blank10"></div>
 			<dl>
+				<dd><a href="<%=contextPath %>/memberCenter/loanApplyList.action?loanApplyParameter.currentPage=1&loanApplyParameter._ne_createUserId=${USER.userId }" class="cRed06">按揭贷款</a></dd>
 				<dd>
 					自主交易区-<a href="<%=contextPath %>/memberCenter/estateInOwnList.action?estateInParameter._ne_createUserId=${USER.userId }&estateInParameter._ne_tradeType=1" class="cRed06">求购求租管理</a>
 				</dd>
