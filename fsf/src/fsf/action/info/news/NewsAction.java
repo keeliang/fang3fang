@@ -46,14 +46,12 @@ public class NewsAction extends BaseAction<News> {
 		if(listNewsType!=null && listNewsType.size()>0){
 			NewsParameter paramNews = new NewsParameter();
 			paramNews.set_ne_status((short)1);
-			paramNews.setCurrentPage(-1);
-			paramNews.setMaxResults(-1);
 			paramNews.setTopCount(10);
 			paramNews.getSortedConditions().put("updateTime", BaseParameter.SORTED_DESC);
 			for(Iterator<NewsType> it = listNewsType.iterator();it.hasNext();){
 				NewsType o = it.next();
 				paramNews.set_ne_newsTypeId(o.getNewsTypeId());
-				o.setListNews(service.doPaginationQuery(paramNews).getResultList());
+				o.setListNews(service.doQuery(paramNews));
 			}
 		}
 		return SUCCESS;

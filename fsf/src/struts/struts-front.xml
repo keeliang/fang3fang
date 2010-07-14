@@ -119,6 +119,23 @@
 		
 		<action name="estUploadFile" class="estateOutAction" method="doUploadFile" ></action>
 		<action name="userUploadFile" class="userAction" method="doUploadFile" ></action>
+		
+		<action name="loanApplyList" class="loanApplyAction" method="doList" >
+			<result>/memberCenter/loanList.jsp</result>
+		</action>
+		<action name="loanApplyEdit" class="loanApplyAction" method="doEdit" >
+			<result>/memberCenter/loanContent.jsp</result>
+		</action>
+		<action name="loanApplyDelete" class="loanApplyAction" method="doDelete" >
+			<result>/memberCenter/loanList.jsp</result>
+		</action>
+		<action name="loanApplySave" class="loanApplyAction" method="doSave" >
+			<result>/memberCenter/loanContent.jsp</result>
+		</action>
+		<action name="loanApplyNew" class="loanApplyAction" method="doNew" >
+			<result>/memberCenter/loanContent.jsp</result>
+		</action>
+		
 	</package>
 	
 	
