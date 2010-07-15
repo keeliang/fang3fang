@@ -91,8 +91,9 @@ public class BaseDao<E> extends HibernateDaoSupport implements Dao<E> {
 			StringBuffer sb = new StringBuffer();
 			sb.append("update " + entityClass.getName()+" set ");
 			for(int i=0;i<propertyName.length;i++){
-				sb.append(propertyName[i]+" = :"+propertyName[i]);
+				sb.append(propertyName[i]+" = :"+propertyName[i]+",");
 			}
+			sb.deleteCharAt(sb.length()-1);
 			sb.append(" where "+conditionName+ " in (");
 			for(int i =0;i<conditionValue.length;i++){
 				sb.append(":param_"+i+",");

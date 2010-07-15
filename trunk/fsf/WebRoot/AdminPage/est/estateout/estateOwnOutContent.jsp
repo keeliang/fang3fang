@@ -20,7 +20,7 @@
 <body style="font-size: 14px;">
 <!-- <div class="memberC_allRight02"> -->
 <s:form action="estateOutSave" namespace="/sysadmin/est/estateout" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
-<div class="contentTitle"><s:text name="contentTitle"/></div>
+<div class="contentTitle">自主交易--<s:text name="contentTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <s:hidden name="cmd" />
 <s:hidden name="estateOutParameter.currentPage" />
@@ -86,7 +86,7 @@
 	</tr>
 </table>
 
-<p class="cGray02"><b>委托交易区 - 出售信息</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p class="cGray02"><b>自主交易区 - 出售信息</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 <div class="memberC_line"></div>
 <p class="est_title"><b>楼盘基本信息</b></p>
 <div class="memberC_line"></div>
@@ -244,7 +244,6 @@
     </td>
     <td class="content_td" >
     	<fsf:dictTranslate groupName="$examine" value="examine"/>
-    	<s:hidden name="examine" />
     </td>
   	<td class="label_td" >
   		<label class="est_label" ><s:text name="examineUserId" />:</label>

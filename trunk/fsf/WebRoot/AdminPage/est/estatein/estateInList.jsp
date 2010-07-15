@@ -16,7 +16,7 @@
 <s:hidden name="estateInParameter.maxResults" id="maxResults" />
 <input type="hidden" name="estateInParameter.sortColumns" value="createTime|DESC" />
 <s:hidden name="estateInParameter._ne_tradeType" value="2" />
-<div class="contentTitle"><s:text name="contentTitle"/></div>
+<div class="contentTitle">委托交易--<s:text name="contentTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
 	<tr>

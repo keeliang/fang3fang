@@ -17,7 +17,7 @@
 <input type="hidden" name="estateOutParameter.sortColumns" value="createTime|DESC" />
 <s:hidden name="estateOutParameter._ne_tradeType" value="2" />
 
-<div class="contentTitle"><s:text name="listTitle"/></div>
+<div class="contentTitle">委托交易--<s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
 	<tr>

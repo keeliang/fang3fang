@@ -139,7 +139,7 @@ public class EstateInAction extends BaseAction<EstateIn> {
 		}
 		try{
 			getService().updateByProperties("estateId", new Serializable[]{estateId}, 
-					new String[]{"examine","updateUserId","updateTime"}, 
+					new String[]{"examine","examineUserId"}, 
 					new Serializable[]{examine,examine==(short)1?ThreadUser.get().getUserId():null});
 		}catch (Exception e) {
 			handleEditException(e);

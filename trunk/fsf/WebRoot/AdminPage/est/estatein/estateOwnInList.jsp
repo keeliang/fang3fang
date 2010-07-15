@@ -18,7 +18,7 @@
 <s:hidden name="estateInParameter._ne_tradeType" value="1" />
 <s:hidden name="cmd"/>
 
-<div class="contentTitle"><s:text name="contentTitle"/></div>
+<div class="contentTitle">自主交易--<s:text name="contentTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >
 	<tr>
