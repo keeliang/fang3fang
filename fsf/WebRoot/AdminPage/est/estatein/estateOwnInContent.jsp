@@ -19,7 +19,7 @@
 
 <body style="font-size: 14px;">
 <s:form action="estateInSave" namespace="/sysadmin/est/estatein" theme="simple" name="formItem" id="formItem" method="post" onsubmit="return f_validate()">
-<div class="contentTitle"><s:text name="contentTitle"/></div>
+<div class="contentTitle">自主交易--<s:text name="contentTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <s:hidden name="cmd" />
 <s:hidden name="estateInParameter.currentPage" />
@@ -171,14 +171,6 @@
 	</tr>
 	<tr>
 		<td class="label_td">
-			<label class="est_label" for="examine"><s:text name="examine"/>:</label>
-		</td>
-		<td class="content_td">
-			<fsf:dictTranslate groupName="$examine" value="examine"/>
-		</td>
-	</tr>
-	<tr>
-		<td class="label_td">
 			<label class="est_label" for="tradeMode"><s:text name="tradeMode"/>:</label>
 		</td>
 		<td class="content_td">
@@ -199,7 +191,6 @@
     </td>
     <td class="content_td" >
     	<fsf:dictTranslate groupName="$examine" value="examine"/>
-    	<s:hidden name="examine" />
     </td>
   	<td class="label_td" >
   		<label class="est_label" ><s:text name="examineUserId" />:</label>
