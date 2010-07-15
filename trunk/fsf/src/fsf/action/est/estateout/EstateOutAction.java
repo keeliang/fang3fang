@@ -99,13 +99,10 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 			if(baseParameter==null){
 				baseParameter = new EstateOutParameter();
 			}
-			baseParameter.setMaxResults(-1);
-			baseParameter.setCurrentPage(-1);
 			baseParameter.setTopCount(10);
 			if(estateName!=null &&!"".equals(estateName))
 				((EstateOutParameter)baseParameter).set_slike_estateName(estateName);
-			QueryResult<EstateOut> queryResult = service.doPaginationQuery(baseParameter);
-			listEstateOut = queryResult.getResultList();
+			listEstateOut = service.doQuery(baseParameter);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -179,7 +176,7 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 		String[] strPk = getSelectedPK();
 		if(strPk==null || strPk.length<1)
 			return SUCCESS;
-		if(examine==null){
+		if(isRecommond==null){
 			return INPUT;
 		}
 		Serializable[] arrayObj = new Serializable[strPk.length];
