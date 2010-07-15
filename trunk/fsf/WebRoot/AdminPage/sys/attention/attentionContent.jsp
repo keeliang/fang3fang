@@ -21,7 +21,7 @@
 <s:hidden name="attentionParameter._ne_type" />
 <s:hidden name="attentionParameter._ne_status" />
 <s:hidden name="attentionParameter._slike_title" />
-
+<input type="hidden" name="attentionParameter.sortColumns" value="createTime|DESC" />
 <s:hidden name="attentionId" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">

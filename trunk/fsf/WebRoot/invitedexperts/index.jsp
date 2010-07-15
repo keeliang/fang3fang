@@ -139,7 +139,7 @@
 												<br/>
 											</li>
 											<li>负责区域：<fsf:dictTranslate groupName="#district" value="workDistrictId" /></li>
-											<li>${remark }</li>
+											<li style="word-wrap:break word;width: 200px;" ><s:property value="@chance.util.HtmlUtils@removeHTML(remark,100)" /></li>
 										</ul>
 									</div>
 									<div class="BuddingLi">

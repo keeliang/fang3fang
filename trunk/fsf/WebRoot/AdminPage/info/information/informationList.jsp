@@ -15,6 +15,7 @@
 <s:hidden name="informationParameter.currentPage" id="currentPage"  />
 <s:hidden name="informationParameter.maxResults" id="maxResults" />
 <s:hidden name="cmd" />
+<input type="hidden" name="informationParameter.sortColumns" value="createTime|DESC" />
 <div class="contentTitle"><s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >

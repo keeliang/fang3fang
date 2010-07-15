@@ -16,6 +16,7 @@
 <s:hidden name="informationParameter.maxResults" id="maxResults" />
 
 <input name="informationParameter._ne_informationType" type="hidden" value="0" />
+<input type="hidden" name="informationParameter.sortColumns" value="createTime|DESC" />
 
 <div class="contentTitle"><s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>

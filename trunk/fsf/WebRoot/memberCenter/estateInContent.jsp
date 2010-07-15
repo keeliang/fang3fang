@@ -45,6 +45,7 @@
 						<s:hidden name="estateInParameter._ne_createUserId" />
 						<s:hidden name="estateInParameter._dge_createTime" />
 						<s:hidden name="estateInParameter._dle_createTime" />
+						<input type="hidden" name="estateInParameter.sortColumns" value="createTime|DESC" />
 						<s:hidden name="tradeType" value="1"/>
 						<s:hidden name="estateId" />
 						<s:hidden name="cmd" />

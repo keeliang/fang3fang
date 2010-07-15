@@ -30,6 +30,7 @@
 <s:hidden name="commentId"/>
 <s:hidden name="estateId" />
 <s:hidden name="type" />
+<input type="hidden" name="estCommentParameter.sortColumns" value="createTime|DESC" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>

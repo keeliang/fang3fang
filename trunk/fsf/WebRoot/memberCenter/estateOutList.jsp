@@ -37,6 +37,7 @@
 				<s:hidden name="estateOutParameter.maxResults" id="maxResults" />
 				<s:hidden name="estateOutParameter._ne_tradeType" />
 				<s:hidden name="estateOutParameter._ne_createUserId" />
+				<input type="hidden" name="estateOutParameter.sortColumns" value="createTime|DESC" />
 				<input type="hidden" name="isRecommond" value="1" />
 				
 				<div class="memberC_allRight02">

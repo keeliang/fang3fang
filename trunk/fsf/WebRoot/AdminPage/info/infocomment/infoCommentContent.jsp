@@ -21,7 +21,7 @@
 <s:hidden name="infoCommentParameter._ne_status" />
 <s:hidden name="infoCommentParameter._dge_createTime" />
 <s:hidden name="infoCommentParameter._dle_createTime" />
-
+<input type="hidden" name="infoCommentParameter.sortColumns" value="createTime|DESC" />
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">

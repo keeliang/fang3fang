@@ -24,7 +24,7 @@
 <input name="informationParameter._ne_informationType" type="hidden" value="0" />
 <s:hidden name="informationParameter._dge_createTime" />
 <s:hidden name="informationParameter._dle_createTime" />
-
+<input type="hidden" name="informationParameter.sortColumns" value="createTime|DESC" />
 <s:hidden name="informationParameter._ne_status" />
 
 <input name="informationType" type="hidden" value="0" />

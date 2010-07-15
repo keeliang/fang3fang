@@ -15,15 +15,6 @@
 		<script src="js/CollapsiblePanel.js" type="text/javascript"></script>
 		<script type="text/javascript" src="../js/jquery.js"></script>
 		<script type="text/javascript" src="../js/jquery.form.min.js"></script>
-		<script type="text/javascript" src="../js/Validate.cmxforms.js"></script>
-		<script type="text/javascript" src="../js/Validate.jquery.metadata.js"></script>
-		<script type="text/javascript"
-			src="../js/Validate.jquery.validate.min.js"></script>
-		<script type="text/javascript" src="../js/SelectAll.js"></script>
-		<script type="text/javascript" src="../js/HistoryBack.js"></script>
-		<script type="text/javascript" src="../js/DisplayClear.js"></script>
-		<script type="text/javascript" src="js/DisplayMessageAJ.js"></script>
-		<script type="text/javascript" src="js/Ajloan.js"></script>
 	</head>
 	<body>
 		<div class="memberC_box">
@@ -58,7 +49,7 @@
 					<input type="hidden" name="loanApplyParameter._ne_createUserId" value="${USER.userId }" />
 					<s:hidden name="loanApplyParameter._dge_createTime" />
 					<s:hidden name="loanApplyParameter._dle_createTime" />
-					
+					<input type="hidden" name="loanApplyParameter.sortColumns" value="createTime|DESC" />
 						<div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 						<p class="cGray02">
 							<b>在线按揭贷款申请</b>

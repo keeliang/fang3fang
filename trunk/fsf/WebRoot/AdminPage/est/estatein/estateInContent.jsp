@@ -43,7 +43,7 @@
 <s:hidden name="estateInParameter._ne_device" />
 <s:hidden name="estateInParameter._dge_createTime" />
 <s:hidden name="estateInParameter._dle_createTime" />
-
+<input type="hidden" name="estateInParameter.sortColumns" value="createTime|DESC" />
 
 <s:hidden name="estateId"/>
 <s:hidden name="tradeType" value="2"/>

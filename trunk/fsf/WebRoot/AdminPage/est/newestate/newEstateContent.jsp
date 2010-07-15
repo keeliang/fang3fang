@@ -45,6 +45,7 @@
 <s:hidden name="newEstateParameter._dge_createTime" />
 <s:hidden name="newEstateParameter._dle_createTime" />
 <s:hidden name="newEstateParameter._ne_createUserId" />
+<input type="hidden" name="newEstateParameter.sortColumns" value="createTime|DESC" />
 
 <s:hidden name="estateId" />
 

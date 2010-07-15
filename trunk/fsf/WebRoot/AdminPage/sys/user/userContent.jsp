@@ -35,8 +35,9 @@
 <s:hidden name="userParameter._dle_createDate" />
 <s:hidden name="userParameter._dge_createDate" />
 
+<input type="hidden" name="userParameter.sortColumns" value="createDate|DESC" />
+
 <s:hidden name="userId" />
-<s:hidden name="password" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
@@ -63,6 +64,16 @@
 			<s:hidden name="imagePath" />
 		</td>
 	</tr>
+	<s:if test="cmd=='new'">
+		<tr>
+			<td>
+				<s:text name="password"/>:
+			</td>
+			<td>
+				<s:password name="password" /><font color="red">*</font>
+			</td>
+		</tr>
+	</s:if>
 	<tr>
 		<td>
 			<s:text name="question"/>:

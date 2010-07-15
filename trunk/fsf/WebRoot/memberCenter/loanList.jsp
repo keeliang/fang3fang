@@ -38,6 +38,7 @@
 				<s:form action="loanApplyList" namespace="/memberCenter" name="formList" theme="simple" >
 					<s:hidden name="loanApplyParameter.currentPage" id="currentPage"  />
 					<s:hidden name="loanApplyParameter.maxResults" id="maxResults" />
+					<input type="hidden" name="loanApplyParameter.sortColumns" value="createTime|DESC" />
 					<input type="hidden" name="loanApplyParameter._ne_createUserId" value="${USER.userId }" />
 					
 				<div class="memberC_allRight02">

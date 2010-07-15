@@ -14,7 +14,7 @@
 <s:form action="estateInList" namespace="/sysadmin/est/estatein" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="estateInParameter.currentPage" id="currentPage"  />
 <s:hidden name="estateInParameter.maxResults" id="maxResults" />
-
+<input type="hidden" name="estateInParameter.sortColumns" value="createTime|DESC" />
 <s:hidden name="estateInParameter._ne_tradeType" value="2" />
 <div class="contentTitle"><s:text name="contentTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>

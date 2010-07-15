@@ -14,6 +14,7 @@
 <s:form action="newsList" namespace="/sysadmin/info/news" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="newsParameter.currentPage" id="currentPage"  />
 <s:hidden name="newsParameter.maxResults" id="maxResults" />
+<input type="hidden" name="newsParameter.sortColumns" value="createTime|DESC" />
 <s:hidden name="cmd" />
 <div class="contentTitle"><s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>

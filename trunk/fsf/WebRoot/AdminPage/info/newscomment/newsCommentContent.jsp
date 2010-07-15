@@ -23,7 +23,7 @@
 <s:hidden name="newsCommentParameter._dge_createTime" />
 <s:hidden name="newsCommentParameter._dle_createTime" />
 <s:hidden name="newsCommentParameter._ne_createUserId" />
-
+<input type="hidden" name="newsCommentParameter.sortColumns" value="createTime|DESC" />
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td valign="middle">

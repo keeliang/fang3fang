@@ -31,7 +31,7 @@
 <s:hidden name="commerceParameter._se_contacter" />
 <s:hidden name="commerceParameter._se_contactTel" />
 
-
+<input type="hidden" name="commerceParameter.sortColumns" value="createTime|DESC" />
 <s:hidden name="commerceId"/>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">

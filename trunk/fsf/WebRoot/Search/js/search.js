@@ -20,7 +20,7 @@ function f_query(pageNum){
 		sb.append("?estateInParameter._nin_tradeMode=1&estateInParameter._nin_tradeMode=3");
 		param = "estateInParameter";
 	}
-	
+	sb.append("&"+param+".sortColumns=createTime|DESC");
 	sb.append("&"+param+"._ne_examine=1");
 	
 	o = $('#divTradeType a[class="selected_filter"]');
@@ -92,7 +92,6 @@ function f_query(pageNum){
 	if(pageNum && !isNaN(pageNum)){
 		sb.append("&"+param+".currentPage="+pageNum);
 	}
-	
 	
 	if($('div.active').parent().get(0).style.display=="none"){
 		document.forms['formList'].action ="/est/newEstate/list.ajax"+sb.toString();

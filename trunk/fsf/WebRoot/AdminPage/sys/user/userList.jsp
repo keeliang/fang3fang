@@ -15,6 +15,7 @@
 <s:hidden name="userParameter.currentPage" id="currentPage"  />
 <s:hidden name="userParameter.maxResults" id="maxResults" />
 <s:hidden name="cmd"/>
+<input type="hidden" name="userParameter.sortColumns" value="createDate|DESC" />
 <table>
 	<tr>
 		<td align="left" width="722"><img src="/AdminPage/images/userinfo.jpg" /></td>

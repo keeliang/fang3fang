@@ -43,7 +43,7 @@
 					<s:hidden name="estateInParameter.maxResults" id="maxResults" />
 					<s:hidden name="estateInParameter._ne_tradeType" value="1" />
 					<s:hidden name="estateInParameter._ne_createUserId" />
-					
+					<input type="hidden" name="estateInParameter.sortColumns" value="createTime|DESC" />
 						<table width="100%" border="0" cellspacing="0" cellpadding="0" >
 							<tr>
 								<td width="15%" style="font-size: 12px;" >是否通过审核:</td>
