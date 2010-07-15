@@ -148,7 +148,7 @@
 												<li>
 													<span>${estateName }</span>
 													<p>
-														<fsf:dictTranslate groupName="#district" value="districtId" /> ${bedroom }室${hall }厅 ${area }㎡ ${salesPrice }万
+														<fsf:dictTranslate groupName="#district" value="districtId" /> ${bedroom }室${hall }厅 ${area }㎡ ${salesPrice }元
 													</p>
 												</li>
 											</s:iterator>
