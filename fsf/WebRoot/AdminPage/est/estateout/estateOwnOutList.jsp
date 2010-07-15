@@ -14,7 +14,7 @@
 <s:form action="estateOwnOutList" namespace="/sysadmin/est/estateout" name="formList" id="formList" theme="simple" method="post" onsubmit="return f_validate()" >
 <s:hidden name="estateOutParameter.currentPage" id="currentPage"  />
 <s:hidden name="estateOutParameter.maxResults" id="maxResults" />
-
+<input type="hidden" name="estateOutParameter.sortColumns" value="createTime|DESC" />
 <s:hidden name="estateOutParameter._ne_tradeType" value="1" />
 
 <div class="contentTitle"><s:text name="listTitle"/></div>
@@ -282,6 +282,8 @@
 	<input type="button" onclick="f_examine(1);" value="审核通过">
 	<input type="button" onclick="f_examine(0);" value="审核中">
 	<input type="button" onclick="f_examine(-1);" value="审核未通过">
+	<input type="button" onclick="f_recommond(1)" value="推荐"/>
+	<input type="button" onclick="f_recommond(0)" value="取消推荐"/>
 	<input type="button" onclick="g_delete('/sysadmin/est/estateout/estateOwnOutDelete.action');" value="<s:text name="g_delete"/>">
 	<input type="button" onclick="g_list()" value="<s:text name="g_search"/>">
 	<input type="button" onclick="g_reset()" value="<s:text name="g_reset"/>">
@@ -298,6 +300,7 @@
 		<td><s:text name="contactUserId"/></td>
 		<td><s:text name="createTime"/></td>
 		<td><s:text name="examine"/></td>
+		<td><s:text name="isRecommond"/></td>
 	</tr>
 	<s:iterator value="pageView.records" id="item">
 		<s:url action="estateOwnOutEdit" namespace="/sysadmin/est/estateout" id="url">
@@ -317,6 +320,9 @@
 			<td>
 				<fsf:dictTranslate groupName="$examine" value="examine"/>
 			</td>
+			<td>
+				<fsf:dictTranslate groupName="$yes_no" value="isRecommond" />
+			</td>
 		</tr>
 	</s:iterator>
 </table>	
@@ -335,6 +341,21 @@
 $(function() {
 	f_changeProvince(true);
 });
+
+function f_recommond(s){
+	var bln = false;
+	var arySelectedPK = document.getElementsByName("selectedPK");
+	for(var i=0;i<arySelectedPK.length;i++){
+		if(arySelectedPK[i].checked){
+			bln = true;
+			break;
+		}
+	}
+	if(bln){
+		document.forms['formList'].action = contextPath+"/sysadmin/est/estateout/ownRecommondBatch.action?isRecommond="+s;
+		document.forms['formList'].submit();
+	}
+}
 
 function f_examine(s){
 	var bln = false;

@@ -57,7 +57,7 @@
 <s:hidden name="estateOutParameter._ne_device" />
 <s:hidden name="estateOutParameter._dge_createTime" />
 <s:hidden name="estateOutParameter._dle_createTime" />
-
+<input type="hidden" name="estateOutParameter.sortColumns" value="createTime|DESC" />
 <s:hidden name="estateId"/>
 <s:hidden name="tradeType" value="2"/>
 

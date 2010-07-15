@@ -401,7 +401,7 @@
 
 						<div class="blank12"></div>
 						<div class="info_pic">
-							<img src="images/info_pic2.jpg" width="670" height="86" alt="" title="" />
+							<img src="images/info_pic2.jpg" width="670" height="86" alt="a" title="b" />
 						</div>
 
 					</div>

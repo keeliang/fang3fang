@@ -184,7 +184,6 @@
 					<div class="member_regContent_tiaokuan">
 						<input type="checkbox" name="Protocol" id="Protocol" />
 						&nbsp;
-						<span class="cGray">请查看并同意<a href="#">《房上房用户协议》</a> </span>
 					</div>
 					<p class="center">
 						<input type="submit" name="Submit" id="Submit"

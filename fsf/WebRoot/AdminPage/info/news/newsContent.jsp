@@ -23,6 +23,7 @@
 <s:hidden name="newsParameter._ne_status" />
 <s:hidden name="newsParameter._dge_createTime"/>
 <s:hidden name="newsParameter._dle_createTime"/>
+<input type="hidden" name="newsParameter.sortColumns" value="createTime|DESC" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>

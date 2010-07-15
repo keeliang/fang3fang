@@ -143,5 +143,6 @@
 window.onload = function(){
 	document.getElementById("divTradeMode").style.display = "none";
 	document.getElementById('divTradeType').style.display = "none";	
+	f_query();
 }
 </script>

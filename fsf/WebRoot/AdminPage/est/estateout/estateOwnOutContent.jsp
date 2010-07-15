@@ -58,9 +58,7 @@
 <s:hidden name="estateOutParameter._ne_minMonth" />
 <s:hidden name="estateOutParameter._ne_fitment" />
 <s:hidden name="estateOutParameter._ne_device" />
-
-<s:hidden name="estateOutParameter._ne_tradeType" />
-
+<input type="hidden" name="estateOutParameter.sortColumns" value="createTime|DESC" />
 <s:hidden name="estateId"/>
 <s:hidden name="tradeType" value="1"/>
 
@@ -83,7 +81,7 @@
 				<s:if test="isRecommond==1">
 					<input type="button" onclick="f_recommond(0)" value="取消推荐" >
 				</s:if>
-			<input type="button" onclick="g_back('/sysadmin/est/estateout/estateOutList.action')" value="<s:text name="g_back"/>" >
+			<input type="button" onclick="g_back('/sysadmin/est/estateout/estateOwnOutList.action')" value="<s:text name="g_back"/>" >
 		</td>
 	</tr>
 </table>
@@ -236,7 +234,7 @@
   	<td class="label_td" >
   		<label class="est_label" for="remark"><s:text name="remark"/>:</label>
   	</td>
-  	<td style="width: 400px;word-wrap:break-word;">
+  	<td colspan="3" style="width: 600px;word-wrap:break-word;">
   		${remark }
   	</td>
   </tr>

@@ -14,6 +14,7 @@
 <s:form action="estCommentList" namespace="/sysadmin/est/comment" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="estCommentParameter.currentPage" id="currentPage"  />
 <s:hidden name="estCommentParameter.maxResults" id="maxResults" />
+<input type="hidden" name="estCommentParameter.sortColumns" value="createTime|DESC" />
 <div class="contentTitle"><s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" id="filter_tbl" >

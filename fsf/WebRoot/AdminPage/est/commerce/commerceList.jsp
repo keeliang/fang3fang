@@ -14,7 +14,7 @@
 <s:form action="commerceList" namespace="/sysadmin/est/commerce" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="commerceParameter.currentPage" id="currentPage"  />
 <s:hidden name="commerceParameter.maxResults" id="maxResults" />
-
+<input type="hidden" name="commerceParameter.sortColumns" value="createTime|DESC" />
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" id="filter_tbl">
 	<tr>

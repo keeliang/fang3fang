@@ -32,6 +32,7 @@
 <s:hidden name="loanApplyParameter._dle_createTime" />
 <s:hidden name="loanApplyParameter._ne_createUserId" />
 <s:hidden name="loanApplyParameter._ne_status" />
+<input type="hidden" name="loanApplyParameter.sortColumns" value="createTime|DESC" />
 <s:hidden name="status"/>
 <s:hidden name="applyId"/>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">

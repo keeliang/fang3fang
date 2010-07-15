@@ -24,6 +24,7 @@
 <s:hidden name="informationParameter._dle_createTime" />
 
 <s:hidden name="informationParameter._ne_status" />
+<input type="hidden" name="informationParameter.sortColumns" value="createTime|DESC" />
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>

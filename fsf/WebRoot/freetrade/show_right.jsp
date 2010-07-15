@@ -83,8 +83,14 @@ function f_queryNear(o,n){
 			<aa:zone name="aaZone1">
 				<s:if test="pageView.records!=null && pageView.records.size()>0">
 					<s:iterator value="pageView.records" >
-						<p><a href="#">${estateName } ${bedroom }室${hall }厅 
-						${area }m <s:if test="tradeMode==1" >${rentPrice }元/月</s:if><s:else>${salePrice }元/月</s:else></a></p>
+						<p>
+							<a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" target="blank">
+								${estateName } ${bedroom }室${hall }厅 
+								${area }m 
+								<s:if test="tradeMode==1" >${rentPrice }元/月</s:if>
+								<s:else>${salePrice }元/月</s:else>
+							</a>
+						</p>
 					</s:iterator>
 				</s:if>
 				<s:else>暂无相同居室房源</s:else>
@@ -110,7 +116,7 @@ function f_queryNear(o,n){
 			<aa:zone name="aaZone2">
 				<s:if test="pageView.records!=null && pageView.records.size()>0">
 					<s:iterator value="pageView.records" >
-						<p><a href="#">${estateName } ${bedroom }室${hall }厅 
+						<p><a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" target="blank">${estateName } ${bedroom }室${hall }厅 
 						${area }m <s:if test="tradeMode==1" >${rentPrice }元/月</s:if><s:else>${salePrice }元/月</s:else></a></p>
 					</s:iterator>
 				</s:if>

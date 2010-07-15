@@ -24,9 +24,9 @@
 				<p>
 					<span class="float_right">
 						<img src="images/freeTrade_dot01.jpg" width="20" height="19" align="absmiddle" />
-						<a href="#" class="cOrange">收藏</a>&nbsp;&nbsp;&nbsp;
+						<a href="#" class="cOrange" onclick="window.external.AddFavorite(location.href, document.title)">收藏</a>&nbsp;&nbsp;&nbsp;
 						<img src="images/freeTrade_dot02.jpg" width="20" height="19" align="absmiddle" />
-						<a href="#">打印</a>&nbsp;&nbsp;&nbsp;
+						<a href="#" onclick="window.print()">打印</a>&nbsp;&nbsp;&nbsp;
 					</span>您当前的所在位置：
 					<a href="<%=contextPath %>/main/index.jsp">房上房</a> &gt;
 					<a href="<%=contextPath %>/entrustTrade/index.jsp">委托交易区</a> &gt;

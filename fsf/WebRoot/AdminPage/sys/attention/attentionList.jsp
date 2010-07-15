@@ -13,6 +13,7 @@
 <s:form action="attentionList" namespace="/sysadmin/sys/attention" name="formList" id="formList" theme="simple" method="post">
 <s:hidden name="attentionParameter.currentPage" id="currentPage"  />
 <s:hidden name="attentionParameter.maxResults" id="maxResults" />
+<input type="hidden" name="attentionParameter.sortColumns" value="createTime|DESC" />
 <div class="contentTitle"><s:text name="listTitle"/></div>
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="filter_tbl" id="filter_tbl" >

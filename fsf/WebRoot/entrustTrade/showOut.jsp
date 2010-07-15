@@ -288,7 +288,7 @@ body .new_menu {
 									</td>
 									<td id="UnitCost" class="left">
 										<span class="cOrange">${unitPrice}</span> 元/平方米
-										<a href="#" class="cRed03">[按建筑面积计算]</a>
+										<a class="cRed03">[按建筑面积计算]</a>
 									</td>
 								</tr>
 								<tr>

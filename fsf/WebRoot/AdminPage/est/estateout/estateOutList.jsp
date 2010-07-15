@@ -14,7 +14,7 @@
 <s:form action="estateOutList" namespace="/sysadmin/est/estateout" name="formList" id="formList" theme="simple" method="post" onsubmit="return f_validate()" >
 <s:hidden name="estateOutParameter.currentPage" id="currentPage"  />
 <s:hidden name="estateOutParameter.maxResults" id="maxResults" />
-
+<input type="hidden" name="estateOutParameter.sortColumns" value="createTime|DESC" />
 <s:hidden name="estateOutParameter._ne_tradeType" value="2" />
 
 <div class="contentTitle"><s:text name="listTitle"/></div>
@@ -299,6 +299,7 @@
 		<td><s:text name="contactUserId"/></td>
 		<td><s:text name="createTime"/></td>
 		<td><s:text name="examine"/></td>
+		<td><s:text name="isRecommond"/></td>
 	</tr>
 	<s:iterator value="pageView.records" id="item">
 		<s:url action="estateOutEdit" namespace="/sysadmin/est/estateout" id="url">
@@ -317,6 +318,9 @@
 			</td>
 			<td>
 				<fsf:dictTranslate groupName="$examine" value="examine" />				
+			</td>
+			<td>
+				<fsf:dictTranslate groupName="$yes_no" value="isRecommond" />
 			</td>
 		</tr>
 	</s:iterator>

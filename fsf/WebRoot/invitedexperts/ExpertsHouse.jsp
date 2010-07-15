@@ -116,7 +116,6 @@
 								<div class="blogerBox">
 									<div class="bpic left">
 										<p class="blogImg"><img src="<%=contextPath %>${imagePath }" alt="${realName }" /></p>
-										<p class="bact"><a href="#" title="与${realName }在线沟通" target="_blank"><img src="images/bntcom.gif" alt="在线沟通" /></a></p>
 									</div>
 									<div class="binf right">
 										<p>
