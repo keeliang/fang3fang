@@ -262,7 +262,7 @@
   		<label class="est_label" for="effective">有效期：</label>
   	</td>
   	<td colspan="3" class="content_td" >
-  		<s:textfield name="effective" id="effective" size="2" />天
+  		${effective }天
   	</td>
   </tr>
 </table>

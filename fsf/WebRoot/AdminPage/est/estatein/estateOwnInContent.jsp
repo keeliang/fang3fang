@@ -152,7 +152,7 @@
 			<label class="est_label" for="toward"><s:text name="toward"/>:</label>
 		</td>
 		<td>
-			<label class="est_label" for="toward"><s:text name="toward"/>:</label>
+			<span class="est_info"><fsf:dictTranslate groupName="$toward" value="toward"/></span>
 		</td>
 	</tr>
 	<tr>
