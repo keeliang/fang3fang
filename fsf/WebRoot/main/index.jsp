@@ -401,7 +401,10 @@
 
 						<div class="blank12"></div>
 						<div class="info_pic">
-							<img src="images/info_pic2.jpg" width="670" height="86" alt="a" title="b" />
+							<a href="<s:property value="@fsf.web.common.ConstantCache@MAPADVERTISEMENT.get('index_middle').link"/>" >
+							<img src="<%=contextPath %><s:property value="@fsf.web.common.ConstantCache@MAPADVERTISEMENT.get('index_middle').imagePath"/>" 
+							width="670" height="86" title="<s:property value="@fsf.web.common.ConstantCache@MAPADVERTISEMENT.get('index_middle').title"/>" />
+							</a>
 						</div>
 
 					</div>
