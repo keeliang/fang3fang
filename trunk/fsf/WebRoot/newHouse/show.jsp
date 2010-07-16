@@ -143,6 +143,21 @@
 									${remark }
 								</td>
 							</tr>
+							<s:if test="imagePath!=null &&imagePath.trim()!=''">
+								<tr>
+	           	    <td class="grayBg right" valign="middle">房源靓图：</td>
+	                <td id="HouseChart" colspan="3" class="left" valign="middle">
+	                	<span class="img_border">
+	                  	<img id="HouseChartSRC" src="<%=contextPath %>${imagePath }" width="229" height="172" align="absmiddle" />
+										</span>
+										<p>
+	                    <a id="HouseChartLink" href="<%=contextPath %>${imagePath }" target="blank">
+												<img id="bigIMG" src="images/freeTrade_button01.jpg" width="194" height="30" alt="点击查看大图" title="点击查看大图" />
+	                    </a>
+	                	</p>
+	              	</td>
+								</tr>
+							</s:if>
 						</table>
 
 						<div class="clear"></div>

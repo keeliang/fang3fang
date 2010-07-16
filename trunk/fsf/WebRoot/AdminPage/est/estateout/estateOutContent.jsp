@@ -243,21 +243,22 @@
   	</td>
   </tr>
   <s:if test="cmd!='new'">
-  <tr>
-    <td class="label_td" >
-			<label class="est_label" for="examine"><s:text name="examine" />:</label>
-    </td>
-    <td class="content_td" >
-    	<fsf:dictTranslate groupName="$examine" value="examine"/>
-    </td>
-    <td class="label_td" >
-			<label class="est_label" for="examine"><s:text name="examineUserId" />:</label>
-    </td>
-    <td class="content_td" >
-  		<fsf:dictTranslate groupName="#sys_user" value="examineUserId"/>  	
-    	<s:hidden name="examineUserId"/>
-    </td>
-  </tr>
+	  <tr>
+	    <td class="label_td" >
+				<label class="est_label" for="examine"><s:text name="examine" />:</label>
+	    </td>
+	    <td class="content_td" >
+	    	<fsf:dictTranslate groupName="$examine" value="examine"/>
+	    	<s:hidden name="examine" />
+	    </td>
+	    <td class="label_td" >
+				<label class="est_label" for="examine"><s:text name="examineUserId" />:</label>
+	    </td>
+	    <td class="content_td" >
+	  		<fsf:dictTranslate groupName="#sys_user" value="examineUserId"/>  	
+	    	<s:hidden name="examineUserId"/>
+	    </td>
+	  </tr>
   </s:if>
   <s:if test="cmd=='new'">
   	<input name="examine" type="hidden" value="1" />

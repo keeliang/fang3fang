@@ -309,7 +309,9 @@ function f_changeUserType(){
 function f_validate(){
 	fromName = "formItem";
 	addfield("userCode","<s:text name="userCode"/>","String",false,50);
-	addfield("password","<s:text name="password"/>","String",false,50);
+	<s:if test="cmd=='new'">
+		addfield("password","<s:text name="password"/>","String",false,50);
+	</s:if>
 	addfield("question","<s:text name="question"/>","String",true,30);
 	addfield("answer","<s:text name="answer"/>","String",true,30);
 	addfield("userName","<s:text name="userName"/>","String",true,50);

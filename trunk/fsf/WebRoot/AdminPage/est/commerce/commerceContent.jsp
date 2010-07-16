@@ -27,9 +27,7 @@
 <s:hidden name="commerceParameter._ne_areaId" />
 <s:hidden name="commerceParameter._ne_commerceType" />
 <s:hidden name="commerceParameter._ne_status" />
-<s:hidden name="commerceParameter._se_address" />
-<s:hidden name="commerceParameter._se_contacter" />
-<s:hidden name="commerceParameter._se_contactTel" />
+
 
 <input type="hidden" name="commerceParameter.sortColumns" value="createTime|DESC" />
 <s:hidden name="commerceId"/>
@@ -49,12 +47,12 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="title"/>:</td>
-					<td><s:textfield name="title" /><font color="red">*</font><input type="button" value="上传图片" id="btnUpload" /></td>
+					<td><s:textfield name="title" size="60" /><font color="red">*</font><input type="button" value="上传图片" id="btnUpload" /></td>
 					<s:hidden name="imagePath" />
 				</tr>
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="content"/>:</td>
-					<td><s:textarea name="content" rows="4" cols="20"/><font color="red">*</font></td>
+					<td><s:textarea name="content" rows="6" cols="60"/><font color="red">*</font></td>
 				</tr>
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="provinceId"/>:</td>
@@ -77,15 +75,7 @@
 				</tr>
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="address"/>:</td>
-					<td><s:textfield name="address" /></td>
-				</tr>
-				<tr>
-					<td class="contentColumnNameTd"><s:text name="contacter"/>:</td>
-					<td><s:textfield name="contactUser.userName" cssClass="memberC_input01_readonly" readonly="true" /></td>
-				</tr>
-				<tr>
-					<td class="contentColumnNameTd"><s:text name="contactTel"/>:</td>
-					<td><s:textfield name="contactUser.phone" cssClass="memberC_input01_readonly" readonly="true" /></td>
+					<td><s:textfield name="address" size="60" /></td>
 				</tr>
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="commerceType"/>:</td>
@@ -103,10 +93,17 @@
     					<font color="red">*</font>
 					</td>
 				</tr>
-				
+				<tr>
+					<td class="contentColumnNameTd"><s:text name="contacter"/>:</td>
+					<td><s:textfield name="contactUser.userName" cssClass="memberC_input01_readonly" readonly="true" /></td>
+				</tr>
+				<tr>
+					<td class="contentColumnNameTd"><s:text name="contactTel"/>:</td>
+					<td><s:textfield name="contactUser.phone" cssClass="memberC_input01_readonly" readonly="true" /></td>
+				</tr>
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="ip"/>:</td>
-					<td><s:textfield name="ip" readonly="true"/></td>
+					<td><s:textfield name="ip" cssClass="memberC_input01_readonly" readonly="true"/></td>
 				</tr>
 				<tr>
 					<td class="contentColumnNameTd"><s:text name="createTime"/>:</td>
@@ -154,6 +151,7 @@
 </html>
 <script type="text/javascript">
 var UploadActionName = "<%=contextPath%>/sysadmin/est/commerce/uploadFile.action";
+/*
 window.onload = function(){
 	var oFCKeditor = new FCKeditor( 'content' ) ;
 	oFCKeditor.BasePath	= "/fckeditor/" ;
@@ -161,7 +159,7 @@ window.onload = function(){
 	oFCKeditor.Width = "800";
 	oFCKeditor.ReplaceTextarea() ;
 }
-
+*/
 $(function() {
 	f_changeProvince(true);
 });

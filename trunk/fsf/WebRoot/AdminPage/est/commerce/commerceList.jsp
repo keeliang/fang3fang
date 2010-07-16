@@ -19,7 +19,7 @@
 <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0" id="filter_tbl">
 	<tr>
 		<td>
-			<table width="60%" border="0" cellspacing="0" cellpadding="0" align="left">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" align="left">
 				<tr>
 					<td width="15%" class="input_name"><s:text name="_ne_provinceId" />:</td>
 					<td width="35%">
@@ -29,21 +29,18 @@
 					<td width="15%" class="input_name"><s:text name="_ne_cityId" />:</td>
 					<td width="35%" id="cityTd"></td>
 				</tr>
-				
 				<tr>
 					<td width="15%" class="input_name"><s:text name="_ne_districtId" />:</td>
 					<td width="35%" id="districtTd"></td>
 					<td width="15%" class="input_name"><s:text name="_ne_areaId" />:</td>
 					<td width="35%" id="areaTd"></td>
 				</tr>
-				
 				<tr>
 					<td width="15%" class="input_name"><s:text name="_slike_title" />:</td>
 					<td width="35%"><s:textfield name="commerceParameter._slike_title" cssClass="input_text" /></td>
 					<td width="15%" class="input_name"><s:text name="_slike_content" />:</td>
 					<td width="35%"><s:textfield name="commerceParameter._slike_content" cssClass="input_text" /></td>
 				</tr>
-				
 				<tr>
 					<td width="15%" class="input_name"><s:text name="_ne_commerceType" />:</td>
 					<td width="35%">
@@ -57,19 +54,21 @@
 					</td>
 				</tr>
 				<tr>
-					<td width="15%" class="input_name"><s:text name="_se_address" />:</td>
+					<td width="15%" class="input_name"><s:text name="_dge_createTime" />:</td>
 					<td width="35%">
-						<s:textfield name="commerceParameter._se_address" cssClass="input_text"></s:textfield>
+						<s:textfield name="commerceParameter._dge_createTime" onclick="WdatePicker()" >
+							<s:param name="value">
+								<s:date name="commerceParameter._dge_createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
-					<td width="15%" class="input_name"><s:text name="_se_contacter" />:</td>
+					<td width="15%" class="input_name"><s:text name="_dle_createTime" />:</td>
 					<td width="35%">
-						<s:textfield name="commereParameter._se_contacter" cssClass="input_text"></s:textfield>
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" class="input_name"><s:text name="_se_contactTel" />:</td>
-					<td width="85%" colspan="2">
-						<s:textfield name="commerctParameter._se_contactTel" cssClass="input_text"/>
+						<s:textfield name="commerceParameter._dle_createTime" onclick="WdatePicker()"  >
+							<s:param name="value">
+								<s:date name="commerceParameter._dle_createTime" format="yyyy-MM-dd"/>
+							</s:param>
+						</s:textfield>
 					</td>
 				</tr>
 			</table>

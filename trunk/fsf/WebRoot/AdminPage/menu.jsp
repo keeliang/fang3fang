@@ -173,6 +173,7 @@ $(document).ready(function() {
 				<tr><td><a href="<%=contextPath %>/sysadmin/sys/pageinfo/pageInfoList.action?pageInfoParameter.currentPage=1" target="content"><span>页面信息管理</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/sysadmin/sys/pageinfo/pageInfoBank.action?infoName=Bank" target="content"><span>银行合作</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/sysadmin/sys/attention/attentionList.action" target="content"><span>买卖房注意事项</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/sysadmin/sys/advertisement/advertisementList.action" target="content"><span>广告管理</span></a></td></tr>				
 			</table>
 		</td>
 	</tr>
