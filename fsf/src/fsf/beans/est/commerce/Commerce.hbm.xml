@@ -32,7 +32,7 @@
         <property name="status" type="short">
             <column name="status" not-null="true" />
         </property>
-        <property name="ip" type="string">
+        <property name="ip" type="string" update="false" >
             <column name="ip" length="30" not-null="true" />
         </property>
         <property name="createTime" type="timestamp" update="false">

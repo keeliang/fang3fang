@@ -113,3 +113,16 @@ CREATE TABLE if not exists sys_attention(
 	create_time datetime,
 	constraint PK_sys_attention primary key(attention_id)
 );
+/*
+	广告图片
+*/
+drop table if exists sys_advertisement;
+CREATE TABLE if not exists sys_advertisement(
+	advertisement_name varchar(20) not null,
+	advertisement_desc varchar(20) not null ,
+	image_path varchar(80),
+	title varchar(100),
+	link varchar(200),
+	constraint PK_sys_advertisement primary key(advertisement_name)
+);
+insert into sys_advertisement(advertisement_name,advertisement_desc,image_path,title,link) values('index_middle','首页中部广告',null,null,null);

@@ -6,6 +6,7 @@ import java.util.Map;
 import fsf.beans.est.commerce.Commerce;
 import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.info.information.Information;
+import fsf.beans.sys.advertisement.Advertisement;
 
 public final class ConstantCache {
 
@@ -61,4 +62,8 @@ public final class ConstantCache {
 	 * 会员首页右侧委托推荐 top10
 	 */
 	public static List<EstateOut> LISTRECOMMOND10;
+	/**
+	 * 广告缓存
+	 */
+	public static Map<String,Advertisement> MAPADVERTISEMENT;
 }
