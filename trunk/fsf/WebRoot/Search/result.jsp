@@ -198,7 +198,7 @@
 						<s:iterator value="pageView.records" id="item" status="st" >
 							<td style="width: 50%;" >
 								<div class="two_left_5_2" >
-									<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="#item.commerceId" />" target="_blank">
+									<a href="<%=contextPath %>/newHouse/content.action?estateId=<s:property value="estateId" />" target="_blank">
 										<s:if test="imagePath!=null && imagePath.trim()!=''">
 											<img src="<%=contextPath %>${imagePath }" alt="${estateName }" width="74" height="59" border="0" />
 										</s:if>
@@ -208,7 +208,7 @@
 									</a>
 								</div>
 								<div class="two_left_5_3" >
-									<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="#item.commerceId" />" target="_blank" title="${estateName }" ><s:property value="@chance.util.HtmlUtils@removeHTML(estateName,20)"/></a><br/>
+									<a href="<%=contextPath %>/newHouse/content.action?estateId=<s:property value="estateId" />" target="_blank" title="${estateName }" ><s:property value="@chance.util.HtmlUtils@removeHTML(estateName,20)"/></a><br/>
 									${bedroom }室${hall }厅&nbsp;&nbsp; ${price }元<br/>
 									<s:property value="@chance.util.HtmlUtils@removeHTML(remark,20)"/>
 								</div>
