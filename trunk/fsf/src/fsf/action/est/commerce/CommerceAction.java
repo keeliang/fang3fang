@@ -203,6 +203,26 @@ public class CommerceAction extends UploadBaseAction<Commerce> {
 		status = 1;
 	}
 	
+	@Override
+	protected void beforePersist() {
+		User u = ThreadUser.get();
+		Date today = new Date();
+		createTime = today;
+		updateTime = today;
+		createUserId = u.getUserId();
+		updateUserId = u.getUserId();
+		ip = getHttpServletRequest().getRemoteAddr();
+		status = 1;
+	}
+	
+	@Override
+	protected void beforeUpdate() {
+		User u = ThreadUser.get();
+		Date today = new Date();
+		updateUserId = u.getUserId();
+		updateTime = today;
+	}
+	
 	@Resource
 	public void setCommerceService(CommerceService commerceService){
 		this.service = commerceService;

@@ -222,5 +222,29 @@
 		<action name="getDistrictList" class="userAction" method="getDistrictList"></action>
 	</package>
 	<!-- ********************************************** -->
-	
+	<!--******************* advertisement *************** -->
+	<package name="/sysadmin/sys/advertisement" extends="baseDefault" namespace="/sysadmin/sys/advertisement" >
+		<action name="advertisementList" class="advertisementAction" method="doAdvertisementList">
+			<result>/AdminPage/sys/advertisement/advertisementList.jsp</result>
+			<result name="input">/AdminPage/sys/advertisement/advertisementList.jsp</result>
+		</action>
+		<action name="advertisementSave" class="advertisementAction" method="doSave">
+			<result>/AdminPage/sys/advertisement/advertisementContent.jsp</result>
+			<result name="input">/AdminPage/sys/advertisement/advertisementContent.jsp</result>
+		</action>
+		<action name="advertisementEdit" class="advertisementAction" method="doEdit">
+			<result>/AdminPage/sys/advertisement/advertisementContent.jsp</result>
+			<result name="input">/AdminPage/sys/advertisement/advertisementContent.jsp</result>
+		</action>
+		<action name="advertisementNew" class="advertisementAction" method="doNew">
+			<result>/AdminPage/sys/advertisement/advertisementContent.jsp</result>
+			<result name="input">/AdminPage/sys/advertisement/advertisementContent.jsp</result>
+		</action>
+		<action name="advertisementDelete" class="advertisementAction" method="doDelete">
+			<result>/AdminPage/sys/advertisement/advertisementList.jsp</result>
+			<result name="input">/AdminPage/sys/advertisement/advertisementList.jsp</result>
+		</action>
+		<action name="uploadFile" class="advertisementAction" method="doUploadFile"/>
+	</package>
+	<!-- ********************************************** -->
 </struts>

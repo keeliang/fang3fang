@@ -1,5 +1,7 @@
 package fsf.action.est.commerce;
 
+import java.util.Date;
+
 import chance.base.BaseParameter;
 
 public class CommerceParameter extends BaseParameter{
@@ -14,9 +16,8 @@ public class CommerceParameter extends BaseParameter{
 	private Integer _ne_areaId;
 	private Integer _ne_commerceType;
 	private Short _ne_status;
-	private String _slike_address;
-	private String _se_contacter;
-	private String _se_contactTel;
+	private Date _dge_createTime;
+	private Date _dle_createTime;
 
 	public void set_ne_commerceId(Integer _ne_commerceId){
 		this._ne_commerceId = _ne_commerceId;
@@ -72,22 +73,16 @@ public class CommerceParameter extends BaseParameter{
 	public Short get_ne_status(){
 		return this._ne_status;
 	}
-	public String get_slike_address() {
-		return _slike_address;
+	public Date get_dge_createTime() {
+		return _dge_createTime;
 	}
-	public void set_slike_address(String _slike_address) {
-		this._slike_address = _slike_address;
+	public void set_dge_createTime(Date time) {
+		_dge_createTime = time;
 	}
-	public String get_se_contacter() {
-		return _se_contacter;
+	public Date get_dle_createTime() {
+		return _dle_createTime;
 	}
-	public void set_se_contacter(String _se_contacter) {
-		this._se_contacter = _se_contacter;
-	}
-	public String get_se_contactTel() {
-		return _se_contactTel;
-	}
-	public void set_se_contactTel(String tel) {
-		_se_contactTel = tel;
+	public void set_dle_createTime(Date time) {
+		_dle_createTime = time;
 	}
 }

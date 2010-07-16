@@ -9,6 +9,7 @@
 	
 	<!-- 前台需要登录的才能访问的路径 -->
 	<FrontProtected>
+		<resource url="/memberCenter"/>
 		<resource url="/memberCenter/index.jsp" />
 		<resource url="/memberCenter/index.action" />
 		<resource url="/memberCenter/memberInfo_password.jsp" />
@@ -44,6 +45,11 @@
 		<resource url="/memberCenter/loanApplySave.action" />
 		<resource url="/memberCenter/loanApplyList.action" />
 		<resource url="/memberCenter/loanApplyEdit.action" />
+		
+		<resource url="/memberCenter/commerceNew.action" />
+		<resource url="/memberCenter/commerceSave.action" />
+		<resource url="/memberCenter/commerceList.action" />
+		<resource url="/memberCenter/commerceEdit.action" />
 		
 		<resource url="/Info/commitNewsComment.ajax" />
 		<resource url="/Info/commitInfoComment.ajax" />
