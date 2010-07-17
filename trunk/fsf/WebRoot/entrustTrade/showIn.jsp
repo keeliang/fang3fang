@@ -172,7 +172,7 @@
 									求购者姓名：
 								</td>
 								<td id="Contacter" class="left freeTrade_tableW03">
-									&nbsp;${contactUser.userCode }
+									&nbsp;${contactUser.userName }
 								</td>
 								<td class="grayBg right freeTrade_tableW02">
 									联系电话：

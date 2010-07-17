@@ -173,7 +173,7 @@ body .new_menu {
 								</td>
 								<td id="ManagementFees" class="left">
 								&nbsp;
-									<span class="cOrange">${manageCost }</span> 元/平方米·月
+									<span class="cOrange">${manageCost }</span> 元/月
 								</td>
 							</tr>
 							<tr>
@@ -236,7 +236,7 @@ body .new_menu {
 										最短租期：
 									</td>
 									<td id="RentTimeName" class="left">
-										${minMonth }个月起租
+										${minMonth }年起租
 									</td>
 								</tr>
 								<tr>
@@ -327,7 +327,7 @@ body .new_menu {
 									业主姓名：
 								</td>
 								<td id="Contacter" class="left freeTrade_tableW03">&nbsp;
-									${contactUser.userCode }
+									${contactUser.userName }
 								</td>
 								<td class="grayBg right freeTrade_tableW02">
 									联系电话：

@@ -234,7 +234,7 @@
 						<s:text name="_ne_minMonth" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="estateOutParameter._ne_minMonth" />
+						<s:textfield name="estateOutParameter._ne_minMonth" />年
 					</td>
 					<td width="15%" >
 						<s:text name="_ne_fitment" />:
