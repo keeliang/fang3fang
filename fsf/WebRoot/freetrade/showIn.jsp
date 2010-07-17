@@ -179,7 +179,7 @@ body .new_menu {
 									求购者姓名：
 								</td>
 								<td id="Contacter" class="left freeTrade_tableW03">
-									${contactUser.userCode }
+									${contactUser.userName }
 								</td>
 								<td class="grayBg right freeTrade_tableW02">
 									联系电话：

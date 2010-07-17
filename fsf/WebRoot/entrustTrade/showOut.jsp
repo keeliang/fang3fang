@@ -177,7 +177,7 @@ body .new_menu {
 									管&nbsp;理&nbsp;费：
 								</td>
 								<td id="ManagementFees" class="left">
-									<span class="cOrange">${manageCost }</span> 元/平方米·月
+									<span class="cOrange">${manageCost }</span> 元/月
 								</td>
 							</tr>
 							<tr>
@@ -239,7 +239,7 @@ body .new_menu {
 										最短租期：
 									</td>
 									<td id="RentTimeName" class="left">
-										${minMonth }个月起租
+										${minMonth }年起租
 									</td>
 								</tr>
 								<tr>

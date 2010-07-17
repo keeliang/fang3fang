@@ -291,7 +291,7 @@
 									<label class="est_label" for="manageCost">管理费:</label>
 						    </td>
 						    <td class="aaa">
-						    	<s:textfield name="manageCost" id="manageCost" cssClass="memberC_input08" />元/平方米·月
+						    	<s:textfield name="manageCost" id="manageCost" cssClass="memberC_input08" />元/月
 						    </td>
 						    <td class="aaa" >
 									<label class="est_label" for="tradeMode">交易方式:</label>
@@ -386,7 +386,7 @@
 									<label class="est_label" for="minMonth">最少租期</label>
 								</td>
 								<td class="aaa" >
-									<s:textfield name="minMonth" id="minMonth" cssClass="memberC_input08" />
+									<s:textfield name="minMonth" id="minMonth" cssClass="memberC_input08" />年
 								</td>
 							</tr>
 							<tr>

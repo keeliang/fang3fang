@@ -213,7 +213,7 @@
 			<label class="est_label" for="manageCost"><s:text name="manageCost"/>:</label>
     </td>
     <td class="content_td" >
-    	<span class="est_info">${manageCost }元/平方米·月</span>
+    	<span class="est_info">${manageCost }元/月</span>
     </td>
     <td class="label_td" >
 			<label class="est_label" for="tradeMode"><s:text name="tradeMode" />:</label>
@@ -328,7 +328,7 @@
 			<label class="est_label" for="minMonth"><s:text name="minMonth"/>:</label>
 		</td>
 		<td class="content_td" >
-			<span class="est_info">${minMonth }月</span>
+			<span class="est_info">${minMonth }年</span>
 		</td>
 	</tr>
 	<tr>

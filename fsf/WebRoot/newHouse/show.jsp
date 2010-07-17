@@ -120,7 +120,7 @@
 							<tr>
 								<td class="grayBg right">管&nbsp;理&nbsp;费：</td>
 								<td id="ManagementFees" class="left">
-									<span class="cOrange">${manageCost }</span> 元/平方米·月
+									<span class="cOrange">${manageCost }</span> 元/月
 								</td>
 								<td class="grayBg right">其他费用：</td>
 								<td id="EstateBelongName" class="left">
