@@ -32,4 +32,8 @@ public class DictItemDaoImpl extends BaseDao<DictItem> implements DictItemDao{
 		query.setCacheMode(CacheMode.IGNORE);
 		return query.list();
 	}
+	
+	public void deleteAll() {
+		getSession().createQuery("delete from DictItem").executeUpdate();
+	}
 }

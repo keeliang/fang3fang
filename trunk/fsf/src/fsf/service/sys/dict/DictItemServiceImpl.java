@@ -26,4 +26,8 @@ public class DictItemServiceImpl extends BaseService<DictItem> implements DictIt
 			String itemKeyProperty, String ItemNameProperty, BaseParameter param) throws Exception{
 		return getDictItemDao().getDaynamicConfig(entity, itemKeyProperty, ItemNameProperty, param);
 	}
+
+	public void deleteAll() throws Exception {
+		getDictItemDao().deleteAll();
+	}
 }

@@ -9,4 +9,5 @@ import fsf.beans.sys.dict.DictItem;
 public interface DictItemDao extends Dao<DictItem>{
 
 	public List<DictItem> getDaynamicConfig(String entity,String itemKeyProperty,String ItemNameProperty,BaseParameter param)throws Exception;
+	public void deleteAll();
 }

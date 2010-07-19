@@ -8,4 +8,5 @@ import fsf.beans.sys.dict.DictItem;
 
 public interface DictItemService extends Service<DictItem>{
 	public List<DictItem> getDaynamicConfig(String entity,String itemKeyProperty,String ItemNameProperty,BaseParameter param) throws Exception;
+	public void deleteAll() throws Exception;
 }
