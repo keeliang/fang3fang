@@ -9,7 +9,7 @@ a:hover { color: #dd6900; text-decoration: underline; }
 
 hr { border: #dfdfdf 1px solid; height: 0px }
 .bodyline { border: #cccccc 1px solid;  }
-.forumline { border: #006699 2px solid; }
+.forumline { border: #FF7700 2px solid; }
 
 /* td */
 td.row1 { background-color: #fafafa; }
@@ -24,7 +24,7 @@ td.row3announce { background-color: #d1d7dc; }
 td.row3sticky { background-color: #d1d7dc; }
 td.rowpic { background-image:  url(../images/cellpic2.jpg); background-repeat: repeat-y; background-color: #ffffff }
 
-th { font-weight: bold; font-size: 11px; background-image:  url(../images/cellpic3.gif); color: #ffa34f; height: 25px; background-color: #01336b }
+th { font-weight: bold; font-size: 11px; background-image:  url(../images/cellpic3.gif); color: #FFFFFF; height: 25px; background-color: #01336b }
 td.cat { border-right: #ffffff solid; border-top: #ffffff solid; background-image:  url(../images/cellpic1.gif); border-left: #ffffff solid; border-bottom: #ffffff solid; height: 28px; background-color: #dfdfdf }
 td.cathead { border-right: #ffffff solid; border-top: #ffffff solid; background-image:  url(../images/cellpic1.gif); border-left: #ffffff solid; border-bottom: #ffffff solid; height: 28px; background-color: #dfdfdf }
 td.catsides { border-right: #ffffff solid; border-top: #ffffff solid; background-image:  url(../images/cellpic1.gif); border-left: #ffffff solid; border-bottom: #ffffff solid; height: 28px; background-color: #dfdfdf }
