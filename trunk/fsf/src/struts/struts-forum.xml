@@ -10,6 +10,31 @@
 			<result name="forumList" type="redirect">/forums/list.page</result>
 		</action>
 	</package>
+	
 	<!-- ********************************************** -->
+	<package name="/sysadmin/forum" extends="baseDefault" namespace="/sysadmin/forum" >
+		<action name="forumImageList" class="fsf.action.forum.ForumImageAction" method="doList">
+			<result>/AdminPage/forum/forumImageList.jsp</result>
+			<result name="input">/AdminPage/forum/forumImageList.jsp</result>
+		</action>
+		<action name="forumImageSave" class="fsf.action.forum.ForumImageAction" method="doSave">
+			<result>/AdminPage/forum/forumImageContent.jsp</result>
+			<result name="input">/AdminPage/forum/forumImageContent.jsp</result>
+		</action>
+		<action name="forumImageEdit" class="fsf.action.forum.ForumImageAction" method="doEdit">
+			<result>/AdminPage/forum/forumImageContent.jsp</result>
+			<result name="input">/AdminPage/forum/forumImageContent.jsp</result>
+		</action>
+		<action name="forumImageNew" class="fsf.action.forum.ForumImageAction" method="doNew">
+			<result>/AdminPage/forum/forumImageContent.jsp</result>
+			<result name="input">/AdminPage/forum/forumImageContent.jsp</result>
+		</action>
+		<action name="forumImageDelete" class="fsf.action.forum.ForumImageAction" method="doDelete">
+			<result>/AdminPage/forum/forumImageList.jsp</result>
+			<result name="input">/AdminPage/forum/forumImageList.jsp</result>
+		</action>
+		
+		<action name="uploadFile" class="informationAction" method="doUploadFile" ></action>
+	</package>
 	
 </struts>

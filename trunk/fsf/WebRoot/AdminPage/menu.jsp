@@ -141,6 +141,7 @@ $(document).ready(function() {
 		<td>
 			<table>
 				<tr><td><a href="<%=contextPath %>/admBase/login.page" target="_blank"><span>论坛管理</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/sysadmin/forum/forumImageList.action" target="content"><span>业主论坛图片管理</span></a></td></tr>
 			<!-- /user/login.page
 				<tr><td><a href="<%=contextPath %>/adminGroups/goToForum.action" target="content"><span>会员分组</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/adminUsers/goToForum.action" target="content"><span>会员管理</span></a></td></tr>
