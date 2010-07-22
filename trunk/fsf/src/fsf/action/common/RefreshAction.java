@@ -86,6 +86,9 @@ public class RefreshAction extends ActionSupport {
 	}
 	
 	public void deleteConfig()throws Exception{
+		File f = new File(getServletContext().getRealPath("main/index.jsp"));
+		if(f.exists())
+			f.delete();
 		dictItemService.deleteAll();
 		getHttpServletResponse().getWriter().write("成功");
 	}
