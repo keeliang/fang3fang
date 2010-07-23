@@ -1,5 +1,6 @@
 package fsf.dao.forum;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -15,9 +16,13 @@ public class ForumImageDaoImpl extends BaseDao<ForumImage> implements ForumImage
 	}
 	
 	public List<ForumImage> getForumImageCache(){
-		Query query = getSession().createQuery("from ForumImage order by forumId");
-		List<ForumImage> list = query.list();
-		
-		return list;
+		Query query = getSession().createQuery("select o,oo.forumName from ForumImage o,ForumForums oo where o.forumId=oo.forumId order by o.forumId");
+		List<Object[]> list = query.list();
+		List<ForumImage> result = new ArrayList<ForumImage>();
+		for(Object[] oo:list){
+			((ForumImage)oo[0]).setForumName((String)oo[1]);
+			result.add((ForumImage)oo[0]);
+		}
+		return result;
 	}
 }

@@ -444,25 +444,6 @@
 				<!-- search -->
 			</div>
 			
-			<div>
-				<div class="info_title">
-					<span class="font14"><b>业主论坛</b>
-					</span>
-				</div>
-				<marquee direction="left" behavior="scroll" scrollamount="10" onmouseover="this.stop()" onmouseout="this.start()">
-					<table>
-						<s:iterator value="@fsf.web.common.ConstantCache@LISTFORUMIMAGE" id="item">
-						<tr>
-							<td><a href="<%=contextPath %>/forums/show/${forumId}.page">
-									<img src="${imagePath}" width="100" height="80" align="absmiddle" />
-								</a>
-							</td>
-						</tr>
-						</s:iterator>
-					</table>
-				</marquee>
-			</div>
-			
 			<div class="clear"></div>
 			<div class="blank12"></div>
 
@@ -490,6 +471,27 @@
 						</div>
 					</div>
 				</aa:zone>
+			</div>
+			<div>
+				<marquee direction="left" behavior="scroll" scrollamount="10" onmouseover="this.stop()" onmouseout="this.start()">
+					<table>
+						<tr>
+							<s:iterator value="@fsf.web.common.ConstantCache@LISTFORUMIMAGE" id="item">
+								<td style="width: 90px;" >
+									<a href="<%=contextPath %>/forums/show/${forumId}.page">
+										<img src="<%=contextPath %>${imagePath}" width="100" height="80" align="absmiddle" />
+									</a>
+									<br/>
+									<div style="width: 100%;text-align: center;" >
+										<a href="<%=contextPath %>/forums/show/${forumId}.page" class="cRed02" >
+											<u>${forumName }</u>
+										</a>
+									</div>
+								</td>
+							</s:iterator>
+						</tr>
+					</table>
+				</marquee>
 			</div>
 			<div class="clear"></div>
 			<div class="blank12"></div>
