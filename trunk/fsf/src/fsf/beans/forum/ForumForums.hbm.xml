@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2010-7-24 1:02:06 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="fsf.beans.forum.ForumForums" table="forum_forums" catalog="zkj161_db">
+        <id name="forumId" type="java.lang.Integer">
+            <column name="forum_id" />
+            <generator class="identity" />
+        </id>
+        <property name="categoriesId" type="int">
+            <column name="categories_id" not-null="true" />
+        </property>
+        <property name="forumName" type="string">
+            <column name="forum_name" length="150" not-null="true" />
+        </property>
+        <property name="forumDesc" type="string">
+            <column name="forum_desc" />
+        </property>
+        <property name="forumOrder" type="java.lang.Integer">
+            <column name="forum_order" />
+        </property>
+        <property name="forumTopics" type="int">
+            <column name="forum_topics" not-null="true" />
+        </property>
+        <property name="forumLastPostId" type="int">
+            <column name="forum_last_post_id" not-null="true" />
+        </property>
+        <property name="moderated" type="java.lang.Boolean">
+            <column name="moderated" />
+        </property>
+    </class>
+</hibernate-mapping>

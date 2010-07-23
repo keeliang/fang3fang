@@ -41,31 +41,29 @@ public class ForumImageAction extends UploadBaseAction<ForumImage> {
 	//update cache value
 	@Override
 	protected void afterUpdate() {
-		List<ForumImage> list = ConstantCache.LISTFORUMIMAGE;
-		for(ForumImage forumImage:list){
-			if(forumImage.getForumId() == forumId){
-				forumImage.setImagePath(imagePath);
-				break;
-			}
-		}
-		
-		ConstantCache.LISTFORUMIMAGE = list;
+//		List<ForumImage> list = ConstantCache.LISTFORUMIMAGE;
+//		for(ForumImage forumImage:list){
+//			if(forumImage.getForumId() == forumId){
+//				forumImage.setImagePath(imagePath);
+//				break;
+//			}
+//		}
+		ConstantCache.LISTFORUMIMAGE = getForumImageService().getForumImageCache();
 	}
 	
 	//add the new record to the cache
 	@Override
 	protected void afterPersist(){
-		List<ForumImage> list = ConstantCache.LISTFORUMIMAGE;
-		if(list==null){
-			list = new ArrayList<ForumImage>();
-		}
-		ForumImage forumImage = new ForumImage();
-		forumImage.setId(id);
-		forumImage.setForumId(forumId);
-		forumImage.setImagePath(imagePath);
-		list.add(forumImage);
-		
-		ConstantCache.LISTFORUMIMAGE = list;
+//		List<ForumImage> list = ConstantCache.LISTFORUMIMAGE;
+//		if(list==null){
+//			list = new ArrayList<ForumImage>();
+//		}
+//		ForumImage forumImage = new ForumImage();
+//		forumImage.setId(id);
+//		forumImage.setForumId(forumId);
+//		forumImage.setImagePath(imagePath);
+//		list.add(forumImage);
+		ConstantCache.LISTFORUMIMAGE = getForumImageService().getForumImageCache();
 	}
 	
 	private int id;
