@@ -1,5 +1,8 @@
 package fsf.action.forum;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import chance.base.action.UploadBaseAction;
 import fsf.beans.forum.ForumImage;
 import fsf.service.forum.ForumImageService;
+import fsf.web.common.ConstantCache;
 
 @Controller
 @Scope("prototype")
@@ -32,6 +36,36 @@ public class ForumImageAction extends UploadBaseAction<ForumImage> {
 	}
 	public ForumImageParameter getForumImageParameter(){
 		return (ForumImageParameter)baseParameter;
+	}
+	
+	//update cache value
+	@Override
+	protected void afterUpdate() {
+		List<ForumImage> list = ConstantCache.LISTFORUMIMAGE;
+		for(ForumImage forumImage:list){
+			if(forumImage.getForumId() == forumId){
+				forumImage.setImagePath(imagePath);
+				break;
+			}
+		}
+		
+		ConstantCache.LISTFORUMIMAGE = list;
+	}
+	
+	//add the new record to the cache
+	@Override
+	protected void afterPersist(){
+		List<ForumImage> list = ConstantCache.LISTFORUMIMAGE;
+		if(list==null){
+			list = new ArrayList<ForumImage>();
+		}
+		ForumImage forumImage = new ForumImage();
+		forumImage.setId(id);
+		forumImage.setForumId(forumId);
+		forumImage.setImagePath(imagePath);
+		list.add(forumImage);
+		
+		ConstantCache.LISTFORUMIMAGE = list;
 	}
 	
 	private int id;
