@@ -125,6 +125,11 @@
 		<ItemKeyProperty>commerce_id</ItemKeyProperty>
 		<ItemNameProperty>title</ItemNameProperty>
 	</DynamicConfig>
+	<DynamicConfig name="forum_forums">
+		<Entity>forum_forums</Entity>
+		<ItemKeyProperty>forum_id</ItemKeyProperty>
+		<ItemNameProperty>forum_name</ItemNameProperty>
+	</DynamicConfig>
 	
 	<!-- 以下是直接将固定参数表直接缓存的项 -->
 	<DictItemCache>

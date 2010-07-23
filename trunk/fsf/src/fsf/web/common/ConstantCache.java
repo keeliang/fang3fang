@@ -5,6 +5,7 @@ import java.util.Map;
 
 import fsf.beans.est.commerce.Commerce;
 import fsf.beans.est.estateout.EstateOut;
+import fsf.beans.forum.ForumImage;
 import fsf.beans.info.information.Information;
 import fsf.beans.sys.advertisement.Advertisement;
 
@@ -66,4 +67,8 @@ public final class ConstantCache {
 	 * 广告缓存
 	 */
 	public static Map<String,Advertisement> MAPADVERTISEMENT;
+	/**
+	 * 业主论坛图片缓存
+	 */
+	public static List<ForumImage> LISTFORUMIMAGE;
 }

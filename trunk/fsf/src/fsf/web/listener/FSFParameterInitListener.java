@@ -21,6 +21,7 @@ import fsf.beans.sys.city.City;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.district.District;
 import fsf.beans.sys.province.Province;
+import fsf.service.forum.ForumImageService;
 import fsf.service.sys.attention.AttentionService;
 import fsf.service.sys.city.CityService;
 import fsf.service.sys.dict.DictItemService;
@@ -42,6 +43,7 @@ public class FSFParameterInitListener implements ServletContextListener{
 		loadEstFilter(event.getServletContext());
 		loadPageInfoCache(event.getServletContext());
 		loadAttentionCache(event.getServletContext());
+		loadForumImageCache(event.getServletContext());
 	}
 	
 	/**
@@ -283,6 +285,16 @@ public class FSFParameterInitListener implements ServletContextListener{
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		} 
+	}
+	
+	/**
+	 * 首页页面信息
+	 * @param servletContext
+	 */
+	private void loadForumImageCache(ServletContext servletContext){
+		WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+		ForumImageService forumImageService = (ForumImageService)ctx.getBean("forumImageServiceImpl");
+		ConstantCache.LISTFORUMIMAGE = forumImageService.getForumImageCache();
 	}
 	
 }

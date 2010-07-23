@@ -40,16 +40,19 @@
 						<s:text name="forumId"/>:
 					</td>
 					<td>
-						<s:textfield name="forumId" /><font color="red">*</font>
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#forum_forums')" name="forumId" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey" id="forumId" />
+						<font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<s:text name="image"/>:
+						<s:text name="imagePath"/>:
 					</td>
 					<td>
 						<input type="button" value="上传图片" id="btnUpload" />
-						<s:hidden name="imagePath" />
+						<s:hidden name="imagePath" id="imagePath" />
+						<font color="red">(100X80)</font>
 					</td>
 				</tr>
 			</table>
@@ -65,7 +68,8 @@ var UploadActionName = "<%=contextPath%>/sysadmin/forum/uploadFile.action";
 
 function f_validate(){
 	fromName = "formItem";
-	addfield("item","<s:text name="image"/>","String",false,80);
+	//alert(document.getElementById('imagePath').value);
+	//addfield("item","<s:text name="imagePath"/>","String",false,80);
 	return validate();
 }
 </script>

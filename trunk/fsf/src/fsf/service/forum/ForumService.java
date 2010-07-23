@@ -1,5 +1,8 @@
 package fsf.service.forum;
 
+import java.util.List;
+
+import fsf.beans.forum.ForumImage;
 import fsf.beans.sys.user.User;
 
 public interface ForumService {
