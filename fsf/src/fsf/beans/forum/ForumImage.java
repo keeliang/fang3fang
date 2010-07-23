@@ -1,9 +1,9 @@
 package fsf.beans.forum;
 
-public class ForumImage {
+public class ForumImage implements java.io.Serializable {
 	private int id;
 	private int forumId;
-	private String image;
+	private String imagePath;
 	
 	public ForumImage(){
 		
@@ -25,11 +25,11 @@ public class ForumImage {
 		this.forumId = forumId;
 	}
 
-	public String getImage() {
-		return image;
+	public String getImagePath() {
+		return imagePath;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 }

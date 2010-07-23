@@ -25,7 +25,8 @@
 						<s:text name="_se_forumId" />:
 					</td>
 					<td width="35%">
-						<s:textfield name="forumImageParameter._se_forumId" />
+						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('#forum_forums')" name="forumImageParameter._se_forumId" 
+						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey" id="forumId"/>
 					</td>
 					<td width="50%">&nbsp;</td>
 				</tr>
@@ -46,9 +47,12 @@
 
 <table width="100%" border="0" class="AdminTableStyle TableContent" id="tblList">
 <tr class="TH">
+	<td width="3%" height="28" >
+		<input type="checkbox" onclick="g_select(this)" >
+	</td>
 	<td><s:text name="id"/></td>
 	<td><s:text name="forumId"/></td>
-	<td><s:text name="image"/></td>
+	<td><s:text name="imagePath"/></td>
 </tr>
 
 <s:iterator value="pageView.records" id="item">
@@ -56,9 +60,12 @@
 		<s:param name="id" value="#item.id"></s:param>
 	</s:url>
 	<tr>
+		<td>
+			<input type="checkbox" name="selectedPK" value="<s:property value="#item.id"/>">
+		</td>
 		<td><s:property value="id"/></td>
-		<td><a href="javascript:g_edit('${url}')" ><s:property value="forumId"/></a></td>
-		<td><img src="<s:property value="image"/>" width="50" height="50"/></td>
+		<td><a href="javascript:g_edit('${url}')" ><fsf:dictTranslate groupName="#forum_forums" value="forumId" /></a></td>
+		<td><img src="<s:property value="imagePath"/>" width="100" height="80"/></td>
 	</tr>
 </s:iterator>
 </table>

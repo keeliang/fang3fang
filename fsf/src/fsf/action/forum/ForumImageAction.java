@@ -15,7 +15,7 @@ public class ForumImageAction extends UploadBaseAction<ForumImage> {
 	private static final long serialVersionUID = -7892811662835812919L;
 
 	public ForumImageAction() {
-		super(ForumImage.class, new String[] { "id" }, "image");
+		super(ForumImage.class, new String[] { "id" }, "imagePath");
 	}
 	
 	@Resource
@@ -36,7 +36,7 @@ public class ForumImageAction extends UploadBaseAction<ForumImage> {
 	
 	private int id;
 	private int forumId;
-	private String image;
+	private String imagePath;
 	
 	public int getId() {
 		return id;
@@ -54,12 +54,12 @@ public class ForumImageAction extends UploadBaseAction<ForumImage> {
 		this.forumId = forumId;
 	}
 
-	public String getImage() {
-		return image;
+	public String getImagePath() {
+		return imagePath;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
 	

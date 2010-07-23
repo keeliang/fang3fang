@@ -10,8 +10,8 @@
             <generator class="identity" />
         </id>
 		<property name="forumId" column="forum_id" type="java.lang.Integer" length="10"/>
-		<property name="image" type="string">
-            <column name="image" length="80" not-null="true" />
+		<property name="imagePath" type="string">
+            <column name="image_path" length="80" not-null="true" />
         </property>
 	</class>
 </hibernate-mapping>

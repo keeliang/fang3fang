@@ -443,6 +443,28 @@
 				<!-- col03 -->
 				<!-- search -->
 			</div>
+			
+			<div>
+				<div class="info_title">
+					<span class="font14"><b>业主论坛</b>
+					</span>
+				</div>
+				<marquee direction="left" behavior="scroll" scrollamount="10" onmouseover="this.stop()" onmouseout="this.start()">
+					<table>
+						<s:iterator value="@fsf.web.common.ConstantCache@LISTFORUMIMAGE" id="item">
+						<tr>
+							<td><a href="<%=contextPath %>/forums/show/${forumId}.page">
+									<img src="${imagePath}" width="100" height="80" align="absmiddle" />
+								</a>
+							</td>
+						</tr>
+						</s:iterator>
+					</table>
+				</marquee>
+			</div>
+			
+			<div class="clear"></div>
+			<div class="blank12"></div>
 
 			<%@ include file="/Search/search.jsp"%>
 			<div class="clear"></div>
