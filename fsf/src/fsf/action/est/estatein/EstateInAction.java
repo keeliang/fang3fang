@@ -23,6 +23,7 @@ import fsf.beans.est.estatein.EstateIn;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
 import fsf.service.est.estatein.EstateInService;
+import fsf.service.sys.dict.DictItemService;
 import fsf.service.sys.user.UserService;
 import fsf.web.common.ThreadUser;
 import fsf.web.common.WebConstant;
@@ -34,7 +35,8 @@ public class EstateInAction extends BaseAction<EstateIn> {
 	public EstateInAction() {
 		super(EstateIn.class, new String[] { "estateId" });
 	}
-	
+	@Resource
+	private DictItemService dictItemService;
 	/**
 	 * 关键字搜索
 	 */

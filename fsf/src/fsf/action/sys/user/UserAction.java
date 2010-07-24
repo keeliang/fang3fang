@@ -21,6 +21,7 @@ import chance.common.QueryResult;
 import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
+import fsf.service.sys.dict.DictItemService;
 import fsf.service.sys.user.UserService;
 import fsf.web.common.ThreadUser;
 import fsf.web.common.WebConstant;
@@ -32,6 +33,8 @@ public class UserAction extends UploadBaseAction<User> {
 	public UserAction() {
 		super(User.class, new String[] { "userId" },"user");
 	}
+	@Resource
+	private DictItemService dictItemService;
 	
 	private List<EstateOut> rentRecommond;
 	

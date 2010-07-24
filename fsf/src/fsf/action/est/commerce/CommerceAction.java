@@ -22,6 +22,7 @@ import fsf.beans.est.commerce.Commerce;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
 import fsf.service.est.commerce.CommerceService;
+import fsf.service.sys.dict.DictItemService;
 import fsf.service.sys.user.UserService;
 import fsf.web.common.ThreadUser;
 import fsf.web.common.WebConstant;
@@ -37,6 +38,9 @@ public class CommerceAction extends UploadBaseAction<Commerce> {
 	}
 	@Resource
 	private UserService userService;
+	
+	@Resource
+	private DictItemService dictItemService;
 	
 //	List<Commerce> factoryList;
 //	List<Commerce> officeList;

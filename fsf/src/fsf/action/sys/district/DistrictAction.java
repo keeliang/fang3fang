@@ -14,6 +14,7 @@ import chance.base.BaseParameter;
 import chance.base.action.BaseAction;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.district.District;
+import fsf.service.sys.dict.DictItemService;
 import fsf.service.sys.district.DistrictService;
 
 @Controller
@@ -23,6 +24,8 @@ public class DistrictAction extends BaseAction<District> {
 	public DistrictAction() {
 		super(District.class, new String[] { "districtId" });
 	}
+	@Resource
+	private DictItemService dictItemService;
 	
 	public String getCityList() throws Exception {
 		BaseParameter param = new BaseParameter();

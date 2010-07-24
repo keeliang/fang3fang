@@ -2,7 +2,6 @@ package chance.base.action;
 
 import java.io.Serializable;
 
-import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,8 +19,6 @@ import chance.exception.ServiceException;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-
-import fsf.service.sys.dict.DictItemService;
 /**
  * 
  * @author yws
@@ -37,9 +34,6 @@ public abstract class BaseAction<E> extends ActionSupport {
 	public static final String NOPRIVILEGE = "noPrivilege";
 	
 	protected Service<E> service;
-	
-	@Resource
-	protected DictItemService dictItemService;
 	
 	protected Class<E> entityClass;
 	
