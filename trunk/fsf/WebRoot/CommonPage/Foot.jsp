@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
-<%@ page import="chance.common.SystemConfigInitListener" %>
+<%@ page import="fsf.web.listener.SystemConfigInitListener" %>
 <div class="foot">
 	<p>
 		<a href="<%=contextPath %>/help/help.action?infoName=FindHouse">新手帮助</a>

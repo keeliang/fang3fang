@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import chance.base.action.BaseAction;
-import chance.common.SystemConfigInitListener;
 import fsf.beans.sys.config.SysConfig;
 import fsf.service.sys.config.SysConfigService;
+import fsf.web.listener.SystemConfigInitListener;
 
 @Controller
 @Scope("prototype")

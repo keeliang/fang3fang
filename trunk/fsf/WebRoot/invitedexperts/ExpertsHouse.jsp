@@ -26,17 +26,17 @@
 				</div>
 				<div class="wangpu_topR">
 					<p class="cOrange bold">
-						联系房上房:<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('work_time')" />
+						联系房上房:<s:property value="@fsf.web.listener.SystemConfigInitListener@sysConfig.get('work_time')" />
 					</p>
 					<p>
 						<img src="images/info_dot01.jpg" width="5" height="5"
 							align="absmiddle" />
-						客服MSN：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('msn')" />
+						客服MSN：<s:property value="@fsf.web.listener.SystemConfigInitListener@sysConfig.get('msn')" />
 					</p>
 					<p>
 						<img src="images/info_dot01.jpg" width="5" height="5"
 							align="absmiddle" />
-						客服QQ：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('qq')" />
+						客服QQ：<s:property value="@fsf.web.listener.SystemConfigInitListener@sysConfig.get('qq')" />
 					</p>
 				</div>
 			</div>

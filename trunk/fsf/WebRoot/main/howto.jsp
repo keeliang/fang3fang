@@ -26,7 +26,7 @@
 	<div style="padding-left:40%"><img src="images/help_ShopContent.jpg" /></div>
 <br/><br/>
 <span>
-	<img src="images/rainbow.png" />&nbsp;如有疑问，请致电房上房热线：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />.
+	<img src="images/rainbow.png" />&nbsp;如有疑问，请致电房上房热线：<s:property value="@fsf.web.listener.SystemConfigInitListener@sysConfig.get('service_tel1')" />.
 </span>
 
 <br/><br/><br/>

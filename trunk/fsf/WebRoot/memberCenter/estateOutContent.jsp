@@ -357,7 +357,7 @@
 							</p>
 							<div class="memberC_line"></div>
 						<s:if test="cmd=='new' || contactUserId==null">
-							发布此房源属于委托交易，客户联系看房需要联系房上房客服：<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />
+							发布此房源属于委托交易，客户联系看房需要联系房上房客服：<s:property value="@fsf.web.listener.SystemConfigInitListener@sysConfig.get('service_tel1')" />
 						</s:if>
 						<s:else>	
 							<table border="0" cellpadding="0" cellspacing="0" width="100%" id="saleTbl" >
