@@ -23,7 +23,7 @@
 	</listener>
 	
 	<listener>
-		<listener-class>chance.common.SystemConfigInitListener</listener-class>
+		<listener-class>fsf.web.listener.SystemConfigInitListener</listener-class>
 	</listener>
  
 	<filter>
