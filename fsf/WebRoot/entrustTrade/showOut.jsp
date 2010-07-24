@@ -376,8 +376,8 @@ body .new_menu {
 								<tr>
 									<td class="grayBg left" width="100%"  >
 										此房源属于委托交易，客户联系看房需要联系房上房客服：
-										<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel1')" />&nbsp;&nbsp;
-										<s:property value="@chance.common.SystemConfigInitListener@sysConfig.get('service_tel2')" />
+										<s:property value="@fsf.web.listener.SystemConfigInitListener@sysConfig.get('service_tel1')" />&nbsp;&nbsp;
+										<s:property value="@fsf.web.listener.SystemConfigInitListener@sysConfig.get('service_tel2')" />
 									</td>
 								</tr>
 							</s:else>
