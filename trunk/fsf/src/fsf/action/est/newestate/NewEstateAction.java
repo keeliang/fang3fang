@@ -17,6 +17,7 @@ import fsf.beans.est.newestate.NewEstate;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
 import fsf.service.est.newestate.NewEstateService;
+import fsf.service.sys.dict.DictItemService;
 import fsf.web.common.ThreadUser;
 
 @Controller
@@ -26,6 +27,8 @@ public class NewEstateAction extends UploadBaseAction<NewEstate> {
 	public NewEstateAction() {
 		super(NewEstate.class, new String[] { "estateId" },"newEstate");
 	}
+	@Resource
+	private DictItemService dictItemService;
 	
 	private String flag = "new";
 	

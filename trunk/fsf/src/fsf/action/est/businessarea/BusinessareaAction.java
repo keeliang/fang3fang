@@ -1,6 +1,5 @@
 package fsf.action.est.businessarea;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,11 +10,12 @@ import net.sf.json.JSONObject;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import chance.base.BaseParameter;
+import chance.base.action.BaseAction;
 import fsf.beans.est.businessarea.Businessarea;
 import fsf.beans.sys.dict.DictItem;
-import chance.base.action.BaseAction;
-import chance.base.BaseParameter;
 import fsf.service.est.businessarea.BusinessareaService;
+import fsf.service.sys.dict.DictItemService;
 
 @Controller
 @Scope("prototype")
@@ -24,6 +24,9 @@ public class BusinessareaAction extends BaseAction<Businessarea> {
 	public BusinessareaAction() {
 		super(Businessarea.class, new String[] { "areaId" });
 	}
+	
+	@Resource
+	private DictItemService dictItemService;
 	
 	public String getCityList() throws Exception {
 		BaseParameter param = new BaseParameter();

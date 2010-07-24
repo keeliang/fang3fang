@@ -24,6 +24,7 @@ import fsf.beans.est.estateout.EstateOut;
 import fsf.beans.sys.dict.DictItem;
 import fsf.beans.sys.user.User;
 import fsf.service.est.estateout.EstateOutService;
+import fsf.service.sys.dict.DictItemService;
 import fsf.service.sys.user.UserService;
 import fsf.web.common.ThreadUser;
 import fsf.web.common.WebConstant;
@@ -38,6 +39,8 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 	
 	@Resource
 	private UserService userService;
+	@Resource
+	private DictItemService dictItemService;
 	
 	private String flag = "out";
 	/**
