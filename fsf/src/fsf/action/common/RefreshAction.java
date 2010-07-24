@@ -70,9 +70,6 @@ public class RefreshAction extends ActionSupport {
 		String p = RefreshAction.class.getClassLoader().getResource(WebConstant.EST_FILTER_PATH).getPath();
 		File f = new File(p);
 		f.delete();
-		p = RefreshAction.class.getClassLoader().getResource("ql-regular.xml").getPath();
-		f = new File(p);
-		f.delete();
 		p = RefreshAction.class.getClassLoader().getResource(WebConstant.DICT_CONFIG_PATH).getPath();
 		f = new File(p);
 		f.delete();
