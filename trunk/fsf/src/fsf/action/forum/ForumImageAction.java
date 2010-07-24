@@ -1,8 +1,5 @@
 package fsf.action.forum;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
@@ -19,7 +16,7 @@ public class ForumImageAction extends UploadBaseAction<ForumImage> {
 	private static final long serialVersionUID = -7892811662835812919L;
 
 	public ForumImageAction() {
-		super(ForumImage.class, new String[] { "id" }, "imagePath");
+		super(ForumImage.class, new String[] { "id" }, "forum");
 	}
 	
 	@Resource

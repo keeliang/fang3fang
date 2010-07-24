@@ -34,7 +34,7 @@
 			<result name="input">/AdminPage/forum/forumImageList.jsp</result>
 		</action>
 		
-		<action name="uploadFile" class="informationAction" method="doUploadFile" ></action>
+		<action name="uploadFile" class="fsf.action.forum.ForumImageAction" method="doUploadFile" ></action>
 	</package>
 	
 </struts>
