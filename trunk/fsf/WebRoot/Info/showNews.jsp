@@ -169,7 +169,7 @@
 								<li>
 									<p>
 										<s:if test="imagePath!=null && imagePath.trim()!=''">
-											<img src="<%=contextPath %>${imagePth }" width="131" height="86" />
+											<img src="<%=contextPath %>${imagePath }" width="131" height="86" />
 										</s:if>
 										<s:else>
 											<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
@@ -199,7 +199,7 @@
 								<li>
 									<p>
 										<s:if test="imagePath!=null && imagePath.trim()!=''">
-											<img src="<%=contextPath %>${imagePth }" width="131" height="86" />
+											<img src="<%=contextPath %>${imagePath }" width="131" height="86" />
 										</s:if>
 										<s:else>
 											<img src="<%=contextPath %>/images/logo.jpg" width="154" height="51" />
