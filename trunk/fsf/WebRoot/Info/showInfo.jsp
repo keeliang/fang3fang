@@ -42,25 +42,25 @@
     <div class="infoShow_menu">
     	<p>
 	    	<span <s:if test="informationParameter._ne_informationType==1">class="on"</s:if> >
-						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=1&informationParameter.currentPage=1&informationParameter.maxResults=30">焦点</a>
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=1&informationParameter.currentPage=1&informationParameter.maxResults=30&informationParameter.sortColumns=createTime|DESC">焦点</a>
 					</span>
 					<span <s:if test="informationParameter._ne_informationType==3">class="on"</s:if> >
-						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=3&informationParameter.currentPage=1&informationParameter.maxResults=30">房价新闻</a>
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=3&informationParameter.currentPage=1&informationParameter.maxResults=30&informationParameter.sortColumns=createTime|DESC">房价新闻</a>
 					</span>
 					<span <s:if test="informationParameter._ne_informationType==2">class="on"</s:if> >
-						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=2&informationParameter.currentPage=1&informationParameter.maxResults=30">深度报告</a>
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=2&informationParameter.currentPage=1&informationParameter.maxResults=30&informationParameter.sortColumns=createTime|DESC">深度报告</a>
 					</span>
 					<span <s:if test="informationParameter._ne_informationType==5">class="on"</s:if> >
-						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=5&informationParameter.currentPage=1&informationParameter.maxResults=30">房产政策</a>
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=5&informationParameter.currentPage=1&informationParameter.maxResults=30&informationParameter.sortColumns=createTime|DESC">房产政策</a>
 					</span>
 					<span <s:if test="informationParameter._ne_informationType==4">class="on"</s:if> >
-						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=4&informationParameter.currentPage=1&informationParameter.maxResults=30">区域报告</a>
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=4&informationParameter.currentPage=1&informationParameter.maxResults=30&informationParameter.sortColumns=createTime|DESC">区域报告</a>
 					</span>
 					<span <s:if test="informationParameter._ne_informationType==6">class="on"</s:if> >
-						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=6&informationParameter.currentPage=1&informationParameter.maxResults=30">国际家居</a>
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=6&informationParameter.currentPage=1&informationParameter.maxResults=30&informationParameter.sortColumns=createTime|DESC">国际家居</a>
 					</span>
 					<span <s:if test="informationParameter._ne_informationType==7">class="on"</s:if> >
-						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=7&informationParameter.currentPage=1&informationParameter.maxResults=30">社区推荐</a>
+						<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=7&informationParameter.currentPage=1&informationParameter.maxResults=30&informationParameter.sortColumns=createTime|DESC">社区推荐</a>
 					</span>
     	</p>
     </div>
@@ -78,7 +78,7 @@
             	<p>您当前的所在位置：
             		<a href="<%=contextPath %>/main/index.jsp">房上房</a> &gt;
             		<a href="<%=contextPath %>/Info/infoIndexList.action">地产资讯</a> &gt;
-            		<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=${informationType }&informationParameter.currentPage=1&informationParameter.maxResults=30">
+            		<a href="<%=contextPath %>/Info/infoList.action?informationParameter._ne_informationType=${informationType }&informationParameter.currentPage=1&informationParameter.maxResults=30&informationParameter.sortColumns=createTime|DESC">
             			<fsf:dictTranslate groupName="$information_type" value="informationType" />
             		</a> 
             	</p>

@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import chance.base.BaseParameter;
 import chance.base.action.UploadBaseAction;
 import chance.common.QueryResult;
 import fsf.beans.info.information.Information;
@@ -48,6 +49,7 @@ public class InformationAction extends UploadBaseAction<Information> {
 			baseParameter.setMaxResults(-1);
 			baseParameter.setCurrentPage(-1);
 			baseParameter.setTopCount(5);
+			baseParameter.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
 			InformationParameter p = (InformationParameter)baseParameter;
 			p.set_ne_status((short)1);
 			
