@@ -16,6 +16,7 @@ public class Advertisement implements java.io.Serializable {
 	private String imagePath;
 	private String title;
 	private String link;
+	private Byte type;
 
 	public Advertisement() {
 	}
@@ -58,6 +59,14 @@ public class Advertisement implements java.io.Serializable {
 
 	public void setLink(String link) {
 		this.link = link;
+	}
+
+	public Byte getType() {
+		return type;
+	}
+
+	public void setType(Byte type) {
+		this.type = type;
 	}
 
 }

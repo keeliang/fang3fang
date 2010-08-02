@@ -22,10 +22,28 @@ public class AdvertisementAction extends UploadBaseAction<Advertisement> {
 	}
 	
 	private List<Advertisement> listAdvertisement;
-	
+	/**
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 	public String doAdvertisementList() throws Exception {
 		try {
-			listAdvertisement = service.doQueryAll();
+			AdvertisementParameter param = new AdvertisementParameter();
+			param.set_ne_type((byte)0);
+			listAdvertisement = service.doQuery(param);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+		return SUCCESS;
+	}
+	
+	public String doInfoImageList()throws Exception{
+		try {
+			AdvertisementParameter param = new AdvertisementParameter();
+			param.set_nne_type((byte)0);
+			listAdvertisement = service.doQuery(param);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -61,6 +79,7 @@ public class AdvertisementAction extends UploadBaseAction<Advertisement> {
 	private String imagePath;
 	private String title;
 	private String link;
+	private Byte type;
 
 	public void setAdvertisementName(String advertisementName){
 		this.advertisementName = advertisementName;
@@ -103,4 +122,11 @@ public class AdvertisementAction extends UploadBaseAction<Advertisement> {
 		this.link = link;
 	}
 
+	public Byte getType() {
+		return type;
+	}
+
+	public void setType(Byte type) {
+		this.type = type;
+	}
 }

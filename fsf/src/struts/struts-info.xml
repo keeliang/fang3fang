@@ -158,4 +158,20 @@
 		</action>
 	</package>
 	<!-- ********************************************** -->
+	<!--******************* newsType *************** -->
+	<package name="/sysadmin/info/advertisement" extends="baseDefault" namespace="/sysadmin/info/advertisement" >
+		<action name="advertisementList" class="advertisementAction" method="doInfoImageList">
+			<result>/AdminPage/info/advertisement/advertisementList.jsp</result>
+			<result name="input">/AdminPage/info/advertisement/advertisementList.jsp</result>
+		</action>
+		<action name="advertisementSave" class="advertisementAction" method="doSave">
+			<result>/AdminPage/info/advertisement/advertisementContent.jsp</result>
+			<result name="input">/AdminPage/advertisement/newstype/advertisementContent.jsp</result>
+		</action>
+		<action name="advertisementEdit" class="advertisementAction" method="doEdit">
+			<result>/AdminPage/info/advertisement/advertisementContent.jsp</result>
+			<result name="input">/AdminPage/info/advertisement/advertisementContent.jsp</result>
+		</action>
+	</package>
+	<!-- ********************************************** -->
 </struts>

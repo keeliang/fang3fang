@@ -310,6 +310,8 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 		createTime = d;
 		updateUserId = u.getUserId();
 		updateTime = d;
+		if(salePrice!=null)
+			salePrice = salePrice*10000;
 //		examine = (short)1;
 //		examineUserId = u.getUserId();
 	}
@@ -318,6 +320,8 @@ public class EstateOutAction extends UploadBaseAction<EstateOut> {
 		User u = ThreadUser.get();
 		updateUserId = u.getUserId();
 		updateTime = new Date();
+		if(salePrice!=null)
+			salePrice = salePrice*10000;
 	}
 	
 	@Override

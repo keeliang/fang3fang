@@ -235,6 +235,10 @@ public class EstateInAction extends BaseAction<EstateIn> {
 		createTime = d;
 		updateUserId = u.getUserId();
 		updateTime = d;
+		if(buyPriceFrom!=null)
+			buyPriceFrom = buyPriceFrom*10000;
+		if(buyPriceTo!=null)
+			buyPriceTo = buyPriceTo*10000;
 //		examine = (short)1;
 //		examineUserId = u.getUserId();
 	}
@@ -244,6 +248,10 @@ public class EstateInAction extends BaseAction<EstateIn> {
 //		contactUserId = u.getUserId();
 		updateUserId = u.getUserId();
 		updateTime = new Date();
+		if(buyPriceFrom!=null)
+			buyPriceFrom = buyPriceFrom*10000;
+		if(buyPriceTo!=null)
+			buyPriceTo = buyPriceTo*10000;
 	}
 	
 	@Override

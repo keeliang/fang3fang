@@ -49,12 +49,16 @@ public class NewEstateAction extends UploadBaseAction<NewEstate> {
 		createTime = d;
 		updateUserId = u.getUserId();
 		updateTime = d;
+		if(price!=null)
+			price = price*10000;
 	}
 	@Override
 	protected void beforeUpdate() {
 		User u = ThreadUser.get();
 		updateUserId = u.getUserId();
 		updateTime = new Date();
+		if(price!=null)
+			price = price*10000;
 	}
 	
 	public String getCityList() throws Exception {

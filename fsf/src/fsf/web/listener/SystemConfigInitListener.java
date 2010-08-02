@@ -45,9 +45,14 @@ public class SystemConfigInitListener implements ServletContextListener {
 		AdvertisementService advertisementService = (AdvertisementService)ctx.getBean("advertisementServiceImpl");
 		List<Advertisement> list2 = advertisementService.doQueryAll();
 		Map<String,Advertisement> map2 = new HashMap<String, Advertisement>();
+		Map<String,Advertisement> map3 = new HashMap<String, Advertisement>();
 		for(Advertisement adv:list2){
-			map2.put(adv.getAdvertisementName(), adv);
+			if((byte)0==adv.getType())
+				map2.put(adv.getAdvertisementName(), adv);
+			else
+				map3.put(adv.getAdvertisementName(), adv);
 		}
 		ConstantCache.MAPADVERTISEMENT = map2;
+		ConstantCache.MAPADVERTISEMENTINFO = map3;
 	}
 }

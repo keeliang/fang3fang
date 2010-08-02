@@ -20,5 +20,8 @@
         <property name="link" type="string">
             <column name="link" length="200" />
         </property>
+        <property name="type" type="java.lang.Byte">
+            <column name="type" />
+        </property>
     </class>
 </hibernate-mapping>
