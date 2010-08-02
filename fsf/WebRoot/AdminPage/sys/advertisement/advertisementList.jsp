@@ -11,8 +11,6 @@
 <body>
 
 <s:form action="advertisementList" namespace="/sysadmin/sys/advertisement" name="formList" id="formList" theme="simple" method="post">
-<s:hidden name="advertisementParameter.currentPage" id="currentPage"  />
-<s:hidden name="advertisementParameter.maxResults" id="maxResults" />
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
 <div class="contentTitle"><s:text name="listTitle"/></div>
 <div class="MainContent">

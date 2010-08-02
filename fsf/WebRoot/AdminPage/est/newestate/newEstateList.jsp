@@ -208,7 +208,7 @@
 	<td><s:text name="isHot"/></td>
 	<td><s:text name="estateType"/></td>
 	<td><s:text name="area"/></td>
-	<td><s:text name="price"/></td>
+	<td><s:text name="price"/>(万元)</td>
 	<td><s:text name="createTime"/></td>
 </tr>
 
@@ -225,7 +225,7 @@
 		<td><fsf:dictTranslate groupName="$yes_no" value="isHot" /></td>
 		<td><fsf:dictTranslate groupName="$estate_type" value="estateType" /></td>
 		<td><s:property value="area"/></td>
-		<td><s:property value="price"/></td>
+		<td><s:property value="price/10000"/></td>
 		<td><s:date name="createTime" format="yyyy-MM-dd" /></td>
 	</tr>
 </s:iterator>

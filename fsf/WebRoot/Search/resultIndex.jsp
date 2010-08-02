@@ -94,10 +94,10 @@
 											</a>
 									</td>
 									<td><a href="<%=contextPath %>/freetrade/outContent.action?estateId=<s:property value="#item.estateId" />" target="blank"><s:property value="#item.estateName" /></a></td>
-									<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
+									<td><s:property value="#item.bedroom" />房<s:property value="#item.hall" />厅</td>
 									<td><s:property value="#item.area" />m<sup>2</sup></td>
 									<td><s:property value="#item.unitPrice" />元</td>
-									<td><s:property value="#item.salePrice" />元</td>
+									<td><s:property value="#item.salePrice/10000" />万元</td>
 									<td><s:date name="createTime" format="yyyy-MM-dd"/></td>
 								</tr>
 							</s:iterator>
@@ -125,7 +125,7 @@
 							<s:iterator value="listEstateIn" id="item">
 								<tr>
 									<td><a href="<%=contextPath %>/freetrade/inContent.action?estateId=<s:property value="#item.estateId" />" target="blank"><s:property value="#item.title" /></a></td>
-									<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
+									<td><s:property value="#item.bedroom" />房<s:property value="#item.hall" />厅</td>
 									<td><s:property value="#item.rentPriceFrom" />-<s:property value="#item.rentPriceTo" />元/月</td>
 									<td><s:property value="#item.area" />m<sup>2</sup></td>
 									<td><s:date name="createTime" format="yyyy-MM-dd"/></td>
@@ -143,7 +143,7 @@
 							<s:iterator value="listEstateIn" id="item">
 								<tr>
 									<td><a href="<%=contextPath %>/freetrade/inContent.action?estateId=<s:property value="#item.estateId" />" target="blank" ><s:property value="#item.title" /></a></td>
-									<td><s:property value="#item.hall" />厅<s:property value="#item.bedroom" />房</td>
+									<td><s:property value="#item.bedroom" />房<s:property value="#item.hall" />厅</td>
 									<td><s:property value="#item.buyPriceFrom" />-<s:property value="#item.buyPriceTo" /></td>
 									<td><s:property value="#item.areaFrom" />-<s:property value="#item.areaTo" />m<sup>2</sup></td>
 									<td><s:date name="createTime" format="yyyy-MM-dd"/></td>

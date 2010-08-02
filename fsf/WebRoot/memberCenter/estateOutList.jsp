@@ -96,7 +96,7 @@
 								</td>
 								<td><b>楼盘名称</b></td>
 								<td><b>面积</b></td>
-								<td><b>售价</b></td>
+								<td><b>售价(万元)</b></td>
 								<td><b>租价</b></td>
 								<td><b>状态</b></td>
 								<td><b>委托联系人</b></td>
@@ -115,7 +115,7 @@
 									</td>
 									<td><a href="javascript:g_edit('${url}')" ><s:property value="estateName"/></a></td>
 									<td><s:property value="area"/></td>
-									<td><s:property value="salePrice"/></td>
+									<td><s:property value="salePrice/10000"/></td>
 									<td><s:property value="rentPrice"/></td>
 									<td><fsf:dictTranslate groupName="$out_trade_mode" value="tradeMode" /></td>
 									<td><fsf:dictTranslate groupName="#sys_user" value="contactUserId" /></td>

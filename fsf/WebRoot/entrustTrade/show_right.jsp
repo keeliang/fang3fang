@@ -87,7 +87,7 @@ function f_queryNear(o,n){
 								${estateName } ${bedroom }室${hall }厅 
 								${area }m 
 								<s:if test="tradeMode==1" >${rentPrice }元/月</s:if>
-								<s:else>${salePrice }元/月</s:else>
+								<s:else>${salePrice/10000 }万元</s:else>
 							</a>
 						</p>
 					</s:iterator>
@@ -119,7 +119,7 @@ function f_queryNear(o,n){
 								${estateName } ${bedroom }室${hall }厅 
 								${area }m 
 								<s:if test="tradeMode==1" >${rentPrice }元/月</s:if>
-								<s:else>${salePrice }元/月</s:else>
+								<s:else>${salePrice }万元</s:else>
 							</a>
 						</p>
 					</s:iterator>

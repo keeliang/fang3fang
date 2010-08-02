@@ -219,7 +219,8 @@
 									<label class="est_label" ><s:text name="buyPrice"/>:</label>
 								</td>
 								<td>
-									<s:textfield name="buyPriceFrom" />元-<s:textfield name="buyPriceTo" />元
+									<s:textfield name="buyPriceFrom" ><s:param value="buyPriceFrom/10000" name="value" ></s:param></s:textfield>万元-
+									<s:textfield name="buyPriceTo" ><s:param value="buyPriceTo/10000" name="value" ></s:param></s:textfield>万元
 								</td>
 							</tr>
 						</table>

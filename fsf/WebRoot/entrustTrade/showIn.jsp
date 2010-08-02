@@ -132,13 +132,13 @@
 										期望售价：
 									</td>
 									<td id="StartPrice" class="left">
-										<span class="cOrange">${buyPriceFrom }</span>元
+										<span class="cOrange">${buyPriceFrom/10000 }</span>万元
 									</td>
 									<td class="grayBg right">
 										至&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									</td>
 									<td id="EndPrice" class="left">
-										<span class="cOrange">${buyPriceTo }</span>元
+										<span class="cOrange">${buyPriceTo/10000 }</span>万元
 									</td>
 								</tr>
 							</s:if>

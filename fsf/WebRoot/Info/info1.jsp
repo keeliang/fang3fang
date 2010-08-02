@@ -4,7 +4,7 @@
  		<s:if test="listInfo1!=null && listInfo1.size()>0">
 			<dl>
 				<dt>
-					<img src="images/info_pic003.jpg" width="80" height="60" alt="" title="" />
+					<img src="<s:property value="@fsf.web.common.ConstantCache@MAPADVERTISEMENT.get('focus').link"/>" width="80" height="60"  />
 				</dt>
 				<dd>
 					<a href="<%=contextPath %>/Info/infoContent.action?informationId=<s:property value="listInfo1.get(0).informationId"/>" class="cRed03"><b><s:property value="listInfo1.get(0).informationTitle"/></b></a>

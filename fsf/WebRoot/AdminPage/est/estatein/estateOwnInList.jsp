@@ -205,7 +205,7 @@
 	</td>
 	<td><s:text name="title"/></td>
 	<td><s:text name="estateType"/></td>
-	<td><s:text name="buyPrice"/></td>
+	<td><s:text name="buyPrice"/>(万元)</td>
 	<td><s:text name="rentPrice"/></td>
 	<td><s:text name="area"/></td>
 	<td><s:text name="tradeMode"/></td>
@@ -224,7 +224,7 @@
 		</td>
 		<td><a href="javascript:g_edit('${url}')" ><s:property value="title"/></a></td>
 		<td><fsf:dictTranslate groupName="$estate_type" value="estateType" /></td>
-		<td><s:property value="buyPriceFrom"/>-<s:property value="buyPriceTo"/></td>
+		<td><s:property value="buyPriceFrom/10000"/>-<s:property value="buyPriceTo/10000"/></td>
 		<td><s:property value="rentPriceFrom"/>-<s:property value="rentPriceTo"/></td>
 		<td><s:property value="areaFrom"/>-<s:property value="areaTo"/></td>
 		<td><fsf:dictTranslate groupName="$in_trade_mode" value="tradeMode" /></td>

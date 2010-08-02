@@ -93,7 +93,7 @@
 									<td>标题</td>
 									<td><b>期望户型(室/厅/卫/阳台)</b></td>
 									<td><b>期望面积</b></td>
-									<td><b>期望售价</b></td>
+									<td><b>期望售价(万元)</b></td>
 									<td><b>期望租价</b></td>
 									<td><b>状态</b></td>
 									<td><b>发布日期</b></td>
@@ -112,7 +112,7 @@
 										<td><a href="javascript:g_edit('${url}')" ><s:property value="title"/></a></td>
 										<td>${bedroom }室${hall }厅${toilet }卫${porch }阳台</td>
 										<td><s:property value="areaFrom"/>-<s:property value="areaTo"/></td>
-										<td><s:property value="buyPriceFrom"/>-<s:property value="buyPriceTo"/></td>
+										<td><s:property value="buyPriceFrom/10000"/>-<s:property value="buyPriceTo/10000"/></td>
 										<td><s:property value="rentPriceFrom"/>-<s:property value="rentPriceTo"/></td>
 										<td><fsf:dictTranslate groupName="$in_trade_mode" value="tradeMode" /></td>
 										<td><s:date name="createTime" format="yyyy-MM-dd" /></td>

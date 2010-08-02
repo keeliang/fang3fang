@@ -69,7 +69,7 @@
 											<p class="top">
 												<span class="tuo"><img src="<%=contextPath %>${imagePath }" width="75px" height="60px" style="float: left" ;/></span>
 												<span class="title">${estateName }</span>
-												<span style="padding-left: 19px;">${bedroom }室${hall }厅 ${area }㎡ <b>${salePrice }元</b></span>
+												<span style="padding-left: 19px;">${bedroom }室${hall }厅 ${area }㎡ <b>${salePrice/10000 }万元</b></span>
 												<br/>
 												<span class="Sinfo">${remark }</span>
 												<span class="Sdate" style="float: right"><s:date name="createTime" format="yyyy-MM-dd" /></span>

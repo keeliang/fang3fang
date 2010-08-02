@@ -1,6 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="fsf" uri="/common.tld"%>
 <%@ taglib prefix="aa" uri="http://ajaxanywhere.sourceforge.net/" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%
 String contextPath = request.getContextPath();
