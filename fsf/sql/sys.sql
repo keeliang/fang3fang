@@ -123,6 +123,13 @@ CREATE TABLE if not exists sys_advertisement(
 	image_path varchar(80),
 	title varchar(100),
 	link varchar(200),
+	type tinyint not null,
 	constraint PK_sys_advertisement primary key(advertisement_name)
 );
-insert into sys_advertisement(advertisement_name,advertisement_desc,image_path,title,link) values('index_middle','首页中部广告',null,null,null);
+insert into sys_advertisement(advertisement_name,advertisement_desc,image_path,title,link,type) values('index_middle','首页中部广告',null,null,null,0);
+insert into sys_advertisement(advertisement_name,advertisement_desc,image_path,title,link,type) values('focus','焦点',null,null,null,1);
+insert into sys_advertisement(advertisement_name,advertisement_desc,image_path,title,link,type) values('deep_report','深度报道',null,null,null,2);
+insert into sys_advertisement(advertisement_name,advertisement_desc,image_path,title,link,type) values('price_news','房价新闻',null,null,null,3);
+insert into sys_advertisement(advertisement_name,advertisement_desc,image_path,title,link,type) values('area_report','区域报道',null,null,null,4);
+insert into sys_advertisement(advertisement_name,advertisement_desc,image_path,title,link,type) values('policy','房产政策',null,null,null,5);
+insert into sys_advertisement(advertisement_name,advertisement_desc,image_path,title,link,type) values('fitment','国际家居',null,null,null,6);
