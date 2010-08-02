@@ -80,8 +80,6 @@ insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
 select 'information_type','5','房产政策','房产政策',5 ;
 insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
 select 'information_type','6','国际家居','国际家居',6 ;
-insert into sys_dictitem (group_name,item_key,item_name,item_desc,seq)
-select 'information_type','7','社区推荐','社区推荐',7 ;
 
 /*************************商业旺铺类型****************************/
 insert into sys_dictgroup (group_name,group_desc,remark)
