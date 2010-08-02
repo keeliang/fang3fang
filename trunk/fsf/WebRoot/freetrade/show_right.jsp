@@ -88,7 +88,7 @@ function f_queryNear(o,n){
 								${estateName } ${bedroom }室${hall }厅 
 								${area }m 
 								<s:if test="tradeMode==1" >${rentPrice }元/月</s:if>
-								<s:else>${salePrice }元/月</s:else>
+								<s:else>${salePrice/10000 }万元</s:else>
 							</a>
 						</p>
 					</s:iterator>
@@ -117,7 +117,7 @@ function f_queryNear(o,n){
 				<s:if test="pageView.records!=null && pageView.records.size()>0">
 					<s:iterator value="pageView.records" >
 						<p><a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" target="blank">${estateName } ${bedroom }室${hall }厅 
-						${area }m <s:if test="tradeMode==1" >${rentPrice }元/月</s:if><s:else>${salePrice }元/月</s:else></a></p>
+						${area }m <s:if test="tradeMode==1" >${rentPrice }元/月</s:if><s:else>${salePrice/10000 }万元</s:else></a></p>
 					</s:iterator>
 				</s:if>
 				<s:else>暂无相近价格房源</s:else>

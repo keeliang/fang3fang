@@ -148,7 +148,7 @@
 												<li>
 													<span>${estateName }</span>
 													<p>
-														<fsf:dictTranslate groupName="#district" value="districtId" /> ${bedroom }室${hall }厅 ${area }㎡ ${salesPrice }元
+														<fsf:dictTranslate groupName="#district" value="districtId" /> ${bedroom }室${hall }厅 ${area }㎡ ${salesPrice/10000 }万元
 													</p>
 												</li>
 											</s:iterator>
@@ -170,8 +170,7 @@
 				<!--expert-->
 				
 				<div class="contentR">
-				
-					<div class="hot">
+					<div class="hot" style="height: auto;" >
 						<div class="hot_top">
 							<span>推荐房源</span>
 						</div>
@@ -184,15 +183,15 @@
 						 -->
 						<div id="estateDiv">
 							<ul>
-								<s:iterator value="@fsf.web.common.ConstantCache@LISTRECOMMONDSALE10" >
+								<s:iterator value="@fsf.web.common.ConstantCache@LISTRECOMMONDSALE8" >
 									<li class="li1">
 										<s:if test="tradeType==1">
-											<span><a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" class="cRed02">${estateName }</a></span>
+											<span><a href="<%=contextPath %>/freetrade/outContent.action?estateId=${estateId }" class="cRed02">${estateName }</a>&nbsp;${area }㎡</span>
 										</s:if>
 										<s:if test="tradeType==2">
-											<span><a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" class="cRed02">${estateName }</a></span>
+											<span><a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" class="cRed02">${estateName }</a>&nbsp;${area }㎡</span>
 										</s:if>
-										<p>${area }㎡<span class="red_span">${salePrice }万</span> 单价:${unitPrice }元/㎡</p>
+										<p><span class="red_span">${salePrice/10000 }万元</span> 单价:${unitPrice }元/㎡</p>
 									</li>
 								</s:iterator>
 							</ul>

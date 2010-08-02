@@ -128,6 +128,7 @@ $(document).ready(function() {
 				<tr><td><a href="<%=contextPath %>/sysadmin/info/newscomment/newsCommentList.action" target="content"><span>新闻留言管理</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/sysadmin/info/information/informationList.action" target="content"><span>资讯管理</span></a></td></tr>
 				<tr><td><a href="<%=contextPath %>/sysadmin/info/infocomment/infoCommentList.action" target="content"><span>资讯留言管理</span></a></td></tr>
+				<tr><td><a href="<%=contextPath %>/sysadmin/info/advertisement/advertisementList.action?advertisementParameter._nne_type=0" target="content"><span>资讯首页图片管理</span></a></td></tr>
 			</table>
 		</td>
 	</tr>

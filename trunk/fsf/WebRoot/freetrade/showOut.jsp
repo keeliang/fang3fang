@@ -293,7 +293,7 @@ body .new_menu {
 										<span class="cOrange">价&nbsp;&nbsp;格：</span>
 									</td>
 									<td id="Cost" class="left">
-										<span class="cOrange">${salePrice }</span> 元
+										<span class="cOrange">${salePrice/10000 }</span> 万元
 									</td>
 									<td class="grayBg right">
 										<span class="cOrange">单&nbsp;&nbsp;价：</span>

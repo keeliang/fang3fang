@@ -75,7 +75,6 @@
 									</div>
 									<div class="two_left_5_3" style="font-size: 12px;" >
 										<a href="<%=contextPath %>/commerce/commerceView.action?commerceId=<s:property value="commerceId" />" target="_blank" title="${title }" ><s:property value="@chance.util.HtmlUtils@removeHTML(title,20)"/></a><br/>
-										<fsf:dictTranslate groupName="$commerce_type" value="commerceType" /><br/>
 										<s:property value="@chance.util.HtmlUtils@removeHTML(content,20)"/>
 									</div>
 	        			</td>

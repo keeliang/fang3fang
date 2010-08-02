@@ -226,7 +226,7 @@
 		</td>
 		<td>
 			<span class="est_info">
-				${buyPriceFrom }元-${buyPriceTo }元
+				${buyPriceFrom/10000 }万元-${buyPriceTo/10000 }万元
 			</span>
 		</td>
 	</tr>

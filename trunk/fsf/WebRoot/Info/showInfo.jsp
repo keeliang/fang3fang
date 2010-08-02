@@ -165,7 +165,7 @@
 									</p>
 									<p>
 										<span class="cRed02"><s:date name="createTime" format="yyyy-MM-dd" /></span>&nbsp;&nbsp;
-										<span class="cRed02">${salePrice }元</span>
+										<span class="cRed02">${salePrice/10000 }万元</span>
 									</p>
 								</li>							
 							</s:iterator>
@@ -192,7 +192,7 @@
 									</p>
 									<p>
 										<span class="cRed02"><s:date name="createTime" format="yyyy-MM-dd" /></span>&nbsp;&nbsp;
-										<span class="cRed02">${salePrice }元</span>
+										<span class="cRed02">${salePrice }万元</span>
 									</p>
 								</li>
 							</s:iterator>

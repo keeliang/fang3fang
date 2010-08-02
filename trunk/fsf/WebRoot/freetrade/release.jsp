@@ -353,7 +353,7 @@
 						  		<label class="est_label" for="salePrice">售价</label>
 						  	</td>
 						  	<td class="aaa" >
-						  		<s:textfield name="salePrice" id="salePrice" cssClass="memberC_input08" />元
+						  		<s:textfield name="salePrice" id="salePrice" cssClass="memberC_input08" />万元
 								</td>
 						  </tr>
 						  <tr>
@@ -621,7 +621,7 @@
 									<label class="est_label" >售价:</label>
 								</td>
 								<td class="aaa">
-									<s:textfield name="buyPriceFrom" />元-<s:textfield name="buyPriceTo" />元
+									<s:textfield name="buyPriceFrom" />万元-<s:textfield name="buyPriceTo" />万元
 								</td>
 							</tr>
 						</table>

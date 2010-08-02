@@ -204,7 +204,7 @@
 						<s:text name="price"/>:
 					</td>
 					<td>
-						<s:textfield name="price" />					</td>
+						<s:textfield name="price" ><s:param name="value" value="price/10000" ></s:param></s:textfield>万元</td>
 				</tr>
 				<tr>
 					<td>

@@ -296,7 +296,7 @@
 		</td>
 		<td><s:text name="estateName"/></td>
 		<td><s:text name="address"/></td>
-		<td><s:text name="salePrice"/></td>
+		<td><s:text name="salePrice"/>(万元)</td>
 		<td><s:text name="contactUserId"/></td>
 		<td><s:text name="createTime"/></td>
 		<td><s:text name="examine"/></td>
@@ -312,7 +312,7 @@
 			</td>
 			<td><a href="javascript:g_edit('${url}')" ><s:property value="estateName"/></a></td>
 			<td><s:property value="address"/></td>
-			<td><s:property value="salePrice"/></td>
+			<td><s:property value="salePrice/10000"/></td>
 			<td><fsf:dictTranslate groupName="#sys_user" value="contactUserId" /></td>
 			<td>
 				<s:date name="createTime" format="yyyy-MM-dd"/>

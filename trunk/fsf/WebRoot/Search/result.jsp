@@ -107,7 +107,7 @@
 								<td><s:property value="#item.bedroom" />房<s:property value="#item.hall" />厅</td>
 								<td><s:property value="#item.area" />m<sup>2</sup></td>
 								<td><s:property value="#item.unitPrice" />元</td>
-								<td><s:property value="#item.salePrice" />元</td>
+								<td><s:property value="#item.salePrice/10000" />万元</td>
 								<td><s:date name="createTime" format="yyyy-MM-dd"/></td>
 							</tr>
 						</s:iterator>
@@ -176,7 +176,7 @@
 									</s:if>
 								</td>
 								<td><s:property value="#item.bedroom" />房<s:property value="#item.hall" />厅</td>
-								<td><s:property value="#item.buyPriceFrom" />-<s:property value="#item.buyPriceTo" />元</td>
+								<td><s:property value="#item.buyPriceFrom/10000" />-<s:property value="#item.buyPriceTo/10000" />万元</td>
 								<td><s:property value="#item.areaFrom" />-<s:property value="#item.areaTo" />m<sup>2</sup></td>
 								<td><s:date name="createTime" format="yyyy-MM-dd"/></td>
 							</tr>
@@ -209,7 +209,7 @@
 								</div>
 								<div class="two_left_5_3" >
 									<a href="<%=contextPath %>/newHouse/content.action?estateId=<s:property value="estateId" />" target="_blank" title="${estateName }" ><s:property value="@chance.util.HtmlUtils@removeHTML(estateName,20)"/></a><br/>
-									${bedroom }室${hall }厅&nbsp;&nbsp; ${price }元<br/>
+									${bedroom }室${hall }厅&nbsp;&nbsp; ${price/10000 }万元<br/>
 									<s:property value="@chance.util.HtmlUtils@removeHTML(remark,20)"/>
 								</div>
 							</td>

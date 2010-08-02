@@ -298,7 +298,7 @@
   		<label class="est_label" for="salePrice"><s:text name="salePrice"/>:</label>
   	</td>
   	<td class="content_td" >
-  		<span class="est_info">${salePrice }元</span>
+  		<span class="est_info">${salePrice/10000 }万元</span>
 		</td>
   </tr>
   <tr>

@@ -70,7 +70,7 @@ function f_queryNear(o,n){
 						<p><a href="<%=contextPath %>/entrustTrade/inContent.action?estateId=${estateId }" target="blank">
 						${title } ${bedroom }室${hall }厅 
 						${areaFrom }-${areaTo }m<sup>2</sup><br/>
-						<s:if test="tradeMode==1" >${rentPriceFrom }-${rentPriceTo }元/月</s:if><s:else>${buyPriceFrom }-${buyPriceTo }元/月</s:else></a></p>
+						<s:if test="tradeMode==1" >${rentPriceFrom }-${rentPriceTo }元/月</s:if><s:else>${buyPriceFrom/10000 }-${buyPriceTo/10000 }万元</s:else></a></p>
 					</s:iterator>
 				</s:if>
 				<s:else>暂无相同居室房源</s:else>
@@ -95,7 +95,7 @@ function f_queryNear(o,n){
 					<s:iterator value="pageView.records" >
 						<p><a href="<%=contextPath %>/entrustTrade/inContent.action?estateId=${estateId }" target="blank">${title } ${bedroom }室${hall }厅 
 						${areaFrom }-${areaTo }m<sup>2</sup><br/>
-						<s:if test="tradeMode==1" >${rentPriceFrom }-${rentPriceTo }元/月</s:if><s:else>${buyPriceFrom }-${buyPriceTo }元/月</s:else></a></p>
+						<s:if test="tradeMode==1" >${rentPriceFrom }-${rentPriceTo }元/月</s:if><s:else>${buyPriceFrom }-${buyPriceTo }万元</s:else></a></p>
 					</s:iterator>
 				</s:if>
 				<s:else>暂无相近价格房源</s:else>
