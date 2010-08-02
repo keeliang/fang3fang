@@ -7,9 +7,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import chance.base.BaseParameter;
-import chance.common.QueryResult;
 import fsf.action.est.estateout.EstateOutParameter;
-import fsf.beans.est.estateout.EstateOut;
 import fsf.dao.est.estateout.EstateOutDao;
 import fsf.web.common.ConstantCache;
 
@@ -44,18 +42,17 @@ public class EstateOutRecommondCacheService implements ScheduleService{
 			//委托推荐 top4 资讯内页
 			param.getQueryDynamicConditions().put("_ne_tradeType", (short)2);
 			ConstantCache.LISTRECOMMOND = estateOutDao.doQuery(param);
-			//资讯首页、旺铺种类内页 右侧 top5
+			//资讯首页 右侧 top10
 			param = new EstateOutParameter();
-			param.setTopCount(5);
 			param.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
 			((EstateOutParameter)param).set_ne_isRecommond((short)1);
 			((EstateOutParameter)param).set_nin_tradeMode(new Short[]{2,3});
 			param.getQueryDynamicConditions().put("_ne_examine", (short)1);
-			ConstantCache.LISTRECOMMONDSALE = estateOutDao.doQuery(param);
-			
-			//顾问首页 右侧 top10
 			param.setTopCount(10);
 			ConstantCache.LISTRECOMMONDSALE = estateOutDao.doQuery(param);
+			//顾问右侧
+			param.setTopCount(8);
+			ConstantCache.LISTRECOMMONDSALE8 = estateOutDao.doQuery(param);
 			
 			//会员首页右侧自主推荐 top10
 			param = new EstateOutParameter();
@@ -65,6 +62,7 @@ public class EstateOutRecommondCacheService implements ScheduleService{
 			((EstateOutParameter)param).set_ne_tradeType((short)1);
 			((EstateOutParameter)param).set_nin_tradeMode(new Short[]{1,2,3});
 			ConstantCache.LISTOWNRECOMMOND10 = estateOutDao.doQuery(param);
+			
 			
 			//会员首页右侧委托推荐 top10
 			((EstateOutParameter)param).set_ne_tradeType((short)2);

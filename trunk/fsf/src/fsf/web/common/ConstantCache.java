@@ -48,13 +48,13 @@ public final class ConstantCache {
 	 */
 	public static List<EstateOut> LISTRECOMMOND;
 	/**
-	 * 资讯和旺铺页面的推荐房源 top5
+	 * 资讯推荐房源 top10
 	 */
 	public static List<EstateOut> LISTRECOMMONDSALE;
 	/**
 	 * 顾问首页 右侧 top10
 	 */
-	public static List<EstateOut> LISTRECOMMONDSALE10;
+	public static List<EstateOut> LISTRECOMMONDSALE8;
 	/**
 	 * 会员首页右侧自主推荐 top10
 	 */
@@ -67,6 +67,10 @@ public final class ConstantCache {
 	 * 广告缓存
 	 */
 	public static Map<String,Advertisement> MAPADVERTISEMENT;
+	/**
+	 * 资讯首页土图片
+	 */
+	public static Map<String,Advertisement> MAPADVERTISEMENTINFO;
 	/**
 	 * 业主论坛图片缓存
 	 */
