@@ -31,8 +31,6 @@
 <s:hidden name="newEstateParameter._nge_area" />
 <s:hidden name="newEstateParameter._nle_area" />
 <s:hidden name="newEstateParameter._ne_isLift" />
-<s:hidden name="newEstateParameter._nge_practicalArea" />
-<s:hidden name="newEstateParameter._nle_practicalArea" />
 <s:hidden name="newEstateParameter._ne_effective" />
 <s:hidden name="newEstateParameter._ne_toward" />
 <s:hidden name="newEstateParameter._nge_price" />
@@ -164,14 +162,6 @@
 					<td>
 						<s:select list="@fsf.web.common.SelectTagStaticUtil@getConfig('$is_lift')" name="isLift" 
 						cssClass="dropdown" emptyOption="true" listValue="itemName" listKey="itemKey"/><font color="red">*</font>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:text name="practicalArea"/>:
-					</td>
-					<td>
-						<s:textfield name="practicalArea" /><font color="red">*</font>
 					</td>
 				</tr>
 				<tr>
@@ -325,7 +315,6 @@ function f_validate(){
 	addfield("estateType","<s:text name="estateType"/>","Integer",false,3);
 	addfield("area","<s:text name="area"/>","Number",false,6);
 	addfield("isLift","<s:text name="isLift"/>","Integer",false,3);
-	addfield("practicalArea","<s:text name="practicalArea"/>","Number",false,6);
 	addfield("effective","<s:text name="effective"/>","Integer",false,10);
 	addfield("toward","<s:text name="toward"/>","Integer",true,10);
 	addfield("totalFloor","<s:text name="totalFloor"/>","Integer",false,10);

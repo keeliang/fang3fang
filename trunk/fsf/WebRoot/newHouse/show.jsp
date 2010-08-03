@@ -113,9 +113,7 @@
 							</tr>
 							<tr>
 								<td class="grayBg right">建筑面积：</td>
-								<td id="TotalArea" class="left">${area } 平方米</td>
-								<td class="grayBg right">使用面积：</td>
-								<td id="UsableArea" class="left">${practicalArea } 平方米</td>
+								<td id="TotalArea" class="left" colspan="3" >${area } 平方米</td>
 							</tr>
 							<tr>
 								<td class="grayBg right">管&nbsp;理&nbsp;费：</td>

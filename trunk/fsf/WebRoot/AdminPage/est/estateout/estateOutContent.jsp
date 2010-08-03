@@ -36,8 +36,6 @@
 <s:hidden name="estateOutParameter._nge_area" />
 <s:hidden name="estateOutParameter._nle_area" />
 <s:hidden name="estateOutParameter._ne_isLift" />
-<s:hidden name="estateOutParameter._nge_practicalArea" />
-<s:hidden name="estateOutParameter._nle_practicalArea" />
 <s:hidden name="estateOutParameter._ne_toward" />
 <s:hidden name="estateOutParameter._nge_floor" />
 <s:hidden name="estateOutParameter._nle_floor" />
@@ -128,14 +126,8 @@
 		<td class="label_td">
 			<label class="est_label" for="area"><s:text name="area"/>:</label>
     </td>
-    <td class="content_td">
+    <td class="content_td" colspan="3" >
     	<s:textfield name="area" id="area" cssClass="memberC_input08"/>m<sup>2</sup>
-    </td>
-    <td class="label_td">
-			<label class="est_label" for="practicalArea" ><s:text name="practicalArea"/>:</label>
-    </td>
-    <td class="content_td">
-    	<s:textfield name="practicalArea" id="practicalArea" cssClass="memberC_input08"/>m<sup>2</sup>
     </td>
   </tr>
   <tr>
@@ -531,7 +523,6 @@ function f_validate(){
 	addfield("estateType","<s:text name="estateType"/>","Integer",false,3);
 	addfield("area","<s:text name="area"/>","Number",false,6,2);
 	addfield("isLift","<s:text name="isLift"/>","Integer",false,3);
-	addfield("practicalArea","<s:text name="practicalArea"/>","Number",false,6,2);
 	addfield("effective","<s:text name="effective"/>","Integer",false,10);
 	addfield("address","<s:text name="address"/>","String",false,128);
 	addfield("toward","<s:text name="toward"/>","Integer",false,10);

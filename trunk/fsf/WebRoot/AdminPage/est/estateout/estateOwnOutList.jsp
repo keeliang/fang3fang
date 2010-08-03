@@ -146,20 +146,6 @@
 				</tr>
 				<tr>
 					<td width="15%" >
-						<s:text name="_nge_practicalArea" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="estateOutParameter._nge_practicalArea" />
-					</td>
-					<td width="15%" >
-						<s:text name="_nle_practicalArea" />:
-					</td>
-					<td width="35%">
-						<s:textfield name="estateOutParameter._nle_practicalArea" />
-					</td>
-				</tr>
-				<tr>
-					<td width="15%" >
 						<s:text name="_nge_totalFloor" />:
 					</td>
 					<td width="35%">
@@ -391,8 +377,6 @@ function f_validate(){
 	fromName = "formList";
 	addfield("estateOutParameter._nge_area","<s:text name="_nge_area"/>","Number",true,6,2);
 	addfield("estateOutParameter._nle_area","<s:text name="_nle_area"/>","Number",true,6,2);
-	addfield("estateOutParameter._nge_practicalArea","<s:text name="_nge_practicalArea"/>","Number",true,6,2);
-	addfield("estateOutParameter._nle_practicalArea","<s:text name="_nge_practicalArea"/>","Number",true,6,2);
 	addfield("estateOutParameter._nge_floor","<s:text name="_nge_floor"/>","Integer",true,10);
 	addfield("estateOutParameter._nle_floor","<s:text name="_nle_floor"/>","Integer",true,10);
 	addfield("estateOutParameter._nge_totalFloor","<s:text name="_nge_totalFloor"/>","Integer",true,10);
