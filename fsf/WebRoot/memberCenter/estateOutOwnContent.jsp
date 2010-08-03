@@ -101,14 +101,8 @@
 								<td class="label_td">
 									<label class="est_label" for="area"><s:text name="area"/>:</label>
 						    </td>
-						    <td class="content_td">
+						    <td class="content_td" colspan="3" >
 						    	<s:textfield name="area" id="area" cssClass="memberC_input08"/>m<sup>2</sup>
-						    </td>
-						    <td class="label_td">
-									<label class="est_label" for="practicalArea" ><s:text name="practicalArea"/>:</label>
-						    </td>
-						    <td class="content_td">
-						    	<s:textfield name="practicalArea" id="practicalArea" cssClass="memberC_input08"/>m<sup>2</sup>
 						    </td>
 						  </tr>
 						  <tr>
@@ -442,7 +436,6 @@ function f_validate(){
 	addfield("districtId","区域","Integer",false,10);
 	addfield("tradeMode","交易方式","Integer",false,3);
 	addfield("area","面积","Number",false,6,2);
-	addfield("practicalArea","实用面积","Number",false,6,2);
 	addfield("isLift","是否电梯房","Integer",false,3);
 	addfield("effective","有效天数","Integer",false,10);
 	addfield("address","地址","String",false,128);

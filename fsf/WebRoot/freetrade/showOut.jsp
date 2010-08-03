@@ -150,15 +150,8 @@ body .new_menu {
 								<td class="grayBg right">
 									建筑面积：
 								</td>
-								<td id="TotalArea" class="left">
+								<td id="TotalArea" class="left" colspan="3" >
 									&nbsp;${area } 平方米
-								</td>
-								<td class="grayBg right">
-									使用面积：
-								</td>
-								<td id="UsableArea" class="left">
-								&nbsp;
-									${practicalArea } 平方米
 								</td>
 							</tr>
 							<tr>

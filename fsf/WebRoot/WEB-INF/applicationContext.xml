@@ -6,41 +6,14 @@
 	default-lazy-init="true">
 	
 	<context:component-scan base-package="fsf.action,fsf.service,fsf.dao"/>
-	<!--
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName"><value>com.mysql.jdbc.Driver</value></property>
-	   	
-	   	<property name="url"><value>jdbc:mysql://121.199.58.232:3306/zkj161_db</value></property>
-		<property name="username"><value>zkj161</value></property>
-		<property name="password"><value>c9b9m9k7</value></property>
-		 
-		 <property name="url"><value>jdbc:mysql://localhost:3306/fsf</value></property>
-		<property name="username"><value>root</value></property>
-		<property name="password"><value>root</value></property>
-	</bean>
-	-->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-		<property name="jdbcUrl" value="jdbc:mysql://121.199.58.232:3306/zkj161_db"></property>
-		<property name="user" value="zkj161"></property>
-		<property name="password" value="c9b9m9k7"></property>
-		<property name="minPoolSize"><value>1</value></property>
-		<property name="maxPoolSize"><value>20</value></property>
-		<property name="maxIdleTime"><value>1800</value></property>
-		<property name="acquireIncrement"><value>2</value></property>
-		<property name="maxStatements"><value>0</value></property>
-		<property name="initialPoolSize"><value>2</value></property>
-		<property name="idleConnectionTestPeriod"><value>1800</value></property>
-		<property name="acquireRetryAttempts"><value>30</value></property>
-		<property name="breakAfterAcquireFailure"><value>true</value></property>
-		<property name="testConnectionOnCheckout"><value>false</value></property>
-	</bean>
 	
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-		<property name="dataSource"><ref local="dataSource"/></property>
+		<!-- <property name="dataSource"><ref local="dataSource"/></property> -->
 		<property name="hibernateProperties">
 			<props>
+				<prop key="hibernate.connection.provider_class">org.hibernate.connection.ProxoolConnectionProvider</prop>
+   			<prop key="hibernate.proxool.pool_alias">DBPool</prop>
+				<prop key="hibernate.proxool.xml">proxool.xml</prop> 
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.use_outer_join">true</prop>
@@ -65,7 +38,7 @@
 	
 	<!-- 使用annotation定义事务 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
-
+	
 	<!-- 改变有效天数 -->
 	<bean id="updateEffectiveJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<property name="targetObject" ref="updateEffectiveService" />
