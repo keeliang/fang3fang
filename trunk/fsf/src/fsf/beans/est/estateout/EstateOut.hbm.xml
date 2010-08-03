@@ -59,9 +59,6 @@
         <property name="isLift" type="short">
             <column name="is_lift" not-null="true" />
         </property>
-        <property name="practicalArea" type="double">
-            <column name="practical_area" precision="6" not-null="true" />
-        </property>
         <property name="effective" type="int">
             <column name="effective" not-null="true" />
         </property>
