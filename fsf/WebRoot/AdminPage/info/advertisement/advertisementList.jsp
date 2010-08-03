@@ -12,7 +12,6 @@
 
 <s:form action="advertisementList" namespace="/sysadmin/sys/advertisement" name="formList" id="formList" theme="simple" method="post">
 <div id="errorMsg" class="errorMsg"><s:actionmessage /><s:actionerror/><s:fielderror/></div>
-<div class="contentTitle"><s:text name="listTitle"/></div>
 <div class="MainContent">
 
 <table width="100%" border="0" >

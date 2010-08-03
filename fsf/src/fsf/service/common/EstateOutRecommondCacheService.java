@@ -42,13 +42,13 @@ public class EstateOutRecommondCacheService implements ScheduleService{
 			//委托推荐 top4 资讯内页
 			param.getQueryDynamicConditions().put("_ne_tradeType", (short)2);
 			ConstantCache.LISTRECOMMOND = estateOutDao.doQuery(param);
-			//资讯首页 右侧 top10
+			//资讯首页 右侧 top16
 			param = new EstateOutParameter();
 			param.getSortedConditions().put("createTime", BaseParameter.SORTED_DESC);
 			((EstateOutParameter)param).set_ne_isRecommond((short)1);
 			((EstateOutParameter)param).set_nin_tradeMode(new Short[]{2,3});
 			param.getQueryDynamicConditions().put("_ne_examine", (short)1);
-			param.setTopCount(10);
+			param.setTopCount(16);
 			ConstantCache.LISTRECOMMONDSALE = estateOutDao.doQuery(param);
 			//顾问右侧
 			param.setTopCount(8);

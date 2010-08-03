@@ -11,12 +11,12 @@
 		<meta name="title"
 			content="番禺房地产门户 - 房上房地产网(http://wwww.fang3fang.com)" />
 		<title>番禺房地产门户 - 房上房地产网</title>
-		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<link href="<%=contextPath %>/main/css/style.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="<%=contextPath%>/js/jquery.js"></script>
-		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="<%=contextPath %>/main/js/index.js"></script>
 		<script type="text/javascript" src="<%=contextPath%>/Search/js/search.js"></script>
 		<script type="text/javascript" src="<%=contextPath%>/main/js/jump.js"></script>
-		<link rel="stylesheet" href="css/general.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="<%=contextPath%>/main/css/general.css" type="text/css" media="screen" />
 		<script type="text/javascript">
 		window.onload = function(){
 		f_query();
@@ -50,7 +50,7 @@
 		<div class="box">
 
 			<!-- head -->
-			<%@ include file="../CommonPage/Head.jsp"%>
+			<%@ include file="/CommonPage/Head.jsp"%>
 
 			<div class="nav">
 				<div class="navL">
@@ -496,7 +496,7 @@
 			<div class="clear"></div>
 			<div class="blank12"></div>
 			<!-- foot -->
-			<%@ include file="../CommonPage/Foot.jsp"%>
+			<%@ include file="/CommonPage/Foot.jsp"%>
 		</div>
 	</body>
 </html>
