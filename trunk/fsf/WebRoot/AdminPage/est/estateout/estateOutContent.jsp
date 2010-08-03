@@ -307,7 +307,7 @@
   	</td>
   	<td class="content_td" >
   		<s:textfield name="salePrice" id="salePrice" cssClass="memberC_input08" >
-  			<s:param value="salePrice/10000" name="salePrice" />
+  			<s:param value="salePrice/10000" name="value" />
   		</s:textfield>万元
 		</td>
   </tr>

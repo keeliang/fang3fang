@@ -1,7 +1,9 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<!-- 
 <script src="http://ditu.google.cn/maps?file=api&amp;v=2.x&amp;key=ABQIAAAAocJHGW0ap4UNnVRlkcIXaBRI72q-S1Jctj7uK0x7k3XXlqwPOxSorscFfkcw5l3KNKS5zp7r9eGzpw" type="text/javascript"></script>
-
+ -->
 <script type="text/javascript">
+/*
 function initialize() {
   if (GBrowserIsCompatible()) {
     var map = new GMap2(document.getElementById("map_canvas"));
@@ -16,6 +18,7 @@ function initialize() {
     });
   }
 }
+*/
 var query1 = false;
 var query2 = false;
 function f_queryNear(o,n){
@@ -51,9 +54,11 @@ function f_queryNear(o,n){
 
 	<!-- map -->
 	<div class="clear"></div>
+	<!-- 
 	<div class="freeTrade_map">
 		<div id="map_canvas" style="width: 278px; height: 199px"></div>
 	</div>
+	 -->
 
 	<!-- compare -->
 	<div class="freeTrade_compare">
