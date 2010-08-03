@@ -67,8 +67,14 @@
 										<br/>
 										<s:iterator value="salesRecommond" >
 											<p class="top">
-												<span class="tuo"><img src="<%=contextPath %>${imagePath }" width="75px" height="60px" style="float: left" ;/></span>
-												<span class="title">${estateName }</span>
+												<span class="tuo">
+													<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" >
+														<img src="<%=contextPath %>${imagePath }" width="75px" height="60px" style="float: left;" />
+													</a>
+												</span>
+												<span class="title">
+													<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" >${estateName }</a>
+												</span>
 												<span style="padding-left: 19px;">${bedroom }室${hall }厅 ${area }㎡ <b>${salePrice/10000 }万元</b></span>
 												<br/>
 												<span class="Sinfo">${remark }</span>
@@ -88,8 +94,14 @@
 										<br/>
 										<s:iterator value="rentRecommond" >
 											<p class="top">
-												<span class="tuo"><img src="<%=contextPath %>${imagePath }" width="75px" height="60px" style="float: left" ;/></span>
-												<span class="title">${estateName }</span>
+												<span class="tuo">
+													<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" >
+														<img src="<%=contextPath %>${imagePath }" width="75px" height="60px" style="float: left;"/>
+													</a>
+												</span>
+												<span class="title">
+													<a href="<%=contextPath %>/entrustTrade/outContent.action?estateId=${estateId }" >${estateName }</a>
+												</span>
 												<span style="padding-left: 19px;">${bedroom }室${hall }厅 ${area }㎡ <b>${rentPrice }元/月</b></span>
 												<br />
 												<span class="Sinfo">${remark }</span>
